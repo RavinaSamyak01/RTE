@@ -1,0 +1,19 @@
+2022-05-06 14:25:38,672 - RTEJobSearch -INFO - initialization of the properties file is done
+2022-05-06 14:25:38,950 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Using chromedriver 100.0.4896.60 (since Google Chrome 100 is installed in your machine)
+2022-05-06 14:25:38,965 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Exporting webdriver.chrome.driver as C:\Users\rprajapati\.m2\repository\webdriver\chromedriver\win32\100.0.4896.60\chromedriver.exe
+2022-05-06 14:25:49,324 - RTEJobSearch -INFO - Entered UserName
+2022-05-06 14:25:50,468 - RTEJobSearch -INFO - Entered Password
+2022-05-06 14:25:51,608 - RTEJobSearch -INFO - Login done
+2022-05-06 14:26:12,008 - RTEJobSearch -INFO - ======================RTE get RWTrackingNo Test start==================
+2022-05-06 14:26:12,812 - RTEJobSearch -INFO - Clicked on Tools
+2022-05-06 14:26:12,979 - RTEJobSearch -INFO - Clicked on RouteList
+2022-05-06 14:26:16,651 - RTEJobSearch -INFO - Entered RoutWorkID
+2022-05-06 14:26:16,735 - RTEJobSearch -INFO - Click on Search button
+2022-05-06 14:27:08,321 - RTEJobSearch -INFO - Data is exist with search parameter
+2022-05-06 14:27:08,365 - RTEJobSearch -INFO - RWTrackingNo is generated
+2022-05-06 14:27:08,392 - RTEJobSearch -INFO - RWTrackingNo is ==125904485
+2022-05-06 14:27:08,437 - RTEJobSearch -INFO - Inserted RWTrackingNo in Excel
+2022-05-06 14:27:08,437 - RTEJobSearch -INFO - ======================RTE get RWTrackingNo Test End==================
+2022-05-06 14:27:14,095 - RTEJobSearch -INFO - Logout Message is displayed==You have successfully logged out!
+2022-05-06 14:27:14,095 - RTEJobSearch -INFO - Logout done
+2022-05-06 14:27:14,457 - RTEJobSearch -INFO - ====Sending Email=====

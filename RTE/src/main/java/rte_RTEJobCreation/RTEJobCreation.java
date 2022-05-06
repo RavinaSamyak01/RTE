@@ -1,21 +1,27 @@
 package rte_RTEJobCreation;
 
+import java.io.IOException;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
 
 import rte_BasePackage.BaseInit;
 
 public class RTEJobCreation extends BaseInit {
 
-	public void rteJobCreation() {
+	@Test
+	public void rteJobCreation()
+			throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException {
 
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		Actions act = new Actions(driver);
-		JavascriptExecutor js = (JavascriptExecutor) driver;
+		// JavascriptExecutor js = (JavascriptExecutor) driver;
 
 		// --------
 		logs.info("======================RTE Job Creation Test start==================");
@@ -23,7 +29,7 @@ public class RTEJobCreation extends BaseInit {
 
 		// --Go to Tools tab
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("a_tools")));
-		WebElement Tools = driver.findElement(By.id("a_tools"));
+		WebElement Tools = isElementPresent("Tools_id");
 		act.moveToElement(Tools).click().perform();
 		logs.info("Clicked on Tools");
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
@@ -33,9 +39,55 @@ public class RTEJobCreation extends BaseInit {
 
 		// --Click on Import Route
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("a_ImportRoute")));
-		driver.findElement(By.id("a_ImportRoute")).click();
+		isElementPresent("ImportRoute_id").click();
 		logs.info("Clicked on Import Route");
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+		getScreenshot(driver, "ImportRoute");
+		// --Upload RTE job File
+		ExpectedConditions.visibilityOfElementLocated(By.id("btnBrowse"));
+		isElementPresent("IRBrowse_id").click();
+		logs.info("Clicked on Browse button");
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@ng-form=\"uploadfileForm\"]")));
+
+		String Fpath = "C:\\Users\\rprajapati\\git\\RTE\\RTE\\src\\main\\resources\\RTE Job Creation.xls";
+		WebElement InFile = isElementPresent("IRSelectFile_id");
+		InFile.sendKeys(Fpath);
+		logs.info("Send file to input file");
+		Thread.sleep(2000);
+		getScreenshot(driver, "ImRSelectFile");
+
+		// --Click on Upload btn
+		isElementPresent("IRUpload_id").click();
+		logs.info("Click on Upload button");
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+		// --CLick on Continue button
+		isElementPresent("IRContinue_id").click();
+		logs.info("Click on Continue button");
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("success")));
+		String SucMsg = isElementPresent("SuccessMsg_id").getText();
+		logs.info("File is Uploaded==" + SucMsg);
+
+		// --Get the RouteWorkID
+		String inLine = SucMsg;
+		String[] lineSplits = inLine.split("\\.");
+		String[] lineDetails = lineSplits[1].split(" ");
+		for (String Detail : lineDetails) {
+			if (Detail.contains("RT")) {
+				Detail.split(".");
+				System.out.println("RoutWorkID is==" + Detail);
+				logs.info("RoutWorkID is==" + Detail);
+				setData("RTECreation", 1, 1, Detail);
+				logs.info("Stored RoutWorkID in excel");
+
+			}
+		}
+		logs.info("======================RTE Job Creation Test End==================");
+		msg.append("======================RTE Job Creation Test End==================");
 
 	}
 

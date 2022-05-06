@@ -48,6 +48,8 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class BaseInit {
 
 	public static ResourceBundle rb = ResourceBundle.getBundle("config");
@@ -73,6 +75,7 @@ public class BaseInit {
 
 			// --Opening Chrome Browser
 			DesiredCapabilities capabilities = new DesiredCapabilities();
+			WebDriverManager.chromedriver().setup();
 			ChromeOptions options = new ChromeOptions();
 
 			// options.addArguments("headless");
@@ -110,6 +113,7 @@ public class BaseInit {
 			login();
 
 		}
+
 	}
 
 	@BeforeMethod
@@ -249,20 +253,21 @@ public class BaseInit {
 	}
 
 	public void login() throws InterruptedException {
-		driver.get(storage.getProperty("url"));
+		driver.get(storage.getProperty("URL"));
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("login")));
 		highLight(isElementPresent("UserName_id"), driver);
 		isElementPresent("UserName_id").sendKeys(storage.getProperty("UserName"));
 		logs.info("Entered UserName");
-		highLight(isElementPresent("Pwd_id"), driver);
-		isElementPresent("Pwd_id").sendKeys(storage.getProperty("Password"));
+		highLight(isElementPresent("Password_id"), driver);
+		isElementPresent("Password_id").sendKeys(storage.getProperty("Password"));
 		logs.info("Entered Password");
-		highLight(isElementPresent("LoginBtn_id"), driver);
-		isElementPresent("LoginBtn_id").click();
+		highLight(isElementPresent("Login_id"), driver);
+		isElementPresent("Login_id").click();
 		logs.info("Login done");
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'Logging In...')]")));
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("welcomecontent")));
 
 		// --Welcome Content
 
@@ -280,6 +285,9 @@ public class BaseInit {
 		js.executeScript("arguments[0].click();", LogOut);
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("login")));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@ng-bind=\"LogoutMessage\"]")));
+		String LogOutMsg = isElementPresent("LogOutMsg_xpath").getText();
+		logs.info("Logout Message is displayed==" + LogOutMsg);
 		logs.info("Logout done");
 
 	}
@@ -444,7 +452,7 @@ public class BaseInit {
 		msg.append("Process URL : " + baseUrl + "\n");
 		msg.append("Please find attached file of Report and Log");
 
-		String subject = "Selenium Automation Script: Staging NetAgent Portal";
+		String subject = "Selenium Automation Script: RTE Smoke";
 		String File = ".\\Report\\ExtentReport\\ExtentReportResults.html,.\\Report\\log\\NetAgentLog.html";
 
 		try {
