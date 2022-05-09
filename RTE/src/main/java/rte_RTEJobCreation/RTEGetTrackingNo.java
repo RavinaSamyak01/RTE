@@ -75,6 +75,7 @@ public class RTEGetTrackingNo extends BaseInit {
 				RWTrackingNo = isElementPresent("RLRWTrackingNo_xpath").getText();
 				logs.info("RWTrackingNo is ==" + RWTrackingNo);
 				setData("RTECreation", 1, 2, RWTrackingNo);
+				setData("Search RTE", 1, 0, RWTrackingNo);
 				logs.info("Inserted RWTrackingNo in Excel");
 
 			}

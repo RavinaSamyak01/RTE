@@ -453,7 +453,7 @@ public class BaseInit {
 		msg.append("Please find attached file of Report and Log");
 
 		String subject = "Selenium Automation Script: RTE Smoke";
-		String File = ".\\Report\\ExtentReport\\ExtentReportResults.html,.\\Report\\log\\NetAgentLog.html";
+		String File = ".\\Report\\ExtentReport\\ExtentReportResults.html,.\\Report\\log\\RTESmoke.html";
 
 		try {
 //			/kunjan.modi@samyak.com, pgandhi@samyak.com,parth.doshi@samyak.com

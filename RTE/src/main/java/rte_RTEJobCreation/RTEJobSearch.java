@@ -10,11 +10,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
 
 import rte_BasePackage.BaseInit;
 
 public class RTEJobSearch extends BaseInit {
 
+	@Test
 	public void rteJobSearch() throws IOException, EncryptedDocumentException, InvalidFormatException {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		Actions act = new Actions(driver);
@@ -54,7 +56,6 @@ public class RTEJobSearch extends BaseInit {
 		// --RouteTrackingNo
 		wait.until(ExpectedConditions.elementToBeClickable(By.id("txtRouteTrackingNum")));
 		String RouteTrackingNo = getData("RTECreation", 1, 2);
-		setData("Search RTE", 0, 1, RouteTrackingNo);
 		isElementPresent("TLSARoutTrackNo_id").sendKeys(RouteTrackingNo);
 		logs.info("Entered RouteTrackingID");
 
@@ -86,14 +87,18 @@ public class RTEJobSearch extends BaseInit {
 				String PickUpID = "lblPickupIdValue_" + RTE;
 				String BOLNO = "lblBOLNumValue_" + RTE;
 
-				logs.info("JobID is==" + JobID);
-				setData("Search RTE", 1, 1, JobID);
+				String JobIDValue = driver.findElement(By.id(JobID)).getText();
+				String PickUpIDValue = driver.findElement(By.id(PickUpID)).getText();
+				String BOLNoValue = driver.findElement(By.id(BOLNO)).getText();
 
-				logs.info("PickUpID is==" + PickUpID);
-				setData("Search RTE", 1, 2, PickUpID);
+				logs.info("JobID is==" + JobIDValue);
+				setData("SearchRTE", 1, 1, JobIDValue);
 
-				logs.info("BOLNo is==" + BOLNO);
-				setData("Search RTE", 1, 3, BOLNO);
+				logs.info("PickUpID is==" + PickUpIDValue);
+				setData("SearchRTE", 1, 2, PickUpIDValue);
+
+				logs.info("BOLNo is==" + BOLNoValue);
+				setData("SearchRTE", 1, 3, BOLNoValue);
 
 				// ---Select Record
 				driver.findElement(By.id(JobID)).click();
@@ -103,7 +108,6 @@ public class RTEJobSearch extends BaseInit {
 				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
 				getScreenshot(driver, "JobEditor_RWTrackingID");
 
-			
 				// --Exit Without Save
 				isElementPresent("TLEXWSave_id").click();
 				logs.info("Clicked on Exit without Save");
@@ -111,7 +115,7 @@ public class RTEJobSearch extends BaseInit {
 
 				// --Enter pickUpID
 				wait.until(ExpectedConditions.elementToBeClickable(By.id("txtContains")));
-				PickUpID = getData("Search RTE", 1, 2);
+				PickUpID = getData("SearchRTE", 1, 2);
 				isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 				logs.info("Entered PickUpID in basic search");
 
