@@ -34,6 +34,10 @@ public class RTEJobProcessing extends BaseInit {
 		RTEGetTrackingNo TrackNo = new RTEGetTrackingNo();
 		TrackNo.getRTETrackingNo();
 
+		// --Get PickUpID
+		RTEJobSearch JobSearch = new RTEJobSearch();
+		JobSearch.rteJobSearch();
+
 		// --Go To Operations
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("a_operations")));
 		WebElement Operations = isElementPresent("OperationsTab_id");

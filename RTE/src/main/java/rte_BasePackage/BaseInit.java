@@ -388,7 +388,7 @@ public class BaseInit {
 
 		DataFormatter formatter = new DataFormatter();
 		String Cell = formatter.formatCellValue(sh1.getRow(row).getCell(col));
-
+		FIS.close();
 		return Cell;
 	}
 
@@ -405,6 +405,7 @@ public class BaseInit {
 		sh.getRow(row).createCell(col).setCellValue(value);
 		workbook.write(fos1);
 		fos1.close();
+		fis.close();
 	}
 
 	public static int getTotalRow(String sheetName)
@@ -418,8 +419,9 @@ public class BaseInit {
 		Sheet sh1 = workbook.getSheet(sheetName);
 
 		int rowNum = sh1.getLastRowNum() + 1;
+		FIS.close();
 		return rowNum;
-
+		
 	}
 
 	public static int getTotalCol(String sheetName)
@@ -434,6 +436,7 @@ public class BaseInit {
 
 		Row row = sh1.getRow(0);
 		int colNum = row.getLastCellNum();
+		FIS.close();
 		return colNum;
 
 	}

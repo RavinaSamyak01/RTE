@@ -42,112 +42,118 @@ public class RTEJobSearch extends BaseInit {
 
 		getScreenshot(driver, "TaskLog");
 
-		// --Go to Search All Job
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("hlkOrderSearch")));
-		isElementPresent("TLSearchAllJob_id").click();
-		logs.info("Clicked on SearchAllJobs");
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("AdvancesSearch")));
+		int TotalRow = getTotalRow("RTECreation");
+		logs.info("Total Rows==" + TotalRow);
 
-		// --Reset button
-		isElementPresent("RLReset_id").click();
-		logs.info("Clicked on Reset button");
+		for (int row = 1; row < TotalRow; row++) {
+			// --Go to Search All Job
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("hlkOrderSearch")));
+			isElementPresent("TLSearchAllJob_id").click();
+			logs.info("Clicked on SearchAllJobs");
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("AdvancesSearch")));
 
-		// --RouteTrackingNo
-		wait.until(ExpectedConditions.elementToBeClickable(By.id("txtRouteTrackingNum")));
-		String RouteTrackingNo = getData("RTECreation", 1, 2);
-		isElementPresent("TLSARoutTrackNo_id").sendKeys(RouteTrackingNo);
-		logs.info("Entered RouteTrackingID");
+			// --Reset button
+			isElementPresent("RLReset_id").click();
+			logs.info("Clicked on Reset button");
 
-		// --Click on Search
-		wait.until(ExpectedConditions.elementToBeClickable(By.id("btnSearch")));
-		isElementPresent("RLSearch_id").click();
-		logs.info("Click on Search button");
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+			// --RouteTrackingNo
+			wait.until(ExpectedConditions.elementToBeClickable(By.id("txtRouteTrackingNum")));
+			String RouteTrackingNo = getData("RTECreation", row, 2);
+			isElementPresent("TLSARoutTrackNo_id").sendKeys(RouteTrackingNo);
+			logs.info("Entered RouteTrackingID");
 
-		try {
-			WebElement NoData = isElementPresent("NoData_className");
-			wait.until(ExpectedConditions.visibilityOf(NoData));
-			if (NoData.isDisplayed()) {
-				logs.info("There is no Data with Search parameter");
+			// --Click on Search
+			wait.until(ExpectedConditions.elementToBeClickable(By.id("btnSearch")));
+			isElementPresent("RLSearch_id").click();
+			logs.info("Click on Search button");
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-			}
+			try {
+				WebElement NoData = isElementPresent("NoData_className");
+				wait.until(ExpectedConditions.visibilityOf(NoData));
+				if (NoData.isDisplayed()) {
+					logs.info("There is no Data with Search parameter");
 
-		} catch (Exception NoData) {
-			logs.info("Data is exist with search parameter");
+				}
 
-			// --Stored all the records of the table
-			List<WebElement> Records = driver
-					.findElements(By.xpath("//*[contains(@class,'dx-datagrid-table-content')]//tbody//tr"));
-			int RecordNo = Records.size() - 1;
-			logs.info("Total No of records are==" + RecordNo);
+			} catch (Exception NoData) {
+				logs.info("Data is exist with search parameter");
 
-			for (int RTE = 0; RTE < Records.size() - 1; RTE++) {
-				String JobID = "lblJobIdValue_" + RTE;
-				String PickUpID = "lblPickupIdValue_" + RTE;
-				String BOLNO = "lblBOLNumValue_" + RTE;
+				// --Stored all the records of the table
+				List<WebElement> Records = driver
+						.findElements(By.xpath("//*[contains(@class,'dx-datagrid-table-content')]//tbody//tr"));
+				int RecordNo = Records.size() - 1;
+				logs.info("Total No of records are==" + RecordNo);
 
-				String JobIDValue = driver.findElement(By.id(JobID)).getText();
-				String PickUpIDValue = driver.findElement(By.id(PickUpID)).getText();
-				String BOLNoValue = driver.findElement(By.id(BOLNO)).getText();
+				for (int RTE = 0; RTE < Records.size() - 1; RTE++) {
+					String JobID = "lblJobIdValue_" + RTE;
+					String PickUpID = "lblPickupIdValue_" + RTE;
+					String BOLNO = "lblBOLNumValue_" + RTE;
 
-				logs.info("JobID is==" + JobIDValue);
-				setData("SearchRTE", 1, 1, JobIDValue);
+					String JobIDValue = driver.findElement(By.id(JobID)).getText();
+					String PickUpIDValue = driver.findElement(By.id(PickUpID)).getText();
+					String BOLNoValue = driver.findElement(By.id(BOLNO)).getText();
 
-				logs.info("PickUpID is==" + PickUpIDValue);
-				setData("SearchRTE", 1, 2, PickUpIDValue);
+					logs.info("JobID is==" + JobIDValue);
+					setData("SearchRTE", row, 1, JobIDValue);
 
-				logs.info("BOLNo is==" + BOLNoValue);
-				setData("SearchRTE", 1, 3, BOLNoValue);
+					logs.info("PickUpID is==" + PickUpIDValue);
+					setData("SearchRTE", row, 2, PickUpIDValue);
 
-				// ---Select Record
-				driver.findElement(By.id(JobID)).click();
-				logs.info("Clicked on Record");
-				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+					logs.info("BOLNo is==" + BOLNoValue);
+					setData("SearchRTE", row, 3, BOLNoValue);
 
-				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
-				getScreenshot(driver, "JobEditor_RWTrackingID");
+					// ---Select Record
+					driver.findElement(By.id(JobID)).click();
+					logs.info("Clicked on Record");
+					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-				// --Exit Without Save
-				isElementPresent("TLEXWSave_id").click();
-				logs.info("Clicked on Exit without Save");
-				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
-				// --Enter pickUpID
-				wait.until(ExpectedConditions.elementToBeClickable(By.id("txtContains")));
-				PickUpID = getData("SearchRTE", 1, 2);
-				isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
-				logs.info("Entered PickUpID in basic search");
-
-				// --Click on Search
-				wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-				isElementPresent("TLGlobSearch_id").click();
-				logs.info("Click on Search button");
-				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
-				try {
-					WebElement NoData1 = isElementPresent("NoData_className");
-					wait.until(ExpectedConditions.visibilityOf(NoData1));
-					if (NoData1.isDisplayed()) {
-						logs.info("There is no Data with Search parameter");
-
-					}
-
-				} catch (Exception NoDataEx) {
-					logs.info("Data is exist with search parameter");
 					wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
-					getScreenshot(driver, "JobEditor_PickUP");
+					getScreenshot(driver, "JobEditor_RWTrackingID");
 
 					// --Exit Without Save
 					isElementPresent("TLEXWSave_id").click();
 					logs.info("Clicked on Exit without Save");
 					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
+					// --Enter pickUpID
+					wait.until(ExpectedConditions.elementToBeClickable(By.id("txtContains")));
+					PickUpID = getData("SearchRTE", row, 2);
+					isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
+					logs.info("Entered PickUpID in basic search");
+
+					// --Click on Search
+					wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
+					isElementPresent("TLGlobSearch_id").click();
+					logs.info("Click on Search button");
+					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+					try {
+						WebElement NoData1 = isElementPresent("NoData_className");
+						wait.until(ExpectedConditions.visibilityOf(NoData1));
+						if (NoData1.isDisplayed()) {
+							logs.info("There is no Data with Search parameter");
+
+						}
+
+					} catch (Exception NoDataEx) {
+						logs.info("Data is exist with search parameter");
+						wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
+						getScreenshot(driver, "JobEditor_PickUP");
+
+						// --Exit Without Save
+						isElementPresent("TLEXWSave_id").click();
+						logs.info("Clicked on Exit without Save");
+						wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+					}
+
 				}
 
 			}
-
 		}
+
 		logs.info("======================RTE Job Search Test End==================");
 		msg.append("======================RTE Job Search Test End==================");
 

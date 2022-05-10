@@ -1,64 +1,44 @@
-2022-05-09 18:01:03,690 - RTEJobProcessing -INFO - initialization of the properties file is done
-2022-05-09 18:01:03,963 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Using chromedriver 101.0.4951.41 (since Google Chrome 101 is installed in your machine)
-2022-05-09 18:01:03,980 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Exporting webdriver.chrome.driver as C:\Users\rprajapati\.m2\repository\webdriver\chromedriver\win32\101.0.4951.41\chromedriver.exe
-2022-05-09 18:01:10,659 - RTEJobProcessing -INFO - Entered UserName
-2022-05-09 18:01:11,777 - RTEJobProcessing -INFO - Entered Password
-2022-05-09 18:01:12,899 - RTEJobProcessing -INFO - Login done
-2022-05-09 18:01:31,272 - RTEJobProcessing -INFO - ======================RTE Order Processing Test Start==================
-2022-05-09 18:01:32,067 - RTEJobProcessing -INFO - Clicked on Operations
-2022-05-09 18:01:32,237 - RTEJobProcessing -INFO - Clicked on TaskLog
-2022-05-09 18:01:35,502 - RTEJobProcessing -INFO - Entered PickUpID in basic search
-2022-05-09 18:01:35,623 - RTEJobProcessing -INFO - Click on Search button
-2022-05-09 18:01:39,100 - RTEJobProcessing -INFO - Data is exist with search parameter
-2022-05-09 18:01:39,347 - RTEJobProcessing -INFO - Job status tab is already Opened
-2022-05-09 18:01:39,405 - RTEJobProcessing -INFO - Job status is==TC ACK
-2022-05-09 18:01:39,406 - RTEJobProcessing -INFO - It is TC ACK stage
-2022-05-09 18:01:39,616 - RTEJobProcessing -INFO - Clicked on Acknowledge button
-2022-05-09 18:01:51,800 - RTEJobProcessing -INFO - Job status is==RDY FOR DSP
-2022-05-09 18:01:51,907 - RTEJobProcessing -INFO - Clicked on Send PU Alert button
-2022-05-09 18:01:51,991 - RTEJobProcessing -INFO - Validation is displayed==Spoke With Required.
-2022-05-09 18:01:52,113 - RTEJobProcessing -INFO - Entered Spoke With
-2022-05-09 18:01:52,185 - RTEJobProcessing -INFO - Clicked on Send PU Alert button
-2022-05-09 18:01:54,677 - RTEJobProcessing -INFO - Entered PickUpID in basic search
-2022-05-09 18:01:54,798 - RTEJobProcessing -INFO - Click on Search button
-2022-05-09 18:01:58,389 - RTEJobProcessing -INFO - Data is exist with search parameter
-2022-05-09 18:01:58,622 - RTEJobProcessing -INFO - Clicked on Job Status Tab
-2022-05-09 18:01:58,706 - RTEJobProcessing -INFO - Job status is==PU DRV CONF
-2022-05-09 18:01:58,760 - RTEJobProcessing -INFO - Clicked on Confirm PU Alert
-2022-05-09 18:03:00,334 - RTEJobProcessing -INFO - Spoke With validation is not displayed
-2022-05-09 18:03:00,496 - RTEJobProcessing -INFO - Job status is==PICKUP@STOP 1 OF 2
-2022-05-09 18:03:00,592 - RTEJobProcessing -INFO - Clicked on Confirm PU button
-2022-05-09 18:03:00,686 - RTEJobProcessing -INFO - Validation is displayed==Act. Pickup Time is Required.
-2022-05-09 18:03:00,714 - RTEJobProcessing -INFO - ZoneID of is==EDT
-2022-05-09 18:03:00,790 - RTEJobProcessing -INFO - 05/09/2022
-2022-05-09 18:03:00,898 - RTEJobProcessing -INFO - Entered Actual Pickup Date
-2022-05-09 18:03:00,944 - RTEJobProcessing -INFO - 08:33
-2022-05-09 18:03:01,028 - RTEJobProcessing -INFO - Entered Actual Pickup Time
-2022-05-09 18:03:01,079 - RTEJobProcessing -INFO - Clicked on Confirm PU button
-2022-05-09 18:03:13,225 - RTEJobProcessing -INFO - Job status is==DELIVER@STOP 2 OF 2
-2022-05-09 18:03:13,338 - RTEJobProcessing -INFO - Clicked on Confirm DEL button
-2022-05-09 18:03:13,420 - RTEJobProcessing -INFO - Validation is displayed==Act. Delivery Time is Required.
-Signature is required.
-2022-05-09 18:03:13,443 - RTEJobProcessing -INFO - ZoneID of is==EDT
-2022-05-09 18:03:13,517 - RTEJobProcessing -INFO - 05/09/2022
-2022-05-09 18:03:13,631 - RTEJobProcessing -INFO - Entered Actual Delivery Date
-2022-05-09 18:03:13,683 - RTEJobProcessing -INFO - 08:33
-2022-05-09 18:03:13,772 - RTEJobProcessing -INFO - Entered Actual Delivery Time
-2022-05-09 18:03:13,890 - RTEJobProcessing -INFO - Entered Signature
-2022-05-09 18:03:13,960 - RTEJobProcessing -INFO - Clicked on Confirm DEL button
-2022-05-09 18:03:14,623 - RTEJobProcessing -INFO - Validation is displayed==Actual Delivery Datetime cannot be less than or equal to Actual Pickup Datetime.
-2022-05-09 18:03:14,644 - RTEJobProcessing -INFO - ZoneID of is==EDT
-2022-05-09 18:03:14,694 - RTEJobProcessing -INFO - 05/09/2022
-2022-05-09 18:03:14,805 - RTEJobProcessing -INFO - Entered Actual Delivery Date
-2022-05-09 18:03:14,836 - RTEJobProcessing -INFO - 08:34
-2022-05-09 18:03:14,925 - RTEJobProcessing -INFO - Entered Actual Delivery Time
-2022-05-09 18:03:14,971 - RTEJobProcessing -INFO - Clicked on Confirm DEL button
-2022-05-09 18:03:17,439 - RTEJobProcessing -INFO - Entered PickUpID in basic search
-2022-05-09 18:03:17,539 - RTEJobProcessing -INFO - Click on Search button
-2022-05-09 18:03:23,287 - RTEJobProcessing -INFO - Data is exist with search parameter
-2022-05-09 18:03:23,468 - RTEJobProcessing -INFO - Job status is==DELIVERED@STOP 2 OF 2
-2022-05-09 18:03:23,468 - RTEJobProcessing -INFO - Job is Delivered successfully
-2022-05-09 18:03:23,469 - RTEJobProcessing -INFO - ======================RTE Order Processing Test End==================
-2022-05-09 18:03:28,087 - RTEJobProcessing -INFO - Logout Message is displayed==You have successfully logged out!
-2022-05-09 18:03:28,088 - RTEJobProcessing -INFO - Logout done
-2022-05-09 18:03:28,593 - RTEJobProcessing -INFO - ====Sending Email=====
+2022-05-10 11:15:34,154 - RTEJobSearch -INFO - initialization of the properties file is done
+2022-05-10 11:15:34,438 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Using chromedriver 101.0.4951.41 (since Google Chrome 101 is installed in your machine)
+2022-05-10 11:15:34,458 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Exporting webdriver.chrome.driver as C:\Users\rprajapati\.m2\repository\webdriver\chromedriver\win32\101.0.4951.41\chromedriver.exe
+2022-05-10 11:15:40,759 - RTEJobSearch -INFO - Entered UserName
+2022-05-10 11:15:41,879 - RTEJobSearch -INFO - Entered Password
+2022-05-10 11:15:43,009 - RTEJobSearch -INFO - Login done
+2022-05-10 11:15:58,959 - RTEJobSearch -INFO - ======================RTE Job Search Test start==================
+2022-05-10 11:15:59,792 - RTEJobSearch -INFO - Clicked on Operations
+2022-05-10 11:15:59,981 - RTEJobSearch -INFO - Clicked on TaskLog
+2022-05-10 11:16:03,309 - RTEJobSearch -INFO - Total Rows==3
+2022-05-10 11:16:03,398 - RTEJobSearch -INFO - Clicked on SearchAllJobs
+2022-05-10 11:16:05,279 - RTEJobSearch -INFO - Clicked on Reset button
+2022-05-10 11:16:05,493 - RTEJobSearch -INFO - Entered RouteTrackingID
+2022-05-10 11:16:05,584 - RTEJobSearch -INFO - Click on Search button
+2022-05-10 11:16:56,253 - RTEJobSearch -INFO - Data is exist with search parameter
+2022-05-10 11:16:56,285 - RTEJobSearch -INFO - Total No of records are==1
+2022-05-10 11:16:56,373 - RTEJobSearch -INFO - JobID is==32391789
+2022-05-10 11:16:56,631 - RTEJobSearch -INFO - PickUpID is==3397027
+2022-05-10 11:16:56,704 - RTEJobSearch -INFO - BOLNo is==125960313
+2022-05-10 11:16:56,871 - RTEJobSearch -INFO - Clicked on Record
+2022-05-10 11:17:00,085 - RTEJobSearch -INFO - Clicked on Exit without Save
+2022-05-10 11:17:01,414 - RTEJobSearch -INFO - Entered PickUpID in basic search
+2022-05-10 11:17:01,519 - RTEJobSearch -INFO - Click on Search button
+2022-05-10 11:17:05,122 - RTEJobSearch -INFO - Data is exist with search parameter
+2022-05-10 11:17:05,360 - RTEJobSearch -INFO - Clicked on Exit without Save
+2022-05-10 11:17:07,284 - RTEJobSearch -INFO - Clicked on SearchAllJobs
+2022-05-10 11:17:09,749 - RTEJobSearch -INFO - Clicked on Reset button
+2022-05-10 11:17:09,937 - RTEJobSearch -INFO - Entered RouteTrackingID
+2022-05-10 11:17:10,016 - RTEJobSearch -INFO - Click on Search button
+2022-05-10 11:18:01,697 - RTEJobSearch -INFO - Data is exist with search parameter
+2022-05-10 11:18:01,725 - RTEJobSearch -INFO - Total No of records are==1
+2022-05-10 11:18:01,795 - RTEJobSearch -INFO - JobID is==32391790
+2022-05-10 11:18:01,849 - RTEJobSearch -INFO - PickUpID is==3397028
+2022-05-10 11:18:01,907 - RTEJobSearch -INFO - BOLNo is==125960335
+2022-05-10 11:18:02,149 - RTEJobSearch -INFO - Clicked on Record
+2022-05-10 11:18:05,322 - RTEJobSearch -INFO - Clicked on Exit without Save
+2022-05-10 11:18:06,607 - RTEJobSearch -INFO - Entered PickUpID in basic search
+2022-05-10 11:18:06,715 - RTEJobSearch -INFO - Click on Search button
+2022-05-10 11:18:09,648 - RTEJobSearch -INFO - Data is exist with search parameter
+2022-05-10 11:18:09,897 - RTEJobSearch -INFO - Clicked on Exit without Save
+2022-05-10 11:18:11,614 - RTEJobSearch -INFO - ======================RTE Job Search Test End==================
+2022-05-10 11:18:14,496 - RTEJobSearch -INFO - Logout Message is displayed==You have successfully logged out!
+2022-05-10 11:18:14,497 - RTEJobSearch -INFO - Logout done
+2022-05-10 11:18:15,100 - RTEJobSearch -INFO - ====Sending Email=====

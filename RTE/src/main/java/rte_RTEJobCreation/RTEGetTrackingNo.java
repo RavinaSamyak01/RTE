@@ -43,43 +43,50 @@ public class RTEGetTrackingNo extends BaseInit {
 
 		getScreenshot(driver, "RouteList");
 
-		// --Enter RoutWorkID
-		wait.until(ExpectedConditions.elementToBeClickable(By.id("txtRouteWorkId")));
-		String RoutWID = getData("RTECreation", 1, 1);
-		isElementPresent("RLRWIDInput_id").sendKeys(RoutWID);
-		logs.info("Entered RoutWorkID");
+		int TotalRow = getTotalRow("RTECreation");
+		logs.info("Total Rows==" + TotalRow);
 
-		// --Click on Search
-		wait.until(ExpectedConditions.elementToBeClickable(By.id("btnSearch")));
-		isElementPresent("RLSearch_id").click();
-		logs.info("Click on Search button");
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+		for (int row = 1; row < TotalRow; row++) {
 
-		try {
-			WebElement NoData = isElementPresent("NoData_className");
-			wait.until(ExpectedConditions.visibilityOf(NoData));
-			if (NoData.isDisplayed()) {
-				logs.info("There is no Data with Search parameter");
+			// --Enter RoutWorkID
+			wait.until(ExpectedConditions.elementToBeClickable(By.id("txtRouteWorkId")));
+			String RoutWID = getData("RTECreation", row, 1);
+			isElementPresent("RLRWIDInput_id").clear();
+			isElementPresent("RLRWIDInput_id").sendKeys(RoutWID);
+			logs.info("Entered RoutWorkID");
+
+			// --Click on Search
+			wait.until(ExpectedConditions.elementToBeClickable(By.id("btnSearch")));
+			isElementPresent("RLSearch_id").click();
+			logs.info("Click on Search button");
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+			try {
+				WebElement NoData = isElementPresent("NoData_className");
+				wait.until(ExpectedConditions.visibilityOf(NoData));
+				if (NoData.isDisplayed()) {
+					logs.info("There is no Data with Search parameter");
+
+				}
+
+			} catch (Exception NoData) {
+				logs.info("Data is exist with search parameter");
+				String RWTrackingNo = isElementPresent("RLRWTrackingNo_xpath").getText();
+
+				if (RWTrackingNo.isEmpty()) {
+					logs.info("RWTrackingNo is still not generated");
+
+				} else {
+					logs.info("RWTrackingNo is generated");
+					RWTrackingNo = isElementPresent("RLRWTrackingNo_xpath").getText();
+					logs.info("RWTrackingNo is ==" + RWTrackingNo);
+					setData("RTECreation", row, 2, RWTrackingNo);
+					setData("SearchRTE", row, 0, RWTrackingNo);
+					logs.info("Inserted RWTrackingNo in Excel");
+
+				}
 
 			}
-
-		} catch (Exception NoData) {
-			logs.info("Data is exist with search parameter");
-			String RWTrackingNo = isElementPresent("RLRWTrackingNo_xpath").getText();
-
-			if (RWTrackingNo.isEmpty()) {
-				logs.info("RWTrackingNo is still not generated");
-
-			} else {
-				logs.info("RWTrackingNo is generated");
-				RWTrackingNo = isElementPresent("RLRWTrackingNo_xpath").getText();
-				logs.info("RWTrackingNo is ==" + RWTrackingNo);
-				setData("RTECreation", 1, 2, RWTrackingNo);
-				setData("Search RTE", 1, 0, RWTrackingNo);
-				logs.info("Inserted RWTrackingNo in Excel");
-
-			}
-
 		}
 
 		logs.info("======================RTE get RWTrackingNo Test End==================");
