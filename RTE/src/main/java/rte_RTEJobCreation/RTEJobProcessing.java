@@ -30,13 +30,6 @@ public class RTEJobProcessing extends BaseInit {
 		logs.info("======================RTE Order Processing Test Start==================");
 		msg.append("======================RTE Order Processing Test Start==================" + "\n");
 
-		// --Get Tracking No
-		RTEGetTrackingNo TrackNo = new RTEGetTrackingNo();
-		TrackNo.getRTETrackingNo();
-
-		// --Get PickUpID
-		RTEJobSearch JobSearch = new RTEJobSearch();
-		JobSearch.rteJobSearch();
 
 		// --Go To Operations
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("a_operations")));
@@ -1469,7 +1462,7 @@ public class RTEJobProcessing extends BaseInit {
 		}
 
 		logs.info("======================RTE Order Processing Test End==================");
-		msg.append("======================RTE Order Processing Test End==================");
+		msg.append("======================RTE Order Processing Test End==================" + "\n");
 
 	}
 

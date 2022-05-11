@@ -5,8 +5,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -18,7 +18,7 @@ import rte_BasePackage.BaseInit;
 
 public class ShipmentDetails extends BaseInit {
 
-	public void rteShipmentDetails() {
+	public void rteShipmentDetails() throws InterruptedException, IOException {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		Actions act = new Actions(driver);
 
@@ -26,59 +26,77 @@ public class ShipmentDetails extends BaseInit {
 		msg.append("======================RTE Shipment Details Test Start==================" + "\n");
 
 		// --Click on Shipment No.
-		try {
-			WebElement Shipment = isElementPresent("TLEdShip_id");
-			act.moveToElement(Shipment).build().perform();
+		// try {
+		WebElement Shipment = isElementPresent("TLEdShip_id");
+		act.moveToElement(Shipment).build().perform();
+		Thread.sleep(2000);
+		if (Shipment.isDisplayed()) {
+			logs.info("Shipment is exist in the RTE Job");
+
+			rteUnMerge();
+
+			act.moveToElement(Shipment).click().perform();
+			logs.info("Clicked on ShipmentNO==" + Shipment.getText());
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+			wait.until(ExpectedConditions
+					.visibilityOfAllElementsLocatedBy(By.xpath("//*[@ng-form=\"RouteShipmentform\"]")));
+			getScreenshot(driver, "ShipmentDetails");
+
+			// --Add/view Memo
+			addViewMemo();
+
+			// --Upload
+			upload();
+
+			// --Notification
+			viewNotification();
+
+			// --Notify
+			rteNotify();
+
+			// --Enter PickUp Instruction
+			WebElement PUInst = isElementPresent("TLESPicIns_id");
+			act.moveToElement(PUInst).click().perform();
 			Thread.sleep(2000);
-			if (Shipment.isDisplayed()) {
-				logs.info("Shipment is exist in the RTE Job");
-				act.moveToElement(Shipment).click().perform();
-				logs.info("Clicked on ShipmentNO==" + Shipment.getText());
-				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+			PUInst.clear();
+			PUInst.sendKeys("PickUp instruction for Automation Testing");
+			logs.info("Entered Pickup Instruction");
 
-				wait.until(ExpectedConditions
-						.visibilityOfAllElementsLocatedBy(By.xpath("//*[@ng-form=\"RouteShipmentform\"]")));
-				getScreenshot(driver, "ShipmentDetails");
+			// --Enter Deliver Instruction
+			WebElement DelInst = isElementPresent("TLESDelIns_id");
+			act.moveToElement(DelInst).click().perform();
+			Thread.sleep(2000);
+			DelInst.clear();
+			DelInst.sendKeys("Delivery instruction for Automation Testing");
+			logs.info("Entered Delivery Instruction");
 
-				// --Add/view Memo
-				addViewMemo();
+			// --Save button
+			isElementPresent("TLESSave_id").click();
+			logs.info("Clicked on Save button");
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-				// --Upload
-				upload();
+			// --Click on Memo
+			addViewMemo();
 
-				// --Notification
-				viewNotification();
+			// --Click on Upload
+			upload();
 
-				// --Notify
-				rteNotify();
+			// --Click on QC
+			rteQC();
 
-				// --Enter PickUp Instruction
-				WebElement PUInst = isElementPresent("TLESPicIns_id");
-				act.moveToElement(PUInst).click().perform();
-				Thread.sleep(2000);
-				PUInst.clear();
-				PUInst.sendKeys("PickUp instruction for Automation Testing");
-				logs.info("Entered Pickup Instruction");
-
-				// --Enter Deliver Instruction
-				WebElement DelInst = isElementPresent("TLESDelIns_id");
-				act.moveToElement(DelInst).click().perform();
-				Thread.sleep(2000);
-				DelInst.clear();
-				DelInst.sendKeys("Delivery instruction for Automation Testing");
-				logs.info("Entered Delivery Instruction");
-
-				// --Save button
-				isElementPresent("TLESSave_id").click();
-				logs.info("Clicked on Save button");
-				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
-			}
-
-		} catch (Exception Shipment) {
-			logs.info("Shipment is not exist in the RTE Job");
+			// --Click on UnMerge
+			rteUnMerge();
 
 		}
+
+		/*
+		 * } catch (
+		 * 
+		 * Exception Shipment) { logs.info("Shipment is not exist in the RTE Job");
+		 * 
+		 * }
+		 */
 
 		logs.info("======================RTE Shipment Details Test End==================");
 		msg.append("======================RTE Shipment Details Test End==================" + "\n");
@@ -87,17 +105,29 @@ public class ShipmentDetails extends BaseInit {
 
 	public void addViewMemo() throws IOException, InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 		// Actions act = new Actions(driver);
 		logs.info("=========RTE Add/View Memo Test Start============");
 		msg.append("=========RTE Add/View Memo Test Start===========" + "\n");
 
-		// --Click on Add/View memo
-		isElementPresent("TLESViewAddMemo_id").click();
-		logs.info("Clicked on Add/View Memo");
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+		try {
+			// --Click on Add/View memo
+			isElementPresent("TLESViewAddMemo_id").click();
+			logs.info("Clicked on Add/View Memo");
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("MemoPopup")));
-		getScreenshot(driver, "AddViewMemo");
+			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("MemoPopup")));
+			getScreenshot(driver, "AddViewMemo");
+		} catch (Exception Memo) {
+			// --Click on Add/View memo
+			isElementPresent("TLSMemo_xpath").click();
+			logs.info("Clicked on Memo");
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("MemoPopup")));
+			getScreenshot(driver, "Memo");
+
+		}
 
 		// --Click on All Links
 		List<WebElement> MemoLinks = driver
@@ -142,7 +172,8 @@ public class ShipmentDetails extends BaseInit {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 		// -CHeck the checkbox of visible to Customer
-		isElementPresent("TLESMvCust_id").click();
+		WebElement CustView = isElementPresent("TLESMvCust_id");
+		js.executeScript("arguments[0].click();", CustView);
 		logs.info("Checked the checkbox of Make Visible to Customer");
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
@@ -158,18 +189,31 @@ public class ShipmentDetails extends BaseInit {
 
 	public void upload() throws IOException, InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 		// Actions act = new Actions(driver);
 		logs.info("=========RTE Upload Test Start============");
 		msg.append("=========RTE Upload Test Start===========" + "\n");
 
-		// --Click on Upload link
-		isElementPresent("TLESUpload_id").click();
-		logs.info("Clicked on Upload linktext");
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+		try {
+			// --Click on Upload link
+			isElementPresent("TLESUpload_id").click();
+			logs.info("Clicked on Upload linktext");
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@ng-form=\"DocDetailsForm\"]")));
-		getScreenshot(driver, "Upload");
+			wait.until(
+					ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@ng-form=\"DocDetailsForm\"]")));
+			getScreenshot(driver, "ShipEditUpload");
+		} catch (Exception Upload) {
+			// --Click on Upload link
+			isElementPresent("TLSUpload_xpath").click();
+			logs.info("Clicked on Upload linktext");
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
+			wait.until(
+					ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@ng-form=\"DocDetailsForm\"]")));
+			getScreenshot(driver, "Upload");
+
+		}
 		// --CHeck if doc is added
 		try {
 			WebElement DocExist = isElementPresent("DocExist_xpath");
@@ -201,7 +245,8 @@ public class ShipmentDetails extends BaseInit {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtDocName")));
 
 		// --Enter Doc name
-		isElementPresent("DocDate_id").sendKeys("AutoDocument");
+		isElementPresent("DocName_id").clear();
+		isElementPresent("DocName_id").sendKeys("AutoDocument");
 		logs.info("Enter doc name");
 
 		// --Enter Doc Date
@@ -221,12 +266,14 @@ public class ShipmentDetails extends BaseInit {
 		logs.info("Select DocType");
 
 		// --select Customer viewable checkbox
-		isElementPresent("CUstView_id").click();
+		WebElement CustView = isElementPresent("CUstView_id");
+		js.executeScript("arguments[0].click();", CustView);
 		logs.info("Click on Customer Viewable checkbox");
 		Thread.sleep(2000);
 
 		// --select Agent viewable checkbox
-		isElementPresent("AgentView_id").click();
+		WebElement AgentView = isElementPresent("AgentView_id");
+		js.executeScript("arguments[0].click();", AgentView);
 		logs.info("Click on Agent Viewable checkbox");
 		Thread.sleep(2000);
 
@@ -265,8 +312,9 @@ public class ShipmentDetails extends BaseInit {
 		msg.append("=========RTE Upload Test End===========" + "\n");
 	}
 
-	public void viewNotification() throws IOException {
+	public void viewNotification() throws IOException, InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 		// Actions act = new Actions(driver);
 		logs.info("=========RTE View Notification Test Start============");
 		msg.append("=========RTE View Notification Test Start===========" + "\n");
@@ -295,7 +343,8 @@ public class ShipmentDetails extends BaseInit {
 			getScreenshot(driver, "VNotificationContent");
 
 			// --Select Email radio button
-			isElementPresent("VNotiConEmail_id").click();
+			WebElement Email = isElementPresent("VNotiConEmail_id");
+			js.executeScript("arguments[0].click();", Email);
 			logs.info("Clicked on Email radio button");
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
@@ -313,17 +362,20 @@ public class ShipmentDetails extends BaseInit {
 			// --Click on Print button
 			isElementPresent("VNotiConPrint_id").click();
 			logs.info("Clicked on Print button");
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+			Thread.sleep(2000);
 
 			// --Print new window
 			String WindowHandlebefore = driver.getWindowHandle();
+			String WinID = WindowHandlebefore;
 			for (String windHandle : driver.getWindowHandles()) {
-				if (!windHandle.equalsIgnoreCase(WindowHandlebefore)) {
+				String NewWindID = windHandle;
+				if (!WinID.equals(NewWindID)) {
 					driver.switchTo().window(windHandle);
 					logs.info("Switched to Print window");
 					Thread.sleep(5000);
 					getScreenshot(driver, "NotificationPrint");
 				}
+
 			}
 			driver.close();
 			logs.info("Closed Print window");
@@ -337,12 +389,14 @@ public class ShipmentDetails extends BaseInit {
 		}
 
 		// --Click on Close button of Content Popup
-		isElementPresent("VNotiConClose_id").click();
+		WebElement ContentClose = isElementPresent("VNotiConClose_xpath");
+		js.executeScript("arguments[0].click();", ContentClose);
 		logs.info("Clicked on Close button");
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+		Thread.sleep(2000);
 
 		// --Click on Close button of Notification popup
-		isElementPresent("VNotiConClose_id").click();
+		WebElement NotClose = isElementPresent("VNotifiClose_xpath");
+		js.executeScript("arguments[0].click();", NotClose);
 		logs.info("Clicked on Close button");
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
@@ -352,11 +406,12 @@ public class ShipmentDetails extends BaseInit {
 
 	public void rteNotify() throws IOException, InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 		// Actions act = new Actions(driver);
 		logs.info("=========RTE Notify Test Start============");
 		msg.append("=========RTE Notify Test Start===========" + "\n");
 
-		// --Click on Upload link
+		// --Click on Notify link
 		isElementPresent("Notify_id").click();
 		logs.info("Clicked on Notify linktext");
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
@@ -365,7 +420,8 @@ public class ShipmentDetails extends BaseInit {
 		getScreenshot(driver, "Notify");
 
 		// --Add notify
-		isElementPresent("AddNotify_id").click();
+		WebElement AddNotify = isElementPresent("AddNotify_xpath");
+		js.executeScript("arguments[0].click();", AddNotify);
 		logs.info("Clicked on Add Notify");
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
@@ -392,7 +448,6 @@ public class ShipmentDetails extends BaseInit {
 			Select ReqNot = new Select(isElementPresent("RequestNot_id"));
 			ReqNot.selectByIndex(0);
 			Thread.sleep(2000);
-			isElementPresent("AvailAllNot_xpath").sendKeys(Keys.CONTROL, "a");
 
 			// --Click on Left button
 			isElementPresent("NotLeft_id").click();
@@ -410,6 +465,17 @@ public class ShipmentDetails extends BaseInit {
 
 		}
 
+		ReqNotList = driver.findElements(By.xpath("//*[@id=\"lstRequested\"]//option"));
+		int TotalReqNotAfter = ReqNotList.size();
+		logs.info("Total No of Request Notifications are==" + TotalReqNotAfter);
+
+		if (TotalReqNotAfter != TotalReqNot) {
+			logs.info("Left Arrow is working");
+		} else {
+			logs.info("Left Arrow is not working");
+
+		}
+
 		// --Add AVailable Notification
 		Select AvNot = new Select(isElementPresent("AvailbleNot_id"));
 		AvNot.selectByVisibleText("CREATE ORDER");
@@ -420,53 +486,65 @@ public class ShipmentDetails extends BaseInit {
 		logs.info("Clicked on Right button");
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-		AvNot = new Select(isElementPresent("AvailbleNot_id"));
-		AvNot.selectByVisibleText("DELIVERED");
-		Thread.sleep(2000);
-
-		// --Click on Left button
-		isElementPresent("NotRight_id").click();
-		logs.info("Clicked on Right button");
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
 		ReqNotList = driver.findElements(By.xpath("//*[@id=\"lstRequested\"]//option"));
 		TotalReqNot = ReqNotList.size();
 		logs.info("Total No of Request Notifications are==" + TotalReqNot);
 
-		// --Check the index before change the sequence
-		Select ReqNot = new Select(isElementPresent("RequestNot_id"));
-		ReqNot.selectByIndex(0);
-		Thread.sleep(2000);
-
-		String BeforeInd = ReqNot.getFirstSelectedOption().getText();
-		logs.info("Selected value==" + BeforeInd);
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
-		// --Click on Up arrow
-		isElementPresent("NotUp_id").click();
-		logs.info("Clicked on Up Arrow");
-
-		// --Check the index after change the sequence
-		ReqNot = new Select(isElementPresent("RequestNot_id"));
-		ReqNot.selectByIndex(0);
-		Thread.sleep(2000);
-
-		String AftInd = ReqNot.getFirstSelectedOption().getText();
-		logs.info("Selected value==" + AftInd);
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
-		if (BeforeInd.equalsIgnoreCase(AftInd)) {
-			logs.info("Sequence of the element is not updated");
-			logs.info("Up arrow is not working");
-
+		if (TotalReqNotAfter != TotalReqNot) {
+			logs.info("Right Arrow is working");
 		} else {
-			logs.info("Sequence of the element is updated");
-			logs.info("Up arrow is working");
+			logs.info("Right Arrow is not working");
+
 		}
 
-		// --Click on Down arrow
-		isElementPresent("NotDown_id").click();
-		logs.info("Clicked on Down Arrow");
+		ReqNotList = driver.findElements(By.xpath("//*[@id=\"lstRequested\"]//option"));
+		TotalReqNot = ReqNotList.size();
+
+		if (TotalReqNot > 1) {
+
+			// --Check the index before change the sequence
+			Select ReqNot = new Select(isElementPresent("RequestNot_id"));
+			ReqNot.selectByIndex(0);
+			Thread.sleep(2000);
+
+			String BeforeInd = ReqNot.getFirstSelectedOption().getText();
+			logs.info("Selected value==" + BeforeInd);
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+			Select ReqNot1 = new Select(isElementPresent("RequestNot_id"));
+			ReqNot1.selectByIndex(1);
+			Thread.sleep(2000);
+
+			// --Click on Up arrow
+			isElementPresent("NotUp_id").click();
+			logs.info("Clicked on Up Arrow");
+
+			// --Check the index after change the sequence
+			ReqNot = new Select(isElementPresent("RequestNot_id"));
+			ReqNot.selectByIndex(0);
+			Thread.sleep(2000);
+
+			String AftInd = ReqNot.getFirstSelectedOption().getText();
+			logs.info("Selected value==" + AftInd);
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+			if (BeforeInd.equalsIgnoreCase(AftInd)) {
+				logs.info("Sequence of the element is not updated");
+				logs.info("Up arrow is not working");
+
+			} else {
+				logs.info("Sequence of the element is updated");
+				logs.info("Up arrow is working");
+			}
+
+			// --Click on Down arrow
+			isElementPresent("NotDown_id").click();
+			logs.info("Clicked on Down Arrow");
+
+		} else {
+			logs.info("There is only 1 record in Request Notification");
+
+		}
 
 		// --Click on Save button
 		isElementPresent("NotifySave_id").click();
@@ -493,17 +571,6 @@ public class ShipmentDetails extends BaseInit {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@ng-form=\"Notifydtl\"]")));
 
-		// --Delete Notify
-		TotalNot = driver.findElements(By.xpath("//*[@id=\"scrollbox13\"]/div"));
-		TotalNotify = TotalNot.size();
-		logs.info("Total No of Notifications are==" + TotalNotify);
-
-		// --Edit the last added Notify
-		String LastDelete = "//*[@id=\"scrollbox13\"]/div[" + TotalNotify + "]//a[@id=\"hlkDelNotify\"]";
-		driver.findElement(By.xpath(LastDelete)).click();
-		logs.info("Clicked on Delete button");
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
 		// --Resend Original QDT
 		isElementPresent("NotifyResetOQDT_id").click();
 		logs.info("Clicked on Resend Original QDT button");
@@ -518,6 +585,17 @@ public class ShipmentDetails extends BaseInit {
 
 		}
 
+		// --Delete Notify
+		TotalNot = driver.findElements(By.xpath("//*[@id=\"scrollbox13\"]/div"));
+		TotalNotify = TotalNot.size();
+		logs.info("Total No of Notifications are==" + TotalNotify);
+
+		// --Delete the last added Notify
+		String LastDelete = "//*[@id=\"scrollbox13\"]/div[" + TotalNotify + "]//a[@id=\"hlkDelNotify\"]";
+		driver.findElement(By.xpath(LastDelete)).click();
+		logs.info("Clicked on Delete button");
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
 		// --CLick on OK button
 		isElementPresent("NotifyOK_id").click();
 		logs.info("Clicked on OK button");
@@ -526,6 +604,132 @@ public class ShipmentDetails extends BaseInit {
 		logs.info("=========RTE Notify Test End============");
 		msg.append("=========RTE Notify Test End===========" + "\n");
 
+	}
+
+	public void rteQC() throws IOException {
+		WebDriverWait wait = new WebDriverWait(driver, 50);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Actions act = new Actions(driver);
+		logs.info("=========RTE QC Test Start============");
+		msg.append("=========RTE QC Test Start===========" + "\n");
+
+		// --Click on QC link
+		isElementPresent("TLSQC_xpath").click();
+		logs.info("Clicked on QC linktext");
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("issueJob")));
+		getScreenshot(driver, "QC");
+
+		// --Click on Add New QC
+		isElementPresent("TLQCAddNew_id").click();
+		logs.info("Clicked on Add New QC");
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("NewIssue")));
+		getScreenshot(driver, "NewQC");
+
+		// --Select Type
+		WebElement CustQC = isElementPresent("TLQCCust_xpath");
+		js.executeScript("arguments[0].click();", CustQC);
+		logs.info("Selected Customer as a Type");
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+		// --Select Category
+		WebElement InvAdd = isElementPresent("TLQCInvAdd_xpath");
+		act.moveToElement(InvAdd).build().perform();
+		js.executeScript("arguments[0].click();", InvAdd);
+		logs.info("Selected Invalid Address as a Category");
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+		// --Enter Description
+		WebElement IssueDesc = isElementPresent("TLQCIssDesc_id");
+		act.moveToElement(IssueDesc).build().perform();
+		IssueDesc.clear();
+		IssueDesc.sendKeys("Issue is created for Automation Testing");
+		logs.info("Entered issue description");
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+		// --Click on Save
+		WebElement QCSave = isElementPresent("TLQCSave_id");
+		act.moveToElement(QCSave).build().perform();
+		js.executeScript("arguments[0].click();", QCSave);
+		logs.info("Clicked on Save button");
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+		wait.until(ExpectedConditions
+				.visibilityOfAllElementsLocatedBy(By.xpath("//*[contains(@ng-repeat,'IssueList ')]")));
+		getScreenshot(driver, "AddedQC");
+
+		// --Enter Confirm Note
+		isElementPresent("TLQCConfirmNote_id").clear();
+		isElementPresent("TLQCConfirmNote_id").sendKeys("Issue Confirmed");
+		logs.info("Entered Confirm Note");
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+		isElementPresent("TLQCConfirmNote_id").sendKeys(Keys.TAB);
+		isElementPresent("TLQCConfirmNote_id").sendKeys(Keys.TAB);
+
+		// --Select status
+		Select QCStatus = new Select(isElementPresent("TLQCStatus_xpath"));
+		QCStatus.selectByVisibleText("Confirmed");
+		logs.info("Selected status");
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+		// --Click on Update
+		isElementPresent("TLQCUpdate_id").click();
+		logs.info("Clicked on Update button");
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+		try {
+			WebElement SuccMsg = isElementPresent("TLQCSuccMsg_id");
+			wait.until(ExpectedConditions.visibilityOf(SuccMsg));
+			String SuccessMsg = SuccMsg.getText();
+			logs.info("QC is updated==" + SuccessMsg);
+
+		} catch (Exception Success) {
+			logs.info("QC is not updated");
+
+		}
+
+		// --Click on Exit without Save
+		isElementPresent("TLQCExitWSave_id").click();
+		logs.info("Clicked on Exit W/O Save button");
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+		logs.info("=========RTE QC Test End============");
+		msg.append("=========RTE QC Test End===========" + "\n");
+	}
+
+	public void rteUnMerge() throws IOException {
+		WebDriverWait wait = new WebDriverWait(driver, 50);
+		// JavascriptExecutor js = (JavascriptExecutor) driver;
+		// Actions act = new Actions(driver);
+		logs.info("=========RTE UnMerge Test Start============");
+		msg.append("=========RTE UnMerge Test Start===========" + "\n");
+
+		// --Click on UnMerge link
+		isElementPresent("TLSUnMerge_xpath").click();
+		logs.info("Clicked on UnMerge linktext");
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+		try {
+			wait.until(
+					ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@class=\"ngdialog-content\"]")));
+			getScreenshot(driver, "UnMergeDialogue");
+			String UnMergeMsg = isElementPresent("TLUnMergeMsg_xpath").getText();
+			logs.info("UnMerge Message==" + UnMergeMsg);
+
+			// --Click on OK button
+			isElementPresent("TLUnMergeOK_id").click();
+			logs.info("Clicked on OK button");
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@class=\"ngdialog-content\"]")));
+
+		} catch (Exception UnMerge) {
+			logs.info("Able to UnMerge");
+
+		}
 	}
 
 }

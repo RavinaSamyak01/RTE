@@ -6,10 +6,10 @@
 		</classes>
 	</test>
 
-	<test thread-count="5" name="RTE Job Search">
+	<!--<test thread-count="5" name="RTE Crud Operation">
 		<classes>
-			<class name="rte_RTEJobCreation.RTEJobSearch"></class>
+			<class name="rte_RTEJobCreation.RTECrudOperations"></class>
 		</classes>
-	</test>
+	</test> -->
 
 </suite> 

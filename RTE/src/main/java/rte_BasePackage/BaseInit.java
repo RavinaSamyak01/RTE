@@ -43,12 +43,15 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import rte_RTEJobCreation.RTEGetTrackingNo;
+import rte_RTEJobCreation.RTEJobSearch;
 
 public class BaseInit {
 
@@ -114,6 +117,17 @@ public class BaseInit {
 
 		}
 
+	}
+
+	@BeforeTest
+	public void getTrackPickUPID() throws EncryptedDocumentException, InvalidFormatException, IOException {
+		// --Get Tracking No
+		RTEGetTrackingNo TrackNo = new RTEGetTrackingNo();
+		TrackNo.getRTETrackingNo();
+
+		// --Get PickUpID
+		RTEJobSearch JobSearch = new RTEJobSearch();
+		JobSearch.rteJobSearch();
 	}
 
 	@BeforeMethod
@@ -421,7 +435,7 @@ public class BaseInit {
 		int rowNum = sh1.getLastRowNum() + 1;
 		FIS.close();
 		return rowNum;
-		
+
 	}
 
 	public static int getTotalCol(String sheetName)

@@ -22,7 +22,7 @@ public class RTEJobSearch extends BaseInit {
 		Actions act = new Actions(driver);
 
 		logs.info("======================RTE Job Search Test start==================");
-		msg.append("======================RTE Job Search Test start==================");
+		msg.append("======================RTE Job Search Test start==================" + "\n");
 
 		// --Go To Operations
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("a_operations")));
@@ -155,7 +155,7 @@ public class RTEJobSearch extends BaseInit {
 		}
 
 		logs.info("======================RTE Job Search Test End==================");
-		msg.append("======================RTE Job Search Test End==================");
+		msg.append("======================RTE Job Search Test End==================" + "\n");
 
 	}
 

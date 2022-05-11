@@ -21,7 +21,7 @@ public class RTEGetTrackingNo extends BaseInit {
 		Actions act = new Actions(driver);
 
 		logs.info("======================RTE get RWTrackingNo Test start==================");
-		msg.append("======================RTE get RWTrackingNo Test start==================");
+		msg.append("======================RTE get RWTrackingNo Test start==================" + "\n");
 
 		// --Search RTE Job in RouteList
 		// --Go to RouteList
@@ -90,7 +90,7 @@ public class RTEGetTrackingNo extends BaseInit {
 		}
 
 		logs.info("======================RTE get RWTrackingNo Test End==================");
-		msg.append("======================RTE get RWTrackingNo Test End==================");
+		msg.append("======================RTE get RWTrackingNo Test End==================" + "\n");
 	}
 
 }

@@ -15,22 +15,22 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
 
 import rte_BasePackage.BaseInit;
+import rte_RTECrudOperations.ShipmentDetails;
 
-public class RTECrudOpertaions extends BaseInit {
+public class RTECrudOperations extends BaseInit {
 
-	public void rteCrudOperations() throws EncryptedDocumentException, InvalidFormatException, IOException {
+	@Test
+	public void rteCrudOperations()
+			throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException {
 
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		Actions act = new Actions(driver);
 
 		logs.info("======================RTE Crud Operations Test Start==================");
 		msg.append("======================RTE Order Operations Test Start==================" + "\n");
-
-		// --Get Tracking No
-		RTEGetTrackingNo TrackNo = new RTEGetTrackingNo();
-		TrackNo.getRTETrackingNo();
 
 		// --Go To Operations
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("a_operations")));
@@ -50,7 +50,7 @@ public class RTECrudOpertaions extends BaseInit {
 
 		// --Enter pickUpID
 		wait.until(ExpectedConditions.elementToBeClickable(By.id("txtContains")));
-		String PickUpID = getData("SearchRTE", 1, 2);
+		String PickUpID = getData("SearchRTE", 2, 2);
 		isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 		logs.info("Entered PickUpID in basic search");
 
@@ -104,6 +104,10 @@ public class RTECrudOpertaions extends BaseInit {
 				logs.info("It is TC ACK stage");
 				getScreenshot(driver, "JobEditor_TCACK");
 
+				// --Edit Shipment
+				ShipmentDetails shipDetails = new ShipmentDetails();
+				shipDetails.rteShipmentDetails();
+
 				// --Click on Acknowledge button
 				wait.until(ExpectedConditions.elementToBeClickable(By.id("GreyTick")));
 				isElementPresent("TLAcknoldge_id").click();
@@ -145,7 +149,7 @@ public class RTECrudOpertaions extends BaseInit {
 					}
 					try {
 						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
-						PickUpID = getData("SearchRTE", 1, 2);
+						PickUpID = getData("SearchRTE", 2, 2);
 						isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 						logs.info("Entered PickUpID in basic search");
 
@@ -380,7 +384,7 @@ public class RTECrudOpertaions extends BaseInit {
 
 									try {
 										wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
-										PickUpID = getData("SearchRTE", 1, 2);
+										PickUpID = getData("SearchRTE", 2, 2);
 										isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 										logs.info("Entered PickUpID in basic search");
 
@@ -482,7 +486,7 @@ public class RTECrudOpertaions extends BaseInit {
 					}
 					try {
 						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
-						PickUpID = getData("SearchRTE", 1, 2);
+						PickUpID = getData("SearchRTE", 2, 2);
 						isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 						logs.info("Entered PickUpID in basic search");
 
@@ -717,7 +721,7 @@ public class RTECrudOpertaions extends BaseInit {
 
 									try {
 										wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
-										PickUpID = getData("SearchRTE", 1, 2);
+										PickUpID = getData("SearchRTE", 2, 2);
 										isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 										logs.info("Entered PickUpID in basic search");
 
@@ -996,7 +1000,7 @@ public class RTECrudOpertaions extends BaseInit {
 						}
 						try {
 							wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
-							PickUpID = getData("SearchRTE", 1, 2);
+							PickUpID = getData("SearchRTE", 2, 2);
 							isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 							logs.info("Entered PickUpID in basic search");
 
@@ -1225,7 +1229,7 @@ public class RTECrudOpertaions extends BaseInit {
 						}
 						try {
 							wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
-							PickUpID = getData("SearchRTE", 1, 2);
+							PickUpID = getData("SearchRTE", 2, 2);
 							isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 							logs.info("Entered PickUpID in basic search");
 
@@ -1398,7 +1402,7 @@ public class RTECrudOpertaions extends BaseInit {
 
 					try {
 						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
-						PickUpID = getData("SearchRTE", 1, 2);
+						PickUpID = getData("SearchRTE", 2, 2);
 						isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 						logs.info("Entered PickUpID in basic search");
 
