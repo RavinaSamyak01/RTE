@@ -3,15 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="rte_RTEJobCreation.RTECrudOpertaions">
+      <class name="rte_RTEJobCreation.RTECrudOperations">
         <methods>
-          <include name="rteCrudOperations"/>
           <include name="SendEmail"/>
+          <include name="rteCrudOperations"/>
           <include name="getResult"/>
           <include name="testMethodName"/>
           <include name="beforeMethod"/>
         </methods>
-      </class> <!-- rte_RTEJobCreation.RTECrudOpertaions -->
+      </class> <!-- rte_RTEJobCreation.RTECrudOperations -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

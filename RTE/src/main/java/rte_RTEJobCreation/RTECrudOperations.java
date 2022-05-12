@@ -18,6 +18,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import rte_BasePackage.BaseInit;
+import rte_RTECrudOperations.EditJob;
 import rte_RTECrudOperations.ShipmentDetails;
 
 public class RTECrudOperations extends BaseInit {
@@ -103,6 +104,10 @@ public class RTECrudOperations extends BaseInit {
 			if (jobStatus.contains("TC ACK")) {
 				logs.info("It is TC ACK stage");
 				getScreenshot(driver, "JobEditor_TCACK");
+
+				// --Edit Job Tab
+				EditJob Ejob = new EditJob();
+				Ejob.editJob();
 
 				// --Edit Shipment
 				ShipmentDetails shipDetails = new ShipmentDetails();

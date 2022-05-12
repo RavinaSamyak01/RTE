@@ -119,7 +119,6 @@ public class BaseInit {
 
 	}
 
-	@BeforeTest
 	public void getTrackPickUPID() throws EncryptedDocumentException, InvalidFormatException, IOException {
 		// --Get Tracking No
 		RTEGetTrackingNo TrackNo = new RTEGetTrackingNo();
