@@ -1,47 +1,30 @@
-2022-05-12 17:06:56,301 - RTECrudOperations -INFO - initialization of the properties file is done
-2022-05-12 17:06:56,608 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Using chromedriver 101.0.4951.41 (since Google Chrome 101 is installed in your machine)
-2022-05-12 17:06:56,623 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Exporting webdriver.chrome.driver as C:\Users\rprajapati\.m2\repository\webdriver\chromedriver\win32\101.0.4951.41\chromedriver.exe
-2022-05-12 17:07:02,961 - RTECrudOperations -INFO - Entered UserName
-2022-05-12 17:07:04,107 - RTECrudOperations -INFO - Entered Password
-2022-05-12 17:07:05,236 - RTECrudOperations -INFO - Login done
-2022-05-12 17:07:20,444 - RTECrudOperations -INFO - ======================RTE Crud Operations Test Start==================
-2022-05-12 17:07:21,251 - RTECrudOperations -INFO - Clicked on Operations
-2022-05-12 17:07:21,410 - RTECrudOperations -INFO - Clicked on TaskLog
-2022-05-12 17:07:24,750 - RTECrudOperations -INFO - Entered PickUpID in basic search
-2022-05-12 17:07:24,878 - RTECrudOperations -INFO - Click on Search button
-2022-05-12 17:07:28,476 - RTECrudOperations -INFO - Data is exist with search parameter
-2022-05-12 17:07:28,690 - RTECrudOperations -INFO - Job status tab is already Opened
-2022-05-12 17:07:28,753 - RTECrudOperations -INFO - Job status is==TC ACK
-2022-05-12 17:07:28,753 - RTECrudOperations -INFO - It is TC ACK stage
-2022-05-12 17:07:28,880 - RTECrudOperations -INFO - ======================RTE Edit Job Test Start==================
-2022-05-12 17:07:28,976 - RTECrudOperations -INFO - Clicked on Edit Job tab
-2022-05-12 17:07:33,240 - RTECrudOperations -INFO - =========RTE Route/Shipment Details Test Start============
-2022-05-12 17:07:33,396 - RTECrudOperations -INFO - Moved to Route Details
-2022-05-12 17:07:33,590 - RTECrudOperations -INFO - Total Route==2
-2022-05-12 17:07:33,613 - RTECrudOperations -INFO - Stop No is==1
-2022-05-12 17:07:33,737 - RTECrudOperations -INFO - PU/DEL No is==2/0
-2022-05-12 17:07:34,017 - RTECrudOperations -INFO - Company is==Test company order 1
-2022-05-12 17:07:34,140 - RTECrudOperations -INFO - Address is==Test company order 1, 3625 Willowbend Blvd., Suite 132, Chemistry Lab Room P058, HOUSTON, TX, 77056, USA
-2022-05-12 17:07:34,251 - RTECrudOperations -INFO - Instructions is==
-2022-05-12 17:07:34,376 - RTECrudOperations -INFO - Miles is==
-2022-05-12 17:07:34,513 - RTECrudOperations -INFO - Estimated Minutes is==
-2022-05-12 17:07:34,624 - RTECrudOperations -INFO - ETA/POD is==2022-05-11 00:30
-2022-05-12 17:07:34,733 - RTECrudOperations -INFO - TimeZone is==CDT
-2022-05-12 17:07:34,859 - RTECrudOperations -INFO - Stop No is==2
-2022-05-12 17:07:34,983 - RTECrudOperations -INFO - PU/DEL No is==0/2
-2022-05-12 17:07:35,113 - RTECrudOperations -INFO - Company is==ST FRANCIS MEDICAL CENTER
-2022-05-12 17:07:35,207 - RTECrudOperations -INFO - Address is==ST FRANCIS MEDICAL CENTER, 23900 KATY FWY, Chemistry Laboratory, HOUSTON, TX, 77054, USA
-2022-05-12 17:07:35,403 - RTECrudOperations -INFO - Instructions is==
-2022-05-12 17:07:35,502 - RTECrudOperations -INFO - Miles is==824
-2022-05-12 17:07:35,589 - RTECrudOperations -INFO - Estimated Minutes is==764
-2022-05-12 17:07:35,683 - RTECrudOperations -INFO - ETA/POD is==2022-05-11 13:14
-2022-05-12 17:07:35,774 - RTECrudOperations -INFO - TimeZone is==CDT
-2022-05-12 17:07:36,040 - RTECrudOperations -INFO - Moved to Shipment Details
-2022-05-12 17:07:36,204 - RTECrudOperations -INFO - Total Route==1
-2022-05-12 17:07:36,232 - RTECrudOperations -INFO - Shipment No is==125981002
-2022-05-12 17:07:57,958 - RTECrudOperations -INFO - status is==Received
-2022-05-12 17:08:09,291 - RTECrudOperations -INFO - PickUP No is==3399125
-2022-05-12 17:08:19,362 - RTECrudOperations -INFO - PUStop is==1
-2022-05-12 17:08:29,784 - RTECrudOperations -INFO - DelStop is==2
-2022-05-12 17:09:42,945 - RTECrudOperations -INFO - No of PCs are==2
-2022-05-12 17:10:13,223 - RTECrudOperations -INFO - =========RTE Route/Shipment Details Test End============
+2022-05-13 11:36:57,525 - RTECrudOperations -INFO - initialization of the properties file is done
+2022-05-13 11:36:57,843 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Using chromedriver 101.0.4951.41 (since Google Chrome 101 is installed in your machine)
+2022-05-13 11:36:57,860 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Exporting webdriver.chrome.driver as C:\Users\rprajapati\.m2\repository\webdriver\chromedriver\win32\101.0.4951.41\chromedriver.exe
+2022-05-13 11:37:07,316 - RTECrudOperations -INFO - Entered UserName
+2022-05-13 11:37:08,449 - RTECrudOperations -INFO - Entered Password
+2022-05-13 11:37:09,660 - RTECrudOperations -INFO - Login done
+2022-05-13 11:37:26,869 - RTECrudOperations -INFO - ======================RTE Crud Operations Test Start==================
+2022-05-13 11:37:27,668 - RTECrudOperations -INFO - Clicked on Operations
+2022-05-13 11:37:27,829 - RTECrudOperations -INFO - Clicked on TaskLog
+2022-05-13 11:37:30,997 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-05-13 11:37:31,135 - RTECrudOperations -INFO - Click on Search button
+2022-05-13 11:37:34,593 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-05-13 11:37:34,801 - RTECrudOperations -INFO - Job status tab is already Opened
+2022-05-13 11:37:34,858 - RTECrudOperations -INFO - Job status is==TC ACK
+2022-05-13 11:37:34,858 - RTECrudOperations -INFO - It is TC ACK stage
+2022-05-13 11:37:34,997 - RTECrudOperations -INFO - ======================RTE Edit Job Test Start==================
+2022-05-13 11:37:35,094 - RTECrudOperations -INFO - Clicked on Edit Job tab
+2022-05-13 11:37:39,014 - RTECrudOperations -INFO - =========RTE Add/Edit Stop Sequence Test Start============
+2022-05-13 11:37:39,104 - RTECrudOperations -INFO - Clicked on Edit Stop Sequence
+2022-05-13 11:37:39,519 - RTECrudOperations -INFO - Edit PUStop
+2022-05-13 11:37:39,641 - RTECrudOperations -INFO - Edit DelStop
+2022-05-13 11:37:39,913 - RTECrudOperations -INFO - Clicked on Add Stop Sequence
+2022-05-13 11:37:43,212 - RTECrudOperations -INFO - Clicked on Close button of Add Stop Sequence
+2022-05-13 11:42:44,284 - RTECrudOperations -INFO - Actual Rate before Recalculate==$520.00
+2022-05-13 11:42:45,351 - RTECrudOperations -INFO - Clicked on ReCalculate
+2022-05-13 11:43:01,985 - RTECrudOperations -INFO - Actual Rate after Recalculate==$520.00
+2022-05-13 11:43:02,401 - RTECrudOperations -INFO - Rate is not updated
+2022-05-13 11:43:03,855 - RTECrudOperations -INFO - =========RTE Add/Edit Stop Sequence Test End============
+2022-05-13 11:43:06,446 - RTECrudOperations -INFO - =========RTE Customer Charges Test Start============
+2022-05-13 11:43:06,640 - RTECrudOperations -INFO - Moved to Customer Charges

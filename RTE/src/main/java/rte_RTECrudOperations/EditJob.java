@@ -10,6 +10,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import rte_BasePackage.BaseInit;
@@ -41,6 +42,12 @@ public class EditJob extends BaseInit {
 		String PickupID = getData("SearchRTE", 2, 2);
 		setData("Rate", 1, 1, PickupID);
 		setData("RouteDetail", 1, 1, PickupID);
+
+		// --Add/Edit Shipment
+		adEditShipment();
+
+		// --Add/Delete Charges
+		addDeleteCharges();
 
 		// --Route/Shipment Details
 		routeShipmentDetails();
@@ -389,6 +396,166 @@ public class EditJob extends BaseInit {
 
 		logs.info("=========RTE Route/Shipment Details Test End============");
 		msg.append("=========RTE Route/Shipment Details Test End===========" + "\n");
+
+	}
+
+	public void adEditShipment() throws IOException {
+		WebDriverWait wait = new WebDriverWait(driver, 50);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		Actions act = new Actions(driver);
+		logs.info("=========RTE Add/Edit Stop Sequence Test Start============");
+		msg.append("=========RTE Add/Edit Stop Sequence Test Start===========" + "\n");
+
+		// --Click on Edit Stop Sequence
+		WebElement EditSS = isElementPresent("TLEditStopSeq_xpath");
+		js.executeScript("arguments[0].scrollIntoView();", EditSS);
+		EditSS.click();
+		logs.info("Clicked on Edit Stop Sequence");
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+		getScreenshot(driver, "EditStopSequence");
+
+		// --Clear and Enter PUStop
+		isElementPresent("TLESSPUStop_id").clear();
+		isElementPresent("TLESSPUStop_id").sendKeys("1");
+		logs.info("Edit PUStop");
+
+		// --Clear and Enter DelStop
+		isElementPresent("TLESSDelStop_id").clear();
+		isElementPresent("TLESSDelStop_id").sendKeys("2");
+		logs.info("Edit DelStop");
+
+		// --Click on Add Stop Sequence
+		isElementPresent("TLAddStopSeq_xpath").click();
+		logs.info("Clicked on Add Stop Sequence");
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+		wait.until(
+				ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@ng-form=\"RouteShipmentform\"]")));
+		getScreenshot(driver, "AddStopSequence");
+
+		// --Close Add Stop pop up
+		isElementPresent("Close_id").click();
+		logs.info("Clicked on Close button of Add Stop Sequence");
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+		// --ReCalculate
+		// get the total Rate
+		WebElement ActRate = isElementPresent("TLActRate_id");
+		act.moveToElement(ActRate).build().perform();
+		String BRate = isElementPresent("TLActRate_id").getText();
+		logs.info("Actual Rate before Recalculate==" + BRate);
+
+		// --Click on ReCalculate
+		WebElement ReCalc = isElementPresent("TLRecal_xpath");
+		act.moveToElement(ReCalc).build().perform();
+		ReCalc.click();
+		logs.info("Clicked on ReCalculate");
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+		// get the total Rate
+		ActRate = isElementPresent("TLActRate_id");
+		act.moveToElement(ActRate).build().perform();
+		String ARate = isElementPresent("TLActRate_id").getText();
+		logs.info("Actual Rate after Recalculate==" + ARate);
+
+		if (!BRate.equalsIgnoreCase(ARate)) {
+			logs.info("Rate is updated");
+
+		} else {
+			logs.info("Rate is not updated");
+		}
+
+		logs.info("=========RTE Add/Edit Stop Sequence Test End============");
+		msg.append("=========RTE Add/Edit Stop Sequence Test End===========" + "\n");
+
+	}
+
+	public void addDeleteCharges() throws IOException, InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, 50);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		// Actions act = new Actions(driver);
+		logs.info("=========RTE Customer Charges Test Start============");
+		msg.append("=========RTE Customer Charges Test Start===========" + "\n");
+
+		// --Moved to Customer Charges
+		WebElement CustCharges = isElementPresent("TLCustCharges_id");
+		js.executeScript("arguments[0].scrollIntoView();", CustCharges);
+		logs.info("Moved to Customer Charges");
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+		getScreenshot(driver, "CustomerCharges");
+
+		List<WebElement> TotaChargesDiv = driver
+				.findElements(By.xpath("//*[@id=\"scrollCustomer\"]//div[contains(@ng-repeat,'RateDetailList' )]"));
+
+		int TotalCharges = TotaChargesDiv.size();
+		logs.info("Total existing charges==" + TotalCharges);
+
+		// --Select Charge type
+		Select CCombo = new Select(isElementPresent("CChargeCombo_id"));
+		CCombo.selectByVisibleText("ADV - ADVANCE FEES");
+		Thread.sleep(2000);
+		logs.info("Selected Charge Type");
+
+		// --Add Charges
+		isElementPresent("CCharge_id").clear();
+		isElementPresent("CCharge_id").sendKeys("25");
+		logs.info("Entered Charges");
+
+		// --Click on Add Charge
+		isElementPresent("CCAddCharge_id").click();
+		logs.info("Clicked on Add Charge");
+		Thread.sleep(2000);
+
+		TotaChargesDiv = driver
+				.findElements(By.xpath("//*[@id=\"scrollCustomer\"]//div[contains(@ng-repeat,'RateDetailList' )]"));
+
+		int TotalChargesAf = TotaChargesDiv.size();
+		logs.info("Total charges after added new charges==" + TotalChargesAf);
+
+		if (TotalChargesAf != TotalCharges) {
+			logs.info("New charge is added");
+
+		} else {
+			logs.info("New charge is not added");
+
+		}
+
+		// --Delete added charge
+		TotaChargesDiv.get(TotalChargesAf - 1).findElement(By.id("imgMinus")).click();
+		logs.info("Clicked on Delete button of added charge");
+
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("modal-dialog")));
+		// --Get Dialogue message
+		String Message = isElementPresent("DelConfMes_xpath").getText();
+		logs.info("Message of the Dialogue is==" + Message);
+
+		// --CLick on Ok Button
+		isElementPresent("DelConfYes_xpath").click();
+		logs.info("Click on Yes button");
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+		TotaChargesDiv = driver
+				.findElements(By.xpath("//*[@id=\"scrollCustomer\"]//div[contains(@ng-repeat,'RateDetailList' )]"));
+
+		int TotalChargesAfD = TotaChargesDiv.size();
+		logs.info("Total charges after deleted added charge==" + TotalChargesAfD);
+
+		if (TotalChargesAf != TotalChargesAfD) {
+			logs.info("Charge is deleted");
+
+		} else {
+			logs.info("Charge is not deleted");
+
+		}
+
+		// --Click on Save Changes
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("btnSaveChanges")));
+		isElementPresent("TLSaveChanges_id").click();
+		logs.info("Clicked on Save Changes");
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+		logs.info("=========RTE Customer Charges Test End============");
+		msg.append("=========RTE Customer Charges Test End===========" + "\n");
 
 	}
 
