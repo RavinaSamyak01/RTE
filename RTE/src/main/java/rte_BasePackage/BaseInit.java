@@ -43,15 +43,12 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import rte_RTEJobCreation.RTEGetTrackingNo;
-import rte_RTEJobCreation.RTEJobSearch;
 
 public class BaseInit {
 
@@ -118,8 +115,6 @@ public class BaseInit {
 		}
 
 	}
-
-	
 
 	@BeforeMethod
 	public void testMethodName(Method method) {
@@ -258,15 +253,52 @@ public class BaseInit {
 	}
 
 	public void login() throws InterruptedException {
-		driver.get(storage.getProperty("URL"));
 		WebDriverWait wait = new WebDriverWait(driver, 50);
-		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("login")));
-		highLight(isElementPresent("UserName_id"), driver);
-		isElementPresent("UserName_id").sendKeys(storage.getProperty("UserName"));
-		logs.info("Entered UserName");
-		highLight(isElementPresent("Password_id"), driver);
-		isElementPresent("Password_id").sendKeys(storage.getProperty("Password"));
-		logs.info("Entered Password");
+
+		String Env = storage.getProperty("Env");
+
+		if (Env.equalsIgnoreCase("Pre-Prod")) {
+			String baseUrl = storage.getProperty("PREPRODURL");
+			driver.get(baseUrl);
+			Thread.sleep(2000);
+			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("login")));
+			String UserName = storage.getProperty("PREPRODUserName");
+			highLight(isElementPresent("UserName_id"), driver);
+			isElementPresent("UserName_id").sendKeys(UserName);
+			logs.info("Entered UserName");
+			String Password = storage.getProperty("PREPRODPassword");
+			highLight(isElementPresent("Password_id"), driver);
+			isElementPresent("Password_id").sendKeys(Password);
+			logs.info("Entered Password");
+		} else if (Env.equalsIgnoreCase("STG")) {
+			String baseUrl = storage.getProperty("STGURL");
+			driver.get(baseUrl);
+			Thread.sleep(2000);
+			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("login")));
+			String UserName = storage.getProperty("STGUserName");
+			highLight(isElementPresent("UserName_id"), driver);
+			isElementPresent("UserName_id").sendKeys(UserName);
+			logs.info("Entered UserName");
+			String Password = storage.getProperty("STGPassword");
+			highLight(isElementPresent("Password_id"), driver);
+			isElementPresent("Password_id").sendKeys(Password);
+			logs.info("Entered Password");
+
+		} else if (Env.equalsIgnoreCase("DEV")) {
+			String baseUrl = storage.getProperty("DEVURL");
+			driver.get(baseUrl);
+			Thread.sleep(2000);
+			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("login")));
+			String UserName = storage.getProperty("DEVUserName");
+			highLight(isElementPresent("UserName_id"), driver);
+			isElementPresent("UserName_id").sendKeys(UserName);
+			logs.info("Entered UserName");
+			String Password = storage.getProperty("DEVPassword");
+			highLight(isElementPresent("Password_id"), driver);
+			isElementPresent("Password_id").sendKeys(Password);
+			logs.info("Entered Password");
+
+		}
 		highLight(isElementPresent("Login_id"), driver);
 		isElementPresent("Login_id").click();
 		logs.info("Login done");
@@ -383,7 +415,16 @@ public class BaseInit {
 
 	public static String getData(String sheetName, int row, int col)
 			throws EncryptedDocumentException, InvalidFormatException, IOException {
-		String FilePath = storage.getProperty("File");
+
+		String Env = storage.getProperty("Env");
+		String FilePath = null;
+		if (Env.equalsIgnoreCase("Pre-Prod")) {
+			FilePath = storage.getProperty("PrePRODFile");
+		} else if (Env.equalsIgnoreCase("STG")) {
+			FilePath = storage.getProperty("STGFile");
+		} else if (Env.equalsIgnoreCase("DEV")) {
+			FilePath = storage.getProperty("DEVFile");
+		}
 
 		File src = new File(FilePath);
 
@@ -399,7 +440,15 @@ public class BaseInit {
 
 	public static void setData(String sheetName, int row, int col, String value)
 			throws EncryptedDocumentException, InvalidFormatException, IOException {
-		String FilePath = storage.getProperty("File");
+		String Env = storage.getProperty("Env");
+		String FilePath = null;
+		if (Env.equalsIgnoreCase("Pre-Prod")) {
+			FilePath = storage.getProperty("PrePRODFile");
+		} else if (Env.equalsIgnoreCase("STG")) {
+			FilePath = storage.getProperty("STGFile");
+		} else if (Env.equalsIgnoreCase("DEV")) {
+			FilePath = storage.getProperty("DEVFile");
+		}
 
 		File src = new File(FilePath);
 		FileInputStream fis = new FileInputStream(src);
@@ -415,7 +464,15 @@ public class BaseInit {
 
 	public static int getTotalRow(String sheetName)
 			throws EncryptedDocumentException, InvalidFormatException, IOException {
-		String FilePath = storage.getProperty("File");
+		String Env = storage.getProperty("Env");
+		String FilePath = null;
+		if (Env.equalsIgnoreCase("Pre-Prod")) {
+			FilePath = storage.getProperty("PrePRODFile");
+		} else if (Env.equalsIgnoreCase("STG")) {
+			FilePath = storage.getProperty("STGFile");
+		} else if (Env.equalsIgnoreCase("DEV")) {
+			FilePath = storage.getProperty("DEVFile");
+		}
 
 		File src = new File(FilePath);
 
@@ -431,7 +488,15 @@ public class BaseInit {
 
 	public static int getTotalCol(String sheetName)
 			throws EncryptedDocumentException, InvalidFormatException, IOException {
-		String FilePath = storage.getProperty("File");
+		String Env = storage.getProperty("Env");
+		String FilePath = null;
+		if (Env.equalsIgnoreCase("Pre-Prod")) {
+			FilePath = storage.getProperty("PrePRODFile");
+		} else if (Env.equalsIgnoreCase("STG")) {
+			FilePath = storage.getProperty("STGFile");
+		} else if (Env.equalsIgnoreCase("DEV")) {
+			FilePath = storage.getProperty("DEVFile");
+		}
 
 		File src = new File(FilePath);
 
@@ -460,7 +525,8 @@ public class BaseInit {
 		msg.append("Process URL : " + baseUrl + "\n");
 		msg.append("Please find attached file of Report and Log");
 
-		String subject = "Selenium Automation Script: RTE Smoke";
+		String Env = storage.getProperty("Env");
+		String subject = "Selenium Automation Script:" + Env + " RTE Smoke";
 		String File = ".\\Report\\ExtentReport\\ExtentReportResults.html,.\\Report\\log\\RTESmoke.html";
 
 		try {
