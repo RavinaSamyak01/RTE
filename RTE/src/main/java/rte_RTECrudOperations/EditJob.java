@@ -1,22 +1,30 @@
 package rte_RTECrudOperations;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
 
 import rte_BasePackage.BaseInit;
 
 public class EditJob extends BaseInit {
 
+	@Test
 	public void editJob() throws IOException, InterruptedException, EncryptedDocumentException, InvalidFormatException {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		// Actions act = new Actions(driver);
@@ -44,10 +52,11 @@ public class EditJob extends BaseInit {
 		setData("RouteDetail", 1, 1, PickupID);
 
 		// --Add/Edit Shipment
-		adEditShipment();
+		adEditStopSequence();
 
-		// --Add/Delete Charges
-		addDeleteCharges();
+		// --Click on UnMerge
+		ShipmentDetails SD = new ShipmentDetails();
+		SD.rteUnMerge();
 
 		// --Route/Shipment Details
 		routeShipmentDetails();
@@ -63,6 +72,20 @@ public class EditJob extends BaseInit {
 
 		// --Route/Shipment Details
 		routeShipmentDetails();
+
+		// --Click on Memo
+		// ShipmentDetails SD = new ShipmentDetails();
+		SD.addViewMemo();
+
+		// --Click on Upload
+		SD.upload();
+
+		// --Click on QC
+		SD.rteQC();
+
+		// --Add/Delete Charges
+		addDeleteChargesRecal();
+
 	}
 
 	public void viewMemo() throws InterruptedException, IOException {
@@ -399,30 +422,22 @@ public class EditJob extends BaseInit {
 
 	}
 
-	public void adEditShipment() throws IOException {
+	public void adEditStopSequence() throws IOException {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		Actions act = new Actions(driver);
+		// Actions act = new Actions(driver);
 		logs.info("=========RTE Add/Edit Stop Sequence Test Start============");
 		msg.append("=========RTE Add/Edit Stop Sequence Test Start===========" + "\n");
 
-		// --Click on Edit Stop Sequence
-		WebElement EditSS = isElementPresent("TLEditStopSeq_xpath");
-		js.executeScript("arguments[0].scrollIntoView();", EditSS);
-		EditSS.click();
-		logs.info("Clicked on Edit Stop Sequence");
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-		getScreenshot(driver, "EditStopSequence");
+		// --Total Number of Shipment Stop
+		List<WebElement> SDetails = driver
+				.findElements(By.xpath("//*[@id=\"scrollRoute\"]//div[contains(@ng-repeat,'ShipmentDetailList ')]"));
+		int TotalShipment = SDetails.size();
+		logs.info("Total Shipment Stop==" + TotalShipment);
 
-		// --Clear and Enter PUStop
-		isElementPresent("TLESSPUStop_id").clear();
-		isElementPresent("TLESSPUStop_id").sendKeys("1");
-		logs.info("Edit PUStop");
-
-		// --Clear and Enter DelStop
-		isElementPresent("TLESSDelStop_id").clear();
-		isElementPresent("TLESSDelStop_id").sendKeys("2");
-		logs.info("Edit DelStop");
+		// --Move to add stop sequence
+		WebElement AddStop = isElementPresent("TLAddStopSeq_xpath");
+		js.executeScript("arguments[0].scrollIntoView();", AddStop);
 
 		// --Click on Add Stop Sequence
 		isElementPresent("TLAddStopSeq_xpath").click();
@@ -433,47 +448,243 @@ public class EditJob extends BaseInit {
 				ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@ng-form=\"RouteShipmentform\"]")));
 		getScreenshot(driver, "AddStopSequence");
 
-		// --Close Add Stop pop up
-		isElementPresent("Close_id").click();
-		logs.info("Clicked on Close button of Add Stop Sequence");
+		// --PickUp Stop
+		isElementPresent("ASPicStop_name").clear();
+		isElementPresent("ASPicStop_name").sendKeys("2");
+		isElementPresent("ASPicStop_name").sendKeys(Keys.TAB);
+		logs.info("Enter Pickup Stop");
+		getScreenshot(driver, "PickUpStopSeqData");
+
+		// --Delivery Stop
+		isElementPresent("ASDelStop_name").clear();
+		isElementPresent("ASDelStop_name").sendKeys("3");
+		isElementPresent("ASDelStop_name").sendKeys(Keys.TAB);
+		logs.info("Enter Delivery Stop");
+
+		// --Add Company
+		isElementPresent("ASDAdd_id").clear();
+		isElementPresent("ASDAdd_id").sendKeys("Henry Ford");
+		logs.info("Enter Address");
+
+		// --Add Address
+		isElementPresent("ASDCompany_id").clear();
+		isElementPresent("ASDCompany_id").sendKeys("14101 Seeley Ave.");
+		logs.info("Enter Company");
+
+		// --Add Zipcode
+		isElementPresent("ASDZipCode_id").clear();
+		isElementPresent("ASDZipCode_id").sendKeys("60406");
+		logs.info("Enter ZipCode");
+
+		// --Get ZoneID
+		String ZOneID = isElementPresent("ASCZoneID_xpath").getText();
+		logs.info("ZoneID of is==" + ZOneID);
+		if (ZOneID.equalsIgnoreCase("EDT")) {
+			ZOneID = "America/New_York";
+		} else if (ZOneID.equalsIgnoreCase("CDT")) {
+			ZOneID = "CST";
+		}
+
+		// --Enter SCH Date
+		WebElement SCHDate = isElementPresent("ASDSCHDate_id");
+		SCHDate.clear();
+		Date date = new Date();
+		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+		dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+		logs.info(dateFormat.format(date));
+		SCHDate.sendKeys(dateFormat.format(date));
+		SCHDate.sendKeys(Keys.TAB);
+		logs.info("Entered SCH Date");
+
+		// --Enter SCHTime
+		WebElement SCHTime = isElementPresent("ASDSCHTime_id");
+		SCHTime.clear();
+		date = new Date();
+		dateFormat = new SimpleDateFormat("HH:mm");
+		dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+		logs.info(dateFormat.format(date));
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("txtDelSCHACTTime")));
+		SCHTime.sendKeys(dateFormat.format(date));
+		logs.info("Entered SCH Time");
+
+		// --Enter QDT Date
+		WebElement QDTDate = isElementPresent("ASDQDDate_id");
+		QDTDate.clear();
+		date = new Date();
+		dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+		dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+		logs.info(dateFormat.format(date));
+		QDTDate.sendKeys(dateFormat.format(date));
+		QDTDate.sendKeys(Keys.TAB);
+		logs.info("Entered SCH Date");
+
+		// --Enter QDT Time
+		WebElement QDTTime = isElementPresent("ASDQDTime_id");
+		QDTTime.clear();
+		date = new Date();
+		dateFormat = new SimpleDateFormat("HH:mm");
+		dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+		logs.info(dateFormat.format(date));
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("txtDelqtTime")));
+		QDTTime.sendKeys(dateFormat.format(date));
+		logs.info("Entered SCH Time");
+
+		// --Enter Package Information
+		// --Add Weight
+		isElementPresent("ASDPweight_id").clear();
+		isElementPresent("ASDPweight_id").sendKeys("2");
+		logs.info("Enter Weight");
+
+		// --Add Length
+		isElementPresent("ASDPLength_id").clear();
+		isElementPresent("ASDPLength_id").sendKeys("1");
+		logs.info("Enter Length");
+
+		// --Add Width
+		isElementPresent("ASDPWidth_id").clear();
+		isElementPresent("ASDPWidth_id").sendKeys("1");
+		logs.info("Enter Width");
+
+		// --Add Height
+		isElementPresent("ASDPHeight_id").clear();
+		isElementPresent("ASDPHeight_id").sendKeys("1");
+		logs.info("Enter Height");
+
+		// --Click on Save
+		isElementPresent("ASSave_id").click();
+		logs.info("Click on Save");
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-		// --ReCalculate
-		// get the total Rate
-		WebElement ActRate = isElementPresent("TLActRate_id");
-		act.moveToElement(ActRate).build().perform();
-		String BRate = isElementPresent("TLActRate_id").getText();
-		logs.info("Actual Rate before Recalculate==" + BRate);
+		try {
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("errorid")));
+			String ErrorMsg = isElementPresent("Error_id").getText();
+			if (ErrorMsg.contains("Delivery Quoted time cannot be less than Pickup Quoted time.")) {
+				logs.info("Validation is displayed==" + ErrorMsg);
 
-		// --Click on ReCalculate
-		WebElement ReCalc = isElementPresent("TLRecal_xpath");
-		act.moveToElement(ReCalc).build().perform();
-		ReCalc.click();
-		logs.info("Clicked on ReCalculate");
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+				// --Enter PU Date
+				WebElement PUDate = isElementPresent("ASDPUDate_id");
+				PUDate.clear();
+				date = new Date();
+				dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+				dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+				logs.info(dateFormat.format(date));
+				PUDate.sendKeys(dateFormat.format(date));
+				PUDate.sendKeys(Keys.TAB);
+				logs.info("Entered PickUp Date");
 
-		// get the total Rate
-		ActRate = isElementPresent("TLActRate_id");
-		act.moveToElement(ActRate).build().perform();
-		String ARate = isElementPresent("TLActRate_id").getText();
-		logs.info("Actual Rate after Recalculate==" + ARate);
+				// --Enter PU Time
+				WebElement PUTime = isElementPresent("ASDPUpTime_id");
+				PUTime.clear();
+				date = new Date();
+				dateFormat = new SimpleDateFormat("HH:mm");
+				dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+				Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
+				cal.add(Calendar.MINUTE, -60);
+				logs.info(dateFormat.format(cal.getTime()));
+				wait.until(ExpectedConditions.elementToBeClickable(By.id("txtPUSCHACTTime")));
+				PUTime.sendKeys(dateFormat.format(cal.getTime()));
+				logs.info("Entered Actual PickUp Time");
 
-		if (!BRate.equalsIgnoreCase(ARate)) {
-			logs.info("Rate is updated");
+				// --Click on Save
+				isElementPresent("ASSave_id").click();
+				logs.info("Click on Save");
+				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+			}
+
+		} catch (Exception Time) {
+			logs.info("Validation is not displayed, QDT Date and time is as per expected");
+
+		}
+
+		try {
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@ng-message=\"required\"]")));
+			String ValMsg = isElementPresent("ASRequMsg_xpath").getText();
+			if (ValMsg.contains("Required")) {
+				logs.info("Validation is displayed==" + ValMsg);
+
+				// --Enter pickupPhone
+				isElementPresent("ASDPUPhone_id").clear();
+				isElementPresent("ASDPUPhone_id").sendKeys("1234567899");
+				logs.info("Enter PickUp Phone");
+
+				// --Click on Save
+				isElementPresent("ASSave_id").click();
+				logs.info("Click on Save");
+				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+			}
+		} catch (Exception Phone) {
+			logs.info("Validation is not displayed, everything is as per expected");
+
+		}
+		// --TotalNo OF shipment Stop
+		SDetails = driver
+				.findElements(By.xpath("//*[@id=\"scrollRoute\"]//div[contains(@ng-repeat,'ShipmentDetailList ')]"));
+		int TotalShipmentAfter = SDetails.size();
+		logs.info("Total Shipment Stop after new added==" + TotalShipmentAfter);
+
+		// --CHeck shipment is added or not
+		if (TotalShipment != TotalShipmentAfter) {
+			logs.info("New Stop added successfully");
 
 		} else {
-			logs.info("Rate is not updated");
+			logs.info("New Stop is not added");
+
 		}
+
+		// --Click on Edit Stop Sequence
+		WebElement EditSS = isElementPresent("TLEditStopSeq_xpath");
+		js.executeScript("arguments[0].scrollIntoView();", EditSS);
+		EditSS = isElementPresent("TLEditStopSeq_xpath");
+		EditSS.click();
+		logs.info("Clicked on Edit Stop Sequence");
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+		getScreenshot(driver, "EditStopSequence");
+
+		SDetails = driver
+				.findElements(By.xpath("//*[@id=\"scrollRoute\"]//div[contains(@ng-repeat,'ShipmentDetailList ')]"));
+		TotalShipment = SDetails.size();
+
+		for (int ship = 0; ship < TotalShipment; ship++) {
+
+			if (ship == 0) {
+				// --Clear and Enter PUStop
+				SDetails.get(ship).findElement(By.id("txtPUStop")).clear();
+				SDetails.get(ship).findElement(By.id("txtPUStop")).sendKeys("2");
+				logs.info("Edit PUStop");
+
+				// --Clear and Enter DelStop
+				SDetails.get(ship).findElement(By.id("txtDelStop")).clear();
+				SDetails.get(ship).findElement(By.id("txtDelStop")).sendKeys("3");
+				logs.info("Edit DelStop");
+			} else if (ship == 1) {
+				SDetails.get(ship).findElement(By.id("txtPUStop")).clear();
+				SDetails.get(ship).findElement(By.id("txtPUStop")).sendKeys("1");
+				logs.info("Edit PUStop");
+
+				// --Clear and Enter DelStop
+				SDetails.get(ship).findElement(By.id("txtDelStop")).clear();
+				SDetails.get(ship).findElement(By.id("txtDelStop")).sendKeys("2");
+				logs.info("Edit DelStop");
+			}
+
+		}
+
+		// --Click on Save changes
+		isElementPresent("TLSaveChanges_id").click();
+		logs.info("Clicked on Save changes");
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 		logs.info("=========RTE Add/Edit Stop Sequence Test End============");
 		msg.append("=========RTE Add/Edit Stop Sequence Test End===========" + "\n");
 
 	}
 
-	public void addDeleteCharges() throws IOException, InterruptedException {
+	public void addDeleteChargesRecal() throws IOException, InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		// Actions act = new Actions(driver);
+		Actions act = new Actions(driver);
 		logs.info("=========RTE Customer Charges Test Start============");
 		msg.append("=========RTE Customer Charges Test Start===========" + "\n");
 
@@ -483,6 +694,12 @@ public class EditJob extends BaseInit {
 		logs.info("Moved to Customer Charges");
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 		getScreenshot(driver, "CustomerCharges");
+
+		// get the total Rate
+		WebElement ActRate = isElementPresent("TLActRate_xpath");
+		act.moveToElement(ActRate).build().perform();
+		String BRate = isElementPresent("TLActRate_xpath").getText();
+		logs.info("Actual Rate before Recalculate==" + BRate);
 
 		List<WebElement> TotaChargesDiv = driver
 				.findElements(By.xpath("//*[@id=\"scrollCustomer\"]//div[contains(@ng-repeat,'RateDetailList' )]"));
@@ -497,14 +714,24 @@ public class EditJob extends BaseInit {
 		logs.info("Selected Charge Type");
 
 		// --Add Charges
+		isElementPresent("ChargeSpan_xpath").click();
 		isElementPresent("CCharge_id").clear();
-		isElementPresent("CCharge_id").sendKeys("25");
+		isElementPresent("CCharge_id").click();
+		isElementPresent("CCharge_id").sendKeys(Keys.CONTROL, "a");
+		String Charge = "25";
+		isElementPresent("CCharge_id").sendKeys(Charge);
+		js.executeScript("document.getElementById('txtRealCostchargeamount').setAttribute('value', '25')");
 		logs.info("Entered Charges");
 
 		// --Click on Add Charge
 		isElementPresent("CCAddCharge_id").click();
 		logs.info("Clicked on Add Charge");
 		Thread.sleep(2000);
+
+		// --Click on Save changes
+		isElementPresent("TLSaveChanges_id").click();
+		logs.info("Clicked on Save changes");
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 		TotaChargesDiv = driver
 				.findElements(By.xpath("//*[@id=\"scrollCustomer\"]//div[contains(@ng-repeat,'RateDetailList' )]"));
@@ -520,8 +747,31 @@ public class EditJob extends BaseInit {
 
 		}
 
+		// --ReCalculate
+
+		// --Click on ReCalculate
+		WebElement ReCalc = isElementPresent("TLRecal_xpath");
+		act.moveToElement(ReCalc).build().perform();
+		ReCalc.click();
+		logs.info("Clicked on ReCalculate");
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+		// get the total Rate
+		ActRate = isElementPresent("TLActRate_xpath");
+		act.moveToElement(ActRate).build().perform();
+		String ARate = isElementPresent("TLActRate_xpath").getText();
+		logs.info("Actual Rate after Recalculate==" + ARate);
+
+		if (!BRate.equalsIgnoreCase(ARate)) {
+			logs.info("Rate is updated");
+
+		} else {
+			logs.info("Rate is not updated");
+		}
 		// --Delete added charge
-		TotaChargesDiv.get(TotalChargesAf - 1).findElement(By.id("imgMinus")).click();
+		// TotaChargesDiv.get(TotalChargesAf -
+		// 1).findElement(By.id("imgMinus")).click();
+		isElementPresent("CCDelete_id").click();
 		logs.info("Clicked on Delete button of added charge");
 
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("modal-dialog")));
@@ -547,12 +797,6 @@ public class EditJob extends BaseInit {
 			logs.info("Charge is not deleted");
 
 		}
-
-		// --Click on Save Changes
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("btnSaveChanges")));
-		isElementPresent("TLSaveChanges_id").click();
-		logs.info("Clicked on Save Changes");
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 		logs.info("=========RTE Customer Charges Test End============");
 		msg.append("=========RTE Customer Charges Test End===========" + "\n");

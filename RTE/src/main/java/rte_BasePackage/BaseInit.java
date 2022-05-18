@@ -302,7 +302,8 @@ public class BaseInit {
 		highLight(isElementPresent("Login_id"), driver);
 		isElementPresent("Login_id").click();
 		logs.info("Login done");
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(text(),'Logging In...')]")));
+		wait.until(
+				ExpectedConditions.invisibilityOfElementLocated(By.xpath("//span[contains(text(),'Logging In...')]")));
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("welcomecontent")));
 
@@ -321,7 +322,6 @@ public class BaseInit {
 		highLight(LogOut, driver);
 		js.executeScript("arguments[0].click();", LogOut);
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("login")));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@ng-bind=\"LogoutMessage\"]")));
 		String LogOutMsg = isElementPresent("LogOutMsg_xpath").getText();
 		logs.info("Logout Message is displayed==" + LogOutMsg);

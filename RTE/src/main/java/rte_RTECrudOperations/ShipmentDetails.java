@@ -43,18 +43,6 @@ public class ShipmentDetails extends BaseInit {
 					.visibilityOfAllElementsLocatedBy(By.xpath("//*[@ng-form=\"RouteShipmentform\"]")));
 			getScreenshot(driver, "ShipmentDetails");
 
-			// --Add/view Memo
-			addViewMemo();
-
-			// --Upload
-			upload();
-
-			// --Notification
-			viewNotification();
-
-			// --Notify
-			rteNotify();
-
 			// --Enter PickUp Instruction
 			WebElement PUInst = isElementPresent("TLESPicIns_id");
 			act.moveToElement(PUInst).click().perform();
@@ -702,16 +690,26 @@ public class ShipmentDetails extends BaseInit {
 
 	public void rteUnMerge() throws IOException {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
-		// JavascriptExecutor js = (JavascriptExecutor) driver;
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 		// Actions act = new Actions(driver);
 		logs.info("=========RTE UnMerge Test Start============");
 		msg.append("=========RTE UnMerge Test Start===========" + "\n");
 
 		// --Click on UnMerge link
-		isElementPresent("TLSUnMerge_xpath").click();
-		logs.info("Clicked on UnMerge linktext");
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+		try {
+			WebElement UnMerge = isElementPresent("TLSUnMerge_xpath");
+			js.executeScript("arguments[0].scrollIntoView();", UnMerge);
+			UnMerge.click();
+			logs.info("Clicked on UnMerge linktext");
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+		} catch (Exception Umerge) {
+			WebElement UnMerge = isElementPresent("TLEJUnmerge_xpath");
+			js.executeScript("arguments[0].scrollIntoView();", UnMerge);
+			UnMerge.click();
+			logs.info("Clicked on UnMerge linktext");
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
+		}
 		try {
 			wait.until(
 					ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@class=\"ngdialog-content\"]")));
@@ -728,7 +726,44 @@ public class ShipmentDetails extends BaseInit {
 
 		} catch (Exception UnMerge) {
 			logs.info("Able to UnMerge");
+			wait.until(ExpectedConditions
+					.visibilityOfAllElementsLocatedBy(By.xpath("//*[@ng-form=\"UnmergeShipmentForm\"]")));
+			getScreenshot(driver, "UnMerge");
 
+			// --By Default Create New LOC is selected
+
+			// --Click on Save
+			isElementPresent("TLUnMergeSave_id").click();
+			logs.info("Clicked on Save button");
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+			try {
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("successMsgRTE")));
+				String SuccMsg = isElementPresent("TLUNMSuccMSG_id").getText();
+				logs.info("Message==" + SuccMsg);
+
+				if (SuccMsg.contains("is unmerged successfully to LOC Service")) {
+					logs.info("LOC service is created and shipment is unmerged");
+
+					// --get the pickup id from message
+					String inLine = SuccMsg;
+					String[] lineSplits = inLine.split("\\#");
+					String[] lineDetails = lineSplits[1].split(" ");
+					String PickUpID = lineDetails[1].trim();
+					logs.info("PickUpID is==" + PickUpID);
+
+					setData("LocJob", 1, 0, PickUpID);
+
+					// --CLick on Cancel
+					isElementPresent("TLUnMergeCancel_id").click();
+					logs.info("Clicked on Cancel button");
+					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+				}
+
+			} catch (Exception e) {
+
+			}
 		}
 	}
 
