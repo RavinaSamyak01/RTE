@@ -1,62 +1,116 @@
-2022-05-18 18:17:05,195 - RTECrudOperations -INFO - initialization of the properties file is done
-2022-05-18 18:17:05,489 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Using chromedriver 101.0.4951.41 (since Google Chrome 101 is installed in your machine)
-2022-05-18 18:17:05,503 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Exporting webdriver.chrome.driver as C:\Users\rprajapati\.m2\repository\webdriver\chromedriver\win32\101.0.4951.41\chromedriver.exe
-2022-05-18 18:17:15,555 - RTECrudOperations -INFO - Entered UserName
-2022-05-18 18:17:16,663 - RTECrudOperations -INFO - Entered Password
-2022-05-18 18:17:17,801 - RTECrudOperations -INFO - Login done
-2022-05-18 18:17:30,130 - RTECrudOperations -INFO - ======================RTE Crud Operations Test Start==================
-2022-05-18 18:17:30,384 - RTECrudOperations -INFO - Clicked on Operations
-2022-05-18 18:17:30,547 - RTECrudOperations -INFO - Clicked on TaskLog
-2022-05-18 18:17:33,365 - RTECrudOperations -INFO - Entered PickUpID in basic search
-2022-05-18 18:17:33,512 - RTECrudOperations -INFO - Click on Search button
-2022-05-18 18:17:37,093 - RTECrudOperations -INFO - Data is exist with search parameter
-2022-05-18 18:17:37,316 - RTECrudOperations -INFO - Job status tab is already Opened
-2022-05-18 18:17:37,431 - RTECrudOperations -INFO - Job status is==TC ACK
-2022-05-18 18:17:37,432 - RTECrudOperations -INFO - It is TC ACK stage
-2022-05-18 18:17:37,571 - RTECrudOperations -INFO - ======================RTE Edit Job Test Start==================
-2022-05-18 18:17:37,689 - RTECrudOperations -INFO - Clicked on Edit Job tab
-2022-05-18 18:17:42,170 - RTECrudOperations -INFO - =========RTE Add/Edit Stop Sequence Test Start============
-2022-05-18 18:17:42,193 - RTECrudOperations -INFO - Total Shipment Stop==1
-2022-05-18 18:17:42,297 - RTECrudOperations -INFO - Clicked on Add Stop Sequence
-2022-05-18 18:17:45,782 - RTECrudOperations -INFO - Enter Pickup Stop
-2022-05-18 18:17:46,109 - RTECrudOperations -INFO - Enter Delivery Stop
-2022-05-18 18:17:46,278 - RTECrudOperations -INFO - Enter Address
-2022-05-18 18:17:46,447 - RTECrudOperations -INFO - Enter Company
-2022-05-18 18:17:46,598 - RTECrudOperations -INFO - Enter ZipCode
-2022-05-18 18:17:46,639 - RTECrudOperations -INFO - ZoneID of is==CDT
-2022-05-18 18:17:46,682 - RTECrudOperations -INFO - 05/18/2022
-2022-05-18 18:17:46,827 - RTECrudOperations -INFO - Entered SCH Date
-2022-05-18 18:17:46,873 - RTECrudOperations -INFO - 07:47
-2022-05-18 18:17:46,996 - RTECrudOperations -INFO - Entered SCH Time
-2022-05-18 18:17:47,043 - RTECrudOperations -INFO - 05/18/2022
-2022-05-18 18:17:47,181 - RTECrudOperations -INFO - Entered SCH Date
-2022-05-18 18:17:47,232 - RTECrudOperations -INFO - 07:47
-2022-05-18 18:17:47,358 - RTECrudOperations -INFO - Entered SCH Time
-2022-05-18 18:17:47,513 - RTECrudOperations -INFO - Enter Weight
-2022-05-18 18:17:47,662 - RTECrudOperations -INFO - Enter Length
-2022-05-18 18:17:47,810 - RTECrudOperations -INFO - Enter Width
-2022-05-18 18:17:47,957 - RTECrudOperations -INFO - Enter Height
-2022-05-18 18:17:48,031 - RTECrudOperations -INFO - Click on Save
-2022-05-18 18:17:49,273 - RTECrudOperations -INFO - Validation is displayed==Delivery Quoted time cannot be less than Pickup Quoted time.
-2022-05-18 18:17:49,362 - RTECrudOperations -INFO - 05/18/2022
-2022-05-18 18:17:49,494 - RTECrudOperations -INFO - Entered PickUp Date
-2022-05-18 18:17:49,545 - RTECrudOperations -INFO - 06:47
-2022-05-18 18:17:49,695 - RTECrudOperations -INFO - Entered Actual PickUp Time
-2022-05-18 18:17:49,747 - RTECrudOperations -INFO - Click on Save
-2022-05-18 18:18:51,243 - RTECrudOperations -INFO - Validation is not displayed, everything is as per expected
-2022-05-18 18:18:51,260 - RTECrudOperations -INFO - Total Shipment Stop after new added==2
-2022-05-18 18:18:51,260 - RTECrudOperations -INFO - New Stop added successfully
-2022-05-18 18:18:51,416 - RTECrudOperations -INFO - Clicked on Edit Stop Sequence
-2022-05-18 18:18:51,831 - RTECrudOperations -INFO - Edit PUStop
-2022-05-18 18:18:51,979 - RTECrudOperations -INFO - Edit DelStop
-2022-05-18 18:18:52,106 - RTECrudOperations -INFO - Edit PUStop
-2022-05-18 18:18:52,231 - RTECrudOperations -INFO - Edit DelStop
-2022-05-18 18:18:52,291 - RTECrudOperations -INFO - Clicked on Save changes
-2022-05-18 18:18:59,614 - RTECrudOperations -INFO - =========RTE Add/Edit Stop Sequence Test End============
-2022-05-18 18:18:59,621 - RTECrudOperations -INFO - =========RTE UnMerge Test Start============
-2022-05-18 18:18:59,721 - RTECrudOperations -INFO - Clicked on UnMerge linktext
-2022-05-18 18:19:50,834 - RTECrudOperations -INFO - Able to UnMerge
-2022-05-18 18:19:51,085 - RTECrudOperations -INFO - Clicked on Save button
-2022-05-18 18:19:55,647 - RTECrudOperations -INFO - Message==Pickup# 3410519 is unmerged successfully to LOC Service.
-2022-05-18 18:19:55,647 - RTECrudOperations -INFO - LOC service is created and shipment is unmerged
-2022-05-18 18:20:00,902 - RTECrudOperations -INFO - PickUpID is==3410519
+2022-05-19 14:22:37,696 - RTEJobProcessing -INFO - initialization of the properties file is done
+2022-05-19 14:22:38,031 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Using chromedriver 101.0.4951.41 (since Google Chrome 101 is installed in your machine)
+2022-05-19 14:22:38,048 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Exporting webdriver.chrome.driver as C:\WINDOWS\system32\config\systemprofile\.m2\repository\webdriver\chromedriver\win32\101.0.4951.41\chromedriver.exe
+2022-05-19 14:22:46,597 - RTEJobProcessing -INFO - Entered UserName
+2022-05-19 14:22:47,781 - RTEJobProcessing -INFO - Entered Password
+2022-05-19 14:22:48,979 - RTEJobProcessing -INFO - Login done
+2022-05-19 14:23:04,893 - RTEJobProcessing -INFO - ======================RTE get RWTrackingNo Test start==================
+2022-05-19 14:23:05,155 - RTEJobProcessing -INFO - Clicked on Tools
+2022-05-19 14:23:05,348 - RTEJobProcessing -INFO - Clicked on RouteList
+2022-05-19 14:23:09,815 - RTEJobProcessing -INFO - Total Rows==3
+2022-05-19 14:23:10,217 - RTEJobProcessing -INFO - Entered RoutWorkID
+2022-05-19 14:23:10,373 - RTEJobProcessing -INFO - Click on Search button
+2022-05-19 14:24:01,417 - RTEJobProcessing -INFO - Data is exist with search parameter
+2022-05-19 14:24:01,463 - RTEJobProcessing -INFO - RWTrackingNo is generated
+2022-05-19 14:24:01,484 - RTEJobProcessing -INFO - RWTrackingNo is ==126109069
+2022-05-19 14:24:01,786 - RTEJobProcessing -INFO - Inserted RWTrackingNo in Excel
+2022-05-19 14:24:02,095 - RTEJobProcessing -INFO - Entered RoutWorkID
+2022-05-19 14:24:02,193 - RTEJobProcessing -INFO - Click on Search button
+2022-05-19 14:24:53,445 - RTEJobProcessing -INFO - Data is exist with search parameter
+2022-05-19 14:24:53,472 - RTEJobProcessing -INFO - RWTrackingNo is generated
+2022-05-19 14:24:53,497 - RTEJobProcessing -INFO - RWTrackingNo is ==126109081
+2022-05-19 14:24:53,605 - RTEJobProcessing -INFO - Inserted RWTrackingNo in Excel
+2022-05-19 14:24:53,605 - RTEJobProcessing -INFO - ======================RTE get RWTrackingNo Test End==================
+2022-05-19 14:24:53,607 - RTEJobProcessing -INFO - ======================RTE Job Search Test start==================
+2022-05-19 14:24:53,844 - RTEJobProcessing -INFO - Clicked on Operations
+2022-05-19 14:24:54,038 - RTEJobProcessing -INFO - Clicked on TaskLog
+2022-05-19 14:24:56,472 - RTEJobProcessing -INFO - Total Rows==3
+2022-05-19 14:24:56,591 - RTEJobProcessing -INFO - Clicked on SearchAllJobs
+2022-05-19 14:24:59,071 - RTEJobProcessing -INFO - Clicked on Reset button
+2022-05-19 14:24:59,284 - RTEJobProcessing -INFO - Entered RouteTrackingID
+2022-05-19 14:24:59,385 - RTEJobProcessing -INFO - Click on Search button
+2022-05-19 14:25:50,575 - RTEJobProcessing -INFO - Data is exist with search parameter
+2022-05-19 14:25:50,607 - RTEJobProcessing -INFO - Total No of records are==1
+2022-05-19 14:25:50,722 - RTEJobProcessing -INFO - JobID is==32406476
+2022-05-19 14:25:50,774 - RTEJobProcessing -INFO - PickUpID is==3411714
+2022-05-19 14:25:50,842 - RTEJobProcessing -INFO - BOLNo is==126109070
+2022-05-19 14:25:51,033 - RTEJobProcessing -INFO - Clicked on Record
+2022-05-19 14:25:55,414 - RTEJobProcessing -INFO - Clicked on Exit without Save
+2022-05-19 14:25:56,775 - RTEJobProcessing -INFO - Entered PickUpID in basic search
+2022-05-19 14:25:56,913 - RTEJobProcessing -INFO - Click on Search button
+2022-05-19 14:25:59,953 - RTEJobProcessing -INFO - Data is exist with search parameter
+2022-05-19 14:26:00,192 - RTEJobProcessing -INFO - Clicked on Exit without Save
+2022-05-19 14:26:01,536 - RTEJobProcessing -INFO - Clicked on SearchAllJobs
+2022-05-19 14:26:02,848 - RTEJobProcessing -INFO - Clicked on Reset button
+2022-05-19 14:26:03,042 - RTEJobProcessing -INFO - Entered RouteTrackingID
+2022-05-19 14:26:03,152 - RTEJobProcessing -INFO - Click on Search button
+2022-05-19 14:26:53,882 - RTEJobProcessing -INFO - Data is exist with search parameter
+2022-05-19 14:26:53,900 - RTEJobProcessing -INFO - Total No of records are==1
+2022-05-19 14:26:53,992 - RTEJobProcessing -INFO - JobID is==32406477
+2022-05-19 14:26:54,040 - RTEJobProcessing -INFO - PickUpID is==3411715
+2022-05-19 14:26:54,111 - RTEJobProcessing -INFO - BOLNo is==126109092
+2022-05-19 14:26:54,404 - RTEJobProcessing -INFO - Clicked on Record
+2022-05-19 14:26:57,053 - RTEJobProcessing -INFO - Clicked on Exit without Save
+2022-05-19 14:26:58,383 - RTEJobProcessing -INFO - Entered PickUpID in basic search
+2022-05-19 14:26:58,579 - RTEJobProcessing -INFO - Click on Search button
+2022-05-19 14:27:01,550 - RTEJobProcessing -INFO - Data is exist with search parameter
+2022-05-19 14:27:01,744 - RTEJobProcessing -INFO - Clicked on Exit without Save
+2022-05-19 14:27:02,902 - RTEJobProcessing -INFO - ======================RTE Job Search Test End==================
+2022-05-19 14:27:02,936 - RTEJobProcessing -INFO - ======================RTE Order Processing Test Start==================
+2022-05-19 14:27:03,121 - RTEJobProcessing -INFO - Clicked on Operations
+2022-05-19 14:27:03,281 - RTEJobProcessing -INFO - Clicked on TaskLog
+2022-05-19 14:27:03,463 - RTEJobProcessing -INFO - Entered PickUpID in basic search
+2022-05-19 14:27:03,592 - RTEJobProcessing -INFO - Click on Search button
+2022-05-19 14:27:06,497 - RTEJobProcessing -INFO - Data is exist with search parameter
+2022-05-19 14:27:06,653 - RTEJobProcessing -INFO - Job status tab is already Opened
+2022-05-19 14:27:06,710 - RTEJobProcessing -INFO - Job status is==TC ACK
+2022-05-19 14:27:06,710 - RTEJobProcessing -INFO - It is TC ACK stage
+2022-05-19 14:27:06,914 - RTEJobProcessing -INFO - Clicked on Acknowledge button
+2022-05-19 14:27:20,740 - RTEJobProcessing -INFO - Job status is==RDY FOR DSP
+2022-05-19 14:27:20,848 - RTEJobProcessing -INFO - Clicked on Send PU Alert button
+2022-05-19 14:28:15,565 - RTEJobProcessing -INFO - Spoke With validation is not displayed
+2022-05-19 14:28:15,716 - RTEJobProcessing -INFO - Entered PickUpID in basic search
+2022-05-19 14:28:15,869 - RTEJobProcessing -INFO - Click on Search button
+2022-05-19 14:28:19,366 - RTEJobProcessing -INFO - Data is exist with search parameter
+2022-05-19 14:28:19,599 - RTEJobProcessing -INFO - Clicked on Job Status Tab
+2022-05-19 14:28:19,695 - RTEJobProcessing -INFO - Job status is==PU DRV CONF
+2022-05-19 14:28:19,764 - RTEJobProcessing -INFO - Clicked on Confirm PU Alert
+2022-05-19 14:28:19,870 - RTEJobProcessing -INFO - Validation is displayed==Spoke With Required.
+2022-05-19 14:28:19,999 - RTEJobProcessing -INFO - Entered Spoke With
+2022-05-19 14:28:20,057 - RTEJobProcessing -INFO - Clicked on Confirm PU Alert
+2022-05-19 14:28:33,460 - RTEJobProcessing -INFO - Job status is==PICKUP@STOP 1 OF 2
+2022-05-19 14:28:33,580 - RTEJobProcessing -INFO - Clicked on Confirm PU button
+2022-05-19 14:28:33,675 - RTEJobProcessing -INFO - Validation is displayed==Act. Pickup Time is Required.
+2022-05-19 14:28:33,712 - RTEJobProcessing -INFO - ZoneID of is==CDT
+2022-05-19 14:28:33,799 - RTEJobProcessing -INFO - 05/19/2022
+2022-05-19 14:28:33,949 - RTEJobProcessing -INFO - Entered Actual Pickup Date
+2022-05-19 14:28:34,015 - RTEJobProcessing -INFO - 03:58
+2022-05-19 14:28:34,107 - RTEJobProcessing -INFO - Entered Actual Pickup Time
+2022-05-19 14:28:34,159 - RTEJobProcessing -INFO - Clicked on Confirm PU button
+2022-05-19 14:28:47,258 - RTEJobProcessing -INFO - Job status is==DELIVER@STOP 2 OF 2
+2022-05-19 14:28:47,389 - RTEJobProcessing -INFO - Clicked on Confirm DEL button
+2022-05-19 14:28:47,485 - RTEJobProcessing -INFO - Validation is displayed==Act. Delivery Time is Required.
+Signature is required.
+2022-05-19 14:28:47,517 - RTEJobProcessing -INFO - ZoneID of is==CDT
+2022-05-19 14:28:47,587 - RTEJobProcessing -INFO - 05/19/2022
+2022-05-19 14:28:47,716 - RTEJobProcessing -INFO - Entered Actual Delivery Date
+2022-05-19 14:28:47,772 - RTEJobProcessing -INFO - 03:58
+2022-05-19 14:28:47,887 - RTEJobProcessing -INFO - Entered Actual Delivery Time
+2022-05-19 14:28:48,037 - RTEJobProcessing -INFO - Entered Signature
+2022-05-19 14:28:48,133 - RTEJobProcessing -INFO - Clicked on Confirm DEL button
+2022-05-19 14:28:48,817 - RTEJobProcessing -INFO - Validation is displayed==Actual Delivery Datetime cannot be less than or equal to Actual Pickup Datetime.
+2022-05-19 14:28:48,838 - RTEJobProcessing -INFO - ZoneID of is==CDT
+2022-05-19 14:28:48,899 - RTEJobProcessing -INFO - 05/19/2022
+2022-05-19 14:28:49,061 - RTEJobProcessing -INFO - Entered Actual Delivery Date
+2022-05-19 14:28:49,101 - RTEJobProcessing -INFO - 03:59
+2022-05-19 14:28:49,224 - RTEJobProcessing -INFO - Entered Actual Delivery Time
+2022-05-19 14:28:49,288 - RTEJobProcessing -INFO - Clicked on Confirm DEL button
+2022-05-19 14:28:53,421 - RTEJobProcessing -INFO - Entered PickUpID in basic search
+2022-05-19 14:28:53,547 - RTEJobProcessing -INFO - Click on Search button
+2022-05-19 14:28:58,073 - RTEJobProcessing -INFO - Data is exist with search parameter
+2022-05-19 14:28:58,244 - RTEJobProcessing -INFO - Job status is==DELIVERED@STOP 2 OF 2
+2022-05-19 14:28:58,244 - RTEJobProcessing -INFO - Job is Delivered successfully
+2022-05-19 14:28:58,244 - RTEJobProcessing -INFO - ======================RTE Order Processing Test End==================
+2022-05-19 14:29:02,810 - RTEJobProcessing -INFO - Logout Message is displayed==You have successfully logged out!
+2022-05-19 14:29:02,810 - RTEJobProcessing -INFO - Logout done
+2022-05-19 14:29:03,674 - RTEJobProcessing -INFO - ====Sending Email=====
