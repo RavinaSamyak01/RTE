@@ -5,6 +5,9 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -26,65 +29,84 @@ public class ShipmentDetails extends BaseInit {
 		msg.append("======================RTE Shipment Details Test Start==================" + "\n");
 
 		// --Click on Shipment No.
-		// try {
-		WebElement Shipment = isElementPresent("TLEdShip_id");
-		act.moveToElement(Shipment).build().perform();
-		Thread.sleep(2000);
-		if (Shipment.isDisplayed()) {
-			logs.info("Shipment is exist in the RTE Job");
-
-			rteUnMerge();
-
-			act.moveToElement(Shipment).click().perform();
-			logs.info("Clicked on ShipmentNO==" + Shipment.getText());
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
-			wait.until(ExpectedConditions
-					.visibilityOfAllElementsLocatedBy(By.xpath("//*[@ng-form=\"RouteShipmentform\"]")));
-			getScreenshot(driver, "ShipmentDetails");
-
-			// --Enter PickUp Instruction
-			WebElement PUInst = isElementPresent("TLESPicIns_id");
-			act.moveToElement(PUInst).click().perform();
+		try {
+			WebElement Shipment = isElementPresent("TLEdShip_id");
+			act.moveToElement(Shipment).build().perform();
 			Thread.sleep(2000);
-			PUInst.clear();
-			PUInst.sendKeys("PickUp instruction for Automation Testing");
-			logs.info("Entered Pickup Instruction");
+			if (Shipment.isDisplayed()) {
+				logs.info("Shipment is exist in the RTE Job");
 
-			// --Enter Deliver Instruction
-			WebElement DelInst = isElementPresent("TLESDelIns_id");
-			act.moveToElement(DelInst).click().perform();
-			Thread.sleep(2000);
-			DelInst.clear();
-			DelInst.sendKeys("Delivery instruction for Automation Testing");
-			logs.info("Entered Delivery Instruction");
+				act.moveToElement(Shipment).click().perform();
+				logs.info("Clicked on ShipmentNO==" + Shipment.getText());
+				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-			// --Save button
-			isElementPresent("TLESSave_id").click();
-			logs.info("Clicked on Save button");
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+				wait.until(ExpectedConditions
+						.visibilityOfAllElementsLocatedBy(By.xpath("//*[@ng-form=\"RouteShipmentform\"]")));
+				getScreenshot(driver, "ShipmentDetails");
 
-			// --Click on Memo
-			addViewMemo();
+				// --Enter PickUp Instruction
+				WebElement PUInst = isElementPresent("TLESPicIns_id");
+				act.moveToElement(PUInst).click().perform();
+				Thread.sleep(2000);
+				PUInst.clear();
+				PUInst.sendKeys("PickUp instruction for Automation Testing");
+				logs.info("Entered Pickup Instruction");
 
-			// --Click on Upload
-			upload();
+				// --Enter Deliver Instruction
+				WebElement DelInst = isElementPresent("TLESDelIns_id");
+				act.moveToElement(DelInst).click().perform();
+				Thread.sleep(2000);
+				DelInst.clear();
+				DelInst.sendKeys("Delivery instruction for Automation Testing");
+				logs.info("Entered Delivery Instruction");
 
-			// --Click on QC
-			rteQC();
+				// --Save button
+				isElementPresent("TLESSave_id").click();
+				logs.info("Clicked on Save button");
+				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-			// --Click on UnMerge
-			rteUnMerge();
+				try {
+					wait.until(
+							ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@ng-message=\"required\"]")));
+					String ValMsg = isElementPresent("ASRequMsg_xpath").getText();
+					if (ValMsg.contains("Required")) {
+						logs.info("Validation is displayed==" + ValMsg);
+
+						// --Enter pickupPhone
+						isElementPresent("ASDPUPhone_id").clear();
+						isElementPresent("ASDPUPhone_id").sendKeys("1234567899");
+						logs.info("Enter PickUp Phone");
+
+						// --Save button
+						isElementPresent("TLESSave_id").click();
+						logs.info("Clicked on Save button");
+						wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+					}
+				} catch (Exception Phone) {
+					logs.info("Validation is not displayed, everything is as per expected");
+
+				}
+				// --Click on Upload
+				upload();
+
+				// --Click on Memo
+				addViewMemo();
+
+				// --Click on QC
+				rteQC();
+
+				// --Click on UnMerge
+				rteUnMerge();
+
+			}
+
+		} catch (
+
+		Exception Shipment) {
+			logs.info("Shipment is not exist in the RTE Job");
 
 		}
-
-		/*
-		 * } catch (
-		 * 
-		 * Exception Shipment) { logs.info("Shipment is not exist in the RTE Job");
-		 * 
-		 * }
-		 */
 
 		logs.info("======================RTE Shipment Details Test End==================");
 		msg.append("======================RTE Shipment Details Test End==================" + "\n");
@@ -178,7 +200,7 @@ public class ShipmentDetails extends BaseInit {
 	public void upload() throws IOException, InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		// Actions act = new Actions(driver);
+		Actions act = new Actions(driver);
 		logs.info("=========RTE Upload Test Start============");
 		msg.append("=========RTE Upload Test Start===========" + "\n");
 
@@ -192,14 +214,27 @@ public class ShipmentDetails extends BaseInit {
 					ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@ng-form=\"DocDetailsForm\"]")));
 			getScreenshot(driver, "ShipEditUpload");
 		} catch (Exception Upload) {
-			// --Click on Upload link
-			isElementPresent("TLSUpload_xpath").click();
-			logs.info("Clicked on Upload linktext");
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+			try {
+				WebElement UploadLink = isElementPresent("TLSUpload_xpath");
+				wait.until(ExpectedConditions.elementToBeClickable(UploadLink));
+				act.moveToElement(UploadLink).build().perform();
+				act.moveToElement(UploadLink).click().perform();
+				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-			wait.until(
-					ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@ng-form=\"DocDetailsForm\"]")));
-			getScreenshot(driver, "Upload");
+				wait.until(ExpectedConditions
+						.visibilityOfAllElementsLocatedBy(By.xpath("//*[@ng-form=\"DocDetailsForm\"]")));
+				getScreenshot(driver, "Upload");
+			} catch (Exception click) {
+				WebElement UploadLink = isElementPresent("TLSUpload_xpath");
+				wait.until(ExpectedConditions.elementToBeClickable(UploadLink));
+				js.executeScript("arguments[0].click();", UploadLink);
+				logs.info("Clicked on Upload linktext");
+				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+				wait.until(ExpectedConditions
+						.visibilityOfAllElementsLocatedBy(By.xpath("//*[@ng-form=\"DocDetailsForm\"]")));
+				getScreenshot(driver, "Upload");
+			}
 
 		}
 		// --CHeck if doc is added
@@ -266,7 +301,8 @@ public class ShipmentDetails extends BaseInit {
 		Thread.sleep(2000);
 
 		// --Click on Upload File
-		isElementPresent("UploadFile_id").click();
+		WebElement UploadFile = isElementPresent("UploadFile_id");
+		js.executeScript("arguments[0].click();", UploadFile);
 		logs.info("Click on Upload file");
 		Thread.sleep(2000);
 
@@ -278,7 +314,8 @@ public class ShipmentDetails extends BaseInit {
 		Thread.sleep(2000);
 
 		// --Click on Upload btn
-		isElementPresent("Uploadbtn_id").click();
+		WebElement UploadBTN = isElementPresent("Uploadbtn_id");
+		js.executeScript("arguments[0].click();", UploadBTN);
 		logs.info("Clicked on Upload button");
 
 		Thread.sleep(2000);
@@ -292,7 +329,8 @@ public class ShipmentDetails extends BaseInit {
 		}
 
 		// --CLick on Save&Close
-		isElementPresent("UploadSaveClose_id").click();
+		WebElement SaveClose = isElementPresent("UploadSaveClose_id");
+		js.executeScript("arguments[0].click();", SaveClose);
 		logs.info("Click on Save&Close button");
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
@@ -650,12 +688,27 @@ public class ShipmentDetails extends BaseInit {
 		getScreenshot(driver, "AddedQC");
 
 		// --Enter Confirm Note
-		isElementPresent("TLQCConfirmNote_id").clear();
-		isElementPresent("TLQCConfirmNote_id").sendKeys("Issue Confirmed");
-		logs.info("Entered Confirm Note");
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-		isElementPresent("TLQCConfirmNote_id").sendKeys(Keys.TAB);
-		isElementPresent("TLQCConfirmNote_id").sendKeys(Keys.TAB);
+		try {
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("idobjresolution0")));
+			wait.until(ExpectedConditions.elementToBeClickable(By.id("idobjresolution0")));
+			isElementPresent("TLQCConfirmNote0_id").clear();
+			isElementPresent("TLQCConfirmNote0_id").sendKeys("Issue Confirmed");
+			logs.info("Entered Confirm Note");
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+			isElementPresent("TLQCConfirmNote0_id").sendKeys(Keys.TAB);
+			isElementPresent("TLQCConfirmNote0_id").sendKeys(Keys.TAB);
+		} catch (Exception ID) {
+
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("idobjresolution1")));
+			wait.until(ExpectedConditions.elementToBeClickable(By.id("idobjresolution1")));
+			isElementPresent("TLQCConfirmNote1_id").clear();
+			isElementPresent("TLQCConfirmNote1_id").sendKeys("Issue Confirmed");
+			logs.info("Entered Confirm Note");
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+			isElementPresent("TLQCConfirmNote1_id").sendKeys(Keys.TAB);
+			isElementPresent("TLQCConfirmNote1_id").sendKeys(Keys.TAB);
+
+		}
 
 		// --Select status
 		Select QCStatus = new Select(isElementPresent("TLQCStatus_xpath"));
@@ -762,9 +815,72 @@ public class ShipmentDetails extends BaseInit {
 				}
 
 			} catch (Exception e) {
+				logs.info("LOC service is not created and shipment is not unmerged");
 
 			}
+
+			logs.info("=========RTE UnMerge Test End============");
+			msg.append("=========RTE UnMerge Test End===========" + "\n");
 		}
+	}
+
+	public void searchcreatedLOCJob() throws EncryptedDocumentException, InvalidFormatException, IOException {
+		WebDriverWait wait = new WebDriverWait(driver, 50);
+		// JavascriptExecutor js = (JavascriptExecutor) driver;
+		Actions act = new Actions(driver);
+		logs.info("=========RTE Search LOC job Test Start============");
+		msg.append("=========RTE Search LOC job Test Start===========" + "\n");
+
+		// --Get pickedupID
+
+		// --Go To Operations
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("a_operations")));
+		WebElement Operations = isElementPresent("OperationsTab_id");
+		act.moveToElement(Operations).click().perform();
+		logs.info("Clicked on Operations");
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+		wait.until(ExpectedConditions
+				.visibilityOfAllElementsLocatedBy(By.xpath("//*[@class=\"OpenCloseClass dropdown open\"]//ul")));
+
+		// --Go to TaskLog
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("a_TaskLog")));
+		isElementPresent("TaskLog_id").click();
+		logs.info("Clicked on TaskLog");
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+		// --Enter pickUpID
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("txtContains")));
+		String PickUpID = getData("LocJob", 1, 0);
+		isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
+		logs.info("Entered PickUpID in basic search");
+
+		// --Click on Search
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
+		isElementPresent("TLGlobSearch_id").click();
+		logs.info("Click on Search button");
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+		try {
+			WebElement NoData = isElementPresent("NoData_className");
+			wait.until(ExpectedConditions.visibilityOf(NoData));
+			if (NoData.isDisplayed()) {
+				logs.info("There is no Data with Search parameter");
+
+			}
+
+		} catch (Exception NoData) {
+			logs.info("Data is exist with search parameter");
+			logs.info("LOC job is created with Unmerged shipment");
+			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
+			getScreenshot(driver, "JobEditor_TCACK");
+
+			// --Job Status
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
+			String jobStatus = isElementPresent("TLStageLable_id").getText();
+			logs.info("Job status is==" + jobStatus);
+		}
+
 	}
 
 }

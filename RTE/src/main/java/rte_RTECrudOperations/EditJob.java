@@ -86,6 +86,14 @@ public class EditJob extends BaseInit {
 		// --Add/Delete Charges
 		addDeleteChargesRecal();
 
+		// --Move to Job STatus tab
+		// --Go to Edit Job
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("idJobOverview")));
+		isElementPresent("TLJobSTatus_id").click();
+		logs.info("Clicked on Job Status tab");
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
 	}
 
 	public void viewMemo() throws InterruptedException, IOException {
@@ -189,11 +197,20 @@ public class EditJob extends BaseInit {
 			logs.info("Note is==" + Note);
 			setData("Rate", RateRow, 4, Note);
 
-			// --Get the Scheduler
-			String Scheduler = RateDetails.get(Rate).findElement(By.xpath("td[contains(@aria-label,'Scheduler')]"))
-					.getText();
-			logs.info("Name of the Scheduler is==" + Scheduler);
-			setData("Rate", RateRow, 5, Scheduler);
+			try {
+				// --Get the Scheduler
+				String Scheduler = RateDetails.get(Rate).findElement(By.xpath("td[contains(@aria-label,'Scheduler')]"))
+						.getText();
+				logs.info("Name of the Scheduler is==" + Scheduler);
+				setData("Rate", RateRow, 5, Scheduler);
+
+			} catch (Exception UserScheduler) {
+				// --Get the User
+				String User = RateDetails.get(Rate).findElement(By.xpath("td[contains(@aria-label,'User')]")).getText();
+				logs.info("Name of the Scheduler is==" + User);
+				setData("Rate", RateRow, 5, User);
+
+			}
 
 			// --Get the RateProgramID
 			String RateProgramID = RateDetails.get(Rate)
@@ -567,8 +584,10 @@ public class EditJob extends BaseInit {
 				date = new Date();
 				dateFormat = new SimpleDateFormat("MM/dd/yyyy");
 				dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-				logs.info(dateFormat.format(date));
-				PUDate.sendKeys(dateFormat.format(date));
+				Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
+				cal.add(Calendar.DATE, -1);
+				logs.info(dateFormat.format(cal.getTime()));
+				PUDate.sendKeys(dateFormat.format(cal.getTime()));
 				PUDate.sendKeys(Keys.TAB);
 				logs.info("Entered PickUp Date");
 
@@ -578,7 +597,7 @@ public class EditJob extends BaseInit {
 				date = new Date();
 				dateFormat = new SimpleDateFormat("HH:mm");
 				dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-				Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
+				cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
 				cal.add(Calendar.MINUTE, -60);
 				logs.info(dateFormat.format(cal.getTime()));
 				wait.until(ExpectedConditions.elementToBeClickable(By.id("txtPUSCHACTTime")));

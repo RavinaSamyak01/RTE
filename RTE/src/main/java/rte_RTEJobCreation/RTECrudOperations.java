@@ -53,6 +53,7 @@ public class RTECrudOperations extends BaseInit {
 		wait.until(ExpectedConditions.elementToBeClickable(By.id("txtContains")));
 		String PickUpID = getData("SearchRTE", 2, 2);
 		isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
+		logs.info("PickUpID==" + PickUpID);
 		logs.info("Entered PickUpID in basic search");
 
 		// --Click on Search
@@ -105,13 +106,13 @@ public class RTECrudOperations extends BaseInit {
 				logs.info("It is TC ACK stage");
 				getScreenshot(driver, "JobEditor_TCACK");
 
+				// --Shipment Details
+				ShipmentDetails shipDetails = new ShipmentDetails();
+				shipDetails.rteShipmentDetails();
+
 				// --Edit Job Tab
 				EditJob Ejob = new EditJob();
 				Ejob.editJob();
-
-				// --Edit Shipment
-				ShipmentDetails shipDetails = new ShipmentDetails();
-				shipDetails.rteShipmentDetails();
 
 				// --Click on Acknowledge button
 				wait.until(ExpectedConditions.elementToBeClickable(By.id("GreyTick")));
@@ -1470,6 +1471,10 @@ public class RTECrudOperations extends BaseInit {
 			}
 
 		}
+
+		// --Search created LOC job
+		ShipmentDetails shipDetails = new ShipmentDetails();
+		shipDetails.searchcreatedLOCJob();
 
 		logs.info("======================RTE Crud Operations Test End==================");
 		msg.append("======================RTE Order Operations Test End==================" + "\n");
