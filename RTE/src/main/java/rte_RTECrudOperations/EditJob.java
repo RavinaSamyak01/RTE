@@ -51,21 +51,11 @@ public class EditJob extends BaseInit {
 		setData("Rate", 1, 1, PickupID);
 		setData("RouteDetail", 1, 1, PickupID);
 
-		// --Add/Edit Shipment
-		adEditStopSequence();
-
-		// --Click on UnMerge
-		ShipmentDetails SD = new ShipmentDetails();
-		SD.rteUnMerge();
-
-		// --Route/Shipment Details
-		routeShipmentDetails();
+		// --View Rate
+		viewRate();
 
 		// --View Memo
 		viewMemo();
-
-		// --View Rate
-		viewRate();
 
 		// --Print Label
 		printLabel();
@@ -73,8 +63,17 @@ public class EditJob extends BaseInit {
 		// --Route/Shipment Details
 		routeShipmentDetails();
 
+		// --MAP
+		rteMap();
+
+		// --Add/Edit Shipment
+		adEditStopSequence();
+
+		// --Click on UnMerge
+		ShipmentDetails SD = new ShipmentDetails();
+		SD.rteUnMerge();
+
 		// --Click on Memo
-		// ShipmentDetails SD = new ShipmentDetails();
 		SD.addViewMemo();
 
 		// --Click on Upload
@@ -396,7 +395,7 @@ public class EditJob extends BaseInit {
 						.findElements(By.xpath("div[contains(@ng-repeat,'ShipmentDetailList')]"));
 
 				int TotalShipment = SDetails.size();
-				logs.info("Total Route==" + TotalShipment);
+				logs.info("Total Shipment==" + TotalShipment);
 				for (int Shipment = 0; Shipment < TotalShipment; Shipment++) {
 					int ShipmentRow = Shipment + 1;
 
@@ -816,9 +815,121 @@ public class EditJob extends BaseInit {
 			logs.info("Charge is not deleted");
 
 		}
-
 		logs.info("=========RTE Customer Charges Test End============");
 		msg.append("=========RTE Customer Charges Test End===========" + "\n");
+
+	}
+
+	public void rteMap() throws IOException, InterruptedException {
+		WebDriverWait wait = new WebDriverWait(driver, 50);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		// Actions act = new Actions(driver);
+		logs.info("=========RTE Map Test Start============");
+		msg.append("=========RTE Map Test Start===========" + "\n");
+
+		List<WebElement> SDetails = driver.findElements(By.xpath("//div[contains(@ng-repeat,'ShipmentDetailList')]"));
+		int TotalShipment = SDetails.size();
+		logs.info("Total Shipment==" + TotalShipment);
+
+		// --Moved to Map
+		WebElement Map = isElementPresent("MaForm_id");
+		js.executeScript("arguments[0].scrollIntoView();", Map);
+		logs.info("Moved to Map form");
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+		getScreenshot(driver, "Map");
+
+		// --Map Details
+		String Maptext = isElementPresent("MapDetails_xpath").getText();
+		logs.info("Map Details==" + Maptext);
+
+		// --Total No of stops
+		wait.until(ExpectedConditions
+				.visibilityOfAllElementsLocatedBy(By.xpath("//*[@id=\"mapRw\"]//div[@role=\"button\"]")));
+		List<WebElement> Stops = driver.findElements(By.xpath("//*[@id=\"mapRw\"]//div[@role=\"button\"]"));
+		int TotalStops = Stops.size();
+		logs.info("Total stops==" + TotalStops);
+
+		if (TotalShipment == 1) {
+			if (TotalStops == 2) {
+				logs.info("Stops in the map is as per the shipment");
+				logs.info("Shipment==" + TotalShipment);
+				logs.info("Stops==" + TotalStops);
+			} else {
+				logs.info("Stops in the map is not as per the shipment");
+				logs.info("Shipment==" + TotalShipment);
+				logs.info("Stops==" + TotalStops);
+			}
+
+		} else if (TotalShipment > 1) {
+			if (TotalStops == TotalShipment + 1) {
+				logs.info("Stops in the map is as per the shipment");
+				logs.info("Shipment==" + TotalShipment);
+				logs.info("Stops==" + TotalStops);
+			} else {
+				logs.info("Stops in the map is not as per the shipment");
+				logs.info("Shipment==" + TotalShipment);
+				logs.info("Stops==" + TotalStops);
+			}
+		} else {
+			logs.info("Shipment is not exist");
+			logs.info("Shipment==" + TotalShipment);
+			logs.info("Stops==" + TotalStops);
+		}
+
+		// Click on stops one by one
+		for (int map = 0; map < TotalStops; map++) {
+			WebElement Stop = Stops.get(map);
+			js.executeScript("arguments[0].click();", Stop);
+			logs.info("Clicked on stop");
+			getScreenshot(driver, "MapStopdetails_" + map);
+
+		}
+
+		Stops = driver.findElements(By.xpath("//*[@id=\"mapRw\"]//div[@role=\"button\"]"));
+		TotalStops = Stops.size();
+		logs.info("Total stops==" + TotalStops);
+
+		// --Click on Full screen
+		WebElement FullScreen = isElementPresent("MapFullS_xpath");
+		js.executeScript("arguments[0].scrollIntoView();", FullScreen);
+		FullScreen.click();
+		logs.info("Clicked on Full screen of Map");
+		Thread.sleep(2000);
+		getScreenshot(driver, "MapFullScreen");
+
+		// --Exit full screen
+		// --Click on Full screen
+		FullScreen = isElementPresent("MapFullS_xpath");
+		js.executeScript("arguments[0].scrollIntoView();", FullScreen);
+		FullScreen.click();
+		logs.info("Clicked on Full screen of Map");
+		Thread.sleep(2000);
+
+		// --Click on Satelite
+		WebElement Satelite = isElementPresent("MapSatelte_xpath");
+		js.executeScript("arguments[0].scrollIntoView();", Satelite);
+		js.executeScript("arguments[0].click();", Satelite);
+		logs.info("Clicked on Satelite");
+		Thread.sleep(2000);
+
+		// --Click on Full screen
+		FullScreen = isElementPresent("MapFullS_xpath");
+		js.executeScript("arguments[0].scrollIntoView();", FullScreen);
+		FullScreen.click();
+		logs.info("Clicked on Full screen of Map Satelite");
+		Thread.sleep(2000);
+		getScreenshot(driver, "MapSateliteFullScreen");
+
+		// --Exit full screen
+		// --Click on Full screen
+		FullScreen = isElementPresent("MapFullS_xpath");
+		js.executeScript("arguments[0].scrollIntoView();", FullScreen);
+		FullScreen.click();
+		logs.info("Clicked on Full screen of Map Satelite");
+		Thread.sleep(2000);
+
+		logs.info("=========RTE Map Test End============");
+		msg.append("=========RTE Map Test End===========" + "\n");
 
 	}
 

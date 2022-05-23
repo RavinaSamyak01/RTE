@@ -17,10 +17,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
 import rte_BasePackage.BaseInit;
-import rte_RTECrudOperations.EditJob;
-import rte_RTECrudOperations.ShipmentDetails;
 
 public class RTEJobProcessing extends BaseInit {
 
@@ -106,14 +103,6 @@ public class RTEJobProcessing extends BaseInit {
 			if (jobStatus.contains("TC ACK")) {
 				logs.info("It is TC ACK stage");
 				getScreenshot(driver, "JobEditor_TCACK");
-
-				// --Shipment Details
-				ShipmentDetails shipDetails = new ShipmentDetails();
-				shipDetails.rteShipmentDetails();
-
-				// --Edit Job Tab
-				EditJob Ejob = new EditJob();
-				Ejob.editJob();
 
 				// --Click on Acknowledge button
 				wait.until(ExpectedConditions.elementToBeClickable(By.id("GreyTick")));
@@ -1478,7 +1467,7 @@ public class RTEJobProcessing extends BaseInit {
 
 	}
 
-	// @BeforeTest
+	@BeforeTest
 	public void getTrackPickUPID() throws EncryptedDocumentException, InvalidFormatException, IOException {
 		// --Get Tracking No
 		RTEGetTrackingNo TrackNo = new RTEGetTrackingNo();

@@ -18,6 +18,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import rte_BasePackage.BaseInit;
+import rte_RTECrudOperations.EditDriver;
 import rte_RTECrudOperations.EditJob;
 import rte_RTECrudOperations.ShipmentDetails;
 
@@ -106,17 +107,19 @@ public class RTECrudOperations extends BaseInit {
 				logs.info("It is TC ACK stage");
 				getScreenshot(driver, "JobEditor_TCACK");
 
-				// --Shipment Details
-				ShipmentDetails shipDetails = new ShipmentDetails();
-				shipDetails.rteShipmentDetails();
-
 				// --Edit Job Tab
 				EditJob Ejob = new EditJob();
 				Ejob.editJob();
 
+				// --Shipment Details
+				ShipmentDetails shipDetails = new ShipmentDetails();
+				shipDetails.rteShipmentDetails();
+
 				// --Click on Acknowledge button
 				wait.until(ExpectedConditions.elementToBeClickable(By.id("GreyTick")));
-				isElementPresent("TLAcknoldge_id").click();
+				WebElement TCACK = isElementPresent("TLAcknoldge_id");
+				act.moveToElement(TCACK).build().perform();
+				act.moveToElement(TCACK).click().perform();
 				logs.info("Clicked on Acknowledge button");
 				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
@@ -127,9 +130,15 @@ public class RTECrudOperations extends BaseInit {
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
 
+					// --Call Edit Driver
+					EditDriver EDriver = new EditDriver();
+					EDriver.rteEditDriver();
+
 					// --Click on SendPuAlert button
 					wait.until(ExpectedConditions.elementToBeClickable(By.id("WhiteTickAlert")));
-					isElementPresent("TLSendPUAl_id").click();
+					WebElement SenPUALert = isElementPresent("TLSendPUAl_id");
+					act.moveToElement(SenPUALert).build().perform();
+					act.moveToElement(SenPUALert).click().perform();
 					logs.info("Clicked on Send PU Alert button");
 					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
@@ -465,11 +474,19 @@ public class RTECrudOperations extends BaseInit {
 					getScreenshot(driver, "JobEditor_RDYFORDSP");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
+
+					// --Call Edit Driver
+					EditDriver EDriver = new EditDriver();
+					EDriver.rteEditDriver();
+
 					// --Click on SendPuAlert button
 					wait.until(ExpectedConditions.elementToBeClickable(By.id("WhiteTickAlert")));
-					isElementPresent("TLSendPUAl_id").click();
+					WebElement SenPUALert = isElementPresent("TLSendPUAl_id");
+					act.moveToElement(SenPUALert).build().perform();
+					act.moveToElement(SenPUALert).click().perform();
 					logs.info("Clicked on Send PU Alert button");
 					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
 					try {
 						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("idValidationforMain")));
 						String ValMsg = isElementPresent("TLAlValidation_id").getText();

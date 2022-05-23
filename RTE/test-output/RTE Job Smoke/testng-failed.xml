@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [RTE Job Smoke]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="RTE Job Processing(failed)">
+    <classes>
+      <class name="rte_RTEJobCreation.RTEJobProcessing">
+        <methods>
+          <include name="rteOrderProcess"/>
+          <include name="SendEmail"/>
+          <include name="getResult"/>
+          <include name="testMethodName"/>
+          <include name="beforeMethod"/>
+        </methods>
+      </class> <!-- rte_RTEJobCreation.RTEJobProcessing -->
+    </classes>
+  </test> <!-- RTE Job Processing(failed) -->
+</suite> <!-- Failed suite [RTE Job Smoke] -->
