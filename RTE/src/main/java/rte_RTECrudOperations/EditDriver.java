@@ -8,6 +8,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import rte_BasePackage.BaseInit;
@@ -76,13 +77,13 @@ public class EditDriver extends BaseInit {
 			List<WebElement> CheckBXSName = driver
 					.findElements(By.xpath("//*[@class=\"row form-group\"]//label[contains(@for,\"chkb\")]"));
 
-			String ChbName= null;
+			String ChbName = null;
 			for (int CHBName = Schb; CHBName < CheckBXSName.size();) {
 
-				 ChbName = CheckBXSName.get(CHBName).getText();
-					logs.info("Name of the checkbox is== " + ChbName);
-					break;
-				}
+				ChbName = CheckBXSName.get(CHBName).getText();
+				logs.info("Name of the checkbox is== " + ChbName);
+				break;
+			}
 
 			WebElement SCheckbox = SCheckboxes.get(Schb);
 			js.executeScript("arguments[0].click();", SCheckbox);
@@ -172,7 +173,7 @@ public class EditDriver extends BaseInit {
 		logs.info("Total Vehicles==" + TotalVehicle);
 
 		for (int veh = 0; veh < TotalVehicle; veh++) {
-			String VehName = DVehicles.get(veh).getAttribute("title");
+			String VehName = DVehicles.get(veh).findElement(By.tagName("i")).getAttribute("title");
 			logs.info("Name of the Vehicle==" + VehName);
 
 			String Vehicleclass = DVehicles.get(veh).findElement(By.tagName("i")).getAttribute("class");
@@ -182,6 +183,26 @@ public class EditDriver extends BaseInit {
 
 			}
 		}
+
+		// --Selection of driver
+
+		// --Select the driver name
+		Select DriverName = new Select(isElementPresent("PDNameDrp_id"));
+		DriverName.selectByIndex(1);
+		logs.info("Driver is selected");
+
+		// --Enter contact Number
+		isElementPresent("PDContact_id").clear();
+		isElementPresent("PDContact_id").sendKeys("1234567899");
+		logs.info("Enter driver contact number");
+
+		// --Select Toll Concession
+		Select TollCOn = new Select(isElementPresent("PDTollCon_id"));
+		TollCOn.selectByIndex(1);
+		logs.info("Toll Concession is selected");
+
+		logs.info("======================RTE Edit Driver Test End==================");
+		msg.append("======================RTE Edit Driver Test End==================" + "\n");
 
 	}
 

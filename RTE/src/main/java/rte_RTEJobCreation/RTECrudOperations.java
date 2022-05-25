@@ -116,9 +116,9 @@ public class RTECrudOperations extends BaseInit {
 				shipDetails.rteShipmentDetails();
 
 				// --Click on Acknowledge button
-				wait.until(ExpectedConditions.elementToBeClickable(By.id("GreyTick")));
 				WebElement TCACK = isElementPresent("TLAcknoldge_id");
 				act.moveToElement(TCACK).build().perform();
+				wait.until(ExpectedConditions.elementToBeClickable(By.id("GreyTick")));
 				act.moveToElement(TCACK).click().perform();
 				logs.info("Clicked on Acknowledge button");
 				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
@@ -135,9 +135,9 @@ public class RTECrudOperations extends BaseInit {
 					EDriver.rteEditDriver();
 
 					// --Click on SendPuAlert button
-					wait.until(ExpectedConditions.elementToBeClickable(By.id("WhiteTickAlert")));
 					WebElement SenPUALert = isElementPresent("TLSendPUAl_id");
 					act.moveToElement(SenPUALert).build().perform();
+					wait.until(ExpectedConditions.elementToBeClickable(By.id("WhiteTickAlert")));
 					act.moveToElement(SenPUALert).click().perform();
 					logs.info("Clicked on Send PU Alert button");
 					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
@@ -480,9 +480,9 @@ public class RTECrudOperations extends BaseInit {
 					EDriver.rteEditDriver();
 
 					// --Click on SendPuAlert button
-					wait.until(ExpectedConditions.elementToBeClickable(By.id("WhiteTickAlert")));
 					WebElement SenPUALert = isElementPresent("TLSendPUAl_id");
 					act.moveToElement(SenPUALert).build().perform();
+					wait.until(ExpectedConditions.elementToBeClickable(By.id("WhiteTickAlert")));
 					act.moveToElement(SenPUALert).click().perform();
 					logs.info("Clicked on Send PU Alert button");
 					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));

@@ -1,68 +1,112 @@
-2022-05-23 17:47:58,416 [main] INFO RTECrudOperations - initialization of the properties file is done
-2022-05-23 17:47:58,734 [main] INFO io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 101.0.4951.41 (since Google Chrome 101 is installed in your machine)
-2022-05-23 17:47:58,748 [main] INFO io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\Users\rprajapati\.m2\repository\webdriver\chromedriver\win32\101.0.4951.41\chromedriver.exe
-2022-05-23 17:48:07,029 [main] INFO RTECrudOperations - Entered UserName
-2022-05-23 17:48:08,145 [main] INFO RTECrudOperations - Entered Password
-2022-05-23 17:48:09,277 [main] INFO RTECrudOperations - Login done
-2022-05-23 17:48:25,958 [main] INFO RTECrudOperations - ======================RTE Crud Operations Test Start==================
-2022-05-23 17:48:26,157 [main] INFO RTECrudOperations - Clicked on Operations
-2022-05-23 17:48:26,296 [main] INFO RTECrudOperations - Clicked on TaskLog
-2022-05-23 17:48:29,115 [main] INFO RTECrudOperations - PickUpID==3416445
-2022-05-23 17:48:29,116 [main] INFO RTECrudOperations - Entered PickUpID in basic search
-2022-05-23 17:48:29,250 [main] INFO RTECrudOperations - Click on Search button
-2022-05-23 17:48:33,111 [main] INFO RTECrudOperations - Data is exist with search parameter
-2022-05-23 17:48:33,278 [main] INFO RTECrudOperations - Job status tab is already Opened
-2022-05-23 17:48:33,328 [main] INFO RTECrudOperations - Job status is==RDY FOR DSP
-2022-05-23 17:48:33,476 [main] INFO RTECrudOperations - Job status is==RDY FOR DSP
-2022-05-23 17:48:33,482 [main] INFO RTECrudOperations - ======================RTE Edit Driver Test Start==================
-2022-05-23 17:48:33,554 [main] INFO RTECrudOperations - Clicked on Edit button of Driver
-2022-05-23 17:48:34,952 [main] INFO RTECrudOperations - Enter Agent Key
-2022-05-23 17:48:35,009 [main] INFO RTECrudOperations - Clicked on search button
-2022-05-23 17:48:35,586 [main] INFO RTECrudOperations - Total Agent==11
-2022-05-23 17:48:35,751 [main] INFO RTECrudOperations - There is no Agent with search parameter
-2022-05-23 17:48:35,899 [main] INFO RTECrudOperations - There is no Agent with search parameter
-2022-05-23 17:48:36,049 [main] INFO RTECrudOperations - There is no Agent with search parameter
-2022-05-23 17:48:36,187 [main] INFO RTECrudOperations - There is no Agent with search parameter
-2022-05-23 17:48:36,322 [main] INFO RTECrudOperations - There is no Agent with search parameter
-2022-05-23 17:48:36,470 [main] INFO RTECrudOperations - There is no Agent with search parameter
-2022-05-23 17:48:36,609 [main] INFO RTECrudOperations - There is no Agent with search parameter
-2022-05-23 17:48:36,772 [main] INFO RTECrudOperations - There is no Agent with search parameter
-2022-05-23 17:48:36,937 [main] INFO RTECrudOperations - There is no Agent with search parameter
-2022-05-23 17:48:37,073 [main] INFO RTECrudOperations - There is no Agent with search parameter
-2022-05-23 17:48:37,244 [main] INFO RTECrudOperations - Searched Agent is exist
-2022-05-23 17:50:42,085 [main] INFO RTECrudOperations - Total Checkboxes==4
-2022-05-23 17:50:44,584 [main] INFO RTECrudOperations - Name of the checkbox is== Heavy Weight
-2022-05-23 17:50:46,204 [main] INFO RTECrudOperations - Clicked on Heavy Weight
-2022-05-23 17:50:48,415 [main] INFO RTECrudOperations - Clicked on search button
-2022-05-23 17:52:34,125 [main] INFO RTECrudOperations - Agent(s) is/are available with the search parameters
-2022-05-23 17:52:35,698 [main] INFO RTECrudOperations - Clicked on Heavy Weight
-2022-05-23 17:52:38,015 [main] INFO RTECrudOperations - Name of the checkbox is== TSA Certified
-2022-05-23 17:52:38,050 [main] INFO RTECrudOperations - Clicked on TSA Certified
-2022-05-23 17:52:38,105 [main] INFO RTECrudOperations - Clicked on search button
-2022-05-23 17:53:30,374 [main] INFO RTECrudOperations - Agent(s) is/are available with the search parameters
-2022-05-23 17:53:30,395 [main] INFO RTECrudOperations - Clicked on TSA Certified
-2022-05-23 17:53:30,435 [main] INFO RTECrudOperations - Name of the checkbox is== FDX TSA
-2022-05-23 17:53:30,456 [main] INFO RTECrudOperations - Clicked on FDX TSA
-2022-05-23 17:53:30,497 [main] INFO RTECrudOperations - Clicked on search button
-2022-05-23 17:54:23,238 [main] INFO RTECrudOperations - Agent(s) is/are available with the search parameters
-2022-05-23 17:54:23,260 [main] INFO RTECrudOperations - Clicked on FDX TSA
-2022-05-23 17:54:23,303 [main] INFO RTECrudOperations - Name of the checkbox is== Elevated Risk Certified
-2022-05-23 17:54:23,324 [main] INFO RTECrudOperations - Clicked on Elevated Risk Certified
-2022-05-23 17:54:23,363 [main] INFO RTECrudOperations - Clicked on search button
-2022-05-23 17:55:14,093 [main] INFO RTECrudOperations - Agent(s) is/are available with the search parameters
-2022-05-23 17:55:14,116 [main] INFO RTECrudOperations - Clicked on Elevated Risk Certified
-2022-05-23 17:55:14,888 [main] INFO RTECrudOperations - Enter CourierID
-2022-05-23 17:55:14,946 [main] INFO RTECrudOperations - Clicked on search button
-2022-05-23 17:55:15,861 [main] INFO RTECrudOperations - Total Agent==2
-2022-05-23 17:55:16,054 [main] INFO RTECrudOperations - There is no Agent with search parameter
-2022-05-23 17:55:16,259 [main] INFO RTECrudOperations - Searched Agent is exist
-2022-05-23 17:55:16,646 [main] INFO RTECrudOperations - Select the AgentID
-2022-05-23 17:55:17,975 [main] INFO RTECrudOperations - Selected agent is==34769
-2022-05-23 17:55:17,976 [main] INFO RTECrudOperations - Selected Agent is displayed in Driver section
-2022-05-23 17:55:18,002 [main] INFO RTECrudOperations - Total Vehicles==4
-2022-05-23 17:55:18,117 [main] INFO RTECrudOperations - Name of the Vehicle==
-2022-05-23 17:55:18,246 [main] INFO RTECrudOperations -  is selected
-2022-05-23 17:55:18,350 [main] INFO RTECrudOperations - Name of the Vehicle==
-2022-05-23 17:55:18,786 [main] INFO RTECrudOperations - Name of the Vehicle==
-2022-05-23 17:55:19,282 [main] INFO RTECrudOperations - Name of the Vehicle==
-2022-05-23 17:55:19,944 [main] INFO RTECrudOperations - Clicked on Send PU Alert button
+2022-05-25 15:08:05,118 [main] INFO CreateRTEJob - initialization of the properties file is done
+2022-05-25 15:08:05,417 [main] INFO io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 101.0.4951.41 (since Google Chrome 101 is installed in your machine)
+2022-05-25 15:08:05,435 [main] INFO io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\Users\rprajapati\.m2\repository\webdriver\chromedriver\win32\101.0.4951.41\chromedriver.exe
+2022-05-25 15:08:13,340 [main] INFO CreateRTEJob - Entered UserName
+2022-05-25 15:08:14,461 [main] INFO CreateRTEJob - Entered Password
+2022-05-25 15:08:15,584 [main] INFO CreateRTEJob - Login done
+2022-05-25 15:08:32,153 [main] INFO CreateRTEJob - ======================RTE Create Route Work Test Start==================
+2022-05-25 15:08:32,428 [main] INFO CreateRTEJob - Clicked on Tools
+2022-05-25 15:08:32,764 [main] INFO CreateRTEJob - Clicked on RouteList
+2022-05-25 15:08:36,297 [main] INFO CreateRTEJob - Clicked on Create Route Work
+2022-05-25 15:08:40,279 [main] INFO CreateRTEJob - Clicked on Cancel
+2022-05-25 15:08:43,137 [main] INFO CreateRTEJob - Clicked on Create Route Work
+2022-05-25 15:08:43,249 [main] INFO CreateRTEJob - RouteWorkID is Enable==FAIL
+2022-05-25 15:08:43,564 [main] INFO CreateRTEJob - Entered Route Work Name
+2022-05-25 15:08:44,000 [main] INFO CreateRTEJob - Entered Customer
+2022-05-25 15:08:44,377 [main] INFO CreateRTEJob - Entered Reference 2
+2022-05-25 15:08:44,671 [main] INFO CreateRTEJob - Entered Reference 4
+2022-05-25 15:08:44,995 [main] INFO CreateRTEJob - Entered RW Manifest
+2022-05-25 15:08:45,268 [main] INFO CreateRTEJob - Entered Declare Value
+2022-05-25 15:08:45,646 [main] INFO CreateRTEJob - Entered Flat Rate
+2022-05-25 15:08:45,768 [main] INFO CreateRTEJob - 05/25/2022
+2022-05-25 15:08:46,168 [main] INFO CreateRTEJob - Entered Start Date
+2022-05-25 15:08:46,275 [main] INFO CreateRTEJob - 04/19/2044
+2022-05-25 15:08:46,527 [main] INFO CreateRTEJob - Entered Start Date
+2022-05-25 15:08:46,637 [main] INFO CreateRTEJob - 05/26/2022
+2022-05-25 15:08:46,841 [main] INFO CreateRTEJob - Entered Start Date
+2022-05-25 15:08:47,092 [main] INFO CreateRTEJob - Selected First Generation Hour
+2022-05-25 15:08:47,232 [main] INFO CreateRTEJob - Selected First Generation Minutes
+2022-05-25 15:08:47,383 [main] INFO CreateRTEJob - Selected First Generation AM/PM
+2022-05-25 15:08:47,801 [main] INFO CreateRTEJob - Entered No. of Packages
+2022-05-25 15:08:48,208 [main] INFO CreateRTEJob - Entered Commodity
+2022-05-25 15:08:48,515 [main] INFO CreateRTEJob - Entered Length
+2022-05-25 15:08:48,840 [main] INFO CreateRTEJob - Entered Width
+2022-05-25 15:08:49,130 [main] INFO CreateRTEJob - Entered Height
+2022-05-25 15:08:49,444 [main] INFO CreateRTEJob - Entered Weight
+2022-05-25 15:08:49,606 [main] INFO CreateRTEJob - Selected Ready Time Hour
+2022-05-25 15:08:49,700 [main] INFO CreateRTEJob - Selected Ready Time Minutes
+2022-05-25 15:08:49,880 [main] INFO CreateRTEJob - Selected Ready Time AM/PM
+2022-05-25 15:08:50,088 [main] INFO CreateRTEJob -  Scheduled End Time Hour
+2022-05-25 15:08:50,296 [main] INFO CreateRTEJob - Selected  Scheduled End Time Minutes
+2022-05-25 15:08:50,508 [main] INFO CreateRTEJob - Selected  Scheduled End Time AM/PM
+2022-05-25 15:08:50,805 [main] INFO CreateRTEJob - Entered Company Name
+2022-05-25 15:08:51,111 [main] INFO CreateRTEJob - Entered Contact Name
+2022-05-25 15:08:51,437 [main] INFO CreateRTEJob - Entered AddressLine 1
+2022-05-25 15:08:51,760 [main] INFO CreateRTEJob - Entered ZipCode
+2022-05-25 15:08:52,122 [main] INFO CreateRTEJob - Entered Phone Number
+2022-05-25 15:08:52,540 [main] INFO CreateRTEJob - Entered Delivery Instruction
+2022-05-25 15:08:52,891 [main] INFO CreateRTEJob - Entered From Stop Sequence
+2022-05-25 15:08:53,226 [main] INFO CreateRTEJob - Entered From Company Name
+2022-05-25 15:08:53,497 [main] INFO CreateRTEJob - Entered From Contact Name
+2022-05-25 15:08:53,803 [main] INFO CreateRTEJob - Entered From AddressLine 1
+2022-05-25 15:08:54,147 [main] INFO CreateRTEJob - Entered From ZipCode
+2022-05-25 15:08:55,157 [main] INFO CreateRTEJob - Entered From Phone Number
+2022-05-25 15:08:55,573 [main] INFO CreateRTEJob - Entered PickUp Instruction
+2022-05-25 15:08:55,960 [main] INFO CreateRTEJob - Entered To Stop Sequence
+2022-05-25 15:08:56,341 [main] INFO CreateRTEJob - Entered To Company Name
+2022-05-25 15:08:56,657 [main] INFO CreateRTEJob - Entered To Contact Name
+2022-05-25 15:08:56,958 [main] INFO CreateRTEJob - Entered To AddressLine 1
+2022-05-25 15:08:57,282 [main] INFO CreateRTEJob - Entered To ZipCode
+2022-05-25 15:08:58,876 [main] INFO CreateRTEJob - Entered To Phone Number
+2022-05-25 15:08:59,272 [main] INFO CreateRTEJob - Entered Delivery Instruction
+2022-05-25 15:08:59,536 [main] INFO CreateRTEJob - Entered No. of Packages
+2022-05-25 15:08:59,827 [main] INFO CreateRTEJob - Entered Commodity
+2022-05-25 15:09:00,100 [main] INFO CreateRTEJob - Entered Length
+2022-05-25 15:09:00,354 [main] INFO CreateRTEJob - Entered Width
+2022-05-25 15:09:00,666 [main] INFO CreateRTEJob - Entered Height
+2022-05-25 15:09:00,995 [main] INFO CreateRTEJob - Entered Weight
+2022-05-25 15:09:01,175 [main] INFO CreateRTEJob - Selected Ready Time Hour
+2022-05-25 15:09:01,268 [main] INFO CreateRTEJob - Selected Ready Time Minutes
+2022-05-25 15:09:01,428 [main] INFO CreateRTEJob - Selected Ready Time AM/PM
+2022-05-25 15:09:01,700 [main] INFO CreateRTEJob - Entered Reference 1
+2022-05-25 15:09:02,033 [main] INFO CreateRTEJob - Entered Reference 3
+2022-05-25 15:09:02,191 [main] INFO CreateRTEJob - Clicked on Add Shipment
+2022-05-25 15:09:02,287 [main] INFO CreateRTEJob - Shipment is added successfully
+2022-05-25 15:09:03,674 [main] INFO CreateRTEJob - Update PU stop
+2022-05-25 15:09:03,796 [main] INFO CreateRTEJob - Clicked on Update All button
+2022-05-25 15:09:04,816 [main] INFO CreateRTEJob - Update PU stop
+2022-05-25 15:09:04,929 [main] INFO CreateRTEJob - Clicked on Cancel button
+2022-05-25 15:09:05,827 [main] INFO CreateRTEJob - Clicked on Edit Shipment button
+2022-05-25 15:09:05,968 [main] INFO CreateRTEJob - Clicked on Update Shipment button
+2022-05-25 15:09:06,523 [main] INFO CreateRTEJob - Confirmation message is displayed==Are you sure want to delete this shipment?
+2022-05-25 15:09:06,632 [main] INFO CreateRTEJob - Clicked on No button of Confirmation message
+2022-05-25 15:09:06,728 [main] INFO CreateRTEJob - Shipment is not deleted on NO button==PASS
+2022-05-25 15:09:07,059 [main] INFO CreateRTEJob - Confirmation message is displayed==Are you sure want to delete this shipment?
+2022-05-25 15:09:07,263 [main] INFO CreateRTEJob - Clicked on YES button of Confirmation message
+2022-05-25 15:09:57,317 [main] INFO CreateRTEJob - Shipment is deleted on YES button==PASS
+2022-05-25 15:09:57,887 [main] INFO CreateRTEJob - Entered From Stop Sequence
+2022-05-25 15:09:58,166 [main] INFO CreateRTEJob - Entered From Company Name
+2022-05-25 15:09:58,412 [main] INFO CreateRTEJob - Entered From Contact Name
+2022-05-25 15:09:58,827 [main] INFO CreateRTEJob - Entered From AddressLine 1
+2022-05-25 15:09:59,280 [main] INFO CreateRTEJob - Entered From ZipCode
+2022-05-25 15:10:00,355 [main] INFO CreateRTEJob - Entered From Phone Number
+2022-05-25 15:10:00,694 [main] INFO CreateRTEJob - Entered PickUp Instruction
+2022-05-25 15:10:01,007 [main] INFO CreateRTEJob - Entered To Stop Sequence
+2022-05-25 15:10:01,338 [main] INFO CreateRTEJob - Entered To Company Name
+2022-05-25 15:10:01,691 [main] INFO CreateRTEJob - Entered To Contact Name
+2022-05-25 15:10:02,200 [main] INFO CreateRTEJob - Entered To AddressLine 1
+2022-05-25 15:10:02,564 [main] INFO CreateRTEJob - Entered To ZipCode
+2022-05-25 15:10:03,665 [main] INFO CreateRTEJob - Entered To Phone Number
+2022-05-25 15:10:04,065 [main] INFO CreateRTEJob - Entered Delivery Instruction
+2022-05-25 15:10:04,362 [main] INFO CreateRTEJob - Entered No. of Packages
+2022-05-25 15:10:04,704 [main] INFO CreateRTEJob - Entered Commodity
+2022-05-25 15:10:05,030 [main] INFO CreateRTEJob - Entered Length
+2022-05-25 15:10:05,416 [main] INFO CreateRTEJob - Entered Width
+2022-05-25 15:10:05,741 [main] INFO CreateRTEJob - Entered Height
+2022-05-25 15:10:06,033 [main] INFO CreateRTEJob - Entered Weight
+2022-05-25 15:10:06,220 [main] INFO CreateRTEJob - Selected Ready Time Hour
+2022-05-25 15:10:06,290 [main] INFO CreateRTEJob - Selected Ready Time Minutes
+2022-05-25 15:10:06,419 [main] INFO CreateRTEJob - Selected Ready Time AM/PM
+2022-05-25 15:10:06,698 [main] INFO CreateRTEJob - Entered Reference 1
+2022-05-25 15:10:07,048 [main] INFO CreateRTEJob - Entered Reference 3
+2022-05-25 15:10:07,187 [main] INFO CreateRTEJob - Clicked on Add Shipment

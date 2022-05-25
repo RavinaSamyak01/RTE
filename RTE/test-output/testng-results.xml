@@ -2,45 +2,47 @@
 <testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-05-23T11:54:34 IST" name="Default suite" finished-at="2022-05-23T11:54:48 IST" duration-ms="13733">
+  <suite started-at="2022-05-25T14:58:11 IST" name="Default suite" finished-at="2022-05-25T14:58:31 IST" duration-ms="20629">
     <groups>
     </groups>
-    <test started-at="2022-05-23T11:54:34 IST" name="Default test" finished-at="2022-05-23T11:54:48 IST" duration-ms="13733">
-      <class name="rte_RTEJobCreation.RTECrudOperations">
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:rte_RTEJobCreation.RTECrudOperations@54a7079e]" started-at="2022-05-23T11:54:12 IST" name="beforeMethod" finished-at="2022-05-23T11:54:34 IST" duration-ms="22659" status="PASS">
+    <test started-at="2022-05-25T14:58:11 IST" name="Default test" finished-at="2022-05-25T14:58:31 IST" duration-ms="20629">
+      <class name="rte_RTECrudOperations.CreateRTEJob">
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:rte_RTECrudOperations.CreateRTEJob@47d9a273]" started-at="2022-05-25T14:57:46 IST" name="beforeMethod" finished-at="2022-05-25T14:58:11 IST" duration-ms="24557" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method is-config="true" signature="testMethodName(java.lang.reflect.Method)[pri:0, instance:rte_RTEJobCreation.RTECrudOperations@54a7079e]" started-at="2022-05-23T11:54:34 IST" name="testMethodName" finished-at="2022-05-23T11:54:34 IST" duration-ms="6" status="PASS">
+        <test-method is-config="true" signature="testMethodName(java.lang.reflect.Method)[pri:0, instance:rte_RTECrudOperations.CreateRTEJob@47d9a273]" started-at="2022-05-25T14:58:11 IST" name="testMethodName" finished-at="2022-05-25T14:58:11 IST" duration-ms="8" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void rte_RTEJobCreation.RTECrudOperations.rteCrudOperations() throws org.apache.poi.EncryptedDocumentException,org.apache.poi.openxml4j.exceptions.InvalidFormatException,java.io.IOException,java.lang.InterruptedException]]>
+                <![CDATA[public void rte_RTECrudOperations.CreateRTEJob.rteCreateJob() throws java.io.IOException]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testMethodName -->
-        <test-method signature="rteCrudOperations()[pri:0, instance:rte_RTEJobCreation.RTECrudOperations@54a7079e]" started-at="2022-05-23T11:54:34 IST" name="rteCrudOperations" finished-at="2022-05-23T11:54:48 IST" duration-ms="13386" status="FAIL">
-          <exception class="org.openqa.selenium.JavascriptException">
+        <test-method signature="rteCreateJob()[pri:0, instance:rte_RTECrudOperations.CreateRTEJob@47d9a273]" started-at="2022-05-25T14:58:11 IST" name="rteCreateJob" finished-at="2022-05-25T14:58:31 IST" duration-ms="20457" status="FAIL">
+          <exception class="org.openqa.selenium.StaleElementReferenceException">
             <message>
-              <![CDATA[javascript error: Cannot read properties of null (reading 'scrollIntoView')
+              <![CDATA[stale element reference: element is not attached to the page document
   (Session info: chrome=101.0.4951.67)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'SIPL92', ip: '10.212.130.176', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '16.0.2'
+System info: host: 'SIPL92', ip: '10.212.130.199', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '16.0.2'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 101.0.4951.67, chrome: {chromedriverVersion: 101.0.4951.41 (93c720db8323..., userDataDir: C:\Users\RPRAJA~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:56796}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 8424e070dc63f91ab9f0df4fd9fd970c]]>
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 101.0.4951.67, chrome: {chromedriverVersion: 101.0.4951.41 (93c720db8323..., userDataDir: C:\Users\RPRAJA~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:55905}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 073088ec2cb4b0c7ac5be5361b765f4d]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.JavascriptException: javascript error: Cannot read properties of null (reading 'scrollIntoView')
+              <![CDATA[org.openqa.selenium.StaleElementReferenceException: stale element reference: element is not attached to the page document
   (Session info: chrome=101.0.4951.67)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/stale_element_reference.html
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'SIPL92', ip: '10.212.130.176', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '16.0.2'
+System info: host: 'SIPL92', ip: '10.212.130.199', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '16.0.2'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 101.0.4951.67, chrome: {chromedriverVersion: 101.0.4951.41 (93c720db8323..., userDataDir: C:\Users\RPRAJA~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:56796}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: 8424e070dc63f91ab9f0df4fd9fd970c
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 101.0.4951.67, chrome: {chromedriverVersion: 101.0.4951.41 (93c720db8323..., userDataDir: C:\Users\RPRAJA~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:55905}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 073088ec2cb4b0c7ac5be5361b765f4d
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:78)
 at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -52,10 +54,10 @@ at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCo
 at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
 at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
 at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
-at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:489)
-at rte_RTECrudOperations.EditJob.rteMap(EditJob.java:863)
-at rte_RTECrudOperations.EditJob.editJob(EditJob.java:55)
-at rte_RTEJobCreation.RTECrudOperations.rteCrudOperations(RTECrudOperations.java:111)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+at org.openqa.selenium.remote.RemoteWebElement.click(RemoteWebElement.java:84)
+at rte_RTECrudOperations.CreateRTEJob.rteEditDeleteShipment(CreateRTEJob.java:472)
+at rte_RTECrudOperations.CreateRTEJob.rteCreateJob(CreateRTEJob.java:266)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -86,26 +88,26 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.JavascriptException -->
+          </exception> <!-- org.openqa.selenium.StaleElementReferenceException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- rteCrudOperations -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:rte_RTEJobCreation.RTECrudOperations@54a7079e]" started-at="2022-05-23T11:54:48 IST" name="getResult" finished-at="2022-05-23T11:54:48 IST" duration-ms="293" status="PASS">
+        </test-method> <!-- rteCreateJob -->
+        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:rte_RTECrudOperations.CreateRTEJob@47d9a273]" started-at="2022-05-25T14:58:31 IST" name="getResult" finished-at="2022-05-25T14:58:31 IST" duration-ms="114" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=rteCrudOperations status=FAILURE method=RTECrudOperations.rteCrudOperations()[pri:0, instance:rte_RTEJobCreation.RTECrudOperations@54a7079e] output={null}]]]>
+                <![CDATA[[TestResult name=rteCreateJob status=FAILURE method=CreateRTEJob.rteCreateJob()[pri:0, instance:rte_RTECrudOperations.CreateRTEJob@47d9a273] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResult -->
-        <test-method is-config="true" signature="SendEmail()[pri:0, instance:rte_RTEJobCreation.RTECrudOperations@54a7079e]" started-at="2022-05-23T11:54:48 IST" name="SendEmail" finished-at="2022-05-23T11:54:56 IST" duration-ms="7233" status="PASS">
+        <test-method is-config="true" signature="SendEmail()[pri:0, instance:rte_RTECrudOperations.CreateRTEJob@47d9a273]" started-at="2022-05-25T14:58:31 IST" name="SendEmail" finished-at="2022-05-25T14:58:36 IST" duration-ms="4466" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SendEmail -->
-      </class> <!-- rte_RTEJobCreation.RTECrudOperations -->
+      </class> <!-- rte_RTECrudOperations.CreateRTEJob -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
