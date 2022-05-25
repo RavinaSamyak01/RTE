@@ -44,6 +44,8 @@ public class RTEJobCreation extends BaseInit {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 		getScreenshot(driver, "ImportRoute");
+
+		
 		// --Upload RTE job File
 		ExpectedConditions.visibilityOfElementLocated(By.id("btnBrowse"));
 		isElementPresent("IRBrowse_id").click();
