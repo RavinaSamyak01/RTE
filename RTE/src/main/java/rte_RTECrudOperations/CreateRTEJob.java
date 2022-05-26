@@ -70,7 +70,7 @@ public class CreateRTEJob extends BaseInit {
 
 		// --Check Route WorkID is enable/disable
 		try {
-			WebElement RWIDRDOnly = isElementPresent("RLRRLRWIDROnly_xpathWID_id");
+			WebElement RWIDRDOnly = isElementPresent("RLRWIDROnly_xpath");
 			wait.until(ExpectedConditions.visibilityOf(RWIDRDOnly));
 			logs.info("RouteWorkID is disabled==PASS");
 			msg.append("RouteWorkID is disabled==PASS");
@@ -81,15 +81,25 @@ public class CreateRTEJob extends BaseInit {
 
 		}
 
+
 		// --RW Name
 		isElementPresent("RLRWName_id").clear();
 		isElementPresent("RLRWName_id").sendKeys("Automation Manual RTE Job");
 		logs.info("Entered Route Work Name");
 
 		// --Customer
-		isElementPresent("RLRWCust_id").clear();
-		isElementPresent("RLRWCust_id").sendKeys("950655");
-		logs.info("Entered Customer");
+		String Env = storage.getProperty("Env");
+
+		if (Env.equalsIgnoreCase("STG")) {
+			isElementPresent("RLRWCust_id").clear();
+			isElementPresent("RLRWCust_id").sendKeys("950655");
+			logs.info("Entered Customer");
+
+		} else if (Env.equalsIgnoreCase("Pre-Prod")) {
+			isElementPresent("RLRWCust_id").clear();
+			isElementPresent("RLRWCust_id").sendKeys("950652");
+			logs.info("Entered Customer");
+		}
 
 		// --Reference 2
 		isElementPresent("RLRWRef2_id").clear();
@@ -263,6 +273,104 @@ public class CreateRTEJob extends BaseInit {
 
 		// --Add/Edit/Delete shipment
 		rteEditDeleteShipment();
+
+		// --Click on Save as Draft
+		WebElement SaveASDraft = isElementPresent("RLRWSaveAsDraft_id");
+		js.executeScript("arguments[0].scrollIntoView();", SaveASDraft);
+		SaveASDraft.click();
+		logs.info("Clicked on SaveAsDraft");
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+		try {
+			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("success")));
+
+			String SUccMsg = isElementPresent("RLRWSuccMsg_id").getText();
+			logs.info("Message is displayed==" + SUccMsg);
+			logs.info("RTE Job is created successfully.");
+
+			// --Get the RouteWorkID
+			String inLine = SUccMsg;
+			String[] lineSplits = inLine.split(" ");
+			for (String Detail : lineSplits) {
+				if (Detail.contains("RT")) {
+					Detail.trim();
+					System.out.println("RoutWorkID is==" + Detail);
+					logs.info("RoutWorkID is==" + Detail);
+					setData("RTECreation", 6, 1, Detail);
+					logs.info("Stored RoutWorkID in excel");
+
+				}
+			}
+
+			// --Active the RTE
+			// --Go to Tools tab
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("a_tools")));
+			Tools = isElementPresent("Tools_id");
+			act.moveToElement(Tools).click().perform();
+			logs.info("Clicked on Tools");
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+			wait.until(ExpectedConditions
+					.visibilityOfAllElementsLocatedBy(By.xpath("//*[@class=\"OpenCloseClass dropdown open\"]//ul")));
+
+			// --Click on RouteList
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("a_RouteWorkList")));
+			isElementPresent("RouteList_linkText").click();
+			logs.info("Clicked on RouteList");
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+			// // --Enter RoutWorkID
+			wait.until(ExpectedConditions.elementToBeClickable(By.id("txtRouteWorkId")));
+			String RoutWID = getData("RTECreation", 6, 1);
+			logs.info("Expected Route Work ID==" + RoutWID);
+			isElementPresent("RLRWIDInput_id").clear();
+			isElementPresent("RLRWIDInput_id").sendKeys(RoutWID);
+			logs.info("Entered RoutWorkID");
+
+			// --Select status
+			Select status = new Select(isElementPresent("RLStatusDrp_id"));
+			status.selectByVisibleText("All");
+			logs.info("Selected ALL as a status");
+
+			// --Click on Search
+			wait.until(ExpectedConditions.elementToBeClickable(By.id("btnSearch")));
+			isElementPresent("RLSearch_id").click();
+			logs.info("Click on Search button");
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+			try {
+				WebElement NoData = isElementPresent("NoData_className");
+				wait.until(ExpectedConditions.visibilityOf(NoData));
+				if (NoData.isDisplayed()) {
+					logs.info("There is no Data with Search parameter");
+
+				}
+
+			} catch (Exception NoData) {
+				String RWID = isElementPresent("RLWorkOID_xpath").getText();
+				logs.info("Actual Route Work ID==" + RWID);
+
+				if (RoutWID.equalsIgnoreCase(RWID)) {
+					logs.info("Searched Route Work is displayed==PASS");
+
+				} else {
+					logs.info("Searched Route Work is not displayed==FAIL");
+
+				}
+
+				// --Click on Save
+				isElementPresent("RLSave_id").click();
+				logs.info("Click on Save button");
+				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+			}
+
+		} catch (
+
+		Exception RTEEx) {
+			logs.info("RTE Job is not created successfully.");
+
+		}
 
 	}
 
@@ -523,37 +631,6 @@ public class CreateRTEJob extends BaseInit {
 
 				}
 
-				// --Click on Save as Draft
-				WebElement SaveASDraft = isElementPresent("RLRWSaveAsDraft_id");
-				js.executeScript("arguments[0].scrollIntoView();", SaveASDraft);
-				SaveASDraft.click();
-				logs.info("Clicked on SaveAsDraft");
-				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
-				try {
-					wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("success")));
-
-					String SUccMsg = isElementPresent("RLRWSuccMsg_id").getText();
-					logs.info("Message is displayed==" + SUccMsg);
-					logs.info("RTE Job is created successfully.");
-
-					// --Get the RouteWorkID
-					String inLine = SUccMsg;
-					String[] lineSplits = inLine.split(" ");
-					for (String Detail : lineSplits) {
-						if (Detail.contains("RT")) {
-							Detail.trim();
-							System.out.println("RoutWorkID is==" + Detail);
-							logs.info("RoutWorkID is==" + Detail);
-							setData("RTECreation", 3, 1, Detail);
-							logs.info("Stored RoutWorkID in excel");
-
-						}
-					}
-				} catch (Exception RTEEx) {
-					logs.info("RTE Job is not created successfully.");
-
-				}
 			}
 
 		} catch (Exception Delete) {

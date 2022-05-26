@@ -44,50 +44,54 @@ public class RTEJobCreation extends BaseInit {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 		getScreenshot(driver, "ImportRoute");
+		for (int i = 3; i < 6; i++) {
+			// --Upload RTE job File
+			ExpectedConditions.visibilityOfElementLocated(By.id("btnBrowse"));
+			isElementPresent("IRBrowse_id").click();
+			logs.info("Clicked on Browse button");
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-		
-		// --Upload RTE job File
-		ExpectedConditions.visibilityOfElementLocated(By.id("btnBrowse"));
-		isElementPresent("IRBrowse_id").click();
-		logs.info("Clicked on Browse button");
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+			wait.until(
+					ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@ng-form=\"uploadfileForm\"]")));
 
-		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//*[@ng-form=\"uploadfileForm\"]")));
+			String FileName = getData("RTECreation", i, 0);
+			logs.info("FileName==" + FileName);
+			String Fpath = "C:\\Users\\rprajapati\\git\\RTE\\RTE\\src\\main\\resources\\" + FileName + ".xlsx";
+			WebElement InFile = isElementPresent("IRSelectFile_id");
+			InFile.sendKeys(Fpath);
+			logs.info("Send file to input file");
+			Thread.sleep(2000);
+			getScreenshot(driver, "ImRSelectFile");
 
-		String Fpath = "C:\\Users\\rprajapati\\git\\RTE\\RTE\\src\\main\\resources\\RTE Job Creation.xls";
-		WebElement InFile = isElementPresent("IRSelectFile_id");
-		InFile.sendKeys(Fpath);
-		logs.info("Send file to input file");
-		Thread.sleep(2000);
-		getScreenshot(driver, "ImRSelectFile");
+			// --Click on Upload btn
+			isElementPresent("IRUpload_id").click();
+			logs.info("Click on Upload button");
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-		// --Click on Upload btn
-		isElementPresent("IRUpload_id").click();
-		logs.info("Click on Upload button");
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+			// --CLick on Continue button
+			isElementPresent("IRContinue_id").click();
+			logs.info("Click on Continue button");
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("success")));
+			String SucMsg = isElementPresent("SuccessMsg_id").getText();
+			logs.info("File is Uploaded==" + SucMsg);
 
-		// --CLick on Continue button
-		isElementPresent("IRContinue_id").click();
-		logs.info("Click on Continue button");
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("success")));
-		String SucMsg = isElementPresent("SuccessMsg_id").getText();
-		logs.info("File is Uploaded==" + SucMsg);
+			// --Get the RouteWorkID
+			String inLine = SucMsg;
+			String[] lineSplits = inLine.split("\\.");
+			String[] lineDetails = lineSplits[1].split(" ");
+			for (String Detail : lineDetails) {
+				if (Detail.contains("RT")) {
+					Detail.split(".");
+					System.out.println("RoutWorkID is==" + Detail);
+					logs.info("RoutWorkID is==" + Detail);
+					setData("RTECreation", i, 1, Detail);
+					logs.info("Stored RoutWorkID in excel");
 
-		// --Get the RouteWorkID
-		String inLine = SucMsg;
-		String[] lineSplits = inLine.split("\\.");
-		String[] lineDetails = lineSplits[1].split(" ");
-		for (String Detail : lineDetails) {
-			if (Detail.contains("RT")) {
-				Detail.split(".");
-				System.out.println("RoutWorkID is==" + Detail);
-				logs.info("RoutWorkID is==" + Detail);
-				setData("RTECreation", 1, 1, Detail);
-				logs.info("Stored RoutWorkID in excel");
-
+				}
 			}
 		}
+
 		logs.info("======================RTE Job Creation Test End==================");
 		msg.append("======================RTE Job Creation Test End==================");
 

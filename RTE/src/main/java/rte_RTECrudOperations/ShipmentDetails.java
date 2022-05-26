@@ -872,7 +872,7 @@ public class ShipmentDetails extends BaseInit {
 		} catch (Exception NoData) {
 			logs.info("Data is exist with search parameter");
 			logs.info("LOC job is created with Unmerged shipment");
-			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
+			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("ActiveShipmentId")));
 			getScreenshot(driver, "JobEditor_TCACK");
 
 			// --Job Status

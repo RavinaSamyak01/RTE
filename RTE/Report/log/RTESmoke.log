@@ -1,112 +1,61 @@
-2022-05-25 15:08:05,118 - CreateRTEJob -INFO - initialization of the properties file is done
-2022-05-25 15:08:05,417 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Using chromedriver 101.0.4951.41 (since Google Chrome 101 is installed in your machine)
-2022-05-25 15:08:05,435 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Exporting webdriver.chrome.driver as C:\Users\rprajapati\.m2\repository\webdriver\chromedriver\win32\101.0.4951.41\chromedriver.exe
-2022-05-25 15:08:13,340 - CreateRTEJob -INFO - Entered UserName
-2022-05-25 15:08:14,461 - CreateRTEJob -INFO - Entered Password
-2022-05-25 15:08:15,584 - CreateRTEJob -INFO - Login done
-2022-05-25 15:08:32,153 - CreateRTEJob -INFO - ======================RTE Create Route Work Test Start==================
-2022-05-25 15:08:32,428 - CreateRTEJob -INFO - Clicked on Tools
-2022-05-25 15:08:32,764 - CreateRTEJob -INFO - Clicked on RouteList
-2022-05-25 15:08:36,297 - CreateRTEJob -INFO - Clicked on Create Route Work
-2022-05-25 15:08:40,279 - CreateRTEJob -INFO - Clicked on Cancel
-2022-05-25 15:08:43,137 - CreateRTEJob -INFO - Clicked on Create Route Work
-2022-05-25 15:08:43,249 - CreateRTEJob -INFO - RouteWorkID is Enable==FAIL
-2022-05-25 15:08:43,564 - CreateRTEJob -INFO - Entered Route Work Name
-2022-05-25 15:08:44,000 - CreateRTEJob -INFO - Entered Customer
-2022-05-25 15:08:44,377 - CreateRTEJob -INFO - Entered Reference 2
-2022-05-25 15:08:44,671 - CreateRTEJob -INFO - Entered Reference 4
-2022-05-25 15:08:44,995 - CreateRTEJob -INFO - Entered RW Manifest
-2022-05-25 15:08:45,268 - CreateRTEJob -INFO - Entered Declare Value
-2022-05-25 15:08:45,646 - CreateRTEJob -INFO - Entered Flat Rate
-2022-05-25 15:08:45,768 - CreateRTEJob -INFO - 05/25/2022
-2022-05-25 15:08:46,168 - CreateRTEJob -INFO - Entered Start Date
-2022-05-25 15:08:46,275 - CreateRTEJob -INFO - 04/19/2044
-2022-05-25 15:08:46,527 - CreateRTEJob -INFO - Entered Start Date
-2022-05-25 15:08:46,637 - CreateRTEJob -INFO - 05/26/2022
-2022-05-25 15:08:46,841 - CreateRTEJob -INFO - Entered Start Date
-2022-05-25 15:08:47,092 - CreateRTEJob -INFO - Selected First Generation Hour
-2022-05-25 15:08:47,232 - CreateRTEJob -INFO - Selected First Generation Minutes
-2022-05-25 15:08:47,383 - CreateRTEJob -INFO - Selected First Generation AM/PM
-2022-05-25 15:08:47,801 - CreateRTEJob -INFO - Entered No. of Packages
-2022-05-25 15:08:48,208 - CreateRTEJob -INFO - Entered Commodity
-2022-05-25 15:08:48,515 - CreateRTEJob -INFO - Entered Length
-2022-05-25 15:08:48,840 - CreateRTEJob -INFO - Entered Width
-2022-05-25 15:08:49,130 - CreateRTEJob -INFO - Entered Height
-2022-05-25 15:08:49,444 - CreateRTEJob -INFO - Entered Weight
-2022-05-25 15:08:49,606 - CreateRTEJob -INFO - Selected Ready Time Hour
-2022-05-25 15:08:49,700 - CreateRTEJob -INFO - Selected Ready Time Minutes
-2022-05-25 15:08:49,880 - CreateRTEJob -INFO - Selected Ready Time AM/PM
-2022-05-25 15:08:50,088 - CreateRTEJob -INFO -  Scheduled End Time Hour
-2022-05-25 15:08:50,296 - CreateRTEJob -INFO - Selected  Scheduled End Time Minutes
-2022-05-25 15:08:50,508 - CreateRTEJob -INFO - Selected  Scheduled End Time AM/PM
-2022-05-25 15:08:50,805 - CreateRTEJob -INFO - Entered Company Name
-2022-05-25 15:08:51,111 - CreateRTEJob -INFO - Entered Contact Name
-2022-05-25 15:08:51,437 - CreateRTEJob -INFO - Entered AddressLine 1
-2022-05-25 15:08:51,760 - CreateRTEJob -INFO - Entered ZipCode
-2022-05-25 15:08:52,122 - CreateRTEJob -INFO - Entered Phone Number
-2022-05-25 15:08:52,540 - CreateRTEJob -INFO - Entered Delivery Instruction
-2022-05-25 15:08:52,891 - CreateRTEJob -INFO - Entered From Stop Sequence
-2022-05-25 15:08:53,226 - CreateRTEJob -INFO - Entered From Company Name
-2022-05-25 15:08:53,497 - CreateRTEJob -INFO - Entered From Contact Name
-2022-05-25 15:08:53,803 - CreateRTEJob -INFO - Entered From AddressLine 1
-2022-05-25 15:08:54,147 - CreateRTEJob -INFO - Entered From ZipCode
-2022-05-25 15:08:55,157 - CreateRTEJob -INFO - Entered From Phone Number
-2022-05-25 15:08:55,573 - CreateRTEJob -INFO - Entered PickUp Instruction
-2022-05-25 15:08:55,960 - CreateRTEJob -INFO - Entered To Stop Sequence
-2022-05-25 15:08:56,341 - CreateRTEJob -INFO - Entered To Company Name
-2022-05-25 15:08:56,657 - CreateRTEJob -INFO - Entered To Contact Name
-2022-05-25 15:08:56,958 - CreateRTEJob -INFO - Entered To AddressLine 1
-2022-05-25 15:08:57,282 - CreateRTEJob -INFO - Entered To ZipCode
-2022-05-25 15:08:58,876 - CreateRTEJob -INFO - Entered To Phone Number
-2022-05-25 15:08:59,272 - CreateRTEJob -INFO - Entered Delivery Instruction
-2022-05-25 15:08:59,536 - CreateRTEJob -INFO - Entered No. of Packages
-2022-05-25 15:08:59,827 - CreateRTEJob -INFO - Entered Commodity
-2022-05-25 15:09:00,100 - CreateRTEJob -INFO - Entered Length
-2022-05-25 15:09:00,354 - CreateRTEJob -INFO - Entered Width
-2022-05-25 15:09:00,666 - CreateRTEJob -INFO - Entered Height
-2022-05-25 15:09:00,995 - CreateRTEJob -INFO - Entered Weight
-2022-05-25 15:09:01,175 - CreateRTEJob -INFO - Selected Ready Time Hour
-2022-05-25 15:09:01,268 - CreateRTEJob -INFO - Selected Ready Time Minutes
-2022-05-25 15:09:01,428 - CreateRTEJob -INFO - Selected Ready Time AM/PM
-2022-05-25 15:09:01,700 - CreateRTEJob -INFO - Entered Reference 1
-2022-05-25 15:09:02,033 - CreateRTEJob -INFO - Entered Reference 3
-2022-05-25 15:09:02,191 - CreateRTEJob -INFO - Clicked on Add Shipment
-2022-05-25 15:09:02,287 - CreateRTEJob -INFO - Shipment is added successfully
-2022-05-25 15:09:03,674 - CreateRTEJob -INFO - Update PU stop
-2022-05-25 15:09:03,796 - CreateRTEJob -INFO - Clicked on Update All button
-2022-05-25 15:09:04,816 - CreateRTEJob -INFO - Update PU stop
-2022-05-25 15:09:04,929 - CreateRTEJob -INFO - Clicked on Cancel button
-2022-05-25 15:09:05,827 - CreateRTEJob -INFO - Clicked on Edit Shipment button
-2022-05-25 15:09:05,968 - CreateRTEJob -INFO - Clicked on Update Shipment button
-2022-05-25 15:09:06,523 - CreateRTEJob -INFO - Confirmation message is displayed==Are you sure want to delete this shipment?
-2022-05-25 15:09:06,632 - CreateRTEJob -INFO - Clicked on No button of Confirmation message
-2022-05-25 15:09:06,728 - CreateRTEJob -INFO - Shipment is not deleted on NO button==PASS
-2022-05-25 15:09:07,059 - CreateRTEJob -INFO - Confirmation message is displayed==Are you sure want to delete this shipment?
-2022-05-25 15:09:07,263 - CreateRTEJob -INFO - Clicked on YES button of Confirmation message
-2022-05-25 15:09:57,317 - CreateRTEJob -INFO - Shipment is deleted on YES button==PASS
-2022-05-25 15:09:57,887 - CreateRTEJob -INFO - Entered From Stop Sequence
-2022-05-25 15:09:58,166 - CreateRTEJob -INFO - Entered From Company Name
-2022-05-25 15:09:58,412 - CreateRTEJob -INFO - Entered From Contact Name
-2022-05-25 15:09:58,827 - CreateRTEJob -INFO - Entered From AddressLine 1
-2022-05-25 15:09:59,280 - CreateRTEJob -INFO - Entered From ZipCode
-2022-05-25 15:10:00,355 - CreateRTEJob -INFO - Entered From Phone Number
-2022-05-25 15:10:00,694 - CreateRTEJob -INFO - Entered PickUp Instruction
-2022-05-25 15:10:01,007 - CreateRTEJob -INFO - Entered To Stop Sequence
-2022-05-25 15:10:01,338 - CreateRTEJob -INFO - Entered To Company Name
-2022-05-25 15:10:01,691 - CreateRTEJob -INFO - Entered To Contact Name
-2022-05-25 15:10:02,200 - CreateRTEJob -INFO - Entered To AddressLine 1
-2022-05-25 15:10:02,564 - CreateRTEJob -INFO - Entered To ZipCode
-2022-05-25 15:10:03,665 - CreateRTEJob -INFO - Entered To Phone Number
-2022-05-25 15:10:04,065 - CreateRTEJob -INFO - Entered Delivery Instruction
-2022-05-25 15:10:04,362 - CreateRTEJob -INFO - Entered No. of Packages
-2022-05-25 15:10:04,704 - CreateRTEJob -INFO - Entered Commodity
-2022-05-25 15:10:05,030 - CreateRTEJob -INFO - Entered Length
-2022-05-25 15:10:05,416 - CreateRTEJob -INFO - Entered Width
-2022-05-25 15:10:05,741 - CreateRTEJob -INFO - Entered Height
-2022-05-25 15:10:06,033 - CreateRTEJob -INFO - Entered Weight
-2022-05-25 15:10:06,220 - CreateRTEJob -INFO - Selected Ready Time Hour
-2022-05-25 15:10:06,290 - CreateRTEJob -INFO - Selected Ready Time Minutes
-2022-05-25 15:10:06,419 - CreateRTEJob -INFO - Selected Ready Time AM/PM
-2022-05-25 15:10:06,698 - CreateRTEJob -INFO - Entered Reference 1
-2022-05-25 15:10:07,048 - CreateRTEJob -INFO - Entered Reference 3
-2022-05-25 15:10:07,187 - CreateRTEJob -INFO - Clicked on Add Shipment
+2022-05-26 18:02:00,483 - RTEJobSearch -INFO - initialization of the properties file is done
+2022-05-26 18:02:00,737 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Using chromedriver 101.0.4951.41 (since Google Chrome 101 is installed in your machine)
+2022-05-26 18:02:00,753 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Exporting webdriver.chrome.driver as C:\Users\rprajapati\.m2\repository\webdriver\chromedriver\win32\101.0.4951.41\chromedriver.exe
+2022-05-26 18:02:08,521 - RTEJobSearch -INFO - Entered UserName
+2022-05-26 18:02:09,689 - RTEJobSearch -INFO - Entered Password
+2022-05-26 18:02:10,893 - RTEJobSearch -INFO - Login done
+2022-05-26 18:02:25,350 - RTEJobSearch -INFO - ======================RTE Job Search Test start==================
+2022-05-26 18:02:25,666 - RTEJobSearch -INFO - Clicked on Operations
+2022-05-26 18:02:26,095 - RTEJobSearch -INFO - Clicked on TaskLog
+2022-05-26 18:02:28,373 - RTEJobSearch -INFO - Clicked on SearchAllJobs
+2022-05-26 18:02:31,538 - RTEJobSearch -INFO - Total Rows==7
+2022-05-26 18:02:31,646 - RTEJobSearch -INFO - Clicked on Reset button
+2022-05-26 18:02:32,076 - RTEJobSearch -INFO - Entered RouteTrackingID
+2022-05-26 18:02:32,241 - RTEJobSearch -INFO - Click on Search button
+2022-05-26 18:03:23,155 - RTEJobSearch -INFO - Data is exist with search parameter
+2022-05-26 18:03:23,195 - RTEJobSearch -INFO - Total No of records are==1
+2022-05-26 18:03:23,414 - RTEJobSearch -INFO - JobID is==32417000
+2022-05-26 18:03:23,872 - RTEJobSearch -INFO - PickUpID is==3422238
+2022-05-26 18:03:24,047 - RTEJobSearch -INFO - BOLNo is==126212525
+2022-05-26 18:03:24,414 - RTEJobSearch -INFO - Clicked on Record
+2022-05-26 18:03:28,327 - RTEJobSearch -INFO - Clicked on Exit without Save
+2022-05-26 18:03:29,370 - RTEJobSearch -INFO - Entered PickUpID in basic search
+2022-05-26 18:03:30,032 - RTEJobSearch -INFO - Click on Search button
+2022-05-26 18:03:33,142 - RTEJobSearch -INFO - Data is exist with search parameter
+2022-05-26 18:03:33,575 - RTEJobSearch -INFO - Clicked on Exit without Save
+2022-05-26 18:03:35,231 - RTEJobSearch -INFO - Clicked on SearchAllJobs
+2022-05-26 18:03:36,726 - RTEJobSearch -INFO - Clicked on Reset button
+2022-05-26 18:03:37,093 - RTEJobSearch -INFO - Entered RouteTrackingID
+2022-05-26 18:03:37,241 - RTEJobSearch -INFO - Click on Search button
+2022-05-26 18:04:27,893 - RTEJobSearch -INFO - Data is exist with search parameter
+2022-05-26 18:04:27,930 - RTEJobSearch -INFO - Total No of records are==1
+2022-05-26 18:04:28,132 - RTEJobSearch -INFO - JobID is==32417001
+2022-05-26 18:04:28,246 - RTEJobSearch -INFO - PickUpID is==3422239
+2022-05-26 18:04:28,369 - RTEJobSearch -INFO - BOLNo is==126212547
+2022-05-26 18:04:28,889 - RTEJobSearch -INFO - Clicked on Record
+2022-05-26 18:04:31,485 - RTEJobSearch -INFO - Clicked on Exit without Save
+2022-05-26 18:04:33,005 - RTEJobSearch -INFO - Entered PickUpID in basic search
+2022-05-26 18:04:33,245 - RTEJobSearch -INFO - Click on Search button
+2022-05-26 18:04:36,311 - RTEJobSearch -INFO - Data is exist with search parameter
+2022-05-26 18:04:36,803 - RTEJobSearch -INFO - Clicked on Exit without Save
+2022-05-26 18:04:38,310 - RTEJobSearch -INFO - Clicked on SearchAllJobs
+2022-05-26 18:04:39,900 - RTEJobSearch -INFO - Clicked on Reset button
+2022-05-26 18:04:40,204 - RTEJobSearch -INFO - Entered RouteTrackingID
+2022-05-26 18:04:40,350 - RTEJobSearch -INFO - Click on Search button
+2022-05-26 18:04:41,628 - RTEJobSearch -INFO - There is no Data with Search parameter
+2022-05-26 18:04:41,751 - RTEJobSearch -INFO - Clicked on Reset button
+2022-05-26 18:04:42,004 - RTEJobSearch -INFO - Entered RouteTrackingID
+2022-05-26 18:04:42,163 - RTEJobSearch -INFO - Click on Search button
+2022-05-26 18:04:43,471 - RTEJobSearch -INFO - There is no Data with Search parameter
+2022-05-26 18:04:43,574 - RTEJobSearch -INFO - Clicked on Reset button
+2022-05-26 18:04:43,885 - RTEJobSearch -INFO - Entered RouteTrackingID
+2022-05-26 18:04:43,997 - RTEJobSearch -INFO - Click on Search button
+2022-05-26 18:04:45,266 - RTEJobSearch -INFO - There is no Data with Search parameter
+2022-05-26 18:04:45,359 - RTEJobSearch -INFO - Clicked on Reset button
+2022-05-26 18:04:45,567 - RTEJobSearch -INFO - Entered RouteTrackingID
+2022-05-26 18:04:45,682 - RTEJobSearch -INFO - Click on Search button
+2022-05-26 18:04:46,938 - RTEJobSearch -INFO - There is no Data with Search parameter
+2022-05-26 18:04:46,938 - RTEJobSearch -INFO - ======================RTE Job Search Test End==================
+2022-05-26 18:04:50,406 - RTEJobSearch -INFO - Logout Message is displayed==You have successfully logged out!
+2022-05-26 18:04:50,407 - RTEJobSearch -INFO - Logout done
+2022-05-26 18:04:51,248 - RTEJobSearch -INFO - ====Sending Email=====

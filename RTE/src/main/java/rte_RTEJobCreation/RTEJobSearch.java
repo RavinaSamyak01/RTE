@@ -42,17 +42,17 @@ public class RTEJobSearch extends BaseInit {
 
 		getScreenshot(driver, "TaskLog");
 
+		// --Go to Search All Job
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("hlkOrderSearch")));
+		isElementPresent("TLSearchAllJob_id").click();
+		logs.info("Clicked on SearchAllJobs");
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("AdvancesSearch")));
+
 		int TotalRow = getTotalRow("RTECreation");
 		logs.info("Total Rows==" + TotalRow);
 
 		for (int row = 1; row < TotalRow; row++) {
-			// --Go to Search All Job
-			wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("hlkOrderSearch")));
-			isElementPresent("TLSearchAllJob_id").click();
-			logs.info("Clicked on SearchAllJobs");
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("AdvancesSearch")));
-
 			// --Reset button
 			isElementPresent("RLReset_id").click();
 			logs.info("Clicked on Reset button");
@@ -146,6 +146,13 @@ public class RTEJobSearch extends BaseInit {
 						isElementPresent("TLEXWSave_id").click();
 						logs.info("Clicked on Exit without Save");
 						wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+						// --Go to Search All Job
+						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("hlkOrderSearch")));
+						isElementPresent("TLSearchAllJob_id").click();
+						logs.info("Clicked on SearchAllJobs");
+						wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+						wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("AdvancesSearch")));
 
 					}
 
