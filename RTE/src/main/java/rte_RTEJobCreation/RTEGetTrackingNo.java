@@ -80,9 +80,29 @@ public class RTEGetTrackingNo extends BaseInit {
 					logs.info("RWTrackingNo is generated");
 					RWTrackingNo = isElementPresent("RLRWTrackingNo_xpath").getText();
 					logs.info("RWTrackingNo is ==" + RWTrackingNo);
-					setData("RTECreation", row, 2, RWTrackingNo);
-					setData("SearchRTE", row, 0, RWTrackingNo);
-					logs.info("Inserted RWTrackingNo in Excel");
+
+					String Scenario = getData("RTECreation", row, 3);
+
+					if (Scenario.equalsIgnoreCase("One To One")) {
+						setData("RTECreation", row, 2, RWTrackingNo);
+						setData("SearchRTE", row, 0, RWTrackingNo);
+						logs.info("Inserted RWTrackingNo in Excel");
+					} else if (Scenario.equalsIgnoreCase("One To Many")) {
+						setData("RTECreation", row, 2, RWTrackingNo);
+						setData("OneToMany", 1, 0, RWTrackingNo);
+						logs.info("Inserted RWTrackingNo in Excel");
+
+					} else if (Scenario.equalsIgnoreCase("Many to One")) {
+						setData("RTECreation", row, 2, RWTrackingNo);
+						setData("ManyToOne", 1, 0, RWTrackingNo);
+						logs.info("Inserted RWTrackingNo in Excel");
+
+					} else if (Scenario.equalsIgnoreCase("Many To Many")) {
+						setData("RTECreation", row, 2, RWTrackingNo);
+						setData("ManyToMany", 1, 0, RWTrackingNo);
+						logs.info("Inserted RWTrackingNo in Excel");
+
+					}
 
 				}
 

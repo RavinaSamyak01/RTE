@@ -15,21 +15,18 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+
 import rte_BasePackage.BaseInit;
 
-public class RTEJobProcessing extends BaseInit {
+public class RTEOneToManyOrderProcess extends BaseInit {
 
-	@Test
-	public void rteOrderProcess()
-			throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException {
+	public void rteOneToManyOrderProcess() throws EncryptedDocumentException, InvalidFormatException, IOException {
 
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		Actions act = new Actions(driver);
 
-		logs.info("======================RTE Order Processing Test Start==================");
-		msg.append("======================RTE Order Processing Test Start==================" + "\n");
+		logs.info("======================RTE One To Many Order Processing Test Start==================");
+		msg.append("======================RTE One To Many Order Processing Test Start==================" + "\n");
 
 		// --Go To Operations
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("a_operations")));
@@ -49,7 +46,7 @@ public class RTEJobProcessing extends BaseInit {
 
 		// --Enter pickUpID
 		wait.until(ExpectedConditions.elementToBeClickable(By.id("txtContains")));
-		String PickUpID = getData("SearchRTE", 1, 2);
+		String PickUpID = getData("SearchRTE", 3, 2);
 		isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 		logs.info("PickUpID==" + PickUpID);
 		logs.info("Entered PickUpID in basic search");
@@ -1462,20 +1459,9 @@ public class RTEJobProcessing extends BaseInit {
 
 		}
 
-		logs.info("======================RTE Order Processing Test End==================");
-		msg.append("======================RTE Order Processing Test End==================" + "\n");
+		logs.info("======================RTE One To Many Order Processing Test End==================");
+		msg.append("======================RTE One To Many Order Processing Test End==================" + "\n");
 
-	}
-
-	@BeforeTest
-	public void getTrackPickUPID() throws EncryptedDocumentException, InvalidFormatException, IOException {
-		// --Get Tracking No
-		RTEGetTrackingNo TrackNo = new RTEGetTrackingNo();
-		TrackNo.getRTETrackingNo();
-
-		// --Get PickUpID
-		RTEJobSearch JobSearch = new RTEJobSearch();
-		JobSearch.rteJobSearch();
 	}
 
 }

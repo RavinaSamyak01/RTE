@@ -872,13 +872,46 @@ public class ShipmentDetails extends BaseInit {
 		} catch (Exception NoData) {
 			logs.info("Data is exist with search parameter");
 			logs.info("LOC job is created with Unmerged shipment");
-			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("ActiveShipmentId")));
-			getScreenshot(driver, "JobEditor_TCACK");
+			try {
+				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("ActiveShipmentId")));
+				getScreenshot(driver, "JobEditor_TCACK");
 
-			// --Job Status
-			wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
-			String jobStatus = isElementPresent("TLStageLable_id").getText();
-			logs.info("Job status is==" + jobStatus);
+				// --Job Status
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
+				String jobStatus = isElementPresent("TLStageLable_id").getText();
+				logs.info("Job status is==" + jobStatus);
+			} catch (Exception Multiple) {
+				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("idOperationTasklogGrd")));
+				List<WebElement> jobs = driver.findElements(
+						By.xpath("//td[contains(@aria-label,'Column Pickup #')]//label[@id=\"lblDateTime\"]"));
+				int totaljobs = jobs.size();
+				for (int job = 0; job < totaljobs; job++) {
+
+					PickUpID = getData("LocJob", 1, 0);
+					logs.info("Entered PickupID is==" + PickUpID);
+
+					String PickUPId = jobs.get(job).getText();
+					logs.info("PickupID is==" + PickUPId);
+
+					if (PickUPId.contains(PickUpID)) {
+						logs.info("Searched job is exist");
+
+						// --Click on the job
+						jobs.get(job).click();
+						logs.info("Clicked on searched Job");
+
+						// --Job Status
+						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
+						getScreenshot(driver, "JobEditor_TCACK");
+						String jobStatus = isElementPresent("TLStageLable_id").getText();
+						logs.info("Job status is==" + jobStatus);
+						break;
+					} else {
+						logs.info("Searched job is not exist");
+
+					}
+				}
+			}
 		}
 
 	}
