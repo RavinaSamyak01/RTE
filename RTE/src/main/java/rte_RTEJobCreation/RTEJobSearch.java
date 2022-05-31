@@ -8,6 +8,7 @@ import java.util.List;
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -23,6 +24,7 @@ public class RTEJobSearch extends BaseInit {
 	public void rteJobSearch() throws IOException, EncryptedDocumentException, InvalidFormatException {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		Actions act = new Actions(driver);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 
 		logs.info("======================RTE Job Search Test start==================");
 		msg.append("======================RTE Job Search Test start==================" + "\n");
@@ -55,7 +57,7 @@ public class RTEJobSearch extends BaseInit {
 		int TotalRow = getTotalRow("RTECreation");
 		logs.info("Total Rows==" + TotalRow);
 
-		for (int row = 3; row < 6; row++) {
+		for (int row = 1; row < 6; row++) {
 
 			String Scenario = getData("RTECreation", row, 3);
 			// --Reset button
@@ -85,6 +87,7 @@ public class RTEJobSearch extends BaseInit {
 			// --RouteTrackingNo
 			wait.until(ExpectedConditions.elementToBeClickable(By.id("txtRouteTrackingNum")));
 			String RouteTrackingNo = getData("RTECreation", row, 2);
+			logs.info("Route Tracking No==" + RouteTrackingNo);
 			isElementPresent("TLSARoutTrackNo_id").sendKeys(RouteTrackingNo);
 			logs.info("Entered RouteTrackingID");
 
@@ -180,21 +183,22 @@ public class RTEJobSearch extends BaseInit {
 					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 					// --Enter pickUpID
-					wait.until(ExpectedConditions.elementToBeClickable(By.id("txtContains")));
 
 					if (Scenario.equalsIgnoreCase("One To One")) {
-						PickUpID = getData("SearchRTE", row, 2);
+						PickUpID = getData("SearchRTE", RTE + 1, 2);
 
 					} else if (Scenario.equalsIgnoreCase("One To Many")) {
-						PickUpID = getData("OneToMany", row, 2);
+						PickUpID = getData("OneToMany", RTE + 1, 2);
 
 					} else if (Scenario.equalsIgnoreCase("Many to One")) {
-						PickUpID = getData("ManyToOne", row, 2);
+						PickUpID = getData("ManyToOne", RTE + 1, 2);
 
 					} else if (Scenario.equalsIgnoreCase("Many To Many")) {
-						PickUpID = getData("ManyToMany", row, 2);
+						PickUpID = getData("ManyToMany", RTE + 1, 2);
 
 					}
+					System.out.println("PickedUp id==" + PickUpID);
+					wait.until(ExpectedConditions.elementToBeClickable(By.id("txtContains")));
 					isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 					logs.info("Entered PickUpID in basic search");
 
@@ -215,77 +219,69 @@ public class RTEJobSearch extends BaseInit {
 					} catch (Exception NoDataEx) {
 						logs.info("Data is exist with search PickUpID");
 
-						try {
-							wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
-							getScreenshot(driver, "JobEditor_PickUP");
+						// try {
+						wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
+						getScreenshot(driver, "JobEditor_PickUP");
 
-							// --Exit Without Save
-							isElementPresent("TLEXWSave_id").click();
-							logs.info("Clicked on Exit without Save");
-							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+						// --Exit Without Save
+						isElementPresent("TLEXWSave_id").click();
+						logs.info("Clicked on Exit without Save");
+						wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-							// --Go to Search All Job
-							wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("hlkOrderSearch")));
-							isElementPresent("TLSearchAllJob_id").click();
-							logs.info("Clicked on SearchAllJobs");
-							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-							wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("AdvancesSearch")));
-						} catch (Exception Multiple) {
-							wait.until(ExpectedConditions
-									.visibilityOfAllElementsLocatedBy(By.id("idOperationTasklogGrd")));
-							List<WebElement> jobs = driver.findElements(By.xpath(
-									"//td[contains(@aria-label,'Column Pickup #')]//label[@id=\"lblDateTime\"]"));
-							int totaljobs = jobs.size();
-							for (int job = 0; job < totaljobs; job++) {
-
-								PickUpID = getData("SearchRTE", row, 2);
-								logs.info("Entered PickupID is==" + PickUpID);
-
-								String PickUPId = jobs.get(job).getText();
-								logs.info("PickupID is==" + PickUPId);
-
-								if (PickUPId.contains(PickUpID)) {
-									logs.info("Searched job is exist");
-
-									// --Click on the job
-									jobs.get(job).click();
-									logs.info("Clicked on searched Job");
-
-									// --Job Status
-									wait.until(ExpectedConditions
-											.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
-									getScreenshot(driver, "JobEditor_PickUP");
-
-									// --Exit Without Save
-									isElementPresent("TLEXWSave_id").click();
-									logs.info("Clicked on Exit without Save");
-									wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
-									// --Go to Search All Job
-									wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("hlkOrderSearch")));
-									isElementPresent("TLSearchAllJob_id").click();
-									logs.info("Clicked on SearchAllJobs");
-									wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-									wait.until(ExpectedConditions
-											.visibilityOfAllElementsLocatedBy(By.id("AdvancesSearch")));
-
-									break;
-								} else {
-									logs.info("Searched job is not exist");
-
-								}
-							}
-						}
+						// --Go to Search All Job
+						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("hlkOrderSearch")));
+						isElementPresent("TLSearchAllJob_id").click();
+						logs.info("Clicked on SearchAllJobs");
+						wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+						wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("AdvancesSearch")));
+						/*
+						 * } catch (Exception Multiple) { wait.until(ExpectedConditions
+						 * .visibilityOfAllElementsLocatedBy(By.id("idOperationTasklogGrd")));
+						 * List<WebElement> jobs = driver.findElements(By.xpath(
+						 * "//td[contains(@aria-label,'Column Pickup #')]//label[@id=\"lblDateTime\"]"))
+						 * ; int totaljobs = jobs.size(); for (int job = 0; job < totaljobs; job++) {
+						 * 
+						 * PickUpID = getData("SearchRTE", row, 2); logs.info("Entered PickupID is==" +
+						 * PickUpID);
+						 * 
+						 * String PickUPId = jobs.get(job).getText(); logs.info("PickupID is==" +
+						 * PickUPId);
+						 * 
+						 * if (PickUPId.contains(PickUpID)) { logs.info("Searched job is exist");
+						 * 
+						 * // --Click on the job jobs.get(job).click();
+						 * logs.info("Clicked on searched Job");
+						 * 
+						 * // --Job Status wait.until(ExpectedConditions
+						 * .visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
+						 * getScreenshot(driver, "JobEditor_PickUP");
+						 * 
+						 * // --Exit Without Save isElementPresent("TLEXWSave_id").click();
+						 * logs.info("Clicked on Exit without Save");
+						 * wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")
+						 * ));
+						 * 
+						 * // --Go to Search All Job
+						 * wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(
+						 * "hlkOrderSearch"))); isElementPresent("TLSearchAllJob_id").click();
+						 * logs.info("Clicked on SearchAllJobs");
+						 * wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")
+						 * )); wait.until(ExpectedConditions
+						 * .visibilityOfAllElementsLocatedBy(By.id("AdvancesSearch")));
+						 * 
+						 * break; } else { logs.info("Searched job is not exist");
+						 * 
+						 * } }
+						 */
 					}
-
 				}
 
 			}
+
 		}
 
 		logs.info("======================RTE Job Search Test End==================");
 		msg.append("======================RTE Job Search Test End==================" + "\n");
 
 	}
-
 }

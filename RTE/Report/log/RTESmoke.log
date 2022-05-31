@@ -1,172 +1,69 @@
-2022-05-27 15:36:29,002 - RTEJobSearch -INFO - initialization of the properties file is done
-2022-05-27 15:36:29,519 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Using chromedriver 101.0.4951.41 (since Google Chrome 101 is installed in your machine)
-2022-05-27 15:36:29,544 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Exporting webdriver.chrome.driver as C:\Users\rprajapati\.m2\repository\webdriver\chromedriver\win32\101.0.4951.41\chromedriver.exe
-2022-05-27 15:36:41,413 - RTEJobSearch -INFO - Entered UserName
-2022-05-27 15:36:42,663 - RTEJobSearch -INFO - Entered Password
-2022-05-27 15:36:43,918 - RTEJobSearch -INFO - Login done
-2022-05-27 15:36:58,196 - RTEJobSearch -INFO - ======================RTE Job Search Test start==================
-2022-05-27 15:36:58,552 - RTEJobSearch -INFO - Clicked on Operations
-2022-05-27 15:36:58,946 - RTEJobSearch -INFO - Clicked on TaskLog
-2022-05-27 15:37:01,687 - RTEJobSearch -INFO - Clicked on SearchAllJobs
-2022-05-27 15:37:06,259 - RTEJobSearch -INFO - Total Rows==7
-2022-05-27 15:37:06,558 - RTEJobSearch -INFO - Clicked on Reset button
-2022-05-27 15:37:06,757 - RTEJobSearch -INFO - 05/27/2022
-2022-05-27 15:37:06,955 - RTEJobSearch -INFO - Entered Origin From Date
-2022-05-27 15:37:07,167 - RTEJobSearch -INFO - 05/27/2022
-2022-05-27 15:37:07,397 - RTEJobSearch -INFO - Entered Origin From Date
-2022-05-27 15:37:07,830 - RTEJobSearch -INFO - Entered RouteTrackingID
-2022-05-27 15:37:08,015 - RTEJobSearch -INFO - Click on Search button
-2022-05-27 15:37:59,133 - RTEJobSearch -INFO - Data is exist with search TrackingNO
-2022-05-27 15:37:59,183 - RTEJobSearch -INFO - Total No of records are==6
-2022-05-27 15:37:59,659 - RTEJobSearch -INFO - JobID is==32418779
-2022-05-27 15:38:00,156 - RTEJobSearch -INFO - PickUpID is==3424016
-2022-05-27 15:38:00,657 - RTEJobSearch -INFO - BOLNo is==126229710
-2022-05-27 15:38:01,201 - RTEJobSearch -INFO - Clicked on Record
-2022-05-27 15:38:06,671 - RTEJobSearch -INFO - Clicked on Exit without Save
-2022-05-27 15:38:07,665 - RTEJobSearch -INFO - Entered PickUpID in basic search
-2022-05-27 15:38:07,886 - RTEJobSearch -INFO - Click on Search button
-2022-05-27 15:38:13,005 - RTEJobSearch -INFO - Data is exist with search PickUpID
-2022-05-27 15:38:13,646 - RTEJobSearch -INFO - Clicked on Exit without Save
-2022-05-27 15:38:15,238 - RTEJobSearch -INFO - Clicked on SearchAllJobs
-2022-05-27 15:38:16,983 - RTEJobSearch -INFO - JobID is==32418778
-2022-05-27 15:38:17,149 - RTEJobSearch -INFO - PickUpID is==3424015
-2022-05-27 15:38:17,337 - RTEJobSearch -INFO - BOLNo is==126229709
-2022-05-27 15:38:17,886 - RTEJobSearch -INFO - Clicked on Record
-2022-05-27 15:38:22,809 - RTEJobSearch -INFO - Clicked on Exit without Save
-2022-05-27 15:38:23,747 - RTEJobSearch -INFO - Entered PickUpID in basic search
-2022-05-27 15:38:24,014 - RTEJobSearch -INFO - Click on Search button
-2022-05-27 15:38:27,015 - RTEJobSearch -INFO - Data is exist with search PickUpID
-2022-05-27 15:38:27,550 - RTEJobSearch -INFO - Clicked on Exit without Save
-2022-05-27 15:38:29,765 - RTEJobSearch -INFO - Clicked on SearchAllJobs
-2022-05-27 15:38:31,782 - RTEJobSearch -INFO - JobID is==32418777
-2022-05-27 15:38:31,986 - RTEJobSearch -INFO - PickUpID is==3424014
-2022-05-27 15:38:32,122 - RTEJobSearch -INFO - BOLNo is==126229695
-2022-05-27 15:38:32,660 - RTEJobSearch -INFO - Clicked on Record
-2022-05-27 15:38:36,669 - RTEJobSearch -INFO - Clicked on Exit without Save
-2022-05-27 15:38:38,444 - RTEJobSearch -INFO - Entered PickUpID in basic search
-2022-05-27 15:38:39,026 - RTEJobSearch -INFO - Click on Search button
-2022-05-27 15:38:42,057 - RTEJobSearch -INFO - Data is exist with search PickUpID
-2022-05-27 15:38:42,625 - RTEJobSearch -INFO - Clicked on Exit without Save
-2022-05-27 15:38:44,158 - RTEJobSearch -INFO - Clicked on SearchAllJobs
-2022-05-27 15:38:46,450 - RTEJobSearch -INFO - JobID is==32418776
-2022-05-27 15:38:46,609 - RTEJobSearch -INFO - PickUpID is==3424013
-2022-05-27 15:38:46,729 - RTEJobSearch -INFO - BOLNo is==126229684
-2022-05-27 15:38:47,281 - RTEJobSearch -INFO - Clicked on Record
-2022-05-27 15:38:50,289 - RTEJobSearch -INFO - Clicked on Exit without Save
-2022-05-27 15:38:51,622 - RTEJobSearch -INFO - Entered PickUpID in basic search
-2022-05-27 15:38:51,817 - RTEJobSearch -INFO - Click on Search button
-2022-05-27 15:38:54,850 - RTEJobSearch -INFO - Data is exist with search PickUpID
-2022-05-27 15:38:55,407 - RTEJobSearch -INFO - Clicked on Exit without Save
-2022-05-27 15:38:56,957 - RTEJobSearch -INFO - Clicked on SearchAllJobs
-2022-05-27 15:38:59,322 - RTEJobSearch -INFO - JobID is==32418775
-2022-05-27 15:38:59,500 - RTEJobSearch -INFO - PickUpID is==3424012
-2022-05-27 15:38:59,648 - RTEJobSearch -INFO - BOLNo is==126229673
-2022-05-27 15:39:00,135 - RTEJobSearch -INFO - Clicked on Record
-2022-05-27 15:39:02,667 - RTEJobSearch -INFO - Clicked on Exit without Save
-2022-05-27 15:39:04,221 - RTEJobSearch -INFO - Entered PickUpID in basic search
-2022-05-27 15:39:04,623 - RTEJobSearch -INFO - Click on Search button
-2022-05-27 15:39:07,532 - RTEJobSearch -INFO - Data is exist with search PickUpID
-2022-05-27 15:39:07,817 - RTEJobSearch -INFO - Clicked on Exit without Save
-2022-05-27 15:39:09,055 - RTEJobSearch -INFO - Clicked on SearchAllJobs
-2022-05-27 15:39:10,530 - RTEJobSearch -INFO - JobID is==32418774
-2022-05-27 15:39:10,591 - RTEJobSearch -INFO - PickUpID is==3424011
-2022-05-27 15:39:10,672 - RTEJobSearch -INFO - BOLNo is==126229662
-2022-05-27 15:39:10,989 - RTEJobSearch -INFO - Clicked on Record
-2022-05-27 15:39:13,567 - RTEJobSearch -INFO - Clicked on Exit without Save
-2022-05-27 15:39:15,409 - RTEJobSearch -INFO - Entered PickUpID in basic search
-2022-05-27 15:39:15,517 - RTEJobSearch -INFO - Click on Search button
-2022-05-27 15:39:18,416 - RTEJobSearch -INFO - Data is exist with search PickUpID
-2022-05-27 15:39:18,687 - RTEJobSearch -INFO - Clicked on Exit without Save
-2022-05-27 15:39:19,976 - RTEJobSearch -INFO - Clicked on SearchAllJobs
-2022-05-27 15:39:21,282 - RTEJobSearch -INFO - Clicked on Reset button
-2022-05-27 15:39:21,367 - RTEJobSearch -INFO - 05/27/2022
-2022-05-27 15:39:21,455 - RTEJobSearch -INFO - Entered Origin From Date
-2022-05-27 15:39:21,515 - RTEJobSearch -INFO - 05/27/2022
-2022-05-27 15:39:21,618 - RTEJobSearch -INFO - Entered Origin From Date
-2022-05-27 15:39:21,756 - RTEJobSearch -INFO - Entered RouteTrackingID
-2022-05-27 15:39:21,835 - RTEJobSearch -INFO - Click on Search button
-2022-05-27 15:40:12,648 - RTEJobSearch -INFO - Data is exist with search TrackingNO
-2022-05-27 15:40:12,675 - RTEJobSearch -INFO - Total No of records are==4
-2022-05-27 15:40:12,915 - RTEJobSearch -INFO - JobID is==32418883
-2022-05-27 15:40:12,946 - RTEJobSearch -INFO - PickUpID is==3424120
-2022-05-27 15:40:12,987 - RTEJobSearch -INFO - BOLNo is==126230785
-2022-05-27 15:40:13,270 - RTEJobSearch -INFO - Clicked on Record
-2022-05-27 15:40:15,759 - RTEJobSearch -INFO - Clicked on Exit without Save
-2022-05-27 15:40:16,994 - RTEJobSearch -INFO - Entered PickUpID in basic search
-2022-05-27 15:40:17,171 - RTEJobSearch -INFO - Click on Search button
-2022-05-27 15:40:20,009 - RTEJobSearch -INFO - Data is exist with search PickUpID
-2022-05-27 15:40:20,251 - RTEJobSearch -INFO - Clicked on Exit without Save
-2022-05-27 15:40:22,081 - RTEJobSearch -INFO - Clicked on SearchAllJobs
-2022-05-27 15:40:23,512 - RTEJobSearch -INFO - JobID is==32418882
-2022-05-27 15:40:23,546 - RTEJobSearch -INFO - PickUpID is==3424119
-2022-05-27 15:40:23,602 - RTEJobSearch -INFO - BOLNo is==126230774
-2022-05-27 15:40:23,899 - RTEJobSearch -INFO - Clicked on Record
-2022-05-27 15:40:26,341 - RTEJobSearch -INFO - Clicked on Exit without Save
-2022-05-27 15:40:28,249 - RTEJobSearch -INFO - Entered PickUpID in basic search
-2022-05-27 15:40:28,440 - RTEJobSearch -INFO - Click on Search button
-2022-05-27 15:40:31,229 - RTEJobSearch -INFO - Data is exist with search PickUpID
-2022-05-27 15:40:31,471 - RTEJobSearch -INFO - Clicked on Exit without Save
-2022-05-27 15:40:32,705 - RTEJobSearch -INFO - Clicked on SearchAllJobs
-2022-05-27 15:40:34,108 - RTEJobSearch -INFO - JobID is==32418881
-2022-05-27 15:40:34,139 - RTEJobSearch -INFO - PickUpID is==3424118
-2022-05-27 15:40:34,173 - RTEJobSearch -INFO - BOLNo is==126230763
-2022-05-27 15:40:34,444 - RTEJobSearch -INFO - Clicked on Record
-2022-05-27 15:40:36,890 - RTEJobSearch -INFO - Clicked on Exit without Save
-2022-05-27 15:40:38,664 - RTEJobSearch -INFO - Entered PickUpID in basic search
-2022-05-27 15:40:38,837 - RTEJobSearch -INFO - Click on Search button
-2022-05-27 15:40:41,595 - RTEJobSearch -INFO - Data is exist with search PickUpID
-2022-05-27 15:40:41,880 - RTEJobSearch -INFO - Clicked on Exit without Save
-2022-05-27 15:40:43,148 - RTEJobSearch -INFO - Clicked on SearchAllJobs
-2022-05-27 15:40:44,524 - RTEJobSearch -INFO - JobID is==32418880
-2022-05-27 15:40:44,549 - RTEJobSearch -INFO - PickUpID is==3424117
-2022-05-27 15:40:44,583 - RTEJobSearch -INFO - BOLNo is==126230752
-2022-05-27 15:40:44,867 - RTEJobSearch -INFO - Clicked on Record
-2022-05-27 15:40:47,569 - RTEJobSearch -INFO - Clicked on Exit without Save
-2022-05-27 15:40:49,400 - RTEJobSearch -INFO - Entered PickUpID in basic search
-2022-05-27 15:40:49,558 - RTEJobSearch -INFO - Click on Search button
-2022-05-27 15:40:52,348 - RTEJobSearch -INFO - Data is exist with search PickUpID
-2022-05-27 15:40:52,594 - RTEJobSearch -INFO - Clicked on Exit without Save
-2022-05-27 15:40:54,390 - RTEJobSearch -INFO - Clicked on SearchAllJobs
-2022-05-27 15:40:55,649 - RTEJobSearch -INFO - Clicked on Reset button
-2022-05-27 15:40:55,729 - RTEJobSearch -INFO - 05/27/2022
-2022-05-27 15:40:55,828 - RTEJobSearch -INFO - Entered Origin From Date
-2022-05-27 15:40:55,900 - RTEJobSearch -INFO - 05/27/2022
-2022-05-27 15:40:56,013 - RTEJobSearch -INFO - Entered Origin From Date
-2022-05-27 15:40:56,149 - RTEJobSearch -INFO - Entered RouteTrackingID
-2022-05-27 15:40:56,233 - RTEJobSearch -INFO - Click on Search button
-2022-05-27 15:41:47,171 - RTEJobSearch -INFO - Data is exist with search TrackingNO
-2022-05-27 15:41:47,204 - RTEJobSearch -INFO - Total No of records are==3
-2022-05-27 15:41:47,459 - RTEJobSearch -INFO - JobID is==32418685
-2022-05-27 15:41:47,487 - RTEJobSearch -INFO - PickUpID is==3423922
-2022-05-27 15:41:47,519 - RTEJobSearch -INFO - BOLNo is==126229008
-2022-05-27 15:41:47,853 - RTEJobSearch -INFO - Clicked on Record
-2022-05-27 15:41:50,337 - RTEJobSearch -INFO - Clicked on Exit without Save
-2022-05-27 15:41:51,590 - RTEJobSearch -INFO - Entered PickUpID in basic search
-2022-05-27 15:41:51,732 - RTEJobSearch -INFO - Click on Search button
-2022-05-27 15:41:54,567 - RTEJobSearch -INFO - Data is exist with search PickUpID
-2022-05-27 15:41:54,832 - RTEJobSearch -INFO - Clicked on Exit without Save
-2022-05-27 15:41:56,634 - RTEJobSearch -INFO - Clicked on SearchAllJobs
-2022-05-27 15:41:58,107 - RTEJobSearch -INFO - JobID is==32418684
-2022-05-27 15:41:58,140 - RTEJobSearch -INFO - PickUpID is==3423921
-2022-05-27 15:41:58,175 - RTEJobSearch -INFO - BOLNo is==126228997
-2022-05-27 15:41:58,445 - RTEJobSearch -INFO - Clicked on Record
-2022-05-27 15:42:00,982 - RTEJobSearch -INFO - Clicked on Exit without Save
-2022-05-27 15:42:02,755 - RTEJobSearch -INFO - Entered PickUpID in basic search
-2022-05-27 15:42:02,878 - RTEJobSearch -INFO - Click on Search button
-2022-05-27 15:42:05,732 - RTEJobSearch -INFO - Data is exist with search PickUpID
-2022-05-27 15:42:05,988 - RTEJobSearch -INFO - Clicked on Exit without Save
-2022-05-27 15:42:07,269 - RTEJobSearch -INFO - Clicked on SearchAllJobs
-2022-05-27 15:42:08,647 - RTEJobSearch -INFO - JobID is==32418683
-2022-05-27 15:42:08,675 - RTEJobSearch -INFO - PickUpID is==3423920
-2022-05-27 15:42:08,705 - RTEJobSearch -INFO - BOLNo is==126228986
-2022-05-27 15:42:08,970 - RTEJobSearch -INFO - Clicked on Record
-2022-05-27 15:42:11,511 - RTEJobSearch -INFO - Clicked on Exit without Save
-2022-05-27 15:42:13,323 - RTEJobSearch -INFO - Entered PickUpID in basic search
-2022-05-27 15:42:13,476 - RTEJobSearch -INFO - Click on Search button
-2022-05-27 15:42:16,265 - RTEJobSearch -INFO - Data is exist with search PickUpID
-2022-05-27 15:42:16,517 - RTEJobSearch -INFO - Clicked on Exit without Save
-2022-05-27 15:42:18,339 - RTEJobSearch -INFO - Clicked on SearchAllJobs
-2022-05-27 15:42:20,013 - RTEJobSearch -INFO - ======================RTE Job Search Test End==================
-2022-05-27 15:42:23,720 - RTEJobSearch -INFO - Logout Message is displayed==You have successfully logged out!
-2022-05-27 15:42:23,720 - RTEJobSearch -INFO - Logout done
-2022-05-27 15:42:24,083 - RTEJobSearch -INFO - ====Sending Email=====
+2022-05-31 17:40:05,079 - RTEOneToManyOrderProcess -INFO - initialization of the properties file is done
+2022-05-31 17:40:05,521 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Using chromedriver 101.0.4951.41 (since Google Chrome 101 is installed in your machine)
+2022-05-31 17:40:05,556 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Exporting webdriver.chrome.driver as C:\Users\rprajapati\.m2\repository\webdriver\chromedriver\win32\101.0.4951.41\chromedriver.exe
+2022-05-31 17:40:21,058 - RTEOneToManyOrderProcess -INFO - Entered UserName
+2022-05-31 17:40:22,245 - RTEOneToManyOrderProcess -INFO - Entered Password
+2022-05-31 17:40:23,439 - RTEOneToManyOrderProcess -INFO - Login done
+2022-05-31 17:40:45,729 - RTEOneToManyOrderProcess -INFO - ======================RTE One To Many Order Processing Test Start==================
+2022-05-31 17:40:46,005 - RTEOneToManyOrderProcess -INFO - Clicked on Operations
+2022-05-31 17:40:46,405 - RTEOneToManyOrderProcess -INFO - Clicked on TaskLog
+2022-05-31 17:40:51,701 - RTEOneToManyOrderProcess -INFO - PickUpID==3426393
+2022-05-31 17:40:51,702 - RTEOneToManyOrderProcess -INFO - Entered PickUpID in basic search
+2022-05-31 17:40:52,145 - RTEOneToManyOrderProcess -INFO - Click on Search button
+2022-05-31 17:40:59,856 - RTEOneToManyOrderProcess -INFO - Data is exist with search parameter
+2022-05-31 17:41:00,195 - RTEOneToManyOrderProcess -INFO - Job status tab is already Opened
+2022-05-31 17:41:00,346 - RTEOneToManyOrderProcess -INFO - Job status is==TC ACK
+2022-05-31 17:41:00,348 - RTEOneToManyOrderProcess -INFO - It is TC ACK stage
+2022-05-31 17:41:00,790 - RTEOneToManyOrderProcess -INFO - Clicked on Acknowledge button
+2022-05-31 17:41:14,755 - RTEOneToManyOrderProcess -INFO - Job status is==RDY FOR DSP
+2022-05-31 17:41:15,030 - RTEOneToManyOrderProcess -INFO - Clicked on Send PU Alert button
+2022-05-31 17:41:15,276 - RTEOneToManyOrderProcess -INFO - Validation is displayed==Spoke With Required.
+2022-05-31 17:41:15,604 - RTEOneToManyOrderProcess -INFO - Entered Spoke With
+2022-05-31 17:41:15,817 - RTEOneToManyOrderProcess -INFO - Clicked on Send PU Alert button
+2022-05-31 17:41:20,404 - RTEOneToManyOrderProcess -INFO - Entered PickUpID in basic search
+2022-05-31 17:41:20,631 - RTEOneToManyOrderProcess -INFO - Click on Search button
+2022-05-31 17:41:24,306 - RTEOneToManyOrderProcess -INFO - Data is exist with search parameter
+2022-05-31 17:41:24,747 - RTEOneToManyOrderProcess -INFO - Clicked on Job Status Tab
+2022-05-31 17:41:24,917 - RTEOneToManyOrderProcess -INFO - Job status is==PU DRV CONF
+2022-05-31 17:41:25,073 - RTEOneToManyOrderProcess -INFO - Clicked on Confirm PU Alert
+2022-05-31 17:42:27,962 - RTEOneToManyOrderProcess -INFO - Spoke With validation is not displayed
+2022-05-31 17:42:28,296 - RTEOneToManyOrderProcess -INFO - Job status is==PICKUP@STOP 1 OF 7
+2022-05-31 17:42:28,499 - RTEOneToManyOrderProcess -INFO - Clicked on Confirm PU button
+2022-05-31 17:42:28,639 - RTEOneToManyOrderProcess -INFO - Validation is displayed==Act. Pickup Time is Required.
+2022-05-31 17:42:28,666 - RTEOneToManyOrderProcess -INFO - Total Pickup points is/are==6
+2022-05-31 17:42:28,714 - RTEOneToManyOrderProcess -INFO - ZoneID of is==CDT
+2022-05-31 17:42:28,919 - RTEOneToManyOrderProcess -INFO - 05/31/2022
+2022-05-31 17:42:29,282 - RTEOneToManyOrderProcess -INFO - Entered Actual Pickup Date
+2022-05-31 17:42:29,364 - RTEOneToManyOrderProcess -INFO - 07:12
+2022-05-31 17:42:29,565 - RTEOneToManyOrderProcess -INFO - Entered Actual Pickup Time
+2022-05-31 17:42:29,608 - RTEOneToManyOrderProcess -INFO - ZoneID of is==CDT
+2022-05-31 17:42:29,765 - RTEOneToManyOrderProcess -INFO - 05/31/2022
+2022-05-31 17:42:29,994 - RTEOneToManyOrderProcess -INFO - Entered Actual Pickup Date
+2022-05-31 17:42:30,085 - RTEOneToManyOrderProcess -INFO - 07:12
+2022-05-31 17:42:30,282 - RTEOneToManyOrderProcess -INFO - Entered Actual Pickup Time
+2022-05-31 17:42:30,359 - RTEOneToManyOrderProcess -INFO - ZoneID of is==CDT
+2022-05-31 17:42:30,575 - RTEOneToManyOrderProcess -INFO - 05/31/2022
+2022-05-31 17:42:31,028 - RTEOneToManyOrderProcess -INFO - Entered Actual Pickup Date
+2022-05-31 17:42:31,183 - RTEOneToManyOrderProcess -INFO - 07:12
+2022-05-31 17:42:31,499 - RTEOneToManyOrderProcess -INFO - Entered Actual Pickup Time
+2022-05-31 17:42:31,540 - RTEOneToManyOrderProcess -INFO - ZoneID of is==CDT
+2022-05-31 17:42:31,657 - RTEOneToManyOrderProcess -INFO - 05/31/2022
+2022-05-31 17:42:31,838 - RTEOneToManyOrderProcess -INFO - Entered Actual Pickup Date
+2022-05-31 17:42:31,907 - RTEOneToManyOrderProcess -INFO - 07:12
+2022-05-31 17:42:32,111 - RTEOneToManyOrderProcess -INFO - Entered Actual Pickup Time
+2022-05-31 17:42:32,157 - RTEOneToManyOrderProcess -INFO - ZoneID of is==CDT
+2022-05-31 17:42:32,286 - RTEOneToManyOrderProcess -INFO - 05/31/2022
+2022-05-31 17:42:32,503 - RTEOneToManyOrderProcess -INFO - Entered Actual Pickup Date
+2022-05-31 17:42:32,579 - RTEOneToManyOrderProcess -INFO - 07:12
+2022-05-31 17:42:32,779 - RTEOneToManyOrderProcess -INFO - Entered Actual Pickup Time
+2022-05-31 17:42:32,825 - RTEOneToManyOrderProcess -INFO - ZoneID of is==CDT
+2022-05-31 17:42:32,963 - RTEOneToManyOrderProcess -INFO - 05/31/2022
+2022-05-31 17:42:33,155 - RTEOneToManyOrderProcess -INFO - Entered Actual Pickup Date
+2022-05-31 17:42:33,223 - RTEOneToManyOrderProcess -INFO - 07:12
+2022-05-31 17:42:33,400 - RTEOneToManyOrderProcess -INFO - Entered Actual Pickup Time
+2022-05-31 17:42:33,570 - RTEOneToManyOrderProcess -INFO - Clicked on Confirm PU button
+2022-05-31 17:42:46,748 - RTEOneToManyOrderProcess -INFO - Job status is==DELIVER@STOP 2 OF 7
+2022-05-31 17:42:47,017 - RTEOneToManyOrderProcess -INFO - Clicked on Confirm DEL button
+2022-05-31 17:42:47,170 - RTEOneToManyOrderProcess -INFO - Validation is displayed==Act. Delivery Time is Required.
+Signature is required.
+2022-05-31 17:42:56,517 - RTEOneToManyOrderProcess -INFO - Total Delivery points is/are==6

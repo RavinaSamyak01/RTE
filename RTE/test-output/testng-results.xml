@@ -2,46 +2,46 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-05-27T15:36:58 IST" name="Default suite" finished-at="2022-05-27T15:42:20 IST" duration-ms="322038">
+  <suite started-at="2022-05-31T17:32:00 IST" name="Default suite" finished-at="2022-05-31T17:33:05 IST" duration-ms="65477">
     <groups>
     </groups>
-    <test started-at="2022-05-27T15:36:58 IST" name="Default test" finished-at="2022-05-27T15:42:20 IST" duration-ms="322038">
-      <class name="rte_RTEJobCreation.RTEJobSearch">
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:rte_RTEJobCreation.RTEJobSearch@7d4f9aae]" started-at="2022-05-27T15:36:28 IST" name="beforeMethod" finished-at="2022-05-27T15:36:58 IST" duration-ms="29475" status="PASS">
+    <test started-at="2022-05-31T17:32:00 IST" name="Default test" finished-at="2022-05-31T17:33:05 IST" duration-ms="65477">
+      <class name="rte_RTEJobCreation.RTEOneToManyOrderProcess">
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:rte_RTEJobCreation.RTEOneToManyOrderProcess@72e5a8e]" started-at="2022-05-31T17:31:16 IST" name="beforeMethod" finished-at="2022-05-31T17:32:00 IST" duration-ms="44079" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method is-config="true" signature="testMethodName(java.lang.reflect.Method)[pri:0, instance:rte_RTEJobCreation.RTEJobSearch@7d4f9aae]" started-at="2022-05-27T15:36:58 IST" name="testMethodName" finished-at="2022-05-27T15:36:58 IST" duration-ms="13" status="PASS">
+        <test-method is-config="true" signature="testMethodName(java.lang.reflect.Method)[pri:0, instance:rte_RTEJobCreation.RTEOneToManyOrderProcess@72e5a8e]" started-at="2022-05-31T17:32:00 IST" name="testMethodName" finished-at="2022-05-31T17:32:00 IST" duration-ms="10" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void rte_RTEJobCreation.RTEJobSearch.rteJobSearch() throws java.io.IOException,org.apache.poi.EncryptedDocumentException,org.apache.poi.openxml4j.exceptions.InvalidFormatException]]>
+                <![CDATA[public void rte_RTEJobCreation.RTEOneToManyOrderProcess.rteOneToManyOrderProcess() throws org.apache.poi.EncryptedDocumentException,org.apache.poi.openxml4j.exceptions.InvalidFormatException,java.io.IOException]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testMethodName -->
-        <test-method signature="rteJobSearch()[pri:0, instance:rte_RTEJobCreation.RTEJobSearch@7d4f9aae]" started-at="2022-05-27T15:36:58 IST" name="rteJobSearch" finished-at="2022-05-27T15:42:20 IST" duration-ms="321838" status="PASS">
+        <test-method signature="rteOneToManyOrderProcess()[pri:0, instance:rte_RTEJobCreation.RTEOneToManyOrderProcess@72e5a8e]" started-at="2022-05-31T17:32:00 IST" name="rteOneToManyOrderProcess" finished-at="2022-05-31T17:33:05 IST" duration-ms="65099" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- rteJobSearch -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:rte_RTEJobCreation.RTEJobSearch@7d4f9aae]" started-at="2022-05-27T15:42:20 IST" name="getResult" finished-at="2022-05-27T15:42:20 IST" duration-ms="113" status="PASS">
+        </test-method> <!-- rteOneToManyOrderProcess -->
+        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:rte_RTEJobCreation.RTEOneToManyOrderProcess@72e5a8e]" started-at="2022-05-31T17:33:05 IST" name="getResult" finished-at="2022-05-31T17:33:05 IST" duration-ms="272" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=rteJobSearch status=SUCCESS method=RTEJobSearch.rteJobSearch()[pri:0, instance:rte_RTEJobCreation.RTEJobSearch@7d4f9aae] output={null}]]]>
+                <![CDATA[[TestResult name=rteOneToManyOrderProcess status=SUCCESS method=RTEOneToManyOrderProcess.rteOneToManyOrderProcess()[pri:0, instance:rte_RTEJobCreation.RTEOneToManyOrderProcess@72e5a8e] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResult -->
-        <test-method is-config="true" signature="SendEmail()[pri:0, instance:rte_RTEJobCreation.RTEJobSearch@7d4f9aae]" started-at="2022-05-27T15:42:20 IST" name="SendEmail" finished-at="2022-05-27T15:42:25 IST" duration-ms="4909" status="PASS">
+        <test-method is-config="true" signature="SendEmail()[pri:0, instance:rte_RTEJobCreation.RTEOneToManyOrderProcess@72e5a8e]" started-at="2022-05-31T17:33:05 IST" name="SendEmail" finished-at="2022-05-31T17:33:16 IST" duration-ms="10292" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SendEmail -->
-      </class> <!-- rte_RTEJobCreation.RTEJobSearch -->
+      </class> <!-- rte_RTEJobCreation.RTEOneToManyOrderProcess -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
