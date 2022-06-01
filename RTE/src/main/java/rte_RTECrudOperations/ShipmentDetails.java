@@ -913,6 +913,8 @@ public class ShipmentDetails extends BaseInit {
 				}
 			}
 		}
+		logs.info("=========RTE Search LOC job Test End============");
+		msg.append("=========RTE Search LOC job Test End===========" + "\n");
 
 	}
 

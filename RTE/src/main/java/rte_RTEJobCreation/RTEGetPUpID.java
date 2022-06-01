@@ -13,12 +13,14 @@ public class RTEGetPUpID extends BaseInit {
 	@Test
 	public void getTrackPickUPID() throws EncryptedDocumentException, InvalidFormatException, IOException {
 		// --Get Tracking No
-		/*
-		 * RTEGetTrackingNo TrackNo = new RTEGetTrackingNo();
-		 * TrackNo.getRTETrackingNo();
-		 */
+
+		RTEGetTrackingNo TrackNo = new RTEGetTrackingNo();
+		TrackNo.getRTETrackingNo();
+
 		// --Get PickUpID
+
 		RTEJobSearch JobSearch = new RTEJobSearch();
 		JobSearch.rteJobSearch();
+
 	}
 }

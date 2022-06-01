@@ -8,7 +8,7 @@ import java.util.List;
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -24,7 +24,7 @@ public class RTEJobSearch extends BaseInit {
 	public void rteJobSearch() throws IOException, EncryptedDocumentException, InvalidFormatException {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		Actions act = new Actions(driver);
-		JavascriptExecutor js = (JavascriptExecutor) driver;
+		// JavascriptExecutor js = (JavascriptExecutor) driver;
 
 		logs.info("======================RTE Job Search Test start==================");
 		msg.append("======================RTE Job Search Test start==================" + "\n");
@@ -49,7 +49,17 @@ public class RTEJobSearch extends BaseInit {
 
 		// --Go to Search All Job
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("hlkOrderSearch")));
-		isElementPresent("TLSearchAllJob_id").click();
+		WebElement SearchAllJob = isElementPresent("TLSearchAllJob_id");
+		act.moveToElement(SearchAllJob).build().perform();
+
+		Dimension currentDimension = driver.manage().window().getSize();
+		int height = currentDimension.getHeight();
+		int width = currentDimension.getWidth();
+		System.out.println("Current height: " + height);
+		System.out.println("Current width: " + width);
+		System.out.println("window size==" + driver.manage().window().getSize());
+
+		act.moveToElement(SearchAllJob).click().perform();
 		logs.info("Clicked on SearchAllJobs");
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("AdvancesSearch")));
@@ -168,6 +178,38 @@ public class RTEJobSearch extends BaseInit {
 
 					}
 
+					// Default size
+					currentDimension = driver.manage().window().getSize();
+					height = currentDimension.getHeight();
+					width = currentDimension.getWidth();
+					System.out.println("Current height: " + height);
+					System.out.println("Current width: " + width);
+					System.out.println("window size==" + driver.manage().window().getSize());
+
+					// Default size
+					currentDimension = driver.manage().window().getSize();
+					height = currentDimension.getHeight();
+					width = currentDimension.getWidth();
+					System.out.println("Current height: " + height);
+					System.out.println("Current width: " + width);
+					System.out.println("window size==" + driver.manage().window().getSize());
+
+					// Default size
+					currentDimension = driver.manage().window().getSize();
+					height = currentDimension.getHeight();
+					width = currentDimension.getWidth();
+					System.out.println("Current height: " + height);
+					System.out.println("Current width: " + width);
+					System.out.println("window size==" + driver.manage().window().getSize());
+
+					// Default size
+					currentDimension = driver.manage().window().getSize();
+					height = currentDimension.getHeight();
+					width = currentDimension.getWidth();
+					System.out.println("Current height: " + height);
+					System.out.println("Current width: " + width);
+					System.out.println("window size==" + driver.manage().window().getSize());
+
 					// ---Select Record
 					WebElement Job = driver.findElement(By.id(JobID));
 					act.moveToElement(Job).click().perform();
@@ -219,67 +261,76 @@ public class RTEJobSearch extends BaseInit {
 					} catch (Exception NoDataEx) {
 						logs.info("Data is exist with search PickUpID");
 
-						// try {
-						wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
-						getScreenshot(driver, "JobEditor_PickUP");
+						try {
+							wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
+							getScreenshot(driver, "JobEditor_PickUP");
 
-						// --Exit Without Save
-						isElementPresent("TLEXWSave_id").click();
-						logs.info("Clicked on Exit without Save");
-						wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+							// --Exit Without Save
+							isElementPresent("TLEXWSave_id").click();
+							logs.info("Clicked on Exit without Save");
+							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-						// --Go to Search All Job
-						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("hlkOrderSearch")));
-						isElementPresent("TLSearchAllJob_id").click();
-						logs.info("Clicked on SearchAllJobs");
-						wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-						wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("AdvancesSearch")));
-						/*
-						 * } catch (Exception Multiple) { wait.until(ExpectedConditions
-						 * .visibilityOfAllElementsLocatedBy(By.id("idOperationTasklogGrd")));
-						 * List<WebElement> jobs = driver.findElements(By.xpath(
-						 * "//td[contains(@aria-label,'Column Pickup #')]//label[@id=\"lblDateTime\"]"))
-						 * ; int totaljobs = jobs.size(); for (int job = 0; job < totaljobs; job++) {
-						 * 
-						 * PickUpID = getData("SearchRTE", row, 2); logs.info("Entered PickupID is==" +
-						 * PickUpID);
-						 * 
-						 * String PickUPId = jobs.get(job).getText(); logs.info("PickupID is==" +
-						 * PickUPId);
-						 * 
-						 * if (PickUPId.contains(PickUpID)) { logs.info("Searched job is exist");
-						 * 
-						 * // --Click on the job jobs.get(job).click();
-						 * logs.info("Clicked on searched Job");
-						 * 
-						 * // --Job Status wait.until(ExpectedConditions
-						 * .visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
-						 * getScreenshot(driver, "JobEditor_PickUP");
-						 * 
-						 * // --Exit Without Save isElementPresent("TLEXWSave_id").click();
-						 * logs.info("Clicked on Exit without Save");
-						 * wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")
-						 * ));
-						 * 
-						 * // --Go to Search All Job
-						 * wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(
-						 * "hlkOrderSearch"))); isElementPresent("TLSearchAllJob_id").click();
-						 * logs.info("Clicked on SearchAllJobs");
-						 * wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")
-						 * )); wait.until(ExpectedConditions
-						 * .visibilityOfAllElementsLocatedBy(By.id("AdvancesSearch")));
-						 * 
-						 * break; } else { logs.info("Searched job is not exist");
-						 * 
-						 * } }
-						 */
+							// --Go to Search All Job
+							wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("hlkOrderSearch")));
+							isElementPresent("TLSearchAllJob_id").click();
+							logs.info("Clicked on SearchAllJobs");
+							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+							wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("AdvancesSearch")));
+
+						} catch (Exception Multiple) {
+							wait.until(ExpectedConditions
+									.visibilityOfAllElementsLocatedBy(By.id("idOperationTasklogGrd")));
+							List<WebElement> jobs = driver.findElements(By.xpath(
+									"//td[contains(@aria-label,'Column Pickup #')]//label[@id=\"lblDateTime\"]"));
+							int totaljobs = jobs.size();
+							for (int job = 0; job < totaljobs; job++) {
+
+								PickUpID = getData("SearchRTE", row, 2);
+								logs.info("Entered PickupID is==" + PickUpID);
+
+								String PickUPId = jobs.get(job).getText();
+								logs.info("PickupID is==" + PickUPId);
+
+								if (PickUPId.contains(PickUpID)) {
+									logs.info("Searched job is exist");
+
+									// --Click on the job
+									jobs.get(job).click();
+									logs.info("Clicked on searched Job");
+
+									// --Job Status
+									wait.until(ExpectedConditions
+											.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
+									getScreenshot(driver, "JobEditor_PickUP");
+
+									// --Exit Without Save
+									isElementPresent("TLEXWSave_id").click();
+									logs.info("Clicked on Exit without Save");
+									wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+									// --Go to Search All Job
+									wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("hlkOrderSearch")));
+									isElementPresent("TLSearchAllJob_id").click();
+									logs.info("Clicked on SearchAllJobs");
+									wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+									wait.until(ExpectedConditions
+											.visibilityOfAllElementsLocatedBy(By.id("AdvancesSearch")));
+
+									break;
+								} else {
+									logs.info("Searched job is not exist");
+
+								}
+							}
+
+						}
 					}
+
 				}
 
 			}
 
 		}
-
 		logs.info("======================RTE Job Search Test End==================");
 		msg.append("======================RTE Job Search Test End==================" + "\n");
 

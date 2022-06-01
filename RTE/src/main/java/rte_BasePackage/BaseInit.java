@@ -96,9 +96,8 @@ public class BaseInit {
 			capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
 			capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 			// options.addArguments("--headless");
-			// options.addArguments("window-size=1366x788");
+			// options.addArguments("window-size=1255x708");
 			capabilities.setPlatform(Platform.ANY);
-			options.addArguments("--start-maximized");
 
 			driver = new ChromeDriver(options);
 
@@ -110,6 +109,12 @@ public class BaseInit {
 			System.out.println("Current width: " + width);
 			System.out.println("window size==" + driver.manage().window().getSize());
 
+			/*
+			 * Dimension newDimension = new Dimension(1038, 776);
+			 * driver.manage().window().setSize(newDimension);
+			 */
+
+			//driver.manage().window().maximize();
 			login();
 
 		}
