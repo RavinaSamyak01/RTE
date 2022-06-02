@@ -100,8 +100,9 @@ public class RTECrudOperations extends BaseInit {
 				getScreenshot(driver, "JobEditor_TCACK");
 
 				// --Edit Job Tab
-				EditJob Ejob = new EditJob();
-				Ejob.editJob();
+				/*
+				 * EditJob Ejob = new EditJob(); Ejob.editJob();
+				 */
 
 				// --Shipment Details
 				ShipmentDetails shipDetails = new ShipmentDetails();

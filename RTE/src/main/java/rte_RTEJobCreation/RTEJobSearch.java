@@ -51,14 +51,6 @@ public class RTEJobSearch extends BaseInit {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("hlkOrderSearch")));
 		WebElement SearchAllJob = isElementPresent("TLSearchAllJob_id");
 		act.moveToElement(SearchAllJob).build().perform();
-
-		Dimension currentDimension = driver.manage().window().getSize();
-		int height = currentDimension.getHeight();
-		int width = currentDimension.getWidth();
-		System.out.println("Current height: " + height);
-		System.out.println("Current width: " + width);
-		System.out.println("window size==" + driver.manage().window().getSize());
-
 		act.moveToElement(SearchAllJob).click().perform();
 		logs.info("Clicked on SearchAllJobs");
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
@@ -67,7 +59,7 @@ public class RTEJobSearch extends BaseInit {
 		int TotalRow = getTotalRow("RTECreation");
 		logs.info("Total Rows==" + TotalRow);
 
-		for (int row = 1; row < 6; row++) {
+		for (int row = 1; row < 7; row++) {
 
 			String Scenario = getData("RTECreation", row, 3);
 			// --Reset button
@@ -124,7 +116,7 @@ public class RTEJobSearch extends BaseInit {
 				int RecordNo = Records.size() - 1;
 				logs.info("Total No of records are==" + RecordNo);
 
-				for (int RTE = 0; RTE < Records.size() - 1; RTE++) {
+				for (int RTE = 0; RTE < RecordNo; RTE++) {
 					String JobID = "lblJobIdValue_" + RTE;
 					String PickUpID = "lblPickupIdValue_" + RTE;
 					String BOLNO = "lblBOLNumValue_" + RTE;
@@ -137,106 +129,127 @@ public class RTEJobSearch extends BaseInit {
 					String PickUpIDValue = driver.findElement(By.id(PickUpID)).getText();
 					String BOLNoValue = driver.findElement(By.id(BOLNO)).getText();
 
-					if (Scenario.equalsIgnoreCase("One To One")) {
+					int RT = RTE + 1;
+					Scenario = getData("RTECreation", row, 3);
+					if (Scenario.equalsIgnoreCase("One To One") && row == 1) {
 						logs.info("JobID is==" + JobIDValue);
-						setData("SearchRTE", RTE + 1, 1, JobIDValue);
+						setData("SearchRTE", 1, 1, JobIDValue);
+						String JobIDVal = getData("SearchRTE", RT, 1);
+						logs.info("JobIDVal In Excel is==" + JobIDVal);
 
 						logs.info("PickUpID is==" + PickUpIDValue);
-						setData("SearchRTE", RTE + 1, 2, PickUpIDValue);
+						setData("SearchRTE", 1, 2, PickUpIDValue);
+						String PickupIDVal = getData("SearchRTE", RT, 2);
+						logs.info("PickupIDVal In Excel is==" + PickupIDVal);
 
 						logs.info("BOLNo is==" + BOLNoValue);
-						setData("SearchRTE", RTE + 1, 3, BOLNoValue);
+						setData("SearchRTE", 1, 3, BOLNoValue);
+						String BOLNOVal = getData("SearchRTE", RT, 3);
+						logs.info("BOLNOVal In Excel is==" + BOLNOVal);
+
+					} else if (Scenario.equalsIgnoreCase("One To One") && row == 2) {
+						logs.info("JobID is==" + JobIDValue);
+						setData("SearchRTE", 2, 1, JobIDValue);
+						String JobIDVal = getData("SearchRTE", RT, 1);
+						logs.info("JobIDVal In Excel is==" + JobIDVal);
+
+						logs.info("PickUpID is==" + PickUpIDValue);
+						setData("SearchRTE", 2, 2, PickUpIDValue);
+						String PickupIDVal = getData("SearchRTE", RT, 2);
+						logs.info("PickupIDVal In Excel is==" + PickupIDVal);
+
+						logs.info("BOLNo is==" + BOLNoValue);
+						setData("SearchRTE", 2, 3, BOLNoValue);
+						String BOLNOVal = getData("SearchRTE", RT, 3);
+						logs.info("BOLNOVal In Excel is==" + BOLNOVal);
+
+					} else if (Scenario.equalsIgnoreCase("One To One") && row == 3) {
+						logs.info("JobID is==" + JobIDValue);
+						setData("SearchRTE", 3, 1, JobIDValue);
+
+						logs.info("PickUpID is==" + PickUpIDValue);
+						setData("SearchRTE", 3, 2, PickUpIDValue);
+
+						logs.info("BOLNo is==" + BOLNoValue);
+						setData("SearchRTE", 3, 3, BOLNoValue);
+
+					} else if (Scenario.equalsIgnoreCase("One To One") && row == 7) {
+						logs.info("JobID is==" + JobIDValue);
+						setData("SearchRTE", 4, 1, JobIDValue);
+
+						logs.info("PickUpID is==" + PickUpIDValue);
+						setData("SearchRTE", 4, 2, PickUpIDValue);
+
+						logs.info("BOLNo is==" + BOLNoValue);
+						setData("SearchRTE", 4, 3, BOLNoValue);
+
 					} else if (Scenario.equalsIgnoreCase("One To Many")) {
 						logs.info("JobID is==" + JobIDValue);
-						setData("OneToMany", RTE + 1, 1, JobIDValue);
+						setData("OneToMany", RT, 1, JobIDValue);
 
 						logs.info("PickUpID is==" + PickUpIDValue);
-						setData("OneToMany", RTE + 1, 2, PickUpIDValue);
+						setData("OneToMany", RT, 2, PickUpIDValue);
 
 						logs.info("BOLNo is==" + BOLNoValue);
-						setData("OneToMany", RTE + 1, 3, BOLNoValue);
+						setData("OneToMany", RT, 3, BOLNoValue);
 
 					} else if (Scenario.equalsIgnoreCase("Many to One")) {
 						logs.info("JobID is==" + JobIDValue);
-						setData("ManyToOne", RTE + 1, 1, JobIDValue);
+						setData("ManyToOne", RT, 1, JobIDValue);
 
 						logs.info("PickUpID is==" + PickUpIDValue);
-						setData("ManyToOne", RTE + 1, 2, PickUpIDValue);
+						setData("ManyToOne", RT, 2, PickUpIDValue);
 
 						logs.info("BOLNo is==" + BOLNoValue);
-						setData("ManyToOne", RTE + 1, 3, BOLNoValue);
+						setData("ManyToOne", RT, 3, BOLNoValue);
 
 					} else if (Scenario.equalsIgnoreCase("Many To Many")) {
 						logs.info("JobID is==" + JobIDValue);
-						setData("ManyToMany", RTE + 1, 1, JobIDValue);
+						setData("ManyToMany", RT, 1, JobIDValue);
 
 						logs.info("PickUpID is==" + PickUpIDValue);
-						setData("ManyToMany", RTE + 1, 2, PickUpIDValue);
+						setData("ManyToMany", RT, 2, PickUpIDValue);
 
 						logs.info("BOLNo is==" + BOLNoValue);
-						setData("ManyToMany", RTE + 1, 3, BOLNoValue);
+						setData("ManyToMany", RT, 3, BOLNoValue);
 
 					}
 
-					// Default size
-					currentDimension = driver.manage().window().getSize();
-					height = currentDimension.getHeight();
-					width = currentDimension.getWidth();
-					System.out.println("Current height: " + height);
-					System.out.println("Current width: " + width);
-					System.out.println("window size==" + driver.manage().window().getSize());
+					// --Not working in jenkins because of window size
+					/*
+					 * // ---Select Record WebElement Job = driver.findElement(By.id(JobID));
+					 * act.moveToElement(Job).click().perform(); logs.info("Clicked on Record");
+					 * wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")
+					 * ));
+					 * 
+					 * wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id(
+					 * "RouteWorkFlow"))); getScreenshot(driver, "JobEditor_RWTrackingID");
+					 * 
+					 * // --Exit Without Save isElementPresent("TLEXWSave_id").click();
+					 * logs.info("Clicked on Exit without Save");
+					 * wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")
+					 * ));
+					 */
 
-					// Default size
-					currentDimension = driver.manage().window().getSize();
-					height = currentDimension.getHeight();
-					width = currentDimension.getWidth();
-					System.out.println("Current height: " + height);
-					System.out.println("Current width: " + width);
-					System.out.println("window size==" + driver.manage().window().getSize());
-
-					// Default size
-					currentDimension = driver.manage().window().getSize();
-					height = currentDimension.getHeight();
-					width = currentDimension.getWidth();
-					System.out.println("Current height: " + height);
-					System.out.println("Current width: " + width);
-					System.out.println("window size==" + driver.manage().window().getSize());
-
-					// Default size
-					currentDimension = driver.manage().window().getSize();
-					height = currentDimension.getHeight();
-					width = currentDimension.getWidth();
-					System.out.println("Current height: " + height);
-					System.out.println("Current width: " + width);
-					System.out.println("window size==" + driver.manage().window().getSize());
-
-					// ---Select Record
-					WebElement Job = driver.findElement(By.id(JobID));
-					act.moveToElement(Job).click().perform();
-					logs.info("Clicked on Record");
-					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
-					wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
-					getScreenshot(driver, "JobEditor_RWTrackingID");
-
-					// --Exit Without Save
-					isElementPresent("TLEXWSave_id").click();
-					logs.info("Clicked on Exit without Save");
+					// --Go to TaskManager tab
+					wait.until(ExpectedConditions.elementToBeClickable(By.id("hlkTaskManager")));
+					isElementPresent("TaskManager_id").click();
+					logs.info("Click on Task Manager Tab");
 					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 					// --Enter pickUpID
 
 					if (Scenario.equalsIgnoreCase("One To One")) {
-						PickUpID = getData("SearchRTE", RTE + 1, 2);
+						PickUpID = getData("SearchRTE", RT, 2);
 
 					} else if (Scenario.equalsIgnoreCase("One To Many")) {
-						PickUpID = getData("OneToMany", RTE + 1, 2);
+						PickUpID = getData("OneToMany", RT, 2);
 
 					} else if (Scenario.equalsIgnoreCase("Many to One")) {
-						PickUpID = getData("ManyToOne", RTE + 1, 2);
+						PickUpID = getData("ManyToOne", RT, 2);
 
 					} else if (Scenario.equalsIgnoreCase("Many To Many")) {
-						PickUpID = getData("ManyToMany", RTE + 1, 2);
+						PickUpID = getData("ManyToMany", RT, 2);
 
 					}
 					System.out.println("PickedUp id==" + PickUpID);
@@ -293,21 +306,20 @@ public class RTEJobSearch extends BaseInit {
 
 								if (PickUPId.contains(PickUpID)) {
 									logs.info("Searched job is exist");
-
-									// --Click on the job
-									jobs.get(job).click();
-									logs.info("Clicked on searched Job");
-
-									// --Job Status
-									wait.until(ExpectedConditions
-											.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
-									getScreenshot(driver, "JobEditor_PickUP");
-
-									// --Exit Without Save
-									isElementPresent("TLEXWSave_id").click();
-									logs.info("Clicked on Exit without Save");
-									wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
+									/*
+									 * // --Click on the job jobs.get(job).click();
+									 * logs.info("Clicked on searched Job");
+									 * 
+									 * // --Job Status wait.until(ExpectedConditions
+									 * .visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
+									 * getScreenshot(driver, "JobEditor_PickUP");
+									 * 
+									 * // --Exit Without Save isElementPresent("TLEXWSave_id").click();
+									 * logs.info("Clicked on Exit without Save");
+									 * wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")
+									 * ));
+									 * 
+									 */
 									// --Go to Search All Job
 									wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("hlkOrderSearch")));
 									isElementPresent("TLSearchAllJob_id").click();

@@ -26,10 +26,23 @@
 		</classes>
 	</test>
 
+	<test thread-count="5" name="RTE ManyToMany Job Processing">
+		<classes>
+			<class name="rte_RTEJobCreation.RTEManyToManyOrderProcess"></class>
+		</classes>
+	</test>
+
+	<test thread-count="5" name="RTE Reject/Resend/PendingDel Job Processing">
+		<classes>
+			<class name="rte_RTEJobCreation.RTEFlowWithRejectResend"></class>
+		</classes>
+	</test>
+
 	<test thread-count="5" name="RTE Crud Operation">
 		<classes>
 			<class name="rte_RTEJobCreation.RTECrudOperations"></class>
 		</classes>
 	</test>
+
 
 </suite> 

@@ -21,14 +21,14 @@ import rte_BasePackage.BaseInit;
 public class RTEOneToOneOrderProcess extends BaseInit {
 
 	@Test
-	public void rteOrderProcess()
+	public void rteOneToOneOrderProcess()
 			throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException {
 
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		Actions act = new Actions(driver);
 
-		logs.info("======================RTE Order Processing Test Start==================");
-		msg.append("======================RTE Order Processing Test Start==================" + "\n");
+		logs.info("======================RTE OneToOne Order Processing Test Start==================");
+		msg.append("======================RTE OneToOne Order Processing Test Start==================" + "\n");
 
 		// --Go To Operations
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("a_operations")));
@@ -1461,8 +1461,8 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 
 		}
 
-		logs.info("======================RTE Order Processing Test End==================");
-		msg.append("======================RTE Order Processing Test End==================" + "\n");
+		logs.info("======================RTE OneToOne Order Processing Test End==================");
+		msg.append("======================RTE OneToOne Order Processing Test End==================" + "\n");
 
 	}
 

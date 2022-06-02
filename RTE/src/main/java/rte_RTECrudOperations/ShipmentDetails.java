@@ -881,34 +881,67 @@ public class ShipmentDetails extends BaseInit {
 				String jobStatus = isElementPresent("TLStageLable_id").getText();
 				logs.info("Job status is==" + jobStatus);
 			} catch (Exception Multiple) {
-				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("idOperationTasklogGrd")));
-				List<WebElement> jobs = driver.findElements(
-						By.xpath("//td[contains(@aria-label,'Column Pickup #')]//label[@id=\"lblDateTime\"]"));
-				int totaljobs = jobs.size();
-				for (int job = 0; job < totaljobs; job++) {
+				try {
+					wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("idOperationTasklogGrd")));
+					List<WebElement> jobs = driver.findElements(
+							By.xpath("//td[contains(@aria-label,'Column Pickup #')]//label[@id=\"lblDateTime\"]"));
+					int totaljobs = jobs.size();
+					for (int job = 0; job < totaljobs; job++) {
 
-					PickUpID = getData("LocJob", 1, 0);
-					logs.info("Entered PickupID is==" + PickUpID);
+						PickUpID = getData("LocJob", 1, 0);
+						logs.info("Entered PickupID is==" + PickUpID);
 
-					String PickUPId = jobs.get(job).getText();
-					logs.info("PickupID is==" + PickUPId);
+						String PickUPId = jobs.get(job).getText();
+						logs.info("PickupID is==" + PickUPId);
 
-					if (PickUPId.contains(PickUpID)) {
-						logs.info("Searched job is exist");
+						if (PickUPId.contains(PickUpID)) {
+							logs.info("Searched job is exist");
 
-						// --Click on the job
-						jobs.get(job).click();
-						logs.info("Clicked on searched Job");
+							// --Click on the job
+							jobs.get(job).click();
+							logs.info("Clicked on searched Job");
 
-						// --Job Status
-						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
-						getScreenshot(driver, "JobEditor_TCACK");
-						String jobStatus = isElementPresent("TLStageLable_id").getText();
-						logs.info("Job status is==" + jobStatus);
-						break;
-					} else {
-						logs.info("Searched job is not exist");
+							// --Job Status
+							wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
+							getScreenshot(driver, "JobEditor_TCACK");
+							String jobStatus = isElementPresent("TLStageLable_id").getText();
+							logs.info("Job status is==" + jobStatus);
+							break;
+						} else {
+							logs.info("Searched job is not exist");
 
+						}
+					}
+				} catch (Exception e) {
+					wait.until(ExpectedConditions
+							.visibilityOfAllElementsLocatedBy(By.xpath("//*[@data-info=\"TaskDetails\"]")));
+					List<WebElement> jobs = driver.findElements(By.xpath("//*[@data-info=\"TaskDetails\"]//tasks"));
+					int totaljobs = jobs.size();
+					for (int job = 0; job < totaljobs; job++) {
+
+						PickUpID = getData("LocJob", 1, 0);
+						logs.info("Entered PickupID is==" + PickUpID);
+
+						String PickUPId = jobs.get(job).getAttribute("id");
+						logs.info("PickupID is==" + PickUPId);
+
+						if (PickUPId.contains(PickUpID)) {
+							logs.info("Searched job is exist");
+
+							// --Click on the job
+							jobs.get(job).click();
+							logs.info("Clicked on searched Job");
+
+							// --Job Status
+							wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
+							getScreenshot(driver, "JobEditor_TCACK");
+							String jobStatus = isElementPresent("TLStageLable_id").getText();
+							logs.info("Job status is==" + jobStatus);
+							break;
+						} else {
+							logs.info("Searched job is not exist");
+
+						}
 					}
 				}
 			}

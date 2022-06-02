@@ -63,7 +63,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 		try {
 			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
 			logs.info("Data is exist with search parameter");
-			getScreenshot(driver, "JobEditor_TCACK");
+			getScreenshot(driver, "ManyToOne_TCACK");
 
 			try {
 				WebElement JobStatusACt = isElementPresent("TLJobstatusAct_xpath");
@@ -94,7 +94,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 
 			if (jobStatus.contains("TC ACK")) {
 				logs.info("It is TC ACK stage");
-				getScreenshot(driver, "JobEditor_TCACK");
+				getScreenshot(driver, "ManyToOne_TCACK");
 
 				// --Click on Acknowledge button
 				wait.until(ExpectedConditions.elementToBeClickable(By.id("GreyTick")));
@@ -105,7 +105,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 				try {
 					WebElement PickUPSection = isElementPresent("TLAlertstages_id");
 					wait.until(ExpectedConditions.visibilityOf(PickUPSection));
-					getScreenshot(driver, "JobEditor_RDYFORDSP");
+					getScreenshot(driver, "ManyToOne_RDYFORDSP");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
 
@@ -151,7 +151,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 
 							wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
 							logs.info("Data is exist with search parameter");
-							getScreenshot(driver, "JobEditor_PUDRVCNF");
+							getScreenshot(driver, "ManyToOne_PUDRVCNF");
 
 							// --Go to Job Status Tab
 							wait.until(ExpectedConditions.elementToBeClickable(By.id("idJobOverview")));
@@ -192,7 +192,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 							// --PICKUP@STOP 1 OF 2 stage
 							try {
 								wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("routetable")));
-								getScreenshot(driver, "JobEditor_PickUP");
+								getScreenshot(driver, "ManyToOne_PickUP");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
 								// --Click on ConfirmPU button
@@ -365,7 +365,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 								try {
 									wait.until(
 											ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("routetable")));
-									getScreenshot(driver, "JobEditor_Deliver");
+									getScreenshot(driver, "ManyToOne_Deliver");
 									jobStatus = isElementPresent("TLStageLable_id").getText();
 									logs.info("Job status is==" + jobStatus);
 
@@ -547,7 +547,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 											logs.info("Data is exist with search parameter");
 											wait.until(ExpectedConditions
 													.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
-											getScreenshot(driver, "JobEditor_Delivered");
+											getScreenshot(driver, "ManyToOne_Delivered");
 											jobStatus = isElementPresent("TLStageLable_id").getText();
 											logs.info("Job status is==" + jobStatus);
 
@@ -605,7 +605,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 			} else if (jobStatus.contains("RDY FOR DSP")) {
 				WebElement PickUPSection = isElementPresent("TLAlertstages_id");
 				wait.until(ExpectedConditions.visibilityOf(PickUPSection));
-				getScreenshot(driver, "JobEditor_RDYFORDSP");
+				getScreenshot(driver, "ManyToOne_RDYFORDSP");
 				jobStatus = isElementPresent("TLStageLable_id").getText();
 				logs.info("Job status is==" + jobStatus);
 
@@ -651,7 +651,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 
 						wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
 						logs.info("Data is exist with search parameter");
-						getScreenshot(driver, "JobEditor_PUDRVCNF");
+						getScreenshot(driver, "ManyToOne_PUDRVCNF");
 
 						// --Go to Job Status Tab
 						wait.until(ExpectedConditions.elementToBeClickable(By.id("idJobOverview")));
@@ -692,7 +692,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 						// --PICKUP@STOP 1 OF 2 stage
 						try {
 							wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("routetable")));
-							getScreenshot(driver, "JobEditor_PickUP");
+							getScreenshot(driver, "ManyToOne_PickUP");
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
 							// --Click on ConfirmPU button
@@ -863,7 +863,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 							// --DELIVER@STOP 2 OF 2 stage
 							try {
 								wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("routetable")));
-								getScreenshot(driver, "JobEditor_Deliver");
+								getScreenshot(driver, "ManyToOne_Deliver");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
 
@@ -1044,7 +1044,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 										logs.info("Data is exist with search parameter");
 										wait.until(ExpectedConditions
 												.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
-										getScreenshot(driver, "JobEditor_Delivered");
+										getScreenshot(driver, "ManyToOne_Delivered");
 										jobStatus = isElementPresent("TLStageLable_id").getText();
 										logs.info("Job status is==" + jobStatus);
 
@@ -1097,7 +1097,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 
 				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
 				logs.info("Data is exist with search parameter");
-				getScreenshot(driver, "JobEditor_PUDRVCNF");
+				getScreenshot(driver, "ManyToOne_PUDRVCNF");
 
 				// --Go to Job Status Tab
 				wait.until(ExpectedConditions.elementToBeClickable(By.id("idJobOverview")));
@@ -1138,7 +1138,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 				// --PICKUP@STOP 1 OF 2 stage
 				try {
 					wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("routetable")));
-					getScreenshot(driver, "JobEditor_PickUP");
+					getScreenshot(driver, "ManyToOne_PickUP");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
 					// --Click on ConfirmPU button
@@ -1307,7 +1307,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 					// --DELIVER@STOP 2 OF 2 stage
 					try {
 						wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("routetable")));
-						getScreenshot(driver, "JobEditor_Deliver");
+						getScreenshot(driver, "ManyToOne_Deliver");
 						jobStatus = isElementPresent("TLStageLable_id").getText();
 						logs.info("Job status is==" + jobStatus);
 
@@ -1485,7 +1485,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 							} catch (Exception NoData2) {
 								logs.info("Data is exist with search parameter");
 								wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
-								getScreenshot(driver, "JobEditor_Delivered");
+								getScreenshot(driver, "ManyToOne_Delivered");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
 
@@ -1525,7 +1525,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 				// --PICKUP@STOP 1 OF 2 stage
 				try {
 					wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("routetable")));
-					getScreenshot(driver, "JobEditor_PickUP");
+					getScreenshot(driver, "ManyToOne_PickUP");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
 					// --Click on ConfirmPU button
@@ -1694,7 +1694,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 					// --DELIVER@STOP 2 OF 2 stage
 					try {
 						wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("routetable")));
-						getScreenshot(driver, "JobEditor_Deliver");
+						getScreenshot(driver, "ManyToOne_Deliver");
 						jobStatus = isElementPresent("TLStageLable_id").getText();
 						logs.info("Job status is==" + jobStatus);
 
@@ -1872,7 +1872,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 							} catch (Exception NoData2) {
 								logs.info("Data is exist with search parameter");
 								wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
-								getScreenshot(driver, "JobEditor_Delivered");
+								getScreenshot(driver, "ManyToOne_Delivered");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
 
@@ -1912,7 +1912,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 				// --DELIVER@STOP 2 OF 2 stage
 				try {
 					wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("routetable")));
-					getScreenshot(driver, "JobEditor_Deliver");
+					getScreenshot(driver, "ManyToOne_Deliver");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
 
@@ -2090,7 +2090,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 						} catch (Exception NoData2) {
 							logs.info("Data is exist with search parameter");
 							wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
-							getScreenshot(driver, "JobEditor_Delivered");
+							getScreenshot(driver, "ManyToOne_Delivered");
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
 

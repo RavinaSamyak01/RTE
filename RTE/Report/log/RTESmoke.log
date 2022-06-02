@@ -1,69 +1,34 @@
-2022-05-31 17:40:05,079 - RTEOneToManyOrderProcess -INFO - initialization of the properties file is done
-2022-05-31 17:40:05,521 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Using chromedriver 101.0.4951.41 (since Google Chrome 101 is installed in your machine)
-2022-05-31 17:40:05,556 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Exporting webdriver.chrome.driver as C:\Users\rprajapati\.m2\repository\webdriver\chromedriver\win32\101.0.4951.41\chromedriver.exe
-2022-05-31 17:40:21,058 - RTEOneToManyOrderProcess -INFO - Entered UserName
-2022-05-31 17:40:22,245 - RTEOneToManyOrderProcess -INFO - Entered Password
-2022-05-31 17:40:23,439 - RTEOneToManyOrderProcess -INFO - Login done
-2022-05-31 17:40:45,729 - RTEOneToManyOrderProcess -INFO - ======================RTE One To Many Order Processing Test Start==================
-2022-05-31 17:40:46,005 - RTEOneToManyOrderProcess -INFO - Clicked on Operations
-2022-05-31 17:40:46,405 - RTEOneToManyOrderProcess -INFO - Clicked on TaskLog
-2022-05-31 17:40:51,701 - RTEOneToManyOrderProcess -INFO - PickUpID==3426393
-2022-05-31 17:40:51,702 - RTEOneToManyOrderProcess -INFO - Entered PickUpID in basic search
-2022-05-31 17:40:52,145 - RTEOneToManyOrderProcess -INFO - Click on Search button
-2022-05-31 17:40:59,856 - RTEOneToManyOrderProcess -INFO - Data is exist with search parameter
-2022-05-31 17:41:00,195 - RTEOneToManyOrderProcess -INFO - Job status tab is already Opened
-2022-05-31 17:41:00,346 - RTEOneToManyOrderProcess -INFO - Job status is==TC ACK
-2022-05-31 17:41:00,348 - RTEOneToManyOrderProcess -INFO - It is TC ACK stage
-2022-05-31 17:41:00,790 - RTEOneToManyOrderProcess -INFO - Clicked on Acknowledge button
-2022-05-31 17:41:14,755 - RTEOneToManyOrderProcess -INFO - Job status is==RDY FOR DSP
-2022-05-31 17:41:15,030 - RTEOneToManyOrderProcess -INFO - Clicked on Send PU Alert button
-2022-05-31 17:41:15,276 - RTEOneToManyOrderProcess -INFO - Validation is displayed==Spoke With Required.
-2022-05-31 17:41:15,604 - RTEOneToManyOrderProcess -INFO - Entered Spoke With
-2022-05-31 17:41:15,817 - RTEOneToManyOrderProcess -INFO - Clicked on Send PU Alert button
-2022-05-31 17:41:20,404 - RTEOneToManyOrderProcess -INFO - Entered PickUpID in basic search
-2022-05-31 17:41:20,631 - RTEOneToManyOrderProcess -INFO - Click on Search button
-2022-05-31 17:41:24,306 - RTEOneToManyOrderProcess -INFO - Data is exist with search parameter
-2022-05-31 17:41:24,747 - RTEOneToManyOrderProcess -INFO - Clicked on Job Status Tab
-2022-05-31 17:41:24,917 - RTEOneToManyOrderProcess -INFO - Job status is==PU DRV CONF
-2022-05-31 17:41:25,073 - RTEOneToManyOrderProcess -INFO - Clicked on Confirm PU Alert
-2022-05-31 17:42:27,962 - RTEOneToManyOrderProcess -INFO - Spoke With validation is not displayed
-2022-05-31 17:42:28,296 - RTEOneToManyOrderProcess -INFO - Job status is==PICKUP@STOP 1 OF 7
-2022-05-31 17:42:28,499 - RTEOneToManyOrderProcess -INFO - Clicked on Confirm PU button
-2022-05-31 17:42:28,639 - RTEOneToManyOrderProcess -INFO - Validation is displayed==Act. Pickup Time is Required.
-2022-05-31 17:42:28,666 - RTEOneToManyOrderProcess -INFO - Total Pickup points is/are==6
-2022-05-31 17:42:28,714 - RTEOneToManyOrderProcess -INFO - ZoneID of is==CDT
-2022-05-31 17:42:28,919 - RTEOneToManyOrderProcess -INFO - 05/31/2022
-2022-05-31 17:42:29,282 - RTEOneToManyOrderProcess -INFO - Entered Actual Pickup Date
-2022-05-31 17:42:29,364 - RTEOneToManyOrderProcess -INFO - 07:12
-2022-05-31 17:42:29,565 - RTEOneToManyOrderProcess -INFO - Entered Actual Pickup Time
-2022-05-31 17:42:29,608 - RTEOneToManyOrderProcess -INFO - ZoneID of is==CDT
-2022-05-31 17:42:29,765 - RTEOneToManyOrderProcess -INFO - 05/31/2022
-2022-05-31 17:42:29,994 - RTEOneToManyOrderProcess -INFO - Entered Actual Pickup Date
-2022-05-31 17:42:30,085 - RTEOneToManyOrderProcess -INFO - 07:12
-2022-05-31 17:42:30,282 - RTEOneToManyOrderProcess -INFO - Entered Actual Pickup Time
-2022-05-31 17:42:30,359 - RTEOneToManyOrderProcess -INFO - ZoneID of is==CDT
-2022-05-31 17:42:30,575 - RTEOneToManyOrderProcess -INFO - 05/31/2022
-2022-05-31 17:42:31,028 - RTEOneToManyOrderProcess -INFO - Entered Actual Pickup Date
-2022-05-31 17:42:31,183 - RTEOneToManyOrderProcess -INFO - 07:12
-2022-05-31 17:42:31,499 - RTEOneToManyOrderProcess -INFO - Entered Actual Pickup Time
-2022-05-31 17:42:31,540 - RTEOneToManyOrderProcess -INFO - ZoneID of is==CDT
-2022-05-31 17:42:31,657 - RTEOneToManyOrderProcess -INFO - 05/31/2022
-2022-05-31 17:42:31,838 - RTEOneToManyOrderProcess -INFO - Entered Actual Pickup Date
-2022-05-31 17:42:31,907 - RTEOneToManyOrderProcess -INFO - 07:12
-2022-05-31 17:42:32,111 - RTEOneToManyOrderProcess -INFO - Entered Actual Pickup Time
-2022-05-31 17:42:32,157 - RTEOneToManyOrderProcess -INFO - ZoneID of is==CDT
-2022-05-31 17:42:32,286 - RTEOneToManyOrderProcess -INFO - 05/31/2022
-2022-05-31 17:42:32,503 - RTEOneToManyOrderProcess -INFO - Entered Actual Pickup Date
-2022-05-31 17:42:32,579 - RTEOneToManyOrderProcess -INFO - 07:12
-2022-05-31 17:42:32,779 - RTEOneToManyOrderProcess -INFO - Entered Actual Pickup Time
-2022-05-31 17:42:32,825 - RTEOneToManyOrderProcess -INFO - ZoneID of is==CDT
-2022-05-31 17:42:32,963 - RTEOneToManyOrderProcess -INFO - 05/31/2022
-2022-05-31 17:42:33,155 - RTEOneToManyOrderProcess -INFO - Entered Actual Pickup Date
-2022-05-31 17:42:33,223 - RTEOneToManyOrderProcess -INFO - 07:12
-2022-05-31 17:42:33,400 - RTEOneToManyOrderProcess -INFO - Entered Actual Pickup Time
-2022-05-31 17:42:33,570 - RTEOneToManyOrderProcess -INFO - Clicked on Confirm PU button
-2022-05-31 17:42:46,748 - RTEOneToManyOrderProcess -INFO - Job status is==DELIVER@STOP 2 OF 7
-2022-05-31 17:42:47,017 - RTEOneToManyOrderProcess -INFO - Clicked on Confirm DEL button
-2022-05-31 17:42:47,170 - RTEOneToManyOrderProcess -INFO - Validation is displayed==Act. Delivery Time is Required.
-Signature is required.
-2022-05-31 17:42:56,517 - RTEOneToManyOrderProcess -INFO - Total Delivery points is/are==6
+2022-06-02 17:40:49,537 - RTECrudOperations -INFO - initialization of the properties file is done
+2022-06-02 17:40:49,819 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Using chromedriver 102.0.5005.61 (since Google Chrome 102 is installed in your machine)
+2022-06-02 17:40:49,834 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Exporting webdriver.chrome.driver as C:\Users\rprajapati\.m2\repository\webdriver\chromedriver\win32\102.0.5005.61\chromedriver.exe
+2022-06-02 17:40:57,393 - RTECrudOperations -INFO - Entered UserName
+2022-06-02 17:40:58,516 - RTECrudOperations -INFO - Entered Password
+2022-06-02 17:40:59,715 - RTECrudOperations -INFO - Login done
+2022-06-02 17:41:17,640 - RTECrudOperations -INFO - ======================RTE Crud Operations Test Start==================
+2022-06-02 17:41:17,887 - RTECrudOperations -INFO - Clicked on Operations
+2022-06-02 17:41:18,047 - RTECrudOperations -INFO - Clicked on TaskLog
+2022-06-02 17:41:20,862 - RTECrudOperations -INFO - PickUpID==3431977
+2022-06-02 17:41:20,863 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-06-02 17:41:20,974 - RTECrudOperations -INFO - Click on Search button
+2022-06-02 17:41:24,600 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-06-02 17:41:24,834 - RTECrudOperations -INFO - Job status tab is already Opened
+2022-06-02 17:41:24,892 - RTECrudOperations -INFO - Job status is==PU DRV CONF
+2022-06-02 17:41:24,892 - RTECrudOperations -INFO - Unknown Stage found
+2022-06-02 17:41:24,912 - RTECrudOperations -INFO - Job status is==PU DRV CONF
+2022-06-02 17:41:24,921 - RTECrudOperations -INFO - =========RTE Search LOC job Test Start============
+2022-06-02 17:41:25,103 - RTECrudOperations -INFO - Clicked on Operations
+2022-06-02 17:41:25,282 - RTECrudOperations -INFO - Clicked on TaskLog
+2022-06-02 17:41:26,728 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-06-02 17:41:26,808 - RTECrudOperations -INFO - Click on Search button
+2022-06-02 17:41:29,703 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-06-02 17:41:29,703 - RTECrudOperations -INFO - LOC job is created with Unmerged shipment
+2022-06-02 17:44:17,200 - RTECrudOperations -INFO - Entered PickupID is==3432499
+2022-06-02 17:44:19,808 - RTECrudOperations -INFO - PickupID is==PickupId_N3432499
+2022-06-02 17:44:24,193 - RTECrudOperations -INFO - Searched job is exist
+2022-06-02 17:44:25,592 - RTECrudOperations -INFO - Clicked on searched Job
+2022-06-02 17:45:16,246 - RTECrudOperations -INFO - Job status is==CSR ACKNOWLEDGE
+2022-06-02 17:45:16,666 - RTECrudOperations -INFO - =========RTE Search LOC job Test End============
+2022-06-02 17:45:20,249 - RTECrudOperations -INFO - ======================RTE Crud Operations Test End==================
+2022-06-02 17:45:30,309 - RTECrudOperations -INFO - Logout Message is displayed==You have successfully logged out!
+2022-06-02 17:45:30,310 - RTECrudOperations -INFO - Logout done
+2022-06-02 17:45:30,701 - RTECrudOperations -INFO - ====Sending Email=====
