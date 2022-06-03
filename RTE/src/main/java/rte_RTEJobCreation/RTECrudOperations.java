@@ -44,7 +44,7 @@ public class RTECrudOperations extends BaseInit {
 
 		// --Enter pickUpID
 		wait.until(ExpectedConditions.elementToBeClickable(By.id("txtContains")));
-		String PickUpID = getData("SearchRTE", 2, 2);
+		String PickUpID = getData("SearchRTE", 3, 2);
 		isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 		logs.info("PickUpID==" + PickUpID);
 		logs.info("Entered PickUpID in basic search");
@@ -62,8 +62,8 @@ public class RTECrudOperations extends BaseInit {
 				logs.info("There is no Data with Search parameter");
 
 			}
+		} catch (Exception NoData1) {
 
-		} catch (Exception NoData) {
 			logs.info("Data is exist with search parameter");
 			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
 			getScreenshot(driver, "JobEditor_TCACK");
@@ -100,9 +100,9 @@ public class RTECrudOperations extends BaseInit {
 				getScreenshot(driver, "JobEditor_TCACK");
 
 				// --Edit Job Tab
-				/*
-				 * EditJob Ejob = new EditJob(); Ejob.editJob();
-				 */
+
+				EditJob Ejob = new EditJob();
+				Ejob.editJob();
 
 				// --Shipment Details
 				ShipmentDetails shipDetails = new ShipmentDetails();

@@ -68,8 +68,8 @@ public class RTEGetTrackingNo extends BaseInit {
 					logs.info("There is no Data with Search parameter");
 
 				}
+			} catch (Exception NoData1) {
 
-			} catch (Exception NoData) {
 				logs.info("Data is exist with search parameter");
 				String RWTrackingNo = isElementPresent("RLRWTrackingNo_xpath").getText();
 
@@ -83,23 +83,23 @@ public class RTEGetTrackingNo extends BaseInit {
 
 					String Scenario = getData("RTECreation", row, 3);
 
-					if ( row==1 && Scenario.equalsIgnoreCase("One To One")) {
+					if (row == 1 && Scenario.equalsIgnoreCase("One To One")) {
 						setData("RTECreation", row, 2, RWTrackingNo);
 						setData("SearchRTE", 1, 0, RWTrackingNo);
 						logs.info("Inserted RWTrackingNo in Excel");
-					} else if ( row==2 && Scenario.equalsIgnoreCase("One To One")) {
+					} else if (row == 2 && Scenario.equalsIgnoreCase("One To One")) {
 						setData("RTECreation", row, 2, RWTrackingNo);
 						setData("SearchRTE", 2, 0, RWTrackingNo);
 						logs.info("Inserted RWTrackingNo in Excel");
-					}else if ( row==3 && Scenario.equalsIgnoreCase("One To One")) {
+					} else if (row == 3 && Scenario.equalsIgnoreCase("One To One")) {
 						setData("RTECreation", row, 2, RWTrackingNo);
 						setData("SearchRTE", 3, 0, RWTrackingNo);
 						logs.info("Inserted RWTrackingNo in Excel");
-					} else if ( row==7 && Scenario.equalsIgnoreCase("One To One")) {
+					} else if (row == 7 && Scenario.equalsIgnoreCase("One To One")) {
 						setData("RTECreation", row, 2, RWTrackingNo);
 						setData("SearchRTE", 4, 0, RWTrackingNo);
 						logs.info("Inserted RWTrackingNo in Excel");
-					}else if (Scenario.equalsIgnoreCase("One To Many")) {
+					} else if (Scenario.equalsIgnoreCase("One To Many")) {
 						setData("RTECreation", row, 2, RWTrackingNo);
 						setData("OneToMany", 1, 0, RWTrackingNo);
 						logs.info("Inserted RWTrackingNo in Excel");

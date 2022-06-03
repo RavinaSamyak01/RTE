@@ -8,7 +8,6 @@ import java.util.List;
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -106,8 +105,8 @@ public class RTEJobSearch extends BaseInit {
 					logs.info("There is no Data with Search TrackingNO");
 
 				}
+			} catch (Exception NoData1) {
 
-			} catch (Exception NoData) {
 				logs.info("Data is exist with search TrackingNO");
 
 				// --Stored all the records of the table
@@ -264,14 +263,7 @@ public class RTEJobSearch extends BaseInit {
 					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 					try {
-						WebElement NoData1 = isElementPresent("NoData_className");
-						wait.until(ExpectedConditions.visibilityOf(NoData1));
-						if (NoData1.isDisplayed()) {
-							logs.info("There is no Data with Search PickUpID");
 
-						}
-
-					} catch (Exception NoDataEx) {
 						logs.info("Data is exist with search PickUpID");
 
 						try {
@@ -334,6 +326,14 @@ public class RTEJobSearch extends BaseInit {
 
 								}
 							}
+
+						}
+
+					} catch (Exception NoDataEx) {
+						WebElement NoData = isElementPresent("NoData_className");
+						wait.until(ExpectedConditions.visibilityOf(NoData));
+						if (NoData.isDisplayed()) {
+							logs.info("There is no Data with Search PickUpID");
 
 						}
 					}

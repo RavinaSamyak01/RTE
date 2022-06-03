@@ -81,7 +81,6 @@ public class CreateRTEJob extends BaseInit {
 
 		}
 
-
 		// --RW Name
 		isElementPresent("RLRWName_id").clear();
 		isElementPresent("RLRWName_id").sendKeys("Automation Manual RTE Job");
@@ -339,14 +338,7 @@ public class CreateRTEJob extends BaseInit {
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 			try {
-				WebElement NoData = isElementPresent("NoData_className");
-				wait.until(ExpectedConditions.visibilityOf(NoData));
-				if (NoData.isDisplayed()) {
-					logs.info("There is no Data with Search parameter");
 
-				}
-
-			} catch (Exception NoData) {
 				String RWID = isElementPresent("RLWorkOID_xpath").getText();
 				logs.info("Actual Route Work ID==" + RWID);
 
@@ -362,6 +354,14 @@ public class CreateRTEJob extends BaseInit {
 				isElementPresent("RLSave_id").click();
 				logs.info("Click on Save button");
 				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+			} catch (Exception NoData1) {
+				WebElement NoData = isElementPresent("NoData_className");
+				wait.until(ExpectedConditions.visibilityOf(NoData));
+				if (NoData.isDisplayed()) {
+					logs.info("There is no Data with Search parameter");
+
+				}
 
 			}
 

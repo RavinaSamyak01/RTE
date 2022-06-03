@@ -51,7 +51,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 
 		// --Enter pickUpID
 		wait.until(ExpectedConditions.elementToBeClickable(By.id("txtContains")));
-		String PickUpID = getData("SearchRTE", 3, 2);
+		String PickUpID = getData("SearchRTE", 2, 2);
 		isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 		logs.info("PickUpID==" + PickUpID);
 		logs.info("Entered PickUpID in basic search");
@@ -63,6 +63,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 		try {
+
 			WebElement NoData = isElementPresent("NoData_className");
 			wait.until(ExpectedConditions.visibilityOf(NoData));
 			if (NoData.isDisplayed()) {
@@ -70,7 +71,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 
 			}
 
-		} catch (Exception NoData) {
+		} catch (Exception NoData1) {
 			logs.info("Data is exist with search parameter");
 			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
 			getScreenshot(driver, "NegFlow_TCACK");
@@ -147,7 +148,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 					}
 					try {
 						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
-						PickUpID = getData("SearchRTE", 3, 2);
+						PickUpID = getData("SearchRTE", 2, 2);
 						isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 						logs.info("Entered PickUpID in basic search");
 
@@ -158,14 +159,15 @@ public class RTEFlowWithRejectResend extends BaseInit {
 						wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 						try {
-							WebElement NoData1 = isElementPresent("NoData_className");
-							wait.until(ExpectedConditions.visibilityOf(NoData1));
-							if (NoData1.isDisplayed()) {
+
+							WebElement NoData = isElementPresent("NoData_className");
+							wait.until(ExpectedConditions.visibilityOf(NoData));
+							if (NoData.isDisplayed()) {
 								logs.info("There is no Data with Search parameter");
 
 							}
+						} catch (Exception NoData11) {
 
-						} catch (Exception NoData1) {
 							logs.info("Data is exist with search parameter");
 							wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
 							getScreenshot(driver, "NegFlow_PUDRVCNF");
@@ -249,7 +251,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 
 									try {
 										wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
-										PickUpID = getData("SearchRTE", 3, 2);
+										PickUpID = getData("SearchRTE", 2, 2);
 										isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 										logs.info("Entered PickUpID in basic search");
 
@@ -260,14 +262,15 @@ public class RTEFlowWithRejectResend extends BaseInit {
 										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 										try {
-											WebElement NoData11 = isElementPresent("NoData_className");
-											wait.until(ExpectedConditions.visibilityOf(NoData11));
-											if (NoData11.isDisplayed()) {
+
+											WebElement NoData = isElementPresent("NoData_className");
+											wait.until(ExpectedConditions.visibilityOf(NoData));
+											if (NoData.isDisplayed()) {
 												logs.info("There is no Data with Search parameter");
 
 											}
+										} catch (Exception NoData) {
 
-										} catch (Exception NoData11) {
 											logs.info("Data is exist with search parameter");
 											wait.until(ExpectedConditions
 													.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
@@ -300,6 +303,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 												logs.info("Spoke With validation is not displayed==FAIL");
 
 											}
+
 										}
 									} catch (Exception e) {
 										logs.info("Job is not moved to PU DRV CONF stage after Reject alert scenario");
@@ -312,7 +316,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 
 							} catch (Exception val) {
 								logs.info("Validation is not displayed for memo field==FAIL");
-//----This case is not confirmed yet
+								// ----This case is not confirmed yet
 								// --Click on Confirm PU Alert
 								isElementPresent("TLSendPUAl_id").click();
 								logs.info("Clicked on Confirm PU Alert");
@@ -450,6 +454,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 
 										// --Enter Signature
 										wait.until(ExpectedConditions.elementToBeClickable(By.id("txtsign")));
+										isElementPresent("TLSign_id").clear();
 										isElementPresent("TLSign_id").sendKeys("RV");
 										logs.info("Entered Signature");
 										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
@@ -531,8 +536,8 @@ public class RTEFlowWithRejectResend extends BaseInit {
 										jobStatus = isElementPresent("TLStageLable_id").getText();
 										logs.info("Job status is==" + jobStatus);
 
-										if (jobStatus.contains("Pending Delivery")) {
-											logs.info("Job is moved to Pending Delivery==PASS");
+										if (jobStatus.contains("PENDING DELIVERY")) {
+											logs.info("Job is moved to PENDING DELIVERY==PASS");
 
 										}
 
@@ -583,15 +588,9 @@ public class RTEFlowWithRejectResend extends BaseInit {
 
 											// --Enter Signature
 											wait.until(ExpectedConditions.elementToBeClickable(By.id("txtsign")));
+											isElementPresent("TLSign_id").clear();
 											isElementPresent("TLSign_id").sendKeys("RV");
 											logs.info("Entered Signature");
-											wait.until(ExpectedConditions
-													.invisibilityOfElementLocated(By.id("loaderDiv")));
-
-											// --Click on ReRoute
-											WebElement ReRoute = isElementPresent("TLReRouteCB_id");
-											js.executeScript("arguments[0].click();", ReRoute);
-											logs.info("Clicked on Re Route Checkbox");
 											wait.until(ExpectedConditions
 													.invisibilityOfElementLocated(By.id("loaderDiv")));
 
@@ -659,7 +658,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 										try {
 											wait.until(ExpectedConditions
 													.visibilityOfElementLocated(By.id("txtContains")));
-											PickUpID = getData("SearchRTE", 3, 2);
+											PickUpID = getData("SearchRTE", 2, 2);
 											isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 											logs.info("Entered PickUpID in basic search");
 
@@ -678,8 +677,8 @@ public class RTEFlowWithRejectResend extends BaseInit {
 													logs.info("There is no Data with Search parameter");
 
 												}
+											} catch (Exception NoData) {
 
-											} catch (Exception NoData2) {
 												logs.info("Data is exist with search parameter");
 												wait.until(ExpectedConditions
 														.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
@@ -708,7 +707,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 										}
 
 									} catch (Exception e) {
-										logs.info("Job is moved to Pending Delivery==FAIL");
+										logs.info("Job is moved to PENDING DELIVERY==FAIL");
 										jobStatus = isElementPresent("TLStageLable_id").getText();
 										logs.info("Job status is==" + jobStatus);
 
@@ -724,6 +723,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
 							}
+
 						}
 
 					} catch (Exception Somethingw) {
@@ -772,7 +772,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 					}
 					try {
 						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
-						PickUpID = getData("SearchRTE", 3, 2);
+						PickUpID = getData("SearchRTE", 2, 2);
 						isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 						logs.info("Entered PickUpID in basic search");
 
@@ -783,14 +783,15 @@ public class RTEFlowWithRejectResend extends BaseInit {
 						wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 						try {
-							WebElement NoData1 = isElementPresent("NoData_className");
-							wait.until(ExpectedConditions.visibilityOf(NoData1));
-							if (NoData1.isDisplayed()) {
+
+							WebElement NoData = isElementPresent("NoData_className");
+							wait.until(ExpectedConditions.visibilityOf(NoData));
+							if (NoData.isDisplayed()) {
 								logs.info("There is no Data with Search parameter");
 
 							}
+						} catch (Exception NoData11) {
 
-						} catch (Exception NoData1) {
 							logs.info("Data is exist with search parameter");
 							wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
 							getScreenshot(driver, "NegFlow_PUDRVCNF");
@@ -874,7 +875,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 
 									try {
 										wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
-										PickUpID = getData("SearchRTE", 3, 2);
+										PickUpID = getData("SearchRTE", 2, 2);
 										isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 										logs.info("Entered PickUpID in basic search");
 
@@ -885,14 +886,15 @@ public class RTEFlowWithRejectResend extends BaseInit {
 										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 										try {
-											WebElement NoData11 = isElementPresent("NoData_className");
-											wait.until(ExpectedConditions.visibilityOf(NoData11));
-											if (NoData11.isDisplayed()) {
+
+											WebElement NoData = isElementPresent("NoData_className");
+											wait.until(ExpectedConditions.visibilityOf(NoData));
+											if (NoData.isDisplayed()) {
 												logs.info("There is no Data with Search parameter");
 
 											}
+										} catch (Exception NoData) {
 
-										} catch (Exception NoData11) {
 											logs.info("Data is exist with search parameter");
 											wait.until(ExpectedConditions
 													.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
@@ -925,6 +927,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 												logs.info("Spoke With validation is not displayed==FAIL");
 
 											}
+
 										}
 									} catch (Exception e) {
 										logs.info("Job is not moved to PU DRV CONF stage after Reject alert scenario");
@@ -937,7 +940,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 
 							} catch (Exception val) {
 								logs.info("Validation is not displayed for memo field==FAIL");
-//----This case is not confirmed yet
+								// ----This case is not confirmed yet
 								// --Click on Confirm PU Alert
 								isElementPresent("TLSendPUAl_id").click();
 								logs.info("Clicked on Confirm PU Alert");
@@ -1075,6 +1078,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 
 										// --Enter Signature
 										wait.until(ExpectedConditions.elementToBeClickable(By.id("txtsign")));
+										isElementPresent("TLSign_id").clear();
 										isElementPresent("TLSign_id").sendKeys("RV");
 										logs.info("Entered Signature");
 										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
@@ -1156,8 +1160,8 @@ public class RTEFlowWithRejectResend extends BaseInit {
 										jobStatus = isElementPresent("TLStageLable_id").getText();
 										logs.info("Job status is==" + jobStatus);
 
-										if (jobStatus.contains("Pending Delivery")) {
-											logs.info("Job is moved to Pending Delivery==PASS");
+										if (jobStatus.contains("PENDING DELIVERY")) {
+											logs.info("Job is moved to PENDING DELIVERY==PASS");
 
 										}
 
@@ -1208,15 +1212,9 @@ public class RTEFlowWithRejectResend extends BaseInit {
 
 											// --Enter Signature
 											wait.until(ExpectedConditions.elementToBeClickable(By.id("txtsign")));
+											isElementPresent("TLSign_id").clear();
 											isElementPresent("TLSign_id").sendKeys("RV");
 											logs.info("Entered Signature");
-											wait.until(ExpectedConditions
-													.invisibilityOfElementLocated(By.id("loaderDiv")));
-
-											// --Click on ReRoute
-											WebElement ReRoute = isElementPresent("TLReRouteCB_id");
-											js.executeScript("arguments[0].click();", ReRoute);
-											logs.info("Clicked on Re Route Checkbox");
 											wait.until(ExpectedConditions
 													.invisibilityOfElementLocated(By.id("loaderDiv")));
 
@@ -1284,7 +1282,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 										try {
 											wait.until(ExpectedConditions
 													.visibilityOfElementLocated(By.id("txtContains")));
-											PickUpID = getData("SearchRTE", 3, 2);
+											PickUpID = getData("SearchRTE", 2, 2);
 											isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 											logs.info("Entered PickUpID in basic search");
 
@@ -1303,8 +1301,8 @@ public class RTEFlowWithRejectResend extends BaseInit {
 													logs.info("There is no Data with Search parameter");
 
 												}
+											} catch (Exception NoData) {
 
-											} catch (Exception NoData2) {
 												logs.info("Data is exist with search parameter");
 												wait.until(ExpectedConditions
 														.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
@@ -1333,7 +1331,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 										}
 
 									} catch (Exception e) {
-										logs.info("Job is moved to Pending Delivery==FAIL");
+										logs.info("Job is moved to PENDING DELIVERY==FAIL");
 										jobStatus = isElementPresent("TLStageLable_id").getText();
 										logs.info("Job status is==" + jobStatus);
 
@@ -1349,6 +1347,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
 							}
+
 						}
 
 					} catch (Exception Somethingw) {
@@ -1363,66 +1362,16 @@ public class RTEFlowWithRejectResend extends BaseInit {
 				}
 
 			} else if (jobStatus.contains("PU DRV CONF")) {
-				logs.info("Data is exist with search parameter");
-				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
-				getScreenshot(driver, "NegFlow_PUDRVCNF");
-
-				// --Go to Job Status Tab
-				wait.until(ExpectedConditions.elementToBeClickable(By.id("idJobOverview")));
-				isElementPresent("TLJobSTatus_id").click();
-				logs.info("Clicked on Job Status Tab");
-				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
-				// --Job Status
-				wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
-				jobStatus = isElementPresent("TLStageLable_id").getText();
-				logs.info("Job status is==" + jobStatus);
-
-				// --Click on ReSendAlert
-				isElementPresent("TLResendAl_id").click();
-				logs.info("Clicked on Resend Alert");
-				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
-				// --Job Status
-				wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
-				jobStatus = isElementPresent("TLStageLable_id").getText();
-				logs.info("Job status is==" + jobStatus);
-
-				if (jobStatus.equalsIgnoreCase("PU DRV CONF")) {
-					logs.info("Resend Alert is send");
-
-				} else {
-					logs.info("Resend Alert is not send");
-
-				}
-
-				// --Click on Reject Alert
-				isElementPresent("TLRejectAl_id").click();
-				logs.info("Clicked on Reject Alert");
-				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-				wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtMemo")));
-				logs.info("Memo text area is displayed on Reject Alert button");
-
-				// --Click on Reject Alert for validation message
-				isElementPresent("TLRejectAl_id").click();
-				logs.info("Clicked on Reject Alert");
-				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
 				try {
-					wait.until(ExpectedConditions
-							.visibilityOfElementLocated(By.xpath("//*[@ng-message=\"memoRequired\"]")));
 
-					String valMesg = isElementPresent("TLMVal_xpath").getText();
-					logs.info("Validation is displayed=" + valMesg);
+					logs.info("Data is exist with search parameter");
+					wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
+					getScreenshot(driver, "NegFlow_PUDRVCNF");
 
-					// --Enter Memo
-					wait.until(ExpectedConditions.elementToBeClickable(By.id("txtMemo")));
-					isElementPresent("TLRAMemo_id").clear();
-					isElementPresent("TLRAMemo_id").sendKeys("Reject alert by automation script");
-
-					// --Reject button
-					isElementPresent("TLRejectAl_id").click();
-					logs.info("Clicked on Reject Alert");
+					// --Go to Job Status Tab
+					wait.until(ExpectedConditions.elementToBeClickable(By.id("idJobOverview")));
+					isElementPresent("TLJobSTatus_id").click();
+					logs.info("Clicked on Job Status Tab");
 					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 					// --Job Status
@@ -1430,298 +1379,225 @@ public class RTEFlowWithRejectResend extends BaseInit {
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
 
-					wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblDeclinedMsg")));
-					String DeclineMsg = isElementPresent("TLDecMsg_id").getText();
-					logs.info("decline message is==" + DeclineMsg);
+					// --Click on ReSendAlert
+					isElementPresent("TLResendAl_id").click();
+					logs.info("Clicked on Resend Alert");
+					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-					if (jobStatus.equalsIgnoreCase("RDY FOR DSP") && DeclineMsg.contains("has declined alert")) {
-						logs.info("Reject alert is send==PASS");
+					// --Job Status
+					wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
+					jobStatus = isElementPresent("TLStageLable_id").getText();
+					logs.info("Job status is==" + jobStatus);
 
-						// --Click on send PU alert
-						wait.until(ExpectedConditions.elementToBeClickable(By.id("WhiteTickAlert")));
-						isElementPresent("TLSendPUAl_id").click();
-						logs.info("Clicked on Send PU Alert button");
+					if (jobStatus.equalsIgnoreCase("PU DRV CONF")) {
+						logs.info("Resend Alert is send");
+
+					} else {
+						logs.info("Resend Alert is not send");
+
+					}
+
+					// --Click on Reject Alert
+					isElementPresent("TLRejectAl_id").click();
+					logs.info("Clicked on Reject Alert");
+					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+					wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtMemo")));
+					logs.info("Memo text area is displayed on Reject Alert button");
+
+					// --Click on Reject Alert for validation message
+					isElementPresent("TLRejectAl_id").click();
+					logs.info("Clicked on Reject Alert");
+					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+					try {
+						wait.until(ExpectedConditions
+								.visibilityOfElementLocated(By.xpath("//*[@ng-message=\"memoRequired\"]")));
+
+						String valMesg = isElementPresent("TLMVal_xpath").getText();
+						logs.info("Validation is displayed=" + valMesg);
+
+						// --Enter Memo
+						wait.until(ExpectedConditions.elementToBeClickable(By.id("txtMemo")));
+						isElementPresent("TLRAMemo_id").clear();
+						isElementPresent("TLRAMemo_id").sendKeys("Reject alert by automation script");
+
+						// --Reject button
+						isElementPresent("TLRejectAl_id").click();
+						logs.info("Clicked on Reject Alert");
 						wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-						try {
-							wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
-							PickUpID = getData("SearchRTE", 3, 2);
-							isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
-							logs.info("Entered PickUpID in basic search");
+						// --Job Status
+						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
+						jobStatus = isElementPresent("TLStageLable_id").getText();
+						logs.info("Job status is==" + jobStatus);
 
-							// --Click on Search
-							wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-							isElementPresent("TLGlobSearch_id").click();
-							logs.info("Click on Search button");
+						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblDeclinedMsg")));
+						String DeclineMsg = isElementPresent("TLDecMsg_id").getText();
+						logs.info("decline message is==" + DeclineMsg);
+
+						if (jobStatus.equalsIgnoreCase("RDY FOR DSP") && DeclineMsg.contains("has declined alert")) {
+							logs.info("Reject alert is send==PASS");
+
+							// --Click on send PU alert
+							wait.until(ExpectedConditions.elementToBeClickable(By.id("WhiteTickAlert")));
+							isElementPresent("TLSendPUAl_id").click();
+							logs.info("Clicked on Send PU Alert button");
 							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 							try {
-								WebElement NoData11 = isElementPresent("NoData_className");
-								wait.until(ExpectedConditions.visibilityOf(NoData11));
-								if (NoData11.isDisplayed()) {
-									logs.info("There is no Data with Search parameter");
+								wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
+								PickUpID = getData("SearchRTE", 2, 2);
+								isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
+								logs.info("Entered PickUpID in basic search");
 
-								}
-
-							} catch (Exception NoData11) {
-								logs.info("Data is exist with search parameter");
-								wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
-
-								// --Click on Confirm PU Alert
-								isElementPresent("TLSendPUAl_id").click();
-								logs.info("Clicked on Confirm PU Alert");
+								// --Click on Search
+								wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
+								isElementPresent("TLGlobSearch_id").click();
+								logs.info("Click on Search button");
 								wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 								try {
-									wait.until(ExpectedConditions
-											.visibilityOfElementLocated(By.id("idValidationforMain")));
-									String ValMsg = isElementPresent("TLAlValidation_id").getText();
-									logs.info("Validation is displayed==" + ValMsg);
 
-									// --Enter SpokeWith
-									wait.until(ExpectedConditions.elementToBeClickable(By.id("txtSpokeWith")));
-									isElementPresent("TLSpokeWith_id").sendKeys("RV");
-									logs.info("Entered Spoke With");
+									WebElement NoData = isElementPresent("NoData_className");
+									wait.until(ExpectedConditions.visibilityOf(NoData));
+									if (NoData.isDisplayed()) {
+										logs.info("There is no Data with Search parameter");
+
+									}
+								} catch (Exception NoData) {
+
+									logs.info("Data is exist with search parameter");
+									wait.until(ExpectedConditions
+											.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
 
 									// --Click on Confirm PU Alert
 									isElementPresent("TLSendPUAl_id").click();
 									logs.info("Clicked on Confirm PU Alert");
 									wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-								} catch (Exception NoVal) {
-									logs.info("Spoke With validation is not displayed==FAIL");
+									try {
+										wait.until(ExpectedConditions
+												.visibilityOfElementLocated(By.id("idValidationforMain")));
+										String ValMsg = isElementPresent("TLAlValidation_id").getText();
+										logs.info("Validation is displayed==" + ValMsg);
+
+										// --Enter SpokeWith
+										wait.until(ExpectedConditions.elementToBeClickable(By.id("txtSpokeWith")));
+										isElementPresent("TLSpokeWith_id").sendKeys("RV");
+										logs.info("Entered Spoke With");
+
+										// --Click on Confirm PU Alert
+										isElementPresent("TLSendPUAl_id").click();
+										logs.info("Clicked on Confirm PU Alert");
+										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+									} catch (Exception NoVal) {
+										logs.info("Spoke With validation is not displayed==FAIL");
+
+									}
 
 								}
+							} catch (Exception e) {
+								logs.info("Job is not moved to PU DRV CONF stage after Reject alert scenario");
+
 							}
-						} catch (Exception e) {
-							logs.info("Job is not moved to PU DRV CONF stage after Reject alert scenario");
+						} else {
+							logs.info("Reject Alert is not send==FAIL");
 
 						}
-					} else {
-						logs.info("Reject Alert is not send==FAIL");
 
-					}
-
-				} catch (Exception val) {
-					logs.info("Validation is not displayed for memo field==FAIL");
-//----This case is not confirmed yet
-					// --Click on Confirm PU Alert
-					isElementPresent("TLSendPUAl_id").click();
-					logs.info("Clicked on Confirm PU Alert");
-					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
-					try {
-						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("idValidationforMain")));
-						String ValMsg = isElementPresent("TLAlValidation_id").getText();
-						logs.info("Validation is displayed==" + ValMsg);
-
-						// --Enter SpokeWith
-						wait.until(ExpectedConditions.elementToBeClickable(By.id("txtSpokeWith")));
-						isElementPresent("TLSpokeWith_id").sendKeys("RV");
-						logs.info("Entered Spoke With");
-
+					} catch (Exception val) {
+						logs.info("Validation is not displayed for memo field==FAIL");
+						// ----This case is not confirmed yet
 						// --Click on Confirm PU Alert
 						isElementPresent("TLSendPUAl_id").click();
 						logs.info("Clicked on Confirm PU Alert");
 						wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-					} catch (Exception NoVal) {
-						logs.info("Spoke With validation is not displayed");
+						try {
+							wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("idValidationforMain")));
+							String ValMsg = isElementPresent("TLAlValidation_id").getText();
+							logs.info("Validation is displayed==" + ValMsg);
 
-					}
-				}
+							// --Enter SpokeWith
+							wait.until(ExpectedConditions.elementToBeClickable(By.id("txtSpokeWith")));
+							isElementPresent("TLSpokeWith_id").sendKeys("RV");
+							logs.info("Entered Spoke With");
 
-				// --PICKUP@STOP 1 OF 2 stage
-				try {
-					wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("routetable")));
-					getScreenshot(driver, "NegFlow_PickUP");
-					jobStatus = isElementPresent("TLStageLable_id").getText();
-					logs.info("Job status is==" + jobStatus);
-					// --Click on ConfirmPU button
-					wait.until(ExpectedConditions.elementToBeClickable(By.id("PUDLStopsWhiteTick")));
-					isElementPresent("TLCOnfPU_id").click();
-					logs.info("Clicked on Confirm PU button");
-					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+							// --Click on Confirm PU Alert
+							isElementPresent("TLSendPUAl_id").click();
+							logs.info("Clicked on Confirm PU Alert");
+							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-					try {
-						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("idValidationforMain")));
-						String ValMsg = isElementPresent("TLAlValidation_id").getText();
-						logs.info("Validation is displayed==" + ValMsg);
+						} catch (Exception NoVal) {
+							logs.info("Spoke With validation is not displayed");
 
-						// --Get ZoneID
-						String ZOneID = isElementPresent("TLACPTZone_xpath").getText();
-						logs.info("ZoneID of is==" + ZOneID);
-						if (ZOneID.equalsIgnoreCase("EDT")) {
-							ZOneID = "America/New_York";
-						} else if (ZOneID.equalsIgnoreCase("CDT")) {
-							ZOneID = "CST";
 						}
-						// --PickUp Date
-						WebElement PickUpDate = isElementPresent("TLActPuDate_id");
-						PickUpDate.clear();
-						Date date = new Date();
-						DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-						dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-						logs.info(dateFormat.format(date));
-						PickUpDate.sendKeys(dateFormat.format(date));
-						PickUpDate.sendKeys(Keys.TAB);
-						logs.info("Entered Actual Pickup Date");
+					}
 
-						// --Enter Act.PickUp Time
-						WebElement PickUpTime = isElementPresent("TLActPUpTime_id");
-						PickUpTime.clear();
-						date = new Date();
-						dateFormat = new SimpleDateFormat("HH:mm");
-						dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-						logs.info(dateFormat.format(date));
-						wait.until(ExpectedConditions.elementToBeClickable(By.id("txtActPuTime_0")));
-						PickUpTime.sendKeys(dateFormat.format(date));
-						logs.info("Entered Actual Pickup Time");
-
+					// --PICKUP@STOP 1 OF 2 stage
+					try {
+						wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("routetable")));
+						getScreenshot(driver, "NegFlow_PickUP");
+						jobStatus = isElementPresent("TLStageLable_id").getText();
+						logs.info("Job status is==" + jobStatus);
 						// --Click on ConfirmPU button
+						wait.until(ExpectedConditions.elementToBeClickable(By.id("PUDLStopsWhiteTick")));
 						isElementPresent("TLCOnfPU_id").click();
 						logs.info("Clicked on Confirm PU button");
 						wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-					} catch (Exception NoVal) {
-						logs.info("Validation for Act.Pickup Time is not displayed");
-
-					}
-
-					// --DELIVER@STOP 2 OF 2 stage
-					try {
-						wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("routetable")));
-						getScreenshot(driver, "NegFlow_Deliver");
-						jobStatus = isElementPresent("TLStageLable_id").getText();
-						logs.info("Job status is==" + jobStatus);
-						// --Click on ConfirmDEL button
-						wait.until(ExpectedConditions.elementToBeClickable(By.id("PUDLStopsWhiteTick")));
-						isElementPresent("TLConfDEL_id").click();
-						logs.info("Clicked on Confirm DEL button");
-						wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
 						try {
 							wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("idValidationforMain")));
 							String ValMsg = isElementPresent("TLAlValidation_id").getText();
 							logs.info("Validation is displayed==" + ValMsg);
 
 							// --Get ZoneID
-							String ZOneID = isElementPresent("TLACDELZone_xpath").getText();
+							String ZOneID = isElementPresent("TLACPTZone_xpath").getText();
 							logs.info("ZoneID of is==" + ZOneID);
 							if (ZOneID.equalsIgnoreCase("EDT")) {
 								ZOneID = "America/New_York";
 							} else if (ZOneID.equalsIgnoreCase("CDT")) {
 								ZOneID = "CST";
 							}
-
-							// --Delivery Date
-							WebElement DelDate = isElementPresent("TLActDelDate_id");
-							DelDate.clear();
+							// --PickUp Date
+							WebElement PickUpDate = isElementPresent("TLActPuDate_id");
+							PickUpDate.clear();
 							Date date = new Date();
 							DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
 							dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
 							logs.info(dateFormat.format(date));
-							DelDate.sendKeys(dateFormat.format(date));
-							DelDate.sendKeys(Keys.TAB);
-							logs.info("Entered Actual Delivery Date");
+							PickUpDate.sendKeys(dateFormat.format(date));
+							PickUpDate.sendKeys(Keys.TAB);
+							logs.info("Entered Actual Pickup Date");
 
-							// --Enter Act.DEL Time
-							WebElement DelTime = isElementPresent("TLActDelTime_id");
-							DelTime.clear();
+							// --Enter Act.PickUp Time
+							WebElement PickUpTime = isElementPresent("TLActPUpTime_id");
+							PickUpTime.clear();
 							date = new Date();
 							dateFormat = new SimpleDateFormat("HH:mm");
 							dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
 							logs.info(dateFormat.format(date));
-							wait.until(ExpectedConditions.elementToBeClickable(By.id("txtActDlTime_0")));
-							DelTime.sendKeys(dateFormat.format(date));
-							logs.info("Entered Actual Delivery Time");
+							wait.until(ExpectedConditions.elementToBeClickable(By.id("txtActPuTime_0")));
+							PickUpTime.sendKeys(dateFormat.format(date));
+							logs.info("Entered Actual Pickup Time");
 
-							// --Enter Signature
-							wait.until(ExpectedConditions.elementToBeClickable(By.id("txtsign")));
-							isElementPresent("TLSign_id").sendKeys("RV");
-							logs.info("Entered Signature");
+							// --Click on ConfirmPU button
+							isElementPresent("TLCOnfPU_id").click();
+							logs.info("Clicked on Confirm PU button");
 							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-							// --Click on ReRoute
-							WebElement ReRoute = isElementPresent("TLReRouteCB_id");
-							js.executeScript("arguments[0].click();", ReRoute);
-							logs.info("Clicked on Re Route Checkbox");
-							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
-							// --Click on Confirm Del button
-							isElementPresent("TLConfDEL_id").click();
-							logs.info("Clicked on Confirm DEL button");
-							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
-						} catch (Exception NoValSign) {
-							logs.info("Validation for Act.Del Time and Signature is not displayed");
+						} catch (Exception NoVal) {
+							logs.info("Validation for Act.Pickup Time is not displayed");
 
 						}
 
+						// --DELIVER@STOP 2 OF 2 stage
 						try {
-							wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("idValidationforMain")));
-							String ValMsg = isElementPresent("TLAlValidation_id").getText();
-							logs.info("Validation is displayed==" + ValMsg);
-
-							// --Get ZoneID
-							String ZOneID = isElementPresent("TLACDELZone_xpath").getText();
-							logs.info("ZoneID of is==" + ZOneID);
-							if (ZOneID.equalsIgnoreCase("EDT")) {
-								ZOneID = "America/New_York";
-							} else if (ZOneID.equalsIgnoreCase("CDT")) {
-								ZOneID = "CST";
-							}
-
-							// --Delivery Date
-							WebElement DelDate = isElementPresent("TLActDelDate_id");
-							DelDate.clear();
-							Date date = new Date();
-							DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-							dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-							logs.info(dateFormat.format(date));
-							DelDate.sendKeys(dateFormat.format(date));
-							DelDate.sendKeys(Keys.TAB);
-							logs.info("Entered Actual Delivery Date");
-
-							// --Enter Act.DEL Time
-							WebElement DelTime = isElementPresent("TLActDelTime_id");
-							DelTime.clear();
-							date = new Date();
-							dateFormat = new SimpleDateFormat("HH:mm");
-							dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-							Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
-							cal.add(Calendar.MINUTE, 1);
-							logs.info(dateFormat.format(cal.getTime()));
-							wait.until(ExpectedConditions.elementToBeClickable(By.id("txtActDlTime_0")));
-							DelTime.sendKeys(dateFormat.format(cal.getTime()));
-							logs.info("Entered Actual Delivery Time");
-
-							// --Click on Confirm Del button
-							isElementPresent("TLConfDEL_id").click();
-							logs.info("Clicked on Confirm DEL button");
-							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
-						} catch (Exception ActTimeGDelTime) {
-							logs.info("Validation is not displayed="
-									+ "Actual Delivery Datetime cannot be less than or equal to Actual Pickup Datetime.");
-
-						}
-
-						// --PENDING DELIVERY
-
-						try {
-							wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
-							wait.until(ExpectedConditions.visibilityOfElementLocated(
-									By.xpath("//label[@id=\"lblStages\"][text()='Pending Delivery']")));
-							getScreenshot(driver, "NegFlow_PendingDel");
+							wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("routetable")));
+							getScreenshot(driver, "NegFlow_Deliver");
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
-
-							if (jobStatus.contains("Pending Delivery")) {
-								logs.info("Job is moved to Pending Delivery==PASS");
-
-							}
-
 							// --Click on ConfirmDEL button
 							wait.until(ExpectedConditions.elementToBeClickable(By.id("PUDLStopsWhiteTick")));
 							isElementPresent("TLConfDEL_id").click();
@@ -1766,6 +1642,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 
 								// --Enter Signature
 								wait.until(ExpectedConditions.elementToBeClickable(By.id("txtsign")));
+								isElementPresent("TLSign_id").clear();
 								isElementPresent("TLSign_id").sendKeys("RV");
 								logs.info("Entered Signature");
 								wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
@@ -1781,14 +1658,89 @@ public class RTEFlowWithRejectResend extends BaseInit {
 								logs.info("Clicked on Confirm DEL button");
 								wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
+							} catch (Exception NoValSign) {
+								logs.info("Validation for Act.Del Time and Signature is not displayed");
+
+							}
+
+							try {
+								wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("idValidationforMain")));
+								String ValMsg = isElementPresent("TLAlValidation_id").getText();
+								logs.info("Validation is displayed==" + ValMsg);
+
+								// --Get ZoneID
+								String ZOneID = isElementPresent("TLACDELZone_xpath").getText();
+								logs.info("ZoneID of is==" + ZOneID);
+								if (ZOneID.equalsIgnoreCase("EDT")) {
+									ZOneID = "America/New_York";
+								} else if (ZOneID.equalsIgnoreCase("CDT")) {
+									ZOneID = "CST";
+								}
+
+								// --Delivery Date
+								WebElement DelDate = isElementPresent("TLActDelDate_id");
+								DelDate.clear();
+								Date date = new Date();
+								DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+								dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+								logs.info(dateFormat.format(date));
+								DelDate.sendKeys(dateFormat.format(date));
+								DelDate.sendKeys(Keys.TAB);
+								logs.info("Entered Actual Delivery Date");
+
+								// --Enter Act.DEL Time
+								WebElement DelTime = isElementPresent("TLActDelTime_id");
+								DelTime.clear();
+								date = new Date();
+								dateFormat = new SimpleDateFormat("HH:mm");
+								dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+								Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
+								cal.add(Calendar.MINUTE, 1);
+								logs.info(dateFormat.format(cal.getTime()));
+								wait.until(ExpectedConditions.elementToBeClickable(By.id("txtActDlTime_0")));
+								DelTime.sendKeys(dateFormat.format(cal.getTime()));
+								logs.info("Entered Actual Delivery Time");
+
+								// --Click on Confirm Del button
+								isElementPresent("TLConfDEL_id").click();
+								logs.info("Clicked on Confirm DEL button");
+								wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+							} catch (Exception ActTimeGDelTime) {
+								logs.info("Validation is not displayed="
+										+ "Actual Delivery Datetime cannot be less than or equal to Actual Pickup Datetime.");
+
+							}
+
+							// --PENDING DELIVERY
+
+							try {
+								wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
+								wait.until(ExpectedConditions.visibilityOfElementLocated(
+										By.xpath("//label[@id=\"lblStages\"][text()='Pending Delivery']")));
+								getScreenshot(driver, "NegFlow_PendingDel");
+								jobStatus = isElementPresent("TLStageLable_id").getText();
+								logs.info("Job status is==" + jobStatus);
+
+								if (jobStatus.contains("PENDING DELIVERY")) {
+									logs.info("Job is moved to PENDING DELIVERY==PASS");
+
+								}
+
+								// --Click on ConfirmDEL button
+								wait.until(ExpectedConditions.elementToBeClickable(By.id("PUDLStopsWhiteTick")));
+								isElementPresent("TLConfDEL_id").click();
+								logs.info("Clicked on Confirm DEL button");
+								wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
 								try {
 									wait.until(ExpectedConditions
 											.visibilityOfElementLocated(By.id("idValidationforMain")));
-									ValMsg = isElementPresent("TLAlValidation_id").getText();
+									String ValMsg = isElementPresent("TLAlValidation_id").getText();
 									logs.info("Validation is displayed==" + ValMsg);
 
 									// --Get ZoneID
-									ZOneID = isElementPresent("TLACDELZone_xpath").getText();
+									String ZOneID = isElementPresent("TLACDELZone_xpath").getText();
 									logs.info("ZoneID of is==" + ZOneID);
 									if (ZOneID.equalsIgnoreCase("EDT")) {
 										ZOneID = "America/New_York";
@@ -1797,10 +1749,10 @@ public class RTEFlowWithRejectResend extends BaseInit {
 									}
 
 									// --Delivery Date
-									DelDate = isElementPresent("TLActDelDate_id");
+									WebElement DelDate = isElementPresent("TLActDelDate_id");
 									DelDate.clear();
-									date = new Date();
-									dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+									Date date = new Date();
+									DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
 									dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
 									logs.info(dateFormat.format(date));
 									DelDate.sendKeys(dateFormat.format(date));
@@ -1808,96 +1760,150 @@ public class RTEFlowWithRejectResend extends BaseInit {
 									logs.info("Entered Actual Delivery Date");
 
 									// --Enter Act.DEL Time
-									DelTime = isElementPresent("TLActDelTime_id");
+									WebElement DelTime = isElementPresent("TLActDelTime_id");
 									DelTime.clear();
 									date = new Date();
 									dateFormat = new SimpleDateFormat("HH:mm");
 									dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-									Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
-									cal.add(Calendar.MINUTE, 1);
-									logs.info(dateFormat.format(cal.getTime()));
+									logs.info(dateFormat.format(date));
 									wait.until(ExpectedConditions.elementToBeClickable(By.id("txtActDlTime_0")));
-									DelTime.sendKeys(dateFormat.format(cal.getTime()));
+									DelTime.sendKeys(dateFormat.format(date));
 									logs.info("Entered Actual Delivery Time");
+
+									// --Enter Signature
+									wait.until(ExpectedConditions.elementToBeClickable(By.id("txtsign")));
+									isElementPresent("TLSign_id").clear();
+									isElementPresent("TLSign_id").sendKeys("RV");
+									logs.info("Entered Signature");
+									wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 									// --Click on Confirm Del button
 									isElementPresent("TLConfDEL_id").click();
 									logs.info("Clicked on Confirm DEL button");
 									wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-								} catch (Exception ActTimeGDelTime) {
-									logs.info("Validation is not displayed="
-											+ "Actual Delivery Datetime cannot be less than or equal to Actual Pickup Datetime.");
+									try {
+										wait.until(ExpectedConditions
+												.visibilityOfElementLocated(By.id("idValidationforMain")));
+										ValMsg = isElementPresent("TLAlValidation_id").getText();
+										logs.info("Validation is displayed==" + ValMsg);
 
-								}
-							} catch (Exception NoValSign) {
-								logs.info("Validation for Act.Del Time and Signature is not displayed");
+										// --Get ZoneID
+										ZOneID = isElementPresent("TLACDELZone_xpath").getText();
+										logs.info("ZoneID of is==" + ZOneID);
+										if (ZOneID.equalsIgnoreCase("EDT")) {
+											ZOneID = "America/New_York";
+										} else if (ZOneID.equalsIgnoreCase("CDT")) {
+											ZOneID = "CST";
+										}
 
-							}
-							try {
-								wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
-								PickUpID = getData("SearchRTE", 3, 2);
-								isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
-								logs.info("Entered PickUpID in basic search");
+										// --Delivery Date
+										DelDate = isElementPresent("TLActDelDate_id");
+										DelDate.clear();
+										date = new Date();
+										dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+										dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+										logs.info(dateFormat.format(date));
+										DelDate.sendKeys(dateFormat.format(date));
+										DelDate.sendKeys(Keys.TAB);
+										logs.info("Entered Actual Delivery Date");
 
-								// --Click on Search
-								wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-								isElementPresent("TLGlobSearch_id").click();
-								logs.info("Click on Search button");
-								wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+										// --Enter Act.DEL Time
+										DelTime = isElementPresent("TLActDelTime_id");
+										DelTime.clear();
+										date = new Date();
+										dateFormat = new SimpleDateFormat("HH:mm");
+										dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+										Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
+										cal.add(Calendar.MINUTE, 1);
+										logs.info(dateFormat.format(cal.getTime()));
+										wait.until(ExpectedConditions.elementToBeClickable(By.id("txtActDlTime_0")));
+										DelTime.sendKeys(dateFormat.format(cal.getTime()));
+										logs.info("Entered Actual Delivery Time");
 
-								try {
-									WebElement NoData2 = isElementPresent("NoData_className");
-									wait.until(ExpectedConditions.visibilityOf(NoData2));
-									if (NoData2.isDisplayed()) {
-										logs.info("There is no Data with Search parameter");
+										// --Click on Confirm Del button
+										isElementPresent("TLConfDEL_id").click();
+										logs.info("Clicked on Confirm DEL button");
+										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+									} catch (Exception ActTimeGDelTime) {
+										logs.info("Validation is not displayed="
+												+ "Actual Delivery Datetime cannot be less than or equal to Actual Pickup Datetime.");
 
 									}
+								} catch (Exception NoValSign) {
+									logs.info("Validation for Act.Del Time and Signature is not displayed");
 
-								} catch (Exception NoData2) {
-									logs.info("Data is exist with search parameter");
-									wait.until(ExpectedConditions
-											.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
-									getScreenshot(driver, "NegFlow_Delivered");
-									jobStatus = isElementPresent("TLStageLable_id").getText();
-									logs.info("Job status is==" + jobStatus);
+								}
+								try {
+									wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
+									PickUpID = getData("SearchRTE", 2, 2);
+									isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
+									logs.info("Entered PickUpID in basic search");
 
-									if (jobStatus.contains("DELIVERED")) {
-										logs.info("Job is Delivered successfully");
+									// --Click on Search
+									wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
+									isElementPresent("TLGlobSearch_id").click();
+									logs.info("Click on Search button");
+									wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-									} else {
-										logs.info("Job is not Delivered successfully");
+									try {
+										WebElement NoData2 = isElementPresent("NoData_className");
+										wait.until(ExpectedConditions.visibilityOf(NoData2));
+										if (NoData2.isDisplayed()) {
+											logs.info("There is no Data with Search parameter");
+
+										}
+									} catch (Exception NoData) {
+
+										logs.info("Data is exist with search parameter");
+										wait.until(ExpectedConditions
+												.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
+										getScreenshot(driver, "NegFlow_Delivered");
 										jobStatus = isElementPresent("TLStageLable_id").getText();
 										logs.info("Job status is==" + jobStatus);
 
+										if (jobStatus.contains("DELIVERED")) {
+											logs.info("Job is Delivered successfully");
+
+										} else {
+											logs.info("Job is not Delivered successfully");
+											jobStatus = isElementPresent("TLStageLable_id").getText();
+											logs.info("Job status is==" + jobStatus);
+
+										}
+
 									}
 
+									//
+
+								} catch (Exception Deliverstage) {
+									logs.info("job is not moved to delivered stage");
+									jobStatus = isElementPresent("TLStageLable_id").getText();
+									logs.info("Job status is==" + jobStatus);
 								}
 
-								//
-
-							} catch (Exception Deliverstage) {
-								logs.info("job is not moved to delivered stage");
+							} catch (Exception e) {
+								logs.info("Job is moved to PENDING DELIVERY==FAIL");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
+
 							}
 
-						} catch (Exception e) {
-							logs.info("Job is moved to Pending Delivery==FAIL");
+						} catch (Exception Deliver) {
+							logs.info("Stage is not Deliver");
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
-
 						}
-
-					} catch (Exception Deliver) {
-						logs.info("Stage is not Deliver");
+					} catch (Exception PickUp) {
+						logs.info("Stage is not PickUP");
 						jobStatus = isElementPresent("TLStageLable_id").getText();
 						logs.info("Job status is==" + jobStatus);
 					}
-				} catch (Exception PickUp) {
-					logs.info("Stage is not PickUP");
-					jobStatus = isElementPresent("TLStageLable_id").getText();
-					logs.info("Job status is==" + jobStatus);
+
+				} catch (Exception Somethingw) {
+					logs.info("Job is not moved to PU DRV CONF stage");
+
 				}
 			} else if (jobStatus.contains("PICKUP")) {
 
@@ -2008,6 +2014,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 
 							// --Enter Signature
 							wait.until(ExpectedConditions.elementToBeClickable(By.id("txtsign")));
+							isElementPresent("TLSign_id").clear();
 							isElementPresent("TLSign_id").sendKeys("RV");
 							logs.info("Entered Signature");
 							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
@@ -2087,8 +2094,8 @@ public class RTEFlowWithRejectResend extends BaseInit {
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
 
-							if (jobStatus.contains("Pending Delivery")) {
-								logs.info("Job is moved to Pending Delivery==PASS");
+							if (jobStatus.contains("PENDING DELIVERY")) {
+								logs.info("Job is moved to PENDING DELIVERY==PASS");
 
 							}
 
@@ -2136,14 +2143,9 @@ public class RTEFlowWithRejectResend extends BaseInit {
 
 								// --Enter Signature
 								wait.until(ExpectedConditions.elementToBeClickable(By.id("txtsign")));
+								isElementPresent("TLSign_id").clear();
 								isElementPresent("TLSign_id").sendKeys("RV");
 								logs.info("Entered Signature");
-								wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
-								// --Click on ReRoute
-								WebElement ReRoute = isElementPresent("TLReRouteCB_id");
-								js.executeScript("arguments[0].click();", ReRoute);
-								logs.info("Clicked on Re Route Checkbox");
 								wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 								// --Click on Confirm Del button
@@ -2206,7 +2208,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 							}
 							try {
 								wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
-								PickUpID = getData("SearchRTE", 3, 2);
+								PickUpID = getData("SearchRTE", 2, 2);
 								isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 								logs.info("Entered PickUpID in basic search");
 
@@ -2223,8 +2225,8 @@ public class RTEFlowWithRejectResend extends BaseInit {
 										logs.info("There is no Data with Search parameter");
 
 									}
+								} catch (Exception NoData) {
 
-								} catch (Exception NoData2) {
 									logs.info("Data is exist with search parameter");
 									wait.until(ExpectedConditions
 											.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
@@ -2253,7 +2255,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 							}
 
 						} catch (Exception e) {
-							logs.info("Job is moved to Pending Delivery==FAIL");
+							logs.info("Job is moved to PENDING DELIVERY==FAIL");
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
 
@@ -2270,7 +2272,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 					logs.info("Job status is==" + jobStatus);
 				}
 
-			} else if (jobStatus.contains("DELIVER")) {
+			} else if (jobStatus.equalsIgnoreCase("DELIVER")) {
 
 				// --DELIVER@STOP 2 OF 2 stage
 				try {
@@ -2322,6 +2324,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 
 						// --Enter Signature
 						wait.until(ExpectedConditions.elementToBeClickable(By.id("txtsign")));
+						isElementPresent("TLSign_id").clear();
 						isElementPresent("TLSign_id").sendKeys("RV");
 						logs.info("Entered Signature");
 						wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
@@ -2401,8 +2404,8 @@ public class RTEFlowWithRejectResend extends BaseInit {
 						jobStatus = isElementPresent("TLStageLable_id").getText();
 						logs.info("Job status is==" + jobStatus);
 
-						if (jobStatus.contains("Pending Delivery")) {
-							logs.info("Job is moved to Pending Delivery==PASS");
+						if (jobStatus.contains("PENDING DELIVERY")) {
+							logs.info("Job is moved to PENDING DELIVERY==PASS");
 
 						}
 
@@ -2450,14 +2453,9 @@ public class RTEFlowWithRejectResend extends BaseInit {
 
 							// --Enter Signature
 							wait.until(ExpectedConditions.elementToBeClickable(By.id("txtsign")));
+							isElementPresent("TLSign_id").clear();
 							isElementPresent("TLSign_id").sendKeys("RV");
 							logs.info("Entered Signature");
-							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
-							// --Click on ReRoute
-							WebElement ReRoute = isElementPresent("TLReRouteCB_id");
-							js.executeScript("arguments[0].click();", ReRoute);
-							logs.info("Clicked on Re Route Checkbox");
 							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 							// --Click on Confirm Del button
@@ -2519,7 +2517,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 						}
 						try {
 							wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
-							PickUpID = getData("SearchRTE", 3, 2);
+							PickUpID = getData("SearchRTE", 2, 2);
 							isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 							logs.info("Entered PickUpID in basic search");
 
@@ -2536,8 +2534,8 @@ public class RTEFlowWithRejectResend extends BaseInit {
 									logs.info("There is no Data with Search parameter");
 
 								}
+							} catch (Exception NoData) {
 
-							} catch (Exception NoData2) {
 								logs.info("Data is exist with search parameter");
 								wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
 								getScreenshot(driver, "NegFlow_Delivered");
@@ -2565,7 +2563,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 						}
 
 					} catch (Exception e) {
-						logs.info("Job is moved to Pending Delivery==FAIL");
+						logs.info("Job is moved to PENDING DELIVERY==FAIL");
 						jobStatus = isElementPresent("TLStageLable_id").getText();
 						logs.info("Job status is==" + jobStatus);
 
@@ -2577,7 +2575,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 					logs.info("Job status is==" + jobStatus);
 				}
 
-			} else if (jobStatus.contains("Pending Delivery")) {
+			} else if (jobStatus.contains("PENDING DELIVERY")) {
 				try {
 					wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
 					wait.until(ExpectedConditions.visibilityOfElementLocated(
@@ -2586,8 +2584,8 @@ public class RTEFlowWithRejectResend extends BaseInit {
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
 
-					if (jobStatus.contains("Pending Delivery")) {
-						logs.info("Job is moved to Pending Delivery==PASS");
+					if (jobStatus.contains("PENDING DELIVERY")) {
+						logs.info("Job is moved to PENDING DELIVERY==PASS");
 
 					}
 
@@ -2635,14 +2633,9 @@ public class RTEFlowWithRejectResend extends BaseInit {
 
 						// --Enter Signature
 						wait.until(ExpectedConditions.elementToBeClickable(By.id("txtsign")));
+						isElementPresent("TLSign_id").clear();
 						isElementPresent("TLSign_id").sendKeys("RV");
 						logs.info("Entered Signature");
-						wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
-						// --Click on ReRoute
-						WebElement ReRoute = isElementPresent("TLReRouteCB_id");
-						js.executeScript("arguments[0].click();", ReRoute);
-						logs.info("Clicked on Re Route Checkbox");
 						wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 						// --Click on Confirm Del button
@@ -2704,7 +2697,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 					}
 					try {
 						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
-						PickUpID = getData("SearchRTE", 3, 2);
+						PickUpID = getData("SearchRTE", 2, 2);
 						isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 						logs.info("Entered PickUpID in basic search");
 
@@ -2721,8 +2714,8 @@ public class RTEFlowWithRejectResend extends BaseInit {
 								logs.info("There is no Data with Search parameter");
 
 							}
+						} catch (Exception NoData) {
 
-						} catch (Exception NoData2) {
 							logs.info("Data is exist with search parameter");
 							wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
 							getScreenshot(driver, "NegFlow_Delivered");
@@ -2750,7 +2743,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 					}
 
 				} catch (Exception e) {
-					logs.info("Job is moved to Pending Delivery==FAIL");
+					logs.info("Job is moved to PENDING DELIVERY==FAIL");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
 
@@ -2768,9 +2761,9 @@ public class RTEFlowWithRejectResend extends BaseInit {
 
 		}
 
-		logs.info("======================RTE Reject/Resend/CallBack/PendingDelivery Test Start==================");
+		logs.info("======================RTE Reject/Resend/CallBack/PendingDelivery Test End==================");
 		msg.append(
-				"======================RTE Reject/Resend/CallBack/PendingDelivery Test Start==================" + "\n");
+				"======================RTE Reject/Resend/CallBack/PendingDelivery Test End==================" + "\n");
 
 	}
 

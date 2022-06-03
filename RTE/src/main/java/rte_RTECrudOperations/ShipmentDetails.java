@@ -862,14 +862,7 @@ public class ShipmentDetails extends BaseInit {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 		try {
-			WebElement NoData = isElementPresent("NoData_className");
-			wait.until(ExpectedConditions.visibilityOf(NoData));
-			if (NoData.isDisplayed()) {
-				logs.info("There is no Data with Search parameter");
 
-			}
-
-		} catch (Exception NoData) {
 			logs.info("Data is exist with search parameter");
 			logs.info("LOC job is created with Unmerged shipment");
 			try {
@@ -944,6 +937,14 @@ public class ShipmentDetails extends BaseInit {
 						}
 					}
 				}
+			}
+
+		} catch (Exception NoData1) {
+			WebElement NoData = isElementPresent("NoData_className");
+			wait.until(ExpectedConditions.visibilityOf(NoData));
+			if (NoData.isDisplayed()) {
+				logs.info("There is no Data with Search parameter");
+
 			}
 		}
 		logs.info("=========RTE Search LOC job Test End============");
