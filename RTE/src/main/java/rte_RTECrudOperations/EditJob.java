@@ -499,6 +499,8 @@ public class EditJob extends BaseInit {
 			ZOneID = "America/New_York";
 		} else if (ZOneID.equalsIgnoreCase("CDT")) {
 			ZOneID = "CST";
+		}else if (ZOneID.equalsIgnoreCase("PDT")) {
+			ZOneID = "PST";
 		}
 
 		// --Enter SCH Date
@@ -654,8 +656,10 @@ public class EditJob extends BaseInit {
 		// --Click on Edit Stop Sequence
 		WebElement EditSS = isElementPresent("TLEditStopSeq_xpath");
 		js.executeScript("arguments[0].scrollIntoView();", EditSS);
-		EditSS = isElementPresent("TLEditStopSeq_xpath");
-		EditSS.click();
+		js.executeScript("arguments[0].click();", EditSS);
+		/*
+		 * EditSS = isElementPresent("TLEditStopSeq_xpath"); EditSS.click();
+		 */
 		logs.info("Clicked on Edit Stop Sequence");
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 		getScreenshot(driver, "EditStopSequence");

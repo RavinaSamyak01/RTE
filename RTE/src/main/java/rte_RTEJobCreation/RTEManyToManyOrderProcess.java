@@ -564,6 +564,265 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 													if (jobStatus.contains("DELIVERED")) {
 														logs.info("Job is Delivered successfully");
 
+														// --End Route
+
+														// --Click on End Route
+														WebElement EndR = isElementPresent("TLEndRoute_id");
+														wait.until(ExpectedConditions.visibilityOf(EndR));
+														act.moveToElement(EndR).build().perform();
+														act.moveToElement(EndR).click().perform();
+														logs.info("Clicked on End Route");
+														wait.until(ExpectedConditions
+																.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+														try {
+															wait.until(
+																	ExpectedConditions.visibilityOfAllElementsLocatedBy(
+																			By.id("errorid")));
+
+															String Val = isElementPresent("Error_id").getText();
+															logs.info("Validation is displayed==" + Val);
+
+															if (Val.contains("Route End Date")
+																	&& Val.contains("Route End Time")) {
+																logs.info(
+																		"Validation is displayed for Route End Date and Time==PASS");
+
+																// --Enter Route End Date
+																// --Get ZoneID
+																ZOneID = isElementPresent("TLERZone_xpath").getText();
+																logs.info("ZoneID of is==" + ZOneID);
+																if (ZOneID.equalsIgnoreCase("EDT")) {
+																	ZOneID = "America/New_York";
+																} else if (ZOneID.equalsIgnoreCase("CDT")) {
+																	ZOneID = "CST";
+																} else if (ZOneID.equalsIgnoreCase("PDT")) {
+																	ZOneID = "PST";
+																}
+
+																// --Route End Date
+																WebElement ERDate = isElementPresent("TLERDate_id");
+																ERDate.clear();
+																date = new Date();
+																dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+																dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+																logs.info(dateFormat.format(date));
+																ERDate.sendKeys(dateFormat.format(date));
+																ERDate.sendKeys(Keys.TAB);
+																logs.info("Entered Actual Route End Date");
+
+																// --Route End Time
+																WebElement ERTime = isElementPresent("TLERTime_id");
+																ERTime.clear();
+																date = new Date();
+																dateFormat = new SimpleDateFormat("HH:mm");
+																dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+																Calendar cal = Calendar
+																		.getInstance(TimeZone.getTimeZone(ZOneID));
+																cal.add(Calendar.MINUTE, 1);
+																logs.info(dateFormat.format(cal.getTime()));
+																wait.until(ExpectedConditions
+																		.elementToBeClickable(By.id("txtActualTime")));
+																ERTime.sendKeys(dateFormat.format(cal.getTime()));
+																logs.info("Entered Actual Route End Time");
+
+																// --Click on End Route
+																EndR = isElementPresent("TLEndRoute_id");
+																wait.until(ExpectedConditions.visibilityOf(EndR));
+																act.moveToElement(EndR).build().perform();
+																act.moveToElement(EndR).click().perform();
+																logs.info("Clicked on End Route");
+																wait.until(
+																		ExpectedConditions.invisibilityOfElementLocated(
+																				By.id("loaderDiv")));
+
+															} else {
+																logs.info(
+																		"Validation is not displayed for Route End Date and Time==FAIL");
+
+																WebElement EWSave = isElementPresent(
+																		"TLQCExitWSave_id");
+																wait.until(ExpectedConditions.visibilityOf(EWSave));
+																act.moveToElement(EWSave).build().perform();
+																act.moveToElement(EWSave).click().perform();
+																logs.info("Clicked on Exit Without Save");
+															}
+
+														} catch (Exception EndRoute) {
+															logs.info(
+																	"Validation is not displayed for Route End Date and Time==FAIL");
+
+														}
+														// --Verify Customer Bill
+
+														try {
+															wait.until(ExpectedConditions
+																	.visibilityOfElementLocated(By.id("txtContains")));
+															PickUpID = getData("ManyToMany", 1, 2);
+															isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
+															logs.info("Entered PickUpID in basic search");
+
+															// --Click on Search
+															wait.until(ExpectedConditions
+																	.elementToBeClickable(By.id("btnGlobalSearch")));
+															isElementPresent("TLGlobSearch_id").click();
+															logs.info("Click on Search button");
+															wait.until(ExpectedConditions
+																	.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+															try {
+																WebElement NoDataV = isElementPresent(
+																		"NoData_className");
+																wait.until(ExpectedConditions.visibilityOf(NoDataV));
+																if (NoDataV.isDisplayed()) {
+																	logs.info("There is no Data with Search parameter");
+
+																}
+
+															} catch (Exception NoDatae) {
+																logs.info("Data is exist with search parameter");
+																wait.until(ExpectedConditions
+																		.visibilityOfAllElementsLocatedBy(
+																				By.id("RouteWorkFlow")));
+																getScreenshot(driver, "JobEditor_Delivered");
+																jobStatus = isElementPresent("TLStageLable_id")
+																		.getText();
+																logs.info("Job status is==" + jobStatus);
+
+																if (jobStatus.contains("VERIFY CUSTOMER BILL")) {
+																	logs.info(
+																			"Job is moved to Verify Customer Bill stage");
+																	getScreenshot(driver, "JobEditor_VerifyCustBill");
+
+																	// --Verify
+
+																	// --Click on Verify button
+																	WebElement Verify = isElementPresent("TLVerify_id");
+																	wait.until(ExpectedConditions.visibilityOf(Verify));
+																	act.moveToElement(Verify).build().perform();
+																	act.moveToElement(Verify).click().perform();
+																	logs.info("Clicked on Verify button");
+																	wait.until(ExpectedConditions
+																			.invisibilityOfElementLocated(
+																					By.id("loaderDiv")));
+
+																	// --Verified
+
+																	try {
+																		wait.until(ExpectedConditions
+																				.visibilityOfElementLocated(
+																						By.id("txtContains")));
+																		PickUpID = getData("ManyToMany", 1, 2);
+																		isElementPresent("TLBasicSearch_id")
+																				.sendKeys(PickUpID);
+																		logs.info("Entered PickUpID in basic search");
+
+																		// --Click on Search
+																		wait.until(
+																				ExpectedConditions.elementToBeClickable(
+																						By.id("btnGlobalSearch")));
+																		isElementPresent("TLGlobSearch_id").click();
+																		logs.info("Click on Search button");
+																		wait.until(ExpectedConditions
+																				.invisibilityOfElementLocated(
+																						By.id("loaderDiv")));
+
+																		try {
+																			WebElement NoDataV = isElementPresent(
+																					"NoData_className");
+																			wait.until(ExpectedConditions
+																					.visibilityOf(NoDataV));
+																			if (NoDataV.isDisplayed()) {
+																				logs.info(
+																						"There is no Data with Search parameter");
+
+																			}
+
+																		} catch (Exception NoDataee) {
+																			logs.info(
+																					"Data is exist with search parameter");
+																			wait.until(ExpectedConditions
+																					.visibilityOfAllElementsLocatedBy(
+																							By.id("RouteWorkFlow")));
+																			getScreenshot(driver,
+																					"JobEditor_Delivered");
+																			jobStatus = isElementPresent(
+																					"TLStageLable_id").getText();
+																			logs.info("Job status is==" + jobStatus);
+
+																			if (jobStatus.contains("VERIFIED")) {
+																				logs.info(
+																						"Job is moved to VERIFIED stage");
+																				getScreenshot(driver,
+																						"JobEditor_Verified");
+
+																			} else {
+																				logs.info(
+																						"Job is not moved to VERIFIED stage");
+																				jobStatus = isElementPresent(
+																						"TLStageLable_id").getText();
+																				logs.info(
+																						"Job status is==" + jobStatus);
+
+																				WebElement EWSave = isElementPresent(
+																						"TLQCExitWSave_id");
+																				wait.until(ExpectedConditions
+																						.visibilityOf(EWSave));
+																				act.moveToElement(EWSave).build()
+																						.perform();
+																				act.moveToElement(EWSave).click()
+																						.perform();
+																				logs.info(
+																						"Clicked on Exit Without Save");
+
+																			}
+
+																		}
+
+																		//
+
+																	} catch (Exception VerifyCBill) {
+																		logs.info("job is not moved to VERIFIED stage");
+																		jobStatus = isElementPresent("TLStageLable_id")
+																				.getText();
+																		logs.info("Job status is==" + jobStatus);
+
+																		WebElement EWSave = isElementPresent(
+																				"TLQCExitWSave_id");
+																		wait.until(ExpectedConditions
+																				.visibilityOf(EWSave));
+																		act.moveToElement(EWSave).build().perform();
+																		act.moveToElement(EWSave).click().perform();
+																		logs.info("Clicked on Exit Without Save");
+
+																	}
+
+																} else {
+																	logs.info(
+																			"Job is not moved to Verify Customer Bill stage");
+																	jobStatus = isElementPresent("TLStageLable_id")
+																			.getText();
+																	logs.info("Job status is==" + jobStatus);
+
+																	WebElement EWSave = isElementPresent(
+																			"TLQCExitWSave_id");
+																	wait.until(ExpectedConditions.visibilityOf(EWSave));
+																	act.moveToElement(EWSave).build().perform();
+																	act.moveToElement(EWSave).click().perform();
+																	logs.info("Clicked on Exit Without Save");
+
+																}
+
+															}
+
+															//
+
+														} catch (Exception VerifyCBill) {
+															logs.info("job is not moved to Verify Customer Bill stage");
+															jobStatus = isElementPresent("TLStageLable_id").getText();
+															logs.info("Job status is==" + jobStatus);
+														}
+
 													} else {
 														logs.info("Job is not Delivered successfully");
 														jobStatus = isElementPresent("TLStageLable_id").getText();
@@ -1087,6 +1346,250 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 												if (jobStatus.contains("DELIVERED")) {
 													logs.info("Job is Delivered successfully");
 
+													// --End Route
+
+													// --Click on End Route
+													WebElement EndR = isElementPresent("TLEndRoute_id");
+													wait.until(ExpectedConditions.visibilityOf(EndR));
+													act.moveToElement(EndR).build().perform();
+													act.moveToElement(EndR).click().perform();
+													logs.info("Clicked on End Route");
+													wait.until(ExpectedConditions
+															.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+													try {
+														wait.until(ExpectedConditions
+																.visibilityOfAllElementsLocatedBy(By.id("errorid")));
+
+														String Val = isElementPresent("Error_id").getText();
+														logs.info("Validation is displayed==" + Val);
+
+														if (Val.contains("Route End Date")
+																&& Val.contains("Route End Time")) {
+															logs.info(
+																	"Validation is displayed for Route End Date and Time==PASS");
+
+															// --Enter Route End Date
+															// --Get ZoneID
+															ZOneID = isElementPresent("TLERZone_xpath").getText();
+															logs.info("ZoneID of is==" + ZOneID);
+															if (ZOneID.equalsIgnoreCase("EDT")) {
+																ZOneID = "America/New_York";
+															} else if (ZOneID.equalsIgnoreCase("CDT")) {
+																ZOneID = "CST";
+															} else if (ZOneID.equalsIgnoreCase("PDT")) {
+																ZOneID = "PST";
+															}
+
+															// --Route End Date
+															WebElement ERDate = isElementPresent("TLERDate_id");
+															ERDate.clear();
+															date = new Date();
+															dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+															dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+															logs.info(dateFormat.format(date));
+															ERDate.sendKeys(dateFormat.format(date));
+															ERDate.sendKeys(Keys.TAB);
+															logs.info("Entered Actual Route End Date");
+
+															// --Route End Time
+															WebElement ERTime = isElementPresent("TLERTime_id");
+															ERTime.clear();
+															date = new Date();
+															dateFormat = new SimpleDateFormat("HH:mm");
+															dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+															Calendar cal = Calendar
+																	.getInstance(TimeZone.getTimeZone(ZOneID));
+															cal.add(Calendar.MINUTE, 1);
+															logs.info(dateFormat.format(cal.getTime()));
+															wait.until(ExpectedConditions
+																	.elementToBeClickable(By.id("txtActualTime")));
+															ERTime.sendKeys(dateFormat.format(cal.getTime()));
+															logs.info("Entered Actual Route End Time");
+
+															// --Click on End Route
+															EndR = isElementPresent("TLEndRoute_id");
+															wait.until(ExpectedConditions.visibilityOf(EndR));
+															act.moveToElement(EndR).build().perform();
+															act.moveToElement(EndR).click().perform();
+															logs.info("Clicked on End Route");
+															wait.until(ExpectedConditions
+																	.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+														} else {
+															logs.info(
+																	"Validation is not displayed for Route End Date and Time==FAIL");
+
+															WebElement EWSave = isElementPresent("TLQCExitWSave_id");
+															wait.until(ExpectedConditions.visibilityOf(EWSave));
+															act.moveToElement(EWSave).build().perform();
+															act.moveToElement(EWSave).click().perform();
+															logs.info("Clicked on Exit Without Save");
+														}
+
+													} catch (Exception EndRoute) {
+														logs.info(
+																"Validation is not displayed for Route End Date and Time==FAIL");
+
+													}
+													// --Verify Customer Bill
+
+													try {
+														wait.until(ExpectedConditions
+																.visibilityOfElementLocated(By.id("txtContains")));
+														PickUpID = getData("ManyToMany", 1, 2);
+														isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
+														logs.info("Entered PickUpID in basic search");
+
+														// --Click on Search
+														wait.until(ExpectedConditions
+																.elementToBeClickable(By.id("btnGlobalSearch")));
+														isElementPresent("TLGlobSearch_id").click();
+														logs.info("Click on Search button");
+														wait.until(ExpectedConditions
+																.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+														try {
+															WebElement NoDataV = isElementPresent("NoData_className");
+															wait.until(ExpectedConditions.visibilityOf(NoDataV));
+															if (NoDataV.isDisplayed()) {
+																logs.info("There is no Data with Search parameter");
+
+															}
+
+														} catch (Exception NoDatae) {
+															logs.info("Data is exist with search parameter");
+															wait.until(
+																	ExpectedConditions.visibilityOfAllElementsLocatedBy(
+																			By.id("RouteWorkFlow")));
+															getScreenshot(driver, "JobEditor_Delivered");
+															jobStatus = isElementPresent("TLStageLable_id").getText();
+															logs.info("Job status is==" + jobStatus);
+
+															if (jobStatus.contains("VERIFY CUSTOMER BILL")) {
+																logs.info("Job is moved to Verify Customer Bill stage");
+																getScreenshot(driver, "JobEditor_VerifyCustBill");
+
+																// --Verify
+
+																// --Click on Verify button
+																WebElement Verify = isElementPresent("TLVerify_id");
+																wait.until(ExpectedConditions.visibilityOf(Verify));
+																act.moveToElement(Verify).build().perform();
+																act.moveToElement(Verify).click().perform();
+																logs.info("Clicked on Verify button");
+																wait.until(
+																		ExpectedConditions.invisibilityOfElementLocated(
+																				By.id("loaderDiv")));
+
+																// --Verified
+
+																try {
+																	wait.until(ExpectedConditions
+																			.visibilityOfElementLocated(
+																					By.id("txtContains")));
+																	PickUpID = getData("ManyToMany", 1, 2);
+																	isElementPresent("TLBasicSearch_id")
+																			.sendKeys(PickUpID);
+																	logs.info("Entered PickUpID in basic search");
+
+																	// --Click on Search
+																	wait.until(ExpectedConditions.elementToBeClickable(
+																			By.id("btnGlobalSearch")));
+																	isElementPresent("TLGlobSearch_id").click();
+																	logs.info("Click on Search button");
+																	wait.until(ExpectedConditions
+																			.invisibilityOfElementLocated(
+																					By.id("loaderDiv")));
+
+																	try {
+																		WebElement NoDataV = isElementPresent(
+																				"NoData_className");
+																		wait.until(ExpectedConditions
+																				.visibilityOf(NoDataV));
+																		if (NoDataV.isDisplayed()) {
+																			logs.info(
+																					"There is no Data with Search parameter");
+
+																		}
+
+																	} catch (Exception NoDataee) {
+																		logs.info(
+																				"Data is exist with search parameter");
+																		wait.until(ExpectedConditions
+																				.visibilityOfAllElementsLocatedBy(
+																						By.id("RouteWorkFlow")));
+																		getScreenshot(driver, "JobEditor_Delivered");
+																		jobStatus = isElementPresent("TLStageLable_id")
+																				.getText();
+																		logs.info("Job status is==" + jobStatus);
+
+																		if (jobStatus.contains("VERIFIED")) {
+																			logs.info("Job is moved to VERIFIED stage");
+																			getScreenshot(driver, "JobEditor_Verified");
+
+																		} else {
+																			logs.info(
+																					"Job is not moved to VERIFIED stage");
+																			jobStatus = isElementPresent(
+																					"TLStageLable_id").getText();
+																			logs.info("Job status is==" + jobStatus);
+
+																			WebElement EWSave = isElementPresent(
+																					"TLQCExitWSave_id");
+																			wait.until(ExpectedConditions
+																					.visibilityOf(EWSave));
+																			act.moveToElement(EWSave).build().perform();
+																			act.moveToElement(EWSave).click().perform();
+																			logs.info("Clicked on Exit Without Save");
+
+																		}
+
+																	}
+
+																	//
+
+																} catch (Exception VerifyCBill) {
+																	logs.info("job is not moved to VERIFIED stage");
+																	jobStatus = isElementPresent("TLStageLable_id")
+																			.getText();
+																	logs.info("Job status is==" + jobStatus);
+
+																	WebElement EWSave = isElementPresent(
+																			"TLQCExitWSave_id");
+																	wait.until(ExpectedConditions.visibilityOf(EWSave));
+																	act.moveToElement(EWSave).build().perform();
+																	act.moveToElement(EWSave).click().perform();
+																	logs.info("Clicked on Exit Without Save");
+
+																}
+
+															} else {
+																logs.info(
+																		"Job is not moved to Verify Customer Bill stage");
+																jobStatus = isElementPresent("TLStageLable_id")
+																		.getText();
+																logs.info("Job status is==" + jobStatus);
+
+																WebElement EWSave = isElementPresent(
+																		"TLQCExitWSave_id");
+																wait.until(ExpectedConditions.visibilityOf(EWSave));
+																act.moveToElement(EWSave).build().perform();
+																act.moveToElement(EWSave).click().perform();
+																logs.info("Clicked on Exit Without Save");
+
+															}
+
+														}
+
+														//
+
+													} catch (Exception VerifyCBill) {
+														logs.info("job is not moved to Verify Customer Bill stage");
+														jobStatus = isElementPresent("TLStageLable_id").getText();
+														logs.info("Job status is==" + jobStatus);
+													}
+
 												} else {
 													logs.info("Job is not Delivered successfully");
 													jobStatus = isElementPresent("TLStageLable_id").getText();
@@ -1547,6 +2050,233 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 										if (jobStatus.contains("DELIVERED")) {
 											logs.info("Job is Delivered successfully");
 
+											// --End Route
+
+											// --Click on End Route
+											WebElement EndR = isElementPresent("TLEndRoute_id");
+											wait.until(ExpectedConditions.visibilityOf(EndR));
+											act.moveToElement(EndR).build().perform();
+											act.moveToElement(EndR).click().perform();
+											logs.info("Clicked on End Route");
+											wait.until(ExpectedConditions
+													.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+											try {
+												wait.until(ExpectedConditions
+														.visibilityOfAllElementsLocatedBy(By.id("errorid")));
+
+												String Val = isElementPresent("Error_id").getText();
+												logs.info("Validation is displayed==" + Val);
+
+												if (Val.contains("Route End Date") && Val.contains("Route End Time")) {
+													logs.info(
+															"Validation is displayed for Route End Date and Time==PASS");
+
+													// --Enter Route End Date
+													// --Get ZoneID
+													ZOneID = isElementPresent("TLERZone_xpath").getText();
+													logs.info("ZoneID of is==" + ZOneID);
+													if (ZOneID.equalsIgnoreCase("EDT")) {
+														ZOneID = "America/New_York";
+													} else if (ZOneID.equalsIgnoreCase("CDT")) {
+														ZOneID = "CST";
+													} else if (ZOneID.equalsIgnoreCase("PDT")) {
+														ZOneID = "PST";
+													}
+
+													// --Route End Date
+													WebElement ERDate = isElementPresent("TLERDate_id");
+													ERDate.clear();
+													date = new Date();
+													dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+													dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+													logs.info(dateFormat.format(date));
+													ERDate.sendKeys(dateFormat.format(date));
+													ERDate.sendKeys(Keys.TAB);
+													logs.info("Entered Actual Route End Date");
+
+													// --Route End Time
+													WebElement ERTime = isElementPresent("TLERTime_id");
+													ERTime.clear();
+													date = new Date();
+													dateFormat = new SimpleDateFormat("HH:mm");
+													dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+													Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
+													cal.add(Calendar.MINUTE, 1);
+													logs.info(dateFormat.format(cal.getTime()));
+													wait.until(ExpectedConditions
+															.elementToBeClickable(By.id("txtActualTime")));
+													ERTime.sendKeys(dateFormat.format(cal.getTime()));
+													logs.info("Entered Actual Route End Time");
+
+													// --Click on End Route
+													EndR = isElementPresent("TLEndRoute_id");
+													wait.until(ExpectedConditions.visibilityOf(EndR));
+													act.moveToElement(EndR).build().perform();
+													act.moveToElement(EndR).click().perform();
+													logs.info("Clicked on End Route");
+													wait.until(ExpectedConditions
+															.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+												} else {
+													logs.info(
+															"Validation is not displayed for Route End Date and Time==FAIL");
+
+													WebElement EWSave = isElementPresent("TLQCExitWSave_id");
+													wait.until(ExpectedConditions.visibilityOf(EWSave));
+													act.moveToElement(EWSave).build().perform();
+													act.moveToElement(EWSave).click().perform();
+													logs.info("Clicked on Exit Without Save");
+												}
+
+											} catch (Exception EndRoute) {
+												logs.info(
+														"Validation is not displayed for Route End Date and Time==FAIL");
+
+											}
+											// --Verify Customer Bill
+
+											try {
+												wait.until(ExpectedConditions
+														.visibilityOfElementLocated(By.id("txtContains")));
+												PickUpID = getData("ManyToMany", 1, 2);
+												isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
+												logs.info("Entered PickUpID in basic search");
+
+												// --Click on Search
+												wait.until(ExpectedConditions
+														.elementToBeClickable(By.id("btnGlobalSearch")));
+												isElementPresent("TLGlobSearch_id").click();
+												logs.info("Click on Search button");
+												wait.until(ExpectedConditions
+														.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+												try {
+													WebElement NoDataV = isElementPresent("NoData_className");
+													wait.until(ExpectedConditions.visibilityOf(NoDataV));
+													if (NoDataV.isDisplayed()) {
+														logs.info("There is no Data with Search parameter");
+
+													}
+
+												} catch (Exception NoDatae) {
+													logs.info("Data is exist with search parameter");
+													wait.until(ExpectedConditions
+															.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
+													getScreenshot(driver, "JobEditor_Delivered");
+													jobStatus = isElementPresent("TLStageLable_id").getText();
+													logs.info("Job status is==" + jobStatus);
+
+													if (jobStatus.contains("VERIFY CUSTOMER BILL")) {
+														logs.info("Job is moved to Verify Customer Bill stage");
+														getScreenshot(driver, "JobEditor_VerifyCustBill");
+
+														// --Verify
+
+														// --Click on Verify button
+														WebElement Verify = isElementPresent("TLVerify_id");
+														wait.until(ExpectedConditions.visibilityOf(Verify));
+														act.moveToElement(Verify).build().perform();
+														act.moveToElement(Verify).click().perform();
+														logs.info("Clicked on Verify button");
+														wait.until(ExpectedConditions
+																.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+														// --Verified
+
+														try {
+															wait.until(ExpectedConditions
+																	.visibilityOfElementLocated(By.id("txtContains")));
+															PickUpID = getData("ManyToMany", 1, 2);
+															isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
+															logs.info("Entered PickUpID in basic search");
+
+															// --Click on Search
+															wait.until(ExpectedConditions
+																	.elementToBeClickable(By.id("btnGlobalSearch")));
+															isElementPresent("TLGlobSearch_id").click();
+															logs.info("Click on Search button");
+															wait.until(ExpectedConditions
+																	.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+															try {
+																WebElement NoDataV = isElementPresent(
+																		"NoData_className");
+																wait.until(ExpectedConditions.visibilityOf(NoDataV));
+																if (NoDataV.isDisplayed()) {
+																	logs.info("There is no Data with Search parameter");
+
+																}
+
+															} catch (Exception NoDataee) {
+																logs.info("Data is exist with search parameter");
+																wait.until(ExpectedConditions
+																		.visibilityOfAllElementsLocatedBy(
+																				By.id("RouteWorkFlow")));
+																getScreenshot(driver, "JobEditor_Delivered");
+																jobStatus = isElementPresent("TLStageLable_id")
+																		.getText();
+																logs.info("Job status is==" + jobStatus);
+
+																if (jobStatus.contains("VERIFIED")) {
+																	logs.info("Job is moved to VERIFIED stage");
+																	getScreenshot(driver, "JobEditor_Verified");
+
+																} else {
+																	logs.info("Job is not moved to VERIFIED stage");
+																	jobStatus = isElementPresent("TLStageLable_id")
+																			.getText();
+																	logs.info("Job status is==" + jobStatus);
+
+																	WebElement EWSave = isElementPresent(
+																			"TLQCExitWSave_id");
+																	wait.until(ExpectedConditions.visibilityOf(EWSave));
+																	act.moveToElement(EWSave).build().perform();
+																	act.moveToElement(EWSave).click().perform();
+																	logs.info("Clicked on Exit Without Save");
+
+																}
+
+															}
+
+															//
+
+														} catch (Exception VerifyCBill) {
+															logs.info("job is not moved to VERIFIED stage");
+															jobStatus = isElementPresent("TLStageLable_id").getText();
+															logs.info("Job status is==" + jobStatus);
+
+															WebElement EWSave = isElementPresent("TLQCExitWSave_id");
+															wait.until(ExpectedConditions.visibilityOf(EWSave));
+															act.moveToElement(EWSave).build().perform();
+															act.moveToElement(EWSave).click().perform();
+															logs.info("Clicked on Exit Without Save");
+
+														}
+
+													} else {
+														logs.info("Job is not moved to Verify Customer Bill stage");
+														jobStatus = isElementPresent("TLStageLable_id").getText();
+														logs.info("Job status is==" + jobStatus);
+
+														WebElement EWSave = isElementPresent("TLQCExitWSave_id");
+														wait.until(ExpectedConditions.visibilityOf(EWSave));
+														act.moveToElement(EWSave).build().perform();
+														act.moveToElement(EWSave).click().perform();
+														logs.info("Clicked on Exit Without Save");
+
+													}
+
+												}
+
+												//
+
+											} catch (Exception VerifyCBill) {
+												logs.info("job is not moved to Verify Customer Bill stage");
+												jobStatus = isElementPresent("TLStageLable_id").getText();
+												logs.info("Job status is==" + jobStatus);
+											}
+
 										} else {
 											logs.info("Job is not Delivered successfully");
 											jobStatus = isElementPresent("TLStageLable_id").getText();
@@ -1953,6 +2683,233 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 										if (jobStatus.contains("DELIVERED")) {
 											logs.info("Job is Delivered successfully");
 
+											// --End Route
+
+											// --Click on End Route
+											WebElement EndR = isElementPresent("TLEndRoute_id");
+											wait.until(ExpectedConditions.visibilityOf(EndR));
+											act.moveToElement(EndR).build().perform();
+											act.moveToElement(EndR).click().perform();
+											logs.info("Clicked on End Route");
+											wait.until(ExpectedConditions
+													.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+											try {
+												wait.until(ExpectedConditions
+														.visibilityOfAllElementsLocatedBy(By.id("errorid")));
+
+												String Val = isElementPresent("Error_id").getText();
+												logs.info("Validation is displayed==" + Val);
+
+												if (Val.contains("Route End Date") && Val.contains("Route End Time")) {
+													logs.info(
+															"Validation is displayed for Route End Date and Time==PASS");
+
+													// --Enter Route End Date
+													// --Get ZoneID
+													ZOneID = isElementPresent("TLERZone_xpath").getText();
+													logs.info("ZoneID of is==" + ZOneID);
+													if (ZOneID.equalsIgnoreCase("EDT")) {
+														ZOneID = "America/New_York";
+													} else if (ZOneID.equalsIgnoreCase("CDT")) {
+														ZOneID = "CST";
+													} else if (ZOneID.equalsIgnoreCase("PDT")) {
+														ZOneID = "PST";
+													}
+
+													// --Route End Date
+													WebElement ERDate = isElementPresent("TLERDate_id");
+													ERDate.clear();
+													date = new Date();
+													dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+													dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+													logs.info(dateFormat.format(date));
+													ERDate.sendKeys(dateFormat.format(date));
+													ERDate.sendKeys(Keys.TAB);
+													logs.info("Entered Actual Route End Date");
+
+													// --Route End Time
+													WebElement ERTime = isElementPresent("TLERTime_id");
+													ERTime.clear();
+													date = new Date();
+													dateFormat = new SimpleDateFormat("HH:mm");
+													dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+													Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
+													cal.add(Calendar.MINUTE, 1);
+													logs.info(dateFormat.format(cal.getTime()));
+													wait.until(ExpectedConditions
+															.elementToBeClickable(By.id("txtActualTime")));
+													ERTime.sendKeys(dateFormat.format(cal.getTime()));
+													logs.info("Entered Actual Route End Time");
+
+													// --Click on End Route
+													EndR = isElementPresent("TLEndRoute_id");
+													wait.until(ExpectedConditions.visibilityOf(EndR));
+													act.moveToElement(EndR).build().perform();
+													act.moveToElement(EndR).click().perform();
+													logs.info("Clicked on End Route");
+													wait.until(ExpectedConditions
+															.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+												} else {
+													logs.info(
+															"Validation is not displayed for Route End Date and Time==FAIL");
+
+													WebElement EWSave = isElementPresent("TLQCExitWSave_id");
+													wait.until(ExpectedConditions.visibilityOf(EWSave));
+													act.moveToElement(EWSave).build().perform();
+													act.moveToElement(EWSave).click().perform();
+													logs.info("Clicked on Exit Without Save");
+												}
+
+											} catch (Exception EndRoute) {
+												logs.info(
+														"Validation is not displayed for Route End Date and Time==FAIL");
+
+											}
+											// --Verify Customer Bill
+
+											try {
+												wait.until(ExpectedConditions
+														.visibilityOfElementLocated(By.id("txtContains")));
+												PickUpID = getData("ManyToMany", 1, 2);
+												isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
+												logs.info("Entered PickUpID in basic search");
+
+												// --Click on Search
+												wait.until(ExpectedConditions
+														.elementToBeClickable(By.id("btnGlobalSearch")));
+												isElementPresent("TLGlobSearch_id").click();
+												logs.info("Click on Search button");
+												wait.until(ExpectedConditions
+														.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+												try {
+													WebElement NoDataV = isElementPresent("NoData_className");
+													wait.until(ExpectedConditions.visibilityOf(NoDataV));
+													if (NoDataV.isDisplayed()) {
+														logs.info("There is no Data with Search parameter");
+
+													}
+
+												} catch (Exception NoDatae) {
+													logs.info("Data is exist with search parameter");
+													wait.until(ExpectedConditions
+															.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
+													getScreenshot(driver, "JobEditor_Delivered");
+													jobStatus = isElementPresent("TLStageLable_id").getText();
+													logs.info("Job status is==" + jobStatus);
+
+													if (jobStatus.contains("VERIFY CUSTOMER BILL")) {
+														logs.info("Job is moved to Verify Customer Bill stage");
+														getScreenshot(driver, "JobEditor_VerifyCustBill");
+
+														// --Verify
+
+														// --Click on Verify button
+														WebElement Verify = isElementPresent("TLVerify_id");
+														wait.until(ExpectedConditions.visibilityOf(Verify));
+														act.moveToElement(Verify).build().perform();
+														act.moveToElement(Verify).click().perform();
+														logs.info("Clicked on Verify button");
+														wait.until(ExpectedConditions
+																.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+														// --Verified
+
+														try {
+															wait.until(ExpectedConditions
+																	.visibilityOfElementLocated(By.id("txtContains")));
+															PickUpID = getData("ManyToMany", 1, 2);
+															isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
+															logs.info("Entered PickUpID in basic search");
+
+															// --Click on Search
+															wait.until(ExpectedConditions
+																	.elementToBeClickable(By.id("btnGlobalSearch")));
+															isElementPresent("TLGlobSearch_id").click();
+															logs.info("Click on Search button");
+															wait.until(ExpectedConditions
+																	.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+															try {
+																WebElement NoDataV = isElementPresent(
+																		"NoData_className");
+																wait.until(ExpectedConditions.visibilityOf(NoDataV));
+																if (NoDataV.isDisplayed()) {
+																	logs.info("There is no Data with Search parameter");
+
+																}
+
+															} catch (Exception NoDataee) {
+																logs.info("Data is exist with search parameter");
+																wait.until(ExpectedConditions
+																		.visibilityOfAllElementsLocatedBy(
+																				By.id("RouteWorkFlow")));
+																getScreenshot(driver, "JobEditor_Delivered");
+																jobStatus = isElementPresent("TLStageLable_id")
+																		.getText();
+																logs.info("Job status is==" + jobStatus);
+
+																if (jobStatus.contains("VERIFIED")) {
+																	logs.info("Job is moved to VERIFIED stage");
+																	getScreenshot(driver, "JobEditor_Verified");
+
+																} else {
+																	logs.info("Job is not moved to VERIFIED stage");
+																	jobStatus = isElementPresent("TLStageLable_id")
+																			.getText();
+																	logs.info("Job status is==" + jobStatus);
+
+																	WebElement EWSave = isElementPresent(
+																			"TLQCExitWSave_id");
+																	wait.until(ExpectedConditions.visibilityOf(EWSave));
+																	act.moveToElement(EWSave).build().perform();
+																	act.moveToElement(EWSave).click().perform();
+																	logs.info("Clicked on Exit Without Save");
+
+																}
+
+															}
+
+															//
+
+														} catch (Exception VerifyCBill) {
+															logs.info("job is not moved to VERIFIED stage");
+															jobStatus = isElementPresent("TLStageLable_id").getText();
+															logs.info("Job status is==" + jobStatus);
+
+															WebElement EWSave = isElementPresent("TLQCExitWSave_id");
+															wait.until(ExpectedConditions.visibilityOf(EWSave));
+															act.moveToElement(EWSave).build().perform();
+															act.moveToElement(EWSave).click().perform();
+															logs.info("Clicked on Exit Without Save");
+
+														}
+
+													} else {
+														logs.info("Job is not moved to Verify Customer Bill stage");
+														jobStatus = isElementPresent("TLStageLable_id").getText();
+														logs.info("Job status is==" + jobStatus);
+
+														WebElement EWSave = isElementPresent("TLQCExitWSave_id");
+														wait.until(ExpectedConditions.visibilityOf(EWSave));
+														act.moveToElement(EWSave).build().perform();
+														act.moveToElement(EWSave).click().perform();
+														logs.info("Clicked on Exit Without Save");
+
+													}
+
+												}
+
+												//
+
+											} catch (Exception VerifyCBill) {
+												logs.info("job is not moved to Verify Customer Bill stage");
+												jobStatus = isElementPresent("TLStageLable_id").getText();
+												logs.info("Job status is==" + jobStatus);
+											}
+
 										} else {
 											logs.info("Job is not Delivered successfully");
 											jobStatus = isElementPresent("TLStageLable_id").getText();
@@ -1996,7 +2953,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 					logs.info("Job status is==" + jobStatus);
 				}
 
-			} else if (jobStatus.contains("DELIVER")) {
+			} else if (jobStatus.contains("DELIVER@")) {
 
 				// --DELIVER@STOP 2 OF 2 stage
 				try {
@@ -2363,6 +3320,218 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 							if (jobStatus.contains("DELIVERED")) {
 								logs.info("Job is Delivered successfully");
 
+								// --End Route
+
+								// --Click on End Route
+								WebElement EndR = isElementPresent("TLEndRoute_id");
+								wait.until(ExpectedConditions.visibilityOf(EndR));
+								act.moveToElement(EndR).build().perform();
+								act.moveToElement(EndR).click().perform();
+								logs.info("Clicked on End Route");
+								wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+								try {
+									wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("errorid")));
+
+									String Val = isElementPresent("Error_id").getText();
+									logs.info("Validation is displayed==" + Val);
+
+									if (Val.contains("Route End Date") && Val.contains("Route End Time")) {
+										logs.info("Validation is displayed for Route End Date and Time==PASS");
+
+										// --Enter Route End Date
+										// --Get ZoneID
+										String ZOneID = isElementPresent("TLERZone_xpath").getText();
+										logs.info("ZoneID of is==" + ZOneID);
+										if (ZOneID.equalsIgnoreCase("EDT")) {
+											ZOneID = "America/New_York";
+										} else if (ZOneID.equalsIgnoreCase("CDT")) {
+											ZOneID = "CST";
+										} else if (ZOneID.equalsIgnoreCase("PDT")) {
+											ZOneID = "PST";
+										}
+
+										// --Route End Date
+										WebElement ERDate = isElementPresent("TLERDate_id");
+										ERDate.clear();
+										Date date = new Date();
+										SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+										dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+										logs.info(dateFormat.format(date));
+										ERDate.sendKeys(dateFormat.format(date));
+										ERDate.sendKeys(Keys.TAB);
+										logs.info("Entered Actual Route End Date");
+
+										// --Route End Time
+										WebElement ERTime = isElementPresent("TLERTime_id");
+										ERTime.clear();
+										date = new Date();
+										dateFormat = new SimpleDateFormat("HH:mm");
+										dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+										Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
+										cal.add(Calendar.MINUTE, 1);
+										logs.info(dateFormat.format(cal.getTime()));
+										wait.until(ExpectedConditions.elementToBeClickable(By.id("txtActualTime")));
+										ERTime.sendKeys(dateFormat.format(cal.getTime()));
+										logs.info("Entered Actual Route End Time");
+
+										// --Click on End Route
+										EndR = isElementPresent("TLEndRoute_id");
+										wait.until(ExpectedConditions.visibilityOf(EndR));
+										act.moveToElement(EndR).build().perform();
+										act.moveToElement(EndR).click().perform();
+										logs.info("Clicked on End Route");
+										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+									} else {
+										logs.info("Validation is not displayed for Route End Date and Time==FAIL");
+
+										WebElement EWSave = isElementPresent("TLQCExitWSave_id");
+										wait.until(ExpectedConditions.visibilityOf(EWSave));
+										act.moveToElement(EWSave).build().perform();
+										act.moveToElement(EWSave).click().perform();
+										logs.info("Clicked on Exit Without Save");
+									}
+
+								} catch (Exception EndRoute) {
+									logs.info("Validation is not displayed for Route End Date and Time==FAIL");
+
+								}
+								// --Verify Customer Bill
+
+								try {
+									wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
+									PickUpID = getData("ManyToMany", 1, 2);
+									isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
+									logs.info("Entered PickUpID in basic search");
+
+									// --Click on Search
+									wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
+									isElementPresent("TLGlobSearch_id").click();
+									logs.info("Click on Search button");
+									wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+									try {
+										WebElement NoDataV = isElementPresent("NoData_className");
+										wait.until(ExpectedConditions.visibilityOf(NoDataV));
+										if (NoDataV.isDisplayed()) {
+											logs.info("There is no Data with Search parameter");
+
+										}
+
+									} catch (Exception NoDatae) {
+										logs.info("Data is exist with search parameter");
+										wait.until(ExpectedConditions
+												.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
+										getScreenshot(driver, "JobEditor_Delivered");
+										jobStatus = isElementPresent("TLStageLable_id").getText();
+										logs.info("Job status is==" + jobStatus);
+
+										if (jobStatus.contains("VERIFY CUSTOMER BILL")) {
+											logs.info("Job is moved to Verify Customer Bill stage");
+											getScreenshot(driver, "JobEditor_VerifyCustBill");
+
+											// --Verify
+
+											// --Click on Verify button
+											WebElement Verify = isElementPresent("TLVerify_id");
+											wait.until(ExpectedConditions.visibilityOf(Verify));
+											act.moveToElement(Verify).build().perform();
+											act.moveToElement(Verify).click().perform();
+											logs.info("Clicked on Verify button");
+											wait.until(ExpectedConditions
+													.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+											// --Verified
+
+											try {
+												wait.until(ExpectedConditions
+														.visibilityOfElementLocated(By.id("txtContains")));
+												PickUpID = getData("ManyToMany", 1, 2);
+												isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
+												logs.info("Entered PickUpID in basic search");
+
+												// --Click on Search
+												wait.until(ExpectedConditions
+														.elementToBeClickable(By.id("btnGlobalSearch")));
+												isElementPresent("TLGlobSearch_id").click();
+												logs.info("Click on Search button");
+												wait.until(ExpectedConditions
+														.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+												try {
+													WebElement NoDataV = isElementPresent("NoData_className");
+													wait.until(ExpectedConditions.visibilityOf(NoDataV));
+													if (NoDataV.isDisplayed()) {
+														logs.info("There is no Data with Search parameter");
+
+													}
+
+												} catch (Exception NoDataee) {
+													logs.info("Data is exist with search parameter");
+													wait.until(ExpectedConditions
+															.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
+													getScreenshot(driver, "JobEditor_Delivered");
+													jobStatus = isElementPresent("TLStageLable_id").getText();
+													logs.info("Job status is==" + jobStatus);
+
+													if (jobStatus.contains("VERIFIED")) {
+														logs.info("Job is moved to VERIFIED stage");
+														getScreenshot(driver, "JobEditor_Verified");
+
+													} else {
+														logs.info("Job is not moved to VERIFIED stage");
+														jobStatus = isElementPresent("TLStageLable_id").getText();
+														logs.info("Job status is==" + jobStatus);
+
+														WebElement EWSave = isElementPresent("TLQCExitWSave_id");
+														wait.until(ExpectedConditions.visibilityOf(EWSave));
+														act.moveToElement(EWSave).build().perform();
+														act.moveToElement(EWSave).click().perform();
+														logs.info("Clicked on Exit Without Save");
+
+													}
+
+												}
+
+												//
+
+											} catch (Exception VerifyCBill) {
+												logs.info("job is not moved to VERIFIED stage");
+												jobStatus = isElementPresent("TLStageLable_id").getText();
+												logs.info("Job status is==" + jobStatus);
+
+												WebElement EWSave = isElementPresent("TLQCExitWSave_id");
+												wait.until(ExpectedConditions.visibilityOf(EWSave));
+												act.moveToElement(EWSave).build().perform();
+												act.moveToElement(EWSave).click().perform();
+												logs.info("Clicked on Exit Without Save");
+
+											}
+
+										} else {
+											logs.info("Job is not moved to Verify Customer Bill stage");
+											jobStatus = isElementPresent("TLStageLable_id").getText();
+											logs.info("Job status is==" + jobStatus);
+
+											WebElement EWSave = isElementPresent("TLQCExitWSave_id");
+											wait.until(ExpectedConditions.visibilityOf(EWSave));
+											act.moveToElement(EWSave).build().perform();
+											act.moveToElement(EWSave).click().perform();
+											logs.info("Clicked on Exit Without Save");
+
+										}
+
+									}
+
+									//
+
+								} catch (Exception VerifyCBill) {
+									logs.info("job is not moved to Verify Customer Bill stage");
+									jobStatus = isElementPresent("TLStageLable_id").getText();
+									logs.info("Job status is==" + jobStatus);
+								}
+
 							} else {
 								logs.info("Job is not Delivered successfully");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
@@ -2386,10 +3555,355 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 					logs.info("Job status is==" + jobStatus);
 				}
 
-			} else if (jobStatus.contains("DELIVERED")) {
-				logs.info("Job is on Delivered stage");
+			} else if (jobStatus.contains("DELIVERED@")) {
+				logs.info("Data is exist with search parameter");
+				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
+				getScreenshot(driver, "JobEditor_Delivered");
 				jobStatus = isElementPresent("TLStageLable_id").getText();
 				logs.info("Job status is==" + jobStatus);
+
+				if (jobStatus.contains("DELIVERED")) {
+					logs.info("Job is Delivered successfully");
+
+					// --End Route
+
+					// --Click on End Route
+					WebElement EndR = isElementPresent("TLEndRoute_id");
+					wait.until(ExpectedConditions.visibilityOf(EndR));
+					act.moveToElement(EndR).build().perform();
+					act.moveToElement(EndR).click().perform();
+					logs.info("Clicked on End Route");
+					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+					try {
+						wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("errorid")));
+
+						String Val = isElementPresent("Error_id").getText();
+						logs.info("Validation is displayed==" + Val);
+
+						if (Val.contains("Route End Date") && Val.contains("Route End Time")) {
+							logs.info("Validation is displayed for Route End Date and Time==PASS");
+
+							// --Enter Route End Date
+							// --Get ZoneID
+							String ZOneID = isElementPresent("TLERZone_xpath").getText();
+							logs.info("ZoneID of is==" + ZOneID);
+							if (ZOneID.equalsIgnoreCase("EDT")) {
+								ZOneID = "America/New_York";
+							} else if (ZOneID.equalsIgnoreCase("CDT")) {
+								ZOneID = "CST";
+							} else if (ZOneID.equalsIgnoreCase("PDT")) {
+								ZOneID = "PST";
+							}
+
+							// --Route End Date
+							WebElement ERDate = isElementPresent("TLERDate_id");
+							ERDate.clear();
+							Date date = new Date();
+							DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+							dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+							logs.info(dateFormat.format(date));
+							ERDate.sendKeys(dateFormat.format(date));
+							ERDate.sendKeys(Keys.TAB);
+							logs.info("Entered Actual Route End Date");
+
+							// --Route End Time
+							WebElement ERTime = isElementPresent("TLERTime_id");
+							ERTime.clear();
+							date = new Date();
+							dateFormat = new SimpleDateFormat("HH:mm");
+							dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+							Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
+							cal.add(Calendar.MINUTE, 1);
+							logs.info(dateFormat.format(cal.getTime()));
+							wait.until(ExpectedConditions.elementToBeClickable(By.id("txtActualTime")));
+							ERTime.sendKeys(dateFormat.format(cal.getTime()));
+							logs.info("Entered Actual Route End Time");
+
+							// --Click on End Route
+							EndR = isElementPresent("TLEndRoute_id");
+							wait.until(ExpectedConditions.visibilityOf(EndR));
+							act.moveToElement(EndR).build().perform();
+							act.moveToElement(EndR).click().perform();
+							logs.info("Clicked on End Route");
+							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+						} else {
+							logs.info("Validation is not displayed for Route End Date and Time==FAIL");
+
+							WebElement EWSave = isElementPresent("TLQCExitWSave_id");
+							wait.until(ExpectedConditions.visibilityOf(EWSave));
+							act.moveToElement(EWSave).build().perform();
+							act.moveToElement(EWSave).click().perform();
+							logs.info("Clicked on Exit Without Save");
+						}
+
+					} catch (Exception EndRoute) {
+						logs.info("Validation is not displayed for Route End Date and Time==FAIL");
+
+					}
+					// --Verify Customer Bill
+
+					try {
+						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
+						PickUpID = getData("ManyToMany", 1, 2);
+						isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
+						logs.info("Entered PickUpID in basic search");
+
+						// --Click on Search
+						wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
+						isElementPresent("TLGlobSearch_id").click();
+						logs.info("Click on Search button");
+						wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+						try {
+							WebElement NoDataV = isElementPresent("NoData_className");
+							wait.until(ExpectedConditions.visibilityOf(NoDataV));
+							if (NoDataV.isDisplayed()) {
+								logs.info("There is no Data with Search parameter");
+
+							}
+
+						} catch (Exception NoDatae) {
+							logs.info("Data is exist with search parameter");
+							wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
+							getScreenshot(driver, "JobEditor_Delivered");
+							jobStatus = isElementPresent("TLStageLable_id").getText();
+							logs.info("Job status is==" + jobStatus);
+
+							if (jobStatus.contains("VERIFY CUSTOMER BILL")) {
+								logs.info("Job is moved to Verify Customer Bill stage");
+								getScreenshot(driver, "JobEditor_VerifyCustBill");
+
+								// --Verify
+
+								// --Click on Verify button
+								WebElement Verify = isElementPresent("TLVerify_id");
+								wait.until(ExpectedConditions.visibilityOf(Verify));
+								act.moveToElement(Verify).build().perform();
+								act.moveToElement(Verify).click().perform();
+								logs.info("Clicked on Verify button");
+								wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+								// --Verified
+
+								try {
+									wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
+									PickUpID = getData("ManyToMany", 1, 2);
+									isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
+									logs.info("Entered PickUpID in basic search");
+
+									// --Click on Search
+									wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
+									isElementPresent("TLGlobSearch_id").click();
+									logs.info("Click on Search button");
+									wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+									try {
+										WebElement NoDataV = isElementPresent("NoData_className");
+										wait.until(ExpectedConditions.visibilityOf(NoDataV));
+										if (NoDataV.isDisplayed()) {
+											logs.info("There is no Data with Search parameter");
+
+										}
+
+									} catch (Exception NoDataee) {
+										logs.info("Data is exist with search parameter");
+										wait.until(ExpectedConditions
+												.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
+										getScreenshot(driver, "JobEditor_Delivered");
+										jobStatus = isElementPresent("TLStageLable_id").getText();
+										logs.info("Job status is==" + jobStatus);
+
+										if (jobStatus.contains("VERIFIED")) {
+											logs.info("Job is moved to VERIFIED stage");
+											getScreenshot(driver, "JobEditor_Verified");
+
+										} else {
+											logs.info("Job is not moved to VERIFIED stage");
+											jobStatus = isElementPresent("TLStageLable_id").getText();
+											logs.info("Job status is==" + jobStatus);
+
+											WebElement EWSave = isElementPresent("TLQCExitWSave_id");
+											wait.until(ExpectedConditions.visibilityOf(EWSave));
+											act.moveToElement(EWSave).build().perform();
+											act.moveToElement(EWSave).click().perform();
+											logs.info("Clicked on Exit Without Save");
+
+										}
+
+									}
+
+									//
+
+								} catch (Exception VerifyCBill) {
+									logs.info("job is not moved to VERIFIED stage");
+									jobStatus = isElementPresent("TLStageLable_id").getText();
+									logs.info("Job status is==" + jobStatus);
+
+									WebElement EWSave = isElementPresent("TLQCExitWSave_id");
+									wait.until(ExpectedConditions.visibilityOf(EWSave));
+									act.moveToElement(EWSave).build().perform();
+									act.moveToElement(EWSave).click().perform();
+									logs.info("Clicked on Exit Without Save");
+
+								}
+
+							} else {
+								logs.info("Job is not moved to Verify Customer Bill stage");
+								jobStatus = isElementPresent("TLStageLable_id").getText();
+								logs.info("Job status is==" + jobStatus);
+
+								WebElement EWSave = isElementPresent("TLQCExitWSave_id");
+								wait.until(ExpectedConditions.visibilityOf(EWSave));
+								act.moveToElement(EWSave).build().perform();
+								act.moveToElement(EWSave).click().perform();
+								logs.info("Clicked on Exit Without Save");
+
+							}
+
+						}
+
+						//
+
+					} catch (Exception VerifyCBill) {
+						logs.info("job is not moved to Verify Customer Bill stage");
+						jobStatus = isElementPresent("TLStageLable_id").getText();
+						logs.info("Job status is==" + jobStatus);
+					}
+
+				} else {
+					logs.info("Job is not Delivered successfully");
+					jobStatus = isElementPresent("TLStageLable_id").getText();
+					logs.info("Job status is==" + jobStatus);
+
+				}
+
+			} else if (jobStatus.contains("VERIFY CUSTOMER BILL")) {
+				logs.info("Data is exist with search parameter");
+				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
+				getScreenshot(driver, "JobEditor_Delivered");
+				jobStatus = isElementPresent("TLStageLable_id").getText();
+				logs.info("Job status is==" + jobStatus);
+
+				if (jobStatus.contains("VERIFY CUSTOMER BILL")) {
+					logs.info("Job is moved to Verify Customer Bill stage");
+					getScreenshot(driver, "JobEditor_VerifyCustBill");
+
+					// --Verify
+
+					// --Click on Verify button
+					WebElement Verify = isElementPresent("TLVerify_id");
+					wait.until(ExpectedConditions.visibilityOf(Verify));
+					act.moveToElement(Verify).build().perform();
+					act.moveToElement(Verify).click().perform();
+					logs.info("Clicked on Verify button");
+					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+					// --Verified
+
+					try {
+						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
+						PickUpID = getData("ManyToMany", 1, 2);
+						isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
+						logs.info("Entered PickUpID in basic search");
+
+						// --Click on Search
+						wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
+						isElementPresent("TLGlobSearch_id").click();
+						logs.info("Click on Search button");
+						wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+						try {
+							WebElement NoDataV = isElementPresent("NoData_className");
+							wait.until(ExpectedConditions.visibilityOf(NoDataV));
+							if (NoDataV.isDisplayed()) {
+								logs.info("There is no Data with Search parameter");
+
+							}
+
+						} catch (Exception NoDataee) {
+							logs.info("Data is exist with search parameter");
+							wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
+							getScreenshot(driver, "JobEditor_Delivered");
+							jobStatus = isElementPresent("TLStageLable_id").getText();
+							logs.info("Job status is==" + jobStatus);
+
+							if (jobStatus.contains("VERIFIED")) {
+								logs.info("Job is moved to VERIFIED stage");
+								getScreenshot(driver, "JobEditor_Verified");
+
+							} else {
+								logs.info("Job is not moved to VERIFIED stage");
+								jobStatus = isElementPresent("TLStageLable_id").getText();
+								logs.info("Job status is==" + jobStatus);
+
+								WebElement EWSave = isElementPresent("TLQCExitWSave_id");
+								wait.until(ExpectedConditions.visibilityOf(EWSave));
+								act.moveToElement(EWSave).build().perform();
+								act.moveToElement(EWSave).click().perform();
+								logs.info("Clicked on Exit Without Save");
+
+							}
+
+						}
+
+						//
+
+					} catch (Exception VerifyCBill) {
+						logs.info("job is not moved to VERIFIED stage");
+						jobStatus = isElementPresent("TLStageLable_id").getText();
+						logs.info("Job status is==" + jobStatus);
+
+						WebElement EWSave = isElementPresent("TLQCExitWSave_id");
+						wait.until(ExpectedConditions.visibilityOf(EWSave));
+						act.moveToElement(EWSave).build().perform();
+						act.moveToElement(EWSave).click().perform();
+						logs.info("Clicked on Exit Without Save");
+
+					}
+
+				} else {
+					logs.info("Job is not moved to Verify Customer Bill stage");
+					jobStatus = isElementPresent("TLStageLable_id").getText();
+					logs.info("Job status is==" + jobStatus);
+
+					WebElement EWSave = isElementPresent("TLQCExitWSave_id");
+					wait.until(ExpectedConditions.visibilityOf(EWSave));
+					act.moveToElement(EWSave).build().perform();
+					act.moveToElement(EWSave).click().perform();
+					logs.info("Clicked on Exit Without Save");
+
+				}
+
+			} else if (jobStatus.contains("VERIFIED")) {
+				// --Verified
+
+				logs.info("Data is exist with search parameter");
+				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
+				getScreenshot(driver, "JobEditor_Delivered");
+				jobStatus = isElementPresent("TLStageLable_id").getText();
+				logs.info("Job status is==" + jobStatus);
+
+				if (jobStatus.contains("VERIFIED")) {
+					logs.info("Job is moved to VERIFIED stage");
+					getScreenshot(driver, "JobEditor_Verified");
+
+				} else {
+					logs.info("Job is not moved to VERIFIED stage");
+					jobStatus = isElementPresent("TLStageLable_id").getText();
+					logs.info("Job status is==" + jobStatus);
+
+					WebElement EWSave = isElementPresent("TLQCExitWSave_id");
+					wait.until(ExpectedConditions.visibilityOf(EWSave));
+					act.moveToElement(EWSave).build().perform();
+					act.moveToElement(EWSave).click().perform();
+					logs.info("Clicked on Exit Without Save");
+
+				}
+
+				//
+
 			} else {
 
 				logs.info("Unknown Stage found");

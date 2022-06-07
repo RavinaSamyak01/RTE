@@ -826,7 +826,7 @@ public class ShipmentDetails extends BaseInit {
 
 	public void searchcreatedLOCJob() throws EncryptedDocumentException, InvalidFormatException, IOException {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
-		// JavascriptExecutor js = (JavascriptExecutor) driver;
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Actions act = new Actions(driver);
 		logs.info("=========RTE Search LOC job Test Start============");
 		msg.append("=========RTE Search LOC job Test Start===========" + "\n");
@@ -899,6 +899,58 @@ public class ShipmentDetails extends BaseInit {
 							getScreenshot(driver, "JobEditor_TCACK");
 							String jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
+
+							// --Click on Edit job tab
+							WebElement EditJob = isElementPresent("TLEditJobtab_id");
+							wait.until(ExpectedConditions.elementToBeClickable(EditJob));
+							js.executeScript("arguments[0].click();", EditJob);
+							logs.info("Clicked on Edit Job tab");
+
+							// --Enter caller name
+							WebElement CallerName = isElementPresent("TLEJCallerName_id");
+							wait.until(ExpectedConditions.elementToBeClickable(CallerName));
+							act.moveToElement(CallerName).build().perform();
+							CallerName.sendKeys("Pickup Caller");
+							logs.info("Enter Caller Name");
+
+							// --Enter caller phone
+							WebElement CallerPH = isElementPresent("TLEJCallPhone_id");
+							wait.until(ExpectedConditions.elementToBeClickable(CallerPH));
+							act.moveToElement(CallerPH).build().perform();
+							CallerPH.sendKeys("8527419635");
+							logs.info("Enter Caller Phone");
+
+							// --Enter Del Att name
+							WebElement delAName = isElementPresent("TLEJDelAtt_id");
+							wait.until(ExpectedConditions.elementToBeClickable(delAName));
+							act.moveToElement(delAName).build().perform();
+							delAName.sendKeys("Deliver Caller");
+							logs.info("Enter Caller Name");
+
+							// --Enter Del phone
+							WebElement DelPH = isElementPresent("TLEJDelPhone_id");
+							wait.until(ExpectedConditions.elementToBeClickable(DelPH));
+							act.moveToElement(DelPH).build().perform();
+							DelPH.sendKeys("7418529635");
+							logs.info("Enter Delivery Phone");
+							wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("btnSaveChanges")));
+
+							// --Click on Save changes
+							WebElement SaveChanges = isElementPresent("TLEJSaveChanges_id");
+							wait.until(ExpectedConditions.elementToBeClickable(SaveChanges));
+							act.moveToElement(SaveChanges).build().perform();
+							act.moveToElement(SaveChanges).click().perform();
+							logs.info("Clicked on Save Changes");
+							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+							// --Click on Save&EXit
+							WebElement SaveExit = isElementPresent("TLEJSaveExit_xpath");
+							wait.until(ExpectedConditions.elementToBeClickable(SaveExit));
+							act.moveToElement(SaveExit).build().perform();
+							act.moveToElement(SaveExit).click().perform();
+							logs.info("Clicked on Save&Exit");
+							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
 							break;
 						} else {
 							logs.info("Searched job is not exist");
@@ -930,6 +982,58 @@ public class ShipmentDetails extends BaseInit {
 							getScreenshot(driver, "JobEditor_TCACK");
 							String jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
+
+							// --Click on Edit job tab
+							WebElement EditJob = isElementPresent("TLEditJobtab_id");
+							wait.until(ExpectedConditions.elementToBeClickable(EditJob));
+							js.executeScript("arguments[0].click();", EditJob);
+							logs.info("Clicked on Edit Job tab");
+
+							// --Enter caller name
+							WebElement CallerName = isElementPresent("TLEJCallerName_id");
+							wait.until(ExpectedConditions.elementToBeClickable(CallerName));
+							act.moveToElement(CallerName).build().perform();
+							CallerName.sendKeys("Pickup Caller");
+							logs.info("Enter Caller Name");
+
+							// --Enter caller phone
+							WebElement CallerPH = isElementPresent("TLEJCallPhone_id");
+							wait.until(ExpectedConditions.elementToBeClickable(CallerPH));
+							act.moveToElement(CallerPH).build().perform();
+							CallerPH.sendKeys("8527419635");
+							logs.info("Enter Caller Phone");
+
+							// --Enter Del Att name
+							WebElement delAName = isElementPresent("TLEJDelAtt_id");
+							wait.until(ExpectedConditions.elementToBeClickable(delAName));
+							act.moveToElement(delAName).build().perform();
+							delAName.sendKeys("Deliver Caller");
+							logs.info("Enter Caller Name");
+
+							// --Enter Del phone
+							WebElement DelPH = isElementPresent("TLEJDelPhone_id");
+							wait.until(ExpectedConditions.elementToBeClickable(DelPH));
+							act.moveToElement(DelPH).build().perform();
+							DelPH.sendKeys("7418529635");
+							logs.info("Enter Delivery Phone");
+							wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("btnSaveChanges")));
+
+							// --Click on Save changes
+							WebElement SaveChanges = isElementPresent("TLEJSaveChanges_id");
+							wait.until(ExpectedConditions.elementToBeClickable(SaveChanges));
+							act.moveToElement(SaveChanges).build().perform();
+							act.moveToElement(SaveChanges).click().perform();
+							logs.info("Clicked on Save Changes");
+							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+							// --Click on Save&EXit
+							WebElement SaveExit = isElementPresent("TLEJSaveExit_xpath");
+							wait.until(ExpectedConditions.elementToBeClickable(SaveExit));
+							act.moveToElement(SaveExit).build().perform();
+							act.moveToElement(SaveExit).click().perform();
+							logs.info("Clicked on Save&Exit");
+							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
 							break;
 						} else {
 							logs.info("Searched job is not exist");

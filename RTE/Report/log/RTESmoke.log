@@ -1,34 +1,46 @@
-2022-06-02 17:40:49,537 - RTECrudOperations -INFO - initialization of the properties file is done
-2022-06-02 17:40:49,819 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Using chromedriver 102.0.5005.61 (since Google Chrome 102 is installed in your machine)
-2022-06-02 17:40:49,834 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Exporting webdriver.chrome.driver as C:\Users\rprajapati\.m2\repository\webdriver\chromedriver\win32\102.0.5005.61\chromedriver.exe
-2022-06-02 17:40:57,393 - RTECrudOperations -INFO - Entered UserName
-2022-06-02 17:40:58,516 - RTECrudOperations -INFO - Entered Password
-2022-06-02 17:40:59,715 - RTECrudOperations -INFO - Login done
-2022-06-02 17:41:17,640 - RTECrudOperations -INFO - ======================RTE Crud Operations Test Start==================
-2022-06-02 17:41:17,887 - RTECrudOperations -INFO - Clicked on Operations
-2022-06-02 17:41:18,047 - RTECrudOperations -INFO - Clicked on TaskLog
-2022-06-02 17:41:20,862 - RTECrudOperations -INFO - PickUpID==3431977
-2022-06-02 17:41:20,863 - RTECrudOperations -INFO - Entered PickUpID in basic search
-2022-06-02 17:41:20,974 - RTECrudOperations -INFO - Click on Search button
-2022-06-02 17:41:24,600 - RTECrudOperations -INFO - Data is exist with search parameter
-2022-06-02 17:41:24,834 - RTECrudOperations -INFO - Job status tab is already Opened
-2022-06-02 17:41:24,892 - RTECrudOperations -INFO - Job status is==PU DRV CONF
-2022-06-02 17:41:24,892 - RTECrudOperations -INFO - Unknown Stage found
-2022-06-02 17:41:24,912 - RTECrudOperations -INFO - Job status is==PU DRV CONF
-2022-06-02 17:41:24,921 - RTECrudOperations -INFO - =========RTE Search LOC job Test Start============
-2022-06-02 17:41:25,103 - RTECrudOperations -INFO - Clicked on Operations
-2022-06-02 17:41:25,282 - RTECrudOperations -INFO - Clicked on TaskLog
-2022-06-02 17:41:26,728 - RTECrudOperations -INFO - Entered PickUpID in basic search
-2022-06-02 17:41:26,808 - RTECrudOperations -INFO - Click on Search button
-2022-06-02 17:41:29,703 - RTECrudOperations -INFO - Data is exist with search parameter
-2022-06-02 17:41:29,703 - RTECrudOperations -INFO - LOC job is created with Unmerged shipment
-2022-06-02 17:44:17,200 - RTECrudOperations -INFO - Entered PickupID is==3432499
-2022-06-02 17:44:19,808 - RTECrudOperations -INFO - PickupID is==PickupId_N3432499
-2022-06-02 17:44:24,193 - RTECrudOperations -INFO - Searched job is exist
-2022-06-02 17:44:25,592 - RTECrudOperations -INFO - Clicked on searched Job
-2022-06-02 17:45:16,246 - RTECrudOperations -INFO - Job status is==CSR ACKNOWLEDGE
-2022-06-02 17:45:16,666 - RTECrudOperations -INFO - =========RTE Search LOC job Test End============
-2022-06-02 17:45:20,249 - RTECrudOperations -INFO - ======================RTE Crud Operations Test End==================
-2022-06-02 17:45:30,309 - RTECrudOperations -INFO - Logout Message is displayed==You have successfully logged out!
-2022-06-02 17:45:30,310 - RTECrudOperations -INFO - Logout done
-2022-06-02 17:45:30,701 - RTECrudOperations -INFO - ====Sending Email=====
+2022-06-07 17:53:23,868 - CreateRTEwithLOC -INFO - initialization of the properties file is done
+2022-06-07 17:53:24,162 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Using chromedriver 102.0.5005.61 (since Google Chrome 102 is installed in your machine)
+2022-06-07 17:53:24,175 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Exporting webdriver.chrome.driver as C:\Users\rprajapati\.m2\repository\webdriver\chromedriver\win32\102.0.5005.61\chromedriver.exe
+2022-06-07 17:53:31,827 - CreateRTEwithLOC -INFO - Entered UserName
+2022-06-07 17:53:32,972 - CreateRTEwithLOC -INFO - Entered Password
+2022-06-07 17:53:34,100 - CreateRTEwithLOC -INFO - Login done
+2022-06-07 17:53:52,894 - CreateRTEwithLOC -INFO - ======================Create RTE with LOC Job Test Start==================
+2022-06-07 17:53:53,241 - CreateRTEwithLOC -INFO - Clicked on Operations
+2022-06-07 17:53:53,420 - CreateRTEwithLOC -INFO - Clicked on TaskLog
+2022-06-07 17:53:56,241 - CreateRTEwithLOC -INFO - PickUpID==3439729
+2022-06-07 17:53:56,242 - CreateRTEwithLOC -INFO - Entered PickUpID in basic search
+2022-06-07 17:53:56,348 - CreateRTEwithLOC -INFO - Click on Yellow color Linktext
+2022-06-07 17:53:58,675 - CreateRTEwithLOC -INFO - Data is exist with search parameter
+2022-06-07 17:53:59,104 - CreateRTEwithLOC -INFO - Entered PickupID is==3439729
+2022-06-07 17:53:59,121 - CreateRTEwithLOC -INFO - PickupID is==PickupId_N3439729
+2022-06-07 17:53:59,121 - CreateRTEwithLOC -INFO - Searched job is exist
+2022-06-07 17:53:59,152 - CreateRTEwithLOC -INFO - Selected the Loc job
+2022-06-07 17:53:59,496 - CreateRTEwithLOC -INFO - Clicked on Create RTE job
+2022-06-07 17:54:03,263 - CreateRTEwithLOC -INFO - Entered Route Work Name
+2022-06-07 17:54:03,390 - CreateRTEwithLOC -INFO - Entered Declare Value
+2022-06-07 17:54:03,521 - CreateRTEwithLOC -INFO - Entered Reference 2
+2022-06-07 17:54:03,658 - CreateRTEwithLOC -INFO - Entered Reference 4
+2022-06-07 17:54:03,808 - CreateRTEwithLOC -INFO - Entered RW Manifest
+2022-06-07 17:54:03,855 - CreateRTEwithLOC -INFO - 06/07/2022
+2022-06-07 17:54:03,979 - CreateRTEwithLOC -INFO - Entered Ready Date
+2022-06-07 17:54:04,030 - CreateRTEwithLOC -INFO - 17:54
+2022-06-07 17:54:04,082 - CreateRTEwithLOC -INFO - Entered Ready Time
+2022-06-07 17:54:04,127 - CreateRTEwithLOC -INFO - 06/09/2022
+2022-06-07 17:54:04,243 - CreateRTEwithLOC -INFO - Entered Start Date
+2022-06-07 17:54:04,290 - CreateRTEwithLOC -INFO - 17:54
+2022-06-07 17:54:04,340 - CreateRTEwithLOC -INFO - Entered End Time
+2022-06-07 17:54:04,483 - CreateRTEwithLOC -INFO - Entered Contact Name
+2022-06-07 17:54:04,650 - CreateRTEwithLOC -INFO - Entered Company Name
+2022-06-07 17:54:04,784 - CreateRTEwithLOC -INFO - Entered AddressLine 1
+2022-06-07 17:54:04,943 - CreateRTEwithLOC -INFO - Entered ZipCode
+2022-06-07 17:54:05,719 - CreateRTEwithLOC -INFO - Entered Phone Number
+2022-06-07 17:54:12,253 - CreateRTEwithLOC -INFO - Clicked on Create Route button of RTE form
+2022-06-07 17:54:29,482 - CreateRTEwithLOC -INFO - Message is displayed==Route generated successfully with RouteWorkId RT00002367.
+2022-06-07 17:54:29,750 - CreateRTEwithLOC -INFO - RTE Job is created successfully.
+2022-06-07 17:54:37,400 - CreateRTEwithLOC -INFO - RoutWorkID is==RT00002367.
+2022-06-07 17:54:51,134 - CreateRTEwithLOC -INFO - Stored RoutWorkID in excel
+2022-06-07 17:55:03,325 - CreateRTEwithLOC -INFO - Clicked on Cancel button of RTE form
+2022-06-07 17:55:06,925 - CreateRTEwithLOC -INFO - ======================Create RTE with LOC Job Test End==================
+2022-06-07 17:55:13,058 - CreateRTEwithLOC -INFO - Logout Message is displayed==You have successfully logged out!
+2022-06-07 17:55:13,059 - CreateRTEwithLOC -INFO - Logout done
+2022-06-07 17:55:13,623 - CreateRTEwithLOC -INFO - ====Sending Email=====
