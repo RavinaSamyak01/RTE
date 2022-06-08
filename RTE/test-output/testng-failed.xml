@@ -14,4 +14,17 @@
       </class> <!-- rte_RTEJobCreation.RTECrudOperations -->
     </classes>
   </test> <!-- RTE Crud Operation(failed) -->
+  <test thread-count="5" name="Create and Merge RTE with LOC(failed)">
+    <classes>
+      <class name="rte_RTECrudOperations.CreateMergeRTEwithLOC">
+        <methods>
+          <include name="createMergeRTEWithLOCJob"/>
+          <include name="SendEmail"/>
+          <include name="getResult"/>
+          <include name="testMethodName"/>
+          <include name="beforeMethod"/>
+        </methods>
+      </class> <!-- rte_RTECrudOperations.CreateMergeRTEwithLOC -->
+    </classes>
+  </test> <!-- Create and Merge RTE with LOC(failed) -->
 </suite> <!-- Failed suite [RTE Job Smoke] -->

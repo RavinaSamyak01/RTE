@@ -1,46 +1,431 @@
-2022-06-07 17:53:23,868 - CreateRTEwithLOC -INFO - initialization of the properties file is done
-2022-06-07 17:53:24,162 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Using chromedriver 102.0.5005.61 (since Google Chrome 102 is installed in your machine)
-2022-06-07 17:53:24,175 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Exporting webdriver.chrome.driver as C:\Users\rprajapati\.m2\repository\webdriver\chromedriver\win32\102.0.5005.61\chromedriver.exe
-2022-06-07 17:53:31,827 - CreateRTEwithLOC -INFO - Entered UserName
-2022-06-07 17:53:32,972 - CreateRTEwithLOC -INFO - Entered Password
-2022-06-07 17:53:34,100 - CreateRTEwithLOC -INFO - Login done
-2022-06-07 17:53:52,894 - CreateRTEwithLOC -INFO - ======================Create RTE with LOC Job Test Start==================
-2022-06-07 17:53:53,241 - CreateRTEwithLOC -INFO - Clicked on Operations
-2022-06-07 17:53:53,420 - CreateRTEwithLOC -INFO - Clicked on TaskLog
-2022-06-07 17:53:56,241 - CreateRTEwithLOC -INFO - PickUpID==3439729
-2022-06-07 17:53:56,242 - CreateRTEwithLOC -INFO - Entered PickUpID in basic search
-2022-06-07 17:53:56,348 - CreateRTEwithLOC -INFO - Click on Yellow color Linktext
-2022-06-07 17:53:58,675 - CreateRTEwithLOC -INFO - Data is exist with search parameter
-2022-06-07 17:53:59,104 - CreateRTEwithLOC -INFO - Entered PickupID is==3439729
-2022-06-07 17:53:59,121 - CreateRTEwithLOC -INFO - PickupID is==PickupId_N3439729
-2022-06-07 17:53:59,121 - CreateRTEwithLOC -INFO - Searched job is exist
-2022-06-07 17:53:59,152 - CreateRTEwithLOC -INFO - Selected the Loc job
-2022-06-07 17:53:59,496 - CreateRTEwithLOC -INFO - Clicked on Create RTE job
-2022-06-07 17:54:03,263 - CreateRTEwithLOC -INFO - Entered Route Work Name
-2022-06-07 17:54:03,390 - CreateRTEwithLOC -INFO - Entered Declare Value
-2022-06-07 17:54:03,521 - CreateRTEwithLOC -INFO - Entered Reference 2
-2022-06-07 17:54:03,658 - CreateRTEwithLOC -INFO - Entered Reference 4
-2022-06-07 17:54:03,808 - CreateRTEwithLOC -INFO - Entered RW Manifest
-2022-06-07 17:54:03,855 - CreateRTEwithLOC -INFO - 06/07/2022
-2022-06-07 17:54:03,979 - CreateRTEwithLOC -INFO - Entered Ready Date
-2022-06-07 17:54:04,030 - CreateRTEwithLOC -INFO - 17:54
-2022-06-07 17:54:04,082 - CreateRTEwithLOC -INFO - Entered Ready Time
-2022-06-07 17:54:04,127 - CreateRTEwithLOC -INFO - 06/09/2022
-2022-06-07 17:54:04,243 - CreateRTEwithLOC -INFO - Entered Start Date
-2022-06-07 17:54:04,290 - CreateRTEwithLOC -INFO - 17:54
-2022-06-07 17:54:04,340 - CreateRTEwithLOC -INFO - Entered End Time
-2022-06-07 17:54:04,483 - CreateRTEwithLOC -INFO - Entered Contact Name
-2022-06-07 17:54:04,650 - CreateRTEwithLOC -INFO - Entered Company Name
-2022-06-07 17:54:04,784 - CreateRTEwithLOC -INFO - Entered AddressLine 1
-2022-06-07 17:54:04,943 - CreateRTEwithLOC -INFO - Entered ZipCode
-2022-06-07 17:54:05,719 - CreateRTEwithLOC -INFO - Entered Phone Number
-2022-06-07 17:54:12,253 - CreateRTEwithLOC -INFO - Clicked on Create Route button of RTE form
-2022-06-07 17:54:29,482 - CreateRTEwithLOC -INFO - Message is displayed==Route generated successfully with RouteWorkId RT00002367.
-2022-06-07 17:54:29,750 - CreateRTEwithLOC -INFO - RTE Job is created successfully.
-2022-06-07 17:54:37,400 - CreateRTEwithLOC -INFO - RoutWorkID is==RT00002367.
-2022-06-07 17:54:51,134 - CreateRTEwithLOC -INFO - Stored RoutWorkID in excel
-2022-06-07 17:55:03,325 - CreateRTEwithLOC -INFO - Clicked on Cancel button of RTE form
-2022-06-07 17:55:06,925 - CreateRTEwithLOC -INFO - ======================Create RTE with LOC Job Test End==================
-2022-06-07 17:55:13,058 - CreateRTEwithLOC -INFO - Logout Message is displayed==You have successfully logged out!
-2022-06-07 17:55:13,059 - CreateRTEwithLOC -INFO - Logout done
-2022-06-07 17:55:13,623 - CreateRTEwithLOC -INFO - ====Sending Email=====
+2022-06-08 17:11:22,005 - CreateMergeRTEwithLOC -INFO - initialization of the properties file is done
+2022-06-08 17:11:22,609 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Using chromedriver 102.0.5005.61 (since Google Chrome 102 is installed in your machine)
+2022-06-08 17:11:22,692 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Exporting webdriver.chrome.driver as C:\Users\rprajapati\.m2\repository\webdriver\chromedriver\win32\102.0.5005.61\chromedriver.exe
+2022-06-08 17:11:33,239 - CreateMergeRTEwithLOC -INFO - Entered UserName
+2022-06-08 17:11:34,486 - CreateMergeRTEwithLOC -INFO - Entered Password
+2022-06-08 17:11:35,842 - CreateMergeRTEwithLOC -INFO - Login done
+2022-06-08 17:11:51,232 - CreateMergeRTEwithLOC -INFO - ======================RTE get RWTrackingNo Test start==================
+2022-06-08 17:11:51,514 - CreateMergeRTEwithLOC -INFO - Clicked on Tools
+2022-06-08 17:11:51,818 - CreateMergeRTEwithLOC -INFO - Clicked on RouteList
+2022-06-08 17:11:58,470 - CreateMergeRTEwithLOC -INFO - Total Rows==10
+2022-06-08 17:11:59,078 - CreateMergeRTEwithLOC -INFO - Entered RoutWorkID
+2022-06-08 17:11:59,280 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:12:50,651 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
+2022-06-08 17:12:50,803 - CreateMergeRTEwithLOC -INFO - RWTrackingNo is generated
+2022-06-08 17:12:50,845 - CreateMergeRTEwithLOC -INFO - RWTrackingNo is ==126404063
+2022-06-08 17:12:51,747 - CreateMergeRTEwithLOC -INFO - Inserted RWTrackingNo in Excel
+2022-06-08 17:12:52,465 - CreateMergeRTEwithLOC -INFO - Entered RoutWorkID
+2022-06-08 17:12:52,712 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:13:43,729 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
+2022-06-08 17:13:43,818 - CreateMergeRTEwithLOC -INFO - RWTrackingNo is generated
+2022-06-08 17:13:43,885 - CreateMergeRTEwithLOC -INFO - RWTrackingNo is ==126403653
+2022-06-08 17:13:44,324 - CreateMergeRTEwithLOC -INFO - Inserted RWTrackingNo in Excel
+2022-06-08 17:13:44,609 - CreateMergeRTEwithLOC -INFO - Entered RoutWorkID
+2022-06-08 17:13:44,729 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:14:36,179 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
+2022-06-08 17:14:36,229 - CreateMergeRTEwithLOC -INFO - RWTrackingNo is generated
+2022-06-08 17:14:36,260 - CreateMergeRTEwithLOC -INFO - RWTrackingNo is ==126404085
+2022-06-08 17:14:36,716 - CreateMergeRTEwithLOC -INFO - Inserted RWTrackingNo in Excel
+2022-06-08 17:14:37,029 - CreateMergeRTEwithLOC -INFO - Entered RoutWorkID
+2022-06-08 17:14:37,151 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:15:28,717 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
+2022-06-08 17:15:28,817 - CreateMergeRTEwithLOC -INFO - RWTrackingNo is generated
+2022-06-08 17:15:28,887 - CreateMergeRTEwithLOC -INFO - RWTrackingNo is ==126404100
+2022-06-08 17:15:29,727 - CreateMergeRTEwithLOC -INFO - Inserted RWTrackingNo in Excel
+2022-06-08 17:15:30,139 - CreateMergeRTEwithLOC -INFO - Entered RoutWorkID
+2022-06-08 17:15:30,244 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:16:21,889 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
+2022-06-08 17:16:21,929 - CreateMergeRTEwithLOC -INFO - RWTrackingNo is generated
+2022-06-08 17:16:21,954 - CreateMergeRTEwithLOC -INFO - RWTrackingNo is ==126405059
+2022-06-08 17:16:22,310 - CreateMergeRTEwithLOC -INFO - Inserted RWTrackingNo in Excel
+2022-06-08 17:16:22,643 - CreateMergeRTEwithLOC -INFO - Entered RoutWorkID
+2022-06-08 17:16:22,792 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:17:14,192 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
+2022-06-08 17:17:14,238 - CreateMergeRTEwithLOC -INFO - RWTrackingNo is generated
+2022-06-08 17:17:14,280 - CreateMergeRTEwithLOC -INFO - RWTrackingNo is ==126403594
+2022-06-08 17:17:14,596 - CreateMergeRTEwithLOC -INFO - Inserted RWTrackingNo in Excel
+2022-06-08 17:17:14,812 - CreateMergeRTEwithLOC -INFO - Entered RoutWorkID
+2022-06-08 17:17:14,986 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:17:16,332 - CreateMergeRTEwithLOC -INFO - There is no Data with Search parameter
+2022-06-08 17:17:16,800 - CreateMergeRTEwithLOC -INFO - Entered RoutWorkID
+2022-06-08 17:17:17,006 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:17:17,767 - CreateMergeRTEwithLOC -INFO - There is no Data with Search parameter
+2022-06-08 17:17:18,103 - CreateMergeRTEwithLOC -INFO - Entered RoutWorkID
+2022-06-08 17:17:18,216 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:18:09,197 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
+2022-06-08 17:18:09,265 - CreateMergeRTEwithLOC -INFO - RWTrackingNo is generated
+2022-06-08 17:18:09,311 - CreateMergeRTEwithLOC -INFO - RWTrackingNo is ==126403572
+2022-06-08 17:18:09,658 - CreateMergeRTEwithLOC -INFO - Inserted RWTrackingNo in Excel
+2022-06-08 17:18:09,659 - CreateMergeRTEwithLOC -INFO - ======================RTE get RWTrackingNo Test End==================
+2022-06-08 17:18:09,665 - CreateMergeRTEwithLOC -INFO - ======================RTE Job Search Test start==================
+2022-06-08 17:18:09,977 - CreateMergeRTEwithLOC -INFO - Clicked on Operations
+2022-06-08 17:18:10,235 - CreateMergeRTEwithLOC -INFO - Clicked on TaskLog
+2022-06-08 17:18:13,532 - CreateMergeRTEwithLOC -INFO - Clicked on SearchAllJobs
+2022-06-08 17:18:16,076 - CreateMergeRTEwithLOC -INFO - Total Rows==10
+2022-06-08 17:18:16,220 - CreateMergeRTEwithLOC -INFO - Clicked on Reset button
+2022-06-08 17:18:16,435 - CreateMergeRTEwithLOC -INFO - 06/08/2022
+2022-06-08 17:18:16,578 - CreateMergeRTEwithLOC -INFO - Entered Origin From Date
+2022-06-08 17:18:16,689 - CreateMergeRTEwithLOC -INFO - 06/08/2022
+2022-06-08 17:18:16,889 - CreateMergeRTEwithLOC -INFO - Entered Origin From Date
+2022-06-08 17:18:17,018 - CreateMergeRTEwithLOC -INFO - Route Tracking No==126404063
+2022-06-08 17:18:17,172 - CreateMergeRTEwithLOC -INFO - Entered RouteTrackingID
+2022-06-08 17:18:17,375 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:19:08,174 - CreateMergeRTEwithLOC -INFO - Data is exist with search TrackingNO
+2022-06-08 17:19:08,215 - CreateMergeRTEwithLOC -INFO - Total No of records are==1
+2022-06-08 17:19:08,705 - CreateMergeRTEwithLOC -INFO - JobID is==32436425
+2022-06-08 17:19:08,914 - CreateMergeRTEwithLOC -INFO - JobIDVal In Excel is==32436425
+2022-06-08 17:19:08,914 - CreateMergeRTEwithLOC -INFO - PickUpID is==3441661
+2022-06-08 17:19:09,100 - CreateMergeRTEwithLOC -INFO - PickupIDVal In Excel is==3441661
+2022-06-08 17:19:09,101 - CreateMergeRTEwithLOC -INFO - BOLNo is==126404074
+2022-06-08 17:19:09,281 - CreateMergeRTEwithLOC -INFO - BOLNOVal In Excel is==126404074
+2022-06-08 17:19:09,535 - CreateMergeRTEwithLOC -INFO - Click on Task Manager Tab
+2022-06-08 17:19:10,995 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
+2022-06-08 17:19:11,157 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:19:17,346 - CreateMergeRTEwithLOC -INFO - Data is exist with search PickUpID
+2022-06-08 17:19:17,788 - CreateMergeRTEwithLOC -INFO - Clicked on Exit without Save
+2022-06-08 17:19:19,644 - CreateMergeRTEwithLOC -INFO - Clicked on SearchAllJobs
+2022-06-08 17:19:21,261 - CreateMergeRTEwithLOC -INFO - Clicked on Reset button
+2022-06-08 17:19:21,498 - CreateMergeRTEwithLOC -INFO - 06/08/2022
+2022-06-08 17:19:21,625 - CreateMergeRTEwithLOC -INFO - Entered Origin From Date
+2022-06-08 17:19:21,740 - CreateMergeRTEwithLOC -INFO - 06/08/2022
+2022-06-08 17:19:21,921 - CreateMergeRTEwithLOC -INFO - Entered Origin From Date
+2022-06-08 17:19:22,033 - CreateMergeRTEwithLOC -INFO - Route Tracking No==126403653
+2022-06-08 17:19:22,176 - CreateMergeRTEwithLOC -INFO - Entered RouteTrackingID
+2022-06-08 17:19:22,324 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:20:13,342 - CreateMergeRTEwithLOC -INFO - Data is exist with search TrackingNO
+2022-06-08 17:20:13,388 - CreateMergeRTEwithLOC -INFO - Total No of records are==1
+2022-06-08 17:20:13,932 - CreateMergeRTEwithLOC -INFO - JobID is==32436366
+2022-06-08 17:20:14,093 - CreateMergeRTEwithLOC -INFO - JobIDVal In Excel is==32436425
+2022-06-08 17:20:14,094 - CreateMergeRTEwithLOC -INFO - PickUpID is==3441602
+2022-06-08 17:20:14,281 - CreateMergeRTEwithLOC -INFO - PickupIDVal In Excel is==3441661
+2022-06-08 17:20:14,282 - CreateMergeRTEwithLOC -INFO - BOLNo is==126403664
+2022-06-08 17:20:14,458 - CreateMergeRTEwithLOC -INFO - BOLNOVal In Excel is==126404074
+2022-06-08 17:20:14,713 - CreateMergeRTEwithLOC -INFO - Click on Task Manager Tab
+2022-06-08 17:20:16,255 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
+2022-06-08 17:20:16,492 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:20:21,339 - CreateMergeRTEwithLOC -INFO - Data is exist with search PickUpID
+2022-06-08 17:20:22,027 - CreateMergeRTEwithLOC -INFO - Clicked on Exit without Save
+2022-06-08 17:20:23,653 - CreateMergeRTEwithLOC -INFO - Clicked on SearchAllJobs
+2022-06-08 17:20:25,240 - CreateMergeRTEwithLOC -INFO - Clicked on Reset button
+2022-06-08 17:20:25,510 - CreateMergeRTEwithLOC -INFO - 06/08/2022
+2022-06-08 17:20:25,803 - CreateMergeRTEwithLOC -INFO - Entered Origin From Date
+2022-06-08 17:20:26,016 - CreateMergeRTEwithLOC -INFO - 06/08/2022
+2022-06-08 17:20:26,419 - CreateMergeRTEwithLOC -INFO - Entered Origin From Date
+2022-06-08 17:20:26,627 - CreateMergeRTEwithLOC -INFO - Route Tracking No==126404085
+2022-06-08 17:20:26,895 - CreateMergeRTEwithLOC -INFO - Entered RouteTrackingID
+2022-06-08 17:20:27,161 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:21:18,443 - CreateMergeRTEwithLOC -INFO - Data is exist with search TrackingNO
+2022-06-08 17:21:18,478 - CreateMergeRTEwithLOC -INFO - Total No of records are==1
+2022-06-08 17:21:18,951 - CreateMergeRTEwithLOC -INFO - JobID is==32436426
+2022-06-08 17:21:19,080 - CreateMergeRTEwithLOC -INFO - PickUpID is==3441662
+2022-06-08 17:21:19,254 - CreateMergeRTEwithLOC -INFO - BOLNo is==126404096
+2022-06-08 17:21:19,616 - CreateMergeRTEwithLOC -INFO - Click on Task Manager Tab
+2022-06-08 17:21:21,174 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
+2022-06-08 17:21:21,412 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:21:26,666 - CreateMergeRTEwithLOC -INFO - Data is exist with search PickUpID
+2022-06-08 17:21:27,671 - CreateMergeRTEwithLOC -INFO - Clicked on Exit without Save
+2022-06-08 17:21:29,351 - CreateMergeRTEwithLOC -INFO - Clicked on SearchAllJobs
+2022-06-08 17:21:30,876 - CreateMergeRTEwithLOC -INFO - Clicked on Reset button
+2022-06-08 17:21:31,078 - CreateMergeRTEwithLOC -INFO - 06/08/2022
+2022-06-08 17:21:31,212 - CreateMergeRTEwithLOC -INFO - Entered Origin From Date
+2022-06-08 17:21:31,343 - CreateMergeRTEwithLOC -INFO - 06/08/2022
+2022-06-08 17:21:31,520 - CreateMergeRTEwithLOC -INFO - Entered Origin From Date
+2022-06-08 17:21:31,609 - CreateMergeRTEwithLOC -INFO - Route Tracking No==126404100
+2022-06-08 17:21:31,776 - CreateMergeRTEwithLOC -INFO - Entered RouteTrackingID
+2022-06-08 17:21:31,982 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:22:22,815 - CreateMergeRTEwithLOC -INFO - Data is exist with search TrackingNO
+2022-06-08 17:22:22,861 - CreateMergeRTEwithLOC -INFO - Total No of records are==6
+2022-06-08 17:22:23,316 - CreateMergeRTEwithLOC -INFO - JobID is==32436432
+2022-06-08 17:22:23,432 - CreateMergeRTEwithLOC -INFO - PickUpID is==3441668
+2022-06-08 17:22:23,542 - CreateMergeRTEwithLOC -INFO - BOLNo is==126404166
+2022-06-08 17:22:23,930 - CreateMergeRTEwithLOC -INFO - Click on Task Manager Tab
+2022-06-08 17:22:25,383 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
+2022-06-08 17:22:25,534 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:22:29,891 - CreateMergeRTEwithLOC -INFO - Data is exist with search PickUpID
+2022-06-08 17:22:30,867 - CreateMergeRTEwithLOC -INFO - Clicked on Exit without Save
+2022-06-08 17:22:32,440 - CreateMergeRTEwithLOC -INFO - Clicked on SearchAllJobs
+2022-06-08 17:22:34,766 - CreateMergeRTEwithLOC -INFO - JobID is==32436431
+2022-06-08 17:22:34,872 - CreateMergeRTEwithLOC -INFO - PickUpID is==3441667
+2022-06-08 17:22:35,005 - CreateMergeRTEwithLOC -INFO - BOLNo is==126404155
+2022-06-08 17:22:35,438 - CreateMergeRTEwithLOC -INFO - Click on Task Manager Tab
+2022-06-08 17:22:36,973 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
+2022-06-08 17:22:37,115 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:22:41,236 - CreateMergeRTEwithLOC -INFO - Data is exist with search PickUpID
+2022-06-08 17:22:41,734 - CreateMergeRTEwithLOC -INFO - Clicked on Exit without Save
+2022-06-08 17:22:43,139 - CreateMergeRTEwithLOC -INFO - Clicked on SearchAllJobs
+2022-06-08 17:22:44,891 - CreateMergeRTEwithLOC -INFO - JobID is==32436430
+2022-06-08 17:22:44,980 - CreateMergeRTEwithLOC -INFO - PickUpID is==3441666
+2022-06-08 17:22:45,076 - CreateMergeRTEwithLOC -INFO - BOLNo is==126404144
+2022-06-08 17:22:45,504 - CreateMergeRTEwithLOC -INFO - Click on Task Manager Tab
+2022-06-08 17:22:46,938 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
+2022-06-08 17:22:47,089 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:22:51,312 - CreateMergeRTEwithLOC -INFO - Data is exist with search PickUpID
+2022-06-08 17:22:51,814 - CreateMergeRTEwithLOC -INFO - Clicked on Exit without Save
+2022-06-08 17:22:53,176 - CreateMergeRTEwithLOC -INFO - Clicked on SearchAllJobs
+2022-06-08 17:22:54,892 - CreateMergeRTEwithLOC -INFO - JobID is==32436429
+2022-06-08 17:22:55,003 - CreateMergeRTEwithLOC -INFO - PickUpID is==3441665
+2022-06-08 17:22:55,129 - CreateMergeRTEwithLOC -INFO - BOLNo is==126404133
+2022-06-08 17:22:55,458 - CreateMergeRTEwithLOC -INFO - Click on Task Manager Tab
+2022-06-08 17:22:56,994 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
+2022-06-08 17:22:57,252 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:23:00,929 - CreateMergeRTEwithLOC -INFO - Data is exist with search PickUpID
+2022-06-08 17:23:01,449 - CreateMergeRTEwithLOC -INFO - Clicked on Exit without Save
+2022-06-08 17:23:02,472 - CreateMergeRTEwithLOC -INFO - Clicked on SearchAllJobs
+2022-06-08 17:23:04,321 - CreateMergeRTEwithLOC -INFO - JobID is==32436428
+2022-06-08 17:23:04,424 - CreateMergeRTEwithLOC -INFO - PickUpID is==3441664
+2022-06-08 17:23:04,585 - CreateMergeRTEwithLOC -INFO - BOLNo is==126404122
+2022-06-08 17:23:04,908 - CreateMergeRTEwithLOC -INFO - Click on Task Manager Tab
+2022-06-08 17:23:06,472 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
+2022-06-08 17:23:06,710 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:23:10,928 - CreateMergeRTEwithLOC -INFO - Data is exist with search PickUpID
+2022-06-08 17:23:11,662 - CreateMergeRTEwithLOC -INFO - Clicked on Exit without Save
+2022-06-08 17:23:13,312 - CreateMergeRTEwithLOC -INFO - Clicked on SearchAllJobs
+2022-06-08 17:23:15,196 - CreateMergeRTEwithLOC -INFO - JobID is==32436427
+2022-06-08 17:23:15,303 - CreateMergeRTEwithLOC -INFO - PickUpID is==3441663
+2022-06-08 17:23:15,406 - CreateMergeRTEwithLOC -INFO - BOLNo is==126404111
+2022-06-08 17:23:15,817 - CreateMergeRTEwithLOC -INFO - Click on Task Manager Tab
+2022-06-08 17:23:17,384 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
+2022-06-08 17:23:17,668 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:23:21,786 - CreateMergeRTEwithLOC -INFO - Data is exist with search PickUpID
+2022-06-08 17:23:22,269 - CreateMergeRTEwithLOC -INFO - Clicked on Exit without Save
+2022-06-08 17:23:23,619 - CreateMergeRTEwithLOC -INFO - Clicked on SearchAllJobs
+2022-06-08 17:23:25,163 - CreateMergeRTEwithLOC -INFO - Clicked on Reset button
+2022-06-08 17:23:25,276 - CreateMergeRTEwithLOC -INFO - 06/08/2022
+2022-06-08 17:23:25,413 - CreateMergeRTEwithLOC -INFO - Entered Origin From Date
+2022-06-08 17:23:25,524 - CreateMergeRTEwithLOC -INFO - 06/08/2022
+2022-06-08 17:23:25,694 - CreateMergeRTEwithLOC -INFO - Entered Origin From Date
+2022-06-08 17:23:25,790 - CreateMergeRTEwithLOC -INFO - Route Tracking No==126405059
+2022-06-08 17:23:25,936 - CreateMergeRTEwithLOC -INFO - Entered RouteTrackingID
+2022-06-08 17:23:26,131 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:24:17,279 - CreateMergeRTEwithLOC -INFO - Data is exist with search TrackingNO
+2022-06-08 17:24:17,324 - CreateMergeRTEwithLOC -INFO - Total No of records are==4
+2022-06-08 17:24:17,796 - CreateMergeRTEwithLOC -INFO - JobID is==32436530
+2022-06-08 17:24:17,886 - CreateMergeRTEwithLOC -INFO - PickUpID is==3441766
+2022-06-08 17:24:18,001 - CreateMergeRTEwithLOC -INFO - BOLNo is==126405093
+2022-06-08 17:24:18,392 - CreateMergeRTEwithLOC -INFO - Click on Task Manager Tab
+2022-06-08 17:24:19,913 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
+2022-06-08 17:24:20,180 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:24:24,776 - CreateMergeRTEwithLOC -INFO - Data is exist with search PickUpID
+2022-06-08 17:24:25,261 - CreateMergeRTEwithLOC -INFO - Clicked on Exit without Save
+2022-06-08 17:24:26,985 - CreateMergeRTEwithLOC -INFO - Clicked on SearchAllJobs
+2022-06-08 17:24:28,780 - CreateMergeRTEwithLOC -INFO - JobID is==32436529
+2022-06-08 17:24:28,891 - CreateMergeRTEwithLOC -INFO - PickUpID is==3441765
+2022-06-08 17:24:29,002 - CreateMergeRTEwithLOC -INFO - BOLNo is==126405082
+2022-06-08 17:24:29,340 - CreateMergeRTEwithLOC -INFO - Click on Task Manager Tab
+2022-06-08 17:24:30,833 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
+2022-06-08 17:24:31,013 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:24:35,254 - CreateMergeRTEwithLOC -INFO - Data is exist with search PickUpID
+2022-06-08 17:24:35,716 - CreateMergeRTEwithLOC -INFO - Clicked on Exit without Save
+2022-06-08 17:24:37,257 - CreateMergeRTEwithLOC -INFO - Clicked on SearchAllJobs
+2022-06-08 17:24:38,902 - CreateMergeRTEwithLOC -INFO - JobID is==32436528
+2022-06-08 17:24:39,035 - CreateMergeRTEwithLOC -INFO - PickUpID is==3441764
+2022-06-08 17:24:39,182 - CreateMergeRTEwithLOC -INFO - BOLNo is==126405071
+2022-06-08 17:24:39,566 - CreateMergeRTEwithLOC -INFO - Click on Task Manager Tab
+2022-06-08 17:24:41,116 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
+2022-06-08 17:24:41,360 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:24:45,773 - CreateMergeRTEwithLOC -INFO - Data is exist with search PickUpID
+2022-06-08 17:24:46,204 - CreateMergeRTEwithLOC -INFO - Clicked on Exit without Save
+2022-06-08 17:24:47,763 - CreateMergeRTEwithLOC -INFO - Clicked on SearchAllJobs
+2022-06-08 17:24:49,564 - CreateMergeRTEwithLOC -INFO - JobID is==32436527
+2022-06-08 17:24:49,659 - CreateMergeRTEwithLOC -INFO - PickUpID is==3441763
+2022-06-08 17:24:49,773 - CreateMergeRTEwithLOC -INFO - BOLNo is==126405060
+2022-06-08 17:24:50,201 - CreateMergeRTEwithLOC -INFO - Click on Task Manager Tab
+2022-06-08 17:24:51,771 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
+2022-06-08 17:24:52,017 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:24:56,182 - CreateMergeRTEwithLOC -INFO - Data is exist with search PickUpID
+2022-06-08 17:24:56,941 - CreateMergeRTEwithLOC -INFO - Clicked on Exit without Save
+2022-06-08 17:24:58,599 - CreateMergeRTEwithLOC -INFO - Clicked on SearchAllJobs
+2022-06-08 17:25:00,162 - CreateMergeRTEwithLOC -INFO - Clicked on Reset button
+2022-06-08 17:25:00,342 - CreateMergeRTEwithLOC -INFO - 06/08/2022
+2022-06-08 17:25:00,491 - CreateMergeRTEwithLOC -INFO - Entered Origin From Date
+2022-06-08 17:25:00,605 - CreateMergeRTEwithLOC -INFO - 06/08/2022
+2022-06-08 17:25:00,759 - CreateMergeRTEwithLOC -INFO - Entered Origin From Date
+2022-06-08 17:25:00,858 - CreateMergeRTEwithLOC -INFO - Route Tracking No==126403594
+2022-06-08 17:25:00,992 - CreateMergeRTEwithLOC -INFO - Entered RouteTrackingID
+2022-06-08 17:25:01,194 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:25:52,220 - CreateMergeRTEwithLOC -INFO - Data is exist with search TrackingNO
+2022-06-08 17:25:52,261 - CreateMergeRTEwithLOC -INFO - Total No of records are==3
+2022-06-08 17:25:52,748 - CreateMergeRTEwithLOC -INFO - JobID is==32436361
+2022-06-08 17:25:52,834 - CreateMergeRTEwithLOC -INFO - PickUpID is==3441597
+2022-06-08 17:25:52,948 - CreateMergeRTEwithLOC -INFO - BOLNo is==126403620
+2022-06-08 17:25:53,354 - CreateMergeRTEwithLOC -INFO - Click on Task Manager Tab
+2022-06-08 17:25:54,850 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
+2022-06-08 17:25:55,015 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:25:59,146 - CreateMergeRTEwithLOC -INFO - Data is exist with search PickUpID
+2022-06-08 17:25:59,627 - CreateMergeRTEwithLOC -INFO - Clicked on Exit without Save
+2022-06-08 17:26:01,346 - CreateMergeRTEwithLOC -INFO - Clicked on SearchAllJobs
+2022-06-08 17:26:03,130 - CreateMergeRTEwithLOC -INFO - JobID is==32436360
+2022-06-08 17:26:03,272 - CreateMergeRTEwithLOC -INFO - PickUpID is==3441596
+2022-06-08 17:26:03,389 - CreateMergeRTEwithLOC -INFO - BOLNo is==126403619
+2022-06-08 17:26:03,720 - CreateMergeRTEwithLOC -INFO - Click on Task Manager Tab
+2022-06-08 17:26:05,175 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
+2022-06-08 17:26:05,359 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:26:09,522 - CreateMergeRTEwithLOC -INFO - Data is exist with search PickUpID
+2022-06-08 17:26:10,015 - CreateMergeRTEwithLOC -INFO - Clicked on Exit without Save
+2022-06-08 17:26:11,409 - CreateMergeRTEwithLOC -INFO - Clicked on SearchAllJobs
+2022-06-08 17:26:12,973 - CreateMergeRTEwithLOC -INFO - JobID is==32436359
+2022-06-08 17:26:13,050 - CreateMergeRTEwithLOC -INFO - PickUpID is==3441595
+2022-06-08 17:26:13,180 - CreateMergeRTEwithLOC -INFO - BOLNo is==126403608
+2022-06-08 17:26:13,494 - CreateMergeRTEwithLOC -INFO - Click on Task Manager Tab
+2022-06-08 17:26:14,923 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
+2022-06-08 17:26:15,096 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:26:20,073 - CreateMergeRTEwithLOC -INFO - Data is exist with search PickUpID
+2022-06-08 17:26:20,748 - CreateMergeRTEwithLOC -INFO - Clicked on Exit without Save
+2022-06-08 17:26:21,934 - CreateMergeRTEwithLOC -INFO - Clicked on SearchAllJobs
+2022-06-08 17:26:23,746 - CreateMergeRTEwithLOC -INFO - No need to perform search
+2022-06-08 17:26:23,746 - CreateMergeRTEwithLOC -INFO - No need to perform search
+2022-06-08 17:26:24,058 - CreateMergeRTEwithLOC -INFO - Clicked on Reset button
+2022-06-08 17:26:24,191 - CreateMergeRTEwithLOC -INFO - 06/08/2022
+2022-06-08 17:26:24,337 - CreateMergeRTEwithLOC -INFO - Entered Origin From Date
+2022-06-08 17:26:24,449 - CreateMergeRTEwithLOC -INFO - 06/08/2022
+2022-06-08 17:26:24,642 - CreateMergeRTEwithLOC -INFO - Entered Origin From Date
+2022-06-08 17:26:24,764 - CreateMergeRTEwithLOC -INFO - Route Tracking No==126403572
+2022-06-08 17:26:24,917 - CreateMergeRTEwithLOC -INFO - Entered RouteTrackingID
+2022-06-08 17:26:25,076 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:27:16,081 - CreateMergeRTEwithLOC -INFO - Data is exist with search TrackingNO
+2022-06-08 17:27:16,119 - CreateMergeRTEwithLOC -INFO - Total No of records are==2
+2022-06-08 17:27:16,580 - CreateMergeRTEwithLOC -INFO - JobID is==32436645
+2022-06-08 17:27:16,682 - CreateMergeRTEwithLOC -INFO - PickUpID is==3441881
+2022-06-08 17:27:16,837 - CreateMergeRTEwithLOC -INFO - BOLNo is==126406344
+2022-06-08 17:27:17,254 - CreateMergeRTEwithLOC -INFO - Click on Task Manager Tab
+2022-06-08 17:27:18,776 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
+2022-06-08 17:27:19,007 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:27:24,326 - CreateMergeRTEwithLOC -INFO - Data is exist with search PickUpID
+2022-06-08 17:27:24,798 - CreateMergeRTEwithLOC -INFO - Clicked on Exit without Save
+2022-06-08 17:27:26,480 - CreateMergeRTEwithLOC -INFO - Clicked on SearchAllJobs
+2022-06-08 17:27:28,291 - CreateMergeRTEwithLOC -INFO - JobID is==32436358
+2022-06-08 17:27:28,373 - CreateMergeRTEwithLOC -INFO - PickUpID is==3441594
+2022-06-08 17:27:28,466 - CreateMergeRTEwithLOC -INFO - BOLNo is==126403583
+2022-06-08 17:27:28,790 - CreateMergeRTEwithLOC -INFO - Click on Task Manager Tab
+2022-06-08 17:27:30,333 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
+2022-06-08 17:27:30,573 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:27:35,232 - CreateMergeRTEwithLOC -INFO - Data is exist with search PickUpID
+2022-06-08 17:27:35,923 - CreateMergeRTEwithLOC -INFO - Clicked on Exit without Save
+2022-06-08 17:27:37,477 - CreateMergeRTEwithLOC -INFO - Clicked on SearchAllJobs
+2022-06-08 17:27:38,768 - CreateMergeRTEwithLOC -INFO - ======================RTE Job Search Test End==================
+2022-06-08 17:27:39,075 - CreateMergeRTEwithLOC -INFO - ======================RTE OneToOne Order Processing Test Start==================
+2022-06-08 17:27:39,531 - CreateMergeRTEwithLOC -INFO - Clicked on Operations
+2022-06-08 17:27:40,035 - CreateMergeRTEwithLOC -INFO - Clicked on TaskLog
+2022-06-08 17:27:41,568 - CreateMergeRTEwithLOC -INFO - PickUpID==3441661
+2022-06-08 17:27:41,569 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
+2022-06-08 17:27:41,808 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:27:45,944 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
+2022-06-08 17:27:46,343 - CreateMergeRTEwithLOC -INFO - Job status tab is Disabled
+2022-06-08 17:27:46,644 - CreateMergeRTEwithLOC -INFO - Job status is==VERIFIED
+2022-06-08 17:27:46,644 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
+2022-06-08 17:27:46,901 - CreateMergeRTEwithLOC -INFO - Job status is==VERIFIED
+2022-06-08 17:27:46,902 - CreateMergeRTEwithLOC -INFO - Job is moved to VERIFIED stage
+2022-06-08 17:27:47,128 - CreateMergeRTEwithLOC -INFO - ======================RTE OneToOne Order Processing Test End==================
+2022-06-08 17:27:47,334 - CreateMergeRTEwithLOC -INFO - ======================RTE One To Many Order Processing Test Start==================
+2022-06-08 17:27:47,586 - CreateMergeRTEwithLOC -INFO - Clicked on Operations
+2022-06-08 17:27:48,112 - CreateMergeRTEwithLOC -INFO - Clicked on TaskLog
+2022-06-08 17:27:49,607 - CreateMergeRTEwithLOC -INFO - PickUpID==3441668
+2022-06-08 17:27:49,607 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
+2022-06-08 17:27:49,825 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:27:54,009 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
+2022-06-08 17:27:54,376 - CreateMergeRTEwithLOC -INFO - Job status tab is Disabled
+2022-06-08 17:27:55,023 - CreateMergeRTEwithLOC -INFO - Job status is==VERIFIED
+2022-06-08 17:27:55,023 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
+2022-06-08 17:27:55,332 - CreateMergeRTEwithLOC -INFO - Job status is==VERIFIED
+2022-06-08 17:27:55,332 - CreateMergeRTEwithLOC -INFO - Job is moved to VERIFIED stage
+2022-06-08 17:27:55,574 - CreateMergeRTEwithLOC -INFO - ======================RTE One To Many Order Processing Test End==================
+2022-06-08 17:27:55,783 - CreateMergeRTEwithLOC -INFO - ======================RTE Many To One Order Processing Test Start==================
+2022-06-08 17:27:56,073 - CreateMergeRTEwithLOC -INFO - Clicked on Operations
+2022-06-08 17:27:56,580 - CreateMergeRTEwithLOC -INFO - Clicked on TaskLog
+2022-06-08 17:27:58,066 - CreateMergeRTEwithLOC -INFO - PickUpID==3441766
+2022-06-08 17:27:58,066 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
+2022-06-08 17:27:58,239 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:28:04,282 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
+2022-06-08 17:28:04,580 - CreateMergeRTEwithLOC -INFO - Job status tab is Disabled
+2022-06-08 17:28:04,658 - CreateMergeRTEwithLOC -INFO - Job status is==VERIFIED
+2022-06-08 17:28:04,658 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
+2022-06-08 17:28:04,972 - CreateMergeRTEwithLOC -INFO - Job status is==VERIFIED
+2022-06-08 17:28:04,973 - CreateMergeRTEwithLOC -INFO - Job is moved to VERIFIED stage
+2022-06-08 17:28:05,249 - CreateMergeRTEwithLOC -INFO - ======================RTE Many To One Order Processing Test End==================
+2022-06-08 17:28:05,543 - CreateMergeRTEwithLOC -INFO - ======================RTE Many To Many Order Processing Test Start==================
+2022-06-08 17:28:05,839 - CreateMergeRTEwithLOC -INFO - Clicked on Operations
+2022-06-08 17:28:06,219 - CreateMergeRTEwithLOC -INFO - Clicked on TaskLog
+2022-06-08 17:28:07,719 - CreateMergeRTEwithLOC -INFO - PickUpID==3441597
+2022-06-08 17:28:07,719 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
+2022-06-08 17:28:07,841 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:28:13,498 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
+2022-06-08 17:28:13,793 - CreateMergeRTEwithLOC -INFO - Job status tab is Disabled
+2022-06-08 17:28:13,886 - CreateMergeRTEwithLOC -INFO - Job status is==VERIFIED
+2022-06-08 17:28:13,887 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
+2022-06-08 17:28:14,283 - CreateMergeRTEwithLOC -INFO - Job status is==VERIFIED
+2022-06-08 17:28:14,284 - CreateMergeRTEwithLOC -INFO - Job is moved to VERIFIED stage
+2022-06-08 17:28:14,565 - CreateMergeRTEwithLOC -INFO - ======================RTE Many To Many Order Processing Test End==================
+2022-06-08 17:28:14,811 - CreateMergeRTEwithLOC -INFO - ======================RTE Reject/Resend/CallBack/PendingDelivery Test Start==================
+2022-06-08 17:28:15,014 - CreateMergeRTEwithLOC -INFO - Clicked on Operations
+2022-06-08 17:28:15,520 - CreateMergeRTEwithLOC -INFO - Clicked on TaskLog
+2022-06-08 17:28:17,123 - CreateMergeRTEwithLOC -INFO - PickUpID==3441602
+2022-06-08 17:28:17,124 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
+2022-06-08 17:28:17,368 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:28:21,647 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
+2022-06-08 17:28:22,010 - CreateMergeRTEwithLOC -INFO - Job status tab is Disabled
+2022-06-08 17:28:22,088 - CreateMergeRTEwithLOC -INFO - Job status is==VERIFIED
+2022-06-08 17:28:22,088 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
+2022-06-08 17:28:22,388 - CreateMergeRTEwithLOC -INFO - Job status is==VERIFIED
+2022-06-08 17:28:22,388 - CreateMergeRTEwithLOC -INFO - Job is moved to VERIFIED stage
+2022-06-08 17:28:22,616 - CreateMergeRTEwithLOC -INFO - ======================RTE Reject/Resend/CallBack/PendingDelivery Test End==================
+2022-06-08 17:28:22,820 - CreateMergeRTEwithLOC -INFO - ======================RTE Crud Operations Test Start==================
+2022-06-08 17:28:23,032 - CreateMergeRTEwithLOC -INFO - Clicked on Operations
+2022-06-08 17:28:23,307 - CreateMergeRTEwithLOC -INFO - Clicked on TaskLog
+2022-06-08 17:28:24,775 - CreateMergeRTEwithLOC -INFO - PickUpID==3441662
+2022-06-08 17:28:24,776 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
+2022-06-08 17:28:24,915 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:28:29,014 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
+2022-06-08 17:28:29,366 - CreateMergeRTEwithLOC -INFO - Job status tab is already Opened
+2022-06-08 17:28:29,465 - CreateMergeRTEwithLOC -INFO - Job status is==PU DRV CONF
+2022-06-08 17:28:29,466 - CreateMergeRTEwithLOC -INFO - Unknown Stage found
+2022-06-08 17:28:29,509 - CreateMergeRTEwithLOC -INFO - Job status is==PU DRV CONF
+2022-06-08 17:28:29,550 - CreateMergeRTEwithLOC -INFO - =========RTE Search LOC job Test Start============
+2022-06-08 17:28:29,802 - CreateMergeRTEwithLOC -INFO - Clicked on Operations
+2022-06-08 17:28:30,210 - CreateMergeRTEwithLOC -INFO - Clicked on TaskLog
+2022-06-08 17:28:31,829 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
+2022-06-08 17:28:31,992 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:31:29,036 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
+2022-06-08 17:31:29,036 - CreateMergeRTEwithLOC -INFO - LOC job is created with Unmerged shipment
+2022-06-08 17:31:29,496 - CreateMergeRTEwithLOC -INFO - Job status is==TC ACKNOWLEDGE
+2022-06-08 17:32:20,360 - CreateMergeRTEwithLOC -INFO - Clicked on Operations
+2022-06-08 17:32:20,663 - CreateMergeRTEwithLOC -INFO - Clicked on TaskLog
+2022-06-08 17:32:22,920 - CreateMergeRTEwithLOC -INFO - PickUpID==3442001
+2022-06-08 17:32:22,921 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
+2022-06-08 17:32:23,120 - CreateMergeRTEwithLOC -INFO - Click on Yellow color Linktext
+2022-06-08 17:32:26,152 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
+2022-06-08 17:32:26,554 - CreateMergeRTEwithLOC -INFO - Entered PickupID is==3442001
+2022-06-08 17:32:26,578 - CreateMergeRTEwithLOC -INFO - PickupID is==PickupId_N3442001
+2022-06-08 17:32:26,579 - CreateMergeRTEwithLOC -INFO - Searched job is exist
+2022-06-08 17:32:26,635 - CreateMergeRTEwithLOC -INFO - Selected the Loc job
+2022-06-08 17:32:27,065 - CreateMergeRTEwithLOC -INFO - Clicked on Create RTE job
+2022-06-08 17:32:27,513 - CreateMergeRTEwithLOC -INFO - UnMerge Message==To create RTE job, selected orders should be
+From the same Account #
+Should have SVC of LOC, NBD or DLOC
+Jobs should be in either CSR Acknowledge or TC Acknowledge stage.
+OK
+2022-06-08 17:32:27,620 - CreateMergeRTEwithLOC -INFO - Clicked on OK button
+2022-06-08 17:32:28,622 - CreateMergeRTEwithLOC -INFO - PickUpID==3442001
+2022-06-08 17:32:28,623 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
+2022-06-08 17:35:47,287 - CreateMergeRTEwithLOC -INFO - Click on Search button
+2022-06-08 17:35:50,949 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
+2022-06-08 17:35:51,420 - CreateMergeRTEwithLOC -INFO - Job status is==TC ACKNOWLEDGE
+2022-06-08 17:35:51,420 - CreateMergeRTEwithLOC -INFO - LOC job is converted in RTE successfully.
+2022-06-08 17:35:51,920 - CreateMergeRTEwithLOC -INFO - Clicked on Save&Exit
+2022-06-08 17:35:56,114 - CreateMergeRTEwithLOC -INFO - ======================Create RTE with LOC Job Test End==================
+2022-06-08 17:35:56,577 - CreateMergeRTEwithLOC -INFO - PickUpID==3442009
+2022-06-08 17:35:56,577 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
+2022-06-08 17:35:56,828 - CreateMergeRTEwithLOC -INFO - Click on Yellow color Linktext
+2022-06-08 17:35:59,214 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
+2022-06-08 17:35:59,711 - CreateMergeRTEwithLOC -INFO - Entered PickupID is==3442009
+2022-06-08 17:35:59,726 - CreateMergeRTEwithLOC -INFO - PickupID is==PickupId_N3442009
+2022-06-08 17:35:59,726 - CreateMergeRTEwithLOC -INFO - Searched job is exist
+2022-06-08 17:35:59,759 - CreateMergeRTEwithLOC -INFO - Selected the Loc job
+2022-06-08 17:36:00,174 - CreateMergeRTEwithLOC -INFO - Clicked on Create RTE job
+2022-06-08 17:36:54,665 - CreateMergeRTEwithLOC -INFO - Able to UnMerge
+2022-06-08 17:36:54,666 - CreateMergeRTEwithLOC -INFO - ======================Merge with Exiting RTE Test Start==================
+2022-06-08 17:36:54,797 - CreateMergeRTEwithLOC -INFO - Selected Merge with Exiting RTE radio button
+2022-06-08 17:36:54,906 - CreateMergeRTEwithLOC -INFO - TrackingNo of RTE job is==126403572
+2022-06-08 17:36:55,441 - CreateMergeRTEwithLOC -INFO - Clicked on Merge Route button of RTE form
+2022-06-08 17:37:51,393 - CreateMergeRTEwithLOC -INFO - Logout Message is displayed==You have successfully logged out!
+2022-06-08 17:37:51,393 - CreateMergeRTEwithLOC -INFO - Logout done
+2022-06-08 17:37:52,533 - CreateMergeRTEwithLOC -INFO - ====Sending Email=====

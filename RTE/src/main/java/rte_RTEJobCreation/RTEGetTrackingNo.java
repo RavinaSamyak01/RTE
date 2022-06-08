@@ -99,6 +99,10 @@ public class RTEGetTrackingNo extends BaseInit {
 						setData("RTECreation", row, 2, RWTrackingNo);
 						setData("SearchRTE", 4, 0, RWTrackingNo);
 						logs.info("Inserted RWTrackingNo in Excel");
+					} else if (row == 9 && Scenario.equalsIgnoreCase("One To One")) {
+						setData("RTECreation", row, 2, RWTrackingNo);
+						setData("SearchRTE", 5, 0, RWTrackingNo);
+						logs.info("Inserted RWTrackingNo in Excel");
 					} else if (Scenario.equalsIgnoreCase("One To Many")) {
 						setData("RTECreation", row, 2, RWTrackingNo);
 						setData("OneToMany", 1, 0, RWTrackingNo);

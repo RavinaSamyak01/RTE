@@ -99,6 +99,8 @@ public class ShipmentDetails extends BaseInit {
 				// --Click on UnMerge
 				rteUnMerge();
 
+				// --
+
 			}
 
 		} catch (
@@ -805,7 +807,26 @@ public class ShipmentDetails extends BaseInit {
 					String PickUpID = lineDetails[1].trim();
 					logs.info("PickUpID is==" + PickUpID);
 
-					setData("LocJob", 1, 0, PickUpID);
+					// --Get LOC pickup id from excel
+					String ExLOCPickupID = getData("LocJob", 1, 0);
+					logs.info("LOC PickUpID of 1st row is==" + ExLOCPickupID);
+
+					String ExLOC2PickupID = getData("LocJob", 2, 0);
+					logs.info("LOC PickUpID of 2nd row is==" + ExLOC2PickupID);
+
+					if (ExLOCPickupID.equalsIgnoreCase(PickUpID)) {
+
+					} else {
+						setData("LocJob", 1, 0, PickUpID);
+
+					}
+
+					if (ExLOC2PickupID.equalsIgnoreCase(PickUpID)) {
+
+					} else {
+						setData("LocJob", 2, 0, PickUpID);
+
+					}
 
 					// --CLick on Cancel
 					isElementPresent("TLUnMergeCancel_id").click();
@@ -849,206 +870,221 @@ public class ShipmentDetails extends BaseInit {
 		logs.info("Clicked on TaskLog");
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-		// --Enter pickUpID
-		wait.until(ExpectedConditions.elementToBeClickable(By.id("txtContains")));
-		String PickUpID = getData("LocJob", 1, 0);
-		isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
-		logs.info("Entered PickUpID in basic search");
+		int totalRow = getTotalRow("LocJob");
+		for (int row = 1; row < totalRow; row++) {
+			// --Enter pickUpID
+			wait.until(ExpectedConditions.elementToBeClickable(By.id("txtContains")));
+			String PickUpID = getData("LocJob", row, 0);
+			isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
+			logs.info("Entered PickUpID in basic search");
 
-		// --Click on Search
-		wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-		isElementPresent("TLGlobSearch_id").click();
-		logs.info("Click on Search button");
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+			// --Click on Search
+			wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
+			isElementPresent("TLGlobSearch_id").click();
+			logs.info("Click on Search button");
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-		try {
-
-			logs.info("Data is exist with search parameter");
-			logs.info("LOC job is created with Unmerged shipment");
 			try {
-				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("ActiveShipmentId")));
-				getScreenshot(driver, "JobEditor_TCACK");
 
-				// --Job Status
-				wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
-				String jobStatus = isElementPresent("TLStageLable_id").getText();
-				logs.info("Job status is==" + jobStatus);
-			} catch (Exception Multiple) {
+				logs.info("Data is exist with search parameter");
+				logs.info("LOC job is created with Unmerged shipment");
 				try {
-					wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("idOperationTasklogGrd")));
-					List<WebElement> jobs = driver.findElements(
-							By.xpath("//td[contains(@aria-label,'Column Pickup #')]//label[@id=\"lblDateTime\"]"));
-					int totaljobs = jobs.size();
-					for (int job = 0; job < totaljobs; job++) {
+					wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("ActiveShipmentId")));
+					getScreenshot(driver, "JobEditor_TCACK");
 
-						PickUpID = getData("LocJob", 1, 0);
-						logs.info("Entered PickupID is==" + PickUpID);
+					// --Job Status
+					wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
+					String jobStatus = isElementPresent("TLStageLable_id").getText();
+					logs.info("Job status is==" + jobStatus);
+				} catch (Exception Multiple) {
+					try {
+						wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("idOperationTasklogGrd")));
+						List<WebElement> jobs = driver.findElements(
+								By.xpath("//td[contains(@aria-label,'Column Pickup #')]//label[@id=\"lblDateTime\"]"));
+						int totaljobs = jobs.size();
+						for (int job = 0; job < totaljobs; job++) {
 
-						String PickUPId = jobs.get(job).getText();
-						logs.info("PickupID is==" + PickUPId);
+							PickUpID = getData("LocJob", row, 0);
+							logs.info("Entered PickupID is==" + PickUpID);
 
-						if (PickUPId.contains(PickUpID)) {
-							logs.info("Searched job is exist");
+							String PickUPId = jobs.get(job).getText();
+							logs.info("PickupID is==" + PickUPId);
 
-							// --Click on the job
-							jobs.get(job).click();
-							logs.info("Clicked on searched Job");
+							if (PickUPId.contains(PickUpID)) {
+								logs.info("Searched job is exist");
 
-							// --Job Status
-							wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
-							getScreenshot(driver, "JobEditor_TCACK");
-							String jobStatus = isElementPresent("TLStageLable_id").getText();
-							logs.info("Job status is==" + jobStatus);
+								// --Click on the job
+								jobs.get(job).click();
+								logs.info("Clicked on searched Job");
 
-							// --Click on Edit job tab
-							WebElement EditJob = isElementPresent("TLEditJobtab_id");
-							wait.until(ExpectedConditions.elementToBeClickable(EditJob));
-							js.executeScript("arguments[0].click();", EditJob);
-							logs.info("Clicked on Edit Job tab");
+								// --Job Status
+								wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
+								getScreenshot(driver, "JobEditor_TCACK");
+								String jobStatus = isElementPresent("TLStageLable_id").getText();
+								logs.info("Job status is==" + jobStatus);
 
-							// --Enter caller name
-							WebElement CallerName = isElementPresent("TLEJCallerName_id");
-							wait.until(ExpectedConditions.elementToBeClickable(CallerName));
-							act.moveToElement(CallerName).build().perform();
-							CallerName.sendKeys("Pickup Caller");
-							logs.info("Enter Caller Name");
+								// --Click on Edit job tab
+								WebElement EditJob = isElementPresent("TLEditJobtab_id");
+								wait.until(ExpectedConditions.elementToBeClickable(EditJob));
+								js.executeScript("arguments[0].click();", EditJob);
+								logs.info("Clicked on Edit Job tab");
 
-							// --Enter caller phone
-							WebElement CallerPH = isElementPresent("TLEJCallPhone_id");
-							wait.until(ExpectedConditions.elementToBeClickable(CallerPH));
-							act.moveToElement(CallerPH).build().perform();
-							CallerPH.sendKeys("8527419635");
-							logs.info("Enter Caller Phone");
+								// --Enter caller name
+								WebElement CallerName = isElementPresent("TLEJCallerName_id");
+								wait.until(ExpectedConditions.elementToBeClickable(CallerName));
+								act.moveToElement(CallerName).build().perform();
+								CallerName.sendKeys("Pickup Caller");
+								logs.info("Enter Caller Name");
 
-							// --Enter Del Att name
-							WebElement delAName = isElementPresent("TLEJDelAtt_id");
-							wait.until(ExpectedConditions.elementToBeClickable(delAName));
-							act.moveToElement(delAName).build().perform();
-							delAName.sendKeys("Deliver Caller");
-							logs.info("Enter Caller Name");
+								// --Enter caller phone
+								WebElement CallerPH = isElementPresent("TLEJCallPhone_id");
+								wait.until(ExpectedConditions.elementToBeClickable(CallerPH));
+								act.moveToElement(CallerPH).build().perform();
+								CallerPH.sendKeys("8527419635");
+								logs.info("Enter Caller Phone");
 
-							// --Enter Del phone
-							WebElement DelPH = isElementPresent("TLEJDelPhone_id");
-							wait.until(ExpectedConditions.elementToBeClickable(DelPH));
-							act.moveToElement(DelPH).build().perform();
-							DelPH.sendKeys("7418529635");
-							logs.info("Enter Delivery Phone");
-							wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("btnSaveChanges")));
+								// --Enter Del Att name
+								WebElement delAName = isElementPresent("TLEJDelAtt_id");
+								wait.until(ExpectedConditions.elementToBeClickable(delAName));
+								act.moveToElement(delAName).build().perform();
+								delAName.sendKeys("Deliver Caller");
+								logs.info("Enter Caller Name");
 
-							// --Click on Save changes
-							WebElement SaveChanges = isElementPresent("TLEJSaveChanges_id");
-							wait.until(ExpectedConditions.elementToBeClickable(SaveChanges));
-							act.moveToElement(SaveChanges).build().perform();
-							act.moveToElement(SaveChanges).click().perform();
-							logs.info("Clicked on Save Changes");
-							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+								// --Enter Del phone
+								WebElement DelPH = isElementPresent("TLEJDelPhone_id");
+								wait.until(ExpectedConditions.elementToBeClickable(DelPH));
+								act.moveToElement(DelPH).build().perform();
+								DelPH.sendKeys("7418529635");
+								logs.info("Enter Delivery Phone");
+								wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("btnSaveChanges")));
 
-							// --Click on Save&EXit
-							WebElement SaveExit = isElementPresent("TLEJSaveExit_xpath");
-							wait.until(ExpectedConditions.elementToBeClickable(SaveExit));
-							act.moveToElement(SaveExit).build().perform();
-							act.moveToElement(SaveExit).click().perform();
-							logs.info("Clicked on Save&Exit");
-							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+								// --Click on Save changes
+								WebElement SaveChanges = isElementPresent("TLEJSaveChanges_id");
+								wait.until(ExpectedConditions.elementToBeClickable(SaveChanges));
+								act.moveToElement(SaveChanges).build().perform();
+								act.moveToElement(SaveChanges).click().perform();
+								logs.info("Clicked on Save Changes");
+								wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-							break;
-						} else {
-							logs.info("Searched job is not exist");
+								// --Click on Save&EXit
+								WebElement SaveExit = isElementPresent("TLEJSaveExit_xpath");
+								wait.until(ExpectedConditions.elementToBeClickable(SaveExit));
+								act.moveToElement(SaveExit).build().perform();
+								act.moveToElement(SaveExit).click().perform();
+								logs.info("Clicked on Save&Exit");
+								wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
+								break;
+							} else {
+								logs.info("Searched job is not exist");
+
+							}
 						}
-					}
-				} catch (Exception e) {
-					wait.until(ExpectedConditions
-							.visibilityOfAllElementsLocatedBy(By.xpath("//*[@data-info=\"TaskDetails\"]")));
-					List<WebElement> jobs = driver.findElements(By.xpath("//*[@data-info=\"TaskDetails\"]//tasks"));
-					int totaljobs = jobs.size();
-					for (int job = 0; job < totaljobs; job++) {
+					} catch (Exception e) {
+						wait.until(ExpectedConditions
+								.visibilityOfAllElementsLocatedBy(By.xpath("//*[@data-info=\"TaskDetails\"]")));
+						List<WebElement> jobs = driver.findElements(By.xpath("//*[@data-info=\"TaskDetails\"]//tasks"));
+						int totaljobs = jobs.size();
+						for (int job = 0; job < totaljobs; job++) {
 
-						PickUpID = getData("LocJob", 1, 0);
-						logs.info("Entered PickupID is==" + PickUpID);
+							PickUpID = getData("LocJob", row, 0);
+							logs.info("Entered PickupID is==" + PickUpID);
 
-						String PickUPId = jobs.get(job).getAttribute("id");
-						logs.info("PickupID is==" + PickUPId);
+							String PickUPId = jobs.get(job).getAttribute("id");
+							logs.info("PickupID is==" + PickUPId);
 
-						if (PickUPId.contains(PickUpID)) {
-							logs.info("Searched job is exist");
+							if (PickUPId.contains(PickUpID)) {
+								logs.info("Searched job is exist");
 
-							// --Click on the job
-							jobs.get(job).click();
-							logs.info("Clicked on searched Job");
+								// --Click on the job
+								jobs.get(job).click();
+								logs.info("Clicked on searched Job");
 
-							// --Job Status
-							wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
-							getScreenshot(driver, "JobEditor_TCACK");
-							String jobStatus = isElementPresent("TLStageLable_id").getText();
-							logs.info("Job status is==" + jobStatus);
+								// --Job Status
+								wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
+								getScreenshot(driver, "JobEditor_TCACK");
+								String jobStatus = isElementPresent("TLStageLable_id").getText();
+								logs.info("Job status is==" + jobStatus);
 
-							// --Click on Edit job tab
-							WebElement EditJob = isElementPresent("TLEditJobtab_id");
-							wait.until(ExpectedConditions.elementToBeClickable(EditJob));
-							js.executeScript("arguments[0].click();", EditJob);
-							logs.info("Clicked on Edit Job tab");
+								// --Click on Edit job tab
+								WebElement EditJob = isElementPresent("TLEditJobtab_id");
+								wait.until(ExpectedConditions.elementToBeClickable(EditJob));
+								js.executeScript("arguments[0].click();", EditJob);
+								logs.info("Clicked on Edit Job tab");
 
-							// --Enter caller name
-							WebElement CallerName = isElementPresent("TLEJCallerName_id");
-							wait.until(ExpectedConditions.elementToBeClickable(CallerName));
-							act.moveToElement(CallerName).build().perform();
-							CallerName.sendKeys("Pickup Caller");
-							logs.info("Enter Caller Name");
+								// --Enter caller name
+								WebElement CallerName = isElementPresent("TLEJCallerName_id");
+								act.moveToElement(CallerName).build().perform();
+								wait.until(ExpectedConditions.elementToBeClickable(CallerName));
+								CallerName.clear();
+								CallerName.sendKeys("Pickup Caller");
+								logs.info("Enter Caller Name");
 
-							// --Enter caller phone
-							WebElement CallerPH = isElementPresent("TLEJCallPhone_id");
-							wait.until(ExpectedConditions.elementToBeClickable(CallerPH));
-							act.moveToElement(CallerPH).build().perform();
-							CallerPH.sendKeys("8527419635");
-							logs.info("Enter Caller Phone");
+								// --Enter caller phone
+								WebElement CallerPH = isElementPresent("TLEJCallPhone_id");
+								act.moveToElement(CallerPH).build().perform();
+								wait.until(ExpectedConditions.elementToBeClickable(CallerPH));
+								CallerPH.clear();
+								CallerPH.sendKeys("8527419635");
+								logs.info("Enter Caller Phone");
 
-							// --Enter Del Att name
-							WebElement delAName = isElementPresent("TLEJDelAtt_id");
-							wait.until(ExpectedConditions.elementToBeClickable(delAName));
-							act.moveToElement(delAName).build().perform();
-							delAName.sendKeys("Deliver Caller");
-							logs.info("Enter Caller Name");
+								// --Enter Del Att name
+								WebElement delAName = isElementPresent("TLEJDelAtt_id");
+								wait.until(ExpectedConditions.elementToBeClickable(delAName));
+								act.moveToElement(delAName).build().perform();
+								delAName.sendKeys("Deliver Caller");
+								logs.info("Enter Caller Name");
 
-							// --Enter Del phone
-							WebElement DelPH = isElementPresent("TLEJDelPhone_id");
-							wait.until(ExpectedConditions.elementToBeClickable(DelPH));
-							act.moveToElement(DelPH).build().perform();
-							DelPH.sendKeys("7418529635");
-							logs.info("Enter Delivery Phone");
-							wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("btnSaveChanges")));
+								// --Enter Del phone
+								WebElement DelPH = isElementPresent("TLEJDelPhone_id");
+								act.moveToElement(DelPH).build().perform();
+								wait.until(ExpectedConditions.elementToBeClickable(DelPH));
+								DelPH.clear();
+								DelPH.sendKeys("7418529635");
+								logs.info("Enter Delivery Phone");
 
-							// --Click on Save changes
-							WebElement SaveChanges = isElementPresent("TLEJSaveChanges_id");
-							wait.until(ExpectedConditions.elementToBeClickable(SaveChanges));
-							act.moveToElement(SaveChanges).build().perform();
-							act.moveToElement(SaveChanges).click().perform();
-							logs.info("Clicked on Save Changes");
-							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+								// --Enter Commodity
+								WebElement Commo = isElementPresent("TLEJCommodity_id");
+								act.moveToElement(Commo).build().perform();
+								wait.until(ExpectedConditions.elementToBeClickable(Commo));
+								Commo.clear();
+								Commo.sendKeys("BOX");
+								logs.info("Enter Commodity");
 
-							// --Click on Save&EXit
-							WebElement SaveExit = isElementPresent("TLEJSaveExit_xpath");
-							wait.until(ExpectedConditions.elementToBeClickable(SaveExit));
-							act.moveToElement(SaveExit).build().perform();
-							act.moveToElement(SaveExit).click().perform();
-							logs.info("Clicked on Save&Exit");
-							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+								wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("btnSaveChanges")));
 
-							break;
-						} else {
-							logs.info("Searched job is not exist");
+								// --Click on Save changes
+								WebElement SaveChanges = isElementPresent("TLEJSaveChanges_id");
+								wait.until(ExpectedConditions.elementToBeClickable(SaveChanges));
+								act.moveToElement(SaveChanges).build().perform();
+								act.moveToElement(SaveChanges).click().perform();
+								logs.info("Clicked on Save Changes");
+								wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
+								// --Click on Save&EXit
+								WebElement SaveExit = isElementPresent("TLEJSaveExit_xpath");
+								wait.until(ExpectedConditions.elementToBeClickable(SaveExit));
+								act.moveToElement(SaveExit).build().perform();
+								act.moveToElement(SaveExit).click().perform();
+								logs.info("Clicked on Save&Exit");
+								wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+								break;
+							} else {
+								logs.info("Searched job is not exist");
+
+							}
 						}
 					}
 				}
-			}
 
-		} catch (Exception NoData1) {
-			WebElement NoData = isElementPresent("NoData_className");
-			wait.until(ExpectedConditions.visibilityOf(NoData));
-			if (NoData.isDisplayed()) {
-				logs.info("There is no Data with Search parameter");
+			} catch (Exception NoData1) {
+				WebElement NoData = isElementPresent("NoData_className");
+				wait.until(ExpectedConditions.visibilityOf(NoData));
+				if (NoData.isDisplayed()) {
+					logs.info("There is no Data with Search parameter");
 
+				}
 			}
 		}
 		logs.info("=========RTE Search LOC job Test End============");

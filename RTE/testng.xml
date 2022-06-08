@@ -44,5 +44,11 @@
 		</classes>
 	</test>
 
+	<test thread-count="5" name="Create and Merge RTE with LOC">
+		<classes>
+			<class name="rte_RTECrudOperations.CreateMergeRTEwithLOC"></class>
+		</classes>
+	</test>
+
 
 </suite> 

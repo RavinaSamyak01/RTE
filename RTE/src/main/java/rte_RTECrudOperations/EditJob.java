@@ -66,14 +66,12 @@ public class EditJob extends BaseInit {
 		// --MAP
 		rteMap();
 
-		// --Add/Edit Shipment
-		adEditStopSequence();
-
-		// --Click on UnMerge
-		ShipmentDetails SD = new ShipmentDetails();
-		SD.rteUnMerge();
+		// --AddEdit Shipment and UnMerge
+		AddEditShipmentUnmerge AESUM = new AddEditShipmentUnmerge();
+		AESUM.addeditShipmentUnmerge();
 
 		// --Click on Memo
+		ShipmentDetails SD = new ShipmentDetails();
 		SD.addViewMemo();
 
 		// --Click on Upload
@@ -499,7 +497,7 @@ public class EditJob extends BaseInit {
 			ZOneID = "America/New_York";
 		} else if (ZOneID.equalsIgnoreCase("CDT")) {
 			ZOneID = "CST";
-		}else if (ZOneID.equalsIgnoreCase("PDT")) {
+		} else if (ZOneID.equalsIgnoreCase("PDT")) {
 			ZOneID = "PST";
 		}
 
