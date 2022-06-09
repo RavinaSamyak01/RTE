@@ -1,4 +1,4 @@
-package rte_RTECrudOperations;
+package rte_RTEJobCreation;
 
 import java.io.IOException;
 import java.text.DateFormat;
@@ -124,6 +124,8 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 
 						} catch (Exception UnMerge) {
 							logs.info("Able to UnMerge");
+							getScreenshot(driver, "RTEJobwithLOC");
+
 							if (row == 1) {
 								logs.info("======================Create RTE with LOC Job Test Start==================");
 								msg.append("======================Create RTE with LOC Job Test Start=================="
@@ -237,24 +239,31 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 
 								wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-								wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("success")));
+								try {
+									wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("success")));
 
-								String SUccMsg = isElementPresent("TLRWSucc_id").getText();
-								logs.info("Message is displayed==" + SUccMsg);
-								logs.info("RTE Job is created successfully.");
+									String SUccMsg = isElementPresent("TLRWSucc_id").getText();
+									logs.info("Message is displayed==" + SUccMsg);
+									logs.info("RTE Job is created successfully.");
 
-								// --Get the RouteWorkID
-								String inLine = SUccMsg;
-								String[] lineSplits = inLine.split(" ");
-								for (String Detail : lineSplits) {
-									if (Detail.contains("RT")) {
-										Detail.trim();
-										System.out.println("RoutWorkID is==" + Detail);
-										logs.info("RoutWorkID is==" + Detail);
-										setData("RTECreation", 8, 1, Detail);
-										logs.info("Stored RoutWorkID in excel");
+									// --Get the RouteWorkID
+									String inLine = SUccMsg;
+									String[] lineSplits = inLine.split(" ");
+									for (String Detail : lineSplits) {
+										if (Detail.contains("RT")) {
+											Detail.trim();
+											System.out.println("RoutWorkID is==" + Detail);
+											logs.info("RoutWorkID is==" + Detail);
+											setData("RTECreation", 8, 1, Detail);
+											logs.info("Stored RoutWorkID in excel");
+
+										}
+										logs.info("RTE Job is created successfully,Something went wrong==PASS");
 
 									}
+								} catch (Exception e) {
+									logs.info("RTE Job is not created successfully,Something went wrong==FAIL");
+									getScreenshot(driver, "RTEjobNotCreated");
 								}
 
 								// --clicked on cancel button
@@ -309,36 +318,43 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 								logs.info("Clicked on Merge Route button of RTE form");
 
 								wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-								wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("success")));
+								try {
+									wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("success")));
 
-								String SUccMsg = isElementPresent("TLRWSucc_id").getText();
-								logs.info("Message is displayed==" + SUccMsg);
-								logs.info("RTE Job is created successfully.");
+									String SUccMsg = isElementPresent("TLRWSucc_id").getText();
+									logs.info("Message is displayed==" + SUccMsg);
+									logs.info("RTE Job is created successfully.");
 
-								// --Get the RouteWorkID
-								String inLine = SUccMsg;
-								String[] lineSplits = inLine.split(" ");
+									// --Get the RouteWorkID
+									String inLine = SUccMsg;
+									String[] lineSplits = inLine.split(" ");
 
-								for (String Detail : lineSplits) {
-									if (Detail.contains("RT")) {
-										Detail.trim();
-										System.out.println("RoutWorkID is==" + Detail);
-										logs.info("RoutWorkID is==" + Detail);
-										if (Detail.equalsIgnoreCase(RWTrackNo)) {
-											logs.info("LOC job is merged with correct RTE");
+									for (String Detail : lineSplits) {
+										if (Detail.contains("RT")) {
+											Detail.trim();
+											System.out.println("RoutWorkID is==" + Detail);
+											logs.info("RoutWorkID is==" + Detail);
+											if (Detail.equalsIgnoreCase(RWTrackNo)) {
+												logs.info("LOC job is merged with correct RTE");
 
-										} else {
-											logs.info("LOC job is not merged with correct RTE");
+											} else {
+												logs.info("LOC job is not merged with correct RTE");
+
+											}
+
+										} else if (Detail.contains(".")) {
+											final String PUID = Detail.split("\\.")[0];
+
+											System.out.println("Pickup ID is==" + PUID);
+											logs.info("Pickup ID is==" + PUID);
 
 										}
-
-									} else if (Detail.contains(".")) {
-										final String PUID = Detail.split("\\.")[0];
-
-										System.out.println("Pickup ID is==" + PUID);
-										logs.info("Pickup ID is==" + PUID);
+										logs.info("LOC Job is merged successfully,Something went wrong==PASS");
 
 									}
+								} catch (Exception e) {
+									logs.info("LOC Job is not merged successfully,Something went wrong==FAIL");
+									getScreenshot(driver, "RTEjobNotCreated");
 								}
 
 								// --clicked on cancel button

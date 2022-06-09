@@ -21,11 +21,12 @@ import rte_BasePackage.BaseInit;
 
 public class AddEditShipmentUnmerge extends BaseInit {
 
-	public void addeditShipmentUnmerge() throws EncryptedDocumentException, InvalidFormatException, IOException {
+	public String addeditShipmentUnmerge() throws EncryptedDocumentException, InvalidFormatException, IOException {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		// Actions act = new Actions(driver);
-	
+		String Result = null;
+
 		int totalRow = getTotalRow("LocJob");
 		for (int row = 1; row < totalRow; row++) {
 
@@ -61,6 +62,7 @@ public class AddEditShipmentUnmerge extends BaseInit {
 			// --Delivery Stop
 			isElementPresent("ASDelStop_name").clear();
 			isElementPresent("ASDelStop_name").sendKeys("3");
+			isElementPresent("ASDelStop_name").sendKeys(Keys.TAB);
 			isElementPresent("ASDelStop_name").sendKeys(Keys.TAB);
 			logs.info("Enter Delivery Stop");
 
@@ -357,10 +359,13 @@ public class AddEditShipmentUnmerge extends BaseInit {
 						logs.info("Clicked on Cancel button");
 						wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
+						Result = "PASS";
+
 					}
 
 				} catch (Exception e) {
 					logs.info("LOC service is not created and shipment is not unmerged");
+					Result = "FAIL";
 
 				}
 
@@ -369,6 +374,10 @@ public class AddEditShipmentUnmerge extends BaseInit {
 			}
 
 		}
+
+		// --start search loc job and update
+
+		return Result;
 
 	}
 

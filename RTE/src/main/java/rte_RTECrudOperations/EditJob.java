@@ -25,16 +25,18 @@ import rte_BasePackage.BaseInit;
 public class EditJob extends BaseInit {
 
 	@Test
-	public void editJob() throws IOException, InterruptedException, EncryptedDocumentException, InvalidFormatException {
+	public String editJob()
+			throws IOException, InterruptedException, EncryptedDocumentException, InvalidFormatException {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
-		// Actions act = new Actions(driver);
+		Actions act = new Actions(driver);
 
 		logs.info("======================RTE Edit Job Test Start==================");
 		msg.append("======================RTE Edit Job Test Start==================" + "\n");
 
 		// --Go to Edit Job
 		wait.until(ExpectedConditions.elementToBeClickable(By.id("idEditOrder")));
-		isElementPresent("TLEditJob_id").click();
+		WebElement EditJob = isElementPresent("TLEditJob_id");
+		act.moveToElement(EditJob).click().perform();
 		logs.info("Clicked on Edit Job tab");
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
@@ -68,7 +70,8 @@ public class EditJob extends BaseInit {
 
 		// --AddEdit Shipment and UnMerge
 		AddEditShipmentUnmerge AESUM = new AddEditShipmentUnmerge();
-		AESUM.addeditShipmentUnmerge();
+		String Result = AESUM.addeditShipmentUnmerge();
+		logs.info("Result of UnMerge method is==" + Result);
 
 		// --Click on Memo
 		ShipmentDetails SD = new ShipmentDetails();
@@ -91,6 +94,9 @@ public class EditJob extends BaseInit {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
+
+		return Result;
+
 	}
 
 	public void viewMemo() throws InterruptedException, IOException {

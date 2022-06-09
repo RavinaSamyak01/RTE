@@ -881,7 +881,13 @@ public class RTEFlowWithRejectResend extends BaseInit {
 																		if (jobStatus.contains("VERIFIED")) {
 																			logs.info("Job is moved to VERIFIED stage");
 																			getScreenshot(driver, "JobEditor_Verified");
-
+																			WebElement EWSave = isElementPresent(
+																					"TLQCExitWSave_id");
+																			wait.until(ExpectedConditions
+																					.visibilityOf(EWSave));
+																			act.moveToElement(EWSave).build().perform();
+																			act.moveToElement(EWSave).click().perform();
+																			logs.info("Clicked on Exit Without Save");
 																		} else {
 																			logs.info(
 																					"Job is not moved to VERIFIED stage");
@@ -1760,7 +1766,13 @@ public class RTEFlowWithRejectResend extends BaseInit {
 																		if (jobStatus.contains("VERIFIED")) {
 																			logs.info("Job is moved to VERIFIED stage");
 																			getScreenshot(driver, "JobEditor_Verified");
-
+																			WebElement EWSave = isElementPresent(
+																					"TLQCExitWSave_id");
+																			wait.until(ExpectedConditions
+																					.visibilityOf(EWSave));
+																			act.moveToElement(EWSave).build().perform();
+																			act.moveToElement(EWSave).click().perform();
+																			logs.info("Clicked on Exit Without Save");
 																		} else {
 																			logs.info(
 																					"Job is not moved to VERIFIED stage");
@@ -2557,7 +2569,12 @@ public class RTEFlowWithRejectResend extends BaseInit {
 																if (jobStatus.contains("VERIFIED")) {
 																	logs.info("Job is moved to VERIFIED stage");
 																	getScreenshot(driver, "JobEditor_Verified");
-
+																	WebElement EWSave = isElementPresent(
+																			"TLQCExitWSave_id");
+																	wait.until(ExpectedConditions.visibilityOf(EWSave));
+																	act.moveToElement(EWSave).build().perform();
+																	act.moveToElement(EWSave).click().perform();
+																	logs.info("Clicked on Exit Without Save");
 																} else {
 																	logs.info("Job is not moved to VERIFIED stage");
 																	jobStatus = isElementPresent("TLStageLable_id")
@@ -3160,7 +3177,12 @@ public class RTEFlowWithRejectResend extends BaseInit {
 															if (jobStatus.contains("VERIFIED")) {
 																logs.info("Job is moved to VERIFIED stage");
 																getScreenshot(driver, "JobEditor_Verified");
-
+																WebElement EWSave = isElementPresent(
+																		"TLQCExitWSave_id");
+																wait.until(ExpectedConditions.visibilityOf(EWSave));
+																act.moveToElement(EWSave).build().perform();
+																act.moveToElement(EWSave).click().perform();
+																logs.info("Clicked on Exit Without Save");
 															} else {
 																logs.info("Job is not moved to VERIFIED stage");
 																jobStatus = isElementPresent("TLStageLable_id")
@@ -3692,7 +3714,11 @@ public class RTEFlowWithRejectResend extends BaseInit {
 														if (jobStatus.contains("VERIFIED")) {
 															logs.info("Job is moved to VERIFIED stage");
 															getScreenshot(driver, "JobEditor_Verified");
-
+															WebElement EWSave = isElementPresent("TLQCExitWSave_id");
+															wait.until(ExpectedConditions.visibilityOf(EWSave));
+															act.moveToElement(EWSave).build().perform();
+															act.moveToElement(EWSave).click().perform();
+															logs.info("Clicked on Exit Without Save");
 														} else {
 															logs.info("Job is not moved to VERIFIED stage");
 															jobStatus = isElementPresent("TLStageLable_id").getText();
@@ -4087,7 +4113,11 @@ public class RTEFlowWithRejectResend extends BaseInit {
 													if (jobStatus.contains("VERIFIED")) {
 														logs.info("Job is moved to VERIFIED stage");
 														getScreenshot(driver, "JobEditor_Verified");
-
+														WebElement EWSave = isElementPresent("TLQCExitWSave_id");
+														wait.until(ExpectedConditions.visibilityOf(EWSave));
+														act.moveToElement(EWSave).build().perform();
+														act.moveToElement(EWSave).click().perform();
+														logs.info("Clicked on Exit Without Save");
 													} else {
 														logs.info("Job is not moved to VERIFIED stage");
 														jobStatus = isElementPresent("TLStageLable_id").getText();
@@ -4327,7 +4357,11 @@ public class RTEFlowWithRejectResend extends BaseInit {
 										if (jobStatus.contains("VERIFIED")) {
 											logs.info("Job is moved to VERIFIED stage");
 											getScreenshot(driver, "JobEditor_Verified");
-
+											WebElement EWSave = isElementPresent("TLQCExitWSave_id");
+											wait.until(ExpectedConditions.visibilityOf(EWSave));
+											act.moveToElement(EWSave).build().perform();
+											act.moveToElement(EWSave).click().perform();
+											logs.info("Clicked on Exit Without Save");
 										} else {
 											logs.info("Job is not moved to VERIFIED stage");
 											jobStatus = isElementPresent("TLStageLable_id").getText();
@@ -4442,6 +4476,12 @@ public class RTEFlowWithRejectResend extends BaseInit {
 								logs.info("Job is moved to VERIFIED stage");
 								getScreenshot(driver, "JobEditor_Verified");
 
+								WebElement EWSave = isElementPresent("TLQCExitWSave_id");
+								wait.until(ExpectedConditions.visibilityOf(EWSave));
+								act.moveToElement(EWSave).build().perform();
+								act.moveToElement(EWSave).click().perform();
+								logs.info("Clicked on Exit Without Save");
+
 							} else {
 								logs.info("Job is not moved to VERIFIED stage");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
@@ -4497,7 +4537,11 @@ public class RTEFlowWithRejectResend extends BaseInit {
 				if (jobStatus.contains("VERIFIED")) {
 					logs.info("Job is moved to VERIFIED stage");
 					getScreenshot(driver, "JobEditor_Verified");
-
+					WebElement EWSave = isElementPresent("TLQCExitWSave_id");
+					wait.until(ExpectedConditions.visibilityOf(EWSave));
+					act.moveToElement(EWSave).build().perform();
+					act.moveToElement(EWSave).click().perform();
+					logs.info("Clicked on Exit Without Save");
 				} else {
 					logs.info("Job is not moved to VERIFIED stage");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
