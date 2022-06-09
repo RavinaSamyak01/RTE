@@ -358,13 +358,19 @@ public class SearchLOCJob extends BaseInit {
 				}
 
 			} catch (Exception NoData1) {
-				WebElement NoData = isElementPresent("NoData_className");
-				wait.until(ExpectedConditions.visibilityOf(NoData));
-				if (NoData.isDisplayed()) {
-					logs.info("There is no Data with Search parameter");
+
+				try {
+					WebElement NoData = isElementPresent("NoData_className");
+					wait.until(ExpectedConditions.visibilityOf(NoData));
+					if (NoData.isDisplayed()) {
+						logs.info("There is no Data with Search parameter");
+
+					}
+					Result = "FAIL";
+				} catch (Exception e) {
+					Result = "FAIL";
 
 				}
-				Result = "FAIL";
 
 			}
 		}

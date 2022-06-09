@@ -1,431 +1,414 @@
-2022-06-08 17:11:22,005 - CreateMergeRTEwithLOC -INFO - initialization of the properties file is done
-2022-06-08 17:11:22,609 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Using chromedriver 102.0.5005.61 (since Google Chrome 102 is installed in your machine)
-2022-06-08 17:11:22,692 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Exporting webdriver.chrome.driver as C:\Users\rprajapati\.m2\repository\webdriver\chromedriver\win32\102.0.5005.61\chromedriver.exe
-2022-06-08 17:11:33,239 - CreateMergeRTEwithLOC -INFO - Entered UserName
-2022-06-08 17:11:34,486 - CreateMergeRTEwithLOC -INFO - Entered Password
-2022-06-08 17:11:35,842 - CreateMergeRTEwithLOC -INFO - Login done
-2022-06-08 17:11:51,232 - CreateMergeRTEwithLOC -INFO - ======================RTE get RWTrackingNo Test start==================
-2022-06-08 17:11:51,514 - CreateMergeRTEwithLOC -INFO - Clicked on Tools
-2022-06-08 17:11:51,818 - CreateMergeRTEwithLOC -INFO - Clicked on RouteList
-2022-06-08 17:11:58,470 - CreateMergeRTEwithLOC -INFO - Total Rows==10
-2022-06-08 17:11:59,078 - CreateMergeRTEwithLOC -INFO - Entered RoutWorkID
-2022-06-08 17:11:59,280 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:12:50,651 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
-2022-06-08 17:12:50,803 - CreateMergeRTEwithLOC -INFO - RWTrackingNo is generated
-2022-06-08 17:12:50,845 - CreateMergeRTEwithLOC -INFO - RWTrackingNo is ==126404063
-2022-06-08 17:12:51,747 - CreateMergeRTEwithLOC -INFO - Inserted RWTrackingNo in Excel
-2022-06-08 17:12:52,465 - CreateMergeRTEwithLOC -INFO - Entered RoutWorkID
-2022-06-08 17:12:52,712 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:13:43,729 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
-2022-06-08 17:13:43,818 - CreateMergeRTEwithLOC -INFO - RWTrackingNo is generated
-2022-06-08 17:13:43,885 - CreateMergeRTEwithLOC -INFO - RWTrackingNo is ==126403653
-2022-06-08 17:13:44,324 - CreateMergeRTEwithLOC -INFO - Inserted RWTrackingNo in Excel
-2022-06-08 17:13:44,609 - CreateMergeRTEwithLOC -INFO - Entered RoutWorkID
-2022-06-08 17:13:44,729 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:14:36,179 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
-2022-06-08 17:14:36,229 - CreateMergeRTEwithLOC -INFO - RWTrackingNo is generated
-2022-06-08 17:14:36,260 - CreateMergeRTEwithLOC -INFO - RWTrackingNo is ==126404085
-2022-06-08 17:14:36,716 - CreateMergeRTEwithLOC -INFO - Inserted RWTrackingNo in Excel
-2022-06-08 17:14:37,029 - CreateMergeRTEwithLOC -INFO - Entered RoutWorkID
-2022-06-08 17:14:37,151 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:15:28,717 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
-2022-06-08 17:15:28,817 - CreateMergeRTEwithLOC -INFO - RWTrackingNo is generated
-2022-06-08 17:15:28,887 - CreateMergeRTEwithLOC -INFO - RWTrackingNo is ==126404100
-2022-06-08 17:15:29,727 - CreateMergeRTEwithLOC -INFO - Inserted RWTrackingNo in Excel
-2022-06-08 17:15:30,139 - CreateMergeRTEwithLOC -INFO - Entered RoutWorkID
-2022-06-08 17:15:30,244 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:16:21,889 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
-2022-06-08 17:16:21,929 - CreateMergeRTEwithLOC -INFO - RWTrackingNo is generated
-2022-06-08 17:16:21,954 - CreateMergeRTEwithLOC -INFO - RWTrackingNo is ==126405059
-2022-06-08 17:16:22,310 - CreateMergeRTEwithLOC -INFO - Inserted RWTrackingNo in Excel
-2022-06-08 17:16:22,643 - CreateMergeRTEwithLOC -INFO - Entered RoutWorkID
-2022-06-08 17:16:22,792 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:17:14,192 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
-2022-06-08 17:17:14,238 - CreateMergeRTEwithLOC -INFO - RWTrackingNo is generated
-2022-06-08 17:17:14,280 - CreateMergeRTEwithLOC -INFO - RWTrackingNo is ==126403594
-2022-06-08 17:17:14,596 - CreateMergeRTEwithLOC -INFO - Inserted RWTrackingNo in Excel
-2022-06-08 17:17:14,812 - CreateMergeRTEwithLOC -INFO - Entered RoutWorkID
-2022-06-08 17:17:14,986 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:17:16,332 - CreateMergeRTEwithLOC -INFO - There is no Data with Search parameter
-2022-06-08 17:17:16,800 - CreateMergeRTEwithLOC -INFO - Entered RoutWorkID
-2022-06-08 17:17:17,006 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:17:17,767 - CreateMergeRTEwithLOC -INFO - There is no Data with Search parameter
-2022-06-08 17:17:18,103 - CreateMergeRTEwithLOC -INFO - Entered RoutWorkID
-2022-06-08 17:17:18,216 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:18:09,197 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
-2022-06-08 17:18:09,265 - CreateMergeRTEwithLOC -INFO - RWTrackingNo is generated
-2022-06-08 17:18:09,311 - CreateMergeRTEwithLOC -INFO - RWTrackingNo is ==126403572
-2022-06-08 17:18:09,658 - CreateMergeRTEwithLOC -INFO - Inserted RWTrackingNo in Excel
-2022-06-08 17:18:09,659 - CreateMergeRTEwithLOC -INFO - ======================RTE get RWTrackingNo Test End==================
-2022-06-08 17:18:09,665 - CreateMergeRTEwithLOC -INFO - ======================RTE Job Search Test start==================
-2022-06-08 17:18:09,977 - CreateMergeRTEwithLOC -INFO - Clicked on Operations
-2022-06-08 17:18:10,235 - CreateMergeRTEwithLOC -INFO - Clicked on TaskLog
-2022-06-08 17:18:13,532 - CreateMergeRTEwithLOC -INFO - Clicked on SearchAllJobs
-2022-06-08 17:18:16,076 - CreateMergeRTEwithLOC -INFO - Total Rows==10
-2022-06-08 17:18:16,220 - CreateMergeRTEwithLOC -INFO - Clicked on Reset button
-2022-06-08 17:18:16,435 - CreateMergeRTEwithLOC -INFO - 06/08/2022
-2022-06-08 17:18:16,578 - CreateMergeRTEwithLOC -INFO - Entered Origin From Date
-2022-06-08 17:18:16,689 - CreateMergeRTEwithLOC -INFO - 06/08/2022
-2022-06-08 17:18:16,889 - CreateMergeRTEwithLOC -INFO - Entered Origin From Date
-2022-06-08 17:18:17,018 - CreateMergeRTEwithLOC -INFO - Route Tracking No==126404063
-2022-06-08 17:18:17,172 - CreateMergeRTEwithLOC -INFO - Entered RouteTrackingID
-2022-06-08 17:18:17,375 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:19:08,174 - CreateMergeRTEwithLOC -INFO - Data is exist with search TrackingNO
-2022-06-08 17:19:08,215 - CreateMergeRTEwithLOC -INFO - Total No of records are==1
-2022-06-08 17:19:08,705 - CreateMergeRTEwithLOC -INFO - JobID is==32436425
-2022-06-08 17:19:08,914 - CreateMergeRTEwithLOC -INFO - JobIDVal In Excel is==32436425
-2022-06-08 17:19:08,914 - CreateMergeRTEwithLOC -INFO - PickUpID is==3441661
-2022-06-08 17:19:09,100 - CreateMergeRTEwithLOC -INFO - PickupIDVal In Excel is==3441661
-2022-06-08 17:19:09,101 - CreateMergeRTEwithLOC -INFO - BOLNo is==126404074
-2022-06-08 17:19:09,281 - CreateMergeRTEwithLOC -INFO - BOLNOVal In Excel is==126404074
-2022-06-08 17:19:09,535 - CreateMergeRTEwithLOC -INFO - Click on Task Manager Tab
-2022-06-08 17:19:10,995 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
-2022-06-08 17:19:11,157 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:19:17,346 - CreateMergeRTEwithLOC -INFO - Data is exist with search PickUpID
-2022-06-08 17:19:17,788 - CreateMergeRTEwithLOC -INFO - Clicked on Exit without Save
-2022-06-08 17:19:19,644 - CreateMergeRTEwithLOC -INFO - Clicked on SearchAllJobs
-2022-06-08 17:19:21,261 - CreateMergeRTEwithLOC -INFO - Clicked on Reset button
-2022-06-08 17:19:21,498 - CreateMergeRTEwithLOC -INFO - 06/08/2022
-2022-06-08 17:19:21,625 - CreateMergeRTEwithLOC -INFO - Entered Origin From Date
-2022-06-08 17:19:21,740 - CreateMergeRTEwithLOC -INFO - 06/08/2022
-2022-06-08 17:19:21,921 - CreateMergeRTEwithLOC -INFO - Entered Origin From Date
-2022-06-08 17:19:22,033 - CreateMergeRTEwithLOC -INFO - Route Tracking No==126403653
-2022-06-08 17:19:22,176 - CreateMergeRTEwithLOC -INFO - Entered RouteTrackingID
-2022-06-08 17:19:22,324 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:20:13,342 - CreateMergeRTEwithLOC -INFO - Data is exist with search TrackingNO
-2022-06-08 17:20:13,388 - CreateMergeRTEwithLOC -INFO - Total No of records are==1
-2022-06-08 17:20:13,932 - CreateMergeRTEwithLOC -INFO - JobID is==32436366
-2022-06-08 17:20:14,093 - CreateMergeRTEwithLOC -INFO - JobIDVal In Excel is==32436425
-2022-06-08 17:20:14,094 - CreateMergeRTEwithLOC -INFO - PickUpID is==3441602
-2022-06-08 17:20:14,281 - CreateMergeRTEwithLOC -INFO - PickupIDVal In Excel is==3441661
-2022-06-08 17:20:14,282 - CreateMergeRTEwithLOC -INFO - BOLNo is==126403664
-2022-06-08 17:20:14,458 - CreateMergeRTEwithLOC -INFO - BOLNOVal In Excel is==126404074
-2022-06-08 17:20:14,713 - CreateMergeRTEwithLOC -INFO - Click on Task Manager Tab
-2022-06-08 17:20:16,255 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
-2022-06-08 17:20:16,492 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:20:21,339 - CreateMergeRTEwithLOC -INFO - Data is exist with search PickUpID
-2022-06-08 17:20:22,027 - CreateMergeRTEwithLOC -INFO - Clicked on Exit without Save
-2022-06-08 17:20:23,653 - CreateMergeRTEwithLOC -INFO - Clicked on SearchAllJobs
-2022-06-08 17:20:25,240 - CreateMergeRTEwithLOC -INFO - Clicked on Reset button
-2022-06-08 17:20:25,510 - CreateMergeRTEwithLOC -INFO - 06/08/2022
-2022-06-08 17:20:25,803 - CreateMergeRTEwithLOC -INFO - Entered Origin From Date
-2022-06-08 17:20:26,016 - CreateMergeRTEwithLOC -INFO - 06/08/2022
-2022-06-08 17:20:26,419 - CreateMergeRTEwithLOC -INFO - Entered Origin From Date
-2022-06-08 17:20:26,627 - CreateMergeRTEwithLOC -INFO - Route Tracking No==126404085
-2022-06-08 17:20:26,895 - CreateMergeRTEwithLOC -INFO - Entered RouteTrackingID
-2022-06-08 17:20:27,161 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:21:18,443 - CreateMergeRTEwithLOC -INFO - Data is exist with search TrackingNO
-2022-06-08 17:21:18,478 - CreateMergeRTEwithLOC -INFO - Total No of records are==1
-2022-06-08 17:21:18,951 - CreateMergeRTEwithLOC -INFO - JobID is==32436426
-2022-06-08 17:21:19,080 - CreateMergeRTEwithLOC -INFO - PickUpID is==3441662
-2022-06-08 17:21:19,254 - CreateMergeRTEwithLOC -INFO - BOLNo is==126404096
-2022-06-08 17:21:19,616 - CreateMergeRTEwithLOC -INFO - Click on Task Manager Tab
-2022-06-08 17:21:21,174 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
-2022-06-08 17:21:21,412 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:21:26,666 - CreateMergeRTEwithLOC -INFO - Data is exist with search PickUpID
-2022-06-08 17:21:27,671 - CreateMergeRTEwithLOC -INFO - Clicked on Exit without Save
-2022-06-08 17:21:29,351 - CreateMergeRTEwithLOC -INFO - Clicked on SearchAllJobs
-2022-06-08 17:21:30,876 - CreateMergeRTEwithLOC -INFO - Clicked on Reset button
-2022-06-08 17:21:31,078 - CreateMergeRTEwithLOC -INFO - 06/08/2022
-2022-06-08 17:21:31,212 - CreateMergeRTEwithLOC -INFO - Entered Origin From Date
-2022-06-08 17:21:31,343 - CreateMergeRTEwithLOC -INFO - 06/08/2022
-2022-06-08 17:21:31,520 - CreateMergeRTEwithLOC -INFO - Entered Origin From Date
-2022-06-08 17:21:31,609 - CreateMergeRTEwithLOC -INFO - Route Tracking No==126404100
-2022-06-08 17:21:31,776 - CreateMergeRTEwithLOC -INFO - Entered RouteTrackingID
-2022-06-08 17:21:31,982 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:22:22,815 - CreateMergeRTEwithLOC -INFO - Data is exist with search TrackingNO
-2022-06-08 17:22:22,861 - CreateMergeRTEwithLOC -INFO - Total No of records are==6
-2022-06-08 17:22:23,316 - CreateMergeRTEwithLOC -INFO - JobID is==32436432
-2022-06-08 17:22:23,432 - CreateMergeRTEwithLOC -INFO - PickUpID is==3441668
-2022-06-08 17:22:23,542 - CreateMergeRTEwithLOC -INFO - BOLNo is==126404166
-2022-06-08 17:22:23,930 - CreateMergeRTEwithLOC -INFO - Click on Task Manager Tab
-2022-06-08 17:22:25,383 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
-2022-06-08 17:22:25,534 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:22:29,891 - CreateMergeRTEwithLOC -INFO - Data is exist with search PickUpID
-2022-06-08 17:22:30,867 - CreateMergeRTEwithLOC -INFO - Clicked on Exit without Save
-2022-06-08 17:22:32,440 - CreateMergeRTEwithLOC -INFO - Clicked on SearchAllJobs
-2022-06-08 17:22:34,766 - CreateMergeRTEwithLOC -INFO - JobID is==32436431
-2022-06-08 17:22:34,872 - CreateMergeRTEwithLOC -INFO - PickUpID is==3441667
-2022-06-08 17:22:35,005 - CreateMergeRTEwithLOC -INFO - BOLNo is==126404155
-2022-06-08 17:22:35,438 - CreateMergeRTEwithLOC -INFO - Click on Task Manager Tab
-2022-06-08 17:22:36,973 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
-2022-06-08 17:22:37,115 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:22:41,236 - CreateMergeRTEwithLOC -INFO - Data is exist with search PickUpID
-2022-06-08 17:22:41,734 - CreateMergeRTEwithLOC -INFO - Clicked on Exit without Save
-2022-06-08 17:22:43,139 - CreateMergeRTEwithLOC -INFO - Clicked on SearchAllJobs
-2022-06-08 17:22:44,891 - CreateMergeRTEwithLOC -INFO - JobID is==32436430
-2022-06-08 17:22:44,980 - CreateMergeRTEwithLOC -INFO - PickUpID is==3441666
-2022-06-08 17:22:45,076 - CreateMergeRTEwithLOC -INFO - BOLNo is==126404144
-2022-06-08 17:22:45,504 - CreateMergeRTEwithLOC -INFO - Click on Task Manager Tab
-2022-06-08 17:22:46,938 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
-2022-06-08 17:22:47,089 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:22:51,312 - CreateMergeRTEwithLOC -INFO - Data is exist with search PickUpID
-2022-06-08 17:22:51,814 - CreateMergeRTEwithLOC -INFO - Clicked on Exit without Save
-2022-06-08 17:22:53,176 - CreateMergeRTEwithLOC -INFO - Clicked on SearchAllJobs
-2022-06-08 17:22:54,892 - CreateMergeRTEwithLOC -INFO - JobID is==32436429
-2022-06-08 17:22:55,003 - CreateMergeRTEwithLOC -INFO - PickUpID is==3441665
-2022-06-08 17:22:55,129 - CreateMergeRTEwithLOC -INFO - BOLNo is==126404133
-2022-06-08 17:22:55,458 - CreateMergeRTEwithLOC -INFO - Click on Task Manager Tab
-2022-06-08 17:22:56,994 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
-2022-06-08 17:22:57,252 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:23:00,929 - CreateMergeRTEwithLOC -INFO - Data is exist with search PickUpID
-2022-06-08 17:23:01,449 - CreateMergeRTEwithLOC -INFO - Clicked on Exit without Save
-2022-06-08 17:23:02,472 - CreateMergeRTEwithLOC -INFO - Clicked on SearchAllJobs
-2022-06-08 17:23:04,321 - CreateMergeRTEwithLOC -INFO - JobID is==32436428
-2022-06-08 17:23:04,424 - CreateMergeRTEwithLOC -INFO - PickUpID is==3441664
-2022-06-08 17:23:04,585 - CreateMergeRTEwithLOC -INFO - BOLNo is==126404122
-2022-06-08 17:23:04,908 - CreateMergeRTEwithLOC -INFO - Click on Task Manager Tab
-2022-06-08 17:23:06,472 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
-2022-06-08 17:23:06,710 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:23:10,928 - CreateMergeRTEwithLOC -INFO - Data is exist with search PickUpID
-2022-06-08 17:23:11,662 - CreateMergeRTEwithLOC -INFO - Clicked on Exit without Save
-2022-06-08 17:23:13,312 - CreateMergeRTEwithLOC -INFO - Clicked on SearchAllJobs
-2022-06-08 17:23:15,196 - CreateMergeRTEwithLOC -INFO - JobID is==32436427
-2022-06-08 17:23:15,303 - CreateMergeRTEwithLOC -INFO - PickUpID is==3441663
-2022-06-08 17:23:15,406 - CreateMergeRTEwithLOC -INFO - BOLNo is==126404111
-2022-06-08 17:23:15,817 - CreateMergeRTEwithLOC -INFO - Click on Task Manager Tab
-2022-06-08 17:23:17,384 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
-2022-06-08 17:23:17,668 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:23:21,786 - CreateMergeRTEwithLOC -INFO - Data is exist with search PickUpID
-2022-06-08 17:23:22,269 - CreateMergeRTEwithLOC -INFO - Clicked on Exit without Save
-2022-06-08 17:23:23,619 - CreateMergeRTEwithLOC -INFO - Clicked on SearchAllJobs
-2022-06-08 17:23:25,163 - CreateMergeRTEwithLOC -INFO - Clicked on Reset button
-2022-06-08 17:23:25,276 - CreateMergeRTEwithLOC -INFO - 06/08/2022
-2022-06-08 17:23:25,413 - CreateMergeRTEwithLOC -INFO - Entered Origin From Date
-2022-06-08 17:23:25,524 - CreateMergeRTEwithLOC -INFO - 06/08/2022
-2022-06-08 17:23:25,694 - CreateMergeRTEwithLOC -INFO - Entered Origin From Date
-2022-06-08 17:23:25,790 - CreateMergeRTEwithLOC -INFO - Route Tracking No==126405059
-2022-06-08 17:23:25,936 - CreateMergeRTEwithLOC -INFO - Entered RouteTrackingID
-2022-06-08 17:23:26,131 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:24:17,279 - CreateMergeRTEwithLOC -INFO - Data is exist with search TrackingNO
-2022-06-08 17:24:17,324 - CreateMergeRTEwithLOC -INFO - Total No of records are==4
-2022-06-08 17:24:17,796 - CreateMergeRTEwithLOC -INFO - JobID is==32436530
-2022-06-08 17:24:17,886 - CreateMergeRTEwithLOC -INFO - PickUpID is==3441766
-2022-06-08 17:24:18,001 - CreateMergeRTEwithLOC -INFO - BOLNo is==126405093
-2022-06-08 17:24:18,392 - CreateMergeRTEwithLOC -INFO - Click on Task Manager Tab
-2022-06-08 17:24:19,913 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
-2022-06-08 17:24:20,180 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:24:24,776 - CreateMergeRTEwithLOC -INFO - Data is exist with search PickUpID
-2022-06-08 17:24:25,261 - CreateMergeRTEwithLOC -INFO - Clicked on Exit without Save
-2022-06-08 17:24:26,985 - CreateMergeRTEwithLOC -INFO - Clicked on SearchAllJobs
-2022-06-08 17:24:28,780 - CreateMergeRTEwithLOC -INFO - JobID is==32436529
-2022-06-08 17:24:28,891 - CreateMergeRTEwithLOC -INFO - PickUpID is==3441765
-2022-06-08 17:24:29,002 - CreateMergeRTEwithLOC -INFO - BOLNo is==126405082
-2022-06-08 17:24:29,340 - CreateMergeRTEwithLOC -INFO - Click on Task Manager Tab
-2022-06-08 17:24:30,833 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
-2022-06-08 17:24:31,013 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:24:35,254 - CreateMergeRTEwithLOC -INFO - Data is exist with search PickUpID
-2022-06-08 17:24:35,716 - CreateMergeRTEwithLOC -INFO - Clicked on Exit without Save
-2022-06-08 17:24:37,257 - CreateMergeRTEwithLOC -INFO - Clicked on SearchAllJobs
-2022-06-08 17:24:38,902 - CreateMergeRTEwithLOC -INFO - JobID is==32436528
-2022-06-08 17:24:39,035 - CreateMergeRTEwithLOC -INFO - PickUpID is==3441764
-2022-06-08 17:24:39,182 - CreateMergeRTEwithLOC -INFO - BOLNo is==126405071
-2022-06-08 17:24:39,566 - CreateMergeRTEwithLOC -INFO - Click on Task Manager Tab
-2022-06-08 17:24:41,116 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
-2022-06-08 17:24:41,360 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:24:45,773 - CreateMergeRTEwithLOC -INFO - Data is exist with search PickUpID
-2022-06-08 17:24:46,204 - CreateMergeRTEwithLOC -INFO - Clicked on Exit without Save
-2022-06-08 17:24:47,763 - CreateMergeRTEwithLOC -INFO - Clicked on SearchAllJobs
-2022-06-08 17:24:49,564 - CreateMergeRTEwithLOC -INFO - JobID is==32436527
-2022-06-08 17:24:49,659 - CreateMergeRTEwithLOC -INFO - PickUpID is==3441763
-2022-06-08 17:24:49,773 - CreateMergeRTEwithLOC -INFO - BOLNo is==126405060
-2022-06-08 17:24:50,201 - CreateMergeRTEwithLOC -INFO - Click on Task Manager Tab
-2022-06-08 17:24:51,771 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
-2022-06-08 17:24:52,017 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:24:56,182 - CreateMergeRTEwithLOC -INFO - Data is exist with search PickUpID
-2022-06-08 17:24:56,941 - CreateMergeRTEwithLOC -INFO - Clicked on Exit without Save
-2022-06-08 17:24:58,599 - CreateMergeRTEwithLOC -INFO - Clicked on SearchAllJobs
-2022-06-08 17:25:00,162 - CreateMergeRTEwithLOC -INFO - Clicked on Reset button
-2022-06-08 17:25:00,342 - CreateMergeRTEwithLOC -INFO - 06/08/2022
-2022-06-08 17:25:00,491 - CreateMergeRTEwithLOC -INFO - Entered Origin From Date
-2022-06-08 17:25:00,605 - CreateMergeRTEwithLOC -INFO - 06/08/2022
-2022-06-08 17:25:00,759 - CreateMergeRTEwithLOC -INFO - Entered Origin From Date
-2022-06-08 17:25:00,858 - CreateMergeRTEwithLOC -INFO - Route Tracking No==126403594
-2022-06-08 17:25:00,992 - CreateMergeRTEwithLOC -INFO - Entered RouteTrackingID
-2022-06-08 17:25:01,194 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:25:52,220 - CreateMergeRTEwithLOC -INFO - Data is exist with search TrackingNO
-2022-06-08 17:25:52,261 - CreateMergeRTEwithLOC -INFO - Total No of records are==3
-2022-06-08 17:25:52,748 - CreateMergeRTEwithLOC -INFO - JobID is==32436361
-2022-06-08 17:25:52,834 - CreateMergeRTEwithLOC -INFO - PickUpID is==3441597
-2022-06-08 17:25:52,948 - CreateMergeRTEwithLOC -INFO - BOLNo is==126403620
-2022-06-08 17:25:53,354 - CreateMergeRTEwithLOC -INFO - Click on Task Manager Tab
-2022-06-08 17:25:54,850 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
-2022-06-08 17:25:55,015 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:25:59,146 - CreateMergeRTEwithLOC -INFO - Data is exist with search PickUpID
-2022-06-08 17:25:59,627 - CreateMergeRTEwithLOC -INFO - Clicked on Exit without Save
-2022-06-08 17:26:01,346 - CreateMergeRTEwithLOC -INFO - Clicked on SearchAllJobs
-2022-06-08 17:26:03,130 - CreateMergeRTEwithLOC -INFO - JobID is==32436360
-2022-06-08 17:26:03,272 - CreateMergeRTEwithLOC -INFO - PickUpID is==3441596
-2022-06-08 17:26:03,389 - CreateMergeRTEwithLOC -INFO - BOLNo is==126403619
-2022-06-08 17:26:03,720 - CreateMergeRTEwithLOC -INFO - Click on Task Manager Tab
-2022-06-08 17:26:05,175 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
-2022-06-08 17:26:05,359 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:26:09,522 - CreateMergeRTEwithLOC -INFO - Data is exist with search PickUpID
-2022-06-08 17:26:10,015 - CreateMergeRTEwithLOC -INFO - Clicked on Exit without Save
-2022-06-08 17:26:11,409 - CreateMergeRTEwithLOC -INFO - Clicked on SearchAllJobs
-2022-06-08 17:26:12,973 - CreateMergeRTEwithLOC -INFO - JobID is==32436359
-2022-06-08 17:26:13,050 - CreateMergeRTEwithLOC -INFO - PickUpID is==3441595
-2022-06-08 17:26:13,180 - CreateMergeRTEwithLOC -INFO - BOLNo is==126403608
-2022-06-08 17:26:13,494 - CreateMergeRTEwithLOC -INFO - Click on Task Manager Tab
-2022-06-08 17:26:14,923 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
-2022-06-08 17:26:15,096 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:26:20,073 - CreateMergeRTEwithLOC -INFO - Data is exist with search PickUpID
-2022-06-08 17:26:20,748 - CreateMergeRTEwithLOC -INFO - Clicked on Exit without Save
-2022-06-08 17:26:21,934 - CreateMergeRTEwithLOC -INFO - Clicked on SearchAllJobs
-2022-06-08 17:26:23,746 - CreateMergeRTEwithLOC -INFO - No need to perform search
-2022-06-08 17:26:23,746 - CreateMergeRTEwithLOC -INFO - No need to perform search
-2022-06-08 17:26:24,058 - CreateMergeRTEwithLOC -INFO - Clicked on Reset button
-2022-06-08 17:26:24,191 - CreateMergeRTEwithLOC -INFO - 06/08/2022
-2022-06-08 17:26:24,337 - CreateMergeRTEwithLOC -INFO - Entered Origin From Date
-2022-06-08 17:26:24,449 - CreateMergeRTEwithLOC -INFO - 06/08/2022
-2022-06-08 17:26:24,642 - CreateMergeRTEwithLOC -INFO - Entered Origin From Date
-2022-06-08 17:26:24,764 - CreateMergeRTEwithLOC -INFO - Route Tracking No==126403572
-2022-06-08 17:26:24,917 - CreateMergeRTEwithLOC -INFO - Entered RouteTrackingID
-2022-06-08 17:26:25,076 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:27:16,081 - CreateMergeRTEwithLOC -INFO - Data is exist with search TrackingNO
-2022-06-08 17:27:16,119 - CreateMergeRTEwithLOC -INFO - Total No of records are==2
-2022-06-08 17:27:16,580 - CreateMergeRTEwithLOC -INFO - JobID is==32436645
-2022-06-08 17:27:16,682 - CreateMergeRTEwithLOC -INFO - PickUpID is==3441881
-2022-06-08 17:27:16,837 - CreateMergeRTEwithLOC -INFO - BOLNo is==126406344
-2022-06-08 17:27:17,254 - CreateMergeRTEwithLOC -INFO - Click on Task Manager Tab
-2022-06-08 17:27:18,776 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
-2022-06-08 17:27:19,007 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:27:24,326 - CreateMergeRTEwithLOC -INFO - Data is exist with search PickUpID
-2022-06-08 17:27:24,798 - CreateMergeRTEwithLOC -INFO - Clicked on Exit without Save
-2022-06-08 17:27:26,480 - CreateMergeRTEwithLOC -INFO - Clicked on SearchAllJobs
-2022-06-08 17:27:28,291 - CreateMergeRTEwithLOC -INFO - JobID is==32436358
-2022-06-08 17:27:28,373 - CreateMergeRTEwithLOC -INFO - PickUpID is==3441594
-2022-06-08 17:27:28,466 - CreateMergeRTEwithLOC -INFO - BOLNo is==126403583
-2022-06-08 17:27:28,790 - CreateMergeRTEwithLOC -INFO - Click on Task Manager Tab
-2022-06-08 17:27:30,333 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
-2022-06-08 17:27:30,573 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:27:35,232 - CreateMergeRTEwithLOC -INFO - Data is exist with search PickUpID
-2022-06-08 17:27:35,923 - CreateMergeRTEwithLOC -INFO - Clicked on Exit without Save
-2022-06-08 17:27:37,477 - CreateMergeRTEwithLOC -INFO - Clicked on SearchAllJobs
-2022-06-08 17:27:38,768 - CreateMergeRTEwithLOC -INFO - ======================RTE Job Search Test End==================
-2022-06-08 17:27:39,075 - CreateMergeRTEwithLOC -INFO - ======================RTE OneToOne Order Processing Test Start==================
-2022-06-08 17:27:39,531 - CreateMergeRTEwithLOC -INFO - Clicked on Operations
-2022-06-08 17:27:40,035 - CreateMergeRTEwithLOC -INFO - Clicked on TaskLog
-2022-06-08 17:27:41,568 - CreateMergeRTEwithLOC -INFO - PickUpID==3441661
-2022-06-08 17:27:41,569 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
-2022-06-08 17:27:41,808 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:27:45,944 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
-2022-06-08 17:27:46,343 - CreateMergeRTEwithLOC -INFO - Job status tab is Disabled
-2022-06-08 17:27:46,644 - CreateMergeRTEwithLOC -INFO - Job status is==VERIFIED
-2022-06-08 17:27:46,644 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
-2022-06-08 17:27:46,901 - CreateMergeRTEwithLOC -INFO - Job status is==VERIFIED
-2022-06-08 17:27:46,902 - CreateMergeRTEwithLOC -INFO - Job is moved to VERIFIED stage
-2022-06-08 17:27:47,128 - CreateMergeRTEwithLOC -INFO - ======================RTE OneToOne Order Processing Test End==================
-2022-06-08 17:27:47,334 - CreateMergeRTEwithLOC -INFO - ======================RTE One To Many Order Processing Test Start==================
-2022-06-08 17:27:47,586 - CreateMergeRTEwithLOC -INFO - Clicked on Operations
-2022-06-08 17:27:48,112 - CreateMergeRTEwithLOC -INFO - Clicked on TaskLog
-2022-06-08 17:27:49,607 - CreateMergeRTEwithLOC -INFO - PickUpID==3441668
-2022-06-08 17:27:49,607 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
-2022-06-08 17:27:49,825 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:27:54,009 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
-2022-06-08 17:27:54,376 - CreateMergeRTEwithLOC -INFO - Job status tab is Disabled
-2022-06-08 17:27:55,023 - CreateMergeRTEwithLOC -INFO - Job status is==VERIFIED
-2022-06-08 17:27:55,023 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
-2022-06-08 17:27:55,332 - CreateMergeRTEwithLOC -INFO - Job status is==VERIFIED
-2022-06-08 17:27:55,332 - CreateMergeRTEwithLOC -INFO - Job is moved to VERIFIED stage
-2022-06-08 17:27:55,574 - CreateMergeRTEwithLOC -INFO - ======================RTE One To Many Order Processing Test End==================
-2022-06-08 17:27:55,783 - CreateMergeRTEwithLOC -INFO - ======================RTE Many To One Order Processing Test Start==================
-2022-06-08 17:27:56,073 - CreateMergeRTEwithLOC -INFO - Clicked on Operations
-2022-06-08 17:27:56,580 - CreateMergeRTEwithLOC -INFO - Clicked on TaskLog
-2022-06-08 17:27:58,066 - CreateMergeRTEwithLOC -INFO - PickUpID==3441766
-2022-06-08 17:27:58,066 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
-2022-06-08 17:27:58,239 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:28:04,282 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
-2022-06-08 17:28:04,580 - CreateMergeRTEwithLOC -INFO - Job status tab is Disabled
-2022-06-08 17:28:04,658 - CreateMergeRTEwithLOC -INFO - Job status is==VERIFIED
-2022-06-08 17:28:04,658 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
-2022-06-08 17:28:04,972 - CreateMergeRTEwithLOC -INFO - Job status is==VERIFIED
-2022-06-08 17:28:04,973 - CreateMergeRTEwithLOC -INFO - Job is moved to VERIFIED stage
-2022-06-08 17:28:05,249 - CreateMergeRTEwithLOC -INFO - ======================RTE Many To One Order Processing Test End==================
-2022-06-08 17:28:05,543 - CreateMergeRTEwithLOC -INFO - ======================RTE Many To Many Order Processing Test Start==================
-2022-06-08 17:28:05,839 - CreateMergeRTEwithLOC -INFO - Clicked on Operations
-2022-06-08 17:28:06,219 - CreateMergeRTEwithLOC -INFO - Clicked on TaskLog
-2022-06-08 17:28:07,719 - CreateMergeRTEwithLOC -INFO - PickUpID==3441597
-2022-06-08 17:28:07,719 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
-2022-06-08 17:28:07,841 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:28:13,498 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
-2022-06-08 17:28:13,793 - CreateMergeRTEwithLOC -INFO - Job status tab is Disabled
-2022-06-08 17:28:13,886 - CreateMergeRTEwithLOC -INFO - Job status is==VERIFIED
-2022-06-08 17:28:13,887 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
-2022-06-08 17:28:14,283 - CreateMergeRTEwithLOC -INFO - Job status is==VERIFIED
-2022-06-08 17:28:14,284 - CreateMergeRTEwithLOC -INFO - Job is moved to VERIFIED stage
-2022-06-08 17:28:14,565 - CreateMergeRTEwithLOC -INFO - ======================RTE Many To Many Order Processing Test End==================
-2022-06-08 17:28:14,811 - CreateMergeRTEwithLOC -INFO - ======================RTE Reject/Resend/CallBack/PendingDelivery Test Start==================
-2022-06-08 17:28:15,014 - CreateMergeRTEwithLOC -INFO - Clicked on Operations
-2022-06-08 17:28:15,520 - CreateMergeRTEwithLOC -INFO - Clicked on TaskLog
-2022-06-08 17:28:17,123 - CreateMergeRTEwithLOC -INFO - PickUpID==3441602
-2022-06-08 17:28:17,124 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
-2022-06-08 17:28:17,368 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:28:21,647 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
-2022-06-08 17:28:22,010 - CreateMergeRTEwithLOC -INFO - Job status tab is Disabled
-2022-06-08 17:28:22,088 - CreateMergeRTEwithLOC -INFO - Job status is==VERIFIED
-2022-06-08 17:28:22,088 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
-2022-06-08 17:28:22,388 - CreateMergeRTEwithLOC -INFO - Job status is==VERIFIED
-2022-06-08 17:28:22,388 - CreateMergeRTEwithLOC -INFO - Job is moved to VERIFIED stage
-2022-06-08 17:28:22,616 - CreateMergeRTEwithLOC -INFO - ======================RTE Reject/Resend/CallBack/PendingDelivery Test End==================
-2022-06-08 17:28:22,820 - CreateMergeRTEwithLOC -INFO - ======================RTE Crud Operations Test Start==================
-2022-06-08 17:28:23,032 - CreateMergeRTEwithLOC -INFO - Clicked on Operations
-2022-06-08 17:28:23,307 - CreateMergeRTEwithLOC -INFO - Clicked on TaskLog
-2022-06-08 17:28:24,775 - CreateMergeRTEwithLOC -INFO - PickUpID==3441662
-2022-06-08 17:28:24,776 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
-2022-06-08 17:28:24,915 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:28:29,014 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
-2022-06-08 17:28:29,366 - CreateMergeRTEwithLOC -INFO - Job status tab is already Opened
-2022-06-08 17:28:29,465 - CreateMergeRTEwithLOC -INFO - Job status is==PU DRV CONF
-2022-06-08 17:28:29,466 - CreateMergeRTEwithLOC -INFO - Unknown Stage found
-2022-06-08 17:28:29,509 - CreateMergeRTEwithLOC -INFO - Job status is==PU DRV CONF
-2022-06-08 17:28:29,550 - CreateMergeRTEwithLOC -INFO - =========RTE Search LOC job Test Start============
-2022-06-08 17:28:29,802 - CreateMergeRTEwithLOC -INFO - Clicked on Operations
-2022-06-08 17:28:30,210 - CreateMergeRTEwithLOC -INFO - Clicked on TaskLog
-2022-06-08 17:28:31,829 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
-2022-06-08 17:28:31,992 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:31:29,036 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
-2022-06-08 17:31:29,036 - CreateMergeRTEwithLOC -INFO - LOC job is created with Unmerged shipment
-2022-06-08 17:31:29,496 - CreateMergeRTEwithLOC -INFO - Job status is==TC ACKNOWLEDGE
-2022-06-08 17:32:20,360 - CreateMergeRTEwithLOC -INFO - Clicked on Operations
-2022-06-08 17:32:20,663 - CreateMergeRTEwithLOC -INFO - Clicked on TaskLog
-2022-06-08 17:32:22,920 - CreateMergeRTEwithLOC -INFO - PickUpID==3442001
-2022-06-08 17:32:22,921 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
-2022-06-08 17:32:23,120 - CreateMergeRTEwithLOC -INFO - Click on Yellow color Linktext
-2022-06-08 17:32:26,152 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
-2022-06-08 17:32:26,554 - CreateMergeRTEwithLOC -INFO - Entered PickupID is==3442001
-2022-06-08 17:32:26,578 - CreateMergeRTEwithLOC -INFO - PickupID is==PickupId_N3442001
-2022-06-08 17:32:26,579 - CreateMergeRTEwithLOC -INFO - Searched job is exist
-2022-06-08 17:32:26,635 - CreateMergeRTEwithLOC -INFO - Selected the Loc job
-2022-06-08 17:32:27,065 - CreateMergeRTEwithLOC -INFO - Clicked on Create RTE job
-2022-06-08 17:32:27,513 - CreateMergeRTEwithLOC -INFO - UnMerge Message==To create RTE job, selected orders should be
-From the same Account #
-Should have SVC of LOC, NBD or DLOC
-Jobs should be in either CSR Acknowledge or TC Acknowledge stage.
-OK
-2022-06-08 17:32:27,620 - CreateMergeRTEwithLOC -INFO - Clicked on OK button
-2022-06-08 17:32:28,622 - CreateMergeRTEwithLOC -INFO - PickUpID==3442001
-2022-06-08 17:32:28,623 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
-2022-06-08 17:35:47,287 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-08 17:35:50,949 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
-2022-06-08 17:35:51,420 - CreateMergeRTEwithLOC -INFO - Job status is==TC ACKNOWLEDGE
-2022-06-08 17:35:51,420 - CreateMergeRTEwithLOC -INFO - LOC job is converted in RTE successfully.
-2022-06-08 17:35:51,920 - CreateMergeRTEwithLOC -INFO - Clicked on Save&Exit
-2022-06-08 17:35:56,114 - CreateMergeRTEwithLOC -INFO - ======================Create RTE with LOC Job Test End==================
-2022-06-08 17:35:56,577 - CreateMergeRTEwithLOC -INFO - PickUpID==3442009
-2022-06-08 17:35:56,577 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
-2022-06-08 17:35:56,828 - CreateMergeRTEwithLOC -INFO - Click on Yellow color Linktext
-2022-06-08 17:35:59,214 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
-2022-06-08 17:35:59,711 - CreateMergeRTEwithLOC -INFO - Entered PickupID is==3442009
-2022-06-08 17:35:59,726 - CreateMergeRTEwithLOC -INFO - PickupID is==PickupId_N3442009
-2022-06-08 17:35:59,726 - CreateMergeRTEwithLOC -INFO - Searched job is exist
-2022-06-08 17:35:59,759 - CreateMergeRTEwithLOC -INFO - Selected the Loc job
-2022-06-08 17:36:00,174 - CreateMergeRTEwithLOC -INFO - Clicked on Create RTE job
-2022-06-08 17:36:54,665 - CreateMergeRTEwithLOC -INFO - Able to UnMerge
-2022-06-08 17:36:54,666 - CreateMergeRTEwithLOC -INFO - ======================Merge with Exiting RTE Test Start==================
-2022-06-08 17:36:54,797 - CreateMergeRTEwithLOC -INFO - Selected Merge with Exiting RTE radio button
-2022-06-08 17:36:54,906 - CreateMergeRTEwithLOC -INFO - TrackingNo of RTE job is==126403572
-2022-06-08 17:36:55,441 - CreateMergeRTEwithLOC -INFO - Clicked on Merge Route button of RTE form
-2022-06-08 17:37:51,393 - CreateMergeRTEwithLOC -INFO - Logout Message is displayed==You have successfully logged out!
-2022-06-08 17:37:51,393 - CreateMergeRTEwithLOC -INFO - Logout done
-2022-06-08 17:37:52,533 - CreateMergeRTEwithLOC -INFO - ====Sending Email=====
+2022-06-09 19:57:11,268 - RTECrudOperations -INFO - initialization of the properties file is done
+2022-06-09 19:57:11,826 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Using chromedriver 102.0.5005.61 (since Google Chrome 102 is installed in your machine)
+2022-06-09 19:57:11,852 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Exporting webdriver.chrome.driver as C:\Users\rprajapati\.m2\repository\webdriver\chromedriver\win32\102.0.5005.61\chromedriver.exe
+2022-06-09 19:57:20,343 - RTECrudOperations -INFO - Entered UserName
+2022-06-09 19:57:21,532 - RTECrudOperations -INFO - Entered Password
+2022-06-09 19:57:22,850 - RTECrudOperations -INFO - Login done
+2022-06-09 19:57:41,327 - RTECrudOperations -INFO - ======================RTE Crud Operations Test Start==================
+2022-06-09 19:57:41,565 - RTECrudOperations -INFO - Clicked on Operations
+2022-06-09 19:57:41,811 - RTECrudOperations -INFO - Clicked on TaskLog
+2022-06-09 19:57:45,087 - RTECrudOperations -INFO - PickUpID==3441594
+2022-06-09 19:57:45,088 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-06-09 19:57:45,278 - RTECrudOperations -INFO - Click on Search button
+2022-06-09 19:57:49,052 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-06-09 19:57:49,475 - RTECrudOperations -INFO - Job status tab is already Opened
+2022-06-09 19:57:49,614 - RTECrudOperations -INFO - Job status is==TC ACK
+2022-06-09 19:57:49,614 - RTECrudOperations -INFO - It is TC ACK stage
+2022-06-09 19:57:49,895 - RTECrudOperations -INFO - ======================RTE Shipment Details Test Start==================
+2022-06-09 19:57:52,154 - RTECrudOperations -INFO - Shipment is exist in the RTE Job
+2022-06-09 19:57:52,403 - RTECrudOperations -INFO - Clicked on ShipmentNO==126403583
+2022-06-09 19:57:58,674 - RTECrudOperations -INFO - Entered Pickup Instruction
+2022-06-09 19:58:01,192 - RTECrudOperations -INFO - Entered Delivery Instruction
+2022-06-09 19:58:01,304 - RTECrudOperations -INFO - Clicked on Save button
+2022-06-09 19:58:53,345 - RTECrudOperations -INFO - Validation is not displayed, everything is as per expected
+2022-06-09 19:58:53,347 - RTECrudOperations -INFO - =========RTE Upload Test Start============
+2022-06-09 19:59:07,873 - RTECrudOperations -INFO - File is not exist
+2022-06-09 19:59:08,040 - RTECrudOperations -INFO - Click on plus sign
+2022-06-09 19:59:08,465 - RTECrudOperations -INFO - Enter doc name
+2022-06-09 19:59:08,592 - RTECrudOperations -INFO - 06/09/2022
+2022-06-09 19:59:08,996 - RTECrudOperations -INFO - Entered Doc Date
+2022-06-09 19:59:11,441 - RTECrudOperations -INFO - Select DocType
+2022-06-09 19:59:11,527 - RTECrudOperations -INFO - Click on Customer Viewable checkbox
+2022-06-09 19:59:13,620 - RTECrudOperations -INFO - Click on Agent Viewable checkbox
+2022-06-09 19:59:15,761 - RTECrudOperations -INFO - Click on Upload file
+2022-06-09 19:59:17,931 - RTECrudOperations -INFO - Select the file
+2022-06-09 19:59:20,088 - RTECrudOperations -INFO - Clicked on Upload button
+2022-06-09 19:59:22,326 - RTECrudOperations -INFO - Click on Save&Close button
+2022-06-09 19:59:22,984 - RTECrudOperations -INFO - =========RTE Upload Test End============
+2022-06-09 19:59:22,985 - RTECrudOperations -INFO - =========RTE Add/View Memo Test Start============
+2022-06-09 19:59:23,148 - RTECrudOperations -INFO - Clicked on Memo
+2022-06-09 19:59:24,697 - RTECrudOperations -INFO - Total No of links==5
+2022-06-09 19:59:24,724 - RTECrudOperations -INFO - Name of the Link is==All
+2022-06-09 19:59:26,898 - RTECrudOperations -INFO - Name of the Link is==Customer
+2022-06-09 19:59:29,067 - RTECrudOperations -INFO - Name of the Link is==Agent
+2022-06-09 19:59:31,212 - RTECrudOperations -INFO - Name of the Link is==Airline
+2022-06-09 19:59:33,366 - RTECrudOperations -INFO - Name of the Link is==Internal
+2022-06-09 19:59:35,514 - RTECrudOperations -INFO - Total No of Tabs==4
+2022-06-09 19:59:35,556 - RTECrudOperations -INFO - Name of the Tab is==Customer
+2022-06-09 19:59:37,714 - RTECrudOperations -INFO - Name of the Tab is==Agent
+2022-06-09 19:59:39,924 - RTECrudOperations -INFO - Name of the Tab is==Airline
+2022-06-09 19:59:42,081 - RTECrudOperations -INFO - Name of the Tab is==Internal
+2022-06-09 19:59:44,366 - RTECrudOperations -INFO - Clicked on All link
+2022-06-09 19:59:44,727 - RTECrudOperations -INFO - Entered Memo
+2022-06-09 19:59:44,814 - RTECrudOperations -INFO - Checked the checkbox of Make Visible to Customer
+2022-06-09 19:59:45,035 - RTECrudOperations -INFO - Clicked on Close button of Memo Popup
+2022-06-09 19:59:45,104 - RTECrudOperations -INFO - =========RTE Add/View Memo Test End============
+2022-06-09 19:59:45,105 - RTECrudOperations -INFO - =========RTE QC Test Start============
+2022-06-09 19:59:45,278 - RTECrudOperations -INFO - Clicked on QC linktext
+2022-06-09 20:00:24,900 - RTECrudOperations -INFO - Clicked on Add New QC
+2022-06-09 20:00:25,943 - RTECrudOperations -INFO - Selected Customer as a Type
+2022-06-09 20:00:26,824 - RTECrudOperations -INFO - Selected Invalid Address as a Category
+2022-06-09 20:00:28,233 - RTECrudOperations -INFO - Entered issue description
+2022-06-09 20:00:28,570 - RTECrudOperations -INFO - Clicked on Save button
+2022-06-09 20:00:30,566 - RTECrudOperations -INFO - Entered Confirm Note
+2022-06-09 20:00:30,894 - RTECrudOperations -INFO - Selected status
+2022-06-09 20:00:31,023 - RTECrudOperations -INFO - Clicked on Update button
+2022-06-09 20:00:31,663 - RTECrudOperations -INFO - QC is updated==QC Details updated successfully.
+2022-06-09 20:00:31,931 - RTECrudOperations -INFO - Clicked on Exit W/O Save button
+2022-06-09 20:00:32,593 - RTECrudOperations -INFO - =========RTE QC Test End============
+2022-06-09 20:00:32,594 - RTECrudOperations -INFO - =========RTE UnMerge Test Start============
+2022-06-09 20:00:32,856 - RTECrudOperations -INFO - Clicked on UnMerge linktext
+2022-06-09 20:00:33,490 - RTECrudOperations -INFO - UnMerge Message==RTE job has only one shipment, cannot be unmerged.
+2022-06-09 20:00:33,650 - RTECrudOperations -INFO - Clicked on OK button
+2022-06-09 20:00:34,379 - RTECrudOperations -INFO - ======================RTE Shipment Details Test End==================
+2022-06-09 20:00:34,412 - RTECrudOperations -INFO - ======================RTE Edit Job Test Start==================
+2022-06-09 20:00:34,786 - RTECrudOperations -INFO - Clicked on Edit Job tab
+2022-06-09 20:00:39,973 - RTECrudOperations -INFO - =========RTE View Rate Test Start============
+2022-06-09 20:00:40,386 - RTECrudOperations -INFO - Clicked on View Rate
+2022-06-09 20:00:42,786 - RTECrudOperations -INFO - Total No of Rate==1
+2022-06-09 20:00:42,877 - RTECrudOperations -INFO - Name of the Charge is==BR - Base Rate
+2022-06-09 20:00:43,140 - RTECrudOperations -INFO - Amount is==$150.00
+2022-06-09 20:00:43,331 - RTECrudOperations -INFO - Note is==Fix Route Base Rate is applied
+2022-06-09 20:00:43,512 - RTECrudOperations -INFO - Name of the Scheduler is==Scheduler
+2022-06-09 20:00:43,696 - RTECrudOperations -INFO - Rate Program ID is==0
+2022-06-09 20:00:43,876 - RTECrudOperations -INFO - Total Amount is==Total :US$150.00
+2022-06-09 20:00:44,013 - RTECrudOperations -INFO - Total No of charges==4
+2022-06-09 20:00:44,058 - RTECrudOperations -INFO - Label is==Total Revenue :
+2022-06-09 20:00:44,218 - RTECrudOperations -INFO - Label Value is==US$150.00
+2022-06-09 20:00:44,403 - RTECrudOperations -INFO - Label is==Total Cost :
+2022-06-09 20:00:44,544 - RTECrudOperations -INFO - Label Value is==US$0.00
+2022-06-09 20:00:44,689 - RTECrudOperations -INFO - Label is==Margin($) :
+2022-06-09 20:00:44,841 - RTECrudOperations -INFO - Label Value is==US$150.00
+2022-06-09 20:00:44,980 - RTECrudOperations -INFO - Label is==Margin(%) :
+2022-06-09 20:00:45,119 - RTECrudOperations -INFO - Label Value is==100%
+2022-06-09 20:00:45,358 - RTECrudOperations -INFO - Clicked on Close button of Rate
+2022-06-09 20:00:45,425 - RTECrudOperations -INFO - =========RTE View Rate Test End============
+2022-06-09 20:00:45,426 - RTECrudOperations -INFO - =========RTE View Memo Test Start============
+2022-06-09 20:00:45,666 - RTECrudOperations -INFO - Clicked on View Memo
+2022-06-09 20:00:46,665 - RTECrudOperations -INFO - Total count of the Memo is==0
+2022-06-09 20:00:46,691 - RTECrudOperations -INFO - Total No of links==5
+2022-06-09 20:00:46,715 - RTECrudOperations -INFO - Name of the Link is==All
+2022-06-09 20:00:48,843 - RTECrudOperations -INFO - Name of the Link is==Customer
+2022-06-09 20:00:51,021 - RTECrudOperations -INFO - Name of the Link is==Agent
+2022-06-09 20:00:53,255 - RTECrudOperations -INFO - Name of the Link is==Airline
+2022-06-09 20:00:55,477 - RTECrudOperations -INFO - Name of the Link is==Internal
+2022-06-09 20:00:57,753 - RTECrudOperations -INFO - Clicked on All link
+2022-06-09 20:00:58,082 - RTECrudOperations -INFO - Clicked on Audit History tab
+2022-06-09 20:00:59,072 - RTECrudOperations -INFO - Clicked on Close button of Memo Popup
+2022-06-09 20:00:59,175 - RTECrudOperations -INFO - =========RTE View Memo Test End============
+2022-06-09 20:00:59,175 - RTECrudOperations -INFO - =========RTE Print Label Test Start============
+2022-06-09 20:00:59,379 - RTECrudOperations -INFO - Clicked on Print Label
+2022-06-09 20:01:03,260 - RTECrudOperations -INFO - Switched to Print window
+2022-06-09 20:01:08,588 - RTECrudOperations -INFO - Closed Print window
+2022-06-09 20:01:08,606 - RTECrudOperations -INFO - Switched to main window
+2022-06-09 20:01:08,650 - RTECrudOperations -INFO - =========RTE Print Label Test End============
+2022-06-09 20:01:08,651 - RTECrudOperations -INFO - =========RTE Route/Shipment Details Test Start============
+2022-06-09 20:01:08,831 - RTECrudOperations -INFO - Moved to Route Details
+2022-06-09 20:01:09,712 - RTECrudOperations -INFO - Total Route==2
+2022-06-09 20:01:09,786 - RTECrudOperations -INFO - Stop No is==1
+2022-06-09 20:01:10,018 - RTECrudOperations -INFO - PU/DEL No is==2/0
+2022-06-09 20:01:10,145 - RTECrudOperations -INFO - Company is==NYU OTHO HOSPTIAL
+2022-06-09 20:01:10,290 - RTECrudOperations -INFO - Address is==NYU OTHO HOSPTIAL, 301 E 17TH STREET, MANHATTAN, NY, 10003, USA
+2022-06-09 20:01:10,418 - RTECrudOperations -INFO - Instructions is==PickUp instruction for Automation Testing
+2022-06-09 20:01:10,538 - RTECrudOperations -INFO - Miles is==
+2022-06-09 20:01:10,664 - RTECrudOperations -INFO - Estimated Minutes is==
+2022-06-09 20:01:10,795 - RTECrudOperations -INFO - ETA/POD is==2022-06-08 00:30
+2022-06-09 20:01:10,912 - RTECrudOperations -INFO - TimeZone is==EDT
+2022-06-09 20:01:11,101 - RTECrudOperations -INFO - Stop No is==2
+2022-06-09 20:01:11,267 - RTECrudOperations -INFO - PU/DEL No is==0/2
+2022-06-09 20:01:11,415 - RTECrudOperations -INFO - Company is==STORAGE AMERICA
+2022-06-09 20:01:11,530 - RTECrudOperations -INFO - Address is==STORAGE AMERICA, 211 DENTON AVE, NEW HYDE PARK, NY, 11040, USA
+2022-06-09 20:01:11,751 - RTECrudOperations -INFO - Instructions is==Delivery instruction for Automation Testing
+2022-06-09 20:01:11,865 - RTECrudOperations -INFO - Miles is==21
+2022-06-09 20:01:11,991 - RTECrudOperations -INFO - Estimated Minutes is==44
+2022-06-09 20:01:12,108 - RTECrudOperations -INFO - ETA/POD is==2022-06-08 01:14
+2022-06-09 20:01:12,213 - RTECrudOperations -INFO - TimeZone is==EDT
+2022-06-09 20:01:12,510 - RTECrudOperations -INFO - Moved to Shipment Details
+2022-06-09 20:01:13,089 - RTECrudOperations -INFO - Total Shipment==1
+2022-06-09 20:01:13,175 - RTECrudOperations -INFO - Shipment No is==126403583
+2022-06-09 20:01:13,434 - RTECrudOperations -INFO - status is==Received
+2022-06-09 20:01:13,679 - RTECrudOperations -INFO - PickUP No is==3441594
+2022-06-09 20:01:13,897 - RTECrudOperations -INFO - PUStop is==1
+2022-06-09 20:01:14,113 - RTECrudOperations -INFO - DelStop is==2
+2022-06-09 20:01:14,324 - RTECrudOperations -INFO - No of PCs are==2
+2022-06-09 20:01:14,457 - RTECrudOperations -INFO - =========RTE Route/Shipment Details Test End============
+2022-06-09 20:01:14,458 - RTECrudOperations -INFO - =========RTE Map Test Start============
+2022-06-09 20:01:14,504 - RTECrudOperations -INFO - Total Shipment==1
+2022-06-09 20:01:14,572 - RTECrudOperations -INFO - Moved to Map form
+2022-06-09 20:01:15,182 - RTECrudOperations -INFO - Map Details==
+2022-06-09 20:01:15,284 - RTECrudOperations -INFO - Total stops==2
+2022-06-09 20:01:15,284 - RTECrudOperations -INFO - Stops in the map is as per the shipment
+2022-06-09 20:01:15,284 - RTECrudOperations -INFO - Shipment==1
+2022-06-09 20:01:15,285 - RTECrudOperations -INFO - Stops==2
+2022-06-09 20:01:15,405 - RTECrudOperations -INFO - Clicked on stop
+2022-06-09 20:01:16,060 - RTECrudOperations -INFO - Clicked on stop
+2022-06-09 20:01:16,552 - RTECrudOperations -INFO - Total stops==2
+2022-06-09 20:01:16,956 - RTECrudOperations -INFO - Clicked on Full screen of Map
+2022-06-09 20:01:19,736 - RTECrudOperations -INFO - Clicked on Full screen of Map
+2022-06-09 20:01:21,970 - RTECrudOperations -INFO - Clicked on Satelite
+2022-06-09 20:01:24,531 - RTECrudOperations -INFO - Clicked on Full screen of Map Satelite
+2022-06-09 20:01:28,066 - RTECrudOperations -INFO - Clicked on Full screen of Map Satelite
+2022-06-09 20:01:30,067 - RTECrudOperations -INFO - =========RTE Map Test End============
+2022-06-09 20:02:42,224 - RTECrudOperations -INFO - =========RTE Add/Edit Stop Sequence Test Start============
+2022-06-09 20:02:42,253 - RTECrudOperations -INFO - Total Shipment Stop==1
+2022-06-09 20:02:42,686 - RTECrudOperations -INFO - Clicked on Add Stop Sequence
+2022-06-09 20:02:45,241 - RTECrudOperations -INFO - Enter Pickup Stop
+2022-06-09 20:02:45,975 - RTECrudOperations -INFO - Enter Delivery Stop
+2022-06-09 20:02:46,335 - RTECrudOperations -INFO - Enter Address
+2022-06-09 20:02:46,791 - RTECrudOperations -INFO - Enter Company
+2022-06-09 20:02:47,178 - RTECrudOperations -INFO - Enter ZipCode
+2022-06-09 20:02:47,229 - RTECrudOperations -INFO - ZoneID of is==EDT
+2022-06-09 20:02:47,360 - RTECrudOperations -INFO - 06/09/2022
+2022-06-09 20:02:47,730 - RTECrudOperations -INFO - Entered SCH Date
+2022-06-09 20:02:47,863 - RTECrudOperations -INFO - 10:32
+2022-06-09 20:02:48,204 - RTECrudOperations -INFO - Entered SCH Time
+2022-06-09 20:02:48,301 - RTECrudOperations -INFO - 06/09/2022
+2022-06-09 20:02:48,687 - RTECrudOperations -INFO - Entered SCH Date
+2022-06-09 20:02:48,793 - RTECrudOperations -INFO - 10:32
+2022-06-09 20:02:49,151 - RTECrudOperations -INFO - Entered SCH Time
+2022-06-09 20:02:49,546 - RTECrudOperations -INFO - Enter Weight
+2022-06-09 20:02:49,834 - RTECrudOperations -INFO - Enter Length
+2022-06-09 20:02:50,096 - RTECrudOperations -INFO - Enter Width
+2022-06-09 20:02:50,366 - RTECrudOperations -INFO - Enter Height
+2022-06-09 20:02:50,492 - RTECrudOperations -INFO - Click on Save
+2022-06-09 20:03:54,759 - RTECrudOperations -INFO - Validation is not displayed, QDT Date and time is as per expected
+2022-06-09 20:04:45,202 - RTECrudOperations -INFO - Validation is not displayed, everything is as per expected
+2022-06-09 20:04:45,249 - RTECrudOperations -INFO - Total Shipment Stop after new added==2
+2022-06-09 20:04:45,250 - RTECrudOperations -INFO - New Stop added successfully
+2022-06-09 20:04:45,446 - RTECrudOperations -INFO - Clicked on Edit Stop Sequence
+2022-06-09 20:04:46,286 - RTECrudOperations -INFO - Edit PUStop
+2022-06-09 20:04:46,517 - RTECrudOperations -INFO - Edit DelStop
+2022-06-09 20:04:46,836 - RTECrudOperations -INFO - Edit PUStop
+2022-06-09 20:04:47,193 - RTECrudOperations -INFO - Edit DelStop
+2022-06-09 20:04:47,335 - RTECrudOperations -INFO - Clicked on Save changes
+2022-06-09 20:04:56,795 - RTECrudOperations -INFO - =========RTE Add/Edit Stop Sequence Test End============
+2022-06-09 20:04:56,795 - RTECrudOperations -INFO - =========RTE UnMerge Test Start============
+2022-06-09 20:04:56,993 - RTECrudOperations -INFO - Clicked on UnMerge linktext
+2022-06-09 20:05:48,008 - RTECrudOperations -INFO - Able to UnMerge
+2022-06-09 20:05:48,516 - RTECrudOperations -INFO - Clicked on Save button
+2022-06-09 20:05:50,469 - RTECrudOperations -INFO - Message==Pickup# 3444462 is unmerged successfully to LOC Service.
+2022-06-09 20:05:50,470 - RTECrudOperations -INFO - LOC service is created and shipment is unmerged
+2022-06-09 20:05:50,470 - RTECrudOperations -INFO - PickUpID is==3444462
+2022-06-09 20:05:50,692 - RTECrudOperations -INFO - Clicked on Cancel button
+2022-06-09 20:05:52,529 - RTECrudOperations -INFO - =========RTE UnMerge Test End============
+2022-06-09 20:05:52,530 - RTECrudOperations -INFO - =========RTE Add/Edit Stop Sequence Test Start============
+2022-06-09 20:05:52,572 - RTECrudOperations -INFO - Total Shipment Stop==1
+2022-06-09 20:05:53,014 - RTECrudOperations -INFO - Clicked on Add Stop Sequence
+2022-06-09 20:05:54,251 - RTECrudOperations -INFO - Enter Pickup Stop
+2022-06-09 20:05:55,019 - RTECrudOperations -INFO - Enter Delivery Stop
+2022-06-09 20:05:55,405 - RTECrudOperations -INFO - Enter Address
+2022-06-09 20:05:55,896 - RTECrudOperations -INFO - Enter Company
+2022-06-09 20:05:56,235 - RTECrudOperations -INFO - Enter ZipCode
+2022-06-09 20:05:56,287 - RTECrudOperations -INFO - ZoneID of is==EDT
+2022-06-09 20:05:56,367 - RTECrudOperations -INFO - 06/09/2022
+2022-06-09 20:05:56,628 - RTECrudOperations -INFO - Entered SCH Date
+2022-06-09 20:05:56,720 - RTECrudOperations -INFO - 10:35
+2022-06-09 20:05:56,955 - RTECrudOperations -INFO - Entered SCH Time
+2022-06-09 20:05:57,045 - RTECrudOperations -INFO - 06/09/2022
+2022-06-09 20:05:57,338 - RTECrudOperations -INFO - Entered SCH Date
+2022-06-09 20:05:57,431 - RTECrudOperations -INFO - 10:35
+2022-06-09 20:05:57,663 - RTECrudOperations -INFO - Entered SCH Time
+2022-06-09 20:05:58,043 - RTECrudOperations -INFO - Enter Weight
+2022-06-09 20:05:58,303 - RTECrudOperations -INFO - Enter Length
+2022-06-09 20:05:58,712 - RTECrudOperations -INFO - Enter Width
+2022-06-09 20:05:59,162 - RTECrudOperations -INFO - Enter Height
+2022-06-09 20:05:59,354 - RTECrudOperations -INFO - Click on Save
+2022-06-09 20:06:00,140 - RTECrudOperations -INFO - Validation is displayed==Delivery Quoted time cannot be less than Pickup Quoted time.
+2022-06-09 20:06:00,286 - RTECrudOperations -INFO - 06/08/2022
+2022-06-09 20:06:00,484 - RTECrudOperations -INFO - Entered PickUp Date
+2022-06-09 20:06:00,591 - RTECrudOperations -INFO - 09:36
+2022-06-09 20:06:00,827 - RTECrudOperations -INFO - Entered Actual PickUp Time
+2022-06-09 20:06:00,912 - RTECrudOperations -INFO - Click on Save
+2022-06-09 20:07:01,433 - RTECrudOperations -INFO - Validation is not displayed, everything is as per expected
+2022-06-09 20:07:01,469 - RTECrudOperations -INFO - Total Shipment Stop after new added==2
+2022-06-09 20:07:01,470 - RTECrudOperations -INFO - New Stop added successfully
+2022-06-09 20:07:01,648 - RTECrudOperations -INFO - Clicked on Edit Stop Sequence
+2022-06-09 20:07:02,239 - RTECrudOperations -INFO - Edit PUStop
+2022-06-09 20:07:02,479 - RTECrudOperations -INFO - Edit DelStop
+2022-06-09 20:07:02,809 - RTECrudOperations -INFO - Edit PUStop
+2022-06-09 20:07:03,107 - RTECrudOperations -INFO - Edit DelStop
+2022-06-09 20:07:03,254 - RTECrudOperations -INFO - Clicked on Save changes
+2022-06-09 20:07:11,901 - RTECrudOperations -INFO - =========RTE Add/Edit Stop Sequence Test End============
+2022-06-09 20:07:11,901 - RTECrudOperations -INFO - =========RTE UnMerge Test Start============
+2022-06-09 20:07:12,185 - RTECrudOperations -INFO - Clicked on UnMerge linktext
+2022-06-09 20:08:03,166 - RTECrudOperations -INFO - Able to UnMerge
+2022-06-09 20:08:03,630 - RTECrudOperations -INFO - Clicked on Save button
+2022-06-09 20:08:06,062 - RTECrudOperations -INFO - Message==Pickup# 3444471 is unmerged successfully to LOC Service.
+2022-06-09 20:08:06,063 - RTECrudOperations -INFO - LOC service is created and shipment is unmerged
+2022-06-09 20:08:06,063 - RTECrudOperations -INFO - PickUpID is==3444471
+2022-06-09 20:08:06,356 - RTECrudOperations -INFO - Clicked on Cancel button
+2022-06-09 20:08:08,193 - RTECrudOperations -INFO - =========RTE UnMerge Test End============
+2022-06-09 20:08:08,194 - RTECrudOperations -INFO - Result of UnMerge method is==PASS
+2022-06-09 20:08:08,195 - RTECrudOperations -INFO - =========RTE Add/View Memo Test Start============
+2022-06-09 20:08:08,451 - RTECrudOperations -INFO - Clicked on Memo
+2022-06-09 20:08:09,719 - RTECrudOperations -INFO - Total No of links==5
+2022-06-09 20:08:09,742 - RTECrudOperations -INFO - Name of the Link is==All
+2022-06-09 20:08:11,844 - RTECrudOperations -INFO - Name of the Link is==Customer
+2022-06-09 20:08:13,954 - RTECrudOperations -INFO - Name of the Link is==Agent
+2022-06-09 20:08:16,111 - RTECrudOperations -INFO - Name of the Link is==Airline
+2022-06-09 20:08:18,265 - RTECrudOperations -INFO - Name of the Link is==Internal
+2022-06-09 20:08:20,415 - RTECrudOperations -INFO - Total No of Tabs==4
+2022-06-09 20:08:20,453 - RTECrudOperations -INFO - Name of the Tab is==Customer
+2022-06-09 20:08:22,602 - RTECrudOperations -INFO - Name of the Tab is==Agent
+2022-06-09 20:08:24,763 - RTECrudOperations -INFO - Name of the Tab is==Airline
+2022-06-09 20:08:26,926 - RTECrudOperations -INFO - Name of the Tab is==Internal
+2022-06-09 20:08:29,203 - RTECrudOperations -INFO - Clicked on All link
+2022-06-09 20:08:29,595 - RTECrudOperations -INFO - Entered Memo
+2022-06-09 20:08:29,678 - RTECrudOperations -INFO - Checked the checkbox of Make Visible to Customer
+2022-06-09 20:08:29,819 - RTECrudOperations -INFO - Clicked on Close button of Memo Popup
+2022-06-09 20:08:29,870 - RTECrudOperations -INFO - =========RTE Add/View Memo Test End============
+2022-06-09 20:08:29,871 - RTECrudOperations -INFO - =========RTE Upload Test Start============
+2022-06-09 20:08:32,076 - RTECrudOperations -INFO - File is already exist
+2022-06-09 20:08:32,265 - RTECrudOperations -INFO - Clicked on Delete button of existing document
+2022-06-09 20:08:32,443 - RTECrudOperations -INFO - Message of the Dialogue is==Are you sure you want to Delete this record?
+2022-06-09 20:08:32,535 - RTECrudOperations -INFO - Click on Yes button
+2022-06-09 20:08:32,707 - RTECrudOperations -INFO - Click on plus sign
+2022-06-09 20:08:32,983 - RTECrudOperations -INFO - Enter doc name
+2022-06-09 20:08:33,064 - RTECrudOperations -INFO - 06/09/2022
+2022-06-09 20:08:33,246 - RTECrudOperations -INFO - Entered Doc Date
+2022-06-09 20:08:35,530 - RTECrudOperations -INFO - Select DocType
+2022-06-09 20:08:35,599 - RTECrudOperations -INFO - Click on Customer Viewable checkbox
+2022-06-09 20:08:37,650 - RTECrudOperations -INFO - Click on Agent Viewable checkbox
+2022-06-09 20:08:40,732 - RTECrudOperations -INFO - Click on Upload file
+2022-06-09 20:08:42,887 - RTECrudOperations -INFO - Select the file
+2022-06-09 20:08:44,978 - RTECrudOperations -INFO - Clicked on Upload button
+2022-06-09 20:08:47,088 - RTECrudOperations -INFO - File already exist in the system
+2022-06-09 20:08:47,185 - RTECrudOperations -INFO - Click on Save&Close button
+2022-06-09 20:08:47,891 - RTECrudOperations -INFO - =========RTE Upload Test End============
+2022-06-09 20:08:47,892 - RTECrudOperations -INFO - =========RTE QC Test Start============
+2022-06-09 20:08:48,667 - RTECrudOperations -INFO - Clicked on QC linktext
+2022-06-09 20:08:52,396 - RTECrudOperations -INFO - Clicked on Add New QC
+2022-06-09 20:08:52,795 - RTECrudOperations -INFO - Selected Customer as a Type
+2022-06-09 20:08:53,647 - RTECrudOperations -INFO - Selected Invalid Address as a Category
+2022-06-09 20:08:54,944 - RTECrudOperations -INFO - Entered issue description
+2022-06-09 20:08:55,255 - RTECrudOperations -INFO - Clicked on Save button
+2022-06-09 20:09:47,397 - RTECrudOperations -INFO - Entered Confirm Note
+2022-06-09 20:09:47,756 - RTECrudOperations -INFO - Selected status
+2022-06-09 20:09:48,075 - RTECrudOperations -INFO - Clicked on Update button
+2022-06-09 20:09:48,807 - RTECrudOperations -INFO - QC is updated==QC Details updated successfully.
+2022-06-09 20:09:49,160 - RTECrudOperations -INFO - Clicked on Exit W/O Save button
+2022-06-09 20:09:50,928 - RTECrudOperations -INFO - =========RTE QC Test End============
+2022-06-09 20:09:50,929 - RTECrudOperations -INFO - =========RTE Customer Charges Test Start============
+2022-06-09 20:09:50,989 - RTECrudOperations -INFO - Moved to Customer Charges
+2022-06-09 20:09:51,490 - RTECrudOperations -INFO - Actual Rate before Recalculate==$150.00
+2022-06-09 20:09:51,525 - RTECrudOperations -INFO - Total existing charges==1
+2022-06-09 20:09:53,927 - RTECrudOperations -INFO - Selected Charge Type
+2022-06-09 20:09:54,756 - RTECrudOperations -INFO - Entered Charges
+2022-06-09 20:09:54,986 - RTECrudOperations -INFO - Clicked on Add Charge
+2022-06-09 20:09:57,138 - RTECrudOperations -INFO - Clicked on Save changes
+2022-06-09 20:09:57,937 - RTECrudOperations -INFO - Total charges after added new charges==2
+2022-06-09 20:09:57,937 - RTECrudOperations -INFO - New charge is added
+2022-06-09 20:09:58,209 - RTECrudOperations -INFO - Clicked on ReCalculate
+2022-06-09 20:10:11,795 - RTECrudOperations -INFO - Actual Rate after Recalculate==$175.00
+2022-06-09 20:10:11,797 - RTECrudOperations -INFO - Rate is updated
+2022-06-09 20:10:12,142 - RTECrudOperations -INFO - Clicked on Delete button of added charge
+2022-06-09 20:10:12,346 - RTECrudOperations -INFO - Message of the Dialogue is==Are you sure you want to Delete this record?
+2022-06-09 20:10:12,512 - RTECrudOperations -INFO - Click on Yes button
+2022-06-09 20:10:12,618 - RTECrudOperations -INFO - Total charges after deleted added charge==1
+2022-06-09 20:10:12,618 - RTECrudOperations -INFO - Charge is deleted
+2022-06-09 20:10:12,619 - RTECrudOperations -INFO - =========RTE Customer Charges Test End============
+2022-06-09 20:10:13,063 - RTECrudOperations -INFO - Clicked on Job Status tab
+2022-06-09 20:10:13,788 - RTECrudOperations -INFO - Result of UnMerge method is==PASS
+2022-06-09 20:10:14,267 - RTECrudOperations -INFO - Clicked on Acknowledge button
+2022-06-09 20:10:26,380 - RTECrudOperations -INFO - Job status is==RDY FOR DSP
+2022-06-09 20:10:26,417 - RTECrudOperations -INFO - ======================RTE Edit Driver Test Start==================
+2022-06-09 20:10:26,670 - RTECrudOperations -INFO - Clicked on Edit button of Driver
+2022-06-09 20:10:28,666 - RTECrudOperations -INFO - Enter Agent Key
+2022-06-09 20:10:28,816 - RTECrudOperations -INFO - Clicked on search button
+2022-06-09 20:10:29,491 - RTECrudOperations -INFO - Total Agent==11
+2022-06-09 20:10:29,659 - RTECrudOperations -INFO - There is no Agent with search parameter
+2022-06-09 20:10:29,866 - RTECrudOperations -INFO - There is no Agent with search parameter
+2022-06-09 20:10:30,048 - RTECrudOperations -INFO - There is no Agent with search parameter
+2022-06-09 20:10:30,236 - RTECrudOperations -INFO - There is no Agent with search parameter
+2022-06-09 20:10:30,422 - RTECrudOperations -INFO - There is no Agent with search parameter
+2022-06-09 20:10:30,609 - RTECrudOperations -INFO - There is no Agent with search parameter
+2022-06-09 20:10:30,798 - RTECrudOperations -INFO - There is no Agent with search parameter
+2022-06-09 20:10:30,984 - RTECrudOperations -INFO - There is no Agent with search parameter
+2022-06-09 20:10:31,222 - RTECrudOperations -INFO - There is no Agent with search parameter
+2022-06-09 20:10:31,468 - RTECrudOperations -INFO - There is no Agent with search parameter
+2022-06-09 20:10:31,669 - RTECrudOperations -INFO - Searched Agent is exist
+2022-06-09 20:10:31,711 - RTECrudOperations -INFO - Total Checkboxes==4
+2022-06-09 20:10:31,795 - RTECrudOperations -INFO - Name of the checkbox is== Heavy Weight
+2022-06-09 20:10:31,838 - RTECrudOperations -INFO - Clicked on Heavy Weight
+2022-06-09 20:10:31,890 - RTECrudOperations -INFO - Clicked on search button
+2022-06-09 20:11:22,645 - RTECrudOperations -INFO - Agent(s) is/are available with the search parameters
+2022-06-09 20:11:22,707 - RTECrudOperations -INFO - Clicked on Heavy Weight
+2022-06-09 20:11:22,783 - RTECrudOperations -INFO - Name of the checkbox is== TSA Certified
+2022-06-09 20:11:22,809 - RTECrudOperations -INFO - Clicked on TSA Certified
+2022-06-09 20:11:22,925 - RTECrudOperations -INFO - Clicked on search button
+2022-06-09 20:12:14,633 - RTECrudOperations -INFO - Agent(s) is/are available with the search parameters
+2022-06-09 20:12:14,661 - RTECrudOperations -INFO - Clicked on TSA Certified
+2022-06-09 20:12:14,733 - RTECrudOperations -INFO - Name of the checkbox is== FDX TSA
+2022-06-09 20:12:14,763 - RTECrudOperations -INFO - Clicked on FDX TSA
+2022-06-09 20:12:14,815 - RTECrudOperations -INFO - Clicked on search button
+2022-06-09 20:13:05,669 - RTECrudOperations -INFO - Agent(s) is/are available with the search parameters
+2022-06-09 20:13:05,695 - RTECrudOperations -INFO - Clicked on FDX TSA
+2022-06-09 20:13:05,771 - RTECrudOperations -INFO - Name of the checkbox is== Elevated Risk Certified
+2022-06-09 20:13:05,797 - RTECrudOperations -INFO - Clicked on Elevated Risk Certified
+2022-06-09 20:13:05,854 - RTECrudOperations -INFO - Clicked on search button
+2022-06-09 20:13:56,505 - RTECrudOperations -INFO - Agent(s) is/are available with the search parameters
+2022-06-09 20:13:56,532 - RTECrudOperations -INFO - Clicked on Elevated Risk Certified
+2022-06-09 20:13:56,994 - RTECrudOperations -INFO - Enter CourierID
+2022-06-09 20:13:57,055 - RTECrudOperations -INFO - Clicked on search button
+2022-06-09 20:13:57,723 - RTECrudOperations -INFO - Total Agent==2
+2022-06-09 20:13:57,916 - RTECrudOperations -INFO - There is no Agent with search parameter
+2022-06-09 20:13:58,121 - RTECrudOperations -INFO - Searched Agent is exist
+2022-06-09 20:13:58,465 - RTECrudOperations -INFO - Select the AgentID
+2022-06-09 20:13:59,263 - RTECrudOperations -INFO - Selected agent is==34769
+2022-06-09 20:13:59,264 - RTECrudOperations -INFO - Selected Agent is displayed in Driver section
+2022-06-09 20:13:59,310 - RTECrudOperations -INFO - Total Vehicles==4
+2022-06-09 20:13:59,381 - RTECrudOperations -INFO - Name of the Vehicle==Car
+2022-06-09 20:13:59,435 - RTECrudOperations -INFO - Car is selected
+2022-06-09 20:13:59,499 - RTECrudOperations -INFO - Name of the Vehicle==Van
+2022-06-09 20:13:59,614 - RTECrudOperations -INFO - Name of the Vehicle==StraightTruck
+2022-06-09 20:13:59,722 - RTECrudOperations -INFO - Name of the Vehicle==Trailer
+2022-06-09 20:13:59,931 - RTECrudOperations -INFO - Driver is selected
+2022-06-09 20:14:00,210 - RTECrudOperations -INFO - Enter driver contact number
+2022-06-09 20:14:00,428 - RTECrudOperations -INFO - Toll Concession is selected
+2022-06-09 20:14:00,428 - RTECrudOperations -INFO - ======================RTE Edit Driver Test End==================
+2022-06-09 20:14:00,871 - RTECrudOperations -INFO - Clicked on Send PU Alert button
+2022-06-09 20:14:53,343 - RTECrudOperations -INFO - Spoke With validation is not displayed
+2022-06-09 20:14:53,344 - RTECrudOperations -INFO - ======================RTE Crud Operations Test End==================
+2022-06-09 20:15:29,863 - RTECrudOperations -INFO - Search LOC job method is run because UnMerge is working
+2022-06-09 20:15:39,057 - RTECrudOperations -INFO - =========RTE Search LOC job Test Start============
+2022-06-09 20:15:41,793 - RTECrudOperations -INFO - Clicked on Operations
+2022-06-09 20:15:44,947 - RTECrudOperations -INFO - Clicked on TaskLog
+2022-06-09 20:15:53,411 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-06-09 20:15:55,264 - RTECrudOperations -INFO - Click on Search button
+2022-06-09 20:15:59,178 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-06-09 20:15:59,181 - RTECrudOperations -INFO - LOC job is created with Unmerged shipment
+2022-06-09 20:17:45,731 - RTECrudOperations -INFO - Entered PickupID is==3444462
+2022-06-09 20:17:46,053 - RTECrudOperations -INFO - PickupID is==PickupId_N7896355
+2022-06-09 20:17:46,056 - RTECrudOperations -INFO - Searched job is not exist
+2022-06-09 20:17:49,243 - RTECrudOperations -INFO - Entered PickupID is==3444462
+2022-06-09 20:17:49,512 - RTECrudOperations -INFO - PickupID is==PickupId_N3444462
+2022-06-09 20:17:49,514 - RTECrudOperations -INFO - Searched job is exist
+2022-06-09 20:17:50,298 - RTECrudOperations -INFO - Clicked on searched Job
+2022-06-09 20:18:01,728 - RTECrudOperations -INFO - Job status is==CSR ACKNOWLEDGE
+2022-06-09 20:18:02,818 - RTECrudOperations -INFO - Clicked on Edit Job tab
+2022-06-09 20:18:04,365 - RTECrudOperations -INFO - Enter Caller Name
+2022-06-09 20:18:05,874 - RTECrudOperations -INFO - Enter Caller Phone
+2022-06-09 20:18:07,483 - RTECrudOperations -INFO - Enter Deliver Caller Name
+2022-06-09 20:18:09,019 - RTECrudOperations -INFO - Enter Delivery Phone
+2022-06-09 20:18:12,088 - RTECrudOperations -INFO - Enter Commodity
+2022-06-09 20:18:15,820 - RTECrudOperations -INFO - Clicked on Save Changes
+2022-06-09 20:18:21,649 - RTECrudOperations -INFO - Clicked on Save&Exit
+2022-06-09 20:18:28,408 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-06-09 20:18:30,221 - RTECrudOperations -INFO - Click on Search button
+2022-06-09 20:18:36,132 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-06-09 20:18:36,136 - RTECrudOperations -INFO - LOC job is created with Unmerged shipment
+2022-06-09 20:18:43,309 - RTECrudOperations -INFO - Job status is==CONFIRM PU ALERT
+2022-06-09 20:18:45,721 - RTECrudOperations -INFO - Clicked on Edit Job tab
+2022-06-09 20:21:21,695 - RTECrudOperations -INFO - Logout Message is displayed==You have successfully logged out!
+2022-06-09 20:21:21,696 - RTECrudOperations -INFO - Logout done
+2022-06-09 20:21:22,631 - RTECrudOperations -INFO - ====Sending Email=====
