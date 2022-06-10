@@ -108,9 +108,11 @@ public class SearchLOCJob extends BaseInit {
 					wait.until(ExpectedConditions.elementToBeClickable(EditJob));
 					js.executeScript("arguments[0].click();", EditJob);
 					logs.info("Clicked on Edit Job tab");
+					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 					// --Enter caller name
 					WebElement CallerName = isElementPresent("TLEJCallerName_id");
+					js.executeScript("arguments[0].scrollIntoView();", CallerName);
 					act.moveToElement(CallerName).build().perform();
 					wait.until(ExpectedConditions.elementToBeClickable(CallerName));
 					CallerName.sendKeys("Pickup Caller");

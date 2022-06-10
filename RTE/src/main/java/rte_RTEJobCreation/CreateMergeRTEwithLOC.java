@@ -251,10 +251,11 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 									String[] lineSplits = inLine.split(" ");
 									for (String Detail : lineSplits) {
 										if (Detail.contains("RT")) {
-											Detail.trim();
-											System.out.println("RoutWorkID is==" + Detail);
-											logs.info("RoutWorkID is==" + Detail);
-											setData("RTECreation", 8, 1, Detail);
+											final String RWID = Detail.split("\\.")[0];
+											RWID.trim();
+											System.out.println("RoutWorkID is==" + RWID);
+											logs.info("RoutWorkID is==" + RWID);
+											setData("RTECreation", 8, 1, RWID);
 											logs.info("Stored RoutWorkID in excel");
 
 										}
