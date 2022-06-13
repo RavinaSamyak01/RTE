@@ -85,7 +85,7 @@ public class BaseInit {
 			options.addArguments("--proxy-bypass-list=*");
 			options.addArguments("--disable-extensions");
 			options.addArguments("--no-sandbox");
-			options.addArguments("--start-maximized");
+			// options.addArguments("--start-maximized");
 			String downloadFilepath = System.getProperty("user.dir") + "\\src\\main\\resources";
 			HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
 			chromePrefs.put("profile.default_content_settings.popups", 0);
@@ -96,7 +96,8 @@ public class BaseInit {
 			capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
 			capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 			// options.addArguments("--headless");
-			// options.addArguments("window-size=1255x708");
+			options.addArguments("window-size=1032, 776");
+			// options.addArguments("window-size=1936,1056");
 			capabilities.setPlatform(Platform.ANY);
 
 			driver = new ChromeDriver(options);
@@ -114,7 +115,7 @@ public class BaseInit {
 			 * driver.manage().window().setSize(newDimension);
 			 */
 
-			//driver.manage().window().maximize();
+			// driver.manage().window().maximize();
 			login();
 
 		}
@@ -311,8 +312,6 @@ public class BaseInit {
 				ExpectedConditions.invisibilityOfElementLocated(By.xpath("//span[contains(text(),'Logging In...')]")));
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("welcomecontent")));
-
-		// --Welcome Content
 
 	}
 

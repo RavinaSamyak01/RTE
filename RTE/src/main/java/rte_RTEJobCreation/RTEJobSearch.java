@@ -8,6 +8,7 @@ import java.util.List;
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -20,10 +21,11 @@ import rte_BasePackage.BaseInit;
 public class RTEJobSearch extends BaseInit {
 
 	@Test
-	public void rteJobSearch() throws IOException, EncryptedDocumentException, InvalidFormatException {
+	public void rteJobSearch()
+			throws IOException, EncryptedDocumentException, InvalidFormatException, InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		Actions act = new Actions(driver);
-		// JavascriptExecutor js = (JavascriptExecutor) driver;
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 
 		logs.info("======================RTE Job Search Test start==================");
 		msg.append("======================RTE Job Search Test start==================" + "\n");
@@ -232,26 +234,38 @@ public class RTEJobSearch extends BaseInit {
 						}
 
 						// --Not working in jenkins because of window size
-						/*
-						 * // ---Select Record WebElement Job = driver.findElement(By.id(JobID));
-						 * act.moveToElement(Job).click().perform(); logs.info("Clicked on Record");
-						 * wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")
-						 * ));
-						 * 
-						 * wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id(
-						 * "RouteWorkFlow"))); getScreenshot(driver, "JobEditor_RWTrackingID");
-						 * 
-						 * // --Exit Without Save isElementPresent("TLEXWSave_id").click();
-						 * logs.info("Clicked on Exit without Save");
-						 * wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")
-						 * ));
-						 */
+						js.executeScript("document.body.style.zoom='80%';");
+						Thread.sleep(2000);
 
-						// --Go to TaskManager tab
-						wait.until(ExpectedConditions.elementToBeClickable(By.id("hlkTaskManager")));
-						isElementPresent("TaskManager_id").click();
-						logs.info("Click on Task Manager Tab");
+						// ---Select Record
+						WebElement Job = driver.findElement(By.id(JobID));
+						act.moveToElement(Job).build().perform();
+						js.executeScript("arguments[0].click();", Job);
+						logs.info("Clicked on Record");
 						wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+						js.executeScript("document.body.style.zoom='100%';");
+						Thread.sleep(2000);
+
+						wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
+						getScreenshot(driver, "JobEditor_RWTrackingID");
+
+						// --Exit Without Save
+						isElementPresent("TLEXWSave_id").click();
+						logs.info("Clicked on Exit without Save");
+						wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+						try {
+							// --Go to TaskManager tab
+							wait.until(ExpectedConditions.elementToBeClickable(By.id("hlkTaskManager")));
+							logs.info("Task Manager tab is not selected, select it");
+							isElementPresent("TaskManager_id").click();
+							logs.info("Click on Task Manager Tab");
+							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+						} catch (Exception e) {
+
+							logs.info("Task Manager tab is selected");
+
+						}
 
 						// --Enter pickUpID
 
@@ -316,20 +330,21 @@ public class RTEJobSearch extends BaseInit {
 
 									if (PickUPId.contains(PickUpID)) {
 										logs.info("Searched job is exist");
-										/*
-										 * // --Click on the job jobs.get(job).click();
-										 * logs.info("Clicked on searched Job");
-										 * 
-										 * // --Job Status wait.until(ExpectedConditions
-										 * .visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
-										 * getScreenshot(driver, "JobEditor_PickUP");
-										 * 
-										 * // --Exit Without Save isElementPresent("TLEXWSave_id").click();
-										 * logs.info("Clicked on Exit without Save");
-										 * wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")
-										 * ));
-										 * 
-										 */
+
+										// --Click on the job
+										jobs.get(job).click();
+										logs.info("Clicked on searched Job");
+
+										// --Job Status
+										wait.until(ExpectedConditions
+												.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
+										getScreenshot(driver, "JobEditor_PickUP");
+
+										// --Exit Without Save
+										isElementPresent("TLEXWSave_id").click();
+										logs.info("Clicked on Exit without Save");
+										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
 										// --Go to Search All Job
 										wait.until(
 												ExpectedConditions.visibilityOfElementLocated(By.id("hlkOrderSearch")));

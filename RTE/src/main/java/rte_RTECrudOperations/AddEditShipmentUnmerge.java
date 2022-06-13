@@ -227,6 +227,50 @@ public class AddEditShipmentUnmerge extends BaseInit {
 				logs.info("Validation is not displayed, everything is as per expected");
 
 			}
+
+			try {
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("errorid")));
+				String ErrorMsg = isElementPresent("Error_id").getText();
+				if (ErrorMsg.contains("Delivery Quoted time cannot be less than Pickup Quoted time.")) {
+					logs.info("Validation is displayed==" + ErrorMsg);
+
+					// --Enter PU Date
+					WebElement PUDate = isElementPresent("ASDPUDate_id");
+					PUDate.clear();
+					date = new Date();
+					dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+					dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+					Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
+					cal.add(Calendar.DATE, -1);
+					logs.info(dateFormat.format(cal.getTime()));
+					PUDate.sendKeys(dateFormat.format(cal.getTime()));
+					PUDate.sendKeys(Keys.TAB);
+					logs.info("Entered PickUp Date");
+
+					// --Enter PU Time
+					WebElement PUTime = isElementPresent("ASDPUpTime_id");
+					PUTime.clear();
+					date = new Date();
+					dateFormat = new SimpleDateFormat("HH:mm");
+					dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+					cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
+					cal.add(Calendar.MINUTE, -60);
+					logs.info(dateFormat.format(cal.getTime()));
+					wait.until(ExpectedConditions.elementToBeClickable(By.id("txtPUSCHACTTime")));
+					PUTime.sendKeys(dateFormat.format(cal.getTime()));
+					logs.info("Entered Actual PickUp Time");
+
+					// --Click on Save
+					isElementPresent("ASSave_id").click();
+					logs.info("Click on Save");
+					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+				}
+
+			} catch (Exception Time) {
+				logs.info("Validation is not displayed, QDT Date and time is as per expected");
+
+			}
 			// --TotalNo OF shipment Stop
 			SDetails = driver.findElements(
 					By.xpath("//*[@id=\"scrollRoute\"]//div[contains(@ng-repeat,'ShipmentDetailList ')]"));

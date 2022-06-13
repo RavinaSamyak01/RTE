@@ -85,16 +85,16 @@ public class ShipmentDetails extends BaseInit {
 
 				}
 				// --Click on Upload
-				upload();
+				//upload();
 
 				// --Click on Memo
-				addViewMemo();
+				//addViewMemo();
 
 				// --Click on QC
-				rteQC();
+				//rteQC();
 
 				// --Click on UnMerge
-				rteUnMerge();
+				//rteUnMerge();
 
 				// --
 

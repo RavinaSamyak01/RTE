@@ -24,7 +24,8 @@ import rte_BasePackage.BaseInit;
 public class CreateMergeRTEwithLOC extends BaseInit {
 
 	@Test
-	public void createMergeRTEWithLOCJob() throws EncryptedDocumentException, InvalidFormatException, IOException {
+	public void createMergeRTEWithLOCJob()
+			throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		Actions act = new Actions(driver);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -233,7 +234,7 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 								WebElement CreateRoute = isElementPresent("TLRWCreateRoute_id");
 								wait.until(ExpectedConditions.elementToBeClickable(CreateRoute));
 								act.moveToElement(CreateRoute).build().perform();
-								act.moveToElement(CreateRoute).click().perform();
+								js.executeScript("arguments[0].click();", CreateRoute);
 
 								logs.info("Clicked on Create Route button of RTE form");
 
@@ -296,13 +297,29 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 								logs.info("TrackingNo of RTE job is==" + RWTrackNo);
 
 								// --Select the RTE which is created on current date
+								RList = isElementPresent("TLRWListDrp_id");
+								act.moveToElement(RList).build().perform();
+								act.moveToElement(RList).click().perform();
+								Thread.sleep(2000);
+
 								List<WebElement> optionElements = driver
 										.findElements(By.xpath("//*[@id=\"drpRouteList\"]//option"));
+								int TotalOpts = optionElements.size();
+								logs.info("Total No of RTE job are==" + TotalOpts);
 
-								for (WebElement optionElement : optionElements) {
-									if (optionElement.getText().contains(RWTrackNo)) {
-										String optionIndex = optionElement.getAttribute("index");
-										RlistValue.selectByIndex(Integer.parseInt(optionIndex));
+								for (int optionElement = 0; optionElement < TotalOpts; optionElement++) {
+
+									String Optiontext = optionElements.get(optionElement).getText();
+
+									if (Optiontext.contains(RWTrackNo)) {
+										String optionIndex = optionElements.get(optionElement).getAttribute("index");
+										int OpIndex = Integer.parseInt(optionIndex);
+										logs.info("Index of RTE job is==" + OpIndex);
+										Thread.sleep(2000);
+										RlistValue = new Select(RList);
+										RlistValue.selectByIndex(OpIndex);
+										Thread.sleep(2000);
+										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 										logs.info("Selected RTE Job");
 										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 										getScreenshot(driver, "MergeRTEwithLOC_" + RWTrackNo);
@@ -314,8 +331,7 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 								WebElement CreateRoute = isElementPresent("TLRWCreateRoute_id");
 								wait.until(ExpectedConditions.elementToBeClickable(CreateRoute));
 								act.moveToElement(CreateRoute).build().perform();
-								act.moveToElement(CreateRoute).click().perform();
-
+								js.executeScript("arguments[0].click();", CreateRoute);
 								logs.info("Clicked on Merge Route button of RTE form");
 
 								wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));

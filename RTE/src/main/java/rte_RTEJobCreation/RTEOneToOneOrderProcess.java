@@ -10,6 +10,7 @@ import java.util.TimeZone;
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -26,6 +27,9 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		Actions act = new Actions(driver);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+
+
 
 		logs.info("======================RTE OneToOne Order Processing Test Start==================");
 		msg.append("======================RTE OneToOne Order Processing Test Start==================" + "\n");
@@ -106,6 +110,7 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 				// --Click on Acknowledge button
 				wait.until(ExpectedConditions.elementToBeClickable(By.id("GreyTick")));
 				isElementPresent("TLAcknoldge_id").click();
+				
 				logs.info("Clicked on Acknowledge button");
 				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
