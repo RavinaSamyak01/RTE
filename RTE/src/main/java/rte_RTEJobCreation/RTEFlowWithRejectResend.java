@@ -34,15 +34,46 @@ public class RTEFlowWithRejectResend extends BaseInit {
 				"======================RTE Reject/Resend/CallBack/PendingDelivery Test Start==================" + "\n");
 
 		// --Go To Operations
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("a_operations")));
-		WebElement Operations = isElementPresent("OperationsTab_id");
-		act.moveToElement(Operations).click().perform();
-		logs.info("Clicked on Operations");
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+		try {
+			// --Go To Operations
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("a_operations")));
+			wait.until(ExpectedConditions.elementToBeClickable(By.id("a_operations")));
+			isElementPresent("OperationsTab_id").click();
+			logs.info("Clicked on Operations");
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+			wait.until(ExpectedConditions
+					.visibilityOfAllElementsLocatedBy(By.xpath("//*[@class=\"OpenCloseClass dropdown open\"]//ul")));
 
-		wait.until(ExpectedConditions
-				.visibilityOfAllElementsLocatedBy(By.xpath("//*[@class=\"OpenCloseClass dropdown open\"]//ul")));
+		} catch (Exception operation) {
+			try {
 
+				// --Go To Operations
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("a_operations")));
+				WebElement Operations = isElementPresent("OperationsTab_id");
+				act.moveToElement(Operations).build().perform();
+				wait.until(ExpectedConditions.elementToBeClickable(Operations));
+				act.moveToElement(Operations).click().perform();
+				logs.info("Clicked on Operations");
+				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
+						By.xpath("//*[@class=\"OpenCloseClass dropdown open\"]//ul")));
+
+			} catch (Exception ope) {
+				// --Go To Operations
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("a_operations")));
+				WebElement Operations = isElementPresent("OperationsTab_id");
+				act.moveToElement(Operations).build().perform();
+				wait.until(ExpectedConditions.elementToBeClickable(Operations));
+				js.executeScript("arguments[0].click();", Operations);
+				logs.info("Clicked on Operations");
+				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
+						By.xpath("//*[@class=\"OpenCloseClass dropdown open\"]//ul")));
+
+			}
+		}
 		// --Go to TaskLog
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("a_TaskLog")));
 		isElementPresent("TaskLog_id").click();
@@ -763,6 +794,8 @@ public class RTEFlowWithRejectResend extends BaseInit {
 
 															// --Click on End Route
 															EndR = isElementPresent("TLEndRoute_id");
+															js.executeScript("arguments[0].scrollIntoView(true);",
+																	EndR);
 															wait.until(ExpectedConditions.visibilityOf(EndR));
 															act.moveToElement(EndR).build().perform();
 															act.moveToElement(EndR).click().perform();
@@ -791,7 +824,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 													try {
 														wait.until(ExpectedConditions
 																.visibilityOfElementLocated(By.id("txtContains")));
-														PickUpID = getData("SearchRTE", 1, 2);
+														PickUpID = getData("SearchRTE", 2, 2);
 														isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 														logs.info("Entered PickUpID in basic search");
 
@@ -842,7 +875,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 																	wait.until(ExpectedConditions
 																			.visibilityOfElementLocated(
 																					By.id("txtContains")));
-																	PickUpID = getData("SearchRTE", 1, 2);
+																	PickUpID = getData("SearchRTE", 2, 2);
 																	isElementPresent("TLBasicSearch_id")
 																			.sendKeys(PickUpID);
 																	logs.info("Entered PickUpID in basic search");
@@ -881,6 +914,14 @@ public class RTEFlowWithRejectResend extends BaseInit {
 																		if (jobStatus.contains("VERIFIED")) {
 																			logs.info("Job is moved to VERIFIED stage");
 																			getScreenshot(driver, "JobEditor_Verified");
+																			PickUpID = getData("SearchRTE", 2, 2);
+																			msg.append("PickUP ID is==." + PickUpID
+																					+ "\n");
+																			msg.append("Job is Proceed successfully."
+																					+ "\n");
+																			msg.append("Job status is==." + jobStatus
+																					+ "\n");
+
 																			WebElement EWSave = isElementPresent(
 																					"TLQCExitWSave_id");
 																			wait.until(ExpectedConditions
@@ -1648,6 +1689,8 @@ public class RTEFlowWithRejectResend extends BaseInit {
 
 															// --Click on End Route
 															EndR = isElementPresent("TLEndRoute_id");
+															js.executeScript("arguments[0].scrollIntoView(true);",
+																	EndR);
 															wait.until(ExpectedConditions.visibilityOf(EndR));
 															act.moveToElement(EndR).build().perform();
 															act.moveToElement(EndR).click().perform();
@@ -1676,7 +1719,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 													try {
 														wait.until(ExpectedConditions
 																.visibilityOfElementLocated(By.id("txtContains")));
-														PickUpID = getData("SearchRTE", 1, 2);
+														PickUpID = getData("SearchRTE", 2, 2);
 														isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 														logs.info("Entered PickUpID in basic search");
 
@@ -1727,7 +1770,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 																	wait.until(ExpectedConditions
 																			.visibilityOfElementLocated(
 																					By.id("txtContains")));
-																	PickUpID = getData("SearchRTE", 1, 2);
+																	PickUpID = getData("SearchRTE", 2, 2);
 																	isElementPresent("TLBasicSearch_id")
 																			.sendKeys(PickUpID);
 																	logs.info("Entered PickUpID in basic search");
@@ -2459,6 +2502,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 
 													// --Click on End Route
 													EndR = isElementPresent("TLEndRoute_id");
+													js.executeScript("arguments[0].scrollIntoView(true);", EndR);
 													wait.until(ExpectedConditions.visibilityOf(EndR));
 													act.moveToElement(EndR).build().perform();
 													act.moveToElement(EndR).click().perform();
@@ -2487,7 +2531,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 											try {
 												wait.until(ExpectedConditions
 														.visibilityOfElementLocated(By.id("txtContains")));
-												PickUpID = getData("SearchRTE", 1, 2);
+												PickUpID = getData("SearchRTE", 2, 2);
 												isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 												logs.info("Entered PickUpID in basic search");
 
@@ -2535,7 +2579,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 														try {
 															wait.until(ExpectedConditions
 																	.visibilityOfElementLocated(By.id("txtContains")));
-															PickUpID = getData("SearchRTE", 1, 2);
+															PickUpID = getData("SearchRTE", 2, 2);
 															isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 															logs.info("Entered PickUpID in basic search");
 
@@ -3070,6 +3114,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 
 												// --Click on End Route
 												EndR = isElementPresent("TLEndRoute_id");
+												js.executeScript("arguments[0].scrollIntoView(true);", EndR);
 												wait.until(ExpectedConditions.visibilityOf(EndR));
 												act.moveToElement(EndR).build().perform();
 												act.moveToElement(EndR).click().perform();
@@ -3097,7 +3142,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 										try {
 											wait.until(ExpectedConditions
 													.visibilityOfElementLocated(By.id("txtContains")));
-											PickUpID = getData("SearchRTE", 1, 2);
+											PickUpID = getData("SearchRTE", 2, 2);
 											isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 											logs.info("Entered PickUpID in basic search");
 
@@ -3145,7 +3190,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 													try {
 														wait.until(ExpectedConditions
 																.visibilityOfElementLocated(By.id("txtContains")));
-														PickUpID = getData("SearchRTE", 1, 2);
+														PickUpID = getData("SearchRTE", 2, 2);
 														isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 														logs.info("Entered PickUpID in basic search");
 
@@ -3612,6 +3657,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 
 											// --Click on End Route
 											EndR = isElementPresent("TLEndRoute_id");
+											js.executeScript("arguments[0].scrollIntoView(true);", EndR);
 											wait.until(ExpectedConditions.visibilityOf(EndR));
 											act.moveToElement(EndR).build().perform();
 											act.moveToElement(EndR).click().perform();
@@ -3637,7 +3683,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 
 									try {
 										wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
-										PickUpID = getData("SearchRTE", 1, 2);
+										PickUpID = getData("SearchRTE", 2, 2);
 										isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 										logs.info("Entered PickUpID in basic search");
 
@@ -3683,7 +3729,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 												try {
 													wait.until(ExpectedConditions
 															.visibilityOfElementLocated(By.id("txtContains")));
-													PickUpID = getData("SearchRTE", 1, 2);
+													PickUpID = getData("SearchRTE", 2, 2);
 													isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 													logs.info("Entered PickUpID in basic search");
 
@@ -4012,6 +4058,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 
 										// --Click on End Route
 										EndR = isElementPresent("TLEndRoute_id");
+										js.executeScript("arguments[0].scrollIntoView(true);", EndR);
 										wait.until(ExpectedConditions.visibilityOf(EndR));
 										act.moveToElement(EndR).build().perform();
 										act.moveToElement(EndR).click().perform();
@@ -4036,7 +4083,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 
 								try {
 									wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
-									PickUpID = getData("SearchRTE", 1, 2);
+									PickUpID = getData("SearchRTE", 2, 2);
 									isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 									logs.info("Entered PickUpID in basic search");
 
@@ -4082,7 +4129,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 											try {
 												wait.until(ExpectedConditions
 														.visibilityOfElementLocated(By.id("txtContains")));
-												PickUpID = getData("SearchRTE", 1, 2);
+												PickUpID = getData("SearchRTE", 2, 2);
 												isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 												logs.info("Entered PickUpID in basic search");
 
@@ -4261,6 +4308,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 
 							// --Click on End Route
 							EndR = isElementPresent("TLEndRoute_id");
+							js.executeScript("arguments[0].scrollIntoView(true);", EndR);
 							wait.until(ExpectedConditions.visibilityOf(EndR));
 							act.moveToElement(EndR).build().perform();
 							act.moveToElement(EndR).click().perform();
@@ -4285,7 +4333,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 
 					try {
 						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
-						PickUpID = getData("SearchRTE", 1, 2);
+						PickUpID = getData("SearchRTE", 2, 2);
 						isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 						logs.info("Entered PickUpID in basic search");
 
@@ -4328,7 +4376,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 
 								try {
 									wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
-									PickUpID = getData("SearchRTE", 1, 2);
+									PickUpID = getData("SearchRTE", 2, 2);
 									isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 									logs.info("Entered PickUpID in basic search");
 
@@ -4447,7 +4495,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 
 					try {
 						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
-						PickUpID = getData("SearchRTE", 1, 2);
+						PickUpID = getData("SearchRTE", 2, 2);
 						isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 						logs.info("Entered PickUpID in basic search");
 

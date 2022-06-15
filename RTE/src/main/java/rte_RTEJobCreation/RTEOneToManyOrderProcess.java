@@ -76,7 +76,6 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 			}
 		}
 
-
 		// --Go to TaskLog
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("a_TaskLog")));
 		isElementPresent("TaskLog_id").click();
@@ -589,6 +588,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 
 														// --Click on End Route
 														EndR = isElementPresent("TLEndRoute_id");
+														js.executeScript("arguments[0].scrollIntoView(true);", EndR);
 														wait.until(ExpectedConditions.visibilityOf(EndR));
 														act.moveToElement(EndR).build().perform();
 														act.moveToElement(EndR).click().perform();
@@ -703,6 +703,12 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 																	if (jobStatus.contains("VERIFIED")) {
 																		logs.info("Job is moved to VERIFIED stage");
 																		getScreenshot(driver, "JobEditor_Verified");
+																		PickUpID = getData("OneToMany", 1, 2);																		msg.append("PickUP ID is==." + PickUpID + "\n");
+																		msg.append("PickUP ID is==." + PickUpID + "\n");
+																		msg.append(
+																				"Job is Proceed successfully." + "\n");
+																		msg.append(
+																				"Job status is==." + jobStatus + "\n");
 
 																	} else {
 																		logs.info("Job is not moved to VERIFIED stage");
@@ -1254,6 +1260,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 
 													// --Click on End Route
 													EndR = isElementPresent("TLEndRoute_id");
+													js.executeScript("arguments[0].scrollIntoView(true);", EndR);
 													wait.until(ExpectedConditions.visibilityOf(EndR));
 													act.moveToElement(EndR).build().perform();
 													act.moveToElement(EndR).click().perform();
@@ -1837,6 +1844,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 
 											// --Click on End Route
 											EndR = isElementPresent("TLEndRoute_id");
+											js.executeScript("arguments[0].scrollIntoView(true);", EndR);
 											wait.until(ExpectedConditions.visibilityOf(EndR));
 											act.moveToElement(EndR).build().perform();
 											act.moveToElement(EndR).click().perform();
@@ -2356,6 +2364,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 
 											// --Click on End Route
 											EndR = isElementPresent("TLEndRoute_id");
+											js.executeScript("arguments[0].scrollIntoView(true);", EndR);
 											wait.until(ExpectedConditions.visibilityOf(EndR));
 											act.moveToElement(EndR).build().perform();
 											act.moveToElement(EndR).click().perform();
@@ -2799,6 +2808,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 
 										// --Click on End Route
 										EndR = isElementPresent("TLEndRoute_id");
+										js.executeScript("arguments[0].scrollIntoView(true);", EndR);
 										wait.until(ExpectedConditions.visibilityOf(EndR));
 										act.moveToElement(EndR).build().perform();
 										act.moveToElement(EndR).click().perform();
@@ -3044,6 +3054,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 
 							// --Click on End Route
 							EndR = isElementPresent("TLEndRoute_id");
+							js.executeScript("arguments[0].scrollIntoView(true);", EndR);
 							wait.until(ExpectedConditions.visibilityOf(EndR));
 							act.moveToElement(EndR).build().perform();
 							act.moveToElement(EndR).click().perform();

@@ -260,7 +260,6 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 											logs.info("Stored RoutWorkID in excel");
 
 										}
-										logs.info("RTE Job is created successfully,Something went wrong==PASS");
 
 									}
 								} catch (Exception e) {
@@ -366,7 +365,6 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 											logs.info("Pickup ID is==" + PUID);
 
 										}
-										logs.info("LOC Job is merged successfully,Something went wrong==PASS");
 
 									}
 								} catch (Exception e) {

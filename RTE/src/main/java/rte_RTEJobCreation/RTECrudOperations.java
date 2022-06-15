@@ -440,7 +440,10 @@ public class RTECrudOperations extends BaseInit {
 
 		// --run search LOC job
 		// --start search loc job and update
-		if (Result.equalsIgnoreCase("PASS")) {
+		if (Result == null) {
+			logs.info("Crud operation is not working");
+
+		} else if (Result.equalsIgnoreCase("PASS")) {
 			logs.info("Search LOC job method is run because UnMerge is working");
 
 			// --Call search LOC job method
@@ -448,7 +451,7 @@ public class RTECrudOperations extends BaseInit {
 			SLResult = SLJob.searchcreatedLOCJob();
 			logs.info("Result of Search LOC job method is==" + SLResult);
 
-		}if (Result.equalsIgnoreCase("FAIL")) {
+		} else if (Result.equalsIgnoreCase("FAIL")) {
 			logs.info("Search LOC job method is not run because Crud Operation is not run");
 			logs.info("Result of Search LOC job method is==" + SLResult);
 

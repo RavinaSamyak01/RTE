@@ -29,8 +29,6 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 		Actions act = new Actions(driver);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 
-
-
 		logs.info("======================RTE OneToOne Order Processing Test Start==================");
 		msg.append("======================RTE OneToOne Order Processing Test Start==================" + "\n");
 
@@ -76,7 +74,6 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 
 			}
 		}
-
 
 		// --Go to TaskLog
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("a_TaskLog")));
@@ -144,7 +141,7 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 				// --Click on Acknowledge button
 				wait.until(ExpectedConditions.elementToBeClickable(By.id("GreyTick")));
 				isElementPresent("TLAcknoldge_id").click();
-				
+
 				logs.info("Clicked on Acknowledge button");
 				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
@@ -516,6 +513,7 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 
 														// --Click on End Route
 														EndR = isElementPresent("TLEndRoute_id");
+														js.executeScript("arguments[0].scrollIntoView(true);", EndR);
 														wait.until(ExpectedConditions.visibilityOf(EndR));
 														act.moveToElement(EndR).build().perform();
 														act.moveToElement(EndR).click().perform();
@@ -630,6 +628,12 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 																	if (jobStatus.contains("VERIFIED")) {
 																		logs.info("Job is moved to VERIFIED stage");
 																		getScreenshot(driver, "JobEditor_Verified");
+																		PickUpID = getData("SearchRTE", 1, 2);
+																		msg.append("PickUP ID is==." + PickUpID + "\n");
+																		msg.append(
+																				"Job is Proceed successfully." + "\n");
+																		msg.append(
+																				"Job status is==." + jobStatus + "\n");
 
 																	} else {
 																		logs.info("Job is not moved to VERIFIED stage");
@@ -1095,6 +1099,7 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 
 														// --Click on End Route
 														EndR = isElementPresent("TLEndRoute_id");
+														js.executeScript("arguments[0].scrollIntoView(true);", EndR);
 														wait.until(ExpectedConditions.visibilityOf(EndR));
 														act.moveToElement(EndR).build().perform();
 														act.moveToElement(EndR).click().perform();
@@ -1611,6 +1616,7 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 
 											// --Click on End Route
 											EndR = isElementPresent("TLEndRoute_id");
+											js.executeScript("arguments[0].scrollIntoView(true);", EndR);
 											wait.until(ExpectedConditions.visibilityOf(EndR));
 											act.moveToElement(EndR).build().perform();
 											act.moveToElement(EndR).click().perform();
@@ -2061,6 +2067,7 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 
 											// --Click on End Route
 											EndR = isElementPresent("TLEndRoute_id");
+											js.executeScript("arguments[0].scrollIntoView(true);", EndR);
 											wait.until(ExpectedConditions.visibilityOf(EndR));
 											act.moveToElement(EndR).build().perform();
 											act.moveToElement(EndR).click().perform();
@@ -2451,6 +2458,7 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 
 										// --Click on End Route
 										EndR = isElementPresent("TLEndRoute_id");
+										js.executeScript("arguments[0].scrollIntoView(true);", EndR);
 										wait.until(ExpectedConditions.visibilityOf(EndR));
 										act.moveToElement(EndR).build().perform();
 										act.moveToElement(EndR).click().perform();
@@ -2696,6 +2704,7 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 
 							// --Click on End Route
 							EndR = isElementPresent("TLEndRoute_id");
+							js.executeScript("arguments[0].scrollIntoView(true);", EndR);
 							wait.until(ExpectedConditions.visibilityOf(EndR));
 							act.moveToElement(EndR).build().perform();
 							act.moveToElement(EndR).click().perform();

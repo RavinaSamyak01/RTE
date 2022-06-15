@@ -96,7 +96,7 @@ public class BaseInit {
 			capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
 			capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 			// options.addArguments("--headless");
-			options.addArguments("window-size=1032, 776");
+			options.addArguments("window-size=1036x776");
 			// options.addArguments("window-size=1936,1056");
 			capabilities.setPlatform(Platform.ANY);
 
