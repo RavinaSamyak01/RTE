@@ -54,19 +54,19 @@ public class EditJob extends BaseInit {
 		setData("RouteDetail", 1, 1, PickupID);
 
 		// --View Rate
-		//viewRate();
+		viewRate();
 
 		// --View Memo
-		//viewMemo();
+		viewMemo();
 
 		// --Print Label
-		//printLabel();
+		printLabel();
 
 		// --Route/Shipment Details
-		//routeShipmentDetails();
+		routeShipmentDetails();
 
 		// --MAP
-	//	rteMap();
+		rteMap();
 
 		// --AddEdit Shipment and UnMerge
 		AddEditShipmentUnmerge AESUM = new AddEditShipmentUnmerge();
@@ -74,17 +74,18 @@ public class EditJob extends BaseInit {
 		logs.info("Result of UnMerge method is==" + Result);
 
 		// --Click on Memo
-		/*
-		 * ShipmentDetails SD = new ShipmentDetails(); SD.addViewMemo();
-		 */
+
+		ShipmentDetails SD = new ShipmentDetails();
+		SD.addViewMemo();
+
 		// --Click on Upload
-		//SD.upload();
+		SD.upload();
 
 		// --Click on QC
-		//SD.rteQC();
+		SD.rteQC();
 
 		// --Add/Delete Charges
-		//addDeleteChargesRecal();
+		addDeleteChargesRecal();
 
 		// --Move to Job STatus tab
 		// --Go to Edit Job

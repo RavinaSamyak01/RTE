@@ -23,7 +23,7 @@ import rte_BasePackage.BaseInit;
 public class RTEFlowWithRejectResend extends BaseInit {
 
 	@Test
-	public void rteRejectResendScen() throws EncryptedDocumentException, InvalidFormatException, IOException {
+	public void rteRejectResendScan() throws EncryptedDocumentException, InvalidFormatException, IOException {
 
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		Actions act = new Actions(driver);

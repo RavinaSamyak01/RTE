@@ -11,6 +11,7 @@ import java.util.TimeZone;
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -28,19 +29,53 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		Actions act = new Actions(driver);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 
 		logs.info("======================RTE One To Many Order Processing Test Start==================");
 		msg.append("======================RTE One To Many Order Processing Test Start==================" + "\n");
 
 		// --Go To Operations
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("a_operations")));
-		WebElement Operations = isElementPresent("OperationsTab_id");
-		act.moveToElement(Operations).click().perform();
-		logs.info("Clicked on Operations");
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+		try {
+			// --Go To Operations
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("a_operations")));
+			wait.until(ExpectedConditions.elementToBeClickable(By.id("a_operations")));
+			isElementPresent("OperationsTab_id").click();
+			logs.info("Clicked on Operations");
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+			wait.until(ExpectedConditions
+					.visibilityOfAllElementsLocatedBy(By.xpath("//*[@class=\"OpenCloseClass dropdown open\"]//ul")));
 
-		wait.until(ExpectedConditions
-				.visibilityOfAllElementsLocatedBy(By.xpath("//*[@class=\"OpenCloseClass dropdown open\"]//ul")));
+		} catch (Exception operation) {
+			try {
+
+				// --Go To Operations
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("a_operations")));
+				WebElement Operations = isElementPresent("OperationsTab_id");
+				act.moveToElement(Operations).build().perform();
+				wait.until(ExpectedConditions.elementToBeClickable(Operations));
+				act.moveToElement(Operations).click().perform();
+				logs.info("Clicked on Operations");
+				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
+						By.xpath("//*[@class=\"OpenCloseClass dropdown open\"]//ul")));
+
+			} catch (Exception ope) {
+				// --Go To Operations
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("a_operations")));
+				WebElement Operations = isElementPresent("OperationsTab_id");
+				act.moveToElement(Operations).build().perform();
+				wait.until(ExpectedConditions.elementToBeClickable(Operations));
+				js.executeScript("arguments[0].click();", Operations);
+				logs.info("Clicked on Operations");
+				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
+						By.xpath("//*[@class=\"OpenCloseClass dropdown open\"]//ul")));
+
+			}
+		}
+
 
 		// --Go to TaskLog
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("a_TaskLog")));

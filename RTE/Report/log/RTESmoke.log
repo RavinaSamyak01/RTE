@@ -1,51 +1,6 @@
-2022-06-13 22:13:51,028 - CreateMergeRTEwithLOC -INFO - initialization of the properties file is done
-2022-06-13 22:13:51,469 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Using chromedriver 102.0.5005.61 (since Google Chrome 102 is installed in your machine)
-2022-06-13 22:13:51,493 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Exporting webdriver.chrome.driver as C:\Users\rprajapati\.m2\repository\webdriver\chromedriver\win32\102.0.5005.61\chromedriver.exe
-2022-06-13 22:14:05,231 - CreateMergeRTEwithLOC -INFO - Entered UserName
-2022-06-13 22:14:06,400 - CreateMergeRTEwithLOC -INFO - Entered Password
-2022-06-13 22:14:07,616 - CreateMergeRTEwithLOC -INFO - Login done
-2022-06-13 22:14:36,062 - CreateMergeRTEwithLOC -INFO - Clicked on Operations
-2022-06-13 22:14:36,491 - CreateMergeRTEwithLOC -INFO - Clicked on TaskLog
-2022-06-13 22:14:41,522 - CreateMergeRTEwithLOC -INFO - PickUpID==3449980
-2022-06-13 22:14:41,523 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
-2022-06-13 22:14:41,715 - CreateMergeRTEwithLOC -INFO - Click on Yellow color Linktext
-2022-06-13 22:14:44,159 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
-2022-06-13 22:14:44,748 - CreateMergeRTEwithLOC -INFO - Entered PickupID is==3449980
-2022-06-13 22:14:44,771 - CreateMergeRTEwithLOC -INFO - PickupID is==PickupId_N3449980
-2022-06-13 22:14:44,772 - CreateMergeRTEwithLOC -INFO - Searched job is exist
-2022-06-13 22:14:44,818 - CreateMergeRTEwithLOC -INFO - Selected the Loc job
-2022-06-13 22:14:45,238 - CreateMergeRTEwithLOC -INFO - Clicked on Create RTE job
-2022-06-13 22:15:38,903 - CreateMergeRTEwithLOC -INFO - Able to UnMerge
-2022-06-13 22:15:39,103 - CreateMergeRTEwithLOC -INFO - ======================Merge with Exiting RTE Test Start==================
-2022-06-13 22:15:39,206 - CreateMergeRTEwithLOC -INFO - Selected Merge with Exiting RTE radio button
-2022-06-13 22:15:39,442 - CreateMergeRTEwithLOC -INFO - TrackingNo of RTE job is==126459557
-2022-06-13 22:15:41,832 - CreateMergeRTEwithLOC -INFO - Total No of RTE job are==62
-2022-06-13 22:15:43,454 - CreateMergeRTEwithLOC -INFO - Index of RTE job is==47
-2022-06-13 22:15:48,862 - CreateMergeRTEwithLOC -INFO - Selected RTE Job
-2022-06-13 22:16:26,156 - CreateMergeRTEwithLOC -INFO - Clicked on Merge Route button of RTE form
-2022-06-13 22:16:38,894 - CreateMergeRTEwithLOC -INFO - Message is displayed==RT00001993 Merge successfully with PickupId: 3449980.
-2022-06-13 22:16:38,898 - CreateMergeRTEwithLOC -INFO - RTE Job is created successfully.
-2022-06-13 22:16:38,901 - CreateMergeRTEwithLOC -INFO - RoutWorkID is==RT00001993
-2022-06-13 22:16:38,903 - CreateMergeRTEwithLOC -INFO - LOC job is not merged with correct RTE
-2022-06-13 22:16:38,906 - CreateMergeRTEwithLOC -INFO - LOC Job is merged successfully,Something went wrong==PASS
-2022-06-13 22:16:38,909 - CreateMergeRTEwithLOC -INFO - LOC Job is merged successfully,Something went wrong==PASS
-2022-06-13 22:16:38,911 - CreateMergeRTEwithLOC -INFO - LOC Job is merged successfully,Something went wrong==PASS
-2022-06-13 22:16:38,914 - CreateMergeRTEwithLOC -INFO - LOC Job is merged successfully,Something went wrong==PASS
-2022-06-13 22:16:38,916 - CreateMergeRTEwithLOC -INFO - LOC Job is merged successfully,Something went wrong==PASS
-2022-06-13 22:16:38,919 - CreateMergeRTEwithLOC -INFO - Pickup ID is==3449980
-2022-06-13 22:16:38,921 - CreateMergeRTEwithLOC -INFO - LOC Job is merged successfully,Something went wrong==PASS
-2022-06-13 22:16:40,822 - CreateMergeRTEwithLOC -INFO - Clicked on Cancel button of RTE form
-2022-06-13 22:16:49,623 - CreateMergeRTEwithLOC -INFO - PickUpID==3449980
-2022-06-13 22:16:49,625 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
-2022-06-13 22:16:51,553 - CreateMergeRTEwithLOC -INFO - Click on Search button
-2022-06-13 22:16:57,773 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
-2022-06-13 22:17:03,992 - CreateMergeRTEwithLOC -INFO - Job status is==TC ACK
-2022-06-13 22:17:04,325 - CreateMergeRTEwithLOC -INFO - Total Shipment==2
-2022-06-13 22:17:07,346 - CreateMergeRTEwithLOC -INFO - PickUP No stored in Excel is==3449980
-2022-06-13 22:17:07,648 - CreateMergeRTEwithLOC -INFO - PickUP No is==3449980
-2022-06-13 22:17:07,651 - CreateMergeRTEwithLOC -INFO - LOC job is converted in RTE successfully.
-2022-06-13 22:17:09,809 - CreateMergeRTEwithLOC -INFO - Clicked on Save&Exit
-2022-06-13 22:17:22,855 - CreateMergeRTEwithLOC -INFO - ======================Merge RTE with LOC Job Test End==================
-2022-06-13 22:17:28,174 - CreateMergeRTEwithLOC -INFO - Logout Message is displayed==You have successfully logged out!
-2022-06-13 22:17:28,175 - CreateMergeRTEwithLOC -INFO - Logout done
-2022-06-13 22:17:29,170 - CreateMergeRTEwithLOC -INFO - ====Sending Email=====
+2022-06-15 14:00:06,442 - RTECrudOperations -INFO - initialization of the properties file is done
+2022-06-15 14:00:06,760 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Using chromedriver 102.0.5005.61 (since Google Chrome 102 is installed in your machine)
+2022-06-15 14:00:06,780 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Exporting webdriver.chrome.driver as C:\WINDOWS\system32\config\systemprofile\.m2\repository\webdriver\chromedriver\win32\102.0.5005.61\chromedriver.exe
+2022-06-15 14:00:19,814 - RTECrudOperations -INFO - Entered UserName
+2022-06-15 14:00:20,983 - RTECrudOperations -INFO - Entered Password
+2022-06-15 14:00:22,178 - RTECrudOperations -INFO - Login done

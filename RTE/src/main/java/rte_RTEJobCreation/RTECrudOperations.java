@@ -99,6 +99,7 @@ public class RTECrudOperations extends BaseInit {
 				logs.info("There is no Data with Search parameter");
 
 			}
+			Result = "FAIL";
 		} catch (Exception NoData1) {
 
 			try {
@@ -445,6 +446,10 @@ public class RTECrudOperations extends BaseInit {
 			// --Call search LOC job method
 			SearchLOCJob SLJob = new SearchLOCJob();
 			SLResult = SLJob.searchcreatedLOCJob();
+			logs.info("Result of Search LOC job method is==" + SLResult);
+
+		}if (Result.equalsIgnoreCase("FAIL")) {
+			logs.info("Search LOC job method is not run because Crud Operation is not run");
 			logs.info("Result of Search LOC job method is==" + SLResult);
 
 		} else {
