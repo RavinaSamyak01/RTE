@@ -442,6 +442,7 @@ public class RTECrudOperations extends BaseInit {
 		// --start search loc job and update
 		if (Result == null) {
 			logs.info("Crud operation is not working");
+			SLResult = null;
 
 		} else if (Result.equalsIgnoreCase("PASS")) {
 			logs.info("Search LOC job method is run because UnMerge is working");
@@ -454,21 +455,29 @@ public class RTECrudOperations extends BaseInit {
 		} else if (Result.equalsIgnoreCase("FAIL")) {
 			logs.info("Search LOC job method is not run because Crud Operation is not run");
 			logs.info("Result of Search LOC job method is==" + SLResult);
-
+			SLResult = "FAIL";
 		} else {
 			logs.info("Search LOC job method is not run because UnMerge is not working");
 			logs.info("Result of Search LOC job method is==" + SLResult);
+			SLResult = "FAIL";
 
 		}
 
 		// --Run Create and Merge Job with RTE
-		if (SLResult.equalsIgnoreCase("PASS")) {
+		if (Result == null) {
+			logs.info("Search LOC Job is not working");
+			SLResult = null;
+
+		} else if (SLResult.equalsIgnoreCase("PASS")) {
 			logs.info("Create Merge RTE with LOC method is run because Search LOC job method is working");
 
 			// --Call search LOC job method
 			CreateMergeRTEwithLOC CMRL = new CreateMergeRTEwithLOC();
 			CMRL.createMergeRTEWithLOCJob();
 
+		} else if (Result.equalsIgnoreCase("FAIL")) {
+			logs.info("Create Merge RTE with LOC method is not run because Search LOC job method is not working");
+			SLResult = "FAIL";
 		} else {
 			logs.info("Create Merge RTE with LOC method is not run because Search LOC job method is not working");
 
