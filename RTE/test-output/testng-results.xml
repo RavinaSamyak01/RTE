@@ -2,46 +2,46 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-06-13T22:14:35 IST" name="Default suite" finished-at="2022-06-13T22:17:23 IST" duration-ms="167381">
+  <suite started-at="2022-06-15T19:48:11 IST" name="Default suite" finished-at="2022-06-15T20:42:27 IST" duration-ms="3256315">
     <groups>
     </groups>
-    <test started-at="2022-06-13T22:14:35 IST" name="Default test" finished-at="2022-06-13T22:17:23 IST" duration-ms="167381">
-      <class name="rte_RTEJobCreation.CreateMergeRTEwithLOC">
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:rte_RTEJobCreation.CreateMergeRTEwithLOC@72e5a8e]" started-at="2022-06-13T22:13:50 IST" name="beforeMethod" finished-at="2022-06-13T22:14:35 IST" duration-ms="45010" status="PASS">
+    <test started-at="2022-06-15T19:48:11 IST" name="Default test" finished-at="2022-06-15T20:42:27 IST" duration-ms="3256315">
+      <class name="rte_RTEJobCreation.RTECrudOperations">
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:rte_RTEJobCreation.RTECrudOperations@72e5a8e]" started-at="2022-06-15T19:47:41 IST" name="beforeMethod" finished-at="2022-06-15T19:48:11 IST" duration-ms="29933" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method is-config="true" signature="testMethodName(java.lang.reflect.Method)[pri:0, instance:rte_RTEJobCreation.CreateMergeRTEwithLOC@72e5a8e]" started-at="2022-06-13T22:14:35 IST" name="testMethodName" finished-at="2022-06-13T22:14:35 IST" duration-ms="10" status="PASS">
+        <test-method is-config="true" signature="testMethodName(java.lang.reflect.Method)[pri:0, instance:rte_RTEJobCreation.RTECrudOperations@72e5a8e]" started-at="2022-06-15T19:48:11 IST" name="testMethodName" finished-at="2022-06-15T19:48:11 IST" duration-ms="17" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void rte_RTEJobCreation.CreateMergeRTEwithLOC.createMergeRTEWithLOCJob() throws org.apache.poi.EncryptedDocumentException,org.apache.poi.openxml4j.exceptions.InvalidFormatException,java.io.IOException,java.lang.InterruptedException]]>
+                <![CDATA[public void rte_RTEJobCreation.RTECrudOperations.rteCrudOperations() throws org.apache.poi.EncryptedDocumentException,org.apache.poi.openxml4j.exceptions.InvalidFormatException,java.io.IOException,java.lang.InterruptedException]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testMethodName -->
-        <test-method signature="createMergeRTEWithLOCJob()[pri:0, instance:rte_RTEJobCreation.CreateMergeRTEwithLOC@72e5a8e]" started-at="2022-06-13T22:14:35 IST" name="createMergeRTEWithLOCJob" finished-at="2022-06-13T22:17:22 IST" duration-ms="167127" status="PASS">
+        <test-method signature="rteCrudOperations()[pri:0, instance:rte_RTEJobCreation.RTECrudOperations@72e5a8e]" started-at="2022-06-15T19:48:11 IST" name="rteCrudOperations" finished-at="2022-06-15T20:42:27 IST" duration-ms="3255925" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- createMergeRTEWithLOCJob -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:rte_RTEJobCreation.CreateMergeRTEwithLOC@72e5a8e]" started-at="2022-06-13T22:17:22 IST" name="getResult" finished-at="2022-06-13T22:17:23 IST" duration-ms="183" status="PASS">
+        </test-method> <!-- rteCrudOperations -->
+        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:rte_RTEJobCreation.RTECrudOperations@72e5a8e]" started-at="2022-06-15T20:42:27 IST" name="getResult" finished-at="2022-06-15T20:42:27 IST" duration-ms="235" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=createMergeRTEWithLOCJob status=SUCCESS method=CreateMergeRTEwithLOC.createMergeRTEWithLOCJob()[pri:0, instance:rte_RTEJobCreation.CreateMergeRTEwithLOC@72e5a8e] output={null}]]]>
+                <![CDATA[[TestResult name=rteCrudOperations status=SUCCESS method=RTECrudOperations.rteCrudOperations()[pri:0, instance:rte_RTEJobCreation.RTECrudOperations@72e5a8e] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResult -->
-        <test-method is-config="true" signature="SendEmail()[pri:0, instance:rte_RTEJobCreation.CreateMergeRTEwithLOC@72e5a8e]" started-at="2022-06-13T22:17:23 IST" name="SendEmail" finished-at="2022-06-13T22:17:30 IST" duration-ms="7247" status="PASS">
+        <test-method is-config="true" signature="SendEmail()[pri:0, instance:rte_RTEJobCreation.RTECrudOperations@72e5a8e]" started-at="2022-06-15T20:42:27 IST" name="SendEmail" finished-at="2022-06-15T20:42:36 IST" duration-ms="8645" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SendEmail -->
-      </class> <!-- rte_RTEJobCreation.CreateMergeRTEwithLOC -->
+      </class> <!-- rte_RTEJobCreation.RTECrudOperations -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

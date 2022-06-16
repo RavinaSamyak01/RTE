@@ -258,7 +258,7 @@ public class BaseInit {
 		}
 	}
 
-	public void login() throws InterruptedException {
+	public void login() throws InterruptedException, IOException {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 
 		String Env = storage.getProperty("Env");
@@ -267,43 +267,119 @@ public class BaseInit {
 			String baseUrl = storage.getProperty("PREPRODURL");
 			driver.get(baseUrl);
 			Thread.sleep(2000);
-			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("login")));
-			String UserName = storage.getProperty("PREPRODUserName");
-			highLight(isElementPresent("UserName_id"), driver);
-			isElementPresent("UserName_id").sendKeys(UserName);
-			logs.info("Entered UserName");
-			String Password = storage.getProperty("PREPRODPassword");
-			highLight(isElementPresent("Password_id"), driver);
-			isElementPresent("Password_id").sendKeys(Password);
-			logs.info("Entered Password");
+			try {
+				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("login")));
+				String UserName = storage.getProperty("PREPRODUserName");
+				highLight(isElementPresent("UserName_id"), driver);
+				isElementPresent("UserName_id").sendKeys(UserName);
+				logs.info("Entered UserName");
+				String Password = storage.getProperty("PREPRODPassword");
+				highLight(isElementPresent("Password_id"), driver);
+				isElementPresent("Password_id").sendKeys(Password);
+				logs.info("Entered Password");
+
+			} catch (Exception e) {
+				msg.append("URL is not working==FAIL");
+				getScreenshot(driver, "LoginIssue");
+				driver.quit();
+				Env = storage.getProperty("Env");
+				String File = ".\\Report\\RTE_Screenshot\\LoginIssue.png";
+				Env = storage.getProperty("Env");
+				String subject = "Selenium Automation Script:" + Env + " RTE Smoke";
+
+				try {
+//					/kunjan.modi@samyak.com, pgandhi@samyak.com,parth.doshi@samyak.com
+					/*
+					 * SendEmail.
+					 * sendMail("ravina.prajapati@samyak.com, asharma@samyak.com, parth.doshi@samyak.com"
+					 * , subject, msg.toString(), File);
+					 */
+
+					SendEmail.sendMail("ravina.prajapati@samyak.com", subject, msg.toString(), File);
+
+				} catch (Exception ex) {
+					logs.error(ex);
+				}
+
+			}
+
 		} else if (Env.equalsIgnoreCase("STG")) {
 			String baseUrl = storage.getProperty("STGURL");
 			driver.get(baseUrl);
 			Thread.sleep(2000);
-			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("login")));
-			String UserName = storage.getProperty("STGUserName");
-			highLight(isElementPresent("UserName_id"), driver);
-			isElementPresent("UserName_id").sendKeys(UserName);
-			logs.info("Entered UserName");
-			String Password = storage.getProperty("STGPassword");
-			highLight(isElementPresent("Password_id"), driver);
-			isElementPresent("Password_id").sendKeys(Password);
-			logs.info("Entered Password");
+			try {
+				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("login")));
+				String UserName = storage.getProperty("STGUserName");
+				highLight(isElementPresent("UserName_id"), driver);
+				isElementPresent("UserName_id").sendKeys(UserName);
+				logs.info("Entered UserName");
+				String Password = storage.getProperty("STGPassword");
+				highLight(isElementPresent("Password_id"), driver);
+				isElementPresent("Password_id").sendKeys(Password);
+				logs.info("Entered Password");
+			} catch (Exception e) {
+				msg.append("URL is not working==FAIL");
+				getScreenshot(driver, "LoginIssue");
+				driver.quit();
+				Env = storage.getProperty("Env");
+				String File = ".\\Report\\RTE_Screenshot\\LoginIssue.png";
+				Env = storage.getProperty("Env");
+				String subject = "Selenium Automation Script:" + Env + " RTE Smoke";
+
+				try {
+//					/kunjan.modi@samyak.com, pgandhi@samyak.com,parth.doshi@samyak.com
+					/*
+					 * SendEmail.
+					 * sendMail("ravina.prajapati@samyak.com, asharma@samyak.com, parth.doshi@samyak.com"
+					 * , subject, msg.toString(), File);
+					 */
+
+					SendEmail.sendMail("ravina.prajapati@samyak.com", subject, msg.toString(), File);
+
+				} catch (Exception ex) {
+					logs.error(ex);
+				}
+
+			}
 
 		} else if (Env.equalsIgnoreCase("DEV")) {
 			String baseUrl = storage.getProperty("DEVURL");
 			driver.get(baseUrl);
 			Thread.sleep(2000);
-			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("login")));
-			String UserName = storage.getProperty("DEVUserName");
-			highLight(isElementPresent("UserName_id"), driver);
-			isElementPresent("UserName_id").sendKeys(UserName);
-			logs.info("Entered UserName");
-			String Password = storage.getProperty("DEVPassword");
-			highLight(isElementPresent("Password_id"), driver);
-			isElementPresent("Password_id").sendKeys(Password);
-			logs.info("Entered Password");
+			try {
+				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("login")));
+				String UserName = storage.getProperty("DEVUserName");
+				highLight(isElementPresent("UserName_id"), driver);
+				isElementPresent("UserName_id").sendKeys(UserName);
+				logs.info("Entered UserName");
+				String Password = storage.getProperty("DEVPassword");
+				highLight(isElementPresent("Password_id"), driver);
+				isElementPresent("Password_id").sendKeys(Password);
+				logs.info("Entered Password");
+			} catch (Exception e) {
+				msg.append("URL is not working==FAIL");
+				getScreenshot(driver, "LoginIssue");
+				driver.quit();
+				Env = storage.getProperty("Env");
+				String File = ".\\Report\\RTE_Screenshot\\LoginIssue.png";
+				Env = storage.getProperty("Env");
+				String subject = "Selenium Automation Script:" + Env + " RTE Smoke";
 
+				try {
+//					/kunjan.modi@samyak.com, pgandhi@samyak.com,parth.doshi@samyak.com
+					/*
+					 * SendEmail.
+					 * sendMail("ravina.prajapati@samyak.com, asharma@samyak.com, parth.doshi@samyak.com"
+					 * , subject, msg.toString(), File);
+					 */
+
+					SendEmail.sendMail("ravina.prajapati@samyak.com", subject, msg.toString(), File);
+
+				} catch (Exception ex) {
+					logs.error(ex);
+				}
+
+			}
 		}
 		highLight(isElementPresent("Login_id"), driver);
 		isElementPresent("Login_id").click();
