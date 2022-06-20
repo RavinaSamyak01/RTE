@@ -11,7 +11,8 @@ import rte_BasePackage.BaseInit;
 public class RTEGetPUpID extends BaseInit {
 
 	@Test
-	public void getTrackPickUPID() throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException {
+	public void getTrackPickUPID()
+			throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException {
 
 		// --Get Tracking No
 

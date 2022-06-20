@@ -85,7 +85,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 		// --Enter pickUpID
 		wait.until(ExpectedConditions.elementToBeClickable(By.id("txtContains")));
 		String PickUpID = getData("OneToMany", 1, 2);
-		isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
+		isElementPresent("TLBasicSearch_id").clear();		isElementPresent("TLBasicSearch_id").clear();isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 		logs.info("PickUpID==" + PickUpID);
 		logs.info("Entered PickUpID in basic search");
 
@@ -190,7 +190,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 					try {
 						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
 						PickUpID = getData("OneToMany", 1, 2);
-						isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
+								isElementPresent("TLBasicSearch_id").clear();isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 						logs.info("Entered PickUpID in basic search");
 
 						// --Click on Search
@@ -497,7 +497,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 									try {
 										wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
 										PickUpID = getData("OneToMany", 1, 2);
-										isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
+												isElementPresent("TLBasicSearch_id").clear();isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 										logs.info("Entered PickUpID in basic search");
 
 										// --Click on Search
@@ -618,7 +618,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 													wait.until(ExpectedConditions
 															.visibilityOfElementLocated(By.id("txtContains")));
 													PickUpID = getData("OneToMany", 1, 2);
-													isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
+															isElementPresent("TLBasicSearch_id").clear();isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 													logs.info("Entered PickUpID in basic search");
 
 													// --Click on Search
@@ -667,7 +667,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 																		ExpectedConditions.visibilityOfElementLocated(
 																				By.id("txtContains")));
 																PickUpID = getData("OneToMany", 1, 2);
-																isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
+																		isElementPresent("TLBasicSearch_id").clear();isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 																logs.info("Entered PickUpID in basic search");
 
 																// --Click on Search
@@ -703,7 +703,8 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 																	if (jobStatus.contains("VERIFIED")) {
 																		logs.info("Job is moved to VERIFIED stage");
 																		getScreenshot(driver, "JobEditor_Verified");
-																		PickUpID = getData("OneToMany", 1, 2);																		msg.append("PickUP ID is==." + PickUpID + "\n");
+																		PickUpID = getData("OneToMany", 1, 2);
+																		msg.append("PickUP ID is==." + PickUpID + "\n");
 																		msg.append("PickUP ID is==." + PickUpID + "\n");
 																		msg.append(
 																				"Job is Proceed successfully." + "\n");
@@ -869,7 +870,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 				try {
 					wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
 					PickUpID = getData("OneToMany", 1, 2);
-					isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
+							isElementPresent("TLBasicSearch_id").clear();isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 					logs.info("Entered PickUpID in basic search");
 
 					// --Click on Search
@@ -1171,7 +1172,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 								try {
 									wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
 									PickUpID = getData("OneToMany", 1, 2);
-									isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
+											isElementPresent("TLBasicSearch_id").clear();isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 									logs.info("Entered PickUpID in basic search");
 
 									// --Click on Search
@@ -1290,7 +1291,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 												wait.until(ExpectedConditions
 														.visibilityOfElementLocated(By.id("txtContains")));
 												PickUpID = getData("OneToMany", 1, 2);
-												isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
+														isElementPresent("TLBasicSearch_id").clear();isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 												logs.info("Entered PickUpID in basic search");
 
 												// --Click on Search
@@ -1338,7 +1339,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 															wait.until(ExpectedConditions
 																	.visibilityOfElementLocated(By.id("txtContains")));
 															PickUpID = getData("OneToMany", 1, 2);
-															isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
+																	isElementPresent("TLBasicSearch_id").clear();isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 															logs.info("Entered PickUpID in basic search");
 
 															// --Click on Search
@@ -1759,7 +1760,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 						try {
 							wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
 							PickUpID = getData("OneToMany", 1, 2);
-							isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
+									isElementPresent("TLBasicSearch_id").clear();isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 							logs.info("Entered PickUpID in basic search");
 
 							// --Click on Search
@@ -1871,7 +1872,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 									try {
 										wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
 										PickUpID = getData("OneToMany", 1, 2);
-										isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
+												isElementPresent("TLBasicSearch_id").clear();isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 										logs.info("Entered PickUpID in basic search");
 
 										// --Click on Search
@@ -1917,7 +1918,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 													wait.until(ExpectedConditions
 															.visibilityOfElementLocated(By.id("txtContains")));
 													PickUpID = getData("OneToMany", 1, 2);
-													isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
+															isElementPresent("TLBasicSearch_id").clear();isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 													logs.info("Entered PickUpID in basic search");
 
 													// --Click on Search
@@ -2279,7 +2280,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 						try {
 							wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
 							PickUpID = getData("OneToMany", 1, 2);
-							isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
+									isElementPresent("TLBasicSearch_id").clear();isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 							logs.info("Entered PickUpID in basic search");
 
 							// --Click on Search
@@ -2391,7 +2392,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 									try {
 										wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
 										PickUpID = getData("OneToMany", 1, 2);
-										isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
+												isElementPresent("TLBasicSearch_id").clear();isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 										logs.info("Entered PickUpID in basic search");
 
 										// --Click on Search
@@ -2437,7 +2438,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 													wait.until(ExpectedConditions
 															.visibilityOfElementLocated(By.id("txtContains")));
 													PickUpID = getData("OneToMany", 1, 2);
-													isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
+															isElementPresent("TLBasicSearch_id").clear();isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 													logs.info("Entered PickUpID in basic search");
 
 													// --Click on Search
@@ -2724,7 +2725,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 					try {
 						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
 						PickUpID = getData("OneToMany", 1, 2);
-						isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
+								isElementPresent("TLBasicSearch_id").clear();isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 						logs.info("Entered PickUpID in basic search");
 
 						// --Click on Search
@@ -2834,7 +2835,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 								try {
 									wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
 									PickUpID = getData("OneToMany", 1, 2);
-									isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
+											isElementPresent("TLBasicSearch_id").clear();isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 									logs.info("Entered PickUpID in basic search");
 
 									// --Click on Search
@@ -2880,7 +2881,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 												wait.until(ExpectedConditions
 														.visibilityOfElementLocated(By.id("txtContains")));
 												PickUpID = getData("OneToMany", 1, 2);
-												isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
+														isElementPresent("TLBasicSearch_id").clear();isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 												logs.info("Entered PickUpID in basic search");
 
 												// --Click on Search
@@ -3080,7 +3081,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 					try {
 						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
 						PickUpID = getData("OneToMany", 1, 2);
-						isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
+								isElementPresent("TLBasicSearch_id").clear();isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 						logs.info("Entered PickUpID in basic search");
 
 						// --Click on Search
@@ -3123,7 +3124,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 								try {
 									wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
 									PickUpID = getData("OneToMany", 1, 2);
-									isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
+											isElementPresent("TLBasicSearch_id").clear();isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 									logs.info("Entered PickUpID in basic search");
 
 									// --Click on Search
@@ -3238,6 +3239,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 					try {
 						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
 						PickUpID = getData("OneToMany", 1, 2);
+						isElementPresent("TLBasicSearch_id").clear();
 						isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 						logs.info("Entered PickUpID in basic search");
 
@@ -3345,11 +3347,20 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 			}
 
 		} catch (Exception NoDataex) {
-			WebElement NoData = isElementPresent("NoData_className");
-			wait.until(ExpectedConditions.visibilityOf(NoData));
-			if (NoData.isDisplayed()) {
-				logs.info("There is no Data with Search parameter");
+			try {
+				WebElement NoData = isElementPresent("NoData_className");
+				wait.until(ExpectedConditions.visibilityOf(NoData));
+				if (NoData.isDisplayed()) {
+					logs.info("There is no Data with Search PickUpID");
 
+				}
+			} catch (Exception e) {
+				WebElement NoData = isElementPresent("NODataTL_xpath");
+				wait.until(ExpectedConditions.visibilityOf(NoData));
+				if (NoData.isDisplayed()) {
+					logs.info("There is no Data with Search PickUpID");
+
+				}
 			}
 		}
 

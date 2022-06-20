@@ -84,6 +84,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 		// --Enter pickUpID
 		wait.until(ExpectedConditions.elementToBeClickable(By.id("txtContains")));
 		String PickUpID = getData("ManyToMany", 1, 2);
+		isElementPresent("TLBasicSearch_id").clear();
 		isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 		logs.info("PickUpID==" + PickUpID);
 		logs.info("Entered PickUpID in basic search");
@@ -172,6 +173,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 					try {
 						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
 						PickUpID = getData("ManyToMany", 1, 2);
+						isElementPresent("TLBasicSearch_id").clear();
 						isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 						logs.info("Entered PickUpID in basic search");
 
@@ -568,6 +570,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 												wait.until(ExpectedConditions
 														.visibilityOfElementLocated(By.id("txtContains")));
 												PickUpID = getData("ManyToMany", 1, 2);
+												isElementPresent("TLBasicSearch_id").clear();
 												isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 												logs.info("Entered PickUpID in basic search");
 
@@ -695,6 +698,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 															wait.until(ExpectedConditions
 																	.visibilityOfElementLocated(By.id("txtContains")));
 															PickUpID = getData("ManyToMany", 1, 2);
+															isElementPresent("TLBasicSearch_id").clear();
 															isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 															logs.info("Entered PickUpID in basic search");
 
@@ -966,6 +970,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 				try {
 					wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
 					PickUpID = getData("ManyToMany", 1, 2);
+					isElementPresent("TLBasicSearch_id").clear();
 					isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 					logs.info("Entered PickUpID in basic search");
 
@@ -1360,6 +1365,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 											wait.until(ExpectedConditions
 													.visibilityOfElementLocated(By.id("txtContains")));
 											PickUpID = getData("ManyToMany", 1, 2);
+											isElementPresent("TLBasicSearch_id").clear();
 											isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 											logs.info("Entered PickUpID in basic search");
 
@@ -1484,6 +1490,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 														wait.until(ExpectedConditions
 																.visibilityOfElementLocated(By.id("txtContains")));
 														PickUpID = getData("ManyToMany", 1, 2);
+														isElementPresent("TLBasicSearch_id").clear();
 														isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 														logs.info("Entered PickUpID in basic search");
 
@@ -2068,6 +2075,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 								try {
 									wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
 									PickUpID = getData("ManyToMany", 1, 2);
+									isElementPresent("TLBasicSearch_id").clear();
 									isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 									logs.info("Entered PickUpID in basic search");
 
@@ -2187,6 +2195,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 												wait.until(ExpectedConditions
 														.visibilityOfElementLocated(By.id("txtContains")));
 												PickUpID = getData("ManyToMany", 1, 2);
+												isElementPresent("TLBasicSearch_id").clear();
 												isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 												logs.info("Entered PickUpID in basic search");
 
@@ -2235,6 +2244,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 															wait.until(ExpectedConditions
 																	.visibilityOfElementLocated(By.id("txtContains")));
 															PickUpID = getData("ManyToMany", 1, 2);
+															isElementPresent("TLBasicSearch_id").clear();
 															isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 															logs.info("Entered PickUpID in basic search");
 
@@ -2702,6 +2712,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 								try {
 									wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
 									PickUpID = getData("ManyToMany", 1, 2);
+									isElementPresent("TLBasicSearch_id").clear();
 									isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 									logs.info("Entered PickUpID in basic search");
 
@@ -2821,6 +2832,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 												wait.until(ExpectedConditions
 														.visibilityOfElementLocated(By.id("txtContains")));
 												PickUpID = getData("ManyToMany", 1, 2);
+												isElementPresent("TLBasicSearch_id").clear();
 												isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 												logs.info("Entered PickUpID in basic search");
 
@@ -2869,6 +2881,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 															wait.until(ExpectedConditions
 																	.visibilityOfElementLocated(By.id("txtContains")));
 															PickUpID = getData("ManyToMany", 1, 2);
+															isElementPresent("TLBasicSearch_id").clear();
 															isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 															logs.info("Entered PickUpID in basic search");
 
@@ -3341,6 +3354,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 					try {
 						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
 						PickUpID = getData("ManyToMany", 1, 2);
+						isElementPresent("TLBasicSearch_id").clear();
 						isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 						logs.info("Entered PickUpID in basic search");
 
@@ -3451,6 +3465,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 								try {
 									wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
 									PickUpID = getData("ManyToMany", 1, 2);
+									isElementPresent("TLBasicSearch_id").clear();
 									isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 									logs.info("Entered PickUpID in basic search");
 
@@ -3497,6 +3512,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 												wait.until(ExpectedConditions
 														.visibilityOfElementLocated(By.id("txtContains")));
 												PickUpID = getData("ManyToMany", 1, 2);
+												isElementPresent("TLBasicSearch_id").clear();
 												isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 												logs.info("Entered PickUpID in basic search");
 
@@ -3697,6 +3713,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 					try {
 						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
 						PickUpID = getData("ManyToMany", 1, 2);
+						isElementPresent("TLBasicSearch_id").clear();
 						isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 						logs.info("Entered PickUpID in basic search");
 
@@ -3740,6 +3757,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 								try {
 									wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
 									PickUpID = getData("ManyToMany", 1, 2);
+									isElementPresent("TLBasicSearch_id").clear();
 									isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 									logs.info("Entered PickUpID in basic search");
 
@@ -3855,6 +3873,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 					try {
 						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
 						PickUpID = getData("ManyToMany", 1, 2);
+						isElementPresent("TLBasicSearch_id").clear();
 						isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 						logs.info("Entered PickUpID in basic search");
 

@@ -1,47 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-06-15T19:48:11 IST" name="Default suite" finished-at="2022-06-15T20:42:27 IST" duration-ms="3256315">
+  <suite started-at="2022-06-20T18:33:12 IST" name="Default suite" finished-at="2022-06-20T18:42:01 IST" duration-ms="529291">
     <groups>
     </groups>
-    <test started-at="2022-06-15T19:48:11 IST" name="Default test" finished-at="2022-06-15T20:42:27 IST" duration-ms="3256315">
-      <class name="rte_RTEJobCreation.RTECrudOperations">
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:rte_RTEJobCreation.RTECrudOperations@72e5a8e]" started-at="2022-06-15T19:47:41 IST" name="beforeMethod" finished-at="2022-06-15T19:48:11 IST" duration-ms="29933" status="PASS">
+    <test started-at="2022-06-20T18:33:12 IST" name="Default test" finished-at="2022-06-20T18:42:01 IST" duration-ms="529291">
+      <class name="rte_RTEJobCreation.CreateMergeRTEwithLOC">
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:rte_RTEJobCreation.CreateMergeRTEwithLOC@72e5a8e]" started-at="2022-06-20T18:32:50 IST" name="beforeMethod" finished-at="2022-06-20T18:33:12 IST" duration-ms="21838" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method is-config="true" signature="testMethodName(java.lang.reflect.Method)[pri:0, instance:rte_RTEJobCreation.RTECrudOperations@72e5a8e]" started-at="2022-06-15T19:48:11 IST" name="testMethodName" finished-at="2022-06-15T19:48:11 IST" duration-ms="17" status="PASS">
+        <test-method is-config="true" signature="testMethodName(java.lang.reflect.Method)[pri:0, instance:rte_RTEJobCreation.CreateMergeRTEwithLOC@72e5a8e]" started-at="2022-06-20T18:33:12 IST" name="testMethodName" finished-at="2022-06-20T18:33:12 IST" duration-ms="10" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void rte_RTEJobCreation.RTECrudOperations.rteCrudOperations() throws org.apache.poi.EncryptedDocumentException,org.apache.poi.openxml4j.exceptions.InvalidFormatException,java.io.IOException,java.lang.InterruptedException]]>
+                <![CDATA[public void rte_RTEJobCreation.CreateMergeRTEwithLOC.createMergeRTEWithLOCJob() throws org.apache.poi.EncryptedDocumentException,org.apache.poi.openxml4j.exceptions.InvalidFormatException,java.io.IOException,java.lang.InterruptedException]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testMethodName -->
-        <test-method signature="rteCrudOperations()[pri:0, instance:rte_RTEJobCreation.RTECrudOperations@72e5a8e]" started-at="2022-06-15T19:48:11 IST" name="rteCrudOperations" finished-at="2022-06-15T20:42:27 IST" duration-ms="3255925" status="PASS">
+        <test-method signature="createMergeRTEWithLOCJob()[pri:0, instance:rte_RTEJobCreation.CreateMergeRTEwithLOC@72e5a8e]" started-at="2022-06-20T18:33:12 IST" name="createMergeRTEWithLOCJob" finished-at="2022-06-20T18:42:01 IST" duration-ms="529070" status="FAIL">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"td[contains(@aria-label,'Column Pickup')]//label"}
+  (Session info: chrome=102.0.5005.63)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'SIPL92', ip: '10.212.130.159', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '16.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 102.0.5005.63, chrome: {chromedriverVersion: 102.0.5005.61 (0e59bcc00cc4..., userDataDir: C:\Users\RPRAJA~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:57513}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 2e78f12e338b4c755dfa7d15d3c5f239
+*** Element info: {Using=xpath, value=td[contains(@aria-label,'Column Pickup')]//label}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"td[contains(@aria-label,'Column Pickup')]//label"}
+  (Session info: chrome=102.0.5005.63)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'SIPL92', ip: '10.212.130.159', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '16.0.2'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 102.0.5005.63, chrome: {chromedriverVersion: 102.0.5005.61 (0e59bcc00cc4..., userDataDir: C:\Users\RPRAJA~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:57513}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: 2e78f12e338b4c755dfa7d15d3c5f239
+*** Element info: {Using=xpath, value=td[contains(@aria-label,'Column Pickup')]//label}
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:78)
+at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebElement.execute(RemoteWebElement.java:285)
+at org.openqa.selenium.remote.RemoteWebElement.findElement(RemoteWebElement.java:185)
+at org.openqa.selenium.remote.RemoteWebElement.findElementByXPath(RemoteWebElement.java:261)
+at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+at org.openqa.selenium.remote.RemoteWebElement.findElement(RemoteWebElement.java:181)
+at rte_RTEJobCreation.CreateMergeRTEwithLOC.createMergeRTEWithLOCJob(CreateMergeRTEwithLOC.java:746)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- rteCrudOperations -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:rte_RTEJobCreation.RTECrudOperations@72e5a8e]" started-at="2022-06-15T20:42:27 IST" name="getResult" finished-at="2022-06-15T20:42:27 IST" duration-ms="235" status="PASS">
+        </test-method> <!-- createMergeRTEWithLOCJob -->
+        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:rte_RTEJobCreation.CreateMergeRTEwithLOC@72e5a8e]" started-at="2022-06-20T18:42:01 IST" name="getResult" finished-at="2022-06-20T18:42:01 IST" duration-ms="158" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=rteCrudOperations status=SUCCESS method=RTECrudOperations.rteCrudOperations()[pri:0, instance:rte_RTEJobCreation.RTECrudOperations@72e5a8e] output={null}]]]>
+                <![CDATA[[TestResult name=createMergeRTEWithLOCJob status=FAILURE method=CreateMergeRTEwithLOC.createMergeRTEWithLOCJob()[pri:0, instance:rte_RTEJobCreation.CreateMergeRTEwithLOC@72e5a8e] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResult -->
-        <test-method is-config="true" signature="SendEmail()[pri:0, instance:rte_RTEJobCreation.RTECrudOperations@72e5a8e]" started-at="2022-06-15T20:42:27 IST" name="SendEmail" finished-at="2022-06-15T20:42:36 IST" duration-ms="8645" status="PASS">
+        <test-method is-config="true" signature="SendEmail()[pri:0, instance:rte_RTEJobCreation.CreateMergeRTEwithLOC@72e5a8e]" started-at="2022-06-20T18:42:01 IST" name="SendEmail" finished-at="2022-06-20T18:42:05 IST" duration-ms="4202" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SendEmail -->
-      </class> <!-- rte_RTEJobCreation.RTECrudOperations -->
+      </class> <!-- rte_RTEJobCreation.CreateMergeRTEwithLOC -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

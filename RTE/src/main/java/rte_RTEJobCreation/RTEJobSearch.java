@@ -364,11 +364,20 @@ public class RTEJobSearch extends BaseInit {
 							}
 
 						} catch (Exception NoDataEx) {
-							WebElement NoData = isElementPresent("NoData_className");
-							wait.until(ExpectedConditions.visibilityOf(NoData));
-							if (NoData.isDisplayed()) {
-								logs.info("There is no Data with Search PickUpID");
+							try {
+								WebElement NoData = isElementPresent("NoData_className");
+								wait.until(ExpectedConditions.visibilityOf(NoData));
+								if (NoData.isDisplayed()) {
+									logs.info("There is no Data with Search PickUpID");
 
+								}
+							} catch (Exception e) {
+								WebElement NoData = isElementPresent("NODataTL_xpath");
+								wait.until(ExpectedConditions.visibilityOf(NoData));
+								if (NoData.isDisplayed()) {
+									logs.info("There is no Data with Search PickUpID");
+
+								}
 							}
 						}
 
