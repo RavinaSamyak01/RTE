@@ -23,7 +23,7 @@ public class RTEJobSearch extends BaseInit {
 	@Test
 	public void rteJobSearch()
 			throws IOException, EncryptedDocumentException, InvalidFormatException, InterruptedException {
-		WebDriverWait wait = new WebDriverWait(driver, 50);
+		WebDriverWait wait = new WebDriverWait(driver, 30);
 		Actions act = new Actions(driver);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 
@@ -62,10 +62,11 @@ public class RTEJobSearch extends BaseInit {
 
 		for (int row = 1; row < TotalRow; row++) {
 
-			if (row == 7) {
+			System.out.println("Row===" + row);
+			if (row == 8) {
 				logs.info("No need to perform search");
 
-			} else if (row == 8) {
+			} else if (row == 9) {
 				logs.info("No need to perform search");
 
 			} else {
@@ -138,38 +139,27 @@ public class RTEJobSearch extends BaseInit {
 						String BOLNoValue = driver.findElement(By.id(BOLNO)).getText();
 
 						int RT = RTE + 1;
+						System.out.println("RT==" + RT);
 						Scenario = getData("RTECreation", row, 3);
 						if (Scenario.equalsIgnoreCase("One To One") && row == 1) {
 							logs.info("JobID is==" + JobIDValue);
 							setData("SearchRTE", 1, 1, JobIDValue);
-							String JobIDVal = getData("SearchRTE", RT, 1);
-							logs.info("JobIDVal In Excel is==" + JobIDVal);
 
 							logs.info("PickUpID is==" + PickUpIDValue);
 							setData("SearchRTE", 1, 2, PickUpIDValue);
-							String PickupIDVal = getData("SearchRTE", RT, 2);
-							logs.info("PickupIDVal In Excel is==" + PickupIDVal);
 
 							logs.info("BOLNo is==" + BOLNoValue);
 							setData("SearchRTE", 1, 3, BOLNoValue);
-							String BOLNOVal = getData("SearchRTE", RT, 3);
-							logs.info("BOLNOVal In Excel is==" + BOLNOVal);
 
 						} else if (Scenario.equalsIgnoreCase("One To One") && row == 2) {
 							logs.info("JobID is==" + JobIDValue);
 							setData("SearchRTE", 2, 1, JobIDValue);
-							String JobIDVal = getData("SearchRTE", RT, 1);
-							logs.info("JobIDVal In Excel is==" + JobIDVal);
 
 							logs.info("PickUpID is==" + PickUpIDValue);
 							setData("SearchRTE", 2, 2, PickUpIDValue);
-							String PickupIDVal = getData("SearchRTE", RT, 2);
-							logs.info("PickupIDVal In Excel is==" + PickupIDVal);
 
 							logs.info("BOLNo is==" + BOLNoValue);
 							setData("SearchRTE", 2, 3, BOLNoValue);
-							String BOLNOVal = getData("SearchRTE", RT, 3);
-							logs.info("BOLNOVal In Excel is==" + BOLNOVal);
 
 						} else if (Scenario.equalsIgnoreCase("One To One") && row == 3) {
 							logs.info("JobID is==" + JobIDValue);
@@ -269,17 +259,34 @@ public class RTEJobSearch extends BaseInit {
 
 						// --Enter pickUpID
 
-						if (Scenario.equalsIgnoreCase("One To One")) {
-							PickUpID = getData("SearchRTE", RT, 2);
+						if (Scenario.equalsIgnoreCase("One To One") && row == 1) {
+							PickUpID = getData("SearchRTE", 1, 2);
+							logs.info("PickUpID from excel is==" + PickUpID);
+
+						} else if (Scenario.equalsIgnoreCase("One To One") && row == 2) {
+							PickUpID = getData("SearchRTE", 2, 2);
+							logs.info("PickUpID from excel is==" + PickUpID);
+
+						} else if (Scenario.equalsIgnoreCase("One To One") && row == 3) {
+
+							PickUpID = getData("SearchRTE", 3, 2);
+							logs.info("PickUpID from excel is==" + PickUpID);
+
+						} else if (Scenario.equalsIgnoreCase("One To One") && row == 7) {
+							PickUpID = getData("SearchRTE", 4, 2);
+							logs.info("PickUpID from excel is==" + PickUpID);
 
 						} else if (Scenario.equalsIgnoreCase("One To Many")) {
 							PickUpID = getData("OneToMany", RT, 2);
+							logs.info("PickUpID from excel is==" + PickUpID);
 
 						} else if (Scenario.equalsIgnoreCase("Many to One")) {
 							PickUpID = getData("ManyToOne", RT, 2);
+							logs.info("PickUpID from excel is==" + PickUpID);
 
 						} else if (Scenario.equalsIgnoreCase("Many To Many")) {
 							PickUpID = getData("ManyToMany", RT, 2);
+							logs.info("PickUpID from excel is==" + PickUpID);
 
 						}
 						System.out.println("PickedUp id==" + PickUpID);
@@ -300,6 +307,23 @@ public class RTEJobSearch extends BaseInit {
 							try {
 								wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
 								getScreenshot(driver, "JobEditor_PickUP");
+
+								if (Scenario.equalsIgnoreCase("One To One") && row == 7) {
+
+									// --Get Route Tracking No
+									String RWTrackNo = getData("SearchRTE", 4, 0);
+									logs.info("RW Tracking No===" + RWTrackNo);
+									// --set data in excel
+									setData("CompareCharges", 1, 0, RWTrackNo);
+
+									WebElement ShipCharges = isElementPresent("TLEShCharges_id");
+									act.moveToElement(ShipCharges).build().perform();
+									String Charges = ShipCharges.getText().trim();
+									logs.info("Shipment Charges on Creation===" + Charges);
+									// --set data in excel
+									setData("CompareCharges", 1, 2, Charges);
+
+								}
 
 								// --Exit Without Save
 								isElementPresent("TLEXWSave_id").click();
@@ -339,7 +363,22 @@ public class RTEJobSearch extends BaseInit {
 										wait.until(ExpectedConditions
 												.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
 										getScreenshot(driver, "JobEditor_PickUP");
+										if (Scenario.equalsIgnoreCase("One To One") && row == 7) {
 
+											// --Get Route Tracking No
+											String RWTrackNo = isElementPresent("TLERWTrackNO_id").getText().trim();
+											logs.info("RW Tracking No===" + RWTrackNo);
+											// --set data in excel
+											setData("CompareCharges", 1, 0, RWTrackNo);
+
+											WebElement ShipCharges = isElementPresent("TLEShCharges_id");
+											act.moveToElement(ShipCharges).build().perform();
+											String Charges = ShipCharges.getText().trim();
+											logs.info("Shipment Charges on Creation===" + Charges);
+											// --set data in excel
+											setData("CompareCharges", 1, 2, Charges);
+
+										}
 										// --Exit Without Save
 										isElementPresent("TLEXWSave_id").click();
 										logs.info("Clicked on Exit without Save");

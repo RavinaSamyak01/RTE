@@ -8,15 +8,20 @@
 			<class name="rte_RTEJobCreation.RTEJobCreation"></class>
 		</classes>
 	</test>
-	-->
-
-
+	
 	<test thread-count="5" name="RTE Get PickUPID and Search">
 		<classes>
 			<class name="rte_RTEJobCreation.RTEGetPUpID"></class>
 		</classes>
 	</test>
-
+	
+		-->
+	<test thread-count="5" name="RTE Get PickUPID and Search">
+		<classes>
+			<class name="rte_RTEJobCreation.RTEGetPUpID"></class>
+		</classes>
+	</test>
+	
 	<test thread-count="5" name="RTE OneToOne Job Processing">
 		<classes>
 			<class name="rte_RTEJobCreation.RTEOneToOneOrderProcess"></class>
@@ -29,11 +34,13 @@
 		</classes>
 	</test>
 
+
 	<test thread-count="5" name="RTE ManyToOne Job Processing">
 		<classes>
 			<class name="rte_RTEJobCreation.RTEManyToOneOrderProcess"></class>
 		</classes>
 	</test>
+
 
 	<test thread-count="5" name="RTE ManyToMany Job Processing">
 		<classes>
@@ -47,12 +54,16 @@
 		</classes>
 	</test>
 
-
 	<test thread-count="5" name="RTE Crud Operation">
 		<classes>
 			<class name="rte_RTEJobCreation.RTECrudOperations"></class>
 		</classes>
 	</test>
 
+	<test thread-count="5" name="RTE Compare Charges">
+		<classes>
+			<class name="rte_RTEJobCreation.CompareCharges"></class>
+		</classes>
+	</test>
 
 </suite> 

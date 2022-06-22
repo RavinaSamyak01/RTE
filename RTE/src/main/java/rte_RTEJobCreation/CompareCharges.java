@@ -21,19 +21,19 @@ import org.testng.annotations.Test;
 
 import rte_BasePackage.BaseInit;
 
-public class RTEManyToManyOrderProcess extends BaseInit {
+public class CompareCharges extends BaseInit {
 
 	@Test
-	public void rteManyToManyOrderProcess() throws EncryptedDocumentException, InvalidFormatException, IOException {
+	public void rteCompareCharges()
+			throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException {
 
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		Actions act = new Actions(driver);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 
-		logs.info("======================RTE Many To Many Order Processing Test Start==================");
-		msg.append("======================RTE Many To Many Order Processing Test Start==================" + "\n");
+		logs.info("======================RTE Compare Charges Test Start==================");
+		msg.append("======================RTE Compare Charges Test Start==================" + "\n");
 
-		// --Go To Operations
 		try {
 			// --Go To Operations
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("a_operations")));
@@ -83,8 +83,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 
 		// --Enter pickUpID
 		wait.until(ExpectedConditions.elementToBeClickable(By.id("txtContains")));
-		String PickUpID = getData("ManyToMany", 1, 2);
-		isElementPresent("TLBasicSearch_id").clear();
+		String PickUpID = getData("SearchRTE", 4, 2);
 		isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 		logs.info("PickUpID==" + PickUpID);
 		logs.info("Entered PickUpID in basic search");
@@ -172,7 +171,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 					}
 					try {
 						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
-						PickUpID = getData("ManyToMany", 1, 2);
+						PickUpID = getData("SearchRTE", 4, 2);
 						isElementPresent("TLBasicSearch_id").clear();
 						isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 						logs.info("Entered PickUpID in basic search");
@@ -265,7 +264,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 										System.out.println("value of PU==" + pu);
 
 										WebElement ZoneID = PickupPoints.get(pu)
-												.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+												.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
 										String PUDate = "txtActpuDate_" + pu;
 										String PUTime = "txtActPuTime_" + pu;
 
@@ -333,7 +332,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 												System.out.println("value of del==" + puS);
 
 												ZoneID = PickupPoints.get(puS).findElement(
-														By.xpath("//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+														By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
 												PUDate = "txtActpuDate_" + puS;
 												PUTime = "txtActPuTime_" + puS;
 
@@ -425,7 +424,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 													System.out.println("value of del==" + Del);
 
 													ZoneID = DelPoints.get(Del).findElement(
-															By.xpath("//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+															By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 													String DeliveryDate = "txtActdlDate_" + Del;
 													String DeliveryTime = "txtActDlTime_" + Del;
 
@@ -500,8 +499,8 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 															}
 															System.out.println("value of del==" + DelS);
 
-															ZoneID = DelPoints.get(DelS).findElement(By
-																	.xpath("//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+															ZoneID = DelPoints.get(DelS).findElement(By.xpath(
+																	"/td/td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 															DeliveryDate = "txtActdlDate_" + DelS;
 															DeliveryTime = "txtActDlTime_" + DelS;
 
@@ -569,7 +568,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 											try {
 												wait.until(ExpectedConditions
 														.visibilityOfElementLocated(By.id("txtContains")));
-												PickUpID = getData("ManyToMany", 1, 2);
+												PickUpID = getData("SearchRTE", 4, 2);
 												isElementPresent("TLBasicSearch_id").clear();
 												isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 												logs.info("Entered PickUpID in basic search");
@@ -600,6 +599,34 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 
 													if (jobStatus.contains("DELIVERED")) {
 														logs.info("Job is Delivered successfully");
+
+														// --Get the charges
+														WebElement ShipCharges = isElementPresent("TLEShCharges_id");
+														act.moveToElement(ShipCharges).build().perform();
+														String Charges = ShipCharges.getText().trim();
+														logs.info("Shipment Charges After Deliverd===" + Charges);
+														// --set data in excel
+														setData("CompareCharges", 1, 4, Charges);
+
+														// --Shipment Creation charges
+														String ShCreationCharges = getData("CompareCharges", 1, 2);
+														logs.info(
+																"Shipment Charges on Creation===" + ShCreationCharges);
+
+														// --Compare charges
+														if (Charges.equalsIgnoreCase(ShCreationCharges)) {
+															logs.info("Shipment Charges is not updated");
+															logs.info(
+																	"Shipment Charges after deliverd is same as Creation time");
+															setData("CompareCharges", 1, 5, "FAIL");
+
+														} else {
+															logs.info("Shipment Charges is updated");
+															logs.info(
+																	"Shipment Charges after deliverd is different than Creation time");
+															setData("CompareCharges", 1, 5, "PASS");
+
+														}
 
 														// --End Route
 
@@ -697,7 +724,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 														try {
 															wait.until(ExpectedConditions
 																	.visibilityOfElementLocated(By.id("txtContains")));
-															PickUpID = getData("ManyToMany", 1, 2);
+															PickUpID = getData("SearchRTE", 4, 2);
 															isElementPresent("TLBasicSearch_id").clear();
 															isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 															logs.info("Entered PickUpID in basic search");
@@ -752,7 +779,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 																		wait.until(ExpectedConditions
 																				.visibilityOfElementLocated(
 																						By.id("txtContains")));
-																		PickUpID = getData("ManyToMany", 1, 2);
+																		PickUpID = getData("SearchRTE", 4, 2);
 																		isElementPresent("TLBasicSearch_id")
 																				.sendKeys(PickUpID);
 																		logs.info("Entered PickUpID in basic search");
@@ -795,7 +822,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 																						"Job is moved to VERIFIED stage");
 																				getScreenshot(driver,
 																						"JobEditor_Verified");
-																				PickUpID = getData("ManyToMany", 1, 2);
+																				PickUpID = getData("SearchRTE", 4, 2);
 																				msg.append("PickUP ID is==." + PickUpID
 																						+ "\n");
 																				msg.append(
@@ -969,7 +996,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 				}
 				try {
 					wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
-					PickUpID = getData("ManyToMany", 1, 2);
+					PickUpID = getData("SearchRTE", 4, 2);
 					isElementPresent("TLBasicSearch_id").clear();
 					isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 					logs.info("Entered PickUpID in basic search");
@@ -1061,7 +1088,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 									System.out.println("value of PU==" + pu);
 
 									WebElement ZoneID = PickupPoints.get(pu)
-											.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+											.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
 									String PUDate = "txtActpuDate_" + pu;
 									String PUTime = "txtActPuTime_" + pu;
 
@@ -1129,7 +1156,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 											System.out.println("value of del==" + puS);
 
 											ZoneID = PickupPoints.get(puS)
-													.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+													.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
 											PUDate = "txtActpuDate_" + puS;
 											PUTime = "txtActPuTime_" + puS;
 
@@ -1220,7 +1247,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 												System.out.println("value of del==" + Del);
 
 												ZoneID = DelPoints.get(Del).findElement(
-														By.xpath("//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+														By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 												String DeliveryDate = "txtActdlDate_" + Del;
 												String DeliveryTime = "txtActDlTime_" + Del;
 
@@ -1296,7 +1323,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 														System.out.println("value of del==" + DelS);
 
 														ZoneID = DelPoints.get(DelS).findElement(
-																By.xpath("//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+																By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 														DeliveryDate = "txtActdlDate_" + DelS;
 														DeliveryTime = "txtActDlTime_" + DelS;
 
@@ -1364,7 +1391,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 										try {
 											wait.until(ExpectedConditions
 													.visibilityOfElementLocated(By.id("txtContains")));
-											PickUpID = getData("ManyToMany", 1, 2);
+											PickUpID = getData("SearchRTE", 4, 2);
 											isElementPresent("TLBasicSearch_id").clear();
 											isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 											logs.info("Entered PickUpID in basic search");
@@ -1489,7 +1516,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 													try {
 														wait.until(ExpectedConditions
 																.visibilityOfElementLocated(By.id("txtContains")));
-														PickUpID = getData("ManyToMany", 1, 2);
+														PickUpID = getData("SearchRTE", 4, 2);
 														isElementPresent("TLBasicSearch_id").clear();
 														isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 														logs.info("Entered PickUpID in basic search");
@@ -1541,7 +1568,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 																	wait.until(ExpectedConditions
 																			.visibilityOfElementLocated(
 																					By.id("txtContains")));
-																	PickUpID = getData("ManyToMany", 1, 2);
+																	PickUpID = getData("SearchRTE", 4, 2);
 																	isElementPresent("TLBasicSearch_id")
 																			.sendKeys(PickUpID);
 																	logs.info("Entered PickUpID in basic search");
@@ -1781,7 +1808,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 							System.out.println("value of PU==" + pu);
 
 							WebElement ZoneID = PickupPoints.get(pu)
-									.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+									.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
 							String PUDate = "txtActpuDate_" + pu;
 							String PUTime = "txtActPuTime_" + pu;
 
@@ -1848,7 +1875,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 									System.out.println("value of del==" + puS);
 
 									ZoneID = PickupPoints.get(puS)
-											.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+											.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
 									PUDate = "txtActpuDate_" + puS;
 									PUTime = "txtActPuTime_" + puS;
 
@@ -1936,7 +1963,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 										System.out.println("value of del==" + Del);
 
 										ZoneID = DelPoints.get(Del)
-												.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+												.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 										String DeliveryDate = "txtActdlDate_" + Del;
 										String DeliveryTime = "txtActDlTime_" + Del;
 
@@ -2009,7 +2036,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 												System.out.println("value of del==" + DelS);
 
 												ZoneID = DelPoints.get(DelS).findElement(
-														By.xpath("//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+														By.xpath("/td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 												DeliveryDate = "txtActdlDate_" + DelS;
 												DeliveryTime = "txtActDlTime_" + DelS;
 
@@ -2074,7 +2101,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 
 								try {
 									wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
-									PickUpID = getData("ManyToMany", 1, 2);
+									PickUpID = getData("SearchRTE", 4, 2);
 									isElementPresent("TLBasicSearch_id").clear();
 									isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 									logs.info("Entered PickUpID in basic search");
@@ -2194,7 +2221,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 											try {
 												wait.until(ExpectedConditions
 														.visibilityOfElementLocated(By.id("txtContains")));
-												PickUpID = getData("ManyToMany", 1, 2);
+												PickUpID = getData("SearchRTE", 4, 2);
 												isElementPresent("TLBasicSearch_id").clear();
 												isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 												logs.info("Entered PickUpID in basic search");
@@ -2243,7 +2270,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 														try {
 															wait.until(ExpectedConditions
 																	.visibilityOfElementLocated(By.id("txtContains")));
-															PickUpID = getData("ManyToMany", 1, 2);
+															PickUpID = getData("SearchRTE", 4, 2);
 															isElementPresent("TLBasicSearch_id").clear();
 															isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 															logs.info("Entered PickUpID in basic search");
@@ -2418,7 +2445,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 							System.out.println("value of PU==" + pu);
 
 							WebElement ZoneID = PickupPoints.get(pu)
-									.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+									.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
 							String PUDate = "txtActpuDate_" + pu;
 							String PUTime = "txtActPuTime_" + pu;
 
@@ -2485,7 +2512,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 									System.out.println("value of del==" + puS);
 
 									ZoneID = PickupPoints.get(puS)
-											.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+											.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
 									PUDate = "txtActpuDate_" + puS;
 									PUTime = "txtActPuTime_" + puS;
 
@@ -2573,7 +2600,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 										System.out.println("value of del==" + Del);
 
 										ZoneID = DelPoints.get(Del)
-												.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+												.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 										String DeliveryDate = "txtActdlDate_" + Del;
 										String DeliveryTime = "txtActDlTime_" + Del;
 
@@ -2646,7 +2673,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 												System.out.println("value of del==" + DelS);
 
 												ZoneID = DelPoints.get(DelS).findElement(
-														By.xpath("//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+														By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 												DeliveryDate = "txtActdlDate_" + DelS;
 												DeliveryTime = "txtActDlTime_" + DelS;
 
@@ -2711,7 +2738,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 
 								try {
 									wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
-									PickUpID = getData("ManyToMany", 1, 2);
+									PickUpID = getData("SearchRTE", 4, 2);
 									isElementPresent("TLBasicSearch_id").clear();
 									isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 									logs.info("Entered PickUpID in basic search");
@@ -2831,7 +2858,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 											try {
 												wait.until(ExpectedConditions
 														.visibilityOfElementLocated(By.id("txtContains")));
-												PickUpID = getData("ManyToMany", 1, 2);
+												PickUpID = getData("SearchRTE", 4, 2);
 												isElementPresent("TLBasicSearch_id").clear();
 												isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 												logs.info("Entered PickUpID in basic search");
@@ -2880,7 +2907,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 														try {
 															wait.until(ExpectedConditions
 																	.visibilityOfElementLocated(By.id("txtContains")));
-															PickUpID = getData("ManyToMany", 1, 2);
+															PickUpID = getData("SearchRTE", 4, 2);
 															isElementPresent("TLBasicSearch_id").clear();
 															isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 															logs.info("Entered PickUpID in basic search");
@@ -3054,7 +3081,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 							System.out.println("value of del==" + Del);
 
 							WebElement ZoneID = DelPoints.get(Del)
-									.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+									.findElement(By.xpath("/td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 							String DeliveryDate = "txtActdlDate_" + Del;
 							String DeliveryTime = "txtActDlTime_" + Del;
 
@@ -3124,7 +3151,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 
 									}
 									ZoneID = DelPoints.get(DelS)
-											.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+											.findElement(By.xpath("/td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 									DeliveryDate = "txtActdlDate_" + DelS;
 									DeliveryTime = "txtActDlTime_" + DelS;
 
@@ -3208,7 +3235,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 
 										}
 										ZoneID = PickupPoints.get(pu)
-												.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+												.findElement(By.xpath("/td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
 										String PUDate = "txtActpuDate_" + pu;
 										String PUTime = "txtActPuTime_" + pu;
 
@@ -3276,7 +3303,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 												System.out.println("value of del==" + puS);
 
 												ZoneID = PickupPoints.get(puS).findElement(
-														By.xpath("//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+														By.xpath("/td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
 												PUDate = "txtActpuDate_" + puS;
 												PUTime = "txtActPuTime_" + puS;
 
@@ -3353,7 +3380,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 
 					try {
 						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
-						PickUpID = getData("ManyToMany", 1, 2);
+						PickUpID = getData("SearchRTE", 4, 2);
 						isElementPresent("TLBasicSearch_id").clear();
 						isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 						logs.info("Entered PickUpID in basic search");
@@ -3464,7 +3491,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 
 								try {
 									wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
-									PickUpID = getData("ManyToMany", 1, 2);
+									PickUpID = getData("SearchRTE", 4, 2);
 									isElementPresent("TLBasicSearch_id").clear();
 									isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 									logs.info("Entered PickUpID in basic search");
@@ -3511,7 +3538,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 											try {
 												wait.until(ExpectedConditions
 														.visibilityOfElementLocated(By.id("txtContains")));
-												PickUpID = getData("ManyToMany", 1, 2);
+												PickUpID = getData("SearchRTE", 4, 2);
 												isElementPresent("TLBasicSearch_id").clear();
 												isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 												logs.info("Entered PickUpID in basic search");
@@ -3712,7 +3739,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 
 					try {
 						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
-						PickUpID = getData("ManyToMany", 1, 2);
+						PickUpID = getData("SearchRTE", 4, 2);
 						isElementPresent("TLBasicSearch_id").clear();
 						isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 						logs.info("Entered PickUpID in basic search");
@@ -3756,7 +3783,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 
 								try {
 									wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
-									PickUpID = getData("ManyToMany", 1, 2);
+									PickUpID = getData("SearchRTE", 4, 2);
 									isElementPresent("TLBasicSearch_id").clear();
 									isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 									logs.info("Entered PickUpID in basic search");
@@ -3872,7 +3899,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 
 					try {
 						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
-						PickUpID = getData("ManyToMany", 1, 2);
+						PickUpID = getData("SearchRTE", 4, 2);
 						isElementPresent("TLBasicSearch_id").clear();
 						isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 						logs.info("Entered PickUpID in basic search");
@@ -3980,7 +4007,9 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 				logs.info("Job status is==" + jobStatus);
 			}
 
-		} catch (Exception NoDataex) {
+		} catch (
+
+		Exception NoDataex) {
 			try {
 				WebElement NoData = isElementPresent("NoData_className");
 				wait.until(ExpectedConditions.visibilityOf(NoData));
@@ -3999,8 +4028,8 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 			}
 		}
 
-		logs.info("======================RTE Many To Many Order Processing Test End==================");
-		msg.append("======================RTE Many To Many Order Processing Test End==================" + "\n");
+		logs.info("======================RTE Compare Charges Test End==================");
+		msg.append("======================RTE Compare Charges Test End==================" + "\n");
 
 	}
 

@@ -1,12 +1,61 @@
-2022-06-20 18:44:18,119 - CreateMergeRTEwithLOC -INFO - initialization of the properties file is done
-2022-06-20 18:44:18,409 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Using chromedriver 102.0.5005.61 (since Google Chrome 102 is installed in your machine)
-2022-06-20 18:44:18,427 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Exporting webdriver.chrome.driver as C:\Users\rprajapati\.m2\repository\webdriver\chromedriver\win32\102.0.5005.61\chromedriver.exe
-2022-06-20 18:44:25,463 - CreateMergeRTEwithLOC -INFO - Entered UserName
-2022-06-20 18:44:26,574 - CreateMergeRTEwithLOC -INFO - Entered Password
-2022-06-20 18:44:27,783 - CreateMergeRTEwithLOC -INFO - Login done
-2022-06-20 18:44:41,884 - CreateMergeRTEwithLOC -INFO - Clicked on Operations
-2022-06-20 18:44:42,028 - CreateMergeRTEwithLOC -INFO - Clicked on TaskLog
-2022-06-20 18:44:45,205 - CreateMergeRTEwithLOC -INFO - PickUpID==3405436
-2022-06-20 18:44:45,205 - CreateMergeRTEwithLOC -INFO - Entered PickUpID in basic search
-2022-06-20 18:44:54,792 - CreateMergeRTEwithLOC -INFO - Click on Yellow color Linktext
-2022-06-20 18:44:57,691 - CreateMergeRTEwithLOC -INFO - Data is exist with search parameter
+2022-06-22 21:58:16,432 - RTEJobCreation -INFO - initialization of the properties file is done
+2022-06-22 21:58:16,746 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Using chromedriver 102.0.5005.61 (since Google Chrome 102 is installed in your machine)
+2022-06-22 21:58:16,763 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Exporting webdriver.chrome.driver as C:\Users\rprajapati\.m2\repository\webdriver\chromedriver\win32\102.0.5005.61\chromedriver.exe
+2022-06-22 21:58:27,214 - RTEJobCreation -INFO - Entered UserName
+2022-06-22 21:58:28,329 - RTEJobCreation -INFO - Entered Password
+2022-06-22 21:58:29,467 - RTEJobCreation -INFO - Login done
+2022-06-22 21:58:47,760 - RTEJobCreation -INFO - ======================RTE Job Creation Test start==================
+2022-06-22 21:58:47,997 - RTEJobCreation -INFO - Clicked on Tools
+2022-06-22 21:58:48,138 - RTEJobCreation -INFO - Clicked on Import Route
+2022-06-22 21:58:50,183 - RTEJobCreation -INFO - Clicked on Browse button
+2022-06-22 21:58:53,967 - RTEJobCreation -INFO - FileName==RTE Automation NegFlow
+2022-06-22 21:58:54,046 - RTEJobCreation -INFO - Send file to input file
+2022-06-22 21:58:56,289 - RTEJobCreation -INFO - Click on Upload button
+2022-06-22 21:58:58,754 - RTEJobCreation -INFO - Click on Continue button
+2022-06-22 21:59:00,044 - RTEJobCreation -INFO - File is Uploaded==Route data imported successfully. Generated RouteWorkId is RT00002202.Next generated order is on 06/22/2022 22:00 with Ready Date of 06/22/2022 22:00
+2022-06-22 21:59:00,045 - RTEJobCreation -INFO - RoutWorkID is==RT00002202
+2022-06-22 21:59:00,471 - RTEJobCreation -INFO - Stored RoutWorkID in excel
+2022-06-22 21:59:02,366 - RTEJobCreation -INFO - Clicked on Browse button
+2022-06-22 21:59:02,588 - RTEJobCreation -INFO - FileName==RTE Job Creation ForCrud
+2022-06-22 21:59:02,662 - RTEJobCreation -INFO - Send file to input file
+2022-06-22 21:59:04,891 - RTEJobCreation -INFO - Click on Upload button
+2022-06-22 21:59:07,304 - RTEJobCreation -INFO - Click on Continue button
+2022-06-22 21:59:08,505 - RTEJobCreation -INFO - File is Uploaded==Route data imported successfully. Generated RouteWorkId is RT00002203.Next generated order is on 06/22/2022 22:00 with Ready Date of 06/22/2022 22:00
+2022-06-22 21:59:08,506 - RTEJobCreation -INFO - RoutWorkID is==RT00002203
+2022-06-22 21:59:08,691 - RTEJobCreation -INFO - Stored RoutWorkID in excel
+2022-06-22 21:59:10,580 - RTEJobCreation -INFO - Clicked on Browse button
+2022-06-22 21:59:10,755 - RTEJobCreation -INFO - FileName==RTE Job Creation OneToMany
+2022-06-22 21:59:10,825 - RTEJobCreation -INFO - Send file to input file
+2022-06-22 21:59:13,055 - RTEJobCreation -INFO - Click on Upload button
+2022-06-22 21:59:15,487 - RTEJobCreation -INFO - Click on Continue button
+2022-06-22 21:59:17,757 - RTEJobCreation -INFO - File is Uploaded==Route data imported successfully. Generated RouteWorkId is RT00002204.Next generated order is on 06/22/2022 22:00 with Ready Date of 06/22/2022 22:00
+2022-06-22 21:59:17,757 - RTEJobCreation -INFO - RoutWorkID is==RT00002204
+2022-06-22 21:59:17,838 - RTEJobCreation -INFO - Stored RoutWorkID in excel
+2022-06-22 21:59:19,560 - RTEJobCreation -INFO - Clicked on Browse button
+2022-06-22 21:59:19,656 - RTEJobCreation -INFO - FileName==RTE Job Creation ManyToOne
+2022-06-22 21:59:19,716 - RTEJobCreation -INFO - Send file to input file
+2022-06-22 21:59:21,917 - RTEJobCreation -INFO - Click on Upload button
+2022-06-22 21:59:24,324 - RTEJobCreation -INFO - Click on Continue button
+2022-06-22 21:59:26,140 - RTEJobCreation -INFO - File is Uploaded==Route data imported successfully. Generated RouteWorkId is RT00002205.Next generated order is on 06/22/2022 22:00 with Ready Date of 06/22/2022 22:00
+2022-06-22 21:59:26,140 - RTEJobCreation -INFO - RoutWorkID is==RT00002205
+2022-06-22 21:59:26,222 - RTEJobCreation -INFO - Stored RoutWorkID in excel
+2022-06-22 21:59:28,066 - RTEJobCreation -INFO - Clicked on Browse button
+2022-06-22 21:59:28,160 - RTEJobCreation -INFO - FileName==RTE Job Creation ManyToMany
+2022-06-22 21:59:28,216 - RTEJobCreation -INFO - Send file to input file
+2022-06-22 21:59:30,455 - RTEJobCreation -INFO - Click on Upload button
+2022-06-22 21:59:32,852 - RTEJobCreation -INFO - Click on Continue button
+2022-06-22 21:59:35,180 - RTEJobCreation -INFO - File is Uploaded==Route data imported successfully. Generated RouteWorkId is RT00002206.Next generated order is on 06/22/2022 22:00 with Ready Date of 06/22/2022 22:00
+2022-06-22 21:59:35,180 - RTEJobCreation -INFO - RoutWorkID is==RT00002206
+2022-06-22 21:59:35,243 - RTEJobCreation -INFO - Stored RoutWorkID in excel
+2022-06-22 21:59:37,179 - RTEJobCreation -INFO - Clicked on Browse button
+2022-06-22 21:59:37,279 - RTEJobCreation -INFO - FileName==RTE Job Creation_Automation RTE
+2022-06-22 21:59:37,334 - RTEJobCreation -INFO - Send file to input file
+2022-06-22 21:59:39,553 - RTEJobCreation -INFO - Click on Upload button
+2022-06-22 21:59:41,985 - RTEJobCreation -INFO - Click on Continue button
+2022-06-22 21:59:43,254 - RTEJobCreation -INFO - File is Uploaded==Route data imported successfully. Generated RouteWorkId is RT00002207.Next generated order is on 06/22/2022 22:00 with Ready Date of 06/22/2022 22:00
+2022-06-22 21:59:43,254 - RTEJobCreation -INFO - RoutWorkID is==RT00002207
+2022-06-22 21:59:43,382 - RTEJobCreation -INFO - Stored RoutWorkID in excel
+2022-06-22 21:59:43,383 - RTEJobCreation -INFO - ======================RTE Job Creation Test End==================
+2022-06-22 21:59:47,807 - RTEJobCreation -INFO - Logout Message is displayed==You have successfully logged out!
+2022-06-22 21:59:47,808 - RTEJobCreation -INFO - Logout done
+2022-06-22 21:59:48,312 - RTEJobCreation -INFO - ====Sending Email=====

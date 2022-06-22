@@ -24,7 +24,7 @@ public class RTECrudOperations extends BaseInit {
 	public void rteCrudOperations()
 			throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException {
 
-		WebDriverWait wait = new WebDriverWait(driver, 50);
+		WebDriverWait wait = new WebDriverWait(driver, 30);
 		Actions act = new Actions(driver);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		String Result = null;
@@ -139,8 +139,11 @@ public class RTECrudOperations extends BaseInit {
 					getScreenshot(driver, "JobEditor_TCACK");
 
 					// --Shipment Details
-					ShipmentDetails shipDetails = new ShipmentDetails();
-					shipDetails.rteShipmentDetails();
+
+					/*
+					 * ShipmentDetails shipDetails = new ShipmentDetails();
+					 * shipDetails.rteShipmentDetails();
+					 */
 
 					// --Edit Job Tab
 					EditJob Ejob = new EditJob();
@@ -248,6 +251,27 @@ public class RTECrudOperations extends BaseInit {
 						logs.info("Job status is==" + jobStatus);
 
 					}
+				} else if (jobStatus.contains("PU DRV CONF")) {
+					logs.info("It is PU DRV CONF stage");
+					getScreenshot(driver, "JobEditor_TCACK");
+
+					// --Shipment Details
+					/*
+					 * ShipmentDetails shipDetails = new ShipmentDetails();
+					 * shipDetails.rteShipmentDetails();
+					 */
+					// --Edit Job Tab
+					EditJob Ejob = new EditJob();
+					Result = Ejob.editJob();
+					logs.info("Result of UnMerge method is==" + Result);
+
+					// --Click on Acknowledge button
+					WebElement SaveExit = isElementPresent("TLEJSaveExit_xpath");
+					act.moveToElement(SaveExit).build().perform();
+					act.moveToElement(SaveExit).click().perform();
+					logs.info("Clicked on SaveExit button");
+					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
 				} else {
 					logs.info("Unknown Stage found");
 					jobStatus = isElementPresent("TLStageLable_id").getText();

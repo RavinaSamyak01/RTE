@@ -19,7 +19,7 @@ public class RTEJobCreation extends BaseInit {
 	public void rteJobCreation()
 			throws InterruptedException, EncryptedDocumentException, InvalidFormatException, IOException {
 
-		WebDriverWait wait = new WebDriverWait(driver, 50);
+		WebDriverWait wait = new WebDriverWait(driver, 30);
 		Actions act = new Actions(driver);
 		// JavascriptExecutor js = (JavascriptExecutor) driver;
 
@@ -44,7 +44,7 @@ public class RTEJobCreation extends BaseInit {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 		getScreenshot(driver, "ImportRoute");
-		for (int i = 2; i < 7; i++) {
+		for (int i = 2; i < 8; i++) {
 			// --Upload RTE job File
 			ExpectedConditions.visibilityOfElementLocated(By.id("btnBrowse"));
 			isElementPresent("IRBrowse_id").click();
@@ -67,9 +67,14 @@ public class RTEJobCreation extends BaseInit {
 			isElementPresent("IRUpload_id").click();
 			logs.info("Click on Upload button");
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+			Thread.sleep(2000);
 
 			// --CLick on Continue button
-			isElementPresent("IRContinue_id").click();
+			WebElement Continue = isElementPresent("IRContinue_id");
+			wait.until(ExpectedConditions.elementToBeClickable(Continue));
+			act.moveToElement(Continue).build().perform();
+			act.moveToElement(Continue).click().perform();
+
 			logs.info("Click on Continue button");
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("success")));

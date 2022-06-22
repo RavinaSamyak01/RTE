@@ -26,7 +26,7 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 	@Test
 	public void createMergeRTEWithLOCJob()
 			throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException {
-		WebDriverWait wait = new WebDriverWait(driver, 50);
+		WebDriverWait wait = new WebDriverWait(driver, 30);
 		Actions act = new Actions(driver);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 
@@ -260,7 +260,7 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 												RWID.trim();
 												System.out.println("RoutWorkID is==" + RWID);
 												logs.info("RoutWorkID is==" + RWID);
-												setData("RTECreation", 8, 1, RWID);
+												setData("RTECreation", 9, 1, RWID);
 												logs.info("Stored RoutWorkID in excel");
 
 											}
@@ -298,7 +298,7 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 									Select RlistValue = new Select(RList);
 
 									// -get the TrackingNo
-									String RWTrackNo = getData("RTECreation", 9, 2);
+									String RWTrackNo = getData("RTECreation", 7, 2);
 									logs.info("TrackingNo of RTE job is==" + RWTrackNo);
 
 									// --Select the RTE which is created on current date
@@ -556,6 +556,7 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 										isElementPresent("TLRWUnZpCde_id").clear();
 										isElementPresent("TLRWUnZpCde_id").sendKeys("77054");
 										isElementPresent("TLRWUnZpCde_id").sendKeys(Keys.TAB);
+										isElementPresent("TLRWUnZpCde_id").sendKeys(Keys.TAB);
 										logs.info("Entered ZipCode");
 										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
@@ -591,7 +592,7 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 													RWID.trim();
 													System.out.println("RoutWorkID is==" + RWID);
 													logs.info("RoutWorkID is==" + RWID);
-													setData("RTECreation", 8, 1, RWID);
+													setData("RTECreation", 9, 1, RWID);
 													logs.info("Stored RoutWorkID in excel");
 
 												}
@@ -629,7 +630,7 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 										Select RlistValue = new Select(RList);
 
 										// -get the TrackingNo
-										String RWTrackNo = getData("RTECreation", 9, 2);
+										String RWTrackNo = getData("RTECreation", 7, 2);
 										logs.info("TrackingNo of RTE job is==" + RWTrackNo);
 
 										// --Select the RTE which is created on current date
@@ -655,7 +656,7 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 												Thread.sleep(2000);
 												RlistValue = new Select(RList);
 												RlistValue.selectByIndex(OpIndex);
-												Thread.sleep(2000);
+												Thread.sleep(5000);
 												wait.until(ExpectedConditions
 														.invisibilityOfElementLocated(By.id("loaderDiv")));
 												logs.info("Selected RTE Job");
@@ -918,7 +919,7 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 														RWID.trim();
 														System.out.println("RoutWorkID is==" + RWID);
 														logs.info("RoutWorkID is==" + RWID);
-														setData("RTECreation", 8, 1, RWID);
+														setData("RTECreation", 9, 1, RWID);
 														logs.info("Stored RoutWorkID in excel");
 
 													}
@@ -957,7 +958,7 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 											Select RlistValue = new Select(RList);
 
 											// -get the TrackingNo
-											String RWTrackNo = getData("RTECreation", 9, 2);
+											String RWTrackNo = getData("RTECreation", 7, 2);
 											logs.info("TrackingNo of RTE job is==" + RWTrackNo);
 
 											// --Select the RTE which is created on current date
@@ -1009,7 +1010,7 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 
 												String SUccMsg = isElementPresent("TLRWSucc_id").getText();
 												logs.info("Message is displayed==" + SUccMsg);
-												logs.info("RTE Job is created successfully.");
+												logs.info("RTE Job is merged successfully.");
 
 												// --Get the RouteWorkID
 												String inLine = SUccMsg;
@@ -1168,10 +1169,20 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 									logs.info("PickUP No is==" + PickUP);
 
 									if (PickUP.equalsIgnoreCase(APUID)) {
-										logs.info("LOC job is converted in RTE successfully.");
+										logs.info("LOC job is Merge in RTE successfully.");
+										// --set the PickUP ID in excel
+										PickUP = PUP.getText();
+										setData("CompareCharges", 1, 1, PickUP);
+
+										WebElement ShipCharges = isElementPresent("TLEShCharges_id");
+										act.moveToElement(ShipCharges).build().perform();
+										String Charges = ShipCharges.getText().trim();
+										logs.info("Shipment Charges After Merge Loc Job===" + Charges);
+										// --set data in excel
+										setData("CompareCharges", 1, 3, Charges);
 
 									} else {
-										logs.info("LOC job is not converted in RTE successfully.");
+										logs.info("LOC job is not merge in RTE successfully.");
 
 									}
 									break;

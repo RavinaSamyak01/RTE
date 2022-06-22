@@ -1,4 +1,4 @@
-package rte_RTECrudOperations;
+package rte_RTEJobCreation;
 
 import java.io.IOException;
 import java.text.DateFormat;
@@ -18,10 +18,10 @@ import org.testng.annotations.Test;
 
 import rte_BasePackage.BaseInit;
 
-public class CreateRTEJob extends BaseInit {
+public class CreateRTEJobManual extends BaseInit {
 
 	@Test
-	public void rteCreateJob() throws IOException {
+	public void rteCreateJobManual() throws IOException {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		Actions act = new Actions(driver);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -234,6 +234,11 @@ public class CreateRTEJob extends BaseInit {
 		Select SETAmPm = new Select(isElementPresent("RLRWSchedAmPm_id"));
 		SETAmPm.selectByVisibleText("PM");
 		logs.info("Selected  Scheduled End Time AM/PM");
+		
+		//--Daily Days
+		isElementPresent("RLRWDailyDays_id").clear();
+		isElementPresent("RLRWDailyDays_id").sendKeys("1");
+		logs.info("Entered Days");
 
 		// --Move to Return Undeliverable Shipments To Section
 		WebElement RUShip = isElementPresent("RLRWReturnsection_xpath");
@@ -273,11 +278,11 @@ public class CreateRTEJob extends BaseInit {
 		// --Add/Edit/Delete shipment
 		rteEditDeleteShipment();
 
-		// --Click on Save as Draft
-		WebElement SaveASDraft = isElementPresent("RLRWSaveAsDraft_id");
-		js.executeScript("arguments[0].scrollIntoView();", SaveASDraft);
-		SaveASDraft.click();
-		logs.info("Clicked on SaveAsDraft");
+		// --Click on Activate Now
+		WebElement ActNow = isElementPresent("RLRWActivNow_id");
+		js.executeScript("arguments[0].scrollIntoView();", ActNow);
+		ActNow.click();
+		logs.info("Clicked on Activate Now");
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 		try {
@@ -295,7 +300,7 @@ public class CreateRTEJob extends BaseInit {
 					Detail.trim();
 					System.out.println("RoutWorkID is==" + Detail);
 					logs.info("RoutWorkID is==" + Detail);
-					setData("RTECreation", 6, 1, Detail);
+					setData("RTECreation", 8, 1, Detail);
 					logs.info("Stored RoutWorkID in excel");
 
 				}

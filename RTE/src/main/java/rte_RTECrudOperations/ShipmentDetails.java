@@ -173,10 +173,10 @@ public class ShipmentDetails extends BaseInit {
 		// --CLick on All link
 		isElementPresent("TLESMAll_id").click();
 		logs.info("Clicked on All link");
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 		// --Enter Memo
-		isElementPresent("TLESMemo_id").sendKeys("Creating Memo for Automation Testing");
+		isElementPresent("TLESMemo_xpath").sendKeys("Creating Memo for Automation Testing");
 		logs.info("Entered Memo");
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
@@ -301,6 +301,8 @@ public class ShipmentDetails extends BaseInit {
 
 		// --Click on Upload File
 		WebElement UploadFile = isElementPresent("UploadFile_id");
+		act.moveToElement(UploadFile).build().perform();
+		wait.until(ExpectedConditions.elementToBeClickable(UploadFile));
 		js.executeScript("arguments[0].click();", UploadFile);
 		logs.info("Click on Upload file");
 		Thread.sleep(2000);

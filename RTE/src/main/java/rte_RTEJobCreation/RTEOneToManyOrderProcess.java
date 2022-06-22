@@ -27,7 +27,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 	@Test
 	public void rteOneToManyOrderProcess() throws EncryptedDocumentException, InvalidFormatException, IOException {
 
-		WebDriverWait wait = new WebDriverWait(driver, 50);
+		WebDriverWait wait = new WebDriverWait(driver, 30);
 		Actions act = new Actions(driver);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 

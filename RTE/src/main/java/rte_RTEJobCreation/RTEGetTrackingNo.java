@@ -17,7 +17,7 @@ public class RTEGetTrackingNo extends BaseInit {
 
 	@Test
 	public void getRTETrackingNo() throws IOException, EncryptedDocumentException, InvalidFormatException {
-		WebDriverWait wait = new WebDriverWait(driver, 50);
+		WebDriverWait wait = new WebDriverWait(driver, 30);
 		Actions act = new Actions(driver);
 
 		logs.info("======================RTE get RWTrackingNo Test start==================");
@@ -99,7 +99,7 @@ public class RTEGetTrackingNo extends BaseInit {
 						setData("RTECreation", row, 2, RWTrackingNo);
 						setData("SearchRTE", 4, 0, RWTrackingNo);
 						logs.info("Inserted RWTrackingNo in Excel");
-					} else if (row == 9 && Scenario.equalsIgnoreCase("One To One")) {
+					} else if (row == 8 && Scenario.equalsIgnoreCase("One To One")) {
 						setData("RTECreation", row, 2, RWTrackingNo);
 						setData("SearchRTE", 5, 0, RWTrackingNo);
 						logs.info("Inserted RWTrackingNo in Excel");

@@ -53,20 +53,17 @@ public class EditJob extends BaseInit {
 		setData("Rate", 1, 1, PickupID);
 		setData("RouteDetail", 1, 1, PickupID);
 
-		// --View Rate
-		viewRate();
-
-		// --View Memo
-		viewMemo();
-
-		// --Print Label
-		printLabel();
-
-		// --Route/Shipment Details
-		routeShipmentDetails();
-
-		// --MAP
-		rteMap();
+		/*
+		 * // --View Rate viewRate();
+		 * 
+		 * // --View Memo viewMemo();
+		 * 
+		 * // --Print Label printLabel();
+		 * 
+		 * // --Route/Shipment Details routeShipmentDetails();
+		 * 
+		 * // --MAP rteMap();
+		 */
 
 		// --AddEdit Shipment and UnMerge
 		AddEditShipmentUnmerge AESUM = new AddEditShipmentUnmerge();
@@ -75,14 +72,13 @@ public class EditJob extends BaseInit {
 
 		// --Click on Memo
 
-		ShipmentDetails SD = new ShipmentDetails();
-		SD.addViewMemo();
-
-		// --Click on Upload
-		SD.upload();
-
-		// --Click on QC
-		SD.rteQC();
+		/*
+		 * ShipmentDetails SD = new ShipmentDetails(); SD.addViewMemo();
+		 * 
+		 * // --Click on Upload SD.upload();
+		 * 
+		 * // --Click on QC SD.rteQC();
+		 */
 
 		// --Add/Delete Charges
 		addDeleteChargesRecal();
