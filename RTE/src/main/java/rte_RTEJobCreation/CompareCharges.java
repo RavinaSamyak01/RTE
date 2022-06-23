@@ -97,7 +97,7 @@ public class CompareCharges extends BaseInit {
 		try {
 			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
 			logs.info("Data is exist with search parameter");
-			getScreenshot(driver, "ManyToMany_TCACK");
+			getScreenshot(driver, "CompareCharge_TCACK");
 
 			try {
 				WebElement JobStatusACt = isElementPresent("TLJobstatusAct_xpath");
@@ -128,7 +128,9 @@ public class CompareCharges extends BaseInit {
 
 			if (jobStatus.contains("TC ACK")) {
 				logs.info("It is TC ACK stage");
-				getScreenshot(driver, "ManyToMany_TCACK");
+				getScreenshot(driver, "CompareCharge_TCACK");
+
+				getScreenshot(driver, "TCACKCharges");
 
 				// --Click on Acknowledge button
 				wait.until(ExpectedConditions.elementToBeClickable(By.id("GreyTick")));
@@ -139,7 +141,7 @@ public class CompareCharges extends BaseInit {
 				try {
 					WebElement PickUPSection = isElementPresent("TLAlertstages_id");
 					wait.until(ExpectedConditions.visibilityOf(PickUPSection));
-					getScreenshot(driver, "ManyToMany_RDYFORDSP");
+					getScreenshot(driver, "CompareCharge_RDYFORDSP");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
 
@@ -186,7 +188,7 @@ public class CompareCharges extends BaseInit {
 
 							wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
 							logs.info("Data is exist with search parameter");
-							getScreenshot(driver, "ManyToMany_PUDRVCNF");
+							getScreenshot(driver, "CompareCharge_PUDRVCNF");
 
 							// --Go to Job Status Tab
 							wait.until(ExpectedConditions.elementToBeClickable(By.id("idJobOverview")));
@@ -227,7 +229,7 @@ public class CompareCharges extends BaseInit {
 							// --PICKUP@STOP 1 OF 2 stage
 							try {
 								wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("routetable")));
-								getScreenshot(driver, "ManyToMany_PickUP");
+								getScreenshot(driver, "CompareCharge_PickUP");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
 								// --Click on ConfirmPU button
@@ -386,7 +388,7 @@ public class CompareCharges extends BaseInit {
 										try {
 											wait.until(ExpectedConditions
 													.visibilityOfAllElementsLocatedBy(By.id("routetable")));
-											getScreenshot(driver, "ManyToMany_Deliver");
+											getScreenshot(driver, "CompareCharge_Deliver");
 											jobStatus = isElementPresent("TLStageLable_id").getText();
 											logs.info("Job status is==" + jobStatus);
 											// --Click on ConfirmPU button
@@ -593,7 +595,7 @@ public class CompareCharges extends BaseInit {
 													logs.info("Data is exist with search parameter");
 													wait.until(ExpectedConditions
 															.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
-													getScreenshot(driver, "ManyToMany_Delivered");
+													getScreenshot(driver, "CompareCharge_Delivered");
 													jobStatus = isElementPresent("TLStageLable_id").getText();
 													logs.info("Job status is==" + jobStatus);
 
@@ -605,6 +607,8 @@ public class CompareCharges extends BaseInit {
 														act.moveToElement(ShipCharges).build().perform();
 														String Charges = ShipCharges.getText().trim();
 														logs.info("Shipment Charges After Deliverd===" + Charges);
+														getScreenshot(driver, "DeliveredCharges");
+
 														// --set data in excel
 														setData("CompareCharges", 1, 4, Charges);
 
@@ -964,7 +968,7 @@ public class CompareCharges extends BaseInit {
 			} else if (jobStatus.contains("RDY FOR DSP")) {
 				WebElement PickUPSection = isElementPresent("TLAlertstages_id");
 				wait.until(ExpectedConditions.visibilityOf(PickUPSection));
-				getScreenshot(driver, "ManyToMany_RDYFORDSP");
+				getScreenshot(driver, "CompareCharge_RDYFORDSP");
 				jobStatus = isElementPresent("TLStageLable_id").getText();
 				logs.info("Job status is==" + jobStatus);
 
@@ -1011,7 +1015,7 @@ public class CompareCharges extends BaseInit {
 
 						wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
 						logs.info("Data is exist with search parameter");
-						getScreenshot(driver, "ManyToMany_PUDRVCNF");
+						getScreenshot(driver, "CompareCharge_PUDRVCNF");
 
 						// --Go to Job Status Tab
 						wait.until(ExpectedConditions.elementToBeClickable(By.id("idJobOverview")));
@@ -1052,7 +1056,7 @@ public class CompareCharges extends BaseInit {
 						// --PICKUP@STOP 1 OF 2 stage
 						try {
 							wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("routetable")));
-							getScreenshot(driver, "ManyToMany_PickUP");
+							getScreenshot(driver, "CompareCharge_PickUP");
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
 							// --Click on ConfirmPU button
@@ -1210,7 +1214,7 @@ public class CompareCharges extends BaseInit {
 									try {
 										wait.until(ExpectedConditions
 												.visibilityOfAllElementsLocatedBy(By.id("routetable")));
-										getScreenshot(driver, "ManyToMany_Deliver");
+										getScreenshot(driver, "CompareCharge_Deliver");
 										jobStatus = isElementPresent("TLStageLable_id").getText();
 										logs.info("Job status is==" + jobStatus);
 										// --Click on ConfirmPU button
@@ -1416,7 +1420,7 @@ public class CompareCharges extends BaseInit {
 												logs.info("Data is exist with search parameter");
 												wait.until(ExpectedConditions
 														.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
-												getScreenshot(driver, "ManyToMany_Delivered");
+												getScreenshot(driver, "CompareCharge_Delivered");
 												jobStatus = isElementPresent("TLStageLable_id").getText();
 												logs.info("Job status is==" + jobStatus);
 
@@ -1731,7 +1735,7 @@ public class CompareCharges extends BaseInit {
 
 				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
 				logs.info("Data is exist with search parameter");
-				getScreenshot(driver, "ManyToMany_PUDRVCNF");
+				getScreenshot(driver, "CompareCharge_PUDRVCNF");
 
 				// --Go to Job Status Tab
 				wait.until(ExpectedConditions.elementToBeClickable(By.id("idJobOverview")));
@@ -1772,7 +1776,7 @@ public class CompareCharges extends BaseInit {
 				// --PICKUP@STOP 1 OF 2 stage
 				try {
 					wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("routetable")));
-					getScreenshot(driver, "ManyToMany_PickUP");
+					getScreenshot(driver, "CompareCharge_PickUP");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
 					// --Click on ConfirmPU button
@@ -1927,7 +1931,7 @@ public class CompareCharges extends BaseInit {
 							// --DELIVER@STOP 2 OF 2 stage
 							try {
 								wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("routetable")));
-								getScreenshot(driver, "ManyToMany_Deliver");
+								getScreenshot(driver, "CompareCharge_Deliver");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
 								// --Click on ConfirmPU button
@@ -2124,7 +2128,7 @@ public class CompareCharges extends BaseInit {
 										logs.info("Data is exist with search parameter");
 										wait.until(ExpectedConditions
 												.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
-										getScreenshot(driver, "ManyToMany_Delivered");
+										getScreenshot(driver, "CompareCharge_Delivered");
 										jobStatus = isElementPresent("TLStageLable_id").getText();
 										logs.info("Job status is==" + jobStatus);
 
@@ -2409,7 +2413,7 @@ public class CompareCharges extends BaseInit {
 				// --PICKUP@STOP 1 OF 2 stage
 				try {
 					wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("routetable")));
-					getScreenshot(driver, "ManyToMany_PickUP");
+					getScreenshot(driver, "CompareCharge_PickUP");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
 					// --Click on ConfirmPU button
@@ -2564,7 +2568,7 @@ public class CompareCharges extends BaseInit {
 							// --DELIVER@STOP 2 OF 2 stage
 							try {
 								wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("routetable")));
-								getScreenshot(driver, "ManyToMany_Deliver");
+								getScreenshot(driver, "CompareCharge_Deliver");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
 								// --Click on ConfirmPU button
@@ -2761,7 +2765,7 @@ public class CompareCharges extends BaseInit {
 										logs.info("Data is exist with search parameter");
 										wait.until(ExpectedConditions
 												.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
-										getScreenshot(driver, "ManyToMany_Delivered");
+										getScreenshot(driver, "CompareCharge_Delivered");
 										jobStatus = isElementPresent("TLStageLable_id").getText();
 										logs.info("Job status is==" + jobStatus);
 
@@ -3046,7 +3050,7 @@ public class CompareCharges extends BaseInit {
 				// --DELIVER@STOP 2 OF 2 stage
 				try {
 					wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("routetable")));
-					getScreenshot(driver, "ManyToMany_Deliver");
+					getScreenshot(driver, "CompareCharge_Deliver");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
 					// --Click on ConfirmPU button
@@ -3201,7 +3205,7 @@ public class CompareCharges extends BaseInit {
 
 							try {
 								wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("routetable")));
-								getScreenshot(driver, "ManyToMany_PickUP");
+								getScreenshot(driver, "CompareCharge_PickUP");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
 								// --Click on ConfirmPU button
@@ -3402,7 +3406,7 @@ public class CompareCharges extends BaseInit {
 						} catch (Exception NoData2) {
 							logs.info("Data is exist with search parameter");
 							wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
-							getScreenshot(driver, "ManyToMany_Delivered");
+							getScreenshot(driver, "CompareCharge_Delivered");
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
 
@@ -3984,6 +3988,33 @@ public class CompareCharges extends BaseInit {
 				if (jobStatus.contains("VERIFIED")) {
 					logs.info("Job is moved to VERIFIED stage");
 					getScreenshot(driver, "JobEditor_Verified");
+
+					// --Get the charges
+					WebElement ShipCharges = isElementPresent("TLEShCharges_id");
+					act.moveToElement(ShipCharges).build().perform();
+					String Charges = ShipCharges.getText().trim();
+					logs.info("Shipment Charges After Deliverd===" + Charges);
+					getScreenshot(driver, "DeliveredCharges");
+
+					// --set data in excel
+					setData("CompareCharges", 1, 4, Charges);
+
+					// --Shipment Creation charges
+					String ShCreationCharges = getData("CompareCharges", 1, 2);
+					logs.info("Shipment Charges on Creation===" + ShCreationCharges);
+
+					// --Compare charges
+					if (Charges.equalsIgnoreCase(ShCreationCharges)) {
+						logs.info("Shipment Charges is not updated");
+						logs.info("Shipment Charges after deliverd is same as Creation time");
+						setData("CompareCharges", 1, 5, "FAIL");
+
+					} else {
+						logs.info("Shipment Charges is updated");
+						logs.info("Shipment Charges after deliverd is different than Creation time");
+						setData("CompareCharges", 1, 5, "PASS");
+
+					}
 
 				} else {
 					logs.info("Job is not moved to VERIFIED stage");

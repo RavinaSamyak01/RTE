@@ -301,17 +301,55 @@ public class AddEditShipmentUnmerge extends BaseInit {
 					By.xpath("//*[@id=\"scrollRoute\"]//div[contains(@ng-repeat,'ShipmentDetailList ')]"));
 			TotalShipment = SDetails.size();
 
+			// --set sequence 3 and 4 instead of 2 and 3
+
+			for (int ship = 0; ship < TotalShipment; ship++) {
+
+				if (ship == 1) {
+					SDetails.get(ship).findElement(By.id("txtPUStop")).clear();
+					SDetails.get(ship).findElement(By.id("txtPUStop")).sendKeys("3");
+					logs.info("Edit PUStop");
+
+					// --Clear and Enter DelStop
+					SDetails.get(ship).findElement(By.id("txtDelStop")).clear();
+					SDetails.get(ship).findElement(By.id("txtDelStop")).sendKeys("4");
+					logs.info("Edit DelStop");
+
+					// --Click on Save changes
+					isElementPresent("TLSaveChanges_id").click();
+					logs.info("Clicked on Save changes");
+					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+					break;
+				}
+
+			}
+
+			// --set sequence 3,4 and 1,2
+			// --Click on Edit Stop Sequence
+			EditSS = isElementPresent("TLEditStopSeq_xpath");
+			js.executeScript("arguments[0].scrollIntoView();", EditSS);
+			js.executeScript("arguments[0].click();", EditSS);
+
+			logs.info("Clicked on Edit Stop Sequence");
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+			getScreenshot(driver, "EditStopSequence");
+
+			SDetails = driver.findElements(
+					By.xpath("//*[@id=\"scrollRoute\"]//div[contains(@ng-repeat,'ShipmentDetailList ')]"));
+			TotalShipment = SDetails.size();
+
 			for (int ship = 0; ship < TotalShipment; ship++) {
 
 				if (ship == 0) {
 					// --Clear and Enter PUStop
 					SDetails.get(ship).findElement(By.id("txtPUStop")).clear();
-					SDetails.get(ship).findElement(By.id("txtPUStop")).sendKeys("2");
+					SDetails.get(ship).findElement(By.id("txtPUStop")).sendKeys("3");
 					logs.info("Edit PUStop");
 
 					// --Clear and Enter DelStop
 					SDetails.get(ship).findElement(By.id("txtDelStop")).clear();
-					SDetails.get(ship).findElement(By.id("txtDelStop")).sendKeys("3");
+					SDetails.get(ship).findElement(By.id("txtDelStop")).sendKeys("4");
 					logs.info("Edit DelStop");
 				} else if (ship == 1) {
 					SDetails.get(ship).findElement(By.id("txtPUStop")).clear();

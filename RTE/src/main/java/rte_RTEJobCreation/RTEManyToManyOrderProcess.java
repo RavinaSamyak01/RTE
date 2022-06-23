@@ -265,7 +265,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 										System.out.println("value of PU==" + pu);
 
 										WebElement ZoneID = PickupPoints.get(pu)
-												.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+												.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
 										String PUDate = "txtActpuDate_" + pu;
 										String PUTime = "txtActPuTime_" + pu;
 
@@ -333,7 +333,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 												System.out.println("value of del==" + puS);
 
 												ZoneID = PickupPoints.get(puS).findElement(
-														By.xpath("//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+														By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
 												PUDate = "txtActpuDate_" + puS;
 												PUTime = "txtActPuTime_" + puS;
 
@@ -425,7 +425,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 													System.out.println("value of del==" + Del);
 
 													ZoneID = DelPoints.get(Del).findElement(
-															By.xpath("//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+															By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 													String DeliveryDate = "txtActdlDate_" + Del;
 													String DeliveryTime = "txtActDlTime_" + Del;
 
@@ -1061,7 +1061,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 									System.out.println("value of PU==" + pu);
 
 									WebElement ZoneID = PickupPoints.get(pu)
-											.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+											.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
 									String PUDate = "txtActpuDate_" + pu;
 									String PUTime = "txtActPuTime_" + pu;
 
@@ -1129,7 +1129,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 											System.out.println("value of del==" + puS);
 
 											ZoneID = PickupPoints.get(puS)
-													.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+													.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
 											PUDate = "txtActpuDate_" + puS;
 											PUTime = "txtActPuTime_" + puS;
 
@@ -1220,7 +1220,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 												System.out.println("value of del==" + Del);
 
 												ZoneID = DelPoints.get(Del).findElement(
-														By.xpath("//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+														By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 												String DeliveryDate = "txtActdlDate_" + Del;
 												String DeliveryTime = "txtActDlTime_" + Del;
 
@@ -1296,7 +1296,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 														System.out.println("value of del==" + DelS);
 
 														ZoneID = DelPoints.get(DelS).findElement(
-																By.xpath("//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+																By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 														DeliveryDate = "txtActdlDate_" + DelS;
 														DeliveryTime = "txtActDlTime_" + DelS;
 
@@ -1781,7 +1781,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 							System.out.println("value of PU==" + pu);
 
 							WebElement ZoneID = PickupPoints.get(pu)
-									.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+									.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
 							String PUDate = "txtActpuDate_" + pu;
 							String PUTime = "txtActPuTime_" + pu;
 
@@ -1848,7 +1848,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 									System.out.println("value of del==" + puS);
 
 									ZoneID = PickupPoints.get(puS)
-											.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+											.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
 									PUDate = "txtActpuDate_" + puS;
 									PUTime = "txtActPuTime_" + puS;
 
@@ -1936,7 +1936,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 										System.out.println("value of del==" + Del);
 
 										ZoneID = DelPoints.get(Del)
-												.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+												.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 										String DeliveryDate = "txtActdlDate_" + Del;
 										String DeliveryTime = "txtActDlTime_" + Del;
 
@@ -2009,7 +2009,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 												System.out.println("value of del==" + DelS);
 
 												ZoneID = DelPoints.get(DelS).findElement(
-														By.xpath("//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+														By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 												DeliveryDate = "txtActdlDate_" + DelS;
 												DeliveryTime = "txtActDlTime_" + DelS;
 
@@ -2418,7 +2418,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 							System.out.println("value of PU==" + pu);
 
 							WebElement ZoneID = PickupPoints.get(pu)
-									.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+									.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
 							String PUDate = "txtActpuDate_" + pu;
 							String PUTime = "txtActPuTime_" + pu;
 
@@ -2485,7 +2485,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 									System.out.println("value of del==" + puS);
 
 									ZoneID = PickupPoints.get(puS)
-											.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+											.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
 									PUDate = "txtActpuDate_" + puS;
 									PUTime = "txtActPuTime_" + puS;
 
@@ -2573,7 +2573,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 										System.out.println("value of del==" + Del);
 
 										ZoneID = DelPoints.get(Del)
-												.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+												.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 										String DeliveryDate = "txtActdlDate_" + Del;
 										String DeliveryTime = "txtActDlTime_" + Del;
 
@@ -2646,7 +2646,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 												System.out.println("value of del==" + DelS);
 
 												ZoneID = DelPoints.get(DelS).findElement(
-														By.xpath("//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+														By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 												DeliveryDate = "txtActdlDate_" + DelS;
 												DeliveryTime = "txtActDlTime_" + DelS;
 
@@ -3054,7 +3054,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 							System.out.println("value of del==" + Del);
 
 							WebElement ZoneID = DelPoints.get(Del)
-									.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+									.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 							String DeliveryDate = "txtActdlDate_" + Del;
 							String DeliveryTime = "txtActDlTime_" + Del;
 
@@ -3124,7 +3124,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 
 									}
 									ZoneID = DelPoints.get(DelS)
-											.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+											.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 									DeliveryDate = "txtActdlDate_" + DelS;
 									DeliveryTime = "txtActDlTime_" + DelS;
 
@@ -3208,7 +3208,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 
 										}
 										ZoneID = PickupPoints.get(pu)
-												.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+												.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
 										String PUDate = "txtActpuDate_" + pu;
 										String PUTime = "txtActPuTime_" + pu;
 
@@ -3276,7 +3276,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 												System.out.println("value of del==" + puS);
 
 												ZoneID = PickupPoints.get(puS).findElement(
-														By.xpath("//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+														By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
 												PUDate = "txtActpuDate_" + puS;
 												PUTime = "txtActPuTime_" + puS;
 

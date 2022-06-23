@@ -264,7 +264,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 										 * } System.out.println("value of del==" + pu);
 										 */
 										WebElement ZoneID = PickupPoints.get(pu)
-												.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+												.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
 										String PUDate = "txtActpuDate_" + pu;
 										String PUTime = "txtActPuTime_" + pu;
 
@@ -335,7 +335,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 												System.out.println("value of del==" + pu);
 
 												ZoneID = PickupPoints.get(pu).findElement(
-														By.xpath("//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+														By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
 												PUDate = "txtActpuDate_" + pu;
 												PUTime = "txtActPuTime_" + pu;
 
@@ -427,7 +427,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 										for (int Del = 0; Del < TotalDel; Del++) {
 
 											WebElement ZoneID = DelPoints.get(Del)
-													.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+													.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 											String DeliveryDate = "txtActdlDate_" + Del;
 											String DeliveryTime = "txtActDlTime_" + Del;
 
@@ -510,7 +510,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 											 * } System.out.println("value of del==" + Del);
 											 */
 											WebElement ZoneID = DelPoints.get(Del)
-													.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+													.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 											String DeliveryDate = "txtActdlDate_" + Del;
 											String DeliveryTime = "txtActDlTime_" + Del;
 
@@ -1012,7 +1012,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 									 * } System.out.println("value of del==" + pu);
 									 */
 									WebElement ZoneID = PickupPoints.get(pu)
-											.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+											.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
 									String PUDate = "txtActpuDate_" + pu;
 									String PUTime = "txtActPuTime_" + pu;
 
@@ -1083,7 +1083,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 											System.out.println("value of del==" + pu);
 
 											ZoneID = PickupPoints.get(pu)
-													.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+													.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
 											PUDate = "txtActpuDate_" + pu;
 											PUTime = "txtActPuTime_" + pu;
 
@@ -1174,7 +1174,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 									for (int Del = 0; Del < TotalDel; Del++) {
 
 										WebElement ZoneID = DelPoints.get(Del)
-												.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+												.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 										String DeliveryDate = "txtActdlDate_" + Del;
 										String DeliveryTime = "txtActDlTime_" + Del;
 
@@ -1256,7 +1256,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 										 * } System.out.println("value of del==" + Del);
 										 */
 										WebElement ZoneID = DelPoints.get(Del)
-												.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+												.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 										String DeliveryDate = "txtActdlDate_" + Del;
 										String DeliveryTime = "txtActDlTime_" + Del;
 
@@ -1689,7 +1689,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 							 * } System.out.println("value of del==" + pu);
 							 */
 							WebElement ZoneID = PickupPoints.get(pu)
-									.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+									.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
 							String PUDate = "txtActpuDate_" + pu;
 							String PUTime = "txtActPuTime_" + pu;
 
@@ -1759,7 +1759,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 									System.out.println("value of del==" + pu);
 
 									ZoneID = PickupPoints.get(pu)
-											.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+											.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
 									PUDate = "txtActpuDate_" + pu;
 									PUTime = "txtActPuTime_" + pu;
 
@@ -1848,7 +1848,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 							for (int Del = 0; Del < TotalDel; Del++) {
 
 								WebElement ZoneID = DelPoints.get(Del)
-										.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+										.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 								String DeliveryDate = "txtActdlDate_" + Del;
 								String DeliveryTime = "txtActDlTime_" + Del;
 
@@ -1929,7 +1929,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 								 * } System.out.println("value of del==" + Del);
 								 */
 								WebElement ZoneID = DelPoints.get(Del)
-										.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+										.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 								String DeliveryDate = "txtActdlDate_" + Del;
 								String DeliveryTime = "txtActDlTime_" + Del;
 
@@ -2294,7 +2294,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 							 * } System.out.println("value of del==" + pu);
 							 */
 							WebElement ZoneID = PickupPoints.get(pu)
-									.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+									.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
 							String PUDate = "txtActpuDate_" + pu;
 							String PUTime = "txtActPuTime_" + pu;
 
@@ -2364,7 +2364,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 									System.out.println("value of del==" + pu);
 
 									ZoneID = PickupPoints.get(pu)
-											.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+											.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
 									PUDate = "txtActpuDate_" + pu;
 									PUTime = "txtActPuTime_" + pu;
 
@@ -2453,7 +2453,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 							for (int Del = 0; Del < TotalDel; Del++) {
 
 								WebElement ZoneID = DelPoints.get(Del)
-										.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+										.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 								String DeliveryDate = "txtActdlDate_" + Del;
 								String DeliveryTime = "txtActDlTime_" + Del;
 
@@ -2534,7 +2534,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 								 * } System.out.println("value of del==" + Del);
 								 */
 								WebElement ZoneID = DelPoints.get(Del)
-										.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+										.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 								String DeliveryDate = "txtActdlDate_" + Del;
 								String DeliveryTime = "txtActDlTime_" + Del;
 
@@ -2889,7 +2889,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 						for (int Del = 0; Del < TotalDel; Del++) {
 
 							WebElement ZoneID = DelPoints.get(Del)
-									.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+									.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 							String DeliveryDate = "txtActdlDate_" + Del;
 							String DeliveryTime = "txtActDlTime_" + Del;
 
@@ -2970,7 +2970,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 							 * } System.out.println("value of del==" + Del);
 							 */
 							WebElement ZoneID = DelPoints.get(Del)
-									.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+									.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 							String DeliveryDate = "txtActdlDate_" + Del;
 							String DeliveryTime = "txtActDlTime_" + Del;
 

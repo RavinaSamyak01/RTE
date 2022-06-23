@@ -268,7 +268,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 									for (int pu = 0; pu < TotalPickup; pu++) {
 
 										WebElement ZoneID = PickupPoints.get(pu)
-												.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+												.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
 										String PUDate = "txtActpuDate_" + pu;
 										String PUTime = "txtActPuTime_" + pu;
 
@@ -362,7 +362,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 											System.out.println("value of del==" + Del);
 
 											WebElement ZoneID = DelPoints.get(Del)
-													.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+													.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 											String DeliveryDate = "txtActdlDate_" + Del;
 											String DeliveryTime = "txtActDlTime_" + Del;
 
@@ -428,7 +428,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 													System.out.println("value of del==" + DelS);
 
 													ZoneID = DelPoints.get(DelS).findElement(
-															By.xpath("//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+															By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 													DeliveryDate = "txtActdlDate_" + Del;
 													DeliveryTime = "txtActDlTime_" + Del;
 
@@ -947,7 +947,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 								for (int pu = 0; pu < TotalPickup; pu++) {
 
 									WebElement ZoneID = PickupPoints.get(pu)
-											.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+											.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
 									String PUDate = "txtActpuDate_" + pu;
 									String PUTime = "txtActPuTime_" + pu;
 
@@ -1040,7 +1040,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 										System.out.println("value of del==" + Del);
 
 										WebElement ZoneID = DelPoints.get(Del)
-												.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+												.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 										String DeliveryDate = "txtActdlDate_" + Del;
 										String DeliveryTime = "txtActDlTime_" + Del;
 
@@ -1104,7 +1104,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 												System.out.println("value of del==" + DelS);
 
 												ZoneID = DelPoints.get(DelS).findElement(
-														By.xpath("//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+														By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 												DeliveryDate = "txtActdlDate_" + Del;
 												DeliveryTime = "txtActDlTime_" + Del;
 
@@ -1538,7 +1538,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 						for (int pu = 0; pu < TotalPickup; pu++) {
 
 							WebElement ZoneID = PickupPoints.get(pu)
-									.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+									.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
 							String PUDate = "txtActpuDate_" + pu;
 							String PUTime = "txtActPuTime_" + pu;
 
@@ -1630,7 +1630,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 								System.out.println("value of del==" + Del);
 
 								WebElement ZoneID = DelPoints.get(Del)
-										.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+										.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 								String DeliveryDate = "txtActdlDate_" + Del;
 								String DeliveryTime = "txtActDlTime_" + Del;
 
@@ -1694,7 +1694,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 										System.out.println("value of del==" + DelS);
 
 										ZoneID = DelPoints.get(DelS)
-												.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+												.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 										DeliveryDate = "txtActdlDate_" + Del;
 										DeliveryTime = "txtActDlTime_" + Del;
 
@@ -2058,7 +2058,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 						for (int pu = 0; pu < TotalPickup; pu++) {
 
 							WebElement ZoneID = PickupPoints.get(pu)
-									.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+									.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
 							String PUDate = "txtActpuDate_" + pu;
 							String PUTime = "txtActPuTime_" + pu;
 
@@ -2150,7 +2150,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 								System.out.println("value of del==" + Del);
 
 								WebElement ZoneID = DelPoints.get(Del)
-										.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+										.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 								String DeliveryDate = "txtActdlDate_" + Del;
 								String DeliveryTime = "txtActDlTime_" + Del;
 
@@ -2214,7 +2214,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 										System.out.println("value of del==" + DelS);
 
 										ZoneID = DelPoints.get(DelS)
-												.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+												.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 										DeliveryDate = "txtActdlDate_" + Del;
 										DeliveryTime = "txtActDlTime_" + Del;
 
@@ -2596,7 +2596,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 							System.out.println("value of del==" + Del);
 
 							WebElement ZoneID = DelPoints.get(Del)
-									.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+									.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 							String DeliveryDate = "txtActdlDate_" + Del;
 							String DeliveryTime = "txtActDlTime_" + Del;
 
@@ -2659,7 +2659,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 									System.out.println("value of del==" + DelS);
 
 									ZoneID = DelPoints.get(DelS)
-											.findElement(By.xpath("//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+											.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 									DeliveryDate = "txtActdlDate_" + Del;
 									DeliveryTime = "txtActDlTime_" + Del;
 

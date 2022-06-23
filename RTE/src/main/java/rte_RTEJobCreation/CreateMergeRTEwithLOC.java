@@ -1178,6 +1178,8 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 										act.moveToElement(ShipCharges).build().perform();
 										String Charges = ShipCharges.getText().trim();
 										logs.info("Shipment Charges After Merge Loc Job===" + Charges);
+										getScreenshot(driver, "LocJobAddCharges");
+										
 										// --set data in excel
 										setData("CompareCharges", 1, 3, Charges);
 
