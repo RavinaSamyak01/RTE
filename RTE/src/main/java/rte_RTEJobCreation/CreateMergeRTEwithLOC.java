@@ -135,6 +135,8 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 											"======================Create RTE with LOC Job Test Start=================="
 													+ "\n");
 
+									msg.append("PickUpID==" + PickUpID + "\n");
+
 									// --Create RTE form
 									wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
 											By.xpath("//*[@ng-form=\"CreateRTEForm\"]")));
@@ -250,6 +252,7 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 										String SUccMsg = isElementPresent("TLRWSucc_id").getText();
 										logs.info("Message is displayed==" + SUccMsg);
 										logs.info("RTE Job is created successfully.");
+										msg.append("RTE Job is created successfully." + "/n");
 
 										// --Get the RouteWorkID
 										String inLine = SUccMsg;
@@ -260,6 +263,7 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 												RWID.trim();
 												System.out.println("RoutWorkID is==" + RWID);
 												logs.info("RoutWorkID is==" + RWID);
+												msg.append("RoutWorkID is==" + RWID + "/n");
 												setData("RTECreation", 9, 1, RWID);
 												logs.info("Stored RoutWorkID in excel");
 
@@ -285,6 +289,7 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 									msg.append(
 											"======================Merge with Exiting RTE Test Start=================="
 													+ "\n");
+									msg.append("PickUpID==" + PickUpID + "\n");
 
 									// --select Merge with Exiting RTE radio button
 									WebElement MWER = isElementPresent("TLRWMERTE_id");
@@ -349,7 +354,7 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 
 										String SUccMsg = isElementPresent("TLRWSucc_id").getText();
 										logs.info("Message is displayed==" + SUccMsg);
-										logs.info("RTE Job is created successfully.");
+										logs.info("LOC Job is Merged successfully in RTE.");
 
 										// --Get the RouteWorkID
 										String inLine = SUccMsg;
@@ -360,8 +365,11 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 												Detail.trim();
 												System.out.println("RoutWorkID is==" + Detail);
 												logs.info("RoutWorkID is==" + Detail);
+												msg.append("RoutWorkID is==" + Detail + "\n");
+
 												if (Detail.equalsIgnoreCase(RWTrackNo)) {
 													logs.info("LOC job is merged with correct RTE");
+													msg.append("LOC Job is Merged successfully in RTE." + "\n");
 
 												} else {
 													logs.info("LOC job is not merged with correct RTE");
@@ -373,6 +381,7 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 
 												System.out.println("Pickup ID is==" + PUID);
 												logs.info("Pickup ID is==" + PUID);
+												msg.append("Pickup ID is==" + PUID + "\n");
 
 											}
 
@@ -465,6 +474,8 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 										msg.append(
 												"======================Create RTE with LOC Job Test Start=================="
 														+ "\n");
+
+										msg.append("PickupID is==" + PickUPId + "\n");
 
 										// --Create RTE form
 										wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
@@ -582,6 +593,7 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 											String SUccMsg = isElementPresent("TLRWSucc_id").getText();
 											logs.info("Message is displayed==" + SUccMsg);
 											logs.info("RTE Job is created successfully.");
+											msg.append("RTE Job is created successfully." + "\n");
 
 											// --Get the RouteWorkID
 											String inLine = SUccMsg;
@@ -592,6 +604,7 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 													RWID.trim();
 													System.out.println("RoutWorkID is==" + RWID);
 													logs.info("RoutWorkID is==" + RWID);
+													msg.append("RoutWorkID is==" + RWID + "\n");
 													setData("RTECreation", 9, 1, RWID);
 													logs.info("Stored RoutWorkID in excel");
 
@@ -617,6 +630,7 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 										msg.append(
 												"======================Merge with Exiting RTE Test Start=================="
 														+ "\n");
+										msg.append("PickupID is==" + PickUPId + "\n");
 
 										// --select Merge with Exiting RTE radio button
 										WebElement MWER = isElementPresent("TLRWMERTE_id");
@@ -681,7 +695,7 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 
 											String SUccMsg = isElementPresent("TLRWSucc_id").getText();
 											logs.info("Message is displayed==" + SUccMsg);
-											logs.info("RTE Job is created successfully.");
+											logs.info("LOC Job is Merged successfully in RTE.");
 
 											// --Get the RouteWorkID
 											String inLine = SUccMsg;
@@ -694,6 +708,7 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 													logs.info("RoutWorkID is==" + Detail);
 													if (Detail.equalsIgnoreCase(RWTrackNo)) {
 														logs.info("LOC job is merged with correct RTE");
+														msg.append("LOC Job is Merged successfully in RTE." + "\n");
 
 													} else {
 														logs.info("LOC job is not merged with correct RTE");
@@ -705,6 +720,7 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 
 													System.out.println("Pickup ID is==" + PUID);
 													logs.info("Pickup ID is==" + PUID);
+													msg.append("Pickup ID is==" + PUID + "\n");
 
 												}
 
@@ -1123,13 +1139,20 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 
 								logs.info("LOC job is converted in RTE successfully.");
 
+								// --Zoom Out
+								js.executeScript("document.body.style.zoom='80%';");
+								Thread.sleep(2000);
+
 								// --Click on Save&EXit
 								WebElement SaveExit = isElementPresent("TLEJSaveExit_xpath");
 								wait.until(ExpectedConditions.elementToBeClickable(SaveExit));
-								act.moveToElement(SaveExit).build().perform();
-								act.moveToElement(SaveExit).click().perform();
+								js.executeScript("arguments[0].click();", SaveExit);
 								logs.info("Clicked on Save&Exit");
 								wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+								// --Zoom IN
+								js.executeScript("document.body.style.zoom='100%';");
+								Thread.sleep(2000);
 
 								logs.info("======================Create RTE with LOC Job Test End==================");
 								msg.append("======================Create RTE with LOC Job Test End=================="
@@ -1179,7 +1202,7 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 										String Charges = ShipCharges.getText().trim();
 										logs.info("Shipment Charges After Merge Loc Job===" + Charges);
 										getScreenshot(driver, "LocJobAddCharges");
-										
+
 										// --set data in excel
 										setData("CompareCharges", 1, 3, Charges);
 
@@ -1190,13 +1213,20 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 									break;
 
 								}
+								// --Zoom Out
+								js.executeScript("document.body.style.zoom='80%';");
+								Thread.sleep(2000);
+
 								// --Click on Save&EXit
 								WebElement SaveExit = isElementPresent("TLEJSaveExit_xpath");
 								wait.until(ExpectedConditions.elementToBeClickable(SaveExit));
-								act.moveToElement(SaveExit).build().perform();
-								act.moveToElement(SaveExit).click().perform();
+								js.executeScript("arguments[0].click();", SaveExit);
 								logs.info("Clicked on Save&Exit");
 								wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+								// --Zoom IN
+								js.executeScript("document.body.style.zoom='100%';");
+								Thread.sleep(2000);
 
 								logs.info("======================Merge RTE with LOC Job Test End==================");
 								msg.append("======================Merge RTE with LOC Job Test End=================="
@@ -1221,14 +1251,20 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 								String jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
 
+								// --Zoom Out
+								js.executeScript("document.body.style.zoom='80%';");
+								Thread.sleep(2000);
+
 								// --Click on Save&EXit
 								WebElement SaveExit = isElementPresent("TLEJSaveExit_xpath");
 								wait.until(ExpectedConditions.elementToBeClickable(SaveExit));
-								act.moveToElement(SaveExit).build().perform();
-								act.moveToElement(SaveExit).click().perform();
+								js.executeScript("arguments[0].click();", SaveExit);
 								logs.info("Clicked on Save&Exit");
 								wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
+								// --Zoom IN
+								js.executeScript("document.body.style.zoom='100%';");
+								Thread.sleep(2000);
 								if (row == 1) {
 									logs.info(
 											"======================Create RTE with LOC Job Test End==================");
@@ -1277,16 +1313,21 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 												logs.info("LOC job is not converted in RTE successfully.");
 												String jobStatus = isElementPresent("TLStageLable_id").getText();
 												logs.info("Job status is==" + jobStatus);
+												// --Zoom Out
+												js.executeScript("document.body.style.zoom='80%';");
+												Thread.sleep(2000);
 
 												// --Click on Save&EXit
 												WebElement SaveExit = isElementPresent("TLEJSaveExit_xpath");
 												wait.until(ExpectedConditions.elementToBeClickable(SaveExit));
-												act.moveToElement(SaveExit).build().perform();
-												act.moveToElement(SaveExit).click().perform();
+												js.executeScript("arguments[0].click();", SaveExit);
 												logs.info("Clicked on Save&Exit");
 												wait.until(ExpectedConditions
 														.invisibilityOfElementLocated(By.id("loaderDiv")));
 
+												// --Zoom IN
+												js.executeScript("document.body.style.zoom='100%';");
+												Thread.sleep(2000);
 												if (row == 1) {
 													logs.info(
 															"======================Create RTE with LOC Job Test End==================");
@@ -1345,15 +1386,21 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 												String jobStatus = isElementPresent("TLStageLable_id").getText();
 												logs.info("Job status is==" + jobStatus);
 
+												// --Zoom Out
+												js.executeScript("document.body.style.zoom='80%';");
+												Thread.sleep(2000);
+
 												// --Click on Save&EXit
 												WebElement SaveExit = isElementPresent("TLEJSaveExit_xpath");
 												wait.until(ExpectedConditions.elementToBeClickable(SaveExit));
-												act.moveToElement(SaveExit).build().perform();
-												act.moveToElement(SaveExit).click().perform();
+												js.executeScript("arguments[0].click();", SaveExit);
 												logs.info("Clicked on Save&Exit");
 												wait.until(ExpectedConditions
 														.invisibilityOfElementLocated(By.id("loaderDiv")));
 
+												// --Zoom IN
+												js.executeScript("document.body.style.zoom='100%';");
+												Thread.sleep(2000);
 												if (row == 1) {
 													logs.info(
 															"======================Create RTE with LOC Job Test End==================");

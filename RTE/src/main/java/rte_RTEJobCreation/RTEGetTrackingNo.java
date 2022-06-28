@@ -51,6 +51,7 @@ public class RTEGetTrackingNo extends BaseInit {
 			// --Enter RoutWorkID
 			wait.until(ExpectedConditions.elementToBeClickable(By.id("txtRouteWorkId")));
 			String RoutWID = getData("RTECreation", row, 1);
+			msg.append("RouteWorkID is==" + RoutWID + "\n");
 			isElementPresent("RLRWIDInput_id").clear();
 			isElementPresent("RLRWIDInput_id").sendKeys(RoutWID);
 			logs.info("Entered RoutWorkID");
@@ -80,6 +81,7 @@ public class RTEGetTrackingNo extends BaseInit {
 					logs.info("RWTrackingNo is generated");
 					RWTrackingNo = isElementPresent("RLRWTrackingNo_xpath").getText();
 					logs.info("RWTrackingNo is ==" + RWTrackingNo);
+					msg.append("RWTrackingNo is ==" + RWTrackingNo + "\n");
 
 					String Scenario = getData("RTECreation", row, 3);
 

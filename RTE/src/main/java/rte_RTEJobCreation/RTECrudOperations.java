@@ -30,7 +30,7 @@ public class RTECrudOperations extends BaseInit {
 		String Result = null;
 		String SLResult = null;
 		logs.info("======================RTE Crud Operations Test Start==================");
-		msg.append("======================RTE Order Operations Test Start==================" + "\n");
+		msg.append("======================RTE Crud Operations Test Start==================" + "\n");
 
 		try {
 			// --Go To Operations
@@ -85,6 +85,7 @@ public class RTECrudOperations extends BaseInit {
 		isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 		logs.info("PickUpID==" + PickUpID);
 		logs.info("Entered PickUpID in basic search");
+		msg.append("PickUpID==" + PickUpID + "\n");
 
 		// --Click on Search
 		wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
@@ -133,6 +134,7 @@ public class RTECrudOperations extends BaseInit {
 				wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
 				String jobStatus = isElementPresent("TLStageLable_id").getText();
 				logs.info("Job status is==" + jobStatus);
+				msg.append("Job status is==" + jobStatus + "\n");
 
 				if (jobStatus.contains("TC ACK")) {
 					logs.info("It is TC ACK stage");
@@ -140,10 +142,8 @@ public class RTECrudOperations extends BaseInit {
 
 					// --Shipment Details
 
-					/*
-					 * ShipmentDetails shipDetails = new ShipmentDetails();
-					 * shipDetails.rteShipmentDetails();
-					 */
+					ShipmentDetails shipDetails = new ShipmentDetails();
+					shipDetails.rteShipmentDetails();
 
 					// --Edit Job Tab
 					EditJob Ejob = new EditJob();
@@ -164,6 +164,7 @@ public class RTECrudOperations extends BaseInit {
 						getScreenshot(driver, "JobEditor_RDYFORDSP");
 						jobStatus = isElementPresent("TLStageLable_id").getText();
 						logs.info("Job status is==" + jobStatus);
+						msg.append("Job status is==" + jobStatus + "\n");
 
 						// --Call Edit Driver
 						EditDriver EDriver = new EditDriver();
@@ -202,6 +203,7 @@ public class RTECrudOperations extends BaseInit {
 						logs.info("There is no PickUp Driver section");
 						jobStatus = isElementPresent("TLStageLable_id").getText();
 						logs.info("Job status is==" + jobStatus);
+						msg.append("Job status is==" + jobStatus + "\n");
 
 					}
 				} else if (jobStatus.contains("RDY FOR DSP")) {
@@ -211,6 +213,7 @@ public class RTECrudOperations extends BaseInit {
 						getScreenshot(driver, "JobEditor_RDYFORDSP");
 						jobStatus = isElementPresent("TLStageLable_id").getText();
 						logs.info("Job status is==" + jobStatus);
+						msg.append("Job status is==" + jobStatus + "\n");
 
 						// --Call Edit Driver
 						EditDriver EDriver = new EditDriver();
@@ -249,6 +252,7 @@ public class RTECrudOperations extends BaseInit {
 						logs.info("There is no PickUp Driver section");
 						jobStatus = isElementPresent("TLStageLable_id").getText();
 						logs.info("Job status is==" + jobStatus);
+						msg.append("Job status is==" + jobStatus + "\n");
 
 					}
 				} else if (jobStatus.contains("PU DRV CONF")) {
@@ -256,10 +260,10 @@ public class RTECrudOperations extends BaseInit {
 					getScreenshot(driver, "JobEditor_TCACK");
 
 					// --Shipment Details
-					/*
-					 * ShipmentDetails shipDetails = new ShipmentDetails();
-					 * shipDetails.rteShipmentDetails();
-					 */
+
+					ShipmentDetails shipDetails = new ShipmentDetails();
+					shipDetails.rteShipmentDetails();
+
 					// --Edit Job Tab
 					EditJob Ejob = new EditJob();
 					Result = Ejob.editJob();
@@ -276,6 +280,7 @@ public class RTECrudOperations extends BaseInit {
 					logs.info("Unknown Stage found");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
+					msg.append("Job status is==" + jobStatus + "\n");
 				}
 
 			} catch (Exception e) {
@@ -328,6 +333,7 @@ public class RTECrudOperations extends BaseInit {
 						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
 						String jobStatus = isElementPresent("TLStageLable_id").getText();
 						logs.info("Job status is==" + jobStatus);
+						msg.append("Job status is==" + jobStatus + "\n");
 
 						if (jobStatus.contains("TC ACK")) {
 							logs.info("It is TC ACK stage");
@@ -356,6 +362,7 @@ public class RTECrudOperations extends BaseInit {
 								getScreenshot(driver, "JobEditor_RDYFORDSP");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
+								msg.append("Job status is==" + jobStatus + "\n");
 
 								// --Call Edit Driver
 								EditDriver EDriver = new EditDriver();
@@ -395,6 +402,7 @@ public class RTECrudOperations extends BaseInit {
 								logs.info("There is no PickUp Driver section");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
+								msg.append("Job status is==" + jobStatus + "\n");
 
 							}
 						} else if (jobStatus.contains("RDY FOR DSP")) {
@@ -404,6 +412,7 @@ public class RTECrudOperations extends BaseInit {
 								getScreenshot(driver, "JobEditor_RDYFORDSP");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
+								msg.append("Job status is==" + jobStatus + "\n");
 
 								// --Call Edit Driver
 								EditDriver EDriver = new EditDriver();
@@ -443,12 +452,14 @@ public class RTECrudOperations extends BaseInit {
 								logs.info("There is no PickUp Driver section");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
+								msg.append("Job status is==" + jobStatus + "\n");
 
 							}
 						} else {
 							logs.info("Unknown Stage found");
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
+							msg.append("Job status is==" + jobStatus + "\n");
 						}
 
 					} else {

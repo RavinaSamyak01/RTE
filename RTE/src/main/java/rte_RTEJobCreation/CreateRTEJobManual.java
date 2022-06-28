@@ -234,8 +234,8 @@ public class CreateRTEJobManual extends BaseInit {
 		Select SETAmPm = new Select(isElementPresent("RLRWSchedAmPm_id"));
 		SETAmPm.selectByVisibleText("PM");
 		logs.info("Selected  Scheduled End Time AM/PM");
-		
-		//--Daily Days
+
+		// --Daily Days
 		isElementPresent("RLRWDailyDays_id").clear();
 		isElementPresent("RLRWDailyDays_id").sendKeys("1");
 		logs.info("Entered Days");
@@ -291,6 +291,7 @@ public class CreateRTEJobManual extends BaseInit {
 			String SUccMsg = isElementPresent("RLRWSuccMsg_id").getText();
 			logs.info("Message is displayed==" + SUccMsg);
 			logs.info("RTE Job is created successfully.");
+			msg.append("RTE Job is created successfully." + "\n");
 
 			// --Get the RouteWorkID
 			String inLine = SUccMsg;
@@ -300,6 +301,7 @@ public class CreateRTEJobManual extends BaseInit {
 					Detail.trim();
 					System.out.println("RoutWorkID is==" + Detail);
 					logs.info("RoutWorkID is==" + Detail);
+					msg.append("RoutWorkID is==" + Detail + "\n");
 					setData("RTECreation", 8, 1, Detail);
 					logs.info("Stored RoutWorkID in excel");
 

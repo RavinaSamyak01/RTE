@@ -23,7 +23,8 @@ import rte_BasePackage.BaseInit;
 public class RTEFlowWithRejectResend extends BaseInit {
 
 	@Test
-	public void rteRejectResendScan() throws EncryptedDocumentException, InvalidFormatException, IOException {
+	public void rteRejectResendScan()
+			throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException {
 
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		Actions act = new Actions(driver);
@@ -87,6 +88,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 		isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 		logs.info("PickUpID==" + PickUpID);
 		logs.info("Entered PickUpID in basic search");
+		msg.append("PickUpID==" + PickUpID + "\n");
 
 		// --Click on Search
 		wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
@@ -134,6 +136,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
 			String jobStatus = isElementPresent("TLStageLable_id").getText();
 			logs.info("Job status is==" + jobStatus);
+			msg.append("Job status is==" + jobStatus + "\n");
 
 			if (jobStatus.contains("TC ACK")) {
 				logs.info("It is TC ACK stage");
@@ -151,6 +154,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 					getScreenshot(driver, "NegFlow_RDYFORDSP");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
+					msg.append("Job status is==" + jobStatus + "\n");
 
 					// --Click on SendPuAlert button
 					wait.until(ExpectedConditions.elementToBeClickable(By.id("WhiteTickAlert")));
@@ -216,6 +220,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 							wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
+							msg.append("Job status is==" + jobStatus + "\n");
 
 							// --Click on ReSendAlert
 							isElementPresent("TLResendAl_id").click();
@@ -226,6 +231,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 							wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
+							msg.append("Job status is==" + jobStatus + "\n");
 
 							if (jobStatus.equalsIgnoreCase("PU DRV CONF")) {
 								logs.info("Resend Alert is send");
@@ -268,6 +274,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 								wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
+								msg.append("Job status is==" + jobStatus + "\n");
 
 								wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblDeclinedMsg")));
 								String DeclineMsg = isElementPresent("TLDecMsg_id").getText();
@@ -387,6 +394,8 @@ public class RTEFlowWithRejectResend extends BaseInit {
 								getScreenshot(driver, "NegFlow_PickUP");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
+								msg.append("Job status is==" + jobStatus + "\n");
+
 								// --Click on ConfirmPU button
 								wait.until(ExpectedConditions.elementToBeClickable(By.id("PUDLStopsWhiteTick")));
 								isElementPresent("TLCOnfPU_id").click();
@@ -448,6 +457,8 @@ public class RTEFlowWithRejectResend extends BaseInit {
 									getScreenshot(driver, "NegFlow_Deliver");
 									jobStatus = isElementPresent("TLStageLable_id").getText();
 									logs.info("Job status is==" + jobStatus);
+									msg.append("Job status is==" + jobStatus + "\n");
+
 									// --Click on ConfirmDEL button
 									wait.until(ExpectedConditions.elementToBeClickable(By.id("PUDLStopsWhiteTick")));
 									isElementPresent("TLConfDEL_id").click();
@@ -578,6 +589,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 										getScreenshot(driver, "NegFlow_PendingDel");
 										jobStatus = isElementPresent("TLStageLable_id").getText();
 										logs.info("Job status is==" + jobStatus);
+										msg.append("Job status is==" + jobStatus + "\n");
 
 										if (jobStatus.contains("PENDING DELIVERY")) {
 											logs.info("Job is moved to PENDING DELIVERY==PASS");
@@ -733,6 +745,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 												getScreenshot(driver, "NegFlow_Delivered");
 												jobStatus = isElementPresent("TLStageLable_id").getText();
 												logs.info("Job status is==" + jobStatus);
+												msg.append("Job status is==" + jobStatus + "\n");
 
 												if (jobStatus.contains("DELIVERED")) {
 													logs.info("Job is Delivered successfully");
@@ -860,25 +873,31 @@ public class RTEFlowWithRejectResend extends BaseInit {
 															getScreenshot(driver, "JobEditor_Delivered");
 															jobStatus = isElementPresent("TLStageLable_id").getText();
 															logs.info("Job status is==" + jobStatus);
+															msg.append("Job status is==" + jobStatus + "\n");
 
 															if (jobStatus.contains("VERIFY CUSTOMER BILL")) {
 																logs.info("Job is moved to Verify Customer Bill stage");
 																getScreenshot(driver, "JobEditor_VerifyCustBill");
 
 																// --Verify
+																// --Zoom Out
+																js.executeScript("document.body.style.zoom='80%';");
+																Thread.sleep(2000);
 
 																// --Click on Verify button
 																WebElement Verify = isElementPresent("TLVerify_id");
 																wait.until(ExpectedConditions.visibilityOf(Verify));
-																act.moveToElement(Verify).build().perform();
-																act.moveToElement(Verify).click().perform();
+
+																js.executeScript("arguments[0].click();", Verify);
 																logs.info("Clicked on Verify button");
 																wait.until(
 																		ExpectedConditions.invisibilityOfElementLocated(
 																				By.id("loaderDiv")));
 
 																// --Verified
-
+																// --Zoom IN
+																js.executeScript("document.body.style.zoom='100%';");
+																Thread.sleep(2000);
 																try {
 																	wait.until(ExpectedConditions
 																			.visibilityOfElementLocated(
@@ -919,6 +938,8 @@ public class RTEFlowWithRejectResend extends BaseInit {
 																		jobStatus = isElementPresent("TLStageLable_id")
 																				.getText();
 																		logs.info("Job status is==" + jobStatus);
+																		msg.append(
+																				"Job status is==" + jobStatus + "\n");
 
 																		if (jobStatus.contains("VERIFIED")) {
 																			logs.info("Job is moved to VERIFIED stage");
@@ -944,6 +965,8 @@ public class RTEFlowWithRejectResend extends BaseInit {
 																			jobStatus = isElementPresent(
 																					"TLStageLable_id").getText();
 																			logs.info("Job status is==" + jobStatus);
+																			msg.append("Job status is==" + jobStatus
+																					+ "\n");
 
 																			WebElement EWSave = isElementPresent(
 																					"TLQCExitWSave_id");
@@ -964,6 +987,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 																	jobStatus = isElementPresent("TLStageLable_id")
 																			.getText();
 																	logs.info("Job status is==" + jobStatus);
+																	msg.append("Job status is==" + jobStatus + "\n");
 
 																	WebElement EWSave = isElementPresent(
 																			"TLQCExitWSave_id");
@@ -980,6 +1004,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 																jobStatus = isElementPresent("TLStageLable_id")
 																		.getText();
 																logs.info("Job status is==" + jobStatus);
+																msg.append("Job status is==" + jobStatus + "\n");
 
 																WebElement EWSave = isElementPresent(
 																		"TLQCExitWSave_id");
@@ -998,12 +1023,15 @@ public class RTEFlowWithRejectResend extends BaseInit {
 														logs.info("job is not moved to Verify Customer Bill stage");
 														jobStatus = isElementPresent("TLStageLable_id").getText();
 														logs.info("Job status is==" + jobStatus);
+														msg.append("Job status is==" + jobStatus + "\n");
+
 													}
 
 												} else {
 													logs.info("Job is not Delivered successfully");
 													jobStatus = isElementPresent("TLStageLable_id").getText();
 													logs.info("Job status is==" + jobStatus);
+													msg.append("Job status is==" + jobStatus + "\n");
 
 												}
 
@@ -1015,12 +1043,15 @@ public class RTEFlowWithRejectResend extends BaseInit {
 											logs.info("job is not moved to delivered stage");
 											jobStatus = isElementPresent("TLStageLable_id").getText();
 											logs.info("Job status is==" + jobStatus);
+											msg.append("Job status is==" + jobStatus + "\n");
+
 										}
 
 									} catch (Exception e) {
 										logs.info("Job is moved to PENDING DELIVERY==FAIL");
 										jobStatus = isElementPresent("TLStageLable_id").getText();
 										logs.info("Job status is==" + jobStatus);
+										msg.append("Job status is==" + jobStatus + "\n");
 
 									}
 
@@ -1028,11 +1059,15 @@ public class RTEFlowWithRejectResend extends BaseInit {
 									logs.info("Stage is not Deliver");
 									jobStatus = isElementPresent("TLStageLable_id").getText();
 									logs.info("Job status is==" + jobStatus);
+									msg.append("Job status is==" + jobStatus + "\n");
+
 								}
 							} catch (Exception PickUp) {
 								logs.info("Stage is not PickUP");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
+								msg.append("Job status is==" + jobStatus + "\n");
+
 							}
 
 						}
@@ -1045,6 +1080,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 					logs.info("There is no PickUp Driver section");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
+					msg.append("Job status is==" + jobStatus + "\n");
 
 				}
 			} else if (jobStatus.contains("RDY FOR DSP")) {
@@ -1054,6 +1090,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 					getScreenshot(driver, "NegFlow_RDYFORDSP");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
+					msg.append("Job status is==" + jobStatus + "\n");
 
 					// --Click on SendPuAlert button
 					wait.until(ExpectedConditions.elementToBeClickable(By.id("WhiteTickAlert")));
@@ -1118,6 +1155,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 							wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
+							msg.append("Job status is==" + jobStatus + "\n");
 
 							// --Click on ReSendAlert
 							isElementPresent("TLResendAl_id").click();
@@ -1128,6 +1166,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 							wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
+							msg.append("Job status is==" + jobStatus + "\n");
 
 							if (jobStatus.equalsIgnoreCase("PU DRV CONF")) {
 								logs.info("Resend Alert is send");
@@ -1170,6 +1209,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 								wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
+								msg.append("Job status is==" + jobStatus + "\n");
 
 								wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblDeclinedMsg")));
 								String DeclineMsg = isElementPresent("TLDecMsg_id").getText();
@@ -1287,6 +1327,8 @@ public class RTEFlowWithRejectResend extends BaseInit {
 								getScreenshot(driver, "NegFlow_PickUP");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
+								msg.append("Job status is==" + jobStatus + "\n");
+
 								// --Click on ConfirmPU button
 								wait.until(ExpectedConditions.elementToBeClickable(By.id("PUDLStopsWhiteTick")));
 								isElementPresent("TLCOnfPU_id").click();
@@ -1348,6 +1390,8 @@ public class RTEFlowWithRejectResend extends BaseInit {
 									getScreenshot(driver, "NegFlow_Deliver");
 									jobStatus = isElementPresent("TLStageLable_id").getText();
 									logs.info("Job status is==" + jobStatus);
+									msg.append("Job status is==" + jobStatus + "\n");
+
 									// --Click on ConfirmDEL button
 									wait.until(ExpectedConditions.elementToBeClickable(By.id("PUDLStopsWhiteTick")));
 									isElementPresent("TLConfDEL_id").click();
@@ -1478,6 +1522,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 										getScreenshot(driver, "NegFlow_PendingDel");
 										jobStatus = isElementPresent("TLStageLable_id").getText();
 										logs.info("Job status is==" + jobStatus);
+										msg.append("Job status is==" + jobStatus + "\n");
 
 										if (jobStatus.contains("PENDING DELIVERY")) {
 											logs.info("Job is moved to PENDING DELIVERY==PASS");
@@ -1633,6 +1678,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 												getScreenshot(driver, "NegFlow_Delivered");
 												jobStatus = isElementPresent("TLStageLable_id").getText();
 												logs.info("Job status is==" + jobStatus);
+												msg.append("Job status is==" + jobStatus + "\n");
 
 												if (jobStatus.contains("DELIVERED")) {
 													logs.info("Job is Delivered successfully");
@@ -1760,24 +1806,31 @@ public class RTEFlowWithRejectResend extends BaseInit {
 															getScreenshot(driver, "JobEditor_Delivered");
 															jobStatus = isElementPresent("TLStageLable_id").getText();
 															logs.info("Job status is==" + jobStatus);
+															msg.append("Job status is==" + jobStatus + "\n");
 
 															if (jobStatus.contains("VERIFY CUSTOMER BILL")) {
 																logs.info("Job is moved to Verify Customer Bill stage");
 																getScreenshot(driver, "JobEditor_VerifyCustBill");
 
 																// --Verify
+																// --Zoom Out
+																js.executeScript("document.body.style.zoom='80%';");
+																Thread.sleep(2000);
 
 																// --Click on Verify button
 																WebElement Verify = isElementPresent("TLVerify_id");
 																wait.until(ExpectedConditions.visibilityOf(Verify));
-																act.moveToElement(Verify).build().perform();
-																act.moveToElement(Verify).click().perform();
+
+																js.executeScript("arguments[0].click();", Verify);
 																logs.info("Clicked on Verify button");
 																wait.until(
 																		ExpectedConditions.invisibilityOfElementLocated(
 																				By.id("loaderDiv")));
 
 																// --Verified
+																// --Zoom IN
+																js.executeScript("document.body.style.zoom='100%';");
+																Thread.sleep(2000);
 
 																try {
 																	wait.until(ExpectedConditions
@@ -1819,6 +1872,8 @@ public class RTEFlowWithRejectResend extends BaseInit {
 																		jobStatus = isElementPresent("TLStageLable_id")
 																				.getText();
 																		logs.info("Job status is==" + jobStatus);
+																		msg.append(
+																				"Job status is==" + jobStatus + "\n");
 
 																		if (jobStatus.contains("VERIFIED")) {
 																			logs.info("Job is moved to VERIFIED stage");
@@ -1836,6 +1891,8 @@ public class RTEFlowWithRejectResend extends BaseInit {
 																			jobStatus = isElementPresent(
 																					"TLStageLable_id").getText();
 																			logs.info("Job status is==" + jobStatus);
+																			msg.append("Job status is==" + jobStatus
+																					+ "\n");
 
 																			WebElement EWSave = isElementPresent(
 																					"TLQCExitWSave_id");
@@ -1856,6 +1913,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 																	jobStatus = isElementPresent("TLStageLable_id")
 																			.getText();
 																	logs.info("Job status is==" + jobStatus);
+																	msg.append("Job status is==" + jobStatus + "\n");
 
 																	WebElement EWSave = isElementPresent(
 																			"TLQCExitWSave_id");
@@ -1872,6 +1930,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 																jobStatus = isElementPresent("TLStageLable_id")
 																		.getText();
 																logs.info("Job status is==" + jobStatus);
+																msg.append("Job status is==" + jobStatus + "\n");
 
 																WebElement EWSave = isElementPresent(
 																		"TLQCExitWSave_id");
@@ -1890,12 +1949,15 @@ public class RTEFlowWithRejectResend extends BaseInit {
 														logs.info("job is not moved to Verify Customer Bill stage");
 														jobStatus = isElementPresent("TLStageLable_id").getText();
 														logs.info("Job status is==" + jobStatus);
+														msg.append("Job status is==" + jobStatus + "\n");
+
 													}
 
 												} else {
 													logs.info("Job is not Delivered successfully");
 													jobStatus = isElementPresent("TLStageLable_id").getText();
 													logs.info("Job status is==" + jobStatus);
+													msg.append("Job status is==" + jobStatus + "\n");
 
 												}
 
@@ -1907,12 +1969,15 @@ public class RTEFlowWithRejectResend extends BaseInit {
 											logs.info("job is not moved to delivered stage");
 											jobStatus = isElementPresent("TLStageLable_id").getText();
 											logs.info("Job status is==" + jobStatus);
+											msg.append("Job status is==" + jobStatus + "\n");
+
 										}
 
 									} catch (Exception e) {
 										logs.info("Job is moved to PENDING DELIVERY==FAIL");
 										jobStatus = isElementPresent("TLStageLable_id").getText();
 										logs.info("Job status is==" + jobStatus);
+										msg.append("Job status is==" + jobStatus + "\n");
 
 									}
 
@@ -1920,11 +1985,15 @@ public class RTEFlowWithRejectResend extends BaseInit {
 									logs.info("Stage is not Deliver");
 									jobStatus = isElementPresent("TLStageLable_id").getText();
 									logs.info("Job status is==" + jobStatus);
+									msg.append("Job status is==" + jobStatus + "\n");
+
 								}
 							} catch (Exception PickUp) {
 								logs.info("Stage is not PickUP");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
+								msg.append("Job status is==" + jobStatus + "\n");
+
 							}
 
 						}
@@ -1937,6 +2006,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 					logs.info("There is no PickUp Driver section");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
+					msg.append("Job status is==" + jobStatus + "\n");
 
 				}
 
@@ -1957,6 +2027,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 					wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
+					msg.append("Job status is==" + jobStatus + "\n");
 
 					// --Click on ReSendAlert
 					isElementPresent("TLResendAl_id").click();
@@ -1967,6 +2038,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 					wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
+					msg.append("Job status is==" + jobStatus + "\n");
 
 					if (jobStatus.equalsIgnoreCase("PU DRV CONF")) {
 						logs.info("Resend Alert is send");
@@ -2009,6 +2081,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
 						jobStatus = isElementPresent("TLStageLable_id").getText();
 						logs.info("Job status is==" + jobStatus);
+						msg.append("Job status is==" + jobStatus + "\n");
 
 						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblDeclinedMsg")));
 						String DeclineMsg = isElementPresent("TLDecMsg_id").getText();
@@ -2121,6 +2194,8 @@ public class RTEFlowWithRejectResend extends BaseInit {
 						getScreenshot(driver, "NegFlow_PickUP");
 						jobStatus = isElementPresent("TLStageLable_id").getText();
 						logs.info("Job status is==" + jobStatus);
+						msg.append("Job status is==" + jobStatus + "\n");
+
 						// --Click on ConfirmPU button
 						wait.until(ExpectedConditions.elementToBeClickable(By.id("PUDLStopsWhiteTick")));
 						isElementPresent("TLCOnfPU_id").click();
@@ -2180,6 +2255,8 @@ public class RTEFlowWithRejectResend extends BaseInit {
 							getScreenshot(driver, "NegFlow_Deliver");
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
+							msg.append("Job status is==" + jobStatus + "\n");
+
 							// --Click on ConfirmDEL button
 							wait.until(ExpectedConditions.elementToBeClickable(By.id("PUDLStopsWhiteTick")));
 							isElementPresent("TLConfDEL_id").click();
@@ -2307,6 +2384,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 								getScreenshot(driver, "NegFlow_PendingDel");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
+								msg.append("Job status is==" + jobStatus + "\n");
 
 								if (jobStatus.contains("PENDING DELIVERY")) {
 									logs.info("Job is moved to PENDING DELIVERY==PASS");
@@ -2453,6 +2531,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 										getScreenshot(driver, "NegFlow_Delivered");
 										jobStatus = isElementPresent("TLStageLable_id").getText();
 										logs.info("Job status is==" + jobStatus);
+										msg.append("Job status is==" + jobStatus + "\n");
 
 										if (jobStatus.contains("DELIVERED")) {
 											logs.info("Job is Delivered successfully");
@@ -2575,23 +2654,30 @@ public class RTEFlowWithRejectResend extends BaseInit {
 													getScreenshot(driver, "JobEditor_Delivered");
 													jobStatus = isElementPresent("TLStageLable_id").getText();
 													logs.info("Job status is==" + jobStatus);
+													msg.append("Job status is==" + jobStatus + "\n");
 
 													if (jobStatus.contains("VERIFY CUSTOMER BILL")) {
 														logs.info("Job is moved to Verify Customer Bill stage");
 														getScreenshot(driver, "JobEditor_VerifyCustBill");
 
 														// --Verify
+														// --Zoom Out
+														js.executeScript("document.body.style.zoom='80%';");
+														Thread.sleep(2000);
 
 														// --Click on Verify button
 														WebElement Verify = isElementPresent("TLVerify_id");
 														wait.until(ExpectedConditions.visibilityOf(Verify));
-														act.moveToElement(Verify).build().perform();
-														act.moveToElement(Verify).click().perform();
+
+														js.executeScript("arguments[0].click();", Verify);
 														logs.info("Clicked on Verify button");
 														wait.until(ExpectedConditions
 																.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 														// --Verified
+														// --Zoom IN
+														js.executeScript("document.body.style.zoom='100%';");
+														Thread.sleep(2000);
 
 														try {
 															wait.until(ExpectedConditions
@@ -2627,6 +2713,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 																jobStatus = isElementPresent("TLStageLable_id")
 																		.getText();
 																logs.info("Job status is==" + jobStatus);
+																msg.append("Job status is==" + jobStatus + "\n");
 
 																if (jobStatus.contains("VERIFIED")) {
 																	logs.info("Job is moved to VERIFIED stage");
@@ -2642,6 +2729,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 																	jobStatus = isElementPresent("TLStageLable_id")
 																			.getText();
 																	logs.info("Job status is==" + jobStatus);
+																	msg.append("Job status is==" + jobStatus + "\n");
 
 																	WebElement EWSave = isElementPresent(
 																			"TLQCExitWSave_id");
@@ -2660,6 +2748,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 															logs.info("job is not moved to VERIFIED stage");
 															jobStatus = isElementPresent("TLStageLable_id").getText();
 															logs.info("Job status is==" + jobStatus);
+															msg.append("Job status is==" + jobStatus + "\n");
 
 															WebElement EWSave = isElementPresent("TLQCExitWSave_id");
 															wait.until(ExpectedConditions.visibilityOf(EWSave));
@@ -2673,6 +2762,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 														logs.info("Job is not moved to Verify Customer Bill stage");
 														jobStatus = isElementPresent("TLStageLable_id").getText();
 														logs.info("Job status is==" + jobStatus);
+														msg.append("Job status is==" + jobStatus + "\n");
 
 														WebElement EWSave = isElementPresent("TLQCExitWSave_id");
 														wait.until(ExpectedConditions.visibilityOf(EWSave));
@@ -2690,12 +2780,15 @@ public class RTEFlowWithRejectResend extends BaseInit {
 												logs.info("job is not moved to Verify Customer Bill stage");
 												jobStatus = isElementPresent("TLStageLable_id").getText();
 												logs.info("Job status is==" + jobStatus);
+												msg.append("Job status is==" + jobStatus + "\n");
+
 											}
 
 										} else {
 											logs.info("Job is not Delivered successfully");
 											jobStatus = isElementPresent("TLStageLable_id").getText();
 											logs.info("Job status is==" + jobStatus);
+											msg.append("Job status is==" + jobStatus + "\n");
 
 										}
 
@@ -2707,12 +2800,15 @@ public class RTEFlowWithRejectResend extends BaseInit {
 									logs.info("job is not moved to delivered stage");
 									jobStatus = isElementPresent("TLStageLable_id").getText();
 									logs.info("Job status is==" + jobStatus);
+									msg.append("Job status is==" + jobStatus + "\n");
+
 								}
 
 							} catch (Exception e) {
 								logs.info("Job is moved to PENDING DELIVERY==FAIL");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
+								msg.append("Job status is==" + jobStatus + "\n");
 
 							}
 
@@ -2720,11 +2816,15 @@ public class RTEFlowWithRejectResend extends BaseInit {
 							logs.info("Stage is not Deliver");
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
+							msg.append("Job status is==" + jobStatus + "\n");
+
 						}
 					} catch (Exception PickUp) {
 						logs.info("Stage is not PickUP");
 						jobStatus = isElementPresent("TLStageLable_id").getText();
 						logs.info("Job status is==" + jobStatus);
+						msg.append("Job status is==" + jobStatus + "\n");
+
 					}
 
 				} catch (Exception Somethingw) {
@@ -2739,6 +2839,8 @@ public class RTEFlowWithRejectResend extends BaseInit {
 					getScreenshot(driver, "NegFlow_PickUP");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
+					msg.append("Job status is==" + jobStatus + "\n");
+
 					// --Click on ConfirmPU button
 					wait.until(ExpectedConditions.elementToBeClickable(By.id("PUDLStopsWhiteTick")));
 					isElementPresent("TLCOnfPU_id").click();
@@ -2798,6 +2900,8 @@ public class RTEFlowWithRejectResend extends BaseInit {
 						getScreenshot(driver, "NegFlow_Deliver");
 						jobStatus = isElementPresent("TLStageLable_id").getText();
 						logs.info("Job status is==" + jobStatus);
+						msg.append("Job status is==" + jobStatus + "\n");
+
 						// --Click on ConfirmDEL button
 						wait.until(ExpectedConditions.elementToBeClickable(By.id("PUDLStopsWhiteTick")));
 						isElementPresent("TLConfDEL_id").click();
@@ -2925,6 +3029,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 							getScreenshot(driver, "NegFlow_PendingDel");
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
+							msg.append("Job status is==" + jobStatus + "\n");
 
 							if (jobStatus.contains("PENDING DELIVERY")) {
 								logs.info("Job is moved to PENDING DELIVERY==PASS");
@@ -3070,6 +3175,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 									getScreenshot(driver, "NegFlow_Delivered");
 									jobStatus = isElementPresent("TLStageLable_id").getText();
 									logs.info("Job status is==" + jobStatus);
+									msg.append("Job status is==" + jobStatus + "\n");
 
 									if (jobStatus.contains("DELIVERED")) {
 										logs.info("Job is Delivered successfully");
@@ -3189,23 +3295,30 @@ public class RTEFlowWithRejectResend extends BaseInit {
 												getScreenshot(driver, "JobEditor_Delivered");
 												jobStatus = isElementPresent("TLStageLable_id").getText();
 												logs.info("Job status is==" + jobStatus);
+												msg.append("Job status is==" + jobStatus + "\n");
 
 												if (jobStatus.contains("VERIFY CUSTOMER BILL")) {
 													logs.info("Job is moved to Verify Customer Bill stage");
 													getScreenshot(driver, "JobEditor_VerifyCustBill");
 
 													// --Verify
+													// --Zoom Out
+													js.executeScript("document.body.style.zoom='80%';");
+													Thread.sleep(2000);
 
 													// --Click on Verify button
 													WebElement Verify = isElementPresent("TLVerify_id");
 													wait.until(ExpectedConditions.visibilityOf(Verify));
-													act.moveToElement(Verify).build().perform();
-													act.moveToElement(Verify).click().perform();
+
+													js.executeScript("arguments[0].click();", Verify);
 													logs.info("Clicked on Verify button");
 													wait.until(ExpectedConditions
 															.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 													// --Verified
+													// --Zoom IN
+													js.executeScript("document.body.style.zoom='100%';");
+													Thread.sleep(2000);
 
 													try {
 														wait.until(ExpectedConditions
@@ -3239,6 +3352,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 															getScreenshot(driver, "JobEditor_Delivered");
 															jobStatus = isElementPresent("TLStageLable_id").getText();
 															logs.info("Job status is==" + jobStatus);
+															msg.append("Job status is==" + jobStatus + "\n");
 
 															if (jobStatus.contains("VERIFIED")) {
 																logs.info("Job is moved to VERIFIED stage");
@@ -3254,6 +3368,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 																jobStatus = isElementPresent("TLStageLable_id")
 																		.getText();
 																logs.info("Job status is==" + jobStatus);
+																msg.append("Job status is==" + jobStatus + "\n");
 
 																WebElement EWSave = isElementPresent(
 																		"TLQCExitWSave_id");
@@ -3272,6 +3387,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 														logs.info("job is not moved to VERIFIED stage");
 														jobStatus = isElementPresent("TLStageLable_id").getText();
 														logs.info("Job status is==" + jobStatus);
+														msg.append("Job status is==" + jobStatus + "\n");
 
 														WebElement EWSave = isElementPresent("TLQCExitWSave_id");
 														wait.until(ExpectedConditions.visibilityOf(EWSave));
@@ -3285,6 +3401,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 													logs.info("Job is not moved to Verify Customer Bill stage");
 													jobStatus = isElementPresent("TLStageLable_id").getText();
 													logs.info("Job status is==" + jobStatus);
+													msg.append("Job status is==" + jobStatus + "\n");
 
 													WebElement EWSave = isElementPresent("TLQCExitWSave_id");
 													wait.until(ExpectedConditions.visibilityOf(EWSave));
@@ -3302,12 +3419,15 @@ public class RTEFlowWithRejectResend extends BaseInit {
 											logs.info("job is not moved to Verify Customer Bill stage");
 											jobStatus = isElementPresent("TLStageLable_id").getText();
 											logs.info("Job status is==" + jobStatus);
+											msg.append("Job status is==" + jobStatus + "\n");
+
 										}
 
 									} else {
 										logs.info("Job is not Delivered successfully");
 										jobStatus = isElementPresent("TLStageLable_id").getText();
 										logs.info("Job status is==" + jobStatus);
+										msg.append("Job status is==" + jobStatus + "\n");
 
 									}
 
@@ -3319,12 +3439,15 @@ public class RTEFlowWithRejectResend extends BaseInit {
 								logs.info("job is not moved to delivered stage");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
+								msg.append("Job status is==" + jobStatus + "\n");
+
 							}
 
 						} catch (Exception e) {
 							logs.info("Job is moved to PENDING DELIVERY==FAIL");
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
+							msg.append("Job status is==" + jobStatus + "\n");
 
 						}
 
@@ -3332,11 +3455,15 @@ public class RTEFlowWithRejectResend extends BaseInit {
 						logs.info("Stage is not Deliver");
 						jobStatus = isElementPresent("TLStageLable_id").getText();
 						logs.info("Job status is==" + jobStatus);
+						msg.append("Job status is==" + jobStatus + "\n");
+
 					}
 				} catch (Exception PickUp) {
 					logs.info("Stage is not PickUP");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
+					msg.append("Job status is==" + jobStatus + "\n");
+
 				}
 
 			} else if (jobStatus.equalsIgnoreCase("DELIVER@")) {
@@ -3347,6 +3474,8 @@ public class RTEFlowWithRejectResend extends BaseInit {
 					getScreenshot(driver, "NegFlow_Deliver");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
+					msg.append("Job status is==" + jobStatus + "\n");
+
 					// --Click on ConfirmDEL button
 					wait.until(ExpectedConditions.elementToBeClickable(By.id("PUDLStopsWhiteTick")));
 					isElementPresent("TLConfDEL_id").click();
@@ -3474,6 +3603,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 						getScreenshot(driver, "NegFlow_PendingDel");
 						jobStatus = isElementPresent("TLStageLable_id").getText();
 						logs.info("Job status is==" + jobStatus);
+						msg.append("Job status is==" + jobStatus + "\n");
 
 						if (jobStatus.contains("PENDING DELIVERY")) {
 							logs.info("Job is moved to PENDING DELIVERY==PASS");
@@ -3617,6 +3747,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 								getScreenshot(driver, "NegFlow_Delivered");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
+								msg.append("Job status is==" + jobStatus + "\n");
 
 								if (jobStatus.contains("DELIVERED")) {
 									logs.info("Job is Delivered successfully");
@@ -3731,24 +3862,30 @@ public class RTEFlowWithRejectResend extends BaseInit {
 											getScreenshot(driver, "JobEditor_Delivered");
 											jobStatus = isElementPresent("TLStageLable_id").getText();
 											logs.info("Job status is==" + jobStatus);
+											msg.append("Job status is==" + jobStatus + "\n");
 
 											if (jobStatus.contains("VERIFY CUSTOMER BILL")) {
 												logs.info("Job is moved to Verify Customer Bill stage");
 												getScreenshot(driver, "JobEditor_VerifyCustBill");
 
 												// --Verify
+												// --Zoom Out
+												js.executeScript("document.body.style.zoom='80%';");
+												Thread.sleep(2000);
 
 												// --Click on Verify button
 												WebElement Verify = isElementPresent("TLVerify_id");
 												wait.until(ExpectedConditions.visibilityOf(Verify));
-												act.moveToElement(Verify).build().perform();
-												act.moveToElement(Verify).click().perform();
+
+												js.executeScript("arguments[0].click();", Verify);
 												logs.info("Clicked on Verify button");
 												wait.until(ExpectedConditions
 														.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 												// --Verified
-
+												// --Zoom IN
+												js.executeScript("document.body.style.zoom='100%';");
+												Thread.sleep(2000);
 												try {
 													wait.until(ExpectedConditions
 															.visibilityOfElementLocated(By.id("txtContains")));
@@ -3780,6 +3917,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 														getScreenshot(driver, "JobEditor_Delivered");
 														jobStatus = isElementPresent("TLStageLable_id").getText();
 														logs.info("Job status is==" + jobStatus);
+														msg.append("Job status is==" + jobStatus + "\n");
 
 														if (jobStatus.contains("VERIFIED")) {
 															logs.info("Job is moved to VERIFIED stage");
@@ -3793,6 +3931,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 															logs.info("Job is not moved to VERIFIED stage");
 															jobStatus = isElementPresent("TLStageLable_id").getText();
 															logs.info("Job status is==" + jobStatus);
+															msg.append("Job status is==" + jobStatus + "\n");
 
 															WebElement EWSave = isElementPresent("TLQCExitWSave_id");
 															wait.until(ExpectedConditions.visibilityOf(EWSave));
@@ -3810,6 +3949,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 													logs.info("job is not moved to VERIFIED stage");
 													jobStatus = isElementPresent("TLStageLable_id").getText();
 													logs.info("Job status is==" + jobStatus);
+													msg.append("Job status is==" + jobStatus + "\n");
 
 													WebElement EWSave = isElementPresent("TLQCExitWSave_id");
 													wait.until(ExpectedConditions.visibilityOf(EWSave));
@@ -3823,6 +3963,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 												logs.info("Job is not moved to Verify Customer Bill stage");
 												jobStatus = isElementPresent("TLStageLable_id").getText();
 												logs.info("Job status is==" + jobStatus);
+												msg.append("Job status is==" + jobStatus + "\n");
 
 												WebElement EWSave = isElementPresent("TLQCExitWSave_id");
 												wait.until(ExpectedConditions.visibilityOf(EWSave));
@@ -3840,12 +3981,15 @@ public class RTEFlowWithRejectResend extends BaseInit {
 										logs.info("job is not moved to Verify Customer Bill stage");
 										jobStatus = isElementPresent("TLStageLable_id").getText();
 										logs.info("Job status is==" + jobStatus);
+										msg.append("Job status is==" + jobStatus + "\n");
+
 									}
 
 								} else {
 									logs.info("Job is not Delivered successfully");
 									jobStatus = isElementPresent("TLStageLable_id").getText();
 									logs.info("Job status is==" + jobStatus);
+									msg.append("Job status is==" + jobStatus + "\n");
 
 								}
 
@@ -3857,12 +4001,15 @@ public class RTEFlowWithRejectResend extends BaseInit {
 							logs.info("job is not moved to delivered stage");
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
+							msg.append("Job status is==" + jobStatus + "\n");
+
 						}
 
 					} catch (Exception e) {
 						logs.info("Job is moved to PENDING DELIVERY==FAIL");
 						jobStatus = isElementPresent("TLStageLable_id").getText();
 						logs.info("Job status is==" + jobStatus);
+						msg.append("Job status is==" + jobStatus + "\n");
 
 					}
 
@@ -3870,6 +4017,8 @@ public class RTEFlowWithRejectResend extends BaseInit {
 					logs.info("Stage is not Deliver");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
+					msg.append("Job status is==" + jobStatus + "\n");
+
 				}
 
 			} else if (jobStatus.contains("PENDING DELIVERY")) {
@@ -3880,6 +4029,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 					getScreenshot(driver, "NegFlow_PendingDel");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
+					msg.append("Job status is==" + jobStatus + "\n");
 
 					if (jobStatus.contains("PENDING DELIVERY")) {
 						logs.info("Job is moved to PENDING DELIVERY==PASS");
@@ -4022,6 +4172,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 							getScreenshot(driver, "NegFlow_Delivered");
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
+							msg.append("Job status is==" + jobStatus + "\n");
 
 							if (jobStatus.contains("DELIVERED")) {
 								logs.info("Job is Delivered successfully");
@@ -4134,24 +4285,30 @@ public class RTEFlowWithRejectResend extends BaseInit {
 										getScreenshot(driver, "JobEditor_Delivered");
 										jobStatus = isElementPresent("TLStageLable_id").getText();
 										logs.info("Job status is==" + jobStatus);
+										msg.append("Job status is==" + jobStatus + "\n");
 
 										if (jobStatus.contains("VERIFY CUSTOMER BILL")) {
 											logs.info("Job is moved to Verify Customer Bill stage");
 											getScreenshot(driver, "JobEditor_VerifyCustBill");
 
 											// --Verify
+											// --Zoom Out
+											js.executeScript("document.body.style.zoom='80%';");
+											Thread.sleep(2000);
 
 											// --Click on Verify button
 											WebElement Verify = isElementPresent("TLVerify_id");
 											wait.until(ExpectedConditions.visibilityOf(Verify));
-											act.moveToElement(Verify).build().perform();
-											act.moveToElement(Verify).click().perform();
+
+											js.executeScript("arguments[0].click();", Verify);
 											logs.info("Clicked on Verify button");
 											wait.until(ExpectedConditions
 													.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 											// --Verified
-
+											// --Zoom IN
+											js.executeScript("document.body.style.zoom='100%';");
+											Thread.sleep(2000);
 											try {
 												wait.until(ExpectedConditions
 														.visibilityOfElementLocated(By.id("txtContains")));
@@ -4183,6 +4340,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 													getScreenshot(driver, "JobEditor_Delivered");
 													jobStatus = isElementPresent("TLStageLable_id").getText();
 													logs.info("Job status is==" + jobStatus);
+													msg.append("Job status is==" + jobStatus + "\n");
 
 													if (jobStatus.contains("VERIFIED")) {
 														logs.info("Job is moved to VERIFIED stage");
@@ -4196,6 +4354,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 														logs.info("Job is not moved to VERIFIED stage");
 														jobStatus = isElementPresent("TLStageLable_id").getText();
 														logs.info("Job status is==" + jobStatus);
+														msg.append("Job status is==" + jobStatus + "\n");
 
 														WebElement EWSave = isElementPresent("TLQCExitWSave_id");
 														wait.until(ExpectedConditions.visibilityOf(EWSave));
@@ -4213,6 +4372,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 												logs.info("job is not moved to VERIFIED stage");
 												jobStatus = isElementPresent("TLStageLable_id").getText();
 												logs.info("Job status is==" + jobStatus);
+												msg.append("Job status is==" + jobStatus + "\n");
 
 												WebElement EWSave = isElementPresent("TLQCExitWSave_id");
 												wait.until(ExpectedConditions.visibilityOf(EWSave));
@@ -4226,6 +4386,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 											logs.info("Job is not moved to Verify Customer Bill stage");
 											jobStatus = isElementPresent("TLStageLable_id").getText();
 											logs.info("Job status is==" + jobStatus);
+											msg.append("Job status is==" + jobStatus + "\n");
 
 											WebElement EWSave = isElementPresent("TLQCExitWSave_id");
 											wait.until(ExpectedConditions.visibilityOf(EWSave));
@@ -4243,12 +4404,15 @@ public class RTEFlowWithRejectResend extends BaseInit {
 									logs.info("job is not moved to Verify Customer Bill stage");
 									jobStatus = isElementPresent("TLStageLable_id").getText();
 									logs.info("Job status is==" + jobStatus);
+									msg.append("Job status is==" + jobStatus + "\n");
+
 								}
 
 							} else {
 								logs.info("Job is not Delivered successfully");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
+								msg.append("Job status is==" + jobStatus + "\n");
 
 							}
 
@@ -4260,12 +4424,15 @@ public class RTEFlowWithRejectResend extends BaseInit {
 						logs.info("job is not moved to delivered stage");
 						jobStatus = isElementPresent("TLStageLable_id").getText();
 						logs.info("Job status is==" + jobStatus);
+						msg.append("Job status is==" + jobStatus + "\n");
+
 					}
 
 				} catch (Exception e) {
 					logs.info("Job is moved to PENDING DELIVERY==FAIL");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
+					msg.append("Job status is==" + jobStatus + "\n");
 
 				}
 			} else if (jobStatus.contains("DELIVERED")) {
@@ -4274,6 +4441,8 @@ public class RTEFlowWithRejectResend extends BaseInit {
 				getScreenshot(driver, "JobEditor_Delivered");
 				jobStatus = isElementPresent("TLStageLable_id").getText();
 				logs.info("Job status is==" + jobStatus);
+				msg.append("Job status is==" + jobStatus + "\n");
+				;
 
 				if (jobStatus.contains("DELIVERED")) {
 					logs.info("Job is Delivered successfully");
@@ -4385,22 +4554,29 @@ public class RTEFlowWithRejectResend extends BaseInit {
 							getScreenshot(driver, "JobEditor_Delivered");
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
+							msg.append("Job status is==" + jobStatus + "\n");
 
 							if (jobStatus.contains("VERIFY CUSTOMER BILL")) {
 								logs.info("Job is moved to Verify Customer Bill stage");
 								getScreenshot(driver, "JobEditor_VerifyCustBill");
 
 								// --Verify
+								// --Zoom Out
+								js.executeScript("document.body.style.zoom='80%';");
+								Thread.sleep(2000);
 
 								// --Click on Verify button
 								WebElement Verify = isElementPresent("TLVerify_id");
 								wait.until(ExpectedConditions.visibilityOf(Verify));
-								act.moveToElement(Verify).build().perform();
-								act.moveToElement(Verify).click().perform();
+
+								js.executeScript("arguments[0].click();", Verify);
 								logs.info("Clicked on Verify button");
 								wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 								// --Verified
+								// --Zoom IN
+								js.executeScript("document.body.style.zoom='100%';");
+								Thread.sleep(2000);
 
 								try {
 									wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
@@ -4430,6 +4606,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 										getScreenshot(driver, "JobEditor_Delivered");
 										jobStatus = isElementPresent("TLStageLable_id").getText();
 										logs.info("Job status is==" + jobStatus);
+										msg.append("Job status is==" + jobStatus + "\n");
 
 										if (jobStatus.contains("VERIFIED")) {
 											logs.info("Job is moved to VERIFIED stage");
@@ -4443,6 +4620,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 											logs.info("Job is not moved to VERIFIED stage");
 											jobStatus = isElementPresent("TLStageLable_id").getText();
 											logs.info("Job status is==" + jobStatus);
+											msg.append("Job status is==" + jobStatus + "\n");
 
 											WebElement EWSave = isElementPresent("TLQCExitWSave_id");
 											wait.until(ExpectedConditions.visibilityOf(EWSave));
@@ -4460,6 +4638,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 									logs.info("job is not moved to VERIFIED stage");
 									jobStatus = isElementPresent("TLStageLable_id").getText();
 									logs.info("Job status is==" + jobStatus);
+									msg.append("Job status is==" + jobStatus + "\n");
 
 									WebElement EWSave = isElementPresent("TLQCExitWSave_id");
 									wait.until(ExpectedConditions.visibilityOf(EWSave));
@@ -4473,6 +4652,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 								logs.info("Job is not moved to Verify Customer Bill stage");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
+								msg.append("Job status is==" + jobStatus + "\n");
 
 								WebElement EWSave = isElementPresent("TLQCExitWSave_id");
 								wait.until(ExpectedConditions.visibilityOf(EWSave));
@@ -4490,12 +4670,15 @@ public class RTEFlowWithRejectResend extends BaseInit {
 						logs.info("job is not moved to Verify Customer Bill stage");
 						jobStatus = isElementPresent("TLStageLable_id").getText();
 						logs.info("Job status is==" + jobStatus);
+						msg.append("Job status is==" + jobStatus + "\n");
+
 					}
 
 				} else {
 					logs.info("Job is not Delivered successfully");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
+					msg.append("Job status is==" + jobStatus + "\n");
 
 				}
 
@@ -4505,22 +4688,29 @@ public class RTEFlowWithRejectResend extends BaseInit {
 				getScreenshot(driver, "JobEditor_Delivered");
 				jobStatus = isElementPresent("TLStageLable_id").getText();
 				logs.info("Job status is==" + jobStatus);
+				msg.append("Job status is==" + jobStatus + "\n");
+				;
 
 				if (jobStatus.contains("VERIFY CUSTOMER BILL")) {
 					logs.info("Job is moved to Verify Customer Bill stage");
 					getScreenshot(driver, "JobEditor_VerifyCustBill");
-
 					// --Verify
+					// --Zoom Out
+					js.executeScript("document.body.style.zoom='80%';");
+					Thread.sleep(2000);
 
 					// --Click on Verify button
 					WebElement Verify = isElementPresent("TLVerify_id");
 					wait.until(ExpectedConditions.visibilityOf(Verify));
-					act.moveToElement(Verify).build().perform();
-					act.moveToElement(Verify).click().perform();
+
+					js.executeScript("arguments[0].click();", Verify);
 					logs.info("Clicked on Verify button");
 					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 					// --Verified
+					// --Zoom IN
+					js.executeScript("document.body.style.zoom='100%';");
+					Thread.sleep(2000);
 
 					try {
 						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
@@ -4549,6 +4739,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 							getScreenshot(driver, "JobEditor_Delivered");
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
+							msg.append("Job status is==" + jobStatus + "\n");
 
 							if (jobStatus.contains("VERIFIED")) {
 								logs.info("Job is moved to VERIFIED stage");
@@ -4564,6 +4755,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 								logs.info("Job is not moved to VERIFIED stage");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
+								msg.append("Job status is==" + jobStatus + "\n");
 
 								WebElement EWSave = isElementPresent("TLQCExitWSave_id");
 								wait.until(ExpectedConditions.visibilityOf(EWSave));
@@ -4581,6 +4773,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 						logs.info("job is not moved to VERIFIED stage");
 						jobStatus = isElementPresent("TLStageLable_id").getText();
 						logs.info("Job status is==" + jobStatus);
+						msg.append("Job status is==" + jobStatus + "\n");
 
 						WebElement EWSave = isElementPresent("TLQCExitWSave_id");
 						wait.until(ExpectedConditions.visibilityOf(EWSave));
@@ -4594,6 +4787,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 					logs.info("Job is not moved to Verify Customer Bill stage");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
+					msg.append("Job status is==" + jobStatus + "\n");
 
 					WebElement EWSave = isElementPresent("TLQCExitWSave_id");
 					wait.until(ExpectedConditions.visibilityOf(EWSave));
@@ -4611,6 +4805,8 @@ public class RTEFlowWithRejectResend extends BaseInit {
 				getScreenshot(driver, "JobEditor_Delivered");
 				jobStatus = isElementPresent("TLStageLable_id").getText();
 				logs.info("Job status is==" + jobStatus);
+				msg.append("Job status is==" + jobStatus + "\n");
+				;
 
 				if (jobStatus.contains("VERIFIED")) {
 					logs.info("Job is moved to VERIFIED stage");
@@ -4624,6 +4820,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 					logs.info("Job is not moved to VERIFIED stage");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
+					msg.append("Job status is==" + jobStatus + "\n");
 
 					WebElement EWSave = isElementPresent("TLQCExitWSave_id");
 					wait.until(ExpectedConditions.visibilityOf(EWSave));
@@ -4640,6 +4837,8 @@ public class RTEFlowWithRejectResend extends BaseInit {
 				logs.info("Unknown Stage found");
 				jobStatus = isElementPresent("TLStageLable_id").getText();
 				logs.info("Job status is==" + jobStatus);
+				msg.append("Job status is==" + jobStatus + "\n");
+
 			}
 
 		}

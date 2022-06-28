@@ -90,6 +90,7 @@ public class RTEJobCreation extends BaseInit {
 					Detail.split(".");
 					System.out.println("RoutWorkID is==" + Detail);
 					logs.info("RoutWorkID is==" + Detail);
+					msg.append("RoutWorkID is==" + Detail + "\n");
 					setData("RTECreation", i, 1, Detail);
 					logs.info("Stored RoutWorkID in excel");
 

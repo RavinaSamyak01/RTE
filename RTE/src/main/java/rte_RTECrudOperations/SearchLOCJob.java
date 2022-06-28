@@ -72,7 +72,9 @@ public class SearchLOCJob extends BaseInit {
 
 		// --Go to TaskLog
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("a_TaskLog")));
-		isElementPresent("TaskLog_id").click();
+		WebElement TaskLog = isElementPresent("TaskLog_id");
+		act.moveToElement(TaskLog).build().perform();
+		js.executeScript("arguments[0].click();", TaskLog);
 		logs.info("Clicked on TaskLog");
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
@@ -83,6 +85,7 @@ public class SearchLOCJob extends BaseInit {
 			String PickUpID = getData("LocJob", row, 0);
 			isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 			logs.info("Entered PickUpID in basic search");
+			msg.append("PickUpID is===" + PickUpID + "\n");
 
 			// --Click on Search
 			wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
@@ -102,6 +105,7 @@ public class SearchLOCJob extends BaseInit {
 					wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
 					String jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
+					msg.append("Job status is==" + jobStatus + "\n");
 
 					// --Click on Edit job tab
 					WebElement EditJob = isElementPresent("TLEditJobtab_id");
@@ -156,13 +160,20 @@ public class SearchLOCJob extends BaseInit {
 					logs.info("Clicked on Save Changes");
 					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
+					// --Zoom Out
+					js.executeScript("document.body.style.zoom='80%';");
+					Thread.sleep(2000);
+
 					// --Click on Save&EXit
 					WebElement SaveExit = isElementPresent("TLEJSaveExit_xpath");
-					act.moveToElement(SaveExit).build().perform();
 					wait.until(ExpectedConditions.elementToBeClickable(SaveExit));
-					act.moveToElement(SaveExit).click().perform();
+					js.executeScript("arguments[0].click();", SaveExit);
 					logs.info("Clicked on Save&Exit");
 					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+					// --Zoom IN
+					js.executeScript("document.body.style.zoom='100%';");
+					Thread.sleep(2000);
 
 					Result = "PASS";
 
@@ -176,6 +187,7 @@ public class SearchLOCJob extends BaseInit {
 
 							PickUpID = getData("LocJob", row, 0);
 							logs.info("Entered PickupID is==" + PickUpID);
+							msg.append("PickupID is==" + PickUpID + "\n");
 
 							String PickUPId = jobs.get(job).getText();
 							logs.info("PickupID is==" + PickUPId);
@@ -192,6 +204,7 @@ public class SearchLOCJob extends BaseInit {
 								getScreenshot(driver, "JobEditor_TCACK");
 								String jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
+								msg.append("Job status is==" + jobStatus + "\n");
 
 								// --Click on Edit job tab
 								WebElement EditJob = isElementPresent("TLEditJobtab_id");
@@ -244,13 +257,20 @@ public class SearchLOCJob extends BaseInit {
 								logs.info("Clicked on Save Changes");
 								wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
+								// --Zoom Out
+								js.executeScript("document.body.style.zoom='80%';");
+								Thread.sleep(2000);
+
 								// --Click on Save&EXit
 								WebElement SaveExit = isElementPresent("TLEJSaveExit_xpath");
-								act.moveToElement(SaveExit).build().perform();
 								wait.until(ExpectedConditions.elementToBeClickable(SaveExit));
-								act.moveToElement(SaveExit).click().perform();
+								js.executeScript("arguments[0].click();", SaveExit);
 								logs.info("Clicked on Save&Exit");
 								wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+								// --Zoom IN
+								js.executeScript("document.body.style.zoom='100%';");
+								Thread.sleep(2000);
 
 								Result = "PASS";
 
@@ -269,6 +289,7 @@ public class SearchLOCJob extends BaseInit {
 
 							PickUpID = getData("LocJob", row, 0);
 							logs.info("Entered PickupID is==" + PickUpID);
+							msg.append("PickupID is==" + PickUpID + "\n");
 
 							String PickUPId = jobs.get(job).getAttribute("id");
 							logs.info("PickupID is==" + PickUPId);
@@ -285,6 +306,7 @@ public class SearchLOCJob extends BaseInit {
 								getScreenshot(driver, "JobEditor_TCACK");
 								String jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
+								msg.append("Job status is==" + jobStatus + "\n");
 
 								// --Click on Edit job tab
 								WebElement EditJob = isElementPresent("TLEditJobtab_id");
@@ -338,15 +360,20 @@ public class SearchLOCJob extends BaseInit {
 								act.moveToElement(SaveChanges).click().perform();
 								logs.info("Clicked on Save Changes");
 								wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+								// --Zoom Out
+								js.executeScript("document.body.style.zoom='80%';");
+								Thread.sleep(2000);
 
 								// --Click on Save&EXit
 								WebElement SaveExit = isElementPresent("TLEJSaveExit_xpath");
-								act.moveToElement(SaveExit).build().perform();
 								wait.until(ExpectedConditions.elementToBeClickable(SaveExit));
-								act.moveToElement(SaveExit).click().perform();
+								js.executeScript("arguments[0].click();", SaveExit);
 								logs.info("Clicked on Save&Exit");
 								wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
+								// --Zoom IN
+								js.executeScript("document.body.style.zoom='100%';");
+								Thread.sleep(2000);
 								Result = "PASS";
 
 								break;

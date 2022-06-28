@@ -426,6 +426,7 @@ public class AddEditShipmentUnmerge extends BaseInit {
 
 					if (SuccMsg.contains("is unmerged successfully to LOC Service")) {
 						logs.info("LOC service is created and shipment is unmerged");
+						msg.append("LOC service is created and shipment is unmerged" + "\n");
 
 						// --get the pickup id from message
 						String inLine = SuccMsg;
@@ -433,6 +434,7 @@ public class AddEditShipmentUnmerge extends BaseInit {
 						String[] lineDetails = lineSplits[1].split(" ");
 						String PickUpID = lineDetails[1].trim();
 						logs.info("PickUpID is==" + PickUpID);
+						msg.append("PickUpID is==" + PickUpID + "\n");
 
 						setData("LocJob", row, 0, PickUpID);
 

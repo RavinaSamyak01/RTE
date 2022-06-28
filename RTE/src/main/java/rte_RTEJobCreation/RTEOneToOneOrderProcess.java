@@ -88,6 +88,7 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 		isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 		logs.info("PickUpID==" + PickUpID);
 		logs.info("Entered PickUpID in basic search");
+		msg.append("PickUpID==" + PickUpID + "\n");
 
 		// --Click on Search
 		wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
@@ -143,6 +144,7 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
 			String jobStatus = isElementPresent("TLStageLable_id").getText();
 			logs.info("Job status is==" + jobStatus);
+			msg.append("Job status is==" + jobStatus + "\n");
 
 			if (jobStatus.contains("TC ACK")) {
 				logs.info("It is TC ACK stage");
@@ -161,6 +163,7 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 					getScreenshot(driver, "JobEditor_RDYFORDSP");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
+					msg.append("Job status is==" + jobStatus + "\n");
 
 					// --Click on SendPuAlert button
 					wait.until(ExpectedConditions.elementToBeClickable(By.id("WhiteTickAlert")));
@@ -224,6 +227,7 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 							wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
+							msg.append("Job status is==" + jobStatus + "\n");
 
 							// --Click on Confirm PU Alert
 							isElementPresent("TLSendPUAl_id").click();
@@ -256,6 +260,8 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 								getScreenshot(driver, "JobEditor_PickUP");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
+								msg.append("Job status is==" + jobStatus + "\n");
+
 								// --Click on ConfirmPU button
 								wait.until(ExpectedConditions.elementToBeClickable(By.id("PUDLStopsWhiteTick")));
 								isElementPresent("TLCOnfPU_id").click();
@@ -317,6 +323,8 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 									getScreenshot(driver, "JobEditor_Deliver");
 									jobStatus = isElementPresent("TLStageLable_id").getText();
 									logs.info("Job status is==" + jobStatus);
+									msg.append("Job status is==" + jobStatus + "\n");
+
 									// --Click on ConfirmPU button
 									wait.until(ExpectedConditions.elementToBeClickable(By.id("PUDLStopsWhiteTick")));
 									isElementPresent("TLConfDEL_id").click();
@@ -458,6 +466,7 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 											getScreenshot(driver, "JobEditor_Delivered");
 											jobStatus = isElementPresent("TLStageLable_id").getText();
 											logs.info("Job status is==" + jobStatus);
+											msg.append("Job status is==" + jobStatus + "\n");
 
 											if (jobStatus.contains("DELIVERED")) {
 												logs.info("Job is Delivered successfully");
@@ -582,23 +591,28 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 														getScreenshot(driver, "JobEditor_Delivered");
 														jobStatus = isElementPresent("TLStageLable_id").getText();
 														logs.info("Job status is==" + jobStatus);
+														msg.append("Job status is==" + jobStatus + "\n");
 
 														if (jobStatus.contains("VERIFY CUSTOMER BILL")) {
 															logs.info("Job is moved to Verify Customer Bill stage");
 															getScreenshot(driver, "JobEditor_VerifyCustBill");
 
 															// --Verify
+															// --Zoom Out
+															js.executeScript("document.body.style.zoom='80%';");
+															Thread.sleep(2000);
 
 															// --Click on Verify button
 															WebElement Verify = isElementPresent("TLVerify_id");
 															wait.until(ExpectedConditions.visibilityOf(Verify));
-															act.moveToElement(Verify).build().perform();
-															act.moveToElement(Verify).click().perform();
+															js.executeScript("arguments[0].click();", Verify);
 															logs.info("Clicked on Verify button");
-															wait.until(ExpectedConditions
-																	.invisibilityOfElementLocated(By.id("loaderDiv")));
+															wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 															// --Verified
+															// --Zoom IN
+															js.executeScript("document.body.style.zoom='100%';");
+															Thread.sleep(2000);
 
 															try {
 																wait.until(
@@ -643,11 +657,10 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 																		logs.info("Job is moved to VERIFIED stage");
 																		getScreenshot(driver, "JobEditor_Verified");
 																		PickUpID = getData("SearchRTE", 1, 2);
-																		msg.append("PickUP ID is==." + PickUpID + "\n");
-																		msg.append(
-																				"Job is Proceed successfully." + "\n");
 																		msg.append(
 																				"Job status is==." + jobStatus + "\n");
+																		msg.append(
+																				"Job is Proceed successfully." + "\n");
 
 																	} else {
 																		logs.info("Job is not moved to VERIFIED stage");
@@ -753,11 +766,14 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 					getScreenshot(driver, "JobEditor_RDYFORDSP");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
+					msg.append("Job status is==" + jobStatus + "\n");
+
 					// --Click on SendPuAlert button
 					wait.until(ExpectedConditions.elementToBeClickable(By.id("WhiteTickAlert")));
 					isElementPresent("TLSendPUAl_id").click();
 					logs.info("Clicked on Send PU Alert button");
 					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
 					try {
 						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("idValidationforMain")));
 						String ValMsg = isElementPresent("TLAlValidation_id").getText();
@@ -814,6 +830,7 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 							wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
+							msg.append("Job status is==" + jobStatus + "\n");
 
 							// --Click on Confirm PU Alert
 							isElementPresent("TLSendPUAl_id").click();
@@ -846,6 +863,8 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 								getScreenshot(driver, "JobEditor_PickUP");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
+								msg.append("Job status is==" + jobStatus + "\n");
+
 								// --Click on ConfirmPU button
 								wait.until(ExpectedConditions.elementToBeClickable(By.id("PUDLStopsWhiteTick")));
 								isElementPresent("TLCOnfPU_id").click();
@@ -907,6 +926,8 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 									getScreenshot(driver, "JobEditor_Deliver");
 									jobStatus = isElementPresent("TLStageLable_id").getText();
 									logs.info("Job status is==" + jobStatus);
+									msg.append("Job status is==" + jobStatus + "\n");
+
 									// --Click on ConfirmPU button
 									wait.until(ExpectedConditions.elementToBeClickable(By.id("PUDLStopsWhiteTick")));
 									isElementPresent("TLConfDEL_id").click();
@@ -1048,6 +1069,7 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 											getScreenshot(driver, "JobEditor_Delivered");
 											jobStatus = isElementPresent("TLStageLable_id").getText();
 											logs.info("Job status is==" + jobStatus);
+											msg.append("Job status is==" + jobStatus + "\n");
 
 											if (jobStatus.contains("DELIVERED")) {
 												logs.info("Job is Delivered successfully");
@@ -1172,24 +1194,28 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 														getScreenshot(driver, "JobEditor_Delivered");
 														jobStatus = isElementPresent("TLStageLable_id").getText();
 														logs.info("Job status is==" + jobStatus);
+														msg.append("Job status is==" + jobStatus + "\n");
 
 														if (jobStatus.contains("VERIFY CUSTOMER BILL")) {
 															logs.info("Job is moved to Verify Customer Bill stage");
 															getScreenshot(driver, "JobEditor_VerifyCustBill");
 
 															// --Verify
+															// --Zoom Out
+															js.executeScript("document.body.style.zoom='80%';");
+															Thread.sleep(2000);
 
 															// --Click on Verify button
 															WebElement Verify = isElementPresent("TLVerify_id");
 															wait.until(ExpectedConditions.visibilityOf(Verify));
-															act.moveToElement(Verify).build().perform();
-															act.moveToElement(Verify).click().perform();
+															js.executeScript("arguments[0].click();", Verify);
 															logs.info("Clicked on Verify button");
-															wait.until(ExpectedConditions
-																	.invisibilityOfElementLocated(By.id("loaderDiv")));
+															wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 															// --Verified
-
+															// --Zoom IN
+															js.executeScript("document.body.style.zoom='100%';");
+															Thread.sleep(2000);
 															try {
 																wait.until(
 																		ExpectedConditions.visibilityOfElementLocated(
@@ -1232,6 +1258,11 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 																	if (jobStatus.contains("VERIFIED")) {
 																		logs.info("Job is moved to VERIFIED stage");
 																		getScreenshot(driver, "JobEditor_Verified");
+																		PickUpID = getData("SearchRTE", 1, 2);
+																		msg.append(
+																				"Job status is==." + jobStatus + "\n");
+																		msg.append(
+																				"Job is Proceed successfully." + "\n");
 
 																	} else {
 																		logs.info("Job is not moved to VERIFIED stage");
@@ -1332,6 +1363,8 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 				}
 
 			} else if (jobStatus.contains("PU DRV CONF")) {
+				logs.info("Data is exist with search parameter");
+				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
 				getScreenshot(driver, "JobEditor_PUDRVCNF");
 
 				// --Go to Job Status Tab
@@ -1344,6 +1377,7 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 				wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
 				jobStatus = isElementPresent("TLStageLable_id").getText();
 				logs.info("Job status is==" + jobStatus);
+				msg.append("Job status is==" + jobStatus + "\n");
 
 				// --Click on Confirm PU Alert
 				isElementPresent("TLSendPUAl_id").click();
@@ -1376,6 +1410,8 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 					getScreenshot(driver, "JobEditor_PickUP");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
+					msg.append("Job status is==" + jobStatus + "\n");
+
 					// --Click on ConfirmPU button
 					wait.until(ExpectedConditions.elementToBeClickable(By.id("PUDLStopsWhiteTick")));
 					isElementPresent("TLCOnfPU_id").click();
@@ -1435,6 +1471,8 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 						getScreenshot(driver, "JobEditor_Deliver");
 						jobStatus = isElementPresent("TLStageLable_id").getText();
 						logs.info("Job status is==" + jobStatus);
+						msg.append("Job status is==" + jobStatus + "\n");
+
 						// --Click on ConfirmPU button
 						wait.until(ExpectedConditions.elementToBeClickable(By.id("PUDLStopsWhiteTick")));
 						isElementPresent("TLConfDEL_id").click();
@@ -1573,6 +1611,7 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 								getScreenshot(driver, "JobEditor_Delivered");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
+								msg.append("Job status is==" + jobStatus + "\n");
 
 								if (jobStatus.contains("DELIVERED")) {
 									logs.info("Job is Delivered successfully");
@@ -1687,23 +1726,29 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 											getScreenshot(driver, "JobEditor_Delivered");
 											jobStatus = isElementPresent("TLStageLable_id").getText();
 											logs.info("Job status is==" + jobStatus);
+											msg.append("Job status is==" + jobStatus + "\n");
 
 											if (jobStatus.contains("VERIFY CUSTOMER BILL")) {
 												logs.info("Job is moved to Verify Customer Bill stage");
 												getScreenshot(driver, "JobEditor_VerifyCustBill");
 
 												// --Verify
+												// --Zoom Out
+												js.executeScript("document.body.style.zoom='80%';");
+												Thread.sleep(2000);
 
 												// --Click on Verify button
 												WebElement Verify = isElementPresent("TLVerify_id");
 												wait.until(ExpectedConditions.visibilityOf(Verify));
 												act.moveToElement(Verify).build().perform();
-												act.moveToElement(Verify).click().perform();
+												js.executeScript("arguments[0].click();", Verify);
 												logs.info("Clicked on Verify button");
-												wait.until(ExpectedConditions
-														.invisibilityOfElementLocated(By.id("loaderDiv")));
+												wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 												// --Verified
+												// --Zoom IN
+												js.executeScript("document.body.style.zoom='100%';");
+												Thread.sleep(2000);
 
 												try {
 													wait.until(ExpectedConditions
@@ -1740,6 +1785,9 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 														if (jobStatus.contains("VERIFIED")) {
 															logs.info("Job is moved to VERIFIED stage");
 															getScreenshot(driver, "JobEditor_Verified");
+															PickUpID = getData("SearchRTE", 1, 2);
+															msg.append("Job status is==." + jobStatus + "\n");
+															msg.append("Job is Proceed successfully." + "\n");
 
 														} else {
 															logs.info("Job is not moved to VERIFIED stage");
@@ -1821,7 +1869,6 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
 				}
-
 			} else if (jobStatus.contains("PICKUP")) {
 
 				// --PICKUP@STOP 1 OF 2 stage
@@ -1830,6 +1877,8 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 					getScreenshot(driver, "JobEditor_PickUP");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
+					msg.append("Job status is==" + jobStatus + "\n");
+
 					// --Click on ConfirmPU button
 					wait.until(ExpectedConditions.elementToBeClickable(By.id("PUDLStopsWhiteTick")));
 					isElementPresent("TLCOnfPU_id").click();
@@ -1889,6 +1938,8 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 						getScreenshot(driver, "JobEditor_Deliver");
 						jobStatus = isElementPresent("TLStageLable_id").getText();
 						logs.info("Job status is==" + jobStatus);
+						msg.append("Job status is==" + jobStatus + "\n");
+
 						// --Click on ConfirmPU button
 						wait.until(ExpectedConditions.elementToBeClickable(By.id("PUDLStopsWhiteTick")));
 						isElementPresent("TLConfDEL_id").click();
@@ -2027,6 +2078,7 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 								getScreenshot(driver, "JobEditor_Delivered");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
+								msg.append("Job status is==" + jobStatus + "\n");
 
 								if (jobStatus.contains("DELIVERED")) {
 									logs.info("Job is Delivered successfully");
@@ -2141,23 +2193,29 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 											getScreenshot(driver, "JobEditor_Delivered");
 											jobStatus = isElementPresent("TLStageLable_id").getText();
 											logs.info("Job status is==" + jobStatus);
+											msg.append("Job status is==" + jobStatus + "\n");
 
 											if (jobStatus.contains("VERIFY CUSTOMER BILL")) {
 												logs.info("Job is moved to Verify Customer Bill stage");
 												getScreenshot(driver, "JobEditor_VerifyCustBill");
 
 												// --Verify
+												// --Zoom Out
+												js.executeScript("document.body.style.zoom='80%';");
+												Thread.sleep(2000);
 
 												// --Click on Verify button
 												WebElement Verify = isElementPresent("TLVerify_id");
 												wait.until(ExpectedConditions.visibilityOf(Verify));
 												act.moveToElement(Verify).build().perform();
-												act.moveToElement(Verify).click().perform();
+												js.executeScript("arguments[0].click();", Verify);
 												logs.info("Clicked on Verify button");
-												wait.until(ExpectedConditions
-														.invisibilityOfElementLocated(By.id("loaderDiv")));
+												wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 												// --Verified
+												// --Zoom IN
+												js.executeScript("document.body.style.zoom='100%';");
+												Thread.sleep(2000);
 
 												try {
 													wait.until(ExpectedConditions
@@ -2194,6 +2252,9 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 														if (jobStatus.contains("VERIFIED")) {
 															logs.info("Job is moved to VERIFIED stage");
 															getScreenshot(driver, "JobEditor_Verified");
+															PickUpID = getData("SearchRTE", 1, 2);
+															msg.append("Job status is==." + jobStatus + "\n");
+															msg.append("Job is Proceed successfully." + "\n");
 
 														} else {
 															logs.info("Job is not moved to VERIFIED stage");
@@ -2284,6 +2345,8 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 					getScreenshot(driver, "JobEditor_Deliver");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
+					msg.append("Job status is==" + jobStatus + "\n");
+
 					// --Click on ConfirmPU button
 					wait.until(ExpectedConditions.elementToBeClickable(By.id("PUDLStopsWhiteTick")));
 					isElementPresent("TLConfDEL_id").click();
@@ -2422,6 +2485,7 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 							getScreenshot(driver, "JobEditor_Delivered");
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
+							msg.append("Job status is==" + jobStatus + "\n");
 
 							if (jobStatus.contains("DELIVERED")) {
 								logs.info("Job is Delivered successfully");
@@ -2534,23 +2598,29 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 										getScreenshot(driver, "JobEditor_Delivered");
 										jobStatus = isElementPresent("TLStageLable_id").getText();
 										logs.info("Job status is==" + jobStatus);
+										msg.append("Job status is==" + jobStatus + "\n");
 
 										if (jobStatus.contains("VERIFY CUSTOMER BILL")) {
 											logs.info("Job is moved to Verify Customer Bill stage");
 											getScreenshot(driver, "JobEditor_VerifyCustBill");
 
 											// --Verify
+											// --Zoom Out
+											js.executeScript("document.body.style.zoom='80%';");
+											Thread.sleep(2000);
 
 											// --Click on Verify button
 											WebElement Verify = isElementPresent("TLVerify_id");
 											wait.until(ExpectedConditions.visibilityOf(Verify));
 											act.moveToElement(Verify).build().perform();
-											act.moveToElement(Verify).click().perform();
+											js.executeScript("arguments[0].click();", Verify);
 											logs.info("Clicked on Verify button");
-											wait.until(ExpectedConditions
-													.invisibilityOfElementLocated(By.id("loaderDiv")));
+											wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 											// --Verified
+											// --Zoom IN
+											js.executeScript("document.body.style.zoom='100%';");
+											Thread.sleep(2000);
 
 											try {
 												wait.until(ExpectedConditions
@@ -2587,6 +2657,9 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 													if (jobStatus.contains("VERIFIED")) {
 														logs.info("Job is moved to VERIFIED stage");
 														getScreenshot(driver, "JobEditor_Verified");
+														PickUpID = getData("SearchRTE", 1, 2);
+														msg.append("Job status is==." + jobStatus + "\n");
+														msg.append("Job is Proceed successfully." + "\n");
 
 													} else {
 														logs.info("Job is not moved to VERIFIED stage");
@@ -2670,6 +2743,7 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 				getScreenshot(driver, "JobEditor_Delivered");
 				jobStatus = isElementPresent("TLStageLable_id").getText();
 				logs.info("Job status is==" + jobStatus);
+				msg.append("Job status is==" + jobStatus + "\n");
 
 				if (jobStatus.contains("DELIVERED")) {
 					logs.info("Job is Delivered successfully");
@@ -2781,22 +2855,29 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 							getScreenshot(driver, "JobEditor_Delivered");
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
+							msg.append("Job status is==" + jobStatus + "\n");
 
 							if (jobStatus.contains("VERIFY CUSTOMER BILL")) {
 								logs.info("Job is moved to Verify Customer Bill stage");
 								getScreenshot(driver, "JobEditor_VerifyCustBill");
 
 								// --Verify
+								// --Zoom Out
+								js.executeScript("document.body.style.zoom='80%';");
+								Thread.sleep(2000);
 
 								// --Click on Verify button
 								WebElement Verify = isElementPresent("TLVerify_id");
 								wait.until(ExpectedConditions.visibilityOf(Verify));
 								act.moveToElement(Verify).build().perform();
-								act.moveToElement(Verify).click().perform();
+								js.executeScript("arguments[0].click();", Verify);
 								logs.info("Clicked on Verify button");
 								wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 								// --Verified
+								// --Zoom IN
+								js.executeScript("document.body.style.zoom='100%';");
+								Thread.sleep(2000);
 
 								try {
 									wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
@@ -2830,6 +2911,9 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 										if (jobStatus.contains("VERIFIED")) {
 											logs.info("Job is moved to VERIFIED stage");
 											getScreenshot(driver, "JobEditor_Verified");
+											PickUpID = getData("SearchRTE", 1, 2);
+											msg.append("Job status is==." + jobStatus + "\n");
+											msg.append("Job is Proceed successfully." + "\n");
 
 										} else {
 											logs.info("Job is not moved to VERIFIED stage");
@@ -2897,22 +2981,28 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 				getScreenshot(driver, "JobEditor_Delivered");
 				jobStatus = isElementPresent("TLStageLable_id").getText();
 				logs.info("Job status is==" + jobStatus);
+				msg.append("Job status is==" + jobStatus + "\n");
 
 				if (jobStatus.contains("VERIFY CUSTOMER BILL")) {
 					logs.info("Job is moved to Verify Customer Bill stage");
 					getScreenshot(driver, "JobEditor_VerifyCustBill");
 
 					// --Verify
+					// --Zoom Out
+					js.executeScript("document.body.style.zoom='80%';");
+					Thread.sleep(2000);
 
 					// --Click on Verify button
 					WebElement Verify = isElementPresent("TLVerify_id");
 					wait.until(ExpectedConditions.visibilityOf(Verify));
-					act.moveToElement(Verify).build().perform();
-					act.moveToElement(Verify).click().perform();
+					js.executeScript("arguments[0].click();", Verify);
 					logs.info("Clicked on Verify button");
 					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 					// --Verified
+					// --Zoom IN
+					js.executeScript("document.body.style.zoom='100%';");
+					Thread.sleep(2000);
 
 					try {
 						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
@@ -2945,6 +3035,9 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 							if (jobStatus.contains("VERIFIED")) {
 								logs.info("Job is moved to VERIFIED stage");
 								getScreenshot(driver, "JobEditor_Verified");
+								PickUpID = getData("SearchRTE", 1, 2);
+								msg.append("Job status is==." + jobStatus + "\n");
+								msg.append("Job is Proceed successfully." + "\n");
 
 							} else {
 								logs.info("Job is not moved to VERIFIED stage");
@@ -2990,8 +3083,6 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 				}
 
 			} else if (jobStatus.contains("VERIFIED")) {
-				// --Verified
-
 				logs.info("Data is exist with search parameter");
 				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
 				getScreenshot(driver, "JobEditor_Delivered");
@@ -3001,6 +3092,9 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 				if (jobStatus.contains("VERIFIED")) {
 					logs.info("Job is moved to VERIFIED stage");
 					getScreenshot(driver, "JobEditor_Verified");
+					PickUpID = getData("SearchRTE", 1, 2);
+					msg.append("Job status is==." + jobStatus + "\n");
+					msg.append("Job is Proceed successfully." + "\n");
 
 				} else {
 					logs.info("Job is not moved to VERIFIED stage");
@@ -3015,13 +3109,12 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 
 				}
 
-				//
-
 			} else {
-
 				logs.info("Unknown Stage found");
 				jobStatus = isElementPresent("TLStageLable_id").getText();
 				logs.info("Job status is==" + jobStatus);
+				msg.append("Job status is==." + jobStatus + "\n");
+
 			}
 
 		}

@@ -89,6 +89,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 		isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 		logs.info("PickUpID==" + PickUpID);
 		logs.info("Entered PickUpID in basic search");
+		msg.append("PickUpID==" + PickUpID + "\n");
 
 		// --Click on Search
 		wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
@@ -127,6 +128,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
 			String jobStatus = isElementPresent("TLStageLable_id").getText();
 			logs.info("Job status is==" + jobStatus);
+			msg.append("Job status is==" + jobStatus + "\n");
 
 			if (jobStatus.contains("TC ACK")) {
 				logs.info("It is TC ACK stage");
@@ -144,6 +146,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 					getScreenshot(driver, "ManyToOne_RDYFORDSP");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
+					msg.append("Job status is==" + jobStatus + "\n");
 
 					// --Click on SendPuAlert button
 					wait.until(ExpectedConditions.elementToBeClickable(By.id("WhiteTickAlert")));
@@ -200,6 +203,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 							wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
+							msg.append("Job status is==" + jobStatus + "\n");
 
 							// --Click on Confirm PU Alert
 							isElementPresent("TLSendPUAl_id").click();
@@ -232,6 +236,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 								getScreenshot(driver, "ManyToOne_PickUP");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
+								msg.append("Job status is==" + jobStatus + "\n");
 								// --Click on ConfirmPU button
 								wait.until(ExpectedConditions.elementToBeClickable(By.id("PUDLStopsWhiteTick")));
 								isElementPresent("TLCOnfPU_id").click();
@@ -253,16 +258,21 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 									for (int pu = 0; pu < TotalPickup; pu++) {
 
 										System.out.println("value of PuS==" + pu);
-										/*
-										 * if (jobStatus.contains("PICKUP@STOP 2 OF")) { pu = 1; } else if
-										 * (jobStatus.contains("PICKUP@STOP 3 OF")) { pu = 2;
-										 * 
-										 * } else if (jobStatus.contains("PICKUP@STOP 4 OF")) { pu = 3;
-										 * 
-										 * } else if (jobStatus.contains("PICKUP@STOP 5 OF")) { pu = 4;
-										 * 
-										 * } System.out.println("value of del==" + pu);
-										 */
+
+										if (jobStatus.contains("PICKUP@STOP 2 OF")) {
+											pu = 1;
+										} else if (jobStatus.contains("PICKUP@STOP 3 OF")) {
+											pu = 2;
+
+										} else if (jobStatus.contains("PICKUP@STOP 4 OF")) {
+											pu = 3;
+
+										} else if (jobStatus.contains("PICKUP@STOP 5 OF")) {
+											pu = 4;
+
+										}
+										System.out.println("value of del==" + pu);
+
 										WebElement ZoneID = PickupPoints.get(pu)
 												.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
 										String PUDate = "txtActpuDate_" + pu;
@@ -388,6 +398,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 										wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
 										jobStatus = isElementPresent("TLStageLable_id").getText();
 										logs.info("Job status is==" + jobStatus);
+										msg.append("Job status is==" + jobStatus + "\n");
 										PickupPoints = driver.findElements(By.xpath(
 												"//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
 
@@ -405,6 +416,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 									getScreenshot(driver, "ManyToOne_Deliver");
 									jobStatus = isElementPresent("TLStageLable_id").getText();
 									logs.info("Job status is==" + jobStatus);
+									msg.append("Job status is==" + jobStatus + "\n");
 
 									// --Click on ConfirmDEL button
 									wait.until(ExpectedConditions.elementToBeClickable(By.id("PUDLStopsWhiteTick")));
@@ -497,18 +509,24 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 										for (int Del = 0; Del < TotalDel; Del++) {
 
 											System.out.println("value of del==" + Del);
-											/*
-											 * if (jobStatus.contains("DELIVER@STOP 3 OF")) { Del = 1; } else if
-											 * (jobStatus.contains("DELIVER@STOP 4 OF")) { Del = 2;
-											 * 
-											 * } else if (jobStatus.contains("DELIVER@STOP 5 OF")) { Del = 3;
-											 * 
-											 * } else if (jobStatus.contains("DELIVER@STOP 6 OF")) { Del = 4;
-											 * 
-											 * } else if (jobStatus.contains("DELIVER@STOP 7 OF")) { Del = 5;
-											 * 
-											 * } System.out.println("value of del==" + Del);
-											 */
+
+											if (jobStatus.contains("DELIVER@STOP 3 OF")) {
+												Del = 1;
+											} else if (jobStatus.contains("DELIVER@STOP 4 OF")) {
+												Del = 2;
+
+											} else if (jobStatus.contains("DELIVER@STOP 5 OF")) {
+												Del = 3;
+
+											} else if (jobStatus.contains("DELIVER@STOP 6 OF")) {
+												Del = 4;
+
+											} else if (jobStatus.contains("DELIVER@STOP 7 OF")) {
+												Del = 5;
+
+											}
+											System.out.println("value of del==" + Del);
+
 											WebElement ZoneID = DelPoints.get(Del)
 													.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 											String DeliveryDate = "txtActdlDate_" + Del;
@@ -588,6 +606,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 											getScreenshot(driver, "ManyToOne_Delivered");
 											jobStatus = isElementPresent("TLStageLable_id").getText();
 											logs.info("Job status is==" + jobStatus);
+											msg.append("Job status is==" + jobStatus + "\n");
 
 											if (jobStatus.contains("DELIVERED")) {
 												logs.info("Job is Delivered successfully");
@@ -714,23 +733,30 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 														getScreenshot(driver, "JobEditor_Delivered");
 														jobStatus = isElementPresent("TLStageLable_id").getText();
 														logs.info("Job status is==" + jobStatus);
+														msg.append("Job status is==" + jobStatus + "\n");
 
 														if (jobStatus.contains("VERIFY CUSTOMER BILL")) {
 															logs.info("Job is moved to Verify Customer Bill stage");
 															getScreenshot(driver, "JobEditor_VerifyCustBill");
 
 															// --Verify
+															// --Zoom Out
+															js.executeScript("document.body.style.zoom='80%';");
+															Thread.sleep(2000);
 
 															// --Click on Verify button
 															WebElement Verify = isElementPresent("TLVerify_id");
 															wait.until(ExpectedConditions.visibilityOf(Verify));
-															act.moveToElement(Verify).build().perform();
-															act.moveToElement(Verify).click().perform();
+
+															js.executeScript("arguments[0].click();", Verify);
 															logs.info("Clicked on Verify button");
 															wait.until(ExpectedConditions
 																	.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 															// --Verified
+															// --Zoom IN
+															js.executeScript("document.body.style.zoom='100%';");
+															Thread.sleep(2000);
 
 															try {
 																wait.until(
@@ -770,6 +796,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 																	jobStatus = isElementPresent("TLStageLable_id")
 																			.getText();
 																	logs.info("Job status is==" + jobStatus);
+																	msg.append("Job status is==" + jobStatus + "\n");
 
 																	if (jobStatus.contains("VERIFIED")) {
 																		logs.info("Job is moved to VERIFIED stage");
@@ -786,6 +813,8 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 																		jobStatus = isElementPresent("TLStageLable_id")
 																				.getText();
 																		logs.info("Job status is==" + jobStatus);
+																		msg.append(
+																				"Job status is==" + jobStatus + "\n");
 
 																		WebElement EWSave = isElementPresent(
 																				"TLQCExitWSave_id");
@@ -806,6 +835,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 																jobStatus = isElementPresent("TLStageLable_id")
 																		.getText();
 																logs.info("Job status is==" + jobStatus);
+																msg.append("Job status is==" + jobStatus + "\n");
 
 																WebElement EWSave = isElementPresent(
 																		"TLQCExitWSave_id");
@@ -820,6 +850,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 															logs.info("Job is not moved to Verify Customer Bill stage");
 															jobStatus = isElementPresent("TLStageLable_id").getText();
 															logs.info("Job status is==" + jobStatus);
+															msg.append("Job status is==" + jobStatus + "\n");
 
 															WebElement EWSave = isElementPresent("TLQCExitWSave_id");
 															wait.until(ExpectedConditions.visibilityOf(EWSave));
@@ -837,12 +868,14 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 													logs.info("job is not moved to Verify Customer Bill stage");
 													jobStatus = isElementPresent("TLStageLable_id").getText();
 													logs.info("Job status is==" + jobStatus);
+													msg.append("Job status is==" + jobStatus + "\n");
 												}
 
 											} else {
 												logs.info("Job is not Delivered successfully");
 												jobStatus = isElementPresent("TLStageLable_id").getText();
 												logs.info("Job status is==" + jobStatus);
+												msg.append("Job status is==" + jobStatus + "\n");
 
 											}
 
@@ -854,17 +887,20 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 										logs.info("job is not moved to delivered stage");
 										jobStatus = isElementPresent("TLStageLable_id").getText();
 										logs.info("Job status is==" + jobStatus);
+										msg.append("Job status is==" + jobStatus + "\n");
 									}
 
 								} catch (Exception Deliver) {
 									logs.info("Stage is not Deliver");
 									jobStatus = isElementPresent("TLStageLable_id").getText();
 									logs.info("Job status is==" + jobStatus);
+									msg.append("Job status is==" + jobStatus + "\n");
 								}
 							} catch (Exception PickUp) {
 								logs.info("Stage is not PickUP");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
+								msg.append("Job status is==" + jobStatus + "\n");
 							}
 
 						} catch (Exception NoDataEX) {
@@ -885,6 +921,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 					logs.info("There is no PickUp Driver section");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
+					msg.append("Job status is==" + jobStatus + "\n");
 
 				}
 			} else if (jobStatus.contains("RDY FOR DSP")) {
@@ -893,6 +930,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 				getScreenshot(driver, "ManyToOne_RDYFORDSP");
 				jobStatus = isElementPresent("TLStageLable_id").getText();
 				logs.info("Job status is==" + jobStatus);
+				msg.append("Job status is==" + jobStatus + "\n");
 
 				// --Click on SendPuAlert button
 				wait.until(ExpectedConditions.elementToBeClickable(By.id("WhiteTickAlert")));
@@ -949,6 +987,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
 						jobStatus = isElementPresent("TLStageLable_id").getText();
 						logs.info("Job status is==" + jobStatus);
+						msg.append("Job status is==" + jobStatus + "\n");
 
 						// --Click on Confirm PU Alert
 						isElementPresent("TLSendPUAl_id").click();
@@ -981,6 +1020,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 							getScreenshot(driver, "ManyToOne_PickUP");
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
+							msg.append("Job status is==" + jobStatus + "\n");
 							// --Click on ConfirmPU button
 							wait.until(ExpectedConditions.elementToBeClickable(By.id("PUDLStopsWhiteTick")));
 							isElementPresent("TLCOnfPU_id").click();
@@ -1001,16 +1041,21 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 								for (int pu = 0; pu < TotalPickup; pu++) {
 
 									System.out.println("value of PuS==" + pu);
-									/*
-									 * if (jobStatus.contains("PICKUP@STOP 2 OF")) { pu = 1; } else if
-									 * (jobStatus.contains("PICKUP@STOP 3 OF")) { pu = 2;
-									 * 
-									 * } else if (jobStatus.contains("PICKUP@STOP 4 OF")) { pu = 3;
-									 * 
-									 * } else if (jobStatus.contains("PICKUP@STOP 5 OF")) { pu = 4;
-									 * 
-									 * } System.out.println("value of del==" + pu);
-									 */
+
+									if (jobStatus.contains("PICKUP@STOP 2 OF")) {
+										pu = 1;
+									} else if (jobStatus.contains("PICKUP@STOP 3 OF")) {
+										pu = 2;
+
+									} else if (jobStatus.contains("PICKUP@STOP 4 OF")) {
+										pu = 3;
+
+									} else if (jobStatus.contains("PICKUP@STOP 5 OF")) {
+										pu = 4;
+
+									}
+									System.out.println("value of del==" + pu);
+
 									WebElement ZoneID = PickupPoints.get(pu)
 											.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
 									String PUDate = "txtActpuDate_" + pu;
@@ -1136,6 +1181,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 									wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
 									jobStatus = isElementPresent("TLStageLable_id").getText();
 									logs.info("Job status is==" + jobStatus);
+									msg.append("Job status is==" + jobStatus + "\n");
 									PickupPoints = driver.findElements(By
 											.xpath("//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
 
@@ -1152,6 +1198,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 								getScreenshot(driver, "ManyToOne_Deliver");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
+								msg.append("Job status is==" + jobStatus + "\n");
 
 								// --Click on ConfirmDEL button
 								wait.until(ExpectedConditions.elementToBeClickable(By.id("PUDLStopsWhiteTick")));
@@ -1243,18 +1290,24 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 									for (int Del = 0; Del < TotalDel; Del++) {
 
 										System.out.println("value of del==" + Del);
-										/*
-										 * if (jobStatus.contains("DELIVER@STOP 3 OF")) { Del = 1; } else if
-										 * (jobStatus.contains("DELIVER@STOP 4 OF")) { Del = 2;
-										 * 
-										 * } else if (jobStatus.contains("DELIVER@STOP 5 OF")) { Del = 3;
-										 * 
-										 * } else if (jobStatus.contains("DELIVER@STOP 6 OF")) { Del = 4;
-										 * 
-										 * } else if (jobStatus.contains("DELIVER@STOP 7 OF")) { Del = 5;
-										 * 
-										 * } System.out.println("value of del==" + Del);
-										 */
+
+										if (jobStatus.contains("DELIVER@STOP 3 OF")) {
+											Del = 1;
+										} else if (jobStatus.contains("DELIVER@STOP 4 OF")) {
+											Del = 2;
+
+										} else if (jobStatus.contains("DELIVER@STOP 5 OF")) {
+											Del = 3;
+
+										} else if (jobStatus.contains("DELIVER@STOP 6 OF")) {
+											Del = 4;
+
+										} else if (jobStatus.contains("DELIVER@STOP 7 OF")) {
+											Del = 5;
+
+										}
+										System.out.println("value of del==" + Del);
+
 										WebElement ZoneID = DelPoints.get(Del)
 												.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 										String DeliveryDate = "txtActdlDate_" + Del;
@@ -1334,6 +1387,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 										getScreenshot(driver, "ManyToOne_Delivered");
 										jobStatus = isElementPresent("TLStageLable_id").getText();
 										logs.info("Job status is==" + jobStatus);
+										msg.append("Job status is==" + jobStatus + "\n");
 
 										if (jobStatus.contains("DELIVERED")) {
 											logs.info("Job is Delivered successfully");
@@ -1456,24 +1510,30 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 													getScreenshot(driver, "JobEditor_Delivered");
 													jobStatus = isElementPresent("TLStageLable_id").getText();
 													logs.info("Job status is==" + jobStatus);
+													msg.append("Job status is==" + jobStatus + "\n");
 
 													if (jobStatus.contains("VERIFY CUSTOMER BILL")) {
 														logs.info("Job is moved to Verify Customer Bill stage");
 														getScreenshot(driver, "JobEditor_VerifyCustBill");
 
 														// --Verify
+														// --Zoom Out
+														js.executeScript("document.body.style.zoom='80%';");
+														Thread.sleep(2000);
 
 														// --Click on Verify button
 														WebElement Verify = isElementPresent("TLVerify_id");
 														wait.until(ExpectedConditions.visibilityOf(Verify));
-														act.moveToElement(Verify).build().perform();
-														act.moveToElement(Verify).click().perform();
+
+														js.executeScript("arguments[0].click();", Verify);
 														logs.info("Clicked on Verify button");
 														wait.until(ExpectedConditions
 																.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 														// --Verified
-
+														// --Zoom IN
+														js.executeScript("document.body.style.zoom='100%';");
+														Thread.sleep(2000);
 														try {
 															wait.until(ExpectedConditions
 																	.visibilityOfElementLocated(By.id("txtContains")));
@@ -1508,6 +1568,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 																jobStatus = isElementPresent("TLStageLable_id")
 																		.getText();
 																logs.info("Job status is==" + jobStatus);
+																msg.append("Job status is==" + jobStatus + "\n");
 
 																if (jobStatus.contains("VERIFIED")) {
 																	logs.info("Job is moved to VERIFIED stage");
@@ -1518,6 +1579,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 																	jobStatus = isElementPresent("TLStageLable_id")
 																			.getText();
 																	logs.info("Job status is==" + jobStatus);
+																	msg.append("Job status is==" + jobStatus + "\n");
 
 																	WebElement EWSave = isElementPresent(
 																			"TLQCExitWSave_id");
@@ -1536,6 +1598,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 															logs.info("job is not moved to VERIFIED stage");
 															jobStatus = isElementPresent("TLStageLable_id").getText();
 															logs.info("Job status is==" + jobStatus);
+															msg.append("Job status is==" + jobStatus + "\n");
 
 															WebElement EWSave = isElementPresent("TLQCExitWSave_id");
 															wait.until(ExpectedConditions.visibilityOf(EWSave));
@@ -1549,6 +1612,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 														logs.info("Job is not moved to Verify Customer Bill stage");
 														jobStatus = isElementPresent("TLStageLable_id").getText();
 														logs.info("Job status is==" + jobStatus);
+														msg.append("Job status is==" + jobStatus + "\n");
 
 														WebElement EWSave = isElementPresent("TLQCExitWSave_id");
 														wait.until(ExpectedConditions.visibilityOf(EWSave));
@@ -1566,12 +1630,14 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 												logs.info("job is not moved to Verify Customer Bill stage");
 												jobStatus = isElementPresent("TLStageLable_id").getText();
 												logs.info("Job status is==" + jobStatus);
+												msg.append("Job status is==" + jobStatus + "\n");
 											}
 
 										} else {
 											logs.info("Job is not Delivered successfully");
 											jobStatus = isElementPresent("TLStageLable_id").getText();
 											logs.info("Job status is==" + jobStatus);
+											msg.append("Job status is==" + jobStatus + "\n");
 
 										}
 
@@ -1583,17 +1649,20 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 									logs.info("job is not moved to delivered stage");
 									jobStatus = isElementPresent("TLStageLable_id").getText();
 									logs.info("Job status is==" + jobStatus);
+									msg.append("Job status is==" + jobStatus + "\n");
 								}
 
 							} catch (Exception Deliver) {
 								logs.info("Stage is not Deliver");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
+								msg.append("Job status is==" + jobStatus + "\n");
 							}
 						} catch (Exception PickUp) {
 							logs.info("Stage is not PickUP");
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
+							msg.append("Job status is==" + jobStatus + "\n");
 						}
 
 					} catch (Exception NoDataEX) {
@@ -1626,6 +1695,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 				wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
 				jobStatus = isElementPresent("TLStageLable_id").getText();
 				logs.info("Job status is==" + jobStatus);
+				msg.append("Job status is==" + jobStatus + "\n");
 
 				// --Click on Confirm PU Alert
 				isElementPresent("TLSendPUAl_id").click();
@@ -1658,6 +1728,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 					getScreenshot(driver, "ManyToOne_PickUP");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
+					msg.append("Job status is==" + jobStatus + "\n");
 					// --Click on ConfirmPU button
 					wait.until(ExpectedConditions.elementToBeClickable(By.id("PUDLStopsWhiteTick")));
 					isElementPresent("TLCOnfPU_id").click();
@@ -1678,16 +1749,21 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 						for (int pu = 0; pu < TotalPickup; pu++) {
 
 							System.out.println("value of PuS==" + pu);
-							/*
-							 * if (jobStatus.contains("PICKUP@STOP 2 OF")) { pu = 1; } else if
-							 * (jobStatus.contains("PICKUP@STOP 3 OF")) { pu = 2;
-							 * 
-							 * } else if (jobStatus.contains("PICKUP@STOP 4 OF")) { pu = 3;
-							 * 
-							 * } else if (jobStatus.contains("PICKUP@STOP 5 OF")) { pu = 4;
-							 * 
-							 * } System.out.println("value of del==" + pu);
-							 */
+
+							if (jobStatus.contains("PICKUP@STOP 2 OF")) {
+								pu = 1;
+							} else if (jobStatus.contains("PICKUP@STOP 3 OF")) {
+								pu = 2;
+
+							} else if (jobStatus.contains("PICKUP@STOP 4 OF")) {
+								pu = 3;
+
+							} else if (jobStatus.contains("PICKUP@STOP 5 OF")) {
+								pu = 4;
+
+							}
+							System.out.println("value of del==" + pu);
+
 							WebElement ZoneID = PickupPoints.get(pu)
 									.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
 							String PUDate = "txtActpuDate_" + pu;
@@ -1811,6 +1887,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 							wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
+							msg.append("Job status is==" + jobStatus + "\n");
 							PickupPoints = driver.findElements(
 									By.xpath("//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
 
@@ -1827,6 +1904,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 						getScreenshot(driver, "ManyToOne_Deliver");
 						jobStatus = isElementPresent("TLStageLable_id").getText();
 						logs.info("Job status is==" + jobStatus);
+						msg.append("Job status is==" + jobStatus + "\n");
 
 						// --Click on ConfirmDEL button
 						wait.until(ExpectedConditions.elementToBeClickable(By.id("PUDLStopsWhiteTick")));
@@ -1916,18 +1994,24 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 							for (int Del = 0; Del < TotalDel; Del++) {
 
 								System.out.println("value of del==" + Del);
-								/*
-								 * if (jobStatus.contains("DELIVER@STOP 3 OF")) { Del = 1; } else if
-								 * (jobStatus.contains("DELIVER@STOP 4 OF")) { Del = 2;
-								 * 
-								 * } else if (jobStatus.contains("DELIVER@STOP 5 OF")) { Del = 3;
-								 * 
-								 * } else if (jobStatus.contains("DELIVER@STOP 6 OF")) { Del = 4;
-								 * 
-								 * } else if (jobStatus.contains("DELIVER@STOP 7 OF")) { Del = 5;
-								 * 
-								 * } System.out.println("value of del==" + Del);
-								 */
+
+								if (jobStatus.contains("DELIVER@STOP 3 OF")) {
+									Del = 1;
+								} else if (jobStatus.contains("DELIVER@STOP 4 OF")) {
+									Del = 2;
+
+								} else if (jobStatus.contains("DELIVER@STOP 5 OF")) {
+									Del = 3;
+
+								} else if (jobStatus.contains("DELIVER@STOP 6 OF")) {
+									Del = 4;
+
+								} else if (jobStatus.contains("DELIVER@STOP 7 OF")) {
+									Del = 5;
+
+								}
+								System.out.println("value of del==" + Del);
+
 								WebElement ZoneID = DelPoints.get(Del)
 										.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 								String DeliveryDate = "txtActdlDate_" + Del;
@@ -2006,6 +2090,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 								getScreenshot(driver, "ManyToOne_Delivered");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
+								msg.append("Job status is==" + jobStatus + "\n");
 
 								if (jobStatus.contains("DELIVERED")) {
 									logs.info("Job is Delivered successfully");
@@ -2120,23 +2205,30 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 											getScreenshot(driver, "JobEditor_Delivered");
 											jobStatus = isElementPresent("TLStageLable_id").getText();
 											logs.info("Job status is==" + jobStatus);
+											msg.append("Job status is==" + jobStatus + "\n");
 
 											if (jobStatus.contains("VERIFY CUSTOMER BILL")) {
 												logs.info("Job is moved to Verify Customer Bill stage");
 												getScreenshot(driver, "JobEditor_VerifyCustBill");
 
 												// --Verify
+												// --Zoom Out
+												js.executeScript("document.body.style.zoom='80%';");
+												Thread.sleep(2000);
 
 												// --Click on Verify button
 												WebElement Verify = isElementPresent("TLVerify_id");
 												wait.until(ExpectedConditions.visibilityOf(Verify));
-												act.moveToElement(Verify).build().perform();
-												act.moveToElement(Verify).click().perform();
+
+												js.executeScript("arguments[0].click();", Verify);
 												logs.info("Clicked on Verify button");
 												wait.until(ExpectedConditions
 														.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 												// --Verified
+												// --Zoom IN
+												js.executeScript("document.body.style.zoom='100%';");
+												Thread.sleep(2000);
 
 												try {
 													wait.until(ExpectedConditions
@@ -2169,6 +2261,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 														getScreenshot(driver, "JobEditor_Delivered");
 														jobStatus = isElementPresent("TLStageLable_id").getText();
 														logs.info("Job status is==" + jobStatus);
+														msg.append("Job status is==" + jobStatus + "\n");
 
 														if (jobStatus.contains("VERIFIED")) {
 															logs.info("Job is moved to VERIFIED stage");
@@ -2178,6 +2271,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 															logs.info("Job is not moved to VERIFIED stage");
 															jobStatus = isElementPresent("TLStageLable_id").getText();
 															logs.info("Job status is==" + jobStatus);
+															msg.append("Job status is==" + jobStatus + "\n");
 
 															WebElement EWSave = isElementPresent("TLQCExitWSave_id");
 															wait.until(ExpectedConditions.visibilityOf(EWSave));
@@ -2195,6 +2289,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 													logs.info("job is not moved to VERIFIED stage");
 													jobStatus = isElementPresent("TLStageLable_id").getText();
 													logs.info("Job status is==" + jobStatus);
+													msg.append("Job status is==" + jobStatus + "\n");
 
 													WebElement EWSave = isElementPresent("TLQCExitWSave_id");
 													wait.until(ExpectedConditions.visibilityOf(EWSave));
@@ -2208,6 +2303,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 												logs.info("Job is not moved to Verify Customer Bill stage");
 												jobStatus = isElementPresent("TLStageLable_id").getText();
 												logs.info("Job status is==" + jobStatus);
+												msg.append("Job status is==" + jobStatus + "\n");
 
 												WebElement EWSave = isElementPresent("TLQCExitWSave_id");
 												wait.until(ExpectedConditions.visibilityOf(EWSave));
@@ -2225,12 +2321,14 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 										logs.info("job is not moved to Verify Customer Bill stage");
 										jobStatus = isElementPresent("TLStageLable_id").getText();
 										logs.info("Job status is==" + jobStatus);
+										msg.append("Job status is==" + jobStatus + "\n");
 									}
 
 								} else {
 									logs.info("Job is not Delivered successfully");
 									jobStatus = isElementPresent("TLStageLable_id").getText();
 									logs.info("Job status is==" + jobStatus);
+									msg.append("Job status is==" + jobStatus + "\n");
 
 								}
 
@@ -2242,17 +2340,20 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 							logs.info("job is not moved to delivered stage");
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
+							msg.append("Job status is==" + jobStatus + "\n");
 						}
 
 					} catch (Exception Deliver) {
 						logs.info("Stage is not Deliver");
 						jobStatus = isElementPresent("TLStageLable_id").getText();
 						logs.info("Job status is==" + jobStatus);
+						msg.append("Job status is==" + jobStatus + "\n");
 					}
 				} catch (Exception PickUp) {
 					logs.info("Stage is not PickUP");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
+					msg.append("Job status is==" + jobStatus + "\n");
 				}
 
 			} else if (jobStatus.contains("PICKUP")) {
@@ -2263,6 +2364,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 					getScreenshot(driver, "ManyToOne_PickUP");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
+					msg.append("Job status is==" + jobStatus + "\n");
 					// --Click on ConfirmPU button
 					wait.until(ExpectedConditions.elementToBeClickable(By.id("PUDLStopsWhiteTick")));
 					isElementPresent("TLCOnfPU_id").click();
@@ -2283,16 +2385,21 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 						for (int pu = 0; pu < TotalPickup; pu++) {
 
 							System.out.println("value of PuS==" + pu);
-							/*
-							 * if (jobStatus.contains("PICKUP@STOP 2 OF")) { pu = 1; } else if
-							 * (jobStatus.contains("PICKUP@STOP 3 OF")) { pu = 2;
-							 * 
-							 * } else if (jobStatus.contains("PICKUP@STOP 4 OF")) { pu = 3;
-							 * 
-							 * } else if (jobStatus.contains("PICKUP@STOP 5 OF")) { pu = 4;
-							 * 
-							 * } System.out.println("value of del==" + pu);
-							 */
+
+							if (jobStatus.contains("PICKUP@STOP 2 OF")) {
+								pu = 1;
+							} else if (jobStatus.contains("PICKUP@STOP 3 OF")) {
+								pu = 2;
+
+							} else if (jobStatus.contains("PICKUP@STOP 4 OF")) {
+								pu = 3;
+
+							} else if (jobStatus.contains("PICKUP@STOP 5 OF")) {
+								pu = 4;
+
+							}
+							System.out.println("value of del==" + pu);
+
 							WebElement ZoneID = PickupPoints.get(pu)
 									.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
 							String PUDate = "txtActpuDate_" + pu;
@@ -2416,6 +2523,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 							wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
+							msg.append("Job status is==" + jobStatus + "\n");
 							PickupPoints = driver.findElements(
 									By.xpath("//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
 
@@ -2432,6 +2540,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 						getScreenshot(driver, "ManyToOne_Deliver");
 						jobStatus = isElementPresent("TLStageLable_id").getText();
 						logs.info("Job status is==" + jobStatus);
+						msg.append("Job status is==" + jobStatus + "\n");
 
 						// --Click on ConfirmDEL button
 						wait.until(ExpectedConditions.elementToBeClickable(By.id("PUDLStopsWhiteTick")));
@@ -2521,18 +2630,24 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 							for (int Del = 0; Del < TotalDel; Del++) {
 
 								System.out.println("value of del==" + Del);
-								/*
-								 * if (jobStatus.contains("DELIVER@STOP 3 OF")) { Del = 1; } else if
-								 * (jobStatus.contains("DELIVER@STOP 4 OF")) { Del = 2;
-								 * 
-								 * } else if (jobStatus.contains("DELIVER@STOP 5 OF")) { Del = 3;
-								 * 
-								 * } else if (jobStatus.contains("DELIVER@STOP 6 OF")) { Del = 4;
-								 * 
-								 * } else if (jobStatus.contains("DELIVER@STOP 7 OF")) { Del = 5;
-								 * 
-								 * } System.out.println("value of del==" + Del);
-								 */
+
+								if (jobStatus.contains("DELIVER@STOP 3 OF")) {
+									Del = 1;
+								} else if (jobStatus.contains("DELIVER@STOP 4 OF")) {
+									Del = 2;
+
+								} else if (jobStatus.contains("DELIVER@STOP 5 OF")) {
+									Del = 3;
+
+								} else if (jobStatus.contains("DELIVER@STOP 6 OF")) {
+									Del = 4;
+
+								} else if (jobStatus.contains("DELIVER@STOP 7 OF")) {
+									Del = 5;
+
+								}
+								System.out.println("value of del==" + Del);
+
 								WebElement ZoneID = DelPoints.get(Del)
 										.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 								String DeliveryDate = "txtActdlDate_" + Del;
@@ -2611,6 +2726,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 								getScreenshot(driver, "ManyToOne_Delivered");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
+								msg.append("Job status is==" + jobStatus + "\n");
 
 								if (jobStatus.contains("DELIVERED")) {
 									logs.info("Job is Delivered successfully");
@@ -2725,23 +2841,30 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 											getScreenshot(driver, "JobEditor_Delivered");
 											jobStatus = isElementPresent("TLStageLable_id").getText();
 											logs.info("Job status is==" + jobStatus);
+											msg.append("Job status is==" + jobStatus + "\n");
 
 											if (jobStatus.contains("VERIFY CUSTOMER BILL")) {
 												logs.info("Job is moved to Verify Customer Bill stage");
 												getScreenshot(driver, "JobEditor_VerifyCustBill");
 
 												// --Verify
+												// --Zoom Out
+												js.executeScript("document.body.style.zoom='80%';");
+												Thread.sleep(2000);
 
 												// --Click on Verify button
 												WebElement Verify = isElementPresent("TLVerify_id");
 												wait.until(ExpectedConditions.visibilityOf(Verify));
-												act.moveToElement(Verify).build().perform();
-												act.moveToElement(Verify).click().perform();
+
+												js.executeScript("arguments[0].click();", Verify);
 												logs.info("Clicked on Verify button");
 												wait.until(ExpectedConditions
 														.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 												// --Verified
+												// --Zoom IN
+												js.executeScript("document.body.style.zoom='100%';");
+												Thread.sleep(2000);
 
 												try {
 													wait.until(ExpectedConditions
@@ -2774,6 +2897,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 														getScreenshot(driver, "JobEditor_Delivered");
 														jobStatus = isElementPresent("TLStageLable_id").getText();
 														logs.info("Job status is==" + jobStatus);
+														msg.append("Job status is==" + jobStatus + "\n");
 
 														if (jobStatus.contains("VERIFIED")) {
 															logs.info("Job is moved to VERIFIED stage");
@@ -2783,6 +2907,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 															logs.info("Job is not moved to VERIFIED stage");
 															jobStatus = isElementPresent("TLStageLable_id").getText();
 															logs.info("Job status is==" + jobStatus);
+															msg.append("Job status is==" + jobStatus + "\n");
 
 															WebElement EWSave = isElementPresent("TLQCExitWSave_id");
 															wait.until(ExpectedConditions.visibilityOf(EWSave));
@@ -2800,6 +2925,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 													logs.info("job is not moved to VERIFIED stage");
 													jobStatus = isElementPresent("TLStageLable_id").getText();
 													logs.info("Job status is==" + jobStatus);
+													msg.append("Job status is==" + jobStatus + "\n");
 
 													WebElement EWSave = isElementPresent("TLQCExitWSave_id");
 													wait.until(ExpectedConditions.visibilityOf(EWSave));
@@ -2813,6 +2939,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 												logs.info("Job is not moved to Verify Customer Bill stage");
 												jobStatus = isElementPresent("TLStageLable_id").getText();
 												logs.info("Job status is==" + jobStatus);
+												msg.append("Job status is==" + jobStatus + "\n");
 
 												WebElement EWSave = isElementPresent("TLQCExitWSave_id");
 												wait.until(ExpectedConditions.visibilityOf(EWSave));
@@ -2830,12 +2957,14 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 										logs.info("job is not moved to Verify Customer Bill stage");
 										jobStatus = isElementPresent("TLStageLable_id").getText();
 										logs.info("Job status is==" + jobStatus);
+										msg.append("Job status is==" + jobStatus + "\n");
 									}
 
 								} else {
 									logs.info("Job is not Delivered successfully");
 									jobStatus = isElementPresent("TLStageLable_id").getText();
 									logs.info("Job status is==" + jobStatus);
+									msg.append("Job status is==" + jobStatus + "\n");
 
 								}
 
@@ -2847,17 +2976,20 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 							logs.info("job is not moved to delivered stage");
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
+							msg.append("Job status is==" + jobStatus + "\n");
 						}
 
 					} catch (Exception Deliver) {
 						logs.info("Stage is not Deliver");
 						jobStatus = isElementPresent("TLStageLable_id").getText();
 						logs.info("Job status is==" + jobStatus);
+						msg.append("Job status is==" + jobStatus + "\n");
 					}
 				} catch (Exception PickUp) {
 					logs.info("Stage is not PickUP");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
+					msg.append("Job status is==" + jobStatus + "\n");
 				}
 
 			} else if (jobStatus.contains("DELIVER@")) {
@@ -2868,6 +3000,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 					getScreenshot(driver, "ManyToOne_Deliver");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
+					msg.append("Job status is==" + jobStatus + "\n");
 
 					// --Click on ConfirmDEL button
 					wait.until(ExpectedConditions.elementToBeClickable(By.id("PUDLStopsWhiteTick")));
@@ -2957,18 +3090,24 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 						for (int Del = 0; Del < TotalDel; Del++) {
 
 							System.out.println("value of del==" + Del);
-							/*
-							 * if (jobStatus.contains("DELIVER@STOP 3 OF")) { Del = 1; } else if
-							 * (jobStatus.contains("DELIVER@STOP 4 OF")) { Del = 2;
-							 * 
-							 * } else if (jobStatus.contains("DELIVER@STOP 5 OF")) { Del = 3;
-							 * 
-							 * } else if (jobStatus.contains("DELIVER@STOP 6 OF")) { Del = 4;
-							 * 
-							 * } else if (jobStatus.contains("DELIVER@STOP 7 OF")) { Del = 5;
-							 * 
-							 * } System.out.println("value of del==" + Del);
-							 */
+
+							if (jobStatus.contains("DELIVER@STOP 3 OF")) {
+								Del = 1;
+							} else if (jobStatus.contains("DELIVER@STOP 4 OF")) {
+								Del = 2;
+
+							} else if (jobStatus.contains("DELIVER@STOP 5 OF")) {
+								Del = 3;
+
+							} else if (jobStatus.contains("DELIVER@STOP 6 OF")) {
+								Del = 4;
+
+							} else if (jobStatus.contains("DELIVER@STOP 7 OF")) {
+								Del = 5;
+
+							}
+							System.out.println("value of del==" + Del);
+
 							WebElement ZoneID = DelPoints.get(Del)
 									.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
 							String DeliveryDate = "txtActdlDate_" + Del;
@@ -3047,6 +3186,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 							getScreenshot(driver, "ManyToOne_Delivered");
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
+							msg.append("Job status is==" + jobStatus + "\n");
 
 							if (jobStatus.contains("DELIVERED")) {
 								logs.info("Job is Delivered successfully");
@@ -3159,23 +3299,30 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 										getScreenshot(driver, "JobEditor_Delivered");
 										jobStatus = isElementPresent("TLStageLable_id").getText();
 										logs.info("Job status is==" + jobStatus);
+										msg.append("Job status is==" + jobStatus + "\n");
 
 										if (jobStatus.contains("VERIFY CUSTOMER BILL")) {
 											logs.info("Job is moved to Verify Customer Bill stage");
 											getScreenshot(driver, "JobEditor_VerifyCustBill");
 
 											// --Verify
+											// --Zoom Out
+											js.executeScript("document.body.style.zoom='80%';");
+											Thread.sleep(2000);
 
 											// --Click on Verify button
 											WebElement Verify = isElementPresent("TLVerify_id");
 											wait.until(ExpectedConditions.visibilityOf(Verify));
-											act.moveToElement(Verify).build().perform();
-											act.moveToElement(Verify).click().perform();
+
+											js.executeScript("arguments[0].click();", Verify);
 											logs.info("Clicked on Verify button");
 											wait.until(ExpectedConditions
 													.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 											// --Verified
+											// --Zoom IN
+											js.executeScript("document.body.style.zoom='100%';");
+											Thread.sleep(2000);
 
 											try {
 												wait.until(ExpectedConditions
@@ -3208,6 +3355,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 													getScreenshot(driver, "JobEditor_Delivered");
 													jobStatus = isElementPresent("TLStageLable_id").getText();
 													logs.info("Job status is==" + jobStatus);
+													msg.append("Job status is==" + jobStatus + "\n");
 
 													if (jobStatus.contains("VERIFIED")) {
 														logs.info("Job is moved to VERIFIED stage");
@@ -3217,6 +3365,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 														logs.info("Job is not moved to VERIFIED stage");
 														jobStatus = isElementPresent("TLStageLable_id").getText();
 														logs.info("Job status is==" + jobStatus);
+														msg.append("Job status is==" + jobStatus + "\n");
 
 														WebElement EWSave = isElementPresent("TLQCExitWSave_id");
 														wait.until(ExpectedConditions.visibilityOf(EWSave));
@@ -3234,6 +3383,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 												logs.info("job is not moved to VERIFIED stage");
 												jobStatus = isElementPresent("TLStageLable_id").getText();
 												logs.info("Job status is==" + jobStatus);
+												msg.append("Job status is==" + jobStatus + "\n");
 
 												WebElement EWSave = isElementPresent("TLQCExitWSave_id");
 												wait.until(ExpectedConditions.visibilityOf(EWSave));
@@ -3247,6 +3397,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 											logs.info("Job is not moved to Verify Customer Bill stage");
 											jobStatus = isElementPresent("TLStageLable_id").getText();
 											logs.info("Job status is==" + jobStatus);
+											msg.append("Job status is==" + jobStatus + "\n");
 
 											WebElement EWSave = isElementPresent("TLQCExitWSave_id");
 											wait.until(ExpectedConditions.visibilityOf(EWSave));
@@ -3264,12 +3415,14 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 									logs.info("job is not moved to Verify Customer Bill stage");
 									jobStatus = isElementPresent("TLStageLable_id").getText();
 									logs.info("Job status is==" + jobStatus);
+									msg.append("Job status is==" + jobStatus + "\n");
 								}
 
 							} else {
 								logs.info("Job is not Delivered successfully");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
+								msg.append("Job status is==" + jobStatus + "\n");
 
 							}
 
@@ -3281,12 +3434,14 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 						logs.info("job is not moved to delivered stage");
 						jobStatus = isElementPresent("TLStageLable_id").getText();
 						logs.info("Job status is==" + jobStatus);
+						msg.append("Job status is==" + jobStatus + "\n");
 					}
 
 				} catch (Exception Deliver) {
 					logs.info("Stage is not Deliver");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
+					msg.append("Job status is==" + jobStatus + "\n");
 				}
 
 			} else if (jobStatus.contains("DELIVERED")) {
@@ -3398,22 +3553,29 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 						getScreenshot(driver, "JobEditor_Delivered");
 						jobStatus = isElementPresent("TLStageLable_id").getText();
 						logs.info("Job status is==" + jobStatus);
+						msg.append("Job status is==" + jobStatus + "\n");
 
 						if (jobStatus.contains("VERIFY CUSTOMER BILL")) {
 							logs.info("Job is moved to Verify Customer Bill stage");
 							getScreenshot(driver, "JobEditor_VerifyCustBill");
 
 							// --Verify
+							// --Zoom Out
+							js.executeScript("document.body.style.zoom='80%';");
+							Thread.sleep(2000);
 
 							// --Click on Verify button
 							WebElement Verify = isElementPresent("TLVerify_id");
 							wait.until(ExpectedConditions.visibilityOf(Verify));
-							act.moveToElement(Verify).build().perform();
-							act.moveToElement(Verify).click().perform();
+
+							js.executeScript("arguments[0].click();", Verify);
 							logs.info("Clicked on Verify button");
 							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 							// --Verified
+							// --Zoom IN
+							js.executeScript("document.body.style.zoom='100%';");
+							Thread.sleep(2000);
 
 							try {
 								wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
@@ -3443,6 +3605,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 									getScreenshot(driver, "JobEditor_Delivered");
 									jobStatus = isElementPresent("TLStageLable_id").getText();
 									logs.info("Job status is==" + jobStatus);
+									msg.append("Job status is==" + jobStatus + "\n");
 
 									if (jobStatus.contains("VERIFIED")) {
 										logs.info("Job is moved to VERIFIED stage");
@@ -3452,6 +3615,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 										logs.info("Job is not moved to VERIFIED stage");
 										jobStatus = isElementPresent("TLStageLable_id").getText();
 										logs.info("Job status is==" + jobStatus);
+										msg.append("Job status is==" + jobStatus + "\n");
 
 										WebElement EWSave = isElementPresent("TLQCExitWSave_id");
 										wait.until(ExpectedConditions.visibilityOf(EWSave));
@@ -3469,6 +3633,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 								logs.info("job is not moved to VERIFIED stage");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
+								msg.append("Job status is==" + jobStatus + "\n");
 
 								WebElement EWSave = isElementPresent("TLQCExitWSave_id");
 								wait.until(ExpectedConditions.visibilityOf(EWSave));
@@ -3482,6 +3647,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 							logs.info("Job is not moved to Verify Customer Bill stage");
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
+							msg.append("Job status is==" + jobStatus + "\n");
 
 							WebElement EWSave = isElementPresent("TLQCExitWSave_id");
 							wait.until(ExpectedConditions.visibilityOf(EWSave));
@@ -3499,6 +3665,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 					logs.info("job is not moved to Verify Customer Bill stage");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
+					msg.append("Job status is==" + jobStatus + "\n");
 				}
 
 			} else if (jobStatus.contains("VERIFY CUSTOMER BILL")) {
@@ -3507,22 +3674,29 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 				getScreenshot(driver, "JobEditor_Delivered");
 				jobStatus = isElementPresent("TLStageLable_id").getText();
 				logs.info("Job status is==" + jobStatus);
+				msg.append("Job status is==" + jobStatus + "\n");
 
 				if (jobStatus.contains("VERIFY CUSTOMER BILL")) {
 					logs.info("Job is moved to Verify Customer Bill stage");
 					getScreenshot(driver, "JobEditor_VerifyCustBill");
 
 					// --Verify
+					// --Zoom Out
+					js.executeScript("document.body.style.zoom='80%';");
+					Thread.sleep(2000);
 
 					// --Click on Verify button
 					WebElement Verify = isElementPresent("TLVerify_id");
 					wait.until(ExpectedConditions.visibilityOf(Verify));
-					act.moveToElement(Verify).build().perform();
-					act.moveToElement(Verify).click().perform();
+
+					js.executeScript("arguments[0].click();", Verify);
 					logs.info("Clicked on Verify button");
 					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 					// --Verified
+					// --Zoom IN
+					js.executeScript("document.body.style.zoom='100%';");
+					Thread.sleep(2000);
 
 					try {
 						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
@@ -3551,6 +3725,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 							getScreenshot(driver, "JobEditor_Delivered");
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
+							msg.append("Job status is==" + jobStatus + "\n");
 
 							if (jobStatus.contains("VERIFIED")) {
 								logs.info("Job is moved to VERIFIED stage");
@@ -3560,6 +3735,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 								logs.info("Job is not moved to VERIFIED stage");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
+								msg.append("Job status is==" + jobStatus + "\n");
 
 								WebElement EWSave = isElementPresent("TLQCExitWSave_id");
 								wait.until(ExpectedConditions.visibilityOf(EWSave));
@@ -3577,6 +3753,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 						logs.info("job is not moved to VERIFIED stage");
 						jobStatus = isElementPresent("TLStageLable_id").getText();
 						logs.info("Job status is==" + jobStatus);
+						msg.append("Job status is==" + jobStatus + "\n");
 
 						WebElement EWSave = isElementPresent("TLQCExitWSave_id");
 						wait.until(ExpectedConditions.visibilityOf(EWSave));
@@ -3590,6 +3767,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 					logs.info("Job is not moved to Verify Customer Bill stage");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
+					msg.append("Job status is==" + jobStatus + "\n");
 
 					WebElement EWSave = isElementPresent("TLQCExitWSave_id");
 					wait.until(ExpectedConditions.visibilityOf(EWSave));
@@ -3607,6 +3785,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 				getScreenshot(driver, "JobEditor_Delivered");
 				jobStatus = isElementPresent("TLStageLable_id").getText();
 				logs.info("Job status is==" + jobStatus);
+				msg.append("Job status is==" + jobStatus + "\n");
 
 				if (jobStatus.contains("VERIFIED")) {
 					logs.info("Job is moved to VERIFIED stage");
@@ -3616,6 +3795,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 					logs.info("Job is not moved to VERIFIED stage");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
+					msg.append("Job status is==" + jobStatus + "\n");
 
 					WebElement EWSave = isElementPresent("TLQCExitWSave_id");
 					wait.until(ExpectedConditions.visibilityOf(EWSave));
@@ -3632,6 +3812,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 				logs.info("Unknown Stage found");
 				jobStatus = isElementPresent("TLStageLable_id").getText();
 				logs.info("Job status is==" + jobStatus);
+				msg.append("Job status is==" + jobStatus + "\n");
 			}
 
 		} catch (Exception NoDataex) {

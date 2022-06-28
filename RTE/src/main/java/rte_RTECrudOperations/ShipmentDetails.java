@@ -173,7 +173,7 @@ public class ShipmentDetails extends BaseInit {
 		// --CLick on All link
 		isElementPresent("TLESMAll_id").click();
 		logs.info("Clicked on All link");
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 		// --Enter Memo
 		isElementPresent("TLESMemo_xpath").sendKeys("Creating Memo for Automation Testing");
@@ -243,7 +243,9 @@ public class ShipmentDetails extends BaseInit {
 			logs.info("File is already exist");
 
 			// --Click on Delete
-			isElementPresent("DelUploadFile_id").click();
+			WebElement DelUpload = isElementPresent("DelUploadFile_id");
+			js.executeScript("arguments[0].click();", DelUpload);
+
 			logs.info("Clicked on Delete button of existing document");
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
@@ -253,7 +255,8 @@ public class ShipmentDetails extends BaseInit {
 			logs.info("Message of the Dialogue is==" + Message);
 
 			// --CLick on Ok Button
-			isElementPresent("DelConfYes_xpath").click();
+			WebElement Yes = isElementPresent("DelConfYes_xpath");
+			js.executeScript("arguments[0].click();", Yes);
 			logs.info("Click on Yes button");
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 

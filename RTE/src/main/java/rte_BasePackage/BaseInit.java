@@ -85,7 +85,8 @@ public class BaseInit {
 			options.addArguments("--proxy-bypass-list=*");
 			options.addArguments("--disable-extensions");
 			options.addArguments("--no-sandbox");
-			options.addArguments("--start-maximized");
+			options.addArguments("window-size=1036,776");
+			// options.addArguments("--start-maximized");
 			String downloadFilepath = System.getProperty("user.dir") + "\\src\\main\\resources";
 			HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
 			chromePrefs.put("profile.default_content_settings.popups", 0);
@@ -95,10 +96,10 @@ public class BaseInit {
 			options.setExperimentalOption("prefs", chromePrefs);
 			capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
 			capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-			// options.addArguments("--headless");
-			//options.addArguments("window-size=1036x776");
-			// options.addArguments("window-size=1936,1056");
 			capabilities.setPlatform(Platform.ANY);
+
+			// options.addArguments("--headless");
+			// options.addArguments("window-size=1936,1056");
 
 			driver = new ChromeDriver(options);
 
@@ -611,13 +612,12 @@ public class BaseInit {
 
 		try {
 //			/kunjan.modi@samyak.com, pgandhi@samyak.com,parth.doshi@samyak.com
-			/*
-			 * SendEmail.
-			 * sendMail("ravina.prajapati@samyak.com, asharma@samyak.com, parth.doshi@samyak.com"
-			 * , subject, msg.toString(), File);
-			 */
 
-			SendEmail.sendMail("ravina.prajapati@samyak.com", subject, msg.toString(), File);
+			SendEmail.sendMail("ravina.prajapati@samyak.com, asharma@samyak.com, parth.doshi@samyak.com", subject,
+					msg.toString(), File);
+
+			// SendEmail.sendMail("ravina.prajapati@samyak.com", subject, msg.toString(),
+			// File);
 
 		} catch (Exception ex) {
 			logs.error(ex);

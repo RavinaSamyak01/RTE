@@ -48,14 +48,22 @@ public class RTEJobSearch extends BaseInit {
 
 		getScreenshot(driver, "TaskLog");
 
+		// --Zoom Out
+		js.executeScript("document.body.style.zoom='90%';");
+		Thread.sleep(2000);
+
 		// --Go to Search All Job
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("hlkOrderSearch")));
 		WebElement SearchAllJob = isElementPresent("TLSearchAllJob_id");
 		act.moveToElement(SearchAllJob).build().perform();
-		act.moveToElement(SearchAllJob).click().perform();
+		js.executeScript("arguments[0].click();", SearchAllJob);
 		logs.info("Clicked on SearchAllJobs");
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("AdvancesSearch")));
+
+		// --Zoom In
+		js.executeScript("document.body.style.zoom='100%';");
+		Thread.sleep(2000);
 
 		int TotalRow = getTotalRow("RTECreation");
 		logs.info("Total Rows==" + TotalRow);
@@ -99,6 +107,8 @@ public class RTEJobSearch extends BaseInit {
 				wait.until(ExpectedConditions.elementToBeClickable(By.id("txtRouteTrackingNum")));
 				String RouteTrackingNo = getData("RTECreation", row, 2);
 				logs.info("Route Tracking No==" + RouteTrackingNo);
+				msg.append("\n");
+				msg.append("Route Tracking No==" + RouteTrackingNo + "\n");
 				isElementPresent("TLSARoutTrackNo_id").sendKeys(RouteTrackingNo);
 				logs.info("Entered RouteTrackingID");
 
@@ -137,6 +147,10 @@ public class RTEJobSearch extends BaseInit {
 						String JobIDValue = driver.findElement(By.id(JobID)).getText();
 						String PickUpIDValue = driver.findElement(By.id(PickUpID)).getText();
 						String BOLNoValue = driver.findElement(By.id(BOLNO)).getText();
+
+						msg.append("JobID is==" + JobIDValue + "\n");
+						msg.append("PickUpID is==" + PickUpIDValue + "\n");
+						msg.append("BOLNo is==" + BOLNoValue + "\n");
 
 						int RT = RTE + 1;
 						System.out.println("RT==" + RT);
@@ -302,9 +316,8 @@ public class RTEJobSearch extends BaseInit {
 
 						try {
 
-							logs.info("Data is exist with search PickUpID");
-
 							try {
+								logs.info("Data is exist with search PickUpID");
 								wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
 								getScreenshot(driver, "JobEditor_PickUP");
 
@@ -332,13 +345,26 @@ public class RTEJobSearch extends BaseInit {
 
 								// --Go to Search All Job
 								wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("hlkOrderSearch")));
-								isElementPresent("TLSearchAllJob_id").click();
+								// --Zoom Out
+								js.executeScript("document.body.style.zoom='90%';");
+								Thread.sleep(2000);
+
+								// --Go to Search All Job
+								wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("hlkOrderSearch")));
+								SearchAllJob = isElementPresent("TLSearchAllJob_id");
+								act.moveToElement(SearchAllJob).build().perform();
+								js.executeScript("arguments[0].click();", SearchAllJob);
 								logs.info("Clicked on SearchAllJobs");
 								wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 								wait.until(
 										ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("AdvancesSearch")));
 
+								// --Zoom In
+								js.executeScript("document.body.style.zoom='100%';");
+								Thread.sleep(2000);
 							} catch (Exception Multiple) {
+								logs.info("Data is exist with search PickUpID");
+
 								wait.until(ExpectedConditions
 										.visibilityOfAllElementsLocatedBy(By.id("idOperationTasklogGrd")));
 								List<WebElement> jobs = driver.findElements(By.xpath(
@@ -385,13 +411,24 @@ public class RTEJobSearch extends BaseInit {
 										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 										// --Go to Search All Job
+										// --Zoom Out
+										js.executeScript("document.body.style.zoom='90%';");
+										Thread.sleep(2000);
+
+										// --Go to Search All Job
 										wait.until(
 												ExpectedConditions.visibilityOfElementLocated(By.id("hlkOrderSearch")));
-										isElementPresent("TLSearchAllJob_id").click();
+										SearchAllJob = isElementPresent("TLSearchAllJob_id");
+										act.moveToElement(SearchAllJob).build().perform();
+										js.executeScript("arguments[0].click();", SearchAllJob);
 										logs.info("Clicked on SearchAllJobs");
 										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 										wait.until(ExpectedConditions
 												.visibilityOfAllElementsLocatedBy(By.id("AdvancesSearch")));
+
+										// --Zoom In
+										js.executeScript("document.body.style.zoom='100%';");
+										Thread.sleep(2000);
 
 										break;
 									} else {
