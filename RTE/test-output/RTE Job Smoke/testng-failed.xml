@@ -1,84 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [RTE Job Smoke]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="RTE Get PickUPID and Search(failed)">
-    <classes>
-      <class name="rte_RTEJobCreation.RTEGetPUpID">
-        <methods>
-          <include name="getTrackPickUPID"/>
-          <include name="SendEmail"/>
-          <include name="getResult"/>
-          <include name="testMethodName"/>
-          <include name="beforeMethod"/>
-        </methods>
-      </class> <!-- rte_RTEJobCreation.RTEGetPUpID -->
-    </classes>
-  </test> <!-- RTE Get PickUPID and Search(failed) -->
-  <test thread-count="5" name="RTE OneToOne Job Processing(failed)">
-    <classes>
-      <class name="rte_RTEJobCreation.RTEOneToOneOrderProcess">
-        <methods>
-          <include name="rteOneToOneOrderProcess"/>
-          <include name="SendEmail"/>
-          <include name="getResult"/>
-          <include name="testMethodName"/>
-          <include name="beforeMethod"/>
-        </methods>
-      </class> <!-- rte_RTEJobCreation.RTEOneToOneOrderProcess -->
-    </classes>
-  </test> <!-- RTE OneToOne Job Processing(failed) -->
-  <test thread-count="5" name="RTE OneToMany Job Processing(failed)">
-    <classes>
-      <class name="rte_RTEJobCreation.RTEOneToManyOrderProcess">
-        <methods>
-          <include name="SendEmail"/>
-          <include name="getResult"/>
-          <include name="testMethodName"/>
-          <include name="rteOneToManyOrderProcess"/>
-          <include name="beforeMethod"/>
-        </methods>
-      </class> <!-- rte_RTEJobCreation.RTEOneToManyOrderProcess -->
-    </classes>
-  </test> <!-- RTE OneToMany Job Processing(failed) -->
-  <test thread-count="5" name="RTE ManyToOne Job Processing(failed)">
-    <classes>
-      <class name="rte_RTEJobCreation.RTEManyToOneOrderProcess">
-        <methods>
-          <include name="SendEmail"/>
-          <include name="rteManyToOneOrderProcess"/>
-          <include name="getResult"/>
-          <include name="testMethodName"/>
-          <include name="beforeMethod"/>
-        </methods>
-      </class> <!-- rte_RTEJobCreation.RTEManyToOneOrderProcess -->
-    </classes>
-  </test> <!-- RTE ManyToOne Job Processing(failed) -->
-  <test thread-count="5" name="RTE ManyToMany Job Processing(failed)">
-    <classes>
-      <class name="rte_RTEJobCreation.RTEManyToManyOrderProcess">
-        <methods>
-          <include name="SendEmail"/>
-          <include name="getResult"/>
-          <include name="testMethodName"/>
-          <include name="beforeMethod"/>
-          <include name="rteManyToManyOrderProcess"/>
-        </methods>
-      </class> <!-- rte_RTEJobCreation.RTEManyToManyOrderProcess -->
-    </classes>
-  </test> <!-- RTE ManyToMany Job Processing(failed) -->
-  <test thread-count="5" name="RTE Reject/Resend/PendingDel Job Processing(failed)">
-    <classes>
-      <class name="rte_RTEJobCreation.RTEFlowWithRejectResend">
-        <methods>
-          <include name="SendEmail"/>
-          <include name="rteRejectResendScan"/>
-          <include name="getResult"/>
-          <include name="testMethodName"/>
-          <include name="beforeMethod"/>
-        </methods>
-      </class> <!-- rte_RTEJobCreation.RTEFlowWithRejectResend -->
-    </classes>
-  </test> <!-- RTE Reject/Resend/PendingDel Job Processing(failed) -->
   <test thread-count="5" name="RTE Crud Operation(failed)">
     <classes>
       <class name="rte_RTEJobCreation.RTECrudOperations">
@@ -92,17 +14,4 @@
       </class> <!-- rte_RTEJobCreation.RTECrudOperations -->
     </classes>
   </test> <!-- RTE Crud Operation(failed) -->
-  <test thread-count="5" name="RTE Compare Charges(failed)">
-    <classes>
-      <class name="rte_RTEJobCreation.CompareCharges">
-        <methods>
-          <include name="SendEmail"/>
-          <include name="rteCompareCharges"/>
-          <include name="getResult"/>
-          <include name="testMethodName"/>
-          <include name="beforeMethod"/>
-        </methods>
-      </class> <!-- rte_RTEJobCreation.CompareCharges -->
-    </classes>
-  </test> <!-- RTE Compare Charges(failed) -->
 </suite> <!-- Failed suite [RTE Job Smoke] -->

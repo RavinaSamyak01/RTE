@@ -115,13 +115,16 @@ public class ShipmentDetails extends BaseInit {
 	public void addViewMemo() throws IOException, InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		// Actions act = new Actions(driver);
+		Actions act = new Actions(driver);
 		logs.info("=========RTE Add/View Memo Test Start============");
 		msg.append("=========RTE Add/View Memo Test Start===========" + "\n");
 
 		try {
 			// --Click on Add/View memo
-			isElementPresent("TLESViewAddMemo_id").click();
+			WebElement TLEVMemo = isElementPresent("TLESViewAddMemo_id");
+			act.moveToElement(TLEVMemo).build().perform();
+			wait.until(ExpectedConditions.elementToBeClickable(TLEVMemo));
+			js.executeScript("arguments[0].click();", TLEVMemo);
 			logs.info("Clicked on Add/View Memo");
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
@@ -129,7 +132,9 @@ public class ShipmentDetails extends BaseInit {
 			getScreenshot(driver, "AddViewMemo");
 		} catch (Exception Memo) {
 			// --Click on Add/View memo
-			isElementPresent("TLSMemo_xpath").click();
+			WebElement TLSMemo = isElementPresent("TLSMemo_xpath");
+			wait.until(ExpectedConditions.elementToBeClickable(TLSMemo));
+			js.executeScript("arguments[0].click();", TLSMemo);
 			logs.info("Clicked on Memo");
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
@@ -206,6 +211,10 @@ public class ShipmentDetails extends BaseInit {
 		try {
 			// --Click on Upload link
 			isElementPresent("TLESUpload_id").click();
+			WebElement TLEVMemo = isElementPresent("TLESUpload_id");
+			act.moveToElement(TLEVMemo).build().perform();
+			wait.until(ExpectedConditions.elementToBeClickable(TLEVMemo));
+			js.executeScript("arguments[0].click();", TLEVMemo);
 			logs.info("Clicked on Upload linktext");
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
@@ -345,12 +354,15 @@ public class ShipmentDetails extends BaseInit {
 	public void viewNotification() throws IOException, InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		// Actions act = new Actions(driver);
+		Actions act = new Actions(driver);
 		logs.info("=========RTE View Notification Test Start============");
 		msg.append("=========RTE View Notification Test Start===========" + "\n");
 
-		// --Click on Upload link
-		isElementPresent("VNotify_id").click();
+		// --Click on View Notification link
+		WebElement VNotif = isElementPresent("VNotify_id");
+		act.moveToElement(VNotif).build().perform();
+		wait.until(ExpectedConditions.elementToBeClickable(VNotif));
+		js.executeScript("arguments[0].click();", VNotif);
 		logs.info("Clicked on View Notification linktext");
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
@@ -437,12 +449,15 @@ public class ShipmentDetails extends BaseInit {
 	public void rteNotify() throws IOException, InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		// Actions act = new Actions(driver);
+		Actions act = new Actions(driver);
 		logs.info("=========RTE Notify Test Start============");
 		msg.append("=========RTE Notify Test Start===========" + "\n");
 
 		// --Click on Notify link
-		isElementPresent("Notify_id").click();
+		WebElement VNotif = isElementPresent("Notify_id");
+		act.moveToElement(VNotif).build().perform();
+		wait.until(ExpectedConditions.elementToBeClickable(VNotif));
+		js.executeScript("arguments[0].click();", VNotif);
 		logs.info("Clicked on Notify linktext");
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
@@ -644,7 +659,10 @@ public class ShipmentDetails extends BaseInit {
 		msg.append("=========RTE QC Test Start===========" + "\n");
 
 		// --Click on QC link
-		isElementPresent("TLSQC_xpath").click();
+		WebElement TLSQC = isElementPresent("TLSQC_xpath");
+		act.moveToElement(TLSQC).build().perform();
+		wait.until(ExpectedConditions.elementToBeClickable(TLSQC));
+		js.executeScript("arguments[0].click();", TLSQC);
 		logs.info("Clicked on QC linktext");
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 

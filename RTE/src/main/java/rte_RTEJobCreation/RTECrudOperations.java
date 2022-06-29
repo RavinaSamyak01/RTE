@@ -470,9 +470,6 @@ public class RTECrudOperations extends BaseInit {
 			}
 		}
 
-		logs.info("======================RTE Crud Operations Test End==================");
-		msg.append("======================RTE Order Operations Test End==================" + "\n");
-
 		// --run search LOC job
 		// --start search loc job and update
 		if (Result == null) {
@@ -517,6 +514,9 @@ public class RTECrudOperations extends BaseInit {
 			logs.info("Create Merge RTE with LOC method is not run because Search LOC job method is not working");
 
 		}
+
+		logs.info("======================RTE Crud Operations Test End==================");
+		msg.append("======================RTE Order Operations Test End==================" + "\n");
 
 	}
 

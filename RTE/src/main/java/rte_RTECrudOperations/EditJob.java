@@ -53,32 +53,25 @@ public class EditJob extends BaseInit {
 		setData("Rate", 1, 1, PickupID);
 		setData("RouteDetail", 1, 1, PickupID);
 
-		/*
-		 * // --View Rate viewRate();
-		 * 
-		 * // --View Memo viewMemo();
-		 * 
-		 * // --Print Label printLabel();
-		 * 
-		 * // --Route/Shipment Details routeShipmentDetails();
-		 * 
-		 * // --MAP rteMap();
-		 */
+		// --View Rate
+		viewRate();
+
+		// --View Memo
+		viewMemo();
+
+		// --Print Label
+		printLabel();
+
+		// --Route/Shipment Details
+		routeShipmentDetails();
+
+		// --MAP
+		rteMap();
 
 		// --AddEdit Shipment and UnMerge
 		AddEditShipmentUnmerge AESUM = new AddEditShipmentUnmerge();
 		String Result = AESUM.addeditShipmentUnmerge();
 		logs.info("Result of UnMerge method is==" + Result);
-
-		// --Click on Memo
-
-		/*
-		 * ShipmentDetails SD = new ShipmentDetails(); SD.addViewMemo();
-		 * 
-		 * // --Click on Upload SD.upload();
-		 * 
-		 * // --Click on QC SD.rteQC();
-		 */
 
 		// --Add/Delete Charges
 		addDeleteChargesRecal();
@@ -103,13 +96,23 @@ public class EditJob extends BaseInit {
 		logs.info("=========RTE View Memo Test Start============");
 		msg.append("=========RTE View Memo Test Start===========" + "\n");
 
+		// --Zoom Out
+		js.executeScript("document.body.style.zoom='80%';");
+		Thread.sleep(2000);
+
 		// --Click on View memo
-		isElementPresent("HMemo_id").click();
+		WebElement VMemo = isElementPresent("HMemo_id");
+		wait.until(ExpectedConditions.elementToBeClickable(VMemo));
+		js.executeScript("arguments[0].click();", VMemo);
 		logs.info("Clicked on View Memo");
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("MemoPopup")));
 		getScreenshot(driver, "ViewMemo");
+
+		// --Zoom IN
+		js.executeScript("document.body.style.zoom='100%';");
+		Thread.sleep(2000);
 
 		// --Total count of the Memo
 		String MemoCount = isElementPresent("HMemoCount_xpath").getText();
@@ -159,18 +162,28 @@ public class EditJob extends BaseInit {
 	public void viewRate()
 			throws InterruptedException, IOException, EncryptedDocumentException, InvalidFormatException {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
-		// JavascriptExecutor js = (JavascriptExecutor) driver;
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 		// Actions act = new Actions(driver);
 		logs.info("=========RTE View Rate Test Start============");
 		msg.append("=========RTE View Rate Test Start===========" + "\n");
 
+		// --Zoom Out
+		js.executeScript("document.body.style.zoom='80%';");
+		Thread.sleep(2000);
+
 		// --Click on View Rate
-		isElementPresent("HVRate_id").click();
+		WebElement VRate = isElementPresent("HVRate_id");
+		wait.until(ExpectedConditions.elementToBeClickable(VRate));
+		js.executeScript("arguments[0].click();", VRate);
 		logs.info("Clicked on View Rate");
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("gridCustomerRateId")));
 		getScreenshot(driver, "ViewRate");
+
+		// --Zoom In
+		js.executeScript("document.body.style.zoom='100%';");
+		Thread.sleep(2000);
 
 		// --Get the Rate details and stored in Rate sheet
 		List<WebElement> RateDetails = driver
@@ -260,16 +273,26 @@ public class EditJob extends BaseInit {
 	public void printLabel()
 			throws InterruptedException, IOException, EncryptedDocumentException, InvalidFormatException {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
-		// JavascriptExecutor js = (JavascriptExecutor) driver;
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 		// Actions act = new Actions(driver);
 		logs.info("=========RTE Print Label Test Start============");
 		msg.append("=========RTE Print Label Test Start===========" + "\n");
 
+		// --Zoom Out
+		js.executeScript("document.body.style.zoom='80%';");
+		Thread.sleep(2000);
+
 		// --Click on Print Label
-		isElementPresent("HPrintLabel_id").click();
+		WebElement VPrintLabel = isElementPresent("HPrintLabel_id");
+		wait.until(ExpectedConditions.elementToBeClickable(VPrintLabel));
+		js.executeScript("arguments[0].click();", VPrintLabel);
 		logs.info("Clicked on Print Label");
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
+		Thread.sleep(2000);
+
+		// --Zoom In
+		js.executeScript("document.body.style.zoom='100%';");
 		Thread.sleep(2000);
 
 		// --Print new window

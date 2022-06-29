@@ -306,7 +306,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 										dateFormat = new SimpleDateFormat("HH:mm");
 										dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
 										logs.info(dateFormat.format(date));
-										wait.until(ExpectedConditions.elementToBeClickable(By.id(PUTime)));
+
 										PickUpTime.sendKeys(dateFormat.format(date));
 										logs.info("Entered Actual Pickup Time");
 
@@ -377,7 +377,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 												dateFormat = new SimpleDateFormat("HH:mm");
 												dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
 												logs.info(dateFormat.format(date));
-												wait.until(ExpectedConditions.elementToBeClickable(By.id(PUTime)));
+
 												PickUpTime.sendKeys(dateFormat.format(date));
 												logs.info("Entered Actual Pickup Time");
 
@@ -472,7 +472,6 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 											dateFormat = new SimpleDateFormat("HH:mm");
 											dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
 											logs.info(dateFormat.format(date));
-											wait.until(ExpectedConditions.elementToBeClickable(By.id(DeliveryTime)));
 											DelTime.sendKeys(dateFormat.format(date));
 											logs.info("Entered Actual Delivery Time");
 
@@ -501,73 +500,109 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 										String ValMsg = isElementPresent("TLAlValidation_id").getText();
 										logs.info("Validation is displayed==" + ValMsg);
 
-										List<WebElement> DelPoints = driver.findElements(By.xpath(
-												"//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
-										int TotalDel = DelPoints.size();
-										logs.info("Total Delivery points is/are==" + TotalDel);
+										if (ValMsg.contains(
+												"Actual Delivery Datetime cannot be less than or equal to Actual Pickup Datetime.")) {
+											List<WebElement> DelPoints = driver.findElements(By.xpath(
+													"//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
+											int TotalDel = DelPoints.size();
+											logs.info("Total Delivery points is/are==" + TotalDel);
 
-										for (int Del = 0; Del < TotalDel; Del++) {
+											for (int Del = 0; Del < TotalDel; Del++) {
+												System.out.println("value of del==" + Del);
 
-											System.out.println("value of del==" + Del);
+												WebElement ZoneID = DelPoints.get(Del).findElement(
+														By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+												String DeliveryDate = "txtActdlDate_" + Del;
+												String DeliveryTime = "txtActDlTime_" + Del;
 
-											if (jobStatus.contains("DELIVER@STOP 3 OF")) {
-												Del = 1;
-											} else if (jobStatus.contains("DELIVER@STOP 4 OF")) {
-												Del = 2;
+												// --Get ZoneID
+												String ZOneID = ZoneID.getText();
+												logs.info("ZoneID of is==" + ZOneID);
+												if (ZOneID.equalsIgnoreCase("EDT")) {
+													ZOneID = "America/New_York";
+												} else if (ZOneID.equalsIgnoreCase("CDT")) {
+													ZOneID = "CST";
+												} else if (ZOneID.equalsIgnoreCase("PDT")) {
+													ZOneID = "PST";
+												}
 
-											} else if (jobStatus.contains("DELIVER@STOP 5 OF")) {
-												Del = 3;
+												// --Delivery Date
+												WebElement DelDate = driver.findElement(By.id(DeliveryDate));
+												DelDate.clear();
+												Date date = new Date();
+												DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+												dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+												logs.info(dateFormat.format(date));
+												DelDate.sendKeys(dateFormat.format(date));
+												DelDate.sendKeys(Keys.TAB);
+												logs.info("Entered Actual Delivery Date");
 
-											} else if (jobStatus.contains("DELIVER@STOP 6 OF")) {
-												Del = 4;
+												// --Enter Act.DEL Time
+												WebElement DelTime = driver.findElement(By.id(DeliveryTime));
+												DelTime.clear();
+												date = new Date();
+												dateFormat = new SimpleDateFormat("HH:mm");
+												dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+												Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
+												cal.add(Calendar.MINUTE, 1);
+												logs.info(dateFormat.format(cal.getTime()));
 
-											} else if (jobStatus.contains("DELIVER@STOP 7 OF")) {
-												Del = 5;
+												DelTime.sendKeys(dateFormat.format(cal.getTime()));
+												logs.info("Entered Actual Delivery Time");
 
 											}
-											System.out.println("value of del==" + Del);
+										} else if (ValMsg.contains("Please enter same Actual Delivery Datetime.")) {
+											List<WebElement> DelPoints = driver.findElements(By.xpath(
+													"//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
+											int TotalDel = DelPoints.size();
+											logs.info("Total Delivery points is/are==" + TotalDel);
 
-											WebElement ZoneID = DelPoints.get(Del)
-													.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
-											String DeliveryDate = "txtActdlDate_" + Del;
-											String DeliveryTime = "txtActDlTime_" + Del;
+											for (int Del = 0; Del < TotalDel; Del++) {
+												System.out.println("value of del==" + Del);
 
-											// --Get ZoneID
-											String ZOneID = ZoneID.getText();
-											logs.info("ZoneID of is==" + ZOneID);
-											if (ZOneID.equalsIgnoreCase("EDT")) {
-												ZOneID = "America/New_York";
-											} else if (ZOneID.equalsIgnoreCase("CDT")) {
-												ZOneID = "CST";
-											} else if (ZOneID.equalsIgnoreCase("PDT")) {
-												ZOneID = "PST";
+												WebElement ZoneID = DelPoints.get(Del).findElement(
+														By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+												String DeliveryDate = "txtActdlDate_" + Del;
+												String DeliveryTime = "txtActDlTime_" + Del;
+
+												// --Get ZoneID
+												String ZOneID = ZoneID.getText();
+												logs.info("ZoneID of is==" + ZOneID);
+												if (ZOneID.equalsIgnoreCase("EDT")) {
+													ZOneID = "America/New_York";
+												} else if (ZOneID.equalsIgnoreCase("CDT")) {
+													ZOneID = "CST";
+												} else if (ZOneID.equalsIgnoreCase("PDT")) {
+													ZOneID = "PST";
+												}
+
+												// --Delivery Date
+												WebElement DelDate = driver.findElement(By.id(DeliveryDate));
+												DelDate.clear();
+												Date date = new Date();
+												DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+												dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+												logs.info(dateFormat.format(date));
+												DelDate.sendKeys(dateFormat.format(date));
+												DelDate.sendKeys(Keys.TAB);
+												logs.info("Entered Actual Delivery Date");
+
+												// --Enter Act.DEL Time
+												WebElement DelTime = driver.findElement(By.id(DeliveryTime));
+												DelTime.clear();
+												date = new Date();
+												dateFormat = new SimpleDateFormat("HH:mm");
+												dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+												Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
+												cal.add(Calendar.MINUTE, 1);
+												logs.info(dateFormat.format(cal.getTime()));
+												DelTime.sendKeys(dateFormat.format(cal.getTime()));
+												logs.info("Entered Actual Delivery Time");
+
 											}
-
-											// --Delivery Date
-											WebElement DelDate = driver.findElement(By.id(DeliveryDate));
-											DelDate.clear();
-											Date date = new Date();
-											DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-											dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-											logs.info(dateFormat.format(date));
-											DelDate.sendKeys(dateFormat.format(date));
-											DelDate.sendKeys(Keys.TAB);
-											logs.info("Entered Actual Delivery Date");
-
-											// --Enter Act.DEL Time
-											WebElement DelTime = driver.findElement(By.id(DeliveryTime));
-											DelTime.clear();
-											date = new Date();
-											dateFormat = new SimpleDateFormat("HH:mm");
-											dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-											Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
-											cal.add(Calendar.MINUTE, 1);
-											logs.info(dateFormat.format(cal.getTime()));
-											wait.until(ExpectedConditions.elementToBeClickable(By.id(DeliveryTime)));
-											DelTime.sendKeys(dateFormat.format(cal.getTime()));
-											logs.info("Entered Actual Delivery Time");
 
 										}
+
 										// --Click on Confirm Del button
 										isElementPresent("TLConfDEL_id").click();
 										logs.info("Clicked on Confirm DEL button");
@@ -633,8 +668,6 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 															&& Val.contains("Route End Time")) {
 														logs.info(
 																"Validation is displayed for Route End Date and Time==PASS");
-
-														// --Move to job status Tab
 
 														// --Enter Route End Date
 														// --Get ZoneID
@@ -801,12 +834,6 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 																	if (jobStatus.contains("VERIFIED")) {
 																		logs.info("Job is moved to VERIFIED stage");
 																		getScreenshot(driver, "JobEditor_Verified");
-																		PickUpID = getData("ManyToOne", 1, 2);
-																		msg.append("PickUP ID is==." + PickUpID + "\n");
-																		msg.append(
-																				"Job is Proceed successfully." + "\n");
-																		msg.append(
-																				"Job status is==." + jobStatus + "\n");
 
 																	} else {
 																		logs.info("Job is not moved to VERIFIED stage");
@@ -1089,7 +1116,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 									dateFormat = new SimpleDateFormat("HH:mm");
 									dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
 									logs.info(dateFormat.format(date));
-									wait.until(ExpectedConditions.elementToBeClickable(By.id(PUTime)));
+
 									PickUpTime.sendKeys(dateFormat.format(date));
 									logs.info("Entered Actual Pickup Time");
 
@@ -1160,7 +1187,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 											dateFormat = new SimpleDateFormat("HH:mm");
 											dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
 											logs.info(dateFormat.format(date));
-											wait.until(ExpectedConditions.elementToBeClickable(By.id(PUTime)));
+
 											PickUpTime.sendKeys(dateFormat.format(date));
 											logs.info("Entered Actual Pickup Time");
 
@@ -1254,7 +1281,6 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 										dateFormat = new SimpleDateFormat("HH:mm");
 										dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
 										logs.info(dateFormat.format(date));
-										wait.until(ExpectedConditions.elementToBeClickable(By.id(DeliveryTime)));
 										DelTime.sendKeys(dateFormat.format(date));
 										logs.info("Entered Actual Delivery Time");
 
@@ -1282,73 +1308,109 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 									String ValMsg = isElementPresent("TLAlValidation_id").getText();
 									logs.info("Validation is displayed==" + ValMsg);
 
-									List<WebElement> DelPoints = driver.findElements(By
-											.xpath("//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
-									int TotalDel = DelPoints.size();
-									logs.info("Total Delivery points is/are==" + TotalDel);
+									if (ValMsg.contains(
+											"Actual Delivery Datetime cannot be less than or equal to Actual Pickup Datetime.")) {
+										List<WebElement> DelPoints = driver.findElements(By.xpath(
+												"//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
+										int TotalDel = DelPoints.size();
+										logs.info("Total Delivery points is/are==" + TotalDel);
 
-									for (int Del = 0; Del < TotalDel; Del++) {
+										for (int Del = 0; Del < TotalDel; Del++) {
+											System.out.println("value of del==" + Del);
 
-										System.out.println("value of del==" + Del);
+											WebElement ZoneID = DelPoints.get(Del)
+													.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+											String DeliveryDate = "txtActdlDate_" + Del;
+											String DeliveryTime = "txtActDlTime_" + Del;
 
-										if (jobStatus.contains("DELIVER@STOP 3 OF")) {
-											Del = 1;
-										} else if (jobStatus.contains("DELIVER@STOP 4 OF")) {
-											Del = 2;
+											// --Get ZoneID
+											String ZOneID = ZoneID.getText();
+											logs.info("ZoneID of is==" + ZOneID);
+											if (ZOneID.equalsIgnoreCase("EDT")) {
+												ZOneID = "America/New_York";
+											} else if (ZOneID.equalsIgnoreCase("CDT")) {
+												ZOneID = "CST";
+											} else if (ZOneID.equalsIgnoreCase("PDT")) {
+												ZOneID = "PST";
+											}
 
-										} else if (jobStatus.contains("DELIVER@STOP 5 OF")) {
-											Del = 3;
+											// --Delivery Date
+											WebElement DelDate = driver.findElement(By.id(DeliveryDate));
+											DelDate.clear();
+											Date date = new Date();
+											DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+											dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+											logs.info(dateFormat.format(date));
+											DelDate.sendKeys(dateFormat.format(date));
+											DelDate.sendKeys(Keys.TAB);
+											logs.info("Entered Actual Delivery Date");
 
-										} else if (jobStatus.contains("DELIVER@STOP 6 OF")) {
-											Del = 4;
+											// --Enter Act.DEL Time
+											WebElement DelTime = driver.findElement(By.id(DeliveryTime));
+											DelTime.clear();
+											date = new Date();
+											dateFormat = new SimpleDateFormat("HH:mm");
+											dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+											Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
+											cal.add(Calendar.MINUTE, 1);
+											logs.info(dateFormat.format(cal.getTime()));
 
-										} else if (jobStatus.contains("DELIVER@STOP 7 OF")) {
-											Del = 5;
+											DelTime.sendKeys(dateFormat.format(cal.getTime()));
+											logs.info("Entered Actual Delivery Time");
 
 										}
-										System.out.println("value of del==" + Del);
+									} else if (ValMsg.contains("Please enter same Actual Delivery Datetime.")) {
+										List<WebElement> DelPoints = driver.findElements(By.xpath(
+												"//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
+										int TotalDel = DelPoints.size();
+										logs.info("Total Delivery points is/are==" + TotalDel);
 
-										WebElement ZoneID = DelPoints.get(Del)
-												.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
-										String DeliveryDate = "txtActdlDate_" + Del;
-										String DeliveryTime = "txtActDlTime_" + Del;
+										for (int Del = 0; Del < TotalDel; Del++) {
+											System.out.println("value of del==" + Del);
 
-										// --Get ZoneID
-										String ZOneID = ZoneID.getText();
-										logs.info("ZoneID of is==" + ZOneID);
-										if (ZOneID.equalsIgnoreCase("EDT")) {
-											ZOneID = "America/New_York";
-										} else if (ZOneID.equalsIgnoreCase("CDT")) {
-											ZOneID = "CST";
-										} else if (ZOneID.equalsIgnoreCase("PDT")) {
-											ZOneID = "PST";
+											WebElement ZoneID = DelPoints.get(Del)
+													.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+											String DeliveryDate = "txtActdlDate_" + Del;
+											String DeliveryTime = "txtActDlTime_" + Del;
+
+											// --Get ZoneID
+											String ZOneID = ZoneID.getText();
+											logs.info("ZoneID of is==" + ZOneID);
+											if (ZOneID.equalsIgnoreCase("EDT")) {
+												ZOneID = "America/New_York";
+											} else if (ZOneID.equalsIgnoreCase("CDT")) {
+												ZOneID = "CST";
+											} else if (ZOneID.equalsIgnoreCase("PDT")) {
+												ZOneID = "PST";
+											}
+
+											// --Delivery Date
+											WebElement DelDate = driver.findElement(By.id(DeliveryDate));
+											DelDate.clear();
+											Date date = new Date();
+											DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+											dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+											logs.info(dateFormat.format(date));
+											DelDate.sendKeys(dateFormat.format(date));
+											DelDate.sendKeys(Keys.TAB);
+											logs.info("Entered Actual Delivery Date");
+
+											// --Enter Act.DEL Time
+											WebElement DelTime = driver.findElement(By.id(DeliveryTime));
+											DelTime.clear();
+											date = new Date();
+											dateFormat = new SimpleDateFormat("HH:mm");
+											dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+											Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
+											cal.add(Calendar.MINUTE, 1);
+											logs.info(dateFormat.format(cal.getTime()));
+											DelTime.sendKeys(dateFormat.format(cal.getTime()));
+											logs.info("Entered Actual Delivery Time");
+
 										}
-
-										// --Delivery Date
-										WebElement DelDate = driver.findElement(By.id(DeliveryDate));
-										DelDate.clear();
-										Date date = new Date();
-										DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-										dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-										logs.info(dateFormat.format(date));
-										DelDate.sendKeys(dateFormat.format(date));
-										DelDate.sendKeys(Keys.TAB);
-										logs.info("Entered Actual Delivery Date");
-
-										// --Enter Act.DEL Time
-										WebElement DelTime = driver.findElement(By.id(DeliveryTime));
-										DelTime.clear();
-										date = new Date();
-										dateFormat = new SimpleDateFormat("HH:mm");
-										dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-										Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
-										cal.add(Calendar.MINUTE, 1);
-										logs.info(dateFormat.format(cal.getTime()));
-										wait.until(ExpectedConditions.elementToBeClickable(By.id(DeliveryTime)));
-										DelTime.sendKeys(dateFormat.format(cal.getTime()));
-										logs.info("Entered Actual Delivery Time");
 
 									}
+
 									// --Click on Confirm Del button
 									isElementPresent("TLConfDEL_id").click();
 									logs.info("Clicked on Confirm DEL button");
@@ -1534,6 +1596,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 														// --Zoom IN
 														js.executeScript("document.body.style.zoom='100%';");
 														Thread.sleep(2000);
+
 														try {
 															wait.until(ExpectedConditions
 																	.visibilityOfElementLocated(By.id("txtContains")));
@@ -1797,7 +1860,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 							dateFormat = new SimpleDateFormat("HH:mm");
 							dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
 							logs.info(dateFormat.format(date));
-							wait.until(ExpectedConditions.elementToBeClickable(By.id(PUTime)));
+
 							PickUpTime.sendKeys(dateFormat.format(date));
 							logs.info("Entered Actual Pickup Time");
 
@@ -1867,7 +1930,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 									dateFormat = new SimpleDateFormat("HH:mm");
 									dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
 									logs.info(dateFormat.format(date));
-									wait.until(ExpectedConditions.elementToBeClickable(By.id(PUTime)));
+
 									PickUpTime.sendKeys(dateFormat.format(date));
 									logs.info("Entered Actual Pickup Time");
 
@@ -1959,7 +2022,6 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 								dateFormat = new SimpleDateFormat("HH:mm");
 								dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
 								logs.info(dateFormat.format(date));
-								wait.until(ExpectedConditions.elementToBeClickable(By.id(DeliveryTime)));
 								DelTime.sendKeys(dateFormat.format(date));
 								logs.info("Entered Actual Delivery Time");
 
@@ -1986,73 +2048,109 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 							String ValMsg = isElementPresent("TLAlValidation_id").getText();
 							logs.info("Validation is displayed==" + ValMsg);
 
-							List<WebElement> DelPoints = driver.findElements(
-									By.xpath("//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
-							int TotalDel = DelPoints.size();
-							logs.info("Total Delivery points is/are==" + TotalDel);
+							if (ValMsg.contains(
+									"Actual Delivery Datetime cannot be less than or equal to Actual Pickup Datetime.")) {
+								List<WebElement> DelPoints = driver.findElements(
+										By.xpath("//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
+								int TotalDel = DelPoints.size();
+								logs.info("Total Delivery points is/are==" + TotalDel);
 
-							for (int Del = 0; Del < TotalDel; Del++) {
+								for (int Del = 0; Del < TotalDel; Del++) {
+									System.out.println("value of del==" + Del);
 
-								System.out.println("value of del==" + Del);
+									WebElement ZoneID = DelPoints.get(Del)
+											.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+									String DeliveryDate = "txtActdlDate_" + Del;
+									String DeliveryTime = "txtActDlTime_" + Del;
 
-								if (jobStatus.contains("DELIVER@STOP 3 OF")) {
-									Del = 1;
-								} else if (jobStatus.contains("DELIVER@STOP 4 OF")) {
-									Del = 2;
+									// --Get ZoneID
+									String ZOneID = ZoneID.getText();
+									logs.info("ZoneID of is==" + ZOneID);
+									if (ZOneID.equalsIgnoreCase("EDT")) {
+										ZOneID = "America/New_York";
+									} else if (ZOneID.equalsIgnoreCase("CDT")) {
+										ZOneID = "CST";
+									} else if (ZOneID.equalsIgnoreCase("PDT")) {
+										ZOneID = "PST";
+									}
 
-								} else if (jobStatus.contains("DELIVER@STOP 5 OF")) {
-									Del = 3;
+									// --Delivery Date
+									WebElement DelDate = driver.findElement(By.id(DeliveryDate));
+									DelDate.clear();
+									Date date = new Date();
+									DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+									dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+									logs.info(dateFormat.format(date));
+									DelDate.sendKeys(dateFormat.format(date));
+									DelDate.sendKeys(Keys.TAB);
+									logs.info("Entered Actual Delivery Date");
 
-								} else if (jobStatus.contains("DELIVER@STOP 6 OF")) {
-									Del = 4;
+									// --Enter Act.DEL Time
+									WebElement DelTime = driver.findElement(By.id(DeliveryTime));
+									DelTime.clear();
+									date = new Date();
+									dateFormat = new SimpleDateFormat("HH:mm");
+									dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+									Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
+									cal.add(Calendar.MINUTE, 1);
+									logs.info(dateFormat.format(cal.getTime()));
 
-								} else if (jobStatus.contains("DELIVER@STOP 7 OF")) {
-									Del = 5;
+									DelTime.sendKeys(dateFormat.format(cal.getTime()));
+									logs.info("Entered Actual Delivery Time");
 
 								}
-								System.out.println("value of del==" + Del);
+							} else if (ValMsg.contains("Please enter same Actual Delivery Datetime.")) {
+								List<WebElement> DelPoints = driver.findElements(
+										By.xpath("//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
+								int TotalDel = DelPoints.size();
+								logs.info("Total Delivery points is/are==" + TotalDel);
 
-								WebElement ZoneID = DelPoints.get(Del)
-										.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
-								String DeliveryDate = "txtActdlDate_" + Del;
-								String DeliveryTime = "txtActDlTime_" + Del;
+								for (int Del = 0; Del < TotalDel; Del++) {
+									System.out.println("value of del==" + Del);
 
-								// --Get ZoneID
-								String ZOneID = ZoneID.getText();
-								logs.info("ZoneID of is==" + ZOneID);
-								if (ZOneID.equalsIgnoreCase("EDT")) {
-									ZOneID = "America/New_York";
-								} else if (ZOneID.equalsIgnoreCase("CDT")) {
-									ZOneID = "CST";
-								} else if (ZOneID.equalsIgnoreCase("PDT")) {
-									ZOneID = "PST";
+									WebElement ZoneID = DelPoints.get(Del)
+											.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+									String DeliveryDate = "txtActdlDate_" + Del;
+									String DeliveryTime = "txtActDlTime_" + Del;
+
+									// --Get ZoneID
+									String ZOneID = ZoneID.getText();
+									logs.info("ZoneID of is==" + ZOneID);
+									if (ZOneID.equalsIgnoreCase("EDT")) {
+										ZOneID = "America/New_York";
+									} else if (ZOneID.equalsIgnoreCase("CDT")) {
+										ZOneID = "CST";
+									} else if (ZOneID.equalsIgnoreCase("PDT")) {
+										ZOneID = "PST";
+									}
+
+									// --Delivery Date
+									WebElement DelDate = driver.findElement(By.id(DeliveryDate));
+									DelDate.clear();
+									Date date = new Date();
+									DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+									dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+									logs.info(dateFormat.format(date));
+									DelDate.sendKeys(dateFormat.format(date));
+									DelDate.sendKeys(Keys.TAB);
+									logs.info("Entered Actual Delivery Date");
+
+									// --Enter Act.DEL Time
+									WebElement DelTime = driver.findElement(By.id(DeliveryTime));
+									DelTime.clear();
+									date = new Date();
+									dateFormat = new SimpleDateFormat("HH:mm");
+									dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+									Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
+									cal.add(Calendar.MINUTE, 1);
+									logs.info(dateFormat.format(cal.getTime()));
+									DelTime.sendKeys(dateFormat.format(cal.getTime()));
+									logs.info("Entered Actual Delivery Time");
+
 								}
-
-								// --Delivery Date
-								WebElement DelDate = driver.findElement(By.id(DeliveryDate));
-								DelDate.clear();
-								Date date = new Date();
-								DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-								dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-								logs.info(dateFormat.format(date));
-								DelDate.sendKeys(dateFormat.format(date));
-								DelDate.sendKeys(Keys.TAB);
-								logs.info("Entered Actual Delivery Date");
-
-								// --Enter Act.DEL Time
-								WebElement DelTime = driver.findElement(By.id(DeliveryTime));
-								DelTime.clear();
-								date = new Date();
-								dateFormat = new SimpleDateFormat("HH:mm");
-								dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-								Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
-								cal.add(Calendar.MINUTE, 1);
-								logs.info(dateFormat.format(cal.getTime()));
-								wait.until(ExpectedConditions.elementToBeClickable(By.id(DeliveryTime)));
-								DelTime.sendKeys(dateFormat.format(cal.getTime()));
-								logs.info("Entered Actual Delivery Time");
 
 							}
+
 							// --Click on Confirm Del button
 							isElementPresent("TLConfDEL_id").click();
 							logs.info("Clicked on Confirm DEL button");
@@ -2433,7 +2531,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 							dateFormat = new SimpleDateFormat("HH:mm");
 							dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
 							logs.info(dateFormat.format(date));
-							wait.until(ExpectedConditions.elementToBeClickable(By.id(PUTime)));
+
 							PickUpTime.sendKeys(dateFormat.format(date));
 							logs.info("Entered Actual Pickup Time");
 
@@ -2503,7 +2601,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 									dateFormat = new SimpleDateFormat("HH:mm");
 									dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
 									logs.info(dateFormat.format(date));
-									wait.until(ExpectedConditions.elementToBeClickable(By.id(PUTime)));
+
 									PickUpTime.sendKeys(dateFormat.format(date));
 									logs.info("Entered Actual Pickup Time");
 
@@ -2595,7 +2693,6 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 								dateFormat = new SimpleDateFormat("HH:mm");
 								dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
 								logs.info(dateFormat.format(date));
-								wait.until(ExpectedConditions.elementToBeClickable(By.id(DeliveryTime)));
 								DelTime.sendKeys(dateFormat.format(date));
 								logs.info("Entered Actual Delivery Time");
 
@@ -2622,73 +2719,109 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 							String ValMsg = isElementPresent("TLAlValidation_id").getText();
 							logs.info("Validation is displayed==" + ValMsg);
 
-							List<WebElement> DelPoints = driver.findElements(
-									By.xpath("//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
-							int TotalDel = DelPoints.size();
-							logs.info("Total Delivery points is/are==" + TotalDel);
+							if (ValMsg.contains(
+									"Actual Delivery Datetime cannot be less than or equal to Actual Pickup Datetime.")) {
+								List<WebElement> DelPoints = driver.findElements(
+										By.xpath("//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
+								int TotalDel = DelPoints.size();
+								logs.info("Total Delivery points is/are==" + TotalDel);
 
-							for (int Del = 0; Del < TotalDel; Del++) {
+								for (int Del = 0; Del < TotalDel; Del++) {
+									System.out.println("value of del==" + Del);
 
-								System.out.println("value of del==" + Del);
+									WebElement ZoneID = DelPoints.get(Del)
+											.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+									String DeliveryDate = "txtActdlDate_" + Del;
+									String DeliveryTime = "txtActDlTime_" + Del;
 
-								if (jobStatus.contains("DELIVER@STOP 3 OF")) {
-									Del = 1;
-								} else if (jobStatus.contains("DELIVER@STOP 4 OF")) {
-									Del = 2;
+									// --Get ZoneID
+									String ZOneID = ZoneID.getText();
+									logs.info("ZoneID of is==" + ZOneID);
+									if (ZOneID.equalsIgnoreCase("EDT")) {
+										ZOneID = "America/New_York";
+									} else if (ZOneID.equalsIgnoreCase("CDT")) {
+										ZOneID = "CST";
+									} else if (ZOneID.equalsIgnoreCase("PDT")) {
+										ZOneID = "PST";
+									}
 
-								} else if (jobStatus.contains("DELIVER@STOP 5 OF")) {
-									Del = 3;
+									// --Delivery Date
+									WebElement DelDate = driver.findElement(By.id(DeliveryDate));
+									DelDate.clear();
+									Date date = new Date();
+									DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+									dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+									logs.info(dateFormat.format(date));
+									DelDate.sendKeys(dateFormat.format(date));
+									DelDate.sendKeys(Keys.TAB);
+									logs.info("Entered Actual Delivery Date");
 
-								} else if (jobStatus.contains("DELIVER@STOP 6 OF")) {
-									Del = 4;
+									// --Enter Act.DEL Time
+									WebElement DelTime = driver.findElement(By.id(DeliveryTime));
+									DelTime.clear();
+									date = new Date();
+									dateFormat = new SimpleDateFormat("HH:mm");
+									dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+									Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
+									cal.add(Calendar.MINUTE, 1);
+									logs.info(dateFormat.format(cal.getTime()));
 
-								} else if (jobStatus.contains("DELIVER@STOP 7 OF")) {
-									Del = 5;
+									DelTime.sendKeys(dateFormat.format(cal.getTime()));
+									logs.info("Entered Actual Delivery Time");
 
 								}
-								System.out.println("value of del==" + Del);
+							} else if (ValMsg.contains("Please enter same Actual Delivery Datetime.")) {
+								List<WebElement> DelPoints = driver.findElements(
+										By.xpath("//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
+								int TotalDel = DelPoints.size();
+								logs.info("Total Delivery points is/are==" + TotalDel);
 
-								WebElement ZoneID = DelPoints.get(Del)
-										.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
-								String DeliveryDate = "txtActdlDate_" + Del;
-								String DeliveryTime = "txtActDlTime_" + Del;
+								for (int Del = 0; Del < TotalDel; Del++) {
+									System.out.println("value of del==" + Del);
 
-								// --Get ZoneID
-								String ZOneID = ZoneID.getText();
-								logs.info("ZoneID of is==" + ZOneID);
-								if (ZOneID.equalsIgnoreCase("EDT")) {
-									ZOneID = "America/New_York";
-								} else if (ZOneID.equalsIgnoreCase("CDT")) {
-									ZOneID = "CST";
-								} else if (ZOneID.equalsIgnoreCase("PDT")) {
-									ZOneID = "PST";
+									WebElement ZoneID = DelPoints.get(Del)
+											.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+									String DeliveryDate = "txtActdlDate_" + Del;
+									String DeliveryTime = "txtActDlTime_" + Del;
+
+									// --Get ZoneID
+									String ZOneID = ZoneID.getText();
+									logs.info("ZoneID of is==" + ZOneID);
+									if (ZOneID.equalsIgnoreCase("EDT")) {
+										ZOneID = "America/New_York";
+									} else if (ZOneID.equalsIgnoreCase("CDT")) {
+										ZOneID = "CST";
+									} else if (ZOneID.equalsIgnoreCase("PDT")) {
+										ZOneID = "PST";
+									}
+
+									// --Delivery Date
+									WebElement DelDate = driver.findElement(By.id(DeliveryDate));
+									DelDate.clear();
+									Date date = new Date();
+									DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+									dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+									logs.info(dateFormat.format(date));
+									DelDate.sendKeys(dateFormat.format(date));
+									DelDate.sendKeys(Keys.TAB);
+									logs.info("Entered Actual Delivery Date");
+
+									// --Enter Act.DEL Time
+									WebElement DelTime = driver.findElement(By.id(DeliveryTime));
+									DelTime.clear();
+									date = new Date();
+									dateFormat = new SimpleDateFormat("HH:mm");
+									dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+									Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
+									cal.add(Calendar.MINUTE, 1);
+									logs.info(dateFormat.format(cal.getTime()));
+									DelTime.sendKeys(dateFormat.format(cal.getTime()));
+									logs.info("Entered Actual Delivery Time");
+
 								}
-
-								// --Delivery Date
-								WebElement DelDate = driver.findElement(By.id(DeliveryDate));
-								DelDate.clear();
-								Date date = new Date();
-								DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-								dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-								logs.info(dateFormat.format(date));
-								DelDate.sendKeys(dateFormat.format(date));
-								DelDate.sendKeys(Keys.TAB);
-								logs.info("Entered Actual Delivery Date");
-
-								// --Enter Act.DEL Time
-								WebElement DelTime = driver.findElement(By.id(DeliveryTime));
-								DelTime.clear();
-								date = new Date();
-								dateFormat = new SimpleDateFormat("HH:mm");
-								dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-								Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
-								cal.add(Calendar.MINUTE, 1);
-								logs.info(dateFormat.format(cal.getTime()));
-								wait.until(ExpectedConditions.elementToBeClickable(By.id(DeliveryTime)));
-								DelTime.sendKeys(dateFormat.format(cal.getTime()));
-								logs.info("Entered Actual Delivery Time");
 
 							}
+
 							// --Click on Confirm Del button
 							isElementPresent("TLConfDEL_id").click();
 							logs.info("Clicked on Confirm DEL button");
@@ -3055,7 +3188,6 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 							dateFormat = new SimpleDateFormat("HH:mm");
 							dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
 							logs.info(dateFormat.format(date));
-							wait.until(ExpectedConditions.elementToBeClickable(By.id(DeliveryTime)));
 							DelTime.sendKeys(dateFormat.format(date));
 							logs.info("Entered Actual Delivery Time");
 
@@ -3082,73 +3214,109 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 						String ValMsg = isElementPresent("TLAlValidation_id").getText();
 						logs.info("Validation is displayed==" + ValMsg);
 
-						List<WebElement> DelPoints = driver.findElements(
-								By.xpath("//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
-						int TotalDel = DelPoints.size();
-						logs.info("Total Delivery points is/are==" + TotalDel);
+						if (ValMsg.contains(
+								"Actual Delivery Datetime cannot be less than or equal to Actual Pickup Datetime.")) {
+							List<WebElement> DelPoints = driver.findElements(
+									By.xpath("//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
+							int TotalDel = DelPoints.size();
+							logs.info("Total Delivery points is/are==" + TotalDel);
 
-						for (int Del = 0; Del < TotalDel; Del++) {
+							for (int Del = 0; Del < TotalDel; Del++) {
+								System.out.println("value of del==" + Del);
 
-							System.out.println("value of del==" + Del);
+								WebElement ZoneID = DelPoints.get(Del)
+										.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+								String DeliveryDate = "txtActdlDate_" + Del;
+								String DeliveryTime = "txtActDlTime_" + Del;
 
-							if (jobStatus.contains("DELIVER@STOP 3 OF")) {
-								Del = 1;
-							} else if (jobStatus.contains("DELIVER@STOP 4 OF")) {
-								Del = 2;
+								// --Get ZoneID
+								String ZOneID = ZoneID.getText();
+								logs.info("ZoneID of is==" + ZOneID);
+								if (ZOneID.equalsIgnoreCase("EDT")) {
+									ZOneID = "America/New_York";
+								} else if (ZOneID.equalsIgnoreCase("CDT")) {
+									ZOneID = "CST";
+								} else if (ZOneID.equalsIgnoreCase("PDT")) {
+									ZOneID = "PST";
+								}
 
-							} else if (jobStatus.contains("DELIVER@STOP 5 OF")) {
-								Del = 3;
+								// --Delivery Date
+								WebElement DelDate = driver.findElement(By.id(DeliveryDate));
+								DelDate.clear();
+								Date date = new Date();
+								DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+								dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+								logs.info(dateFormat.format(date));
+								DelDate.sendKeys(dateFormat.format(date));
+								DelDate.sendKeys(Keys.TAB);
+								logs.info("Entered Actual Delivery Date");
 
-							} else if (jobStatus.contains("DELIVER@STOP 6 OF")) {
-								Del = 4;
+								// --Enter Act.DEL Time
+								WebElement DelTime = driver.findElement(By.id(DeliveryTime));
+								DelTime.clear();
+								date = new Date();
+								dateFormat = new SimpleDateFormat("HH:mm");
+								dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+								Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
+								cal.add(Calendar.MINUTE, 1);
+								logs.info(dateFormat.format(cal.getTime()));
 
-							} else if (jobStatus.contains("DELIVER@STOP 7 OF")) {
-								Del = 5;
+								DelTime.sendKeys(dateFormat.format(cal.getTime()));
+								logs.info("Entered Actual Delivery Time");
 
 							}
-							System.out.println("value of del==" + Del);
+						} else if (ValMsg.contains("Please enter same Actual Delivery Datetime.")) {
+							List<WebElement> DelPoints = driver.findElements(
+									By.xpath("//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
+							int TotalDel = DelPoints.size();
+							logs.info("Total Delivery points is/are==" + TotalDel);
 
-							WebElement ZoneID = DelPoints.get(Del)
-									.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
-							String DeliveryDate = "txtActdlDate_" + Del;
-							String DeliveryTime = "txtActDlTime_" + Del;
+							for (int Del = 0; Del < TotalDel; Del++) {
+								System.out.println("value of del==" + Del);
 
-							// --Get ZoneID
-							String ZOneID = ZoneID.getText();
-							logs.info("ZoneID of is==" + ZOneID);
-							if (ZOneID.equalsIgnoreCase("EDT")) {
-								ZOneID = "America/New_York";
-							} else if (ZOneID.equalsIgnoreCase("CDT")) {
-								ZOneID = "CST";
-							} else if (ZOneID.equalsIgnoreCase("PDT")) {
-								ZOneID = "PST";
+								WebElement ZoneID = DelPoints.get(Del)
+										.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+								String DeliveryDate = "txtActdlDate_" + Del;
+								String DeliveryTime = "txtActDlTime_" + Del;
+
+								// --Get ZoneID
+								String ZOneID = ZoneID.getText();
+								logs.info("ZoneID of is==" + ZOneID);
+								if (ZOneID.equalsIgnoreCase("EDT")) {
+									ZOneID = "America/New_York";
+								} else if (ZOneID.equalsIgnoreCase("CDT")) {
+									ZOneID = "CST";
+								} else if (ZOneID.equalsIgnoreCase("PDT")) {
+									ZOneID = "PST";
+								}
+
+								// --Delivery Date
+								WebElement DelDate = driver.findElement(By.id(DeliveryDate));
+								DelDate.clear();
+								Date date = new Date();
+								DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+								dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+								logs.info(dateFormat.format(date));
+								DelDate.sendKeys(dateFormat.format(date));
+								DelDate.sendKeys(Keys.TAB);
+								logs.info("Entered Actual Delivery Date");
+
+								// --Enter Act.DEL Time
+								WebElement DelTime = driver.findElement(By.id(DeliveryTime));
+								DelTime.clear();
+								date = new Date();
+								dateFormat = new SimpleDateFormat("HH:mm");
+								dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+								Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
+								cal.add(Calendar.MINUTE, 1);
+								logs.info(dateFormat.format(cal.getTime()));
+								DelTime.sendKeys(dateFormat.format(cal.getTime()));
+								logs.info("Entered Actual Delivery Time");
+
 							}
-
-							// --Delivery Date
-							WebElement DelDate = driver.findElement(By.id(DeliveryDate));
-							DelDate.clear();
-							Date date = new Date();
-							DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-							dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-							logs.info(dateFormat.format(date));
-							DelDate.sendKeys(dateFormat.format(date));
-							DelDate.sendKeys(Keys.TAB);
-							logs.info("Entered Actual Delivery Date");
-
-							// --Enter Act.DEL Time
-							WebElement DelTime = driver.findElement(By.id(DeliveryTime));
-							DelTime.clear();
-							date = new Date();
-							dateFormat = new SimpleDateFormat("HH:mm");
-							dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-							Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
-							cal.add(Calendar.MINUTE, 1);
-							logs.info(dateFormat.format(cal.getTime()));
-							wait.until(ExpectedConditions.elementToBeClickable(By.id(DeliveryTime)));
-							DelTime.sendKeys(dateFormat.format(cal.getTime()));
-							logs.info("Entered Actual Delivery Time");
 
 						}
+
 						// --Click on Confirm Del button
 						isElementPresent("TLConfDEL_id").click();
 						logs.info("Clicked on Confirm DEL button");
