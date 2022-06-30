@@ -21,8 +21,8 @@ public class EditDriver extends BaseInit {
 		Actions act = new Actions(driver);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 
-		logs.info("======================RTE Edit Driver Test Start==================");
-		msg.append("======================RTE Edit Driver Test Start==================" + "\n");
+		logs.info("=====RTE Edit Driver Test Start=====");
+		msg.append("=====RTE Edit Driver Test Start=====" + "\n");
 
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("hlkedit")));
 		isElementPresent("PDEdit_id").click();
@@ -201,8 +201,8 @@ public class EditDriver extends BaseInit {
 		TollCOn.selectByIndex(1);
 		logs.info("Toll Concession is selected");
 
-		logs.info("======================RTE Edit Driver Test End==================");
-		msg.append("======================RTE Edit Driver Test End==================" + "\n");
+		logs.info("=====RTE Edit Driver Test End=====");
+		msg.append("=====RTE Edit Driver Test End=====" + "\n");
 
 	}
 

@@ -14,4 +14,17 @@
       </class> <!-- rte_RTEJobCreation.RTECrudOperations -->
     </classes>
   </test> <!-- RTE Crud Operation(failed) -->
+  <test thread-count="5" name="RTE Compare Charges(failed)">
+    <classes>
+      <class name="rte_RTEJobCreation.CompareCharges">
+        <methods>
+          <include name="SendEmail"/>
+          <include name="rteCompareCharges"/>
+          <include name="getResult"/>
+          <include name="testMethodName"/>
+          <include name="beforeMethod"/>
+        </methods>
+      </class> <!-- rte_RTEJobCreation.CompareCharges -->
+    </classes>
+  </test> <!-- RTE Compare Charges(failed) -->
 </suite> <!-- Failed suite [RTE Job Smoke] -->

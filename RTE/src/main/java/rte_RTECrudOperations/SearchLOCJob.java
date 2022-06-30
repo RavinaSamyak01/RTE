@@ -24,8 +24,8 @@ public class SearchLOCJob extends BaseInit {
 		Actions act = new Actions(driver);
 
 		String Result = null;
-		logs.info("=========RTE Search LOC job Test Start============");
-		msg.append("=========RTE Search LOC job Test Start===========" + "\n");
+		logs.info("=====RTE Search LOC job Test Start=====");
+		msg.append("=====RTE Search LOC job Test Start=====" + "\n");
 
 		// --Get pickedupID
 
@@ -403,8 +403,8 @@ public class SearchLOCJob extends BaseInit {
 
 			}
 		}
-		logs.info("=========RTE Search LOC job Test End============");
-		msg.append("=========RTE Search LOC job Test End===========" + "\n");
+		logs.info("=====RTE Search LOC job Test End=====");
+		msg.append("=====RTE Search LOC job Test End=====" + "\n");
 
 		return Result;
 

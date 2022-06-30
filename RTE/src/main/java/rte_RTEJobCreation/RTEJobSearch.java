@@ -147,7 +147,9 @@ public class RTEJobSearch extends BaseInit {
 						String JobIDValue = driver.findElement(By.id(JobID)).getText();
 						String PickUpIDValue = driver.findElement(By.id(PickUpID)).getText();
 						String BOLNoValue = driver.findElement(By.id(BOLNO)).getText();
+						String JobType = getData("RTECreation", row, 3);
 
+						msg.append("JobType is==" + JobType + "\n");
 						msg.append("JobID is==" + JobIDValue + "\n");
 						msg.append("PickUpID is==" + PickUpIDValue + "\n");
 						msg.append("BOLNo is==" + BOLNoValue + "\n");
