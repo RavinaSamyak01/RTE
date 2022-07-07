@@ -316,6 +316,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 										try {
+											//--Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime.
 											wait.until(ExpectedConditions
 													.visibilityOfElementLocated(By.id("idValidationforMain")));
 											ValMsg = isElementPresent("TLAlValidation_id").getText();
@@ -601,6 +602,10 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 
 											}
 
+										}else {
+											logs.info("UnExpected Message is displayed");
+											logs.info("Unable to proceed.....");
+											getScreenshot(driver, "ManyToOneOPIssue");
 										}
 
 										// --Click on Confirm Del button

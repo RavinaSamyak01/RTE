@@ -395,6 +395,54 @@ public class CompareCharges extends BaseInit {
 											jobStatus = isElementPresent("TLStageLable_id").getText();
 											logs.info("Job status is==" + jobStatus);
 											msg.append("Job status is==" + jobStatus + "\n");
+
+											// --CHecking PU STop is enable or disable
+											wait.until(ExpectedConditions.elementToBeClickable(By.id("idEditOrder")));
+											WebElement EditJob = isElementPresent("TLEditJob_id");
+											act.moveToElement(EditJob).click().perform();
+											logs.info("Clicked on Edit Job tab");
+											wait.until(ExpectedConditions
+													.invisibilityOfElementLocated(By.id("loaderDiv")));
+											wait.until(ExpectedConditions
+													.visibilityOfAllElementsLocatedBy(By.id("scrollboxprocessRW")));
+
+											// --Click on Edit Stop Sequence
+											WebElement EditSS = isElementPresent("TLEditStopSeq_xpath");
+											js.executeScript("arguments[0].scrollIntoView();", EditSS);
+											js.executeScript("arguments[0].click();", EditSS);
+											/*
+											 * EditSS = isElementPresent("TLEditStopSeq_xpath"); EditSS.click();
+											 */
+											logs.info("Clicked on Edit Stop Sequence");
+											wait.until(ExpectedConditions
+													.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+											try {
+												WebElement PUSTOP = isElementPresent("PUSTOP_id");
+												String PUSTopClass = PUSTOP.getAttribute("class");
+												System.out.println("PU Class==" + PUSTopClass);
+												if (PUSTopClass.contains("ng-untouched")) {
+													logs.info("PU stop is Non-Editable==PASS");
+													msg.append("PU stop is Non-Editable==PASS" + "\n");
+												}
+
+											} catch (Exception ee) {
+												logs.info("PU stop is Editable==FAIL");
+												msg.append("PU stop is Editable==FAIL" + "\n");
+												getScreenshot(driver, "PUSTopEditIssue");
+
+											}
+
+											// --Back to Job Status Tab
+											wait.until(ExpectedConditions.elementToBeClickable(By.id("idJobOverview")));
+											isElementPresent("TLJobSTatus_id").click();
+											logs.info("Clicked on Job Status tab");
+											wait.until(ExpectedConditions
+													.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+											wait.until(
+													ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
+
 											// --Click on ConfirmPU button
 											wait.until(ExpectedConditions
 													.elementToBeClickable(By.id("PUDLStopsWhiteTick")));
@@ -642,7 +690,52 @@ public class CompareCharges extends BaseInit {
 
 														}
 
+														// --CHecking DEL STop is enable or disable
+														wait.until(ExpectedConditions
+																.elementToBeClickable(By.id("idEditOrder")));
+														EditJob = isElementPresent("TLEditJob_id");
+														act.moveToElement(EditJob).click().perform();
+														logs.info("Clicked on Edit Job tab");
+														wait.until(ExpectedConditions
+																.invisibilityOfElementLocated(By.id("loaderDiv")));
+														wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
+																By.id("scrollboxprocessRW")));
+
+														// --Click on Edit Stop Sequence
+														EditSS = isElementPresent("TLEditStopSeq_xpath");
+														js.executeScript("arguments[0].scrollIntoView();", EditSS);
+														js.executeScript("arguments[0].click();", EditSS);
+														/*
+														 * EditSS = isElementPresent("TLEditStopSeq_xpath");
+														 * EditSS.click();
+														 */
+														logs.info("Clicked on Edit Stop Sequence");
+														wait.until(ExpectedConditions
+																.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+														try {
+
+															WebElement DELSTOP = isElementPresent("DELSTOP_id");
+															String DELSTopClass = DELSTOP.getAttribute("class");
+															System.out.println("PU Class==" + DELSTopClass);
+															if (DELSTopClass.contains("ng-untouched")) {
+																logs.info("DEL stop is Non-Editable==PASS");
+																msg.append("DEL stop is Non-Editable==PASS" + "\n");
+															}
+
+														} catch (Exception ee) {
+															logs.info("DEL stop is Editable==FAIL");
+															msg.append("DEL stop is Editable==FAIL" + "\n");
+															getScreenshot(driver, "DELSTopEditIssue");
+
+														}
+
 														// --End Route
+														// --Scroll to Route Details
+														WebElement RWDetails = isElementPresent("RWDetailSection_id");
+														js.executeScript("arguments[0].scrollIntoView(true);",
+																RWDetails);
+														Thread.sleep(2000);
 
 														// --Click on End Route
 														WebElement EndR = isElementPresent("TLEndRoute_id");
@@ -3780,7 +3873,45 @@ public class CompareCharges extends BaseInit {
 				if (jobStatus.contains("DELIVERED")) {
 					logs.info("Job is Delivered successfully");
 
-					// --End Route
+					// --CHecking DEL STop is enable or disable
+					wait.until(ExpectedConditions.elementToBeClickable(By.id("idEditOrder")));
+					WebElement EditJob = isElementPresent("TLEditJob_id");
+					act.moveToElement(EditJob).click().perform();
+					logs.info("Clicked on Edit Job tab");
+					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+					wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("scrollboxprocessRW")));
+
+					// --Click on Edit Stop Sequence
+					WebElement EditSS = isElementPresent("TLEditStopSeq_xpath");
+					js.executeScript("arguments[0].scrollIntoView();", EditSS);
+					js.executeScript("arguments[0].click();", EditSS);
+					/*
+					 * EditSS = isElementPresent("TLEditStopSeq_xpath"); EditSS.click();
+					 */
+					logs.info("Clicked on Edit Stop Sequence");
+					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+					try {
+
+						WebElement DELSTOP = isElementPresent("DELSTOP_id");
+						String DELSTopClass = DELSTOP.getAttribute("class");
+						System.out.println("PU Class==" + DELSTopClass);
+						if (DELSTopClass.contains("ng-untouched")) {
+							logs.info("DEL stop is Non-Editable==PASS");
+							msg.append("DEL stop is Non-Editable==PASS" + "\n");
+						}
+
+					} catch (Exception ee) {
+						logs.info("DEL stop is Editable==FAIL");
+						msg.append("DEL stop is Editable==FAIL" + "\n");
+						getScreenshot(driver, "DELSTopEditIssue");
+
+					}
+
+					// --Scroll to Route Details
+					WebElement RWDetails = isElementPresent("RWDetailSection_id");
+					js.executeScript("arguments[0].scrollIntoView(true);", RWDetails);
+					Thread.sleep(2000);
 
 					// --Click on End Route
 					WebElement EndR = isElementPresent("TLEndRoute_id");

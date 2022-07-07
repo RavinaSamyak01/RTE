@@ -1,88 +1,46 @@
-2022-06-30 14:12:49,959 [main] INFO RTEManyToOneOrderProcess - initialization of the properties file is done
-2022-06-30 14:12:50,492 [main] INFO io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 103.0.5060.53 (since Google Chrome 103 is installed in your machine)
-2022-06-30 14:12:50,520 [main] INFO io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\Users\rprajapati\.m2\repository\webdriver\chromedriver\win32\103.0.5060.53\chromedriver.exe
-2022-06-30 14:12:59,905 [main] INFO RTEManyToOneOrderProcess - Entered UserName
-2022-06-30 14:13:01,180 [main] INFO RTEManyToOneOrderProcess - Entered Password
-2022-06-30 14:13:02,505 [main] INFO RTEManyToOneOrderProcess - Login done
-2022-06-30 14:13:14,012 [main] INFO RTEManyToOneOrderProcess - ======================RTE Many To One Order Processing Test Start==================
-2022-06-30 14:13:14,264 [main] INFO RTEManyToOneOrderProcess - Clicked on Operations
-2022-06-30 14:13:14,504 [main] INFO RTEManyToOneOrderProcess - Clicked on TaskLog
-2022-06-30 14:13:19,703 [main] INFO RTEManyToOneOrderProcess - PickUpID==3414014
-2022-06-30 14:13:19,703 [main] INFO RTEManyToOneOrderProcess - Entered PickUpID in basic search
-2022-06-30 14:13:19,987 [main] INFO RTEManyToOneOrderProcess - Click on Search button
-2022-06-30 14:13:24,799 [main] INFO RTEManyToOneOrderProcess - Data is exist with search parameter
-2022-06-30 14:13:25,123 [main] INFO RTEManyToOneOrderProcess - Job status tab is already Opened
-2022-06-30 14:13:25,262 [main] INFO RTEManyToOneOrderProcess - Job status is==PICKUP@STOP 4 OF 5
-2022-06-30 14:13:56,690 [main] INFO RTEManyToOneOrderProcess - Job status is==PICKUP@STOP 4 OF 5
-2022-06-30 14:13:58,337 [main] INFO RTEManyToOneOrderProcess - Clicked on Confirm PU button
-2022-06-30 14:14:00,801 [main] INFO RTEManyToOneOrderProcess - Validation is displayed==Act. Pickup Time is Required.
-2022-06-30 14:14:00,879 [main] INFO RTEManyToOneOrderProcess - Total Pickup points is/are==4
-2022-06-30 14:14:00,989 [main] INFO RTEManyToOneOrderProcess - ZoneID of is==PDT
-2022-06-30 14:14:01,216 [main] INFO RTEManyToOneOrderProcess - 06/30/2022
-2022-06-30 14:14:01,452 [main] INFO RTEManyToOneOrderProcess - Entered Actual Pickup Date
-2022-06-30 14:14:01,565 [main] INFO RTEManyToOneOrderProcess - 01:44
-2022-06-30 14:14:01,695 [main] INFO RTEManyToOneOrderProcess - Entered Actual Pickup Time
-2022-06-30 14:14:13,149 [main] INFO RTEManyToOneOrderProcess - Clicked on Confirm PU button
-2022-06-30 14:14:52,848 [main] INFO RTEManyToOneOrderProcess - Validation is not displayed=Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime.
-2022-06-30 14:14:54,632 [main] INFO RTEManyToOneOrderProcess - Job status is==DELIVER@STOP 5 OF 5
-2022-06-30 14:15:01,105 [main] INFO RTEManyToOneOrderProcess - Job status is==DELIVER@STOP 5 OF 5
-2022-06-30 14:15:03,080 [main] INFO RTEManyToOneOrderProcess - Clicked on Confirm DEL button
-2022-06-30 14:15:06,413 [main] INFO RTEManyToOneOrderProcess - Validation is displayed==Act. Delivery Time is Required.
-Signature is required.
-2022-06-30 14:15:06,474 [main] INFO RTEManyToOneOrderProcess - Total Delivery points is/are==4
-2022-06-30 14:15:06,577 [main] INFO RTEManyToOneOrderProcess - ZoneID of is==PDT
-2022-06-30 14:15:06,742 [main] INFO RTEManyToOneOrderProcess - 06/30/2022
-2022-06-30 14:15:06,987 [main] INFO RTEManyToOneOrderProcess - Entered Actual Delivery Date
-2022-06-30 14:15:07,119 [main] INFO RTEManyToOneOrderProcess - 01:45
-2022-06-30 14:15:07,244 [main] INFO RTEManyToOneOrderProcess - Entered Actual Delivery Time
-2022-06-30 14:15:09,334 [main] INFO RTEManyToOneOrderProcess - Entered Signature
-2022-06-30 14:15:11,074 [main] INFO RTEManyToOneOrderProcess - ZoneID of is==PDT
-2022-06-30 14:15:11,271 [main] INFO RTEManyToOneOrderProcess - 06/30/2022
-2022-06-30 14:15:11,629 [main] INFO RTEManyToOneOrderProcess - Entered Actual Delivery Date
-2022-06-30 14:15:11,814 [main] INFO RTEManyToOneOrderProcess - 01:45
-2022-06-30 14:15:11,988 [main] INFO RTEManyToOneOrderProcess - Entered Actual Delivery Time
-2022-06-30 14:15:13,956 [main] INFO RTEManyToOneOrderProcess - Entered Signature
-2022-06-30 14:15:15,763 [main] INFO RTEManyToOneOrderProcess - ZoneID of is==PDT
-2022-06-30 14:15:15,953 [main] INFO RTEManyToOneOrderProcess - 06/30/2022
-2022-06-30 14:15:16,185 [main] INFO RTEManyToOneOrderProcess - Entered Actual Delivery Date
-2022-06-30 14:15:16,322 [main] INFO RTEManyToOneOrderProcess - 01:45
-2022-06-30 14:15:16,454 [main] INFO RTEManyToOneOrderProcess - Entered Actual Delivery Time
-2022-06-30 14:15:18,407 [main] INFO RTEManyToOneOrderProcess - Entered Signature
-2022-06-30 14:15:20,167 [main] INFO RTEManyToOneOrderProcess - ZoneID of is==PDT
-2022-06-30 14:15:20,366 [main] INFO RTEManyToOneOrderProcess - 06/30/2022
-2022-06-30 14:15:20,584 [main] INFO RTEManyToOneOrderProcess - Entered Actual Delivery Date
-2022-06-30 14:15:20,721 [main] INFO RTEManyToOneOrderProcess - 01:45
-2022-06-30 14:15:20,848 [main] INFO RTEManyToOneOrderProcess - Entered Actual Delivery Time
-2022-06-30 14:15:22,787 [main] INFO RTEManyToOneOrderProcess - Entered Signature
-2022-06-30 14:15:24,673 [main] INFO RTEManyToOneOrderProcess - Clicked on Confirm DEL button
-2022-06-30 14:15:58,789 [main] INFO RTEManyToOneOrderProcess - Validation is not displayed=Actual Delivery Datetime cannot be less than or equal to Actual Pickup Datetime.
-2022-06-30 14:16:04,631 [main] INFO RTEManyToOneOrderProcess - Entered PickUpID in basic search
-2022-06-30 14:16:06,670 [main] INFO RTEManyToOneOrderProcess - Click on Search button
-2022-06-30 14:16:13,030 [main] INFO RTEManyToOneOrderProcess - Data is exist with search parameter
-2022-06-30 14:16:18,330 [main] INFO RTEManyToOneOrderProcess - Job status is==DELIVERED@STOP 5 OF 5
-2022-06-30 14:16:18,333 [main] INFO RTEManyToOneOrderProcess - Job is Delivered successfully
-2022-06-30 14:16:20,465 [main] INFO RTEManyToOneOrderProcess - Clicked on End Route
-2022-06-30 14:16:23,832 [main] INFO RTEManyToOneOrderProcess - Validation is displayed==Actual Route End Date Required.
+2022-07-07 19:39:15,517 [main] INFO CompareCharges - initialization of the properties file is done
+2022-07-07 19:39:15,999 [main] INFO io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 103.0.5060.53 (since Google Chrome 103 is installed in your machine)
+2022-07-07 19:39:16,027 [main] INFO io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\Users\rprajapati\.m2\repository\webdriver\chromedriver\win32\103.0.5060.53\chromedriver.exe
+2022-07-07 19:39:24,393 [main] INFO CompareCharges - Entered UserName
+2022-07-07 19:39:25,596 [main] INFO CompareCharges - Entered Password
+2022-07-07 19:39:26,884 [main] INFO CompareCharges - Login done
+2022-07-07 19:39:36,112 [main] INFO CompareCharges - ======================RTE Compare Charges Test Start==================
+2022-07-07 19:39:36,391 [main] INFO CompareCharges - Clicked on Operations
+2022-07-07 19:39:36,714 [main] INFO CompareCharges - Clicked on TaskLog
+2022-07-07 19:39:41,435 [main] INFO CompareCharges - PickUpID==3415612
+2022-07-07 19:39:41,436 [main] INFO CompareCharges - Entered PickUpID in basic search
+2022-07-07 19:39:41,617 [main] INFO CompareCharges - Click on Search button
+2022-07-07 19:39:47,406 [main] INFO CompareCharges - Data is exist with search parameter
+2022-07-07 19:39:47,793 [main] INFO CompareCharges - Job status tab is Disabled
+2022-07-07 19:39:47,909 [main] INFO CompareCharges - Job status is==DELIVERED@STOP 2 OF 2
+2022-07-07 19:39:47,910 [main] INFO CompareCharges - Data is exist with search parameter
+2022-07-07 19:39:48,364 [main] INFO CompareCharges - Job status is==DELIVERED@STOP 2 OF 2
+2022-07-07 19:39:48,365 [main] INFO CompareCharges - Job is Delivered successfully
+2022-07-07 19:39:48,656 [main] INFO CompareCharges - Clicked on Edit Job tab
+2022-07-07 19:39:50,869 [main] INFO CompareCharges - Clicked on Edit Stop Sequence
+2022-07-07 19:39:51,017 [main] INFO CompareCharges - DEL stop is Non-Editable==PASS
+2022-07-07 19:42:14,141 [main] INFO CompareCharges - Clicked on End Route
+2022-07-07 19:42:14,412 [main] INFO CompareCharges - Validation is displayed==Actual Route End Date Required.
 Actual Route End Time Required.
-2022-06-30 14:16:23,836 [main] INFO RTEManyToOneOrderProcess - Validation is displayed for Route End Date and Time==PASS
-2022-06-30 14:16:23,936 [main] INFO RTEManyToOneOrderProcess - ZoneID of is==PDT
-2022-06-30 14:16:24,091 [main] INFO RTEManyToOneOrderProcess - 06/30/2022
-2022-06-30 14:16:24,401 [main] INFO RTEManyToOneOrderProcess - Entered Actual Route End Date
-2022-06-30 14:16:24,569 [main] INFO RTEManyToOneOrderProcess - 01:47
-2022-06-30 14:16:26,520 [main] INFO RTEManyToOneOrderProcess - Entered Actual Route End Time
-2022-06-30 14:16:28,685 [main] INFO RTEManyToOneOrderProcess - Clicked on End Route
-2022-06-30 14:16:36,188 [main] INFO RTEManyToOneOrderProcess - Entered PickUpID in basic search
-2022-06-30 14:16:38,166 [main] INFO RTEManyToOneOrderProcess - Click on Search button
-2022-06-30 14:16:44,477 [main] INFO RTEManyToOneOrderProcess - Data is exist with search parameter
-2022-06-30 14:16:49,932 [main] INFO RTEManyToOneOrderProcess - Job status is==VERIFY CUSTOMER BILL
-2022-06-30 14:16:49,935 [main] INFO RTEManyToOneOrderProcess - Job is moved to Verify Customer Bill stage
-2022-06-30 14:16:57,195 [main] INFO RTEManyToOneOrderProcess - Clicked on Verify button
-2022-06-30 14:17:06,636 [main] INFO RTEManyToOneOrderProcess - Entered PickUpID in basic search
-2022-06-30 14:17:08,684 [main] INFO RTEManyToOneOrderProcess - Click on Search button
-2022-06-30 14:17:14,937 [main] INFO RTEManyToOneOrderProcess - Data is exist with search parameter
-2022-06-30 14:17:20,096 [main] INFO RTEManyToOneOrderProcess - Job status is==VERIFIED
-2022-06-30 14:17:20,099 [main] INFO RTEManyToOneOrderProcess - Job is moved to VERIFIED stage
-2022-06-30 14:17:23,422 [main] INFO RTEManyToOneOrderProcess - ======================RTE Many To One Order Processing Test End==================
-2022-06-30 14:17:27,732 [main] INFO RTEManyToOneOrderProcess - Logout Message is displayed==You have successfully logged out!
-2022-06-30 14:17:27,733 [main] INFO RTEManyToOneOrderProcess - Logout done
-2022-06-30 14:17:28,765 [main] INFO RTEManyToOneOrderProcess - ====Sending Email=====
+2022-07-07 19:42:14,412 [main] INFO CompareCharges - Validation is displayed for Route End Date and Time==PASS
+2022-07-07 19:42:14,473 [main] INFO CompareCharges - ZoneID of is==CDT
+2022-07-07 19:42:14,609 [main] INFO CompareCharges - 07/07/2022
+2022-07-07 19:42:14,865 [main] INFO CompareCharges - Entered Actual Route End Date
+2022-07-07 19:42:14,952 [main] INFO CompareCharges - 09:13
+2022-07-07 19:42:15,130 [main] INFO CompareCharges - Entered Actual Route End Time
+2022-07-07 19:42:15,905 [main] INFO CompareCharges - Clicked on End Route
+2022-07-07 19:42:17,820 [main] INFO CompareCharges - Entered PickUpID in basic search
+2022-07-07 19:42:18,085 [main] INFO CompareCharges - Click on Search button
+2022-07-07 19:42:23,195 [main] INFO CompareCharges - Data is exist with search parameter
+2022-07-07 19:42:23,530 [main] INFO CompareCharges - Job status is==VERIFY CUSTOMER BILL
+2022-07-07 19:42:23,530 [main] INFO CompareCharges - Job is moved to Verify Customer Bill stage
+2022-07-07 19:42:26,051 [main] INFO CompareCharges - Clicked on Verify button
+2022-07-07 19:42:30,221 [main] INFO CompareCharges - Entered PickUpID in basic search
+2022-07-07 19:42:30,457 [main] INFO CompareCharges - Click on Search button
+2022-07-07 19:42:36,774 [main] INFO CompareCharges - Data is exist with search parameter
+2022-07-07 19:42:37,188 [main] INFO CompareCharges - Job status is==VERIFIED
+2022-07-07 19:42:37,189 [main] INFO CompareCharges - Job is moved to VERIFIED stage
+2022-07-07 19:42:37,586 [main] INFO CompareCharges - ======================RTE Compare Charges Test End==================
+2022-07-07 19:42:42,126 [main] INFO CompareCharges - Logout Message is displayed==You have successfully logged out!
+2022-07-07 19:42:42,127 [main] INFO CompareCharges - Logout done
+2022-07-07 19:42:43,001 [main] INFO CompareCharges - ====Sending Email=====

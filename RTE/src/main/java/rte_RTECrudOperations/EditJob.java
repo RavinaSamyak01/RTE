@@ -77,7 +77,6 @@ public class EditJob extends BaseInit {
 		addDeleteChargesRecal();
 
 		// --Move to Job STatus tab
-		// --Go to Edit Job
 		wait.until(ExpectedConditions.elementToBeClickable(By.id("idJobOverview")));
 		isElementPresent("TLJobSTatus_id").click();
 		logs.info("Clicked on Job Status tab");
