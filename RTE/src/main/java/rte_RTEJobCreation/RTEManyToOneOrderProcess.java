@@ -273,128 +273,372 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 										}
 										System.out.println("value of del==" + pu);
 
-										WebElement ZoneID = PickupPoints.get(pu)
-												.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
-										String PUDate = "txtActpuDate_" + pu;
-										String PUTime = "txtActPuTime_" + pu;
+										if (pu == 0) {
+											WebElement ZoneID = PickupPoints.get(pu)
+													.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+											String PUDate = "txtActpuDate_" + pu;
+											String PUTime = "txtActPuTime_" + pu;
 
-										// --Get ZoneID
-										String ZOneID = ZoneID.getText();
-										logs.info("ZoneID of is==" + ZOneID);
-										if (ZOneID.equalsIgnoreCase("EDT")) {
-											ZOneID = "America/New_York";
-										} else if (ZOneID.equalsIgnoreCase("CDT")) {
-											ZOneID = "CST";
-										} else if (ZOneID.equalsIgnoreCase("PDT")) {
-											ZOneID = "PST";
-										}
-										// --PickUp Date
-										WebElement PickUpDate = driver.findElement(By.id(PUDate));
-										PickUpDate.clear();
-										Date date = new Date();
-										DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-										dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-										logs.info(dateFormat.format(date));
-										PickUpDate.sendKeys(dateFormat.format(date));
-										PickUpDate.sendKeys(Keys.TAB);
-										logs.info("Entered Actual Pickup Date");
+											// --Get ZoneID
+											String ZOneID = ZoneID.getText();
+											logs.info("ZoneID of is==" + ZOneID);
+											if (ZOneID.equalsIgnoreCase("EDT")) {
+												ZOneID = "America/New_York";
+											} else if (ZOneID.equalsIgnoreCase("CDT")) {
+												ZOneID = "CST";
+											} else if (ZOneID.equalsIgnoreCase("PDT")) {
+												ZOneID = "PST";
+											}
+											// --PickUp Date
+											WebElement PickUpDate = driver.findElement(By.id(PUDate));
+											PickUpDate.clear();
+											Date date = new Date();
+											DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+											dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+											logs.info(dateFormat.format(date));
+											PickUpDate.sendKeys(dateFormat.format(date));
+											PickUpDate.sendKeys(Keys.TAB);
+											logs.info("Entered Actual Pickup Date");
 
-										// --Enter Act.PickUp Time
-										WebElement PickUpTime = driver.findElement(By.id(PUTime));
-										PickUpTime.clear();
-										date = new Date();
-										dateFormat = new SimpleDateFormat("HH:mm");
-										dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-										logs.info(dateFormat.format(date));
+											// --Enter Act.PickUp Time
+											WebElement PickUpTime = driver.findElement(By.id(PUTime));
+											PickUpTime.clear();
+											date = new Date();
+											dateFormat = new SimpleDateFormat("HH:mm");
+											dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+											logs.info(dateFormat.format(date));
 
-										PickUpTime.sendKeys(dateFormat.format(date));
-										logs.info("Entered Actual Pickup Time");
+											PickUpTime.sendKeys(dateFormat.format(date));
+											logs.info("Entered Actual Pickup Time");
 
-										// --Click on ConfirmPU button
-										isElementPresent("TLCOnfPU_id").click();
-										logs.info("Clicked on Confirm PU button");
-										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
-										try {
-											//--Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime.
+											// --Click on ConfirmPU button
+											isElementPresent("TLCOnfPU_id").click();
+											logs.info("Clicked on Confirm PU button");
 											wait.until(ExpectedConditions
-													.visibilityOfElementLocated(By.id("idValidationforMain")));
-											ValMsg = isElementPresent("TLAlValidation_id").getText();
-											logs.info("Validation is displayed==" + ValMsg);
+													.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-											// --Stored list of pickup
-											PickupPoints = driver.findElements(By.xpath(
-													"//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
-											TotalPickup = PickupPoints.size();
-											logs.info("Total Pickup points is/are==" + TotalPickup);
+											try {
+												// --Actual Pickup Datetime cannot be less than or equal to last
+												// shipment of Actual Pickup Datetime.
+												wait.until(ExpectedConditions
+														.visibilityOfElementLocated(By.id("idValidationforMain")));
+												ValMsg = isElementPresent("TLAlValidation_id").getText();
+												logs.info("Validation is displayed==" + ValMsg);
 
-											for (int puS = pu; puS < TotalPickup;) {
+												// --Stored list of pickup
+												PickupPoints = driver.findElements(By.xpath(
+														"//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
+												TotalPickup = PickupPoints.size();
+												logs.info("Total Pickup points is/are==" + TotalPickup);
 
-												System.out.println("value of PuS==" + puS);
+												for (int puS = pu; puS < TotalPickup;) {
+
+													System.out.println("value of PuS==" + puS);
+													if (jobStatus.contains("PICKUP@STOP 2 OF")) {
+														puS = 1;
+													} else if (jobStatus.contains("PICKUP@STOP 3 OF")) {
+														puS = 2;
+
+													} else if (jobStatus.contains("PICKUP@STOP 4 OF")) {
+														puS = 3;
+
+													} else if (jobStatus.contains("PICKUP@STOP 5 OF")) {
+														puS = 4;
+
+													}
+													System.out.println("value of PUs==" + pu);
+
+													ZoneID = PickupPoints.get(pu).findElement(
+															By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+													PUDate = "txtActpuDate_" + pu;
+													PUTime = "txtActPuTime_" + pu;
+
+													// --Get ZoneID
+													ZOneID = ZoneID.getText();
+													logs.info("ZoneID of is==" + ZOneID);
+													if (ZOneID.equalsIgnoreCase("EDT")) {
+														ZOneID = "America/New_York";
+													} else if (ZOneID.equalsIgnoreCase("CDT")) {
+														ZOneID = "CST";
+													} else if (ZOneID.equalsIgnoreCase("PDT")) {
+														ZOneID = "PST";
+													}
+													// --PickUp Date
+													PickUpDate = driver.findElement(By.id(PUDate));
+													PickUpDate.clear();
+													date = new Date();
+													dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+													dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+													logs.info(dateFormat.format(date));
+													PickUpDate.sendKeys(dateFormat.format(date));
+													PickUpDate.sendKeys(Keys.TAB);
+													logs.info("Entered Actual Pickup Date");
+
+													// --Enter Act.PickUp Time
+													PickUpTime = driver.findElement(By.id(PUTime));
+													PickUpTime.clear();
+													date = new Date();
+													dateFormat = new SimpleDateFormat("HH:mm");
+													dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+													logs.info(dateFormat.format(date));
+
+													PickUpTime.sendKeys(dateFormat.format(date));
+													logs.info("Entered Actual Pickup Time");
+
+													// --Click on ConfirmPU button
+													isElementPresent("TLCOnfPU_id").click();
+													logs.info("Clicked on Confirm PU button");
+													wait.until(ExpectedConditions
+															.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+													break;
+												}
+											} catch (Exception ActTimeGDelTime) {
+												logs.info("Validation is not displayed="
+														+ "Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime.");
+
+											}
+										} else {
+											try {
+												// --Copy Next Row for PU Time
+												logs.info("--Testing PU Copy Next Row button--");
+
+												int PrevPU = 0;
 												if (jobStatus.contains("PICKUP@STOP 2 OF")) {
-													puS = 1;
+													pu = 1;
+													PrevPU = 0;
+
 												} else if (jobStatus.contains("PICKUP@STOP 3 OF")) {
-													puS = 2;
+													pu = 2;
+													PrevPU = 1;
 
 												} else if (jobStatus.contains("PICKUP@STOP 4 OF")) {
-													puS = 3;
+													pu = 3;
+													PrevPU = 2;
 
 												} else if (jobStatus.contains("PICKUP@STOP 5 OF")) {
-													puS = 4;
+													pu = 4;
+													PrevPU = 3;
 
 												}
-												System.out.println("value of del==" + pu);
+												System.out.println("value of PrevPU==" + PrevPU);
 
-												ZoneID = PickupPoints.get(pu).findElement(
-														By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
-												PUDate = "txtActpuDate_" + pu;
-												PUTime = "txtActPuTime_" + pu;
+												String PrevPUTime = "txtActPuTime_" + PrevPU;
+												WebElement PUSTop = driver.findElement(By.id(PrevPUTime));
+												PUSTop.click();
+												logs.info("Clicked on " + PrevPU + " PU Stop time");
 
-												// --Get ZoneID
-												ZOneID = ZoneID.getText();
-												logs.info("ZoneID of is==" + ZOneID);
-												if (ZOneID.equalsIgnoreCase("EDT")) {
-													ZOneID = "America/New_York";
-												} else if (ZOneID.equalsIgnoreCase("CDT")) {
-													ZOneID = "CST";
-												} else if (ZOneID.equalsIgnoreCase("PDT")) {
-													ZOneID = "PST";
-												}
-												// --PickUp Date
-												PickUpDate = driver.findElement(By.id(PUDate));
-												PickUpDate.clear();
-												date = new Date();
-												dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-												dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-												logs.info(dateFormat.format(date));
-												PickUpDate.sendKeys(dateFormat.format(date));
-												PickUpDate.sendKeys(Keys.TAB);
-												logs.info("Entered Actual Pickup Date");
-
-												// --Enter Act.PickUp Time
-												PickUpTime = driver.findElement(By.id(PUTime));
-												PickUpTime.clear();
-												date = new Date();
-												dateFormat = new SimpleDateFormat("HH:mm");
-												dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-												logs.info(dateFormat.format(date));
-
-												PickUpTime.sendKeys(dateFormat.format(date));
-												logs.info("Entered Actual Pickup Time");
+												WebElement PUCopyNEXT = isElementPresent("PUCpyNextRow_id");
+												wait.until(ExpectedConditions.visibilityOf(PUCopyNEXT));
+												act.moveToElement(PUCopyNEXT).build().perform();
+												wait.until(ExpectedConditions.elementToBeClickable(PUCopyNEXT));
+												js.executeScript("arguments[0].click();", PUCopyNEXT);
+												logs.info("Clicked on Copy Next Row of PickUp");
 
 												// --Click on ConfirmPU button
 												isElementPresent("TLCOnfPU_id").click();
 												logs.info("Clicked on Confirm PU button");
 												wait.until(ExpectedConditions
 														.invisibilityOfElementLocated(By.id("loaderDiv")));
+												try {
+													wait.until(ExpectedConditions
+															.visibilityOfElementLocated(By.id("idValidationforMain")));
+													ValMsg = isElementPresent("TLAlValidation_id").getText();
+													logs.info("Validation is displayed==" + ValMsg);
 
-												break;
+													if (ValMsg.contains(
+															"Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime.")) {
+
+														logs.info("PU Copy Next Row is working==PASS");
+														msg.append("PU Copy Next Row is working==PASS" + "\n\n");
+
+														// --Stored list of pickup
+														PickupPoints = driver.findElements(By.xpath(
+																"//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
+														TotalPickup = PickupPoints.size();
+														logs.info("Total Pickup points is/are==" + TotalPickup);
+
+														for (int puS = pu; puS < TotalPickup;) {
+
+															System.out.println("value of PuS==" + puS);
+															if (jobStatus.contains("PICKUP@STOP 2 OF")) {
+																puS = 1;
+															} else if (jobStatus.contains("PICKUP@STOP 3 OF")) {
+																puS = 2;
+
+															} else if (jobStatus.contains("PICKUP@STOP 4 OF")) {
+																puS = 3;
+
+															} else if (jobStatus.contains("PICKUP@STOP 5 OF")) {
+																puS = 4;
+
+															}
+															System.out.println("value of PUs==" + pu);
+
+															WebElement ZoneID = PickupPoints.get(pu).findElement(By
+																	.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+															String PUDate = "txtActpuDate_" + pu;
+															String PUTime = "txtActPuTime_" + pu;
+
+															// --Get ZoneID
+															String ZOneID = ZoneID.getText();
+															logs.info("ZoneID of is==" + ZOneID);
+															if (ZOneID.equalsIgnoreCase("EDT")) {
+																ZOneID = "America/New_York";
+															} else if (ZOneID.equalsIgnoreCase("CDT")) {
+																ZOneID = "CST";
+															} else if (ZOneID.equalsIgnoreCase("PDT")) {
+																ZOneID = "PST";
+															}
+															// --PickUp Date
+															WebElement PickUpDate = driver.findElement(By.id(PUDate));
+															PickUpDate.clear();
+															Date date = new Date();
+															SimpleDateFormat dateFormat = new SimpleDateFormat(
+																	"MM/dd/yyyy");
+															dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+															logs.info(dateFormat.format(date));
+															PickUpDate.sendKeys(dateFormat.format(date));
+															PickUpDate.sendKeys(Keys.TAB);
+															logs.info("Entered Actual Pickup Date");
+
+															// --Enter Act.PickUp Time
+															WebElement PickUpTime = driver.findElement(By.id(PUTime));
+															PickUpTime.clear();
+															date = new Date();
+															dateFormat = new SimpleDateFormat("HH:mm");
+															dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+															Calendar cal = Calendar
+																	.getInstance(TimeZone.getTimeZone(ZOneID));
+															cal.add(Calendar.MINUTE, 1);
+															logs.info(dateFormat.format(cal.getTime()));
+															PickUpTime.sendKeys(dateFormat.format(cal.getTime()));
+															PickUpTime.sendKeys(Keys.TAB);
+															logs.info("Entered Actual Pickup Time");
+
+															// --Click on ConfirmPU button
+															isElementPresent("TLCOnfPU_id").click();
+															logs.info("Clicked on Confirm PU button");
+															wait.until(ExpectedConditions
+																	.invisibilityOfElementLocated(By.id("loaderDiv")));
+															try {
+																wait.until(
+																		ExpectedConditions.visibilityOfElementLocated(
+																				By.id("idValidationforMain")));
+																ValMsg = isElementPresent("TLAlValidation_id")
+																		.getText();
+																logs.info("Validation is displayed==" + ValMsg);
+
+																if (ValMsg.contains(
+																		"Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime.")) {
+
+																	logs.info("PU Copy Next Row is working==PASS");
+																	msg.append("PU Copy Next Row is working==PASS"
+																			+ "\n\n");
+
+																	// --Stored list of pickup
+																	PickupPoints = driver.findElements(By.xpath(
+																			"//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
+																	TotalPickup = PickupPoints.size();
+																	logs.info("Total Pickup points is/are=="
+																			+ TotalPickup);
+
+																	for (int puSs = puS; puS < TotalPickup;) {
+
+																		System.out.println("value of puSs==" + puSs);
+																		if (jobStatus.contains("PICKUP@STOP 2 OF")) {
+																			puSs = 1;
+																		} else if (jobStatus
+																				.contains("PICKUP@STOP 3 OF")) {
+																			puSs = 2;
+
+																		} else if (jobStatus
+																				.contains("PICKUP@STOP 4 OF")) {
+																			puSs = 3;
+
+																		} else if (jobStatus
+																				.contains("PICKUP@STOP 5 OF")) {
+																			puSs = 4;
+
+																		}
+																		System.out.println("value of puSs==" + puSs);
+
+																		ZoneID = PickupPoints.get(puSs).findElement(By
+																				.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+																		PUDate = "txtActpuDate_" + puSs;
+																		PUTime = "txtActPuTime_" + puSs;
+
+																		// --Get ZoneID
+																		ZOneID = ZoneID.getText();
+																		logs.info("ZoneID of is==" + ZOneID);
+																		if (ZOneID.equalsIgnoreCase("EDT")) {
+																			ZOneID = "America/New_York";
+																		} else if (ZOneID.equalsIgnoreCase("CDT")) {
+																			ZOneID = "CST";
+																		} else if (ZOneID.equalsIgnoreCase("PDT")) {
+																			ZOneID = "PST";
+																		}
+																		// --PickUp Date
+																		PickUpDate = driver.findElement(By.id(PUDate));
+																		PickUpDate.clear();
+																		date = new Date();
+																		dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+																		dateFormat.setTimeZone(
+																				TimeZone.getTimeZone(ZOneID));
+																		logs.info(dateFormat.format(date));
+																		PickUpDate.sendKeys(dateFormat.format(date));
+																		PickUpDate.sendKeys(Keys.TAB);
+																		logs.info("Entered Actual Pickup Date");
+
+																		// --Enter Act.PickUp Time
+																		PickUpTime = driver.findElement(By.id(PUTime));
+																		PickUpTime.clear();
+																		date = new Date();
+																		dateFormat = new SimpleDateFormat("HH:mm");
+																		dateFormat.setTimeZone(
+																				TimeZone.getTimeZone(ZOneID));
+																		cal = Calendar.getInstance(
+																				TimeZone.getTimeZone(ZOneID));
+																		cal.add(Calendar.MINUTE, 1);
+																		logs.info(dateFormat.format(cal.getTime()));
+																		PickUpTime.sendKeys(
+																				dateFormat.format(cal.getTime()));
+																		PickUpTime.sendKeys(Keys.TAB);
+																		logs.info("Entered Actual Pickup Time");
+
+																		// --Click on ConfirmPU button
+																		isElementPresent("TLCOnfPU_id").click();
+																		logs.info("Clicked on Confirm PU button");
+																		wait.until(ExpectedConditions
+																				.invisibilityOfElementLocated(
+																						By.id("loaderDiv")));
+																	}
+																}
+															} catch (Exception e) {
+																logs.info(
+																		"Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime validation is not displayed");
+
+															}
+
+															break;
+														}
+
+													} else {
+														logs.info("PU Copy Next Row is not working==FAIL");
+														msg.append("PU Copy Next Row is not working==FAIL" + "\n\n");
+														getScreenshot(driver, "PUCpNXTRwIssue");
+													}
+
+												} catch (Exception CopyAllIssue) {
+													logs.info("PU Copy Next Row is working==PASS");
+													msg.append("PU Copy Next Row is working==PASS" + "\n\n");
+												}
+
+											} catch (Exception coppyy) {
+												logs.info("Validation for Act.Pickup Time is not displayed");
 											}
-										} catch (Exception ActTimeGDelTime) {
-											logs.info("Validation is not displayed="
-													+ "Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime.");
-
 										}
+
 										// Rebind the list
 										wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
 										jobStatus = isElementPresent("TLStageLable_id").getText();
@@ -484,11 +728,533 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 											wait.until(ExpectedConditions
 													.invisibilityOfElementLocated(By.id("loaderDiv")));
 
+											// --Click on Confirm Del button
+											isElementPresent("TLConfDEL_id").click();
+											logs.info("Clicked on Confirm DEL button");
+											wait.until(ExpectedConditions
+													.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+											try {
+
+												wait.until(ExpectedConditions
+														.visibilityOfElementLocated(By.id("idValidationforMain")));
+												ValMsg = isElementPresent("TLAlValidation_id").getText();
+												logs.info("Validation is displayed==" + ValMsg);
+
+												// --Copy All
+												logs.info("--Testing DEL Copy All Row button--");
+
+												// --Click on Copy All Del Time button
+												DelTime = driver.findElement(By.id(DeliveryTime));
+												DelTime.click();
+												logs.info("Clicked on 1st Del stop Time");
+
+												WebElement DELCopyAll = isElementPresent("DELCPYAllRow_id");
+												wait.until(ExpectedConditions.visibilityOf(DELCopyAll));
+												act.moveToElement(DELCopyAll).build().perform();
+												wait.until(ExpectedConditions.elementToBeClickable(DELCopyAll));
+												js.executeScript("arguments[0].click();", DELCopyAll);
+												logs.info("Clicked on Copy All Row button of Del Time");
+
+												// --Click on Copy All row Signature
+												Sign = DelPoints.get(Del).findElement(By.id("txtsign"));
+												Sign.click();
+												logs.info("Clicked on 1st Signature");
+
+												WebElement SignCopyAll = isElementPresent("CpySignAll_id");
+												wait.until(ExpectedConditions.visibilityOf(SignCopyAll));
+												act.moveToElement(SignCopyAll).build().perform();
+												wait.until(ExpectedConditions.elementToBeClickable(SignCopyAll));
+												js.executeScript("arguments[0].click();", SignCopyAll);
+												logs.info("Clicked on Copy All Row button of Signature");
+
+												// --Click on Confirm Del button
+												isElementPresent("TLConfDEL_id").click();
+												logs.info("Clicked on Confirm DEL button");
+												wait.until(ExpectedConditions
+														.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+												try {
+													wait.until(ExpectedConditions
+															.visibilityOfElementLocated(By.id("idValidationforMain")));
+													ValMsg = isElementPresent("TLAlValidation_id").getText();
+													logs.info("Validation is displayed==" + ValMsg);
+													if (ValMsg.contains("Act. Delivery Time is Required.")
+															&& ValMsg.contains("Signature is required.")) {
+														logs.info("DEL Copy All Row is not working==FAIL");
+														msg.append("DEL Copy All Row is not working==FAIL" + "\n");
+														logs.info("Sign Copy All Row is not working==FAIL");
+														msg.append("Sign Copy All Row is not working==FAIL" + "\n");
+														getScreenshot(driver, "DEL_SignCpAllRwIssue");
+													} else if (ValMsg.contains("Act. Delivery Time is Required.")) {
+														logs.info("DEL Copy All Row is not working==FAIL");
+														msg.append("DEL Copy All Row is not working==FAIL" + "\n");
+														getScreenshot(driver, "DELCpAllRwIssue");
+													} else if (ValMsg.contains("Signature is required.")) {
+														logs.info("Sign Copy All Row is not working==FAIL");
+														msg.append("Sign Copy All Row is not working==FAIL" + "\n");
+														getScreenshot(driver, "SignCpAllRwIssue");
+													} else if (ValMsg.contains(
+															"Actual Delivery Datetime cannot be less than or equal to Actual Pickup Datetime.")) {
+
+														DelPoints = driver.findElements(By.xpath(
+																"//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
+														TotalDel = DelPoints.size();
+														logs.info("Total Delivery points is/are==" + TotalDel);
+
+														for (Del = 0; Del < TotalDel; Del++) {
+															System.out.println("value of del==" + Del);
+
+															ZoneID = DelPoints.get(Del).findElement(By.xpath(
+																	"td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+															DeliveryDate = "txtActdlDate_" + Del;
+															DeliveryTime = "txtActDlTime_" + Del;
+
+															// --Get ZoneID
+															ZOneID = ZoneID.getText();
+															logs.info("ZoneID of is==" + ZOneID);
+															if (ZOneID.equalsIgnoreCase("EDT")) {
+																ZOneID = "America/New_York";
+															} else if (ZOneID.equalsIgnoreCase("CDT")) {
+																ZOneID = "CST";
+															} else if (ZOneID.equalsIgnoreCase("PDT")) {
+																ZOneID = "PST";
+															}
+
+															// --Delivery Date
+															DelDate = driver.findElement(By.id(DeliveryDate));
+															DelDate.clear();
+															date = new Date();
+															dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+															dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+															logs.info(dateFormat.format(date));
+															DelDate.sendKeys(dateFormat.format(date));
+															DelDate.sendKeys(Keys.TAB);
+															logs.info("Entered Actual Delivery Date");
+
+															// --Enter Act.DEL Time
+															DelTime = driver.findElement(By.id(DeliveryTime));
+															DelTime.clear();
+															date = new Date();
+															dateFormat = new SimpleDateFormat("HH:mm");
+															dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+															Calendar cal = Calendar
+																	.getInstance(TimeZone.getTimeZone(ZOneID));
+															cal.add(Calendar.MINUTE, 1);
+															logs.info(dateFormat.format(cal.getTime()));
+															DelTime.sendKeys(dateFormat.format(cal.getTime()));
+															DelTime.sendKeys(Keys.TAB);
+															logs.info("Entered Actual Delivery Time");
+
+															// --Click on Confirm Del button
+															isElementPresent("TLConfDEL_id").click();
+															logs.info("Clicked on Confirm DEL button");
+															wait.until(ExpectedConditions
+																	.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+															try {
+																// --Copy All
+																wait.until(
+																		ExpectedConditions.visibilityOfElementLocated(
+																				By.id("idValidationforMain")));
+																ValMsg = isElementPresent("TLAlValidation_id")
+																		.getText();
+																logs.info("Validation is displayed==" + ValMsg);
+
+																logs.info("--Testing DEL Copy All Row button--");
+
+																// --Click on Copy All Del Time button
+																DelTime = driver.findElement(By.id(DeliveryTime));
+																DelTime.click();
+																logs.info("Clicked on 1st Del stop Time");
+
+																DELCopyAll = isElementPresent("DELCPYAllRow_id");
+																wait.until(ExpectedConditions.visibilityOf(DELCopyAll));
+																act.moveToElement(DELCopyAll).build().perform();
+																wait.until(ExpectedConditions
+																		.elementToBeClickable(DELCopyAll));
+																js.executeScript("arguments[0].click();", DELCopyAll);
+																logs.info("Clicked on Copy All Row button of Del Time");
+
+																// --Click on Copy All row Signature
+																Sign = DelPoints.get(Del).findElement(By.id("txtsign"));
+																Sign.click();
+																logs.info("Clicked on 1st Signature");
+
+																SignCopyAll = isElementPresent("CpySignAll_id");
+																wait.until(
+																		ExpectedConditions.visibilityOf(SignCopyAll));
+																act.moveToElement(SignCopyAll).build().perform();
+																wait.until(ExpectedConditions
+																		.elementToBeClickable(SignCopyAll));
+																js.executeScript("arguments[0].click();", SignCopyAll);
+																logs.info(
+																		"Clicked on Copy All Row button of Signature");
+
+																// --Click on Confirm Del button
+																isElementPresent("TLConfDEL_id").click();
+																logs.info("Clicked on Confirm DEL button");
+																wait.until(
+																		ExpectedConditions.invisibilityOfElementLocated(
+																				By.id("loaderDiv")));
+
+																try {
+																	wait.until(ExpectedConditions
+																			.visibilityOfElementLocated(
+																					By.id("idValidationforMain")));
+																	ValMsg = isElementPresent("TLAlValidation_id")
+																			.getText();
+																	logs.info("Validation is displayed==" + ValMsg);
+
+																	if (ValMsg.contains(
+																			"Please enter same Actual Delivery Datetime.")) {
+																		DelPoints = driver.findElements(By.xpath(
+																				"//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
+																		TotalDel = DelPoints.size();
+																		logs.info("Total Delivery points is/are=="
+																				+ TotalDel);
+
+																		for (Del = 0; Del < TotalDel; Del++) {
+																			System.out.println("value of del==" + Del);
+
+																			ZoneID = DelPoints.get(Del).findElement(By
+																					.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+																			DeliveryDate = "txtActdlDate_" + Del;
+																			DeliveryTime = "txtActDlTime_" + Del;
+
+																			// --Get ZoneID
+																			ZOneID = ZoneID.getText();
+																			logs.info("ZoneID of is==" + ZOneID);
+																			if (ZOneID.equalsIgnoreCase("EDT")) {
+																				ZOneID = "America/New_York";
+																			} else if (ZOneID.equalsIgnoreCase("CDT")) {
+																				ZOneID = "CST";
+																			} else if (ZOneID.equalsIgnoreCase("PDT")) {
+																				ZOneID = "PST";
+																			}
+
+																			// --Delivery Date
+																			DelDate = driver
+																					.findElement(By.id(DeliveryDate));
+																			DelDate.clear();
+																			date = new Date();
+																			dateFormat = new SimpleDateFormat(
+																					"MM/dd/yyyy");
+																			dateFormat.setTimeZone(
+																					TimeZone.getTimeZone(ZOneID));
+																			logs.info(dateFormat.format(date));
+																			DelDate.sendKeys(dateFormat.format(date));
+																			DelDate.sendKeys(Keys.TAB);
+																			logs.info("Entered Actual Delivery Date");
+
+																			// --Enter Act.DEL Time
+																			DelTime = driver
+																					.findElement(By.id(DeliveryTime));
+																			DelTime.clear();
+																			date = new Date();
+																			dateFormat = new SimpleDateFormat("HH:mm");
+																			dateFormat.setTimeZone(
+																					TimeZone.getTimeZone(ZOneID));
+																			cal = Calendar.getInstance(
+																					TimeZone.getTimeZone(ZOneID));
+																			cal.add(Calendar.MINUTE, 1);
+																			logs.info(dateFormat.format(cal.getTime()));
+																			DelTime.sendKeys(
+																					dateFormat.format(cal.getTime()));
+																			DelTime.sendKeys(Keys.TAB);
+																			logs.info("Entered Actual Delivery Time");
+
+																			// --Click on Confirm Del button
+																			isElementPresent("TLConfDEL_id").click();
+																			logs.info("Clicked on Confirm DEL button");
+																			wait.until(ExpectedConditions
+																					.invisibilityOfElementLocated(
+																							By.id("loaderDiv")));
+
+																			try {
+																				// --Copy All
+																				wait.until(ExpectedConditions
+																						.visibilityOfElementLocated(By
+																								.id("idValidationforMain")));
+																				ValMsg = isElementPresent(
+																						"TLAlValidation_id").getText();
+																				logs.info("Validation is displayed=="
+																						+ ValMsg);
+
+																				logs.info(
+																						"--Testing DEL Copy All Row button--");
+
+																				// --Click on Copy All Del Time button
+																				DelTime = driver.findElement(
+																						By.id(DeliveryTime));
+																				DelTime.click();
+																				logs.info(
+																						"Clicked on 1st Del stop Time");
+
+																				DELCopyAll = isElementPresent(
+																						"DELCPYAllRow_id");
+																				wait.until(ExpectedConditions
+																						.visibilityOf(DELCopyAll));
+																				act.moveToElement(DELCopyAll).build()
+																						.perform();
+																				wait.until(ExpectedConditions
+																						.elementToBeClickable(
+																								DELCopyAll));
+																				js.executeScript(
+																						"arguments[0].click();",
+																						DELCopyAll);
+																				logs.info(
+																						"Clicked on Copy All Row button of Del Time");
+
+																				// --Click on Copy All row Signature
+																				Sign = DelPoints.get(Del)
+																						.findElement(By.id("txtsign"));
+																				Sign.click();
+																				logs.info("Clicked on 1st Signature");
+
+																				SignCopyAll = isElementPresent(
+																						"CpySignAll_id");
+																				wait.until(ExpectedConditions
+																						.visibilityOf(SignCopyAll));
+																				act.moveToElement(SignCopyAll).build()
+																						.perform();
+																				wait.until(ExpectedConditions
+																						.elementToBeClickable(
+																								SignCopyAll));
+																				js.executeScript(
+																						"arguments[0].click();",
+																						SignCopyAll);
+																				logs.info(
+																						"Clicked on Copy All Row button of Signature");
+
+																				// --Click on Confirm Del button
+																				isElementPresent("TLConfDEL_id")
+																						.click();
+																				logs.info(
+																						"Clicked on Confirm DEL button");
+																				wait.until(ExpectedConditions
+																						.invisibilityOfElementLocated(
+																								By.id("loaderDiv")));
+
+																				try {
+																					wait.until(ExpectedConditions
+																							.visibilityOfElementLocated(
+																									By.id("idValidationforMain")));
+																					ValMsg = isElementPresent(
+																							"TLAlValidation_id")
+																							.getText();
+																					logs.info(
+																							"Validation is displayed=="
+																									+ ValMsg);
+
+																					logs.info(
+																							"DEL Copy All Row is not working==FAIL");
+																					msg.append(
+																							"DEL Copy All Row is not working==FAIL"
+																									+ "\n");
+																					logs.info(
+																							"Sign Copy All Row is not working==FAIL");
+																					msg.append(
+																							"Sign Copy All Row is not working==FAIL"
+																									+ "\n");
+																					getScreenshot(driver,
+																							"DEL_SignCpAllRwIssue");
+
+																				} catch (Exception CopyAllIssue) {
+																					logs.info(
+																							"DEL Copy All Row is working==PASS");
+																					msg.append(
+																							"DEL Copy All Row is working==PASS"
+																									+ "\n");
+																					logs.info(
+																							"Sign Copy All Row is working==PASS");
+																					msg.append(
+																							"Sign Copy All Row is working==PASS"
+																									+ "\n");
+																					break;
+																				}
+
+																			} catch (Exception coppyy) {
+																				logs.info(
+																						"Please enter same Actual Delivery Datetime validation is not displayed");
+																			}
+
+																		}
+
+																	}
+
+																} catch (Exception CopyAllIssue) {
+																	logs.info("DEL Copy All Row is working==PASS");
+																	msg.append(
+																			"DEL Copy All Row is working==PASS" + "\n");
+																	logs.info("Sign Copy All Row is working==PASS");
+																	msg.append("Sign Copy All Row is working==PASS"
+																			+ "\n");
+																	break;
+																}
+
+															} catch (Exception coppyy) {
+																logs.info(
+																		"Actual Delivery Datetime cannot be less than or equal to Actual Pickup Datetime.");
+															}
+
+														}
+
+													} else if (ValMsg
+															.contains("Please enter same Actual Delivery Datetime.")) {
+														DelPoints = driver.findElements(By.xpath(
+																"//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
+														TotalDel = DelPoints.size();
+														logs.info("Total Delivery points is/are==" + TotalDel);
+
+														for (Del = 0; Del < TotalDel; Del++) {
+															System.out.println("value of del==" + Del);
+
+															ZoneID = DelPoints.get(Del).findElement(By.xpath(
+																	"td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+															DeliveryDate = "txtActdlDate_" + Del;
+															DeliveryTime = "txtActDlTime_" + Del;
+
+															// --Get ZoneID
+															ZOneID = ZoneID.getText();
+															logs.info("ZoneID of is==" + ZOneID);
+															if (ZOneID.equalsIgnoreCase("EDT")) {
+																ZOneID = "America/New_York";
+															} else if (ZOneID.equalsIgnoreCase("CDT")) {
+																ZOneID = "CST";
+															} else if (ZOneID.equalsIgnoreCase("PDT")) {
+																ZOneID = "PST";
+															}
+
+															// --Delivery Date
+															DelDate = driver.findElement(By.id(DeliveryDate));
+															DelDate.clear();
+															date = new Date();
+															dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+															dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+															logs.info(dateFormat.format(date));
+															DelDate.sendKeys(dateFormat.format(date));
+															DelDate.sendKeys(Keys.TAB);
+															logs.info("Entered Actual Delivery Date");
+
+															// --Enter Act.DEL Time
+															DelTime = driver.findElement(By.id(DeliveryTime));
+															DelTime.clear();
+															date = new Date();
+															dateFormat = new SimpleDateFormat("HH:mm");
+															dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+															Calendar cal = Calendar
+																	.getInstance(TimeZone.getTimeZone(ZOneID));
+															cal.add(Calendar.MINUTE, 1);
+															logs.info(dateFormat.format(cal.getTime()));
+															DelTime.sendKeys(dateFormat.format(cal.getTime()));
+															DelTime.sendKeys(Keys.TAB);
+															logs.info("Entered Actual Delivery Time");
+
+															// --Click on Confirm Del button
+															isElementPresent("TLConfDEL_id").click();
+															logs.info("Clicked on Confirm DEL button");
+															wait.until(ExpectedConditions
+																	.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+															try {
+																// --Copy All
+																wait.until(
+																		ExpectedConditions.visibilityOfElementLocated(
+																				By.id("idValidationforMain")));
+																ValMsg = isElementPresent("TLAlValidation_id")
+																		.getText();
+																logs.info("Validation is displayed==" + ValMsg);
+
+																logs.info("--Testing DEL Copy All Row button--");
+
+																// --Click on Copy All Del Time button
+																DelTime = driver.findElement(By.id(DeliveryTime));
+																DelTime.click();
+																logs.info("Clicked on 1st Del stop Time");
+
+																DELCopyAll = isElementPresent("DELCPYAllRow_id");
+																wait.until(ExpectedConditions.visibilityOf(DELCopyAll));
+																act.moveToElement(DELCopyAll).build().perform();
+																wait.until(ExpectedConditions
+																		.elementToBeClickable(DELCopyAll));
+																js.executeScript("arguments[0].click();", DELCopyAll);
+																logs.info("Clicked on Copy All Row button of Del Time");
+
+																// --Click on Copy All row Signature
+																Sign = DelPoints.get(Del).findElement(By.id("txtsign"));
+																Sign.click();
+																logs.info("Clicked on 1st Signature");
+
+																SignCopyAll = isElementPresent("CpySignAll_id");
+																wait.until(
+																		ExpectedConditions.visibilityOf(SignCopyAll));
+																act.moveToElement(SignCopyAll).build().perform();
+																wait.until(ExpectedConditions
+																		.elementToBeClickable(SignCopyAll));
+																js.executeScript("arguments[0].click();", SignCopyAll);
+																logs.info(
+																		"Clicked on Copy All Row button of Signature");
+
+																// --Click on Confirm Del button
+																isElementPresent("TLConfDEL_id").click();
+																logs.info("Clicked on Confirm DEL button");
+																wait.until(
+																		ExpectedConditions.invisibilityOfElementLocated(
+																				By.id("loaderDiv")));
+
+																try {
+																	wait.until(ExpectedConditions
+																			.visibilityOfElementLocated(
+																					By.id("idValidationforMain")));
+																	ValMsg = isElementPresent("TLAlValidation_id")
+																			.getText();
+																	logs.info("Validation is displayed==" + ValMsg);
+
+																	logs.info("DEL Copy All Row is not working==FAIL");
+																	msg.append("DEL Copy All Row is not working==FAIL"
+																			+ "\n");
+																	logs.info("Sign Copy All Row is not working==FAIL");
+																	msg.append("Sign Copy All Row is not working==FAIL"
+																			+ "\n");
+																	getScreenshot(driver, "DEL_SignCpAllRwIssue");
+
+																} catch (Exception CopyAllIssue) {
+																	logs.info("DEL Copy All Row is working==PASS");
+																	msg.append(
+																			"DEL Copy All Row is working==PASS" + "\n");
+																	logs.info("Sign Copy All Row is working==PASS");
+																	msg.append("Sign Copy All Row is working==PASS"
+																			+ "\n");
+																	break;
+																}
+
+															} catch (Exception coppyy) {
+																logs.info(
+																		"Please enter same Actual Delivery Datetime validation is not displayed");
+															}
+
+														}
+
+													} else {
+														logs.info("Unknown validation message displayed==FAIL");
+														msg.append("Unknown validation message displayed==FAIL" + "\n");
+														getScreenshot(driver, "DELUnkwnValIssue");
+													}
+
+												} catch (Exception CopyAllIssue) {
+													logs.info("DEL Copy All Row is working==PASS");
+													msg.append("DEL Copy All Row is working==PASS" + "\n");
+													logs.info("Sign Copy All Row is working==PASS");
+													msg.append("Sign Copy All Row is working==PASS" + "\n");
+													break;
+												}
+
+											} catch (Exception coppyy) {
+												logs.info("Validation for Act.Del Time and Signature is not displayed");
+											}
+
 										}
-										// --Click on Confirm Del button
-										isElementPresent("TLConfDEL_id").click();
-										logs.info("Clicked on Confirm DEL button");
-										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 									} catch (Exception NoValSign) {
 										logs.info("Validation for Act.Del Time and Signature is not displayed");
@@ -547,9 +1313,79 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 												Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
 												cal.add(Calendar.MINUTE, 1);
 												logs.info(dateFormat.format(cal.getTime()));
-
 												DelTime.sendKeys(dateFormat.format(cal.getTime()));
+												DelTime.sendKeys(Keys.TAB);
 												logs.info("Entered Actual Delivery Time");
+
+												// --Click on Confirm Del button
+												isElementPresent("TLConfDEL_id").click();
+												logs.info("Clicked on Confirm DEL button");
+												wait.until(ExpectedConditions
+														.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+												try {
+													// --Copy All
+													wait.until(ExpectedConditions
+															.visibilityOfElementLocated(By.id("idValidationforMain")));
+													ValMsg = isElementPresent("TLAlValidation_id").getText();
+													logs.info("Validation is displayed==" + ValMsg);
+
+													logs.info("--Testing DEL Copy All Row button--");
+
+													// --Click on Copy All Del Time button
+													DelTime = driver.findElement(By.id(DeliveryTime));
+													DelTime.click();
+													logs.info("Clicked on 1st Del stop Time");
+
+													WebElement DELCopyAll = isElementPresent("DELCPYAllRow_id");
+													wait.until(ExpectedConditions.visibilityOf(DELCopyAll));
+													act.moveToElement(DELCopyAll).build().perform();
+													wait.until(ExpectedConditions.elementToBeClickable(DELCopyAll));
+													js.executeScript("arguments[0].click();", DELCopyAll);
+													logs.info("Clicked on Copy All Row button of Del Time");
+
+													// --Click on Copy All row Signature
+													WebElement Sign = DelPoints.get(Del).findElement(By.id("txtsign"));
+													Sign.click();
+													logs.info("Clicked on 1st Signature");
+
+													WebElement SignCopyAll = isElementPresent("CpySignAll_id");
+													wait.until(ExpectedConditions.visibilityOf(SignCopyAll));
+													act.moveToElement(SignCopyAll).build().perform();
+													wait.until(ExpectedConditions.elementToBeClickable(SignCopyAll));
+													js.executeScript("arguments[0].click();", SignCopyAll);
+													logs.info("Clicked on Copy All Row button of Signature");
+
+													// --Click on Confirm Del button
+													isElementPresent("TLConfDEL_id").click();
+													logs.info("Clicked on Confirm DEL button");
+													wait.until(ExpectedConditions
+															.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+													try {
+														wait.until(ExpectedConditions.visibilityOfElementLocated(
+																By.id("idValidationforMain")));
+														ValMsg = isElementPresent("TLAlValidation_id").getText();
+														logs.info("Validation is displayed==" + ValMsg);
+
+														logs.info("DEL Copy All Row is not working==FAIL");
+														msg.append("DEL Copy All Row is not working==FAIL" + "\n");
+														logs.info("Sign Copy All Row is not working==FAIL");
+														msg.append("Sign Copy All Row is not working==FAIL" + "\n");
+														getScreenshot(driver, "DEL_SignCpAllRwIssue");
+
+													} catch (Exception CopyAllIssue) {
+														logs.info("DEL Copy All Row is working==PASS");
+														msg.append("DEL Copy All Row is working==PASS" + "\n");
+														logs.info("Sign Copy All Row is working==PASS");
+														msg.append("Sign Copy All Row is working==PASS" + "\n");
+														break;
+													}
+
+												} catch (Exception coppyy) {
+													logs.info(
+															"Actual Delivery Datetime cannot be less than or equal to Actual Pickup Datetime.");
+												}
 
 											}
 										} else if (ValMsg.contains("Please enter same Actual Delivery Datetime.")) {
@@ -598,20 +1434,86 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 												cal.add(Calendar.MINUTE, 1);
 												logs.info(dateFormat.format(cal.getTime()));
 												DelTime.sendKeys(dateFormat.format(cal.getTime()));
+												DelTime.sendKeys(Keys.TAB);
 												logs.info("Entered Actual Delivery Time");
+
+												// --Click on Confirm Del button
+												isElementPresent("TLConfDEL_id").click();
+												logs.info("Clicked on Confirm DEL button");
+												wait.until(ExpectedConditions
+														.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+												try {
+													// --Copy All
+													wait.until(ExpectedConditions
+															.visibilityOfElementLocated(By.id("idValidationforMain")));
+													ValMsg = isElementPresent("TLAlValidation_id").getText();
+													logs.info("Validation is displayed==" + ValMsg);
+
+													logs.info("--Testing DEL Copy All Row button--");
+
+													// --Click on Copy All Del Time button
+													DelTime = driver.findElement(By.id(DeliveryTime));
+													DelTime.click();
+													logs.info("Clicked on 1st Del stop Time");
+
+													WebElement DELCopyAll = isElementPresent("DELCPYAllRow_id");
+													wait.until(ExpectedConditions.visibilityOf(DELCopyAll));
+													act.moveToElement(DELCopyAll).build().perform();
+													wait.until(ExpectedConditions.elementToBeClickable(DELCopyAll));
+													js.executeScript("arguments[0].click();", DELCopyAll);
+													logs.info("Clicked on Copy All Row button of Del Time");
+
+													// --Click on Copy All row Signature
+													WebElement Sign = DelPoints.get(Del).findElement(By.id("txtsign"));
+													Sign.click();
+													logs.info("Clicked on 1st Signature");
+
+													WebElement SignCopyAll = isElementPresent("CpySignAll_id");
+													wait.until(ExpectedConditions.visibilityOf(SignCopyAll));
+													act.moveToElement(SignCopyAll).build().perform();
+													wait.until(ExpectedConditions.elementToBeClickable(SignCopyAll));
+													js.executeScript("arguments[0].click();", SignCopyAll);
+													logs.info("Clicked on Copy All Row button of Signature");
+
+													// --Click on Confirm Del button
+													isElementPresent("TLConfDEL_id").click();
+													logs.info("Clicked on Confirm DEL button");
+													wait.until(ExpectedConditions
+															.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+													try {
+														wait.until(ExpectedConditions.visibilityOfElementLocated(
+																By.id("idValidationforMain")));
+														ValMsg = isElementPresent("TLAlValidation_id").getText();
+														logs.info("Validation is displayed==" + ValMsg);
+
+														logs.info("DEL Copy All Row is not working==FAIL");
+														msg.append("DEL Copy All Row is not working==FAIL" + "\n");
+														logs.info("Sign Copy All Row is not working==FAIL");
+														msg.append("Sign Copy All Row is not working==FAIL" + "\n");
+														getScreenshot(driver, "DEL_SignCpAllRwIssue");
+
+													} catch (Exception CopyAllIssue) {
+														logs.info("DEL Copy All Row is working==PASS");
+														msg.append("DEL Copy All Row is working==PASS" + "\n");
+														logs.info("Sign Copy All Row is working==PASS");
+														msg.append("Sign Copy All Row is working==PASS" + "\n");
+														break;
+													}
+
+												} catch (Exception coppyy) {
+													logs.info(
+															"Please enter same Actual Delivery Datetime validation is not displayed");
+												}
 
 											}
 
-										}else {
+										} else {
 											logs.info("UnExpected Message is displayed");
 											logs.info("Unable to proceed.....");
 											getScreenshot(driver, "ManyToOneOPIssue");
 										}
-
-										// --Click on Confirm Del button
-										isElementPresent("TLConfDEL_id").click();
-										logs.info("Clicked on Confirm DEL button");
-										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 									} catch (Exception ActTimeGDelTime) {
 										logs.info("Validation is not displayed="
@@ -1088,127 +1990,273 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 									}
 									System.out.println("value of del==" + pu);
 
-									WebElement ZoneID = PickupPoints.get(pu)
-											.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
-									String PUDate = "txtActpuDate_" + pu;
-									String PUTime = "txtActPuTime_" + pu;
+									if (pu == 0) {
+										WebElement ZoneID = PickupPoints.get(pu)
+												.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+										String PUDate = "txtActpuDate_" + pu;
+										String PUTime = "txtActPuTime_" + pu;
 
-									// --Get ZoneID
-									String ZOneID = ZoneID.getText();
-									logs.info("ZoneID of is==" + ZOneID);
-									if (ZOneID.equalsIgnoreCase("EDT")) {
-										ZOneID = "America/New_York";
-									} else if (ZOneID.equalsIgnoreCase("CDT")) {
-										ZOneID = "CST";
-									} else if (ZOneID.equalsIgnoreCase("PDT")) {
-										ZOneID = "PST";
-									}
-									// --PickUp Date
-									WebElement PickUpDate = driver.findElement(By.id(PUDate));
-									PickUpDate.clear();
-									Date date = new Date();
-									DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-									dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-									logs.info(dateFormat.format(date));
-									PickUpDate.sendKeys(dateFormat.format(date));
-									PickUpDate.sendKeys(Keys.TAB);
-									logs.info("Entered Actual Pickup Date");
+										// --Get ZoneID
+										String ZOneID = ZoneID.getText();
+										logs.info("ZoneID of is==" + ZOneID);
+										if (ZOneID.equalsIgnoreCase("EDT")) {
+											ZOneID = "America/New_York";
+										} else if (ZOneID.equalsIgnoreCase("CDT")) {
+											ZOneID = "CST";
+										} else if (ZOneID.equalsIgnoreCase("PDT")) {
+											ZOneID = "PST";
+										}
+										// --PickUp Date
+										WebElement PickUpDate = driver.findElement(By.id(PUDate));
+										PickUpDate.clear();
+										Date date = new Date();
+										DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+										dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+										logs.info(dateFormat.format(date));
+										PickUpDate.sendKeys(dateFormat.format(date));
+										PickUpDate.sendKeys(Keys.TAB);
+										logs.info("Entered Actual Pickup Date");
 
-									// --Enter Act.PickUp Time
-									WebElement PickUpTime = driver.findElement(By.id(PUTime));
-									PickUpTime.clear();
-									date = new Date();
-									dateFormat = new SimpleDateFormat("HH:mm");
-									dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-									logs.info(dateFormat.format(date));
+										// --Enter Act.PickUp Time
+										WebElement PickUpTime = driver.findElement(By.id(PUTime));
+										PickUpTime.clear();
+										date = new Date();
+										dateFormat = new SimpleDateFormat("HH:mm");
+										dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+										logs.info(dateFormat.format(date));
 
-									PickUpTime.sendKeys(dateFormat.format(date));
-									logs.info("Entered Actual Pickup Time");
+										PickUpTime.sendKeys(dateFormat.format(date));
+										logs.info("Entered Actual Pickup Time");
 
-									// --Click on ConfirmPU button
-									isElementPresent("TLCOnfPU_id").click();
-									logs.info("Clicked on Confirm PU button");
-									wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+										// --Click on ConfirmPU button
+										isElementPresent("TLCOnfPU_id").click();
+										logs.info("Clicked on Confirm PU button");
+										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-									try {
-										wait.until(ExpectedConditions
-												.visibilityOfElementLocated(By.id("idValidationforMain")));
-										ValMsg = isElementPresent("TLAlValidation_id").getText();
-										logs.info("Validation is displayed==" + ValMsg);
+										try {
+											// --Actual Pickup Datetime cannot be less than or equal to last
+											// shipment of Actual Pickup Datetime.
+											wait.until(ExpectedConditions
+													.visibilityOfElementLocated(By.id("idValidationforMain")));
+											ValMsg = isElementPresent("TLAlValidation_id").getText();
+											logs.info("Validation is displayed==" + ValMsg);
 
-										// --Stored list of pickup
-										PickupPoints = driver.findElements(By.xpath(
-												"//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
-										TotalPickup = PickupPoints.size();
-										logs.info("Total Pickup points is/are==" + TotalPickup);
+											// --Stored list of pickup
+											PickupPoints = driver.findElements(By.xpath(
+													"//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
+											TotalPickup = PickupPoints.size();
+											logs.info("Total Pickup points is/are==" + TotalPickup);
 
-										for (int puS = pu; puS < TotalPickup;) {
+											for (int puS = pu; puS < TotalPickup;) {
 
-											System.out.println("value of PuS==" + puS);
+												System.out.println("value of PuS==" + puS);
+												if (jobStatus.contains("PICKUP@STOP 2 OF")) {
+													puS = 1;
+												} else if (jobStatus.contains("PICKUP@STOP 3 OF")) {
+													puS = 2;
+
+												} else if (jobStatus.contains("PICKUP@STOP 4 OF")) {
+													puS = 3;
+
+												} else if (jobStatus.contains("PICKUP@STOP 5 OF")) {
+													puS = 4;
+
+												}
+												System.out.println("value of PUs==" + pu);
+
+												ZoneID = PickupPoints.get(pu).findElement(
+														By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+												PUDate = "txtActpuDate_" + pu;
+												PUTime = "txtActPuTime_" + pu;
+
+												// --Get ZoneID
+												ZOneID = ZoneID.getText();
+												logs.info("ZoneID of is==" + ZOneID);
+												if (ZOneID.equalsIgnoreCase("EDT")) {
+													ZOneID = "America/New_York";
+												} else if (ZOneID.equalsIgnoreCase("CDT")) {
+													ZOneID = "CST";
+												} else if (ZOneID.equalsIgnoreCase("PDT")) {
+													ZOneID = "PST";
+												}
+												// --PickUp Date
+												PickUpDate = driver.findElement(By.id(PUDate));
+												PickUpDate.clear();
+												date = new Date();
+												dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+												dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+												logs.info(dateFormat.format(date));
+												PickUpDate.sendKeys(dateFormat.format(date));
+												PickUpDate.sendKeys(Keys.TAB);
+												logs.info("Entered Actual Pickup Date");
+
+												// --Enter Act.PickUp Time
+												PickUpTime = driver.findElement(By.id(PUTime));
+												PickUpTime.clear();
+												date = new Date();
+												dateFormat = new SimpleDateFormat("HH:mm");
+												dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+												logs.info(dateFormat.format(date));
+
+												PickUpTime.sendKeys(dateFormat.format(date));
+												logs.info("Entered Actual Pickup Time");
+
+												// --Click on ConfirmPU button
+												isElementPresent("TLCOnfPU_id").click();
+												logs.info("Clicked on Confirm PU button");
+												wait.until(ExpectedConditions
+														.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+												break;
+											}
+										} catch (Exception ActTimeGDelTime) {
+											logs.info("Validation is not displayed="
+													+ "Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime.");
+
+										}
+									} else {
+										try {
+											// --Copy Next Row for PU Time
+											logs.info("--Testing PU Copy Next Row button--");
+
+											int PrevPU = 0;
 											if (jobStatus.contains("PICKUP@STOP 2 OF")) {
-												puS = 1;
+												pu = 1;
+												PrevPU = 0;
+
 											} else if (jobStatus.contains("PICKUP@STOP 3 OF")) {
-												puS = 2;
+												pu = 2;
+												PrevPU = 1;
 
 											} else if (jobStatus.contains("PICKUP@STOP 4 OF")) {
-												puS = 3;
+												pu = 3;
+												PrevPU = 2;
 
 											} else if (jobStatus.contains("PICKUP@STOP 5 OF")) {
-												puS = 4;
+												pu = 4;
+												PrevPU = 3;
 
 											}
-											System.out.println("value of del==" + pu);
+											System.out.println("value of PrevPU==" + PrevPU);
 
-											ZoneID = PickupPoints.get(pu)
-													.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
-											PUDate = "txtActpuDate_" + pu;
-											PUTime = "txtActPuTime_" + pu;
+											String PrevPUTime = "txtActPuTime_" + PrevPU;
+											WebElement PUSTop = driver.findElement(By.id(PrevPUTime));
+											PUSTop.click();
+											logs.info("Clicked on " + PrevPU + " PU Stop time");
 
-											// --Get ZoneID
-											ZOneID = ZoneID.getText();
-											logs.info("ZoneID of is==" + ZOneID);
-											if (ZOneID.equalsIgnoreCase("EDT")) {
-												ZOneID = "America/New_York";
-											} else if (ZOneID.equalsIgnoreCase("CDT")) {
-												ZOneID = "CST";
-											} else if (ZOneID.equalsIgnoreCase("PDT")) {
-												ZOneID = "PST";
-											}
-											// --PickUp Date
-											PickUpDate = driver.findElement(By.id(PUDate));
-											PickUpDate.clear();
-											date = new Date();
-											dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-											dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-											logs.info(dateFormat.format(date));
-											PickUpDate.sendKeys(dateFormat.format(date));
-											PickUpDate.sendKeys(Keys.TAB);
-											logs.info("Entered Actual Pickup Date");
-
-											// --Enter Act.PickUp Time
-											PickUpTime = driver.findElement(By.id(PUTime));
-											PickUpTime.clear();
-											date = new Date();
-											dateFormat = new SimpleDateFormat("HH:mm");
-											dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-											logs.info(dateFormat.format(date));
-
-											PickUpTime.sendKeys(dateFormat.format(date));
-											logs.info("Entered Actual Pickup Time");
+											WebElement PUCopyNEXT = isElementPresent("PUCpyNextRow_id");
+											wait.until(ExpectedConditions.visibilityOf(PUCopyNEXT));
+											act.moveToElement(PUCopyNEXT).build().perform();
+											wait.until(ExpectedConditions.elementToBeClickable(PUCopyNEXT));
+											js.executeScript("arguments[0].click();", PUCopyNEXT);
+											logs.info("Clicked on Copy Next Row of PickUp");
 
 											// --Click on ConfirmPU button
 											isElementPresent("TLCOnfPU_id").click();
 											logs.info("Clicked on Confirm PU button");
 											wait.until(ExpectedConditions
 													.invisibilityOfElementLocated(By.id("loaderDiv")));
+											try {
+												wait.until(ExpectedConditions
+														.visibilityOfElementLocated(By.id("idValidationforMain")));
+												ValMsg = isElementPresent("TLAlValidation_id").getText();
+												logs.info("Validation is displayed==" + ValMsg);
 
-											break;
+												if (ValMsg.contains(
+														"Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime.")) {
+
+													logs.info("PU Copy Next Row is working==PASS");
+													msg.append("PU Copy Next Row is working==PASS" + "\n\n");
+
+													// --Stored list of pickup
+													PickupPoints = driver.findElements(By.xpath(
+															"//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
+													TotalPickup = PickupPoints.size();
+													logs.info("Total Pickup points is/are==" + TotalPickup);
+
+													for (int puS = pu; puS < TotalPickup;) {
+
+														System.out.println("value of PuS==" + puS);
+														if (jobStatus.contains("PICKUP@STOP 2 OF")) {
+															puS = 1;
+														} else if (jobStatus.contains("PICKUP@STOP 3 OF")) {
+															puS = 2;
+
+														} else if (jobStatus.contains("PICKUP@STOP 4 OF")) {
+															puS = 3;
+
+														} else if (jobStatus.contains("PICKUP@STOP 5 OF")) {
+															puS = 4;
+
+														}
+														System.out.println("value of PUs==" + pu);
+
+														WebElement ZoneID = PickupPoints.get(pu).findElement(
+																By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+														String PUDate = "txtActpuDate_" + pu;
+														String PUTime = "txtActPuTime_" + pu;
+
+														// --Get ZoneID
+														String ZOneID = ZoneID.getText();
+														logs.info("ZoneID of is==" + ZOneID);
+														if (ZOneID.equalsIgnoreCase("EDT")) {
+															ZOneID = "America/New_York";
+														} else if (ZOneID.equalsIgnoreCase("CDT")) {
+															ZOneID = "CST";
+														} else if (ZOneID.equalsIgnoreCase("PDT")) {
+															ZOneID = "PST";
+														}
+														// --PickUp Date
+														WebElement PickUpDate = driver.findElement(By.id(PUDate));
+														PickUpDate.clear();
+														Date date = new Date();
+														SimpleDateFormat dateFormat = new SimpleDateFormat(
+																"MM/dd/yyyy");
+														dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+														logs.info(dateFormat.format(date));
+														PickUpDate.sendKeys(dateFormat.format(date));
+														PickUpDate.sendKeys(Keys.TAB);
+														logs.info("Entered Actual Pickup Date");
+
+														// --Enter Act.PickUp Time
+														WebElement PickUpTime = driver.findElement(By.id(PUTime));
+														PickUpTime.clear();
+														date = new Date();
+														dateFormat = new SimpleDateFormat("HH:mm");
+														dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+														Calendar cal = Calendar
+																.getInstance(TimeZone.getTimeZone(ZOneID));
+														cal.add(Calendar.MINUTE, 1);
+														logs.info(dateFormat.format(cal.getTime()));
+														PickUpTime.sendKeys(dateFormat.format(cal.getTime()));
+														PickUpTime.sendKeys(Keys.TAB);
+														logs.info("Entered Actual Pickup Time");
+
+														// --Click on ConfirmPU button
+														isElementPresent("TLCOnfPU_id").click();
+														logs.info("Clicked on Confirm PU button");
+														wait.until(ExpectedConditions
+																.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+														break;
+													}
+
+												} else {
+													logs.info("PU Copy Next Row is not working==FAIL");
+													msg.append("PU Copy Next Row is not working==FAIL" + "\n\n");
+													getScreenshot(driver, "PUCpNXTRwIssue");
+												}
+
+											} catch (Exception CopyAllIssue) {
+												logs.info("PU Copy Next Row is working==PASS");
+												msg.append("PU Copy Next Row is working==PASS" + "\n\n");
+											}
+
+										} catch (Exception coppyy) {
+											logs.info("Validation for Act.Pickup Time is not displayed");
 										}
-									} catch (Exception ActTimeGDelTime) {
-										logs.info("Validation is not displayed="
-												+ "Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime.");
-
 									}
+
 									// Rebind the list
 									wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
 									jobStatus = isElementPresent("TLStageLable_id").getText();
@@ -1296,11 +2344,89 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 										logs.info("Entered Signature");
 										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
+										// --Click on Confirm Del button
+										isElementPresent("TLConfDEL_id").click();
+										logs.info("Clicked on Confirm DEL button");
+										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+										try {
+											// --Copy All
+											logs.info("--Testing DEL Copy All Row button--");
+
+											wait.until(ExpectedConditions
+													.visibilityOfElementLocated(By.id("idValidationforMain")));
+											ValMsg = isElementPresent("TLAlValidation_id").getText();
+											logs.info("Validation is displayed==" + ValMsg);
+
+											// --Click on Copy All Del Time button
+											DelTime = driver.findElement(By.id(DeliveryTime));
+											DelTime.click();
+											logs.info("Clicked on 1st Del stop Time");
+
+											WebElement DELCopyAll = isElementPresent("DELCPYAllRow_id");
+											wait.until(ExpectedConditions.visibilityOf(DELCopyAll));
+											act.moveToElement(DELCopyAll).build().perform();
+											wait.until(ExpectedConditions.elementToBeClickable(DELCopyAll));
+											js.executeScript("arguments[0].click();", DELCopyAll);
+											logs.info("Clicked on Copy All Row button of Del Time");
+
+											// --Click on Copy All row Signature
+											Sign = DelPoints.get(Del).findElement(By.id("txtsign"));
+											Sign.click();
+											logs.info("Clicked on 1st Signature");
+
+											WebElement SignCopyAll = isElementPresent("CpySignAll_id");
+											wait.until(ExpectedConditions.visibilityOf(SignCopyAll));
+											act.moveToElement(SignCopyAll).build().perform();
+											wait.until(ExpectedConditions.elementToBeClickable(SignCopyAll));
+											js.executeScript("arguments[0].click();", SignCopyAll);
+											logs.info("Clicked on Copy All Row button of Signature");
+
+											// --Click on Confirm Del button
+											isElementPresent("TLConfDEL_id").click();
+											logs.info("Clicked on Confirm DEL button");
+											wait.until(ExpectedConditions
+													.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+											try {
+												wait.until(ExpectedConditions
+														.visibilityOfElementLocated(By.id("idValidationforMain")));
+												ValMsg = isElementPresent("TLAlValidation_id").getText();
+												logs.info("Validation is displayed==" + ValMsg);
+												if (ValMsg.contains("Act. Delivery Time is Required.")
+														&& ValMsg.contains("Signature is required.")) {
+													logs.info("DEL Copy All Row is not working==FAIL");
+													msg.append("DEL Copy All Row is not working==FAIL" + "\n");
+													logs.info("Sign Copy All Row is not working==FAIL");
+													msg.append("Sign Copy All Row is not working==FAIL" + "\n");
+													getScreenshot(driver, "DEL_SignCpAllRwIssue");
+												} else if (ValMsg.contains("Act. Delivery Time is Required.")) {
+													logs.info("DEL Copy All Row is not working==FAIL");
+													msg.append("DEL Copy All Row is not working==FAIL" + "\n");
+													getScreenshot(driver, "DELCpAllRwIssue");
+												} else if (ValMsg.contains("Signature is required.")) {
+													logs.info("Sign Copy All Row is not working==FAIL");
+													msg.append("Sign Copy All Row is not working==FAIL" + "\n");
+													getScreenshot(driver, "SignCpAllRwIssue");
+												} else {
+													logs.info("Unknown validation message displayed==FAIL");
+													msg.append("Unknown validation message displayed==FAIL" + "\n");
+													getScreenshot(driver, "DELUnkwnValIssue");
+												}
+
+											} catch (Exception CopyAllIssue) {
+												logs.info("DEL Copy All Row is working==PASS");
+												msg.append("DEL Copy All Row is working==PASS" + "\n");
+												logs.info("Sign Copy All Row is working==PASS");
+												msg.append("Sign Copy All Row is working==PASS" + "\n");
+												break;
+											}
+
+										} catch (Exception coppyy) {
+											logs.info("Validation for Act.Del Time and Signature is not displayed");
+										}
+
 									}
-									// --Click on Confirm Del button
-									isElementPresent("TLConfDEL_id").click();
-									logs.info("Clicked on Confirm DEL button");
-									wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 								} catch (Exception NoValSign) {
 									logs.info("Validation for Act.Del Time and Signature is not displayed");
@@ -1363,6 +2489,40 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 											DelTime.sendKeys(dateFormat.format(cal.getTime()));
 											logs.info("Entered Actual Delivery Time");
 
+											try {
+												wait.until(ExpectedConditions
+														.visibilityOfElementLocated(By.id("idValidationforMain")));
+												ValMsg = isElementPresent("TLAlValidation_id").getText();
+												logs.info("Validation is displayed==" + ValMsg);
+												if (ValMsg.contains("Act. Delivery Time is Required.")
+														&& ValMsg.contains("Signature is required.")) {
+													logs.info("DEL Copy All Row is not working==FAIL");
+													msg.append("DEL Copy All Row is not working==FAIL" + "\n");
+													logs.info("Sign Copy All Row is not working==FAIL");
+													msg.append("Sign Copy All Row is not working==FAIL" + "\n");
+													getScreenshot(driver, "DEL_SignCpAllRwIssue");
+												} else if (ValMsg.contains("Act. Delivery Time is Required.")) {
+													logs.info("DEL Copy All Row is not working==FAIL");
+													msg.append("DEL Copy All Row is not working==FAIL" + "\n");
+													getScreenshot(driver, "DELCpAllRwIssue");
+												} else if (ValMsg.contains("Signature is required.")) {
+													logs.info("Sign Copy All Row is not working==FAIL");
+													msg.append("Sign Copy All Row is not working==FAIL" + "\n");
+													getScreenshot(driver, "SignCpAllRwIssue");
+												} else {
+													logs.info("Unknown validation message displayed==FAIL");
+													msg.append("Unknown validation message displayed==FAIL" + "\n");
+													getScreenshot(driver, "DELUnkwnValIssue");
+												}
+
+											} catch (Exception CopyAllIssue) {
+												logs.info("DEL Copy All Row is working==PASS");
+												msg.append("DEL Copy All Row is working==PASS" + "\n");
+												logs.info("Sign Copy All Row is working==PASS");
+												msg.append("Sign Copy All Row is working==PASS" + "\n");
+												break;
+											}
+
 										}
 									} else if (ValMsg.contains("Please enter same Actual Delivery Datetime.")) {
 										List<WebElement> DelPoints = driver.findElements(By.xpath(
@@ -1412,14 +2572,47 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 											DelTime.sendKeys(dateFormat.format(cal.getTime()));
 											logs.info("Entered Actual Delivery Time");
 
+											try {
+												wait.until(ExpectedConditions
+														.visibilityOfElementLocated(By.id("idValidationforMain")));
+												ValMsg = isElementPresent("TLAlValidation_id").getText();
+												logs.info("Validation is displayed==" + ValMsg);
+												if (ValMsg.contains("Act. Delivery Time is Required.")
+														&& ValMsg.contains("Signature is required.")) {
+													logs.info("DEL Copy All Row is not working==FAIL");
+													msg.append("DEL Copy All Row is not working==FAIL" + "\n");
+													logs.info("Sign Copy All Row is not working==FAIL");
+													msg.append("Sign Copy All Row is not working==FAIL" + "\n");
+													getScreenshot(driver, "DEL_SignCpAllRwIssue");
+												} else if (ValMsg.contains("Act. Delivery Time is Required.")) {
+													logs.info("DEL Copy All Row is not working==FAIL");
+													msg.append("DEL Copy All Row is not working==FAIL" + "\n");
+													getScreenshot(driver, "DELCpAllRwIssue");
+												} else if (ValMsg.contains("Signature is required.")) {
+													logs.info("Sign Copy All Row is not working==FAIL");
+													msg.append("Sign Copy All Row is not working==FAIL" + "\n");
+													getScreenshot(driver, "SignCpAllRwIssue");
+												} else {
+													logs.info("Unknown validation message displayed==FAIL");
+													msg.append("Unknown validation message displayed==FAIL" + "\n");
+													getScreenshot(driver, "DELUnkwnValIssue");
+												}
+
+											} catch (Exception CopyAllIssue) {
+												logs.info("DEL Copy All Row is working==PASS");
+												msg.append("DEL Copy All Row is working==PASS" + "\n");
+												logs.info("Sign Copy All Row is working==PASS");
+												msg.append("Sign Copy All Row is working==PASS" + "\n");
+												break;
+											}
+
 										}
 
+									} else {
+										logs.info("UnExpected Message is displayed");
+										logs.info("Unable to proceed.....");
+										getScreenshot(driver, "ManyToOneOPIssue");
 									}
-
-									// --Click on Confirm Del button
-									isElementPresent("TLConfDEL_id").click();
-									logs.info("Clicked on Confirm DEL button");
-									wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 								} catch (Exception ActTimeGDelTime) {
 									logs.info("Validation is not displayed="
@@ -1832,125 +3025,269 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 							}
 							System.out.println("value of del==" + pu);
 
-							WebElement ZoneID = PickupPoints.get(pu)
-									.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
-							String PUDate = "txtActpuDate_" + pu;
-							String PUTime = "txtActPuTime_" + pu;
+							if (pu == 0) {
+								WebElement ZoneID = PickupPoints.get(pu)
+										.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+								String PUDate = "txtActpuDate_" + pu;
+								String PUTime = "txtActPuTime_" + pu;
 
-							// --Get ZoneID
-							String ZOneID = ZoneID.getText();
-							logs.info("ZoneID of is==" + ZOneID);
-							if (ZOneID.equalsIgnoreCase("EDT")) {
-								ZOneID = "America/New_York";
-							} else if (ZOneID.equalsIgnoreCase("CDT")) {
-								ZOneID = "CST";
-							} else if (ZOneID.equalsIgnoreCase("PDT")) {
-								ZOneID = "PST";
-							}
-							// --PickUp Date
-							WebElement PickUpDate = driver.findElement(By.id(PUDate));
-							PickUpDate.clear();
-							Date date = new Date();
-							DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-							dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-							logs.info(dateFormat.format(date));
-							PickUpDate.sendKeys(dateFormat.format(date));
-							PickUpDate.sendKeys(Keys.TAB);
-							logs.info("Entered Actual Pickup Date");
+								// --Get ZoneID
+								String ZOneID = ZoneID.getText();
+								logs.info("ZoneID of is==" + ZOneID);
+								if (ZOneID.equalsIgnoreCase("EDT")) {
+									ZOneID = "America/New_York";
+								} else if (ZOneID.equalsIgnoreCase("CDT")) {
+									ZOneID = "CST";
+								} else if (ZOneID.equalsIgnoreCase("PDT")) {
+									ZOneID = "PST";
+								}
+								// --PickUp Date
+								WebElement PickUpDate = driver.findElement(By.id(PUDate));
+								PickUpDate.clear();
+								Date date = new Date();
+								DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+								dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+								logs.info(dateFormat.format(date));
+								PickUpDate.sendKeys(dateFormat.format(date));
+								PickUpDate.sendKeys(Keys.TAB);
+								logs.info("Entered Actual Pickup Date");
 
-							// --Enter Act.PickUp Time
-							WebElement PickUpTime = driver.findElement(By.id(PUTime));
-							PickUpTime.clear();
-							date = new Date();
-							dateFormat = new SimpleDateFormat("HH:mm");
-							dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-							logs.info(dateFormat.format(date));
+								// --Enter Act.PickUp Time
+								WebElement PickUpTime = driver.findElement(By.id(PUTime));
+								PickUpTime.clear();
+								date = new Date();
+								dateFormat = new SimpleDateFormat("HH:mm");
+								dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+								logs.info(dateFormat.format(date));
 
-							PickUpTime.sendKeys(dateFormat.format(date));
-							logs.info("Entered Actual Pickup Time");
+								PickUpTime.sendKeys(dateFormat.format(date));
+								logs.info("Entered Actual Pickup Time");
 
-							// --Click on ConfirmPU button
-							isElementPresent("TLCOnfPU_id").click();
-							logs.info("Clicked on Confirm PU button");
-							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+								// --Click on ConfirmPU button
+								isElementPresent("TLCOnfPU_id").click();
+								logs.info("Clicked on Confirm PU button");
+								wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-							try {
-								wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("idValidationforMain")));
-								ValMsg = isElementPresent("TLAlValidation_id").getText();
-								logs.info("Validation is displayed==" + ValMsg);
+								try {
+									// --Actual Pickup Datetime cannot be less than or equal to last
+									// shipment of Actual Pickup Datetime.
+									wait.until(ExpectedConditions
+											.visibilityOfElementLocated(By.id("idValidationforMain")));
+									ValMsg = isElementPresent("TLAlValidation_id").getText();
+									logs.info("Validation is displayed==" + ValMsg);
 
-								// --Stored list of pickup
-								PickupPoints = driver.findElements(
-										By.xpath("//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
-								TotalPickup = PickupPoints.size();
-								logs.info("Total Pickup points is/are==" + TotalPickup);
+									// --Stored list of pickup
+									PickupPoints = driver.findElements(By
+											.xpath("//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
+									TotalPickup = PickupPoints.size();
+									logs.info("Total Pickup points is/are==" + TotalPickup);
 
-								for (int puS = pu; puS < TotalPickup;) {
+									for (int puS = pu; puS < TotalPickup;) {
 
-									System.out.println("value of PuS==" + puS);
+										System.out.println("value of PuS==" + puS);
+										if (jobStatus.contains("PICKUP@STOP 2 OF")) {
+											puS = 1;
+										} else if (jobStatus.contains("PICKUP@STOP 3 OF")) {
+											puS = 2;
+
+										} else if (jobStatus.contains("PICKUP@STOP 4 OF")) {
+											puS = 3;
+
+										} else if (jobStatus.contains("PICKUP@STOP 5 OF")) {
+											puS = 4;
+
+										}
+										System.out.println("value of PUs==" + pu);
+
+										ZoneID = PickupPoints.get(pu)
+												.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+										PUDate = "txtActpuDate_" + pu;
+										PUTime = "txtActPuTime_" + pu;
+
+										// --Get ZoneID
+										ZOneID = ZoneID.getText();
+										logs.info("ZoneID of is==" + ZOneID);
+										if (ZOneID.equalsIgnoreCase("EDT")) {
+											ZOneID = "America/New_York";
+										} else if (ZOneID.equalsIgnoreCase("CDT")) {
+											ZOneID = "CST";
+										} else if (ZOneID.equalsIgnoreCase("PDT")) {
+											ZOneID = "PST";
+										}
+										// --PickUp Date
+										PickUpDate = driver.findElement(By.id(PUDate));
+										PickUpDate.clear();
+										date = new Date();
+										dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+										dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+										logs.info(dateFormat.format(date));
+										PickUpDate.sendKeys(dateFormat.format(date));
+										PickUpDate.sendKeys(Keys.TAB);
+										logs.info("Entered Actual Pickup Date");
+
+										// --Enter Act.PickUp Time
+										PickUpTime = driver.findElement(By.id(PUTime));
+										PickUpTime.clear();
+										date = new Date();
+										dateFormat = new SimpleDateFormat("HH:mm");
+										dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+										logs.info(dateFormat.format(date));
+
+										PickUpTime.sendKeys(dateFormat.format(date));
+										logs.info("Entered Actual Pickup Time");
+
+										// --Click on ConfirmPU button
+										isElementPresent("TLCOnfPU_id").click();
+										logs.info("Clicked on Confirm PU button");
+										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+										break;
+									}
+								} catch (Exception ActTimeGDelTime) {
+									logs.info("Validation is not displayed="
+											+ "Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime.");
+
+								}
+							} else {
+								try {
+									// --Copy Next Row for PU Time
+									logs.info("--Testing PU Copy Next Row button--");
+
+									int PrevPU = 0;
 									if (jobStatus.contains("PICKUP@STOP 2 OF")) {
-										puS = 1;
+										pu = 1;
+										PrevPU = 0;
+
 									} else if (jobStatus.contains("PICKUP@STOP 3 OF")) {
-										puS = 2;
+										pu = 2;
+										PrevPU = 1;
 
 									} else if (jobStatus.contains("PICKUP@STOP 4 OF")) {
-										puS = 3;
+										pu = 3;
+										PrevPU = 2;
 
 									} else if (jobStatus.contains("PICKUP@STOP 5 OF")) {
-										puS = 4;
+										pu = 4;
+										PrevPU = 3;
 
 									}
-									System.out.println("value of del==" + pu);
+									System.out.println("value of PrevPU==" + PrevPU);
 
-									ZoneID = PickupPoints.get(pu)
-											.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
-									PUDate = "txtActpuDate_" + pu;
-									PUTime = "txtActPuTime_" + pu;
+									String PrevPUTime = "txtActPuTime_" + PrevPU;
+									WebElement PUSTop = driver.findElement(By.id(PrevPUTime));
+									PUSTop.click();
+									logs.info("Clicked on " + PrevPU + " PU Stop time");
 
-									// --Get ZoneID
-									ZOneID = ZoneID.getText();
-									logs.info("ZoneID of is==" + ZOneID);
-									if (ZOneID.equalsIgnoreCase("EDT")) {
-										ZOneID = "America/New_York";
-									} else if (ZOneID.equalsIgnoreCase("CDT")) {
-										ZOneID = "CST";
-									} else if (ZOneID.equalsIgnoreCase("PDT")) {
-										ZOneID = "PST";
-									}
-									// --PickUp Date
-									PickUpDate = driver.findElement(By.id(PUDate));
-									PickUpDate.clear();
-									date = new Date();
-									dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-									dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-									logs.info(dateFormat.format(date));
-									PickUpDate.sendKeys(dateFormat.format(date));
-									PickUpDate.sendKeys(Keys.TAB);
-									logs.info("Entered Actual Pickup Date");
-
-									// --Enter Act.PickUp Time
-									PickUpTime = driver.findElement(By.id(PUTime));
-									PickUpTime.clear();
-									date = new Date();
-									dateFormat = new SimpleDateFormat("HH:mm");
-									dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-									logs.info(dateFormat.format(date));
-
-									PickUpTime.sendKeys(dateFormat.format(date));
-									logs.info("Entered Actual Pickup Time");
+									WebElement PUCopyNEXT = isElementPresent("PUCpyNextRow_id");
+									wait.until(ExpectedConditions.visibilityOf(PUCopyNEXT));
+									act.moveToElement(PUCopyNEXT).build().perform();
+									wait.until(ExpectedConditions.elementToBeClickable(PUCopyNEXT));
+									js.executeScript("arguments[0].click();", PUCopyNEXT);
+									logs.info("Clicked on Copy Next Row of PickUp");
 
 									// --Click on ConfirmPU button
 									isElementPresent("TLCOnfPU_id").click();
 									logs.info("Clicked on Confirm PU button");
 									wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+									try {
+										wait.until(ExpectedConditions
+												.visibilityOfElementLocated(By.id("idValidationforMain")));
+										ValMsg = isElementPresent("TLAlValidation_id").getText();
+										logs.info("Validation is displayed==" + ValMsg);
 
-									break;
+										if (ValMsg.contains(
+												"Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime.")) {
+
+											logs.info("PU Copy Next Row is working==PASS");
+											msg.append("PU Copy Next Row is working==PASS" + "\n\n");
+
+											// --Stored list of pickup
+											PickupPoints = driver.findElements(By.xpath(
+													"//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
+											TotalPickup = PickupPoints.size();
+											logs.info("Total Pickup points is/are==" + TotalPickup);
+
+											for (int puS = pu; puS < TotalPickup;) {
+
+												System.out.println("value of PuS==" + puS);
+												if (jobStatus.contains("PICKUP@STOP 2 OF")) {
+													puS = 1;
+												} else if (jobStatus.contains("PICKUP@STOP 3 OF")) {
+													puS = 2;
+
+												} else if (jobStatus.contains("PICKUP@STOP 4 OF")) {
+													puS = 3;
+
+												} else if (jobStatus.contains("PICKUP@STOP 5 OF")) {
+													puS = 4;
+
+												}
+												System.out.println("value of PUs==" + pu);
+
+												WebElement ZoneID = PickupPoints.get(pu).findElement(
+														By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+												String PUDate = "txtActpuDate_" + pu;
+												String PUTime = "txtActPuTime_" + pu;
+
+												// --Get ZoneID
+												String ZOneID = ZoneID.getText();
+												logs.info("ZoneID of is==" + ZOneID);
+												if (ZOneID.equalsIgnoreCase("EDT")) {
+													ZOneID = "America/New_York";
+												} else if (ZOneID.equalsIgnoreCase("CDT")) {
+													ZOneID = "CST";
+												} else if (ZOneID.equalsIgnoreCase("PDT")) {
+													ZOneID = "PST";
+												}
+												// --PickUp Date
+												WebElement PickUpDate = driver.findElement(By.id(PUDate));
+												PickUpDate.clear();
+												Date date = new Date();
+												SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+												dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+												logs.info(dateFormat.format(date));
+												PickUpDate.sendKeys(dateFormat.format(date));
+												PickUpDate.sendKeys(Keys.TAB);
+												logs.info("Entered Actual Pickup Date");
+
+												// --Enter Act.PickUp Time
+												WebElement PickUpTime = driver.findElement(By.id(PUTime));
+												PickUpTime.clear();
+												date = new Date();
+												dateFormat = new SimpleDateFormat("HH:mm");
+												dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+												Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
+												cal.add(Calendar.MINUTE, 1);
+												logs.info(dateFormat.format(cal.getTime()));
+												PickUpTime.sendKeys(dateFormat.format(cal.getTime()));
+												PickUpTime.sendKeys(Keys.TAB);
+												logs.info("Entered Actual Pickup Time");
+
+												// --Click on ConfirmPU button
+												isElementPresent("TLCOnfPU_id").click();
+												logs.info("Clicked on Confirm PU button");
+												wait.until(ExpectedConditions
+														.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+												break;
+											}
+
+										} else {
+											logs.info("PU Copy Next Row is not working==FAIL");
+											msg.append("PU Copy Next Row is not working==FAIL" + "\n\n");
+											getScreenshot(driver, "PUCpNXTRwIssue");
+										}
+
+									} catch (Exception CopyAllIssue) {
+										logs.info("PU Copy Next Row is working==PASS");
+										msg.append("PU Copy Next Row is working==PASS" + "\n\n");
+									}
+
+								} catch (Exception coppyy) {
+									logs.info("Validation for Act.Pickup Time is not displayed");
 								}
-							} catch (Exception ActTimeGDelTime) {
-								logs.info("Validation is not displayed="
-										+ "Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime.");
-
 							}
+
 							// Rebind the list
 							wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
 							jobStatus = isElementPresent("TLStageLable_id").getText();
@@ -2037,11 +3374,88 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 								logs.info("Entered Signature");
 								wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
+								// --Click on Confirm Del button
+								isElementPresent("TLConfDEL_id").click();
+								logs.info("Clicked on Confirm DEL button");
+								wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+								try {
+									// --Copy All
+									logs.info("--Testing DEL Copy All Row button--");
+
+									wait.until(ExpectedConditions
+											.visibilityOfElementLocated(By.id("idValidationforMain")));
+									ValMsg = isElementPresent("TLAlValidation_id").getText();
+									logs.info("Validation is displayed==" + ValMsg);
+
+									// --Click on Copy All Del Time button
+									DelTime = driver.findElement(By.id(DeliveryTime));
+									DelTime.click();
+									logs.info("Clicked on 1st Del stop Time");
+
+									WebElement DELCopyAll = isElementPresent("DELCPYAllRow_id");
+									wait.until(ExpectedConditions.visibilityOf(DELCopyAll));
+									act.moveToElement(DELCopyAll).build().perform();
+									wait.until(ExpectedConditions.elementToBeClickable(DELCopyAll));
+									js.executeScript("arguments[0].click();", DELCopyAll);
+									logs.info("Clicked on Copy All Row button of Del Time");
+
+									// --Click on Copy All row Signature
+									Sign = DelPoints.get(Del).findElement(By.id("txtsign"));
+									Sign.click();
+									logs.info("Clicked on 1st Signature");
+
+									WebElement SignCopyAll = isElementPresent("CpySignAll_id");
+									wait.until(ExpectedConditions.visibilityOf(SignCopyAll));
+									act.moveToElement(SignCopyAll).build().perform();
+									wait.until(ExpectedConditions.elementToBeClickable(SignCopyAll));
+									js.executeScript("arguments[0].click();", SignCopyAll);
+									logs.info("Clicked on Copy All Row button of Signature");
+
+									// --Click on Confirm Del button
+									isElementPresent("TLConfDEL_id").click();
+									logs.info("Clicked on Confirm DEL button");
+									wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+									try {
+										wait.until(ExpectedConditions
+												.visibilityOfElementLocated(By.id("idValidationforMain")));
+										ValMsg = isElementPresent("TLAlValidation_id").getText();
+										logs.info("Validation is displayed==" + ValMsg);
+										if (ValMsg.contains("Act. Delivery Time is Required.")
+												&& ValMsg.contains("Signature is required.")) {
+											logs.info("DEL Copy All Row is not working==FAIL");
+											msg.append("DEL Copy All Row is not working==FAIL" + "\n");
+											logs.info("Sign Copy All Row is not working==FAIL");
+											msg.append("Sign Copy All Row is not working==FAIL" + "\n");
+											getScreenshot(driver, "DEL_SignCpAllRwIssue");
+										} else if (ValMsg.contains("Act. Delivery Time is Required.")) {
+											logs.info("DEL Copy All Row is not working==FAIL");
+											msg.append("DEL Copy All Row is not working==FAIL" + "\n");
+											getScreenshot(driver, "DELCpAllRwIssue");
+										} else if (ValMsg.contains("Signature is required.")) {
+											logs.info("Sign Copy All Row is not working==FAIL");
+											msg.append("Sign Copy All Row is not working==FAIL" + "\n");
+											getScreenshot(driver, "SignCpAllRwIssue");
+										} else {
+											logs.info("Unknown validation message displayed==FAIL");
+											msg.append("Unknown validation message displayed==FAIL" + "\n");
+											getScreenshot(driver, "DELUnkwnValIssue");
+										}
+
+									} catch (Exception CopyAllIssue) {
+										logs.info("DEL Copy All Row is working==PASS");
+										msg.append("DEL Copy All Row is working==PASS" + "\n");
+										logs.info("Sign Copy All Row is working==PASS");
+										msg.append("Sign Copy All Row is working==PASS" + "\n");
+										break;
+									}
+
+								} catch (Exception coppyy) {
+									logs.info("Validation for Act.Del Time and Signature is not displayed");
+								}
+
 							}
-							// --Click on Confirm Del button
-							isElementPresent("TLConfDEL_id").click();
-							logs.info("Clicked on Confirm DEL button");
-							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 						} catch (Exception NoValSign) {
 							logs.info("Validation for Act.Del Time and Signature is not displayed");
@@ -2103,6 +3517,40 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 									DelTime.sendKeys(dateFormat.format(cal.getTime()));
 									logs.info("Entered Actual Delivery Time");
 
+									try {
+										wait.until(ExpectedConditions
+												.visibilityOfElementLocated(By.id("idValidationforMain")));
+										ValMsg = isElementPresent("TLAlValidation_id").getText();
+										logs.info("Validation is displayed==" + ValMsg);
+										if (ValMsg.contains("Act. Delivery Time is Required.")
+												&& ValMsg.contains("Signature is required.")) {
+											logs.info("DEL Copy All Row is not working==FAIL");
+											msg.append("DEL Copy All Row is not working==FAIL" + "\n");
+											logs.info("Sign Copy All Row is not working==FAIL");
+											msg.append("Sign Copy All Row is not working==FAIL" + "\n");
+											getScreenshot(driver, "DEL_SignCpAllRwIssue");
+										} else if (ValMsg.contains("Act. Delivery Time is Required.")) {
+											logs.info("DEL Copy All Row is not working==FAIL");
+											msg.append("DEL Copy All Row is not working==FAIL" + "\n");
+											getScreenshot(driver, "DELCpAllRwIssue");
+										} else if (ValMsg.contains("Signature is required.")) {
+											logs.info("Sign Copy All Row is not working==FAIL");
+											msg.append("Sign Copy All Row is not working==FAIL" + "\n");
+											getScreenshot(driver, "SignCpAllRwIssue");
+										} else {
+											logs.info("Unknown validation message displayed==FAIL");
+											msg.append("Unknown validation message displayed==FAIL" + "\n");
+											getScreenshot(driver, "DELUnkwnValIssue");
+										}
+
+									} catch (Exception CopyAllIssue) {
+										logs.info("DEL Copy All Row is working==PASS");
+										msg.append("DEL Copy All Row is working==PASS" + "\n");
+										logs.info("Sign Copy All Row is working==PASS");
+										msg.append("Sign Copy All Row is working==PASS" + "\n");
+										break;
+									}
+
 								}
 							} else if (ValMsg.contains("Please enter same Actual Delivery Datetime.")) {
 								List<WebElement> DelPoints = driver.findElements(
@@ -2152,14 +3600,47 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 									DelTime.sendKeys(dateFormat.format(cal.getTime()));
 									logs.info("Entered Actual Delivery Time");
 
+									try {
+										wait.until(ExpectedConditions
+												.visibilityOfElementLocated(By.id("idValidationforMain")));
+										ValMsg = isElementPresent("TLAlValidation_id").getText();
+										logs.info("Validation is displayed==" + ValMsg);
+										if (ValMsg.contains("Act. Delivery Time is Required.")
+												&& ValMsg.contains("Signature is required.")) {
+											logs.info("DEL Copy All Row is not working==FAIL");
+											msg.append("DEL Copy All Row is not working==FAIL" + "\n");
+											logs.info("Sign Copy All Row is not working==FAIL");
+											msg.append("Sign Copy All Row is not working==FAIL" + "\n");
+											getScreenshot(driver, "DEL_SignCpAllRwIssue");
+										} else if (ValMsg.contains("Act. Delivery Time is Required.")) {
+											logs.info("DEL Copy All Row is not working==FAIL");
+											msg.append("DEL Copy All Row is not working==FAIL" + "\n");
+											getScreenshot(driver, "DELCpAllRwIssue");
+										} else if (ValMsg.contains("Signature is required.")) {
+											logs.info("Sign Copy All Row is not working==FAIL");
+											msg.append("Sign Copy All Row is not working==FAIL" + "\n");
+											getScreenshot(driver, "SignCpAllRwIssue");
+										} else {
+											logs.info("Unknown validation message displayed==FAIL");
+											msg.append("Unknown validation message displayed==FAIL" + "\n");
+											getScreenshot(driver, "DELUnkwnValIssue");
+										}
+
+									} catch (Exception CopyAllIssue) {
+										logs.info("DEL Copy All Row is working==PASS");
+										msg.append("DEL Copy All Row is working==PASS" + "\n");
+										logs.info("Sign Copy All Row is working==PASS");
+										msg.append("Sign Copy All Row is working==PASS" + "\n");
+										break;
+									}
+
 								}
 
+							} else {
+								logs.info("UnExpected Message is displayed");
+								logs.info("Unable to proceed.....");
+								getScreenshot(driver, "ManyToOneOPIssue");
 							}
-
-							// --Click on Confirm Del button
-							isElementPresent("TLConfDEL_id").click();
-							logs.info("Clicked on Confirm DEL button");
-							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 						} catch (Exception ActTimeGDelTime) {
 							logs.info("Validation is not displayed="
@@ -2503,125 +3984,269 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 							}
 							System.out.println("value of del==" + pu);
 
-							WebElement ZoneID = PickupPoints.get(pu)
-									.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
-							String PUDate = "txtActpuDate_" + pu;
-							String PUTime = "txtActPuTime_" + pu;
+							if (pu == 0) {
+								WebElement ZoneID = PickupPoints.get(pu)
+										.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+								String PUDate = "txtActpuDate_" + pu;
+								String PUTime = "txtActPuTime_" + pu;
 
-							// --Get ZoneID
-							String ZOneID = ZoneID.getText();
-							logs.info("ZoneID of is==" + ZOneID);
-							if (ZOneID.equalsIgnoreCase("EDT")) {
-								ZOneID = "America/New_York";
-							} else if (ZOneID.equalsIgnoreCase("CDT")) {
-								ZOneID = "CST";
-							} else if (ZOneID.equalsIgnoreCase("PDT")) {
-								ZOneID = "PST";
-							}
-							// --PickUp Date
-							WebElement PickUpDate = driver.findElement(By.id(PUDate));
-							PickUpDate.clear();
-							Date date = new Date();
-							DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-							dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-							logs.info(dateFormat.format(date));
-							PickUpDate.sendKeys(dateFormat.format(date));
-							PickUpDate.sendKeys(Keys.TAB);
-							logs.info("Entered Actual Pickup Date");
+								// --Get ZoneID
+								String ZOneID = ZoneID.getText();
+								logs.info("ZoneID of is==" + ZOneID);
+								if (ZOneID.equalsIgnoreCase("EDT")) {
+									ZOneID = "America/New_York";
+								} else if (ZOneID.equalsIgnoreCase("CDT")) {
+									ZOneID = "CST";
+								} else if (ZOneID.equalsIgnoreCase("PDT")) {
+									ZOneID = "PST";
+								}
+								// --PickUp Date
+								WebElement PickUpDate = driver.findElement(By.id(PUDate));
+								PickUpDate.clear();
+								Date date = new Date();
+								DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+								dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+								logs.info(dateFormat.format(date));
+								PickUpDate.sendKeys(dateFormat.format(date));
+								PickUpDate.sendKeys(Keys.TAB);
+								logs.info("Entered Actual Pickup Date");
 
-							// --Enter Act.PickUp Time
-							WebElement PickUpTime = driver.findElement(By.id(PUTime));
-							PickUpTime.clear();
-							date = new Date();
-							dateFormat = new SimpleDateFormat("HH:mm");
-							dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-							logs.info(dateFormat.format(date));
+								// --Enter Act.PickUp Time
+								WebElement PickUpTime = driver.findElement(By.id(PUTime));
+								PickUpTime.clear();
+								date = new Date();
+								dateFormat = new SimpleDateFormat("HH:mm");
+								dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+								logs.info(dateFormat.format(date));
 
-							PickUpTime.sendKeys(dateFormat.format(date));
-							logs.info("Entered Actual Pickup Time");
+								PickUpTime.sendKeys(dateFormat.format(date));
+								logs.info("Entered Actual Pickup Time");
 
-							// --Click on ConfirmPU button
-							isElementPresent("TLCOnfPU_id").click();
-							logs.info("Clicked on Confirm PU button");
-							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+								// --Click on ConfirmPU button
+								isElementPresent("TLCOnfPU_id").click();
+								logs.info("Clicked on Confirm PU button");
+								wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-							try {
-								wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("idValidationforMain")));
-								ValMsg = isElementPresent("TLAlValidation_id").getText();
-								logs.info("Validation is displayed==" + ValMsg);
+								try {
+									// --Actual Pickup Datetime cannot be less than or equal to last
+									// shipment of Actual Pickup Datetime.
+									wait.until(ExpectedConditions
+											.visibilityOfElementLocated(By.id("idValidationforMain")));
+									ValMsg = isElementPresent("TLAlValidation_id").getText();
+									logs.info("Validation is displayed==" + ValMsg);
 
-								// --Stored list of pickup
-								PickupPoints = driver.findElements(
-										By.xpath("//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
-								TotalPickup = PickupPoints.size();
-								logs.info("Total Pickup points is/are==" + TotalPickup);
+									// --Stored list of pickup
+									PickupPoints = driver.findElements(By
+											.xpath("//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
+									TotalPickup = PickupPoints.size();
+									logs.info("Total Pickup points is/are==" + TotalPickup);
 
-								for (int puS = pu; puS < TotalPickup;) {
+									for (int puS = pu; puS < TotalPickup;) {
 
-									System.out.println("value of PuS==" + puS);
+										System.out.println("value of PuS==" + puS);
+										if (jobStatus.contains("PICKUP@STOP 2 OF")) {
+											puS = 1;
+										} else if (jobStatus.contains("PICKUP@STOP 3 OF")) {
+											puS = 2;
+
+										} else if (jobStatus.contains("PICKUP@STOP 4 OF")) {
+											puS = 3;
+
+										} else if (jobStatus.contains("PICKUP@STOP 5 OF")) {
+											puS = 4;
+
+										}
+										System.out.println("value of PUs==" + pu);
+
+										ZoneID = PickupPoints.get(pu)
+												.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+										PUDate = "txtActpuDate_" + pu;
+										PUTime = "txtActPuTime_" + pu;
+
+										// --Get ZoneID
+										ZOneID = ZoneID.getText();
+										logs.info("ZoneID of is==" + ZOneID);
+										if (ZOneID.equalsIgnoreCase("EDT")) {
+											ZOneID = "America/New_York";
+										} else if (ZOneID.equalsIgnoreCase("CDT")) {
+											ZOneID = "CST";
+										} else if (ZOneID.equalsIgnoreCase("PDT")) {
+											ZOneID = "PST";
+										}
+										// --PickUp Date
+										PickUpDate = driver.findElement(By.id(PUDate));
+										PickUpDate.clear();
+										date = new Date();
+										dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+										dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+										logs.info(dateFormat.format(date));
+										PickUpDate.sendKeys(dateFormat.format(date));
+										PickUpDate.sendKeys(Keys.TAB);
+										logs.info("Entered Actual Pickup Date");
+
+										// --Enter Act.PickUp Time
+										PickUpTime = driver.findElement(By.id(PUTime));
+										PickUpTime.clear();
+										date = new Date();
+										dateFormat = new SimpleDateFormat("HH:mm");
+										dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+										logs.info(dateFormat.format(date));
+
+										PickUpTime.sendKeys(dateFormat.format(date));
+										logs.info("Entered Actual Pickup Time");
+
+										// --Click on ConfirmPU button
+										isElementPresent("TLCOnfPU_id").click();
+										logs.info("Clicked on Confirm PU button");
+										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+										break;
+									}
+								} catch (Exception ActTimeGDelTime) {
+									logs.info("Validation is not displayed="
+											+ "Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime.");
+
+								}
+							} else {
+								try {
+									// --Copy Next Row for PU Time
+									logs.info("--Testing PU Copy Next Row button--");
+
+									int PrevPU = 0;
 									if (jobStatus.contains("PICKUP@STOP 2 OF")) {
-										puS = 1;
+										pu = 1;
+										PrevPU = 0;
+
 									} else if (jobStatus.contains("PICKUP@STOP 3 OF")) {
-										puS = 2;
+										pu = 2;
+										PrevPU = 1;
 
 									} else if (jobStatus.contains("PICKUP@STOP 4 OF")) {
-										puS = 3;
+										pu = 3;
+										PrevPU = 2;
 
 									} else if (jobStatus.contains("PICKUP@STOP 5 OF")) {
-										puS = 4;
+										pu = 4;
+										PrevPU = 3;
 
 									}
-									System.out.println("value of del==" + pu);
+									System.out.println("value of PrevPU==" + PrevPU);
 
-									ZoneID = PickupPoints.get(pu)
-											.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
-									PUDate = "txtActpuDate_" + pu;
-									PUTime = "txtActPuTime_" + pu;
+									String PrevPUTime = "txtActPuTime_" + PrevPU;
+									WebElement PUSTop = driver.findElement(By.id(PrevPUTime));
+									PUSTop.click();
+									logs.info("Clicked on " + PrevPU + " PU Stop time");
 
-									// --Get ZoneID
-									ZOneID = ZoneID.getText();
-									logs.info("ZoneID of is==" + ZOneID);
-									if (ZOneID.equalsIgnoreCase("EDT")) {
-										ZOneID = "America/New_York";
-									} else if (ZOneID.equalsIgnoreCase("CDT")) {
-										ZOneID = "CST";
-									} else if (ZOneID.equalsIgnoreCase("PDT")) {
-										ZOneID = "PST";
-									}
-									// --PickUp Date
-									PickUpDate = driver.findElement(By.id(PUDate));
-									PickUpDate.clear();
-									date = new Date();
-									dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-									dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-									logs.info(dateFormat.format(date));
-									PickUpDate.sendKeys(dateFormat.format(date));
-									PickUpDate.sendKeys(Keys.TAB);
-									logs.info("Entered Actual Pickup Date");
-
-									// --Enter Act.PickUp Time
-									PickUpTime = driver.findElement(By.id(PUTime));
-									PickUpTime.clear();
-									date = new Date();
-									dateFormat = new SimpleDateFormat("HH:mm");
-									dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-									logs.info(dateFormat.format(date));
-
-									PickUpTime.sendKeys(dateFormat.format(date));
-									logs.info("Entered Actual Pickup Time");
+									WebElement PUCopyNEXT = isElementPresent("PUCpyNextRow_id");
+									wait.until(ExpectedConditions.visibilityOf(PUCopyNEXT));
+									act.moveToElement(PUCopyNEXT).build().perform();
+									wait.until(ExpectedConditions.elementToBeClickable(PUCopyNEXT));
+									js.executeScript("arguments[0].click();", PUCopyNEXT);
+									logs.info("Clicked on Copy Next Row of PickUp");
 
 									// --Click on ConfirmPU button
 									isElementPresent("TLCOnfPU_id").click();
 									logs.info("Clicked on Confirm PU button");
 									wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+									try {
+										wait.until(ExpectedConditions
+												.visibilityOfElementLocated(By.id("idValidationforMain")));
+										ValMsg = isElementPresent("TLAlValidation_id").getText();
+										logs.info("Validation is displayed==" + ValMsg);
 
-									break;
+										if (ValMsg.contains(
+												"Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime.")) {
+
+											logs.info("PU Copy Next Row is working==PASS");
+											msg.append("PU Copy Next Row is working==PASS" + "\n\n");
+
+											// --Stored list of pickup
+											PickupPoints = driver.findElements(By.xpath(
+													"//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
+											TotalPickup = PickupPoints.size();
+											logs.info("Total Pickup points is/are==" + TotalPickup);
+
+											for (int puS = pu; puS < TotalPickup;) {
+
+												System.out.println("value of PuS==" + puS);
+												if (jobStatus.contains("PICKUP@STOP 2 OF")) {
+													puS = 1;
+												} else if (jobStatus.contains("PICKUP@STOP 3 OF")) {
+													puS = 2;
+
+												} else if (jobStatus.contains("PICKUP@STOP 4 OF")) {
+													puS = 3;
+
+												} else if (jobStatus.contains("PICKUP@STOP 5 OF")) {
+													puS = 4;
+
+												}
+												System.out.println("value of PUs==" + pu);
+
+												WebElement ZoneID = PickupPoints.get(pu).findElement(
+														By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+												String PUDate = "txtActpuDate_" + pu;
+												String PUTime = "txtActPuTime_" + pu;
+
+												// --Get ZoneID
+												String ZOneID = ZoneID.getText();
+												logs.info("ZoneID of is==" + ZOneID);
+												if (ZOneID.equalsIgnoreCase("EDT")) {
+													ZOneID = "America/New_York";
+												} else if (ZOneID.equalsIgnoreCase("CDT")) {
+													ZOneID = "CST";
+												} else if (ZOneID.equalsIgnoreCase("PDT")) {
+													ZOneID = "PST";
+												}
+												// --PickUp Date
+												WebElement PickUpDate = driver.findElement(By.id(PUDate));
+												PickUpDate.clear();
+												Date date = new Date();
+												SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+												dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+												logs.info(dateFormat.format(date));
+												PickUpDate.sendKeys(dateFormat.format(date));
+												PickUpDate.sendKeys(Keys.TAB);
+												logs.info("Entered Actual Pickup Date");
+
+												// --Enter Act.PickUp Time
+												WebElement PickUpTime = driver.findElement(By.id(PUTime));
+												PickUpTime.clear();
+												date = new Date();
+												dateFormat = new SimpleDateFormat("HH:mm");
+												dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+												Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
+												cal.add(Calendar.MINUTE, 1);
+												logs.info(dateFormat.format(cal.getTime()));
+												PickUpTime.sendKeys(dateFormat.format(cal.getTime()));
+												PickUpTime.sendKeys(Keys.TAB);
+												logs.info("Entered Actual Pickup Time");
+
+												// --Click on ConfirmPU button
+												isElementPresent("TLCOnfPU_id").click();
+												logs.info("Clicked on Confirm PU button");
+												wait.until(ExpectedConditions
+														.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+												break;
+											}
+
+										} else {
+											logs.info("PU Copy Next Row is not working==FAIL");
+											msg.append("PU Copy Next Row is not working==FAIL" + "\n\n");
+											getScreenshot(driver, "PUCpNXTRwIssue");
+										}
+
+									} catch (Exception CopyAllIssue) {
+										logs.info("PU Copy Next Row is working==PASS");
+										msg.append("PU Copy Next Row is working==PASS" + "\n\n");
+									}
+
+								} catch (Exception coppyy) {
+									logs.info("Validation for Act.Pickup Time is not displayed");
 								}
-							} catch (Exception ActTimeGDelTime) {
-								logs.info("Validation is not displayed="
-										+ "Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime.");
-
 							}
+
 							// Rebind the list
 							wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
 							jobStatus = isElementPresent("TLStageLable_id").getText();
@@ -2708,11 +4333,88 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 								logs.info("Entered Signature");
 								wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
+								// --Click on Confirm Del button
+								isElementPresent("TLConfDEL_id").click();
+								logs.info("Clicked on Confirm DEL button");
+								wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+								try {
+									// --Copy All
+									logs.info("--Testing DEL Copy All Row button--");
+
+									wait.until(ExpectedConditions
+											.visibilityOfElementLocated(By.id("idValidationforMain")));
+									ValMsg = isElementPresent("TLAlValidation_id").getText();
+									logs.info("Validation is displayed==" + ValMsg);
+
+									// --Click on Copy All Del Time button
+									DelTime = driver.findElement(By.id(DeliveryTime));
+									DelTime.click();
+									logs.info("Clicked on 1st Del stop Time");
+
+									WebElement DELCopyAll = isElementPresent("DELCPYAllRow_id");
+									wait.until(ExpectedConditions.visibilityOf(DELCopyAll));
+									act.moveToElement(DELCopyAll).build().perform();
+									wait.until(ExpectedConditions.elementToBeClickable(DELCopyAll));
+									js.executeScript("arguments[0].click();", DELCopyAll);
+									logs.info("Clicked on Copy All Row button of Del Time");
+
+									// --Click on Copy All row Signature
+									Sign = DelPoints.get(Del).findElement(By.id("txtsign"));
+									Sign.click();
+									logs.info("Clicked on 1st Signature");
+
+									WebElement SignCopyAll = isElementPresent("CpySignAll_id");
+									wait.until(ExpectedConditions.visibilityOf(SignCopyAll));
+									act.moveToElement(SignCopyAll).build().perform();
+									wait.until(ExpectedConditions.elementToBeClickable(SignCopyAll));
+									js.executeScript("arguments[0].click();", SignCopyAll);
+									logs.info("Clicked on Copy All Row button of Signature");
+
+									// --Click on Confirm Del button
+									isElementPresent("TLConfDEL_id").click();
+									logs.info("Clicked on Confirm DEL button");
+									wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+									try {
+										wait.until(ExpectedConditions
+												.visibilityOfElementLocated(By.id("idValidationforMain")));
+										ValMsg = isElementPresent("TLAlValidation_id").getText();
+										logs.info("Validation is displayed==" + ValMsg);
+										if (ValMsg.contains("Act. Delivery Time is Required.")
+												&& ValMsg.contains("Signature is required.")) {
+											logs.info("DEL Copy All Row is not working==FAIL");
+											msg.append("DEL Copy All Row is not working==FAIL" + "\n");
+											logs.info("Sign Copy All Row is not working==FAIL");
+											msg.append("Sign Copy All Row is not working==FAIL" + "\n");
+											getScreenshot(driver, "DEL_SignCpAllRwIssue");
+										} else if (ValMsg.contains("Act. Delivery Time is Required.")) {
+											logs.info("DEL Copy All Row is not working==FAIL");
+											msg.append("DEL Copy All Row is not working==FAIL" + "\n");
+											getScreenshot(driver, "DELCpAllRwIssue");
+										} else if (ValMsg.contains("Signature is required.")) {
+											logs.info("Sign Copy All Row is not working==FAIL");
+											msg.append("Sign Copy All Row is not working==FAIL" + "\n");
+											getScreenshot(driver, "SignCpAllRwIssue");
+										} else {
+											logs.info("Unknown validation message displayed==FAIL");
+											msg.append("Unknown validation message displayed==FAIL" + "\n");
+											getScreenshot(driver, "DELUnkwnValIssue");
+										}
+
+									} catch (Exception CopyAllIssue) {
+										logs.info("DEL Copy All Row is working==PASS");
+										msg.append("DEL Copy All Row is working==PASS" + "\n");
+										logs.info("Sign Copy All Row is working==PASS");
+										msg.append("Sign Copy All Row is working==PASS" + "\n");
+										break;
+									}
+
+								} catch (Exception coppyy) {
+									logs.info("Validation for Act.Del Time and Signature is not displayed");
+								}
+
 							}
-							// --Click on Confirm Del button
-							isElementPresent("TLConfDEL_id").click();
-							logs.info("Clicked on Confirm DEL button");
-							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 						} catch (Exception NoValSign) {
 							logs.info("Validation for Act.Del Time and Signature is not displayed");
@@ -2774,6 +4476,40 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 									DelTime.sendKeys(dateFormat.format(cal.getTime()));
 									logs.info("Entered Actual Delivery Time");
 
+									try {
+										wait.until(ExpectedConditions
+												.visibilityOfElementLocated(By.id("idValidationforMain")));
+										ValMsg = isElementPresent("TLAlValidation_id").getText();
+										logs.info("Validation is displayed==" + ValMsg);
+										if (ValMsg.contains("Act. Delivery Time is Required.")
+												&& ValMsg.contains("Signature is required.")) {
+											logs.info("DEL Copy All Row is not working==FAIL");
+											msg.append("DEL Copy All Row is not working==FAIL" + "\n");
+											logs.info("Sign Copy All Row is not working==FAIL");
+											msg.append("Sign Copy All Row is not working==FAIL" + "\n");
+											getScreenshot(driver, "DEL_SignCpAllRwIssue");
+										} else if (ValMsg.contains("Act. Delivery Time is Required.")) {
+											logs.info("DEL Copy All Row is not working==FAIL");
+											msg.append("DEL Copy All Row is not working==FAIL" + "\n");
+											getScreenshot(driver, "DELCpAllRwIssue");
+										} else if (ValMsg.contains("Signature is required.")) {
+											logs.info("Sign Copy All Row is not working==FAIL");
+											msg.append("Sign Copy All Row is not working==FAIL" + "\n");
+											getScreenshot(driver, "SignCpAllRwIssue");
+										} else {
+											logs.info("Unknown validation message displayed==FAIL");
+											msg.append("Unknown validation message displayed==FAIL" + "\n");
+											getScreenshot(driver, "DELUnkwnValIssue");
+										}
+
+									} catch (Exception CopyAllIssue) {
+										logs.info("DEL Copy All Row is working==PASS");
+										msg.append("DEL Copy All Row is working==PASS" + "\n");
+										logs.info("Sign Copy All Row is working==PASS");
+										msg.append("Sign Copy All Row is working==PASS" + "\n");
+										break;
+									}
+
 								}
 							} else if (ValMsg.contains("Please enter same Actual Delivery Datetime.")) {
 								List<WebElement> DelPoints = driver.findElements(
@@ -2823,14 +4559,47 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 									DelTime.sendKeys(dateFormat.format(cal.getTime()));
 									logs.info("Entered Actual Delivery Time");
 
+									try {
+										wait.until(ExpectedConditions
+												.visibilityOfElementLocated(By.id("idValidationforMain")));
+										ValMsg = isElementPresent("TLAlValidation_id").getText();
+										logs.info("Validation is displayed==" + ValMsg);
+										if (ValMsg.contains("Act. Delivery Time is Required.")
+												&& ValMsg.contains("Signature is required.")) {
+											logs.info("DEL Copy All Row is not working==FAIL");
+											msg.append("DEL Copy All Row is not working==FAIL" + "\n");
+											logs.info("Sign Copy All Row is not working==FAIL");
+											msg.append("Sign Copy All Row is not working==FAIL" + "\n");
+											getScreenshot(driver, "DEL_SignCpAllRwIssue");
+										} else if (ValMsg.contains("Act. Delivery Time is Required.")) {
+											logs.info("DEL Copy All Row is not working==FAIL");
+											msg.append("DEL Copy All Row is not working==FAIL" + "\n");
+											getScreenshot(driver, "DELCpAllRwIssue");
+										} else if (ValMsg.contains("Signature is required.")) {
+											logs.info("Sign Copy All Row is not working==FAIL");
+											msg.append("Sign Copy All Row is not working==FAIL" + "\n");
+											getScreenshot(driver, "SignCpAllRwIssue");
+										} else {
+											logs.info("Unknown validation message displayed==FAIL");
+											msg.append("Unknown validation message displayed==FAIL" + "\n");
+											getScreenshot(driver, "DELUnkwnValIssue");
+										}
+
+									} catch (Exception CopyAllIssue) {
+										logs.info("DEL Copy All Row is working==PASS");
+										msg.append("DEL Copy All Row is working==PASS" + "\n");
+										logs.info("Sign Copy All Row is working==PASS");
+										msg.append("Sign Copy All Row is working==PASS" + "\n");
+										break;
+									}
+
 								}
 
+							} else {
+								logs.info("UnExpected Message is displayed");
+								logs.info("Unable to proceed.....");
+								getScreenshot(driver, "ManyToOneOPIssue");
 							}
-
-							// --Click on Confirm Del button
-							isElementPresent("TLConfDEL_id").click();
-							logs.info("Clicked on Confirm DEL button");
-							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 						} catch (Exception ActTimeGDelTime) {
 							logs.info("Validation is not displayed="
@@ -3203,135 +4972,469 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 							logs.info("Entered Signature");
 							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
+							// --Click on Confirm Del button
+							isElementPresent("TLConfDEL_id").click();
+							logs.info("Clicked on Confirm DEL button");
+							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+							try {
+
+								wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("idValidationforMain")));
+								ValMsg = isElementPresent("TLAlValidation_id").getText();
+								logs.info("Validation is displayed==" + ValMsg);
+
+								// --Copy All
+								logs.info("--Testing DEL Copy All Row button--");
+
+								// --Click on Copy All Del Time button
+								DelTime = driver.findElement(By.id(DeliveryTime));
+								DelTime.click();
+								logs.info("Clicked on 1st Del stop Time");
+
+								WebElement DELCopyAll = isElementPresent("DELCPYAllRow_id");
+								wait.until(ExpectedConditions.visibilityOf(DELCopyAll));
+								act.moveToElement(DELCopyAll).build().perform();
+								wait.until(ExpectedConditions.elementToBeClickable(DELCopyAll));
+								js.executeScript("arguments[0].click();", DELCopyAll);
+								logs.info("Clicked on Copy All Row button of Del Time");
+
+								// --Click on Copy All row Signature
+								Sign = DelPoints.get(Del).findElement(By.id("txtsign"));
+								Sign.click();
+								logs.info("Clicked on 1st Signature");
+
+								WebElement SignCopyAll = isElementPresent("CpySignAll_id");
+								wait.until(ExpectedConditions.visibilityOf(SignCopyAll));
+								act.moveToElement(SignCopyAll).build().perform();
+								wait.until(ExpectedConditions.elementToBeClickable(SignCopyAll));
+								js.executeScript("arguments[0].click();", SignCopyAll);
+								logs.info("Clicked on Copy All Row button of Signature");
+
+								// --Click on Confirm Del button
+								isElementPresent("TLConfDEL_id").click();
+								logs.info("Clicked on Confirm DEL button");
+								wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+								try {
+									wait.until(ExpectedConditions
+											.visibilityOfElementLocated(By.id("idValidationforMain")));
+									ValMsg = isElementPresent("TLAlValidation_id").getText();
+									logs.info("Validation is displayed==" + ValMsg);
+									if (ValMsg.contains("Act. Delivery Time is Required.")
+											&& ValMsg.contains("Signature is required.")) {
+										logs.info("DEL Copy All Row is not working==FAIL");
+										msg.append("DEL Copy All Row is not working==FAIL" + "\n");
+										logs.info("Sign Copy All Row is not working==FAIL");
+										msg.append("Sign Copy All Row is not working==FAIL" + "\n");
+										getScreenshot(driver, "DEL_SignCpAllRwIssue");
+									} else if (ValMsg.contains("Act. Delivery Time is Required.")) {
+										logs.info("DEL Copy All Row is not working==FAIL");
+										msg.append("DEL Copy All Row is not working==FAIL" + "\n");
+										getScreenshot(driver, "DELCpAllRwIssue");
+									} else if (ValMsg.contains("Signature is required.")) {
+										logs.info("Sign Copy All Row is not working==FAIL");
+										msg.append("Sign Copy All Row is not working==FAIL" + "\n");
+										getScreenshot(driver, "SignCpAllRwIssue");
+									} else if (ValMsg.contains(
+											"Actual Delivery Datetime cannot be less than or equal to Actual Pickup Datetime.")) {
+
+										DelPoints = driver.findElements(By.xpath(
+												"//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
+										TotalDel = DelPoints.size();
+										logs.info("Total Delivery points is/are==" + TotalDel);
+
+										for (Del = 0; Del < TotalDel; Del++) {
+											System.out.println("value of del==" + Del);
+
+											ZoneID = DelPoints.get(Del)
+													.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+											DeliveryDate = "txtActdlDate_" + Del;
+											DeliveryTime = "txtActDlTime_" + Del;
+
+											// --Get ZoneID
+											ZOneID = ZoneID.getText();
+											logs.info("ZoneID of is==" + ZOneID);
+											if (ZOneID.equalsIgnoreCase("EDT")) {
+												ZOneID = "America/New_York";
+											} else if (ZOneID.equalsIgnoreCase("CDT")) {
+												ZOneID = "CST";
+											} else if (ZOneID.equalsIgnoreCase("PDT")) {
+												ZOneID = "PST";
+											}
+
+											// --Delivery Date
+											DelDate = driver.findElement(By.id(DeliveryDate));
+											DelDate.clear();
+											date = new Date();
+											dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+											dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+											logs.info(dateFormat.format(date));
+											DelDate.sendKeys(dateFormat.format(date));
+											DelDate.sendKeys(Keys.TAB);
+											logs.info("Entered Actual Delivery Date");
+
+											// --Enter Act.DEL Time
+											DelTime = driver.findElement(By.id(DeliveryTime));
+											DelTime.clear();
+											date = new Date();
+											dateFormat = new SimpleDateFormat("HH:mm");
+											dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+											Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
+											cal.add(Calendar.MINUTE, 1);
+											logs.info(dateFormat.format(cal.getTime()));
+											DelTime.sendKeys(dateFormat.format(cal.getTime()));
+											DelTime.sendKeys(Keys.TAB);
+											logs.info("Entered Actual Delivery Time");
+
+											// --Click on Confirm Del button
+											isElementPresent("TLConfDEL_id").click();
+											logs.info("Clicked on Confirm DEL button");
+											wait.until(ExpectedConditions
+													.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+											try {
+												// --Copy All
+												wait.until(ExpectedConditions
+														.visibilityOfElementLocated(By.id("idValidationforMain")));
+												ValMsg = isElementPresent("TLAlValidation_id").getText();
+												logs.info("Validation is displayed==" + ValMsg);
+
+												logs.info("--Testing DEL Copy All Row button--");
+
+												// --Click on Copy All Del Time button
+												DelTime = driver.findElement(By.id(DeliveryTime));
+												DelTime.click();
+												logs.info("Clicked on 1st Del stop Time");
+
+												DELCopyAll = isElementPresent("DELCPYAllRow_id");
+												wait.until(ExpectedConditions.visibilityOf(DELCopyAll));
+												act.moveToElement(DELCopyAll).build().perform();
+												wait.until(ExpectedConditions.elementToBeClickable(DELCopyAll));
+												js.executeScript("arguments[0].click();", DELCopyAll);
+												logs.info("Clicked on Copy All Row button of Del Time");
+
+												// --Click on Copy All row Signature
+												Sign = DelPoints.get(Del).findElement(By.id("txtsign"));
+												Sign.click();
+												logs.info("Clicked on 1st Signature");
+
+												SignCopyAll = isElementPresent("CpySignAll_id");
+												wait.until(ExpectedConditions.visibilityOf(SignCopyAll));
+												act.moveToElement(SignCopyAll).build().perform();
+												wait.until(ExpectedConditions.elementToBeClickable(SignCopyAll));
+												js.executeScript("arguments[0].click();", SignCopyAll);
+												logs.info("Clicked on Copy All Row button of Signature");
+
+												// --Click on Confirm Del button
+												isElementPresent("TLConfDEL_id").click();
+												logs.info("Clicked on Confirm DEL button");
+												wait.until(ExpectedConditions
+														.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+												try {
+													wait.until(ExpectedConditions
+															.visibilityOfElementLocated(By.id("idValidationforMain")));
+													ValMsg = isElementPresent("TLAlValidation_id").getText();
+													logs.info("Validation is displayed==" + ValMsg);
+
+													if (ValMsg
+															.contains("Please enter same Actual Delivery Datetime.")) {
+														DelPoints = driver.findElements(By.xpath(
+																"//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
+														TotalDel = DelPoints.size();
+														logs.info("Total Delivery points is/are==" + TotalDel);
+
+														for (Del = 0; Del < TotalDel; Del++) {
+															System.out.println("value of del==" + Del);
+
+															ZoneID = DelPoints.get(Del).findElement(By.xpath(
+																	"td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+															DeliveryDate = "txtActdlDate_" + Del;
+															DeliveryTime = "txtActDlTime_" + Del;
+
+															// --Get ZoneID
+															ZOneID = ZoneID.getText();
+															logs.info("ZoneID of is==" + ZOneID);
+															if (ZOneID.equalsIgnoreCase("EDT")) {
+																ZOneID = "America/New_York";
+															} else if (ZOneID.equalsIgnoreCase("CDT")) {
+																ZOneID = "CST";
+															} else if (ZOneID.equalsIgnoreCase("PDT")) {
+																ZOneID = "PST";
+															}
+
+															// --Delivery Date
+															DelDate = driver.findElement(By.id(DeliveryDate));
+															DelDate.clear();
+															date = new Date();
+															dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+															dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+															logs.info(dateFormat.format(date));
+															DelDate.sendKeys(dateFormat.format(date));
+															DelDate.sendKeys(Keys.TAB);
+															logs.info("Entered Actual Delivery Date");
+
+															// --Enter Act.DEL Time
+															DelTime = driver.findElement(By.id(DeliveryTime));
+															DelTime.clear();
+															date = new Date();
+															dateFormat = new SimpleDateFormat("HH:mm");
+															dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+															cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
+															cal.add(Calendar.MINUTE, 1);
+															logs.info(dateFormat.format(cal.getTime()));
+															DelTime.sendKeys(dateFormat.format(cal.getTime()));
+															DelTime.sendKeys(Keys.TAB);
+															logs.info("Entered Actual Delivery Time");
+
+															// --Click on Confirm Del button
+															isElementPresent("TLConfDEL_id").click();
+															logs.info("Clicked on Confirm DEL button");
+															wait.until(ExpectedConditions
+																	.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+															try {
+																// --Copy All
+																wait.until(
+																		ExpectedConditions.visibilityOfElementLocated(
+																				By.id("idValidationforMain")));
+																ValMsg = isElementPresent("TLAlValidation_id")
+																		.getText();
+																logs.info("Validation is displayed==" + ValMsg);
+
+																logs.info("--Testing DEL Copy All Row button--");
+
+																// --Click on Copy All Del Time button
+																DelTime = driver.findElement(By.id(DeliveryTime));
+																DelTime.click();
+																logs.info("Clicked on 1st Del stop Time");
+
+																DELCopyAll = isElementPresent("DELCPYAllRow_id");
+																wait.until(ExpectedConditions.visibilityOf(DELCopyAll));
+																act.moveToElement(DELCopyAll).build().perform();
+																wait.until(ExpectedConditions
+																		.elementToBeClickable(DELCopyAll));
+																js.executeScript("arguments[0].click();", DELCopyAll);
+																logs.info("Clicked on Copy All Row button of Del Time");
+
+																// --Click on Copy All row Signature
+																Sign = DelPoints.get(Del).findElement(By.id("txtsign"));
+																Sign.click();
+																logs.info("Clicked on 1st Signature");
+
+																SignCopyAll = isElementPresent("CpySignAll_id");
+																wait.until(
+																		ExpectedConditions.visibilityOf(SignCopyAll));
+																act.moveToElement(SignCopyAll).build().perform();
+																wait.until(ExpectedConditions
+																		.elementToBeClickable(SignCopyAll));
+																js.executeScript("arguments[0].click();", SignCopyAll);
+																logs.info(
+																		"Clicked on Copy All Row button of Signature");
+
+																// --Click on Confirm Del button
+																isElementPresent("TLConfDEL_id").click();
+																logs.info("Clicked on Confirm DEL button");
+																wait.until(
+																		ExpectedConditions.invisibilityOfElementLocated(
+																				By.id("loaderDiv")));
+
+																try {
+																	wait.until(ExpectedConditions
+																			.visibilityOfElementLocated(
+																					By.id("idValidationforMain")));
+																	ValMsg = isElementPresent("TLAlValidation_id")
+																			.getText();
+																	logs.info("Validation is displayed==" + ValMsg);
+
+																	logs.info("DEL Copy All Row is not working==FAIL");
+																	msg.append("DEL Copy All Row is not working==FAIL"
+																			+ "\n");
+																	logs.info("Sign Copy All Row is not working==FAIL");
+																	msg.append("Sign Copy All Row is not working==FAIL"
+																			+ "\n");
+																	getScreenshot(driver, "DEL_SignCpAllRwIssue");
+
+																} catch (Exception CopyAllIssue) {
+																	logs.info("DEL Copy All Row is working==PASS");
+																	msg.append(
+																			"DEL Copy All Row is working==PASS" + "\n");
+																	logs.info("Sign Copy All Row is working==PASS");
+																	msg.append("Sign Copy All Row is working==PASS"
+																			+ "\n");
+																	break;
+																}
+
+															} catch (Exception coppyy) {
+																logs.info(
+																		"Please enter same Actual Delivery Datetime validation is not displayed");
+															}
+
+														}
+
+													}
+
+												} catch (Exception CopyAllIssue) {
+													logs.info("DEL Copy All Row is working==PASS");
+													msg.append("DEL Copy All Row is working==PASS" + "\n");
+													logs.info("Sign Copy All Row is working==PASS");
+													msg.append("Sign Copy All Row is working==PASS" + "\n");
+													break;
+												}
+
+											} catch (Exception coppyy) {
+												logs.info(
+														"Actual Delivery Datetime cannot be less than or equal to Actual Pickup Datetime.");
+											}
+
+										}
+
+									} else if (ValMsg.contains("Please enter same Actual Delivery Datetime.")) {
+										DelPoints = driver.findElements(By.xpath(
+												"//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
+										TotalDel = DelPoints.size();
+										logs.info("Total Delivery points is/are==" + TotalDel);
+
+										for (Del = 0; Del < TotalDel; Del++) {
+											System.out.println("value of del==" + Del);
+
+											ZoneID = DelPoints.get(Del)
+													.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+											DeliveryDate = "txtActdlDate_" + Del;
+											DeliveryTime = "txtActDlTime_" + Del;
+
+											// --Get ZoneID
+											ZOneID = ZoneID.getText();
+											logs.info("ZoneID of is==" + ZOneID);
+											if (ZOneID.equalsIgnoreCase("EDT")) {
+												ZOneID = "America/New_York";
+											} else if (ZOneID.equalsIgnoreCase("CDT")) {
+												ZOneID = "CST";
+											} else if (ZOneID.equalsIgnoreCase("PDT")) {
+												ZOneID = "PST";
+											}
+
+											// --Delivery Date
+											DelDate = driver.findElement(By.id(DeliveryDate));
+											DelDate.clear();
+											date = new Date();
+											dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+											dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+											logs.info(dateFormat.format(date));
+											DelDate.sendKeys(dateFormat.format(date));
+											DelDate.sendKeys(Keys.TAB);
+											logs.info("Entered Actual Delivery Date");
+
+											// --Enter Act.DEL Time
+											DelTime = driver.findElement(By.id(DeliveryTime));
+											DelTime.clear();
+											date = new Date();
+											dateFormat = new SimpleDateFormat("HH:mm");
+											dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+											Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
+											cal.add(Calendar.MINUTE, 1);
+											logs.info(dateFormat.format(cal.getTime()));
+											DelTime.sendKeys(dateFormat.format(cal.getTime()));
+											DelTime.sendKeys(Keys.TAB);
+											logs.info("Entered Actual Delivery Time");
+
+											// --Click on Confirm Del button
+											isElementPresent("TLConfDEL_id").click();
+											logs.info("Clicked on Confirm DEL button");
+											wait.until(ExpectedConditions
+													.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+											try {
+												// --Copy All
+												wait.until(ExpectedConditions
+														.visibilityOfElementLocated(By.id("idValidationforMain")));
+												ValMsg = isElementPresent("TLAlValidation_id").getText();
+												logs.info("Validation is displayed==" + ValMsg);
+
+												logs.info("--Testing DEL Copy All Row button--");
+
+												// --Click on Copy All Del Time button
+												DelTime = driver.findElement(By.id(DeliveryTime));
+												DelTime.click();
+												logs.info("Clicked on 1st Del stop Time");
+
+												DELCopyAll = isElementPresent("DELCPYAllRow_id");
+												wait.until(ExpectedConditions.visibilityOf(DELCopyAll));
+												act.moveToElement(DELCopyAll).build().perform();
+												wait.until(ExpectedConditions.elementToBeClickable(DELCopyAll));
+												js.executeScript("arguments[0].click();", DELCopyAll);
+												logs.info("Clicked on Copy All Row button of Del Time");
+
+												// --Click on Copy All row Signature
+												Sign = DelPoints.get(Del).findElement(By.id("txtsign"));
+												Sign.click();
+												logs.info("Clicked on 1st Signature");
+
+												SignCopyAll = isElementPresent("CpySignAll_id");
+												wait.until(ExpectedConditions.visibilityOf(SignCopyAll));
+												act.moveToElement(SignCopyAll).build().perform();
+												wait.until(ExpectedConditions.elementToBeClickable(SignCopyAll));
+												js.executeScript("arguments[0].click();", SignCopyAll);
+												logs.info("Clicked on Copy All Row button of Signature");
+
+												// --Click on Confirm Del button
+												isElementPresent("TLConfDEL_id").click();
+												logs.info("Clicked on Confirm DEL button");
+												wait.until(ExpectedConditions
+														.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+												try {
+													wait.until(ExpectedConditions
+															.visibilityOfElementLocated(By.id("idValidationforMain")));
+													ValMsg = isElementPresent("TLAlValidation_id").getText();
+													logs.info("Validation is displayed==" + ValMsg);
+
+													logs.info("DEL Copy All Row is not working==FAIL");
+													msg.append("DEL Copy All Row is not working==FAIL" + "\n");
+													logs.info("Sign Copy All Row is not working==FAIL");
+													msg.append("Sign Copy All Row is not working==FAIL" + "\n");
+													getScreenshot(driver, "DEL_SignCpAllRwIssue");
+
+												} catch (Exception CopyAllIssue) {
+													logs.info("DEL Copy All Row is working==PASS");
+													msg.append("DEL Copy All Row is working==PASS" + "\n");
+													logs.info("Sign Copy All Row is working==PASS");
+													msg.append("Sign Copy All Row is working==PASS" + "\n");
+													break;
+												}
+
+											} catch (Exception coppyy) {
+												logs.info(
+														"Please enter same Actual Delivery Datetime validation is not displayed");
+											}
+
+										}
+
+									} else {
+										logs.info("Unknown validation message displayed==FAIL");
+										msg.append("Unknown validation message displayed==FAIL" + "\n");
+										getScreenshot(driver, "DELUnkwnValIssue");
+									}
+
+								} catch (Exception CopyAllIssue) {
+									logs.info("DEL Copy All Row is working==PASS");
+									msg.append("DEL Copy All Row is working==PASS" + "\n");
+									logs.info("Sign Copy All Row is working==PASS");
+									msg.append("Sign Copy All Row is working==PASS" + "\n");
+									break;
+								}
+
+							} catch (Exception coppyy) {
+								logs.info("Validation for Act.Del Time and Signature is not displayed");
+							}
+
 						}
-						// --Click on Confirm Del button
-						isElementPresent("TLConfDEL_id").click();
-						logs.info("Clicked on Confirm DEL button");
-						wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 					} catch (Exception NoValSign) {
 						logs.info("Validation for Act.Del Time and Signature is not displayed");
 
 					}
 
-					try {
-						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("idValidationforMain")));
-						String ValMsg = isElementPresent("TLAlValidation_id").getText();
-						logs.info("Validation is displayed==" + ValMsg);
-
-						if (ValMsg.contains(
-								"Actual Delivery Datetime cannot be less than or equal to Actual Pickup Datetime.")) {
-							List<WebElement> DelPoints = driver.findElements(
-									By.xpath("//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
-							int TotalDel = DelPoints.size();
-							logs.info("Total Delivery points is/are==" + TotalDel);
-
-							for (int Del = 0; Del < TotalDel; Del++) {
-								System.out.println("value of del==" + Del);
-
-								WebElement ZoneID = DelPoints.get(Del)
-										.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
-								String DeliveryDate = "txtActdlDate_" + Del;
-								String DeliveryTime = "txtActDlTime_" + Del;
-
-								// --Get ZoneID
-								String ZOneID = ZoneID.getText();
-								logs.info("ZoneID of is==" + ZOneID);
-								if (ZOneID.equalsIgnoreCase("EDT")) {
-									ZOneID = "America/New_York";
-								} else if (ZOneID.equalsIgnoreCase("CDT")) {
-									ZOneID = "CST";
-								} else if (ZOneID.equalsIgnoreCase("PDT")) {
-									ZOneID = "PST";
-								}
-
-								// --Delivery Date
-								WebElement DelDate = driver.findElement(By.id(DeliveryDate));
-								DelDate.clear();
-								Date date = new Date();
-								DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-								dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-								logs.info(dateFormat.format(date));
-								DelDate.sendKeys(dateFormat.format(date));
-								DelDate.sendKeys(Keys.TAB);
-								logs.info("Entered Actual Delivery Date");
-
-								// --Enter Act.DEL Time
-								WebElement DelTime = driver.findElement(By.id(DeliveryTime));
-								DelTime.clear();
-								date = new Date();
-								dateFormat = new SimpleDateFormat("HH:mm");
-								dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-								Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
-								cal.add(Calendar.MINUTE, 1);
-								logs.info(dateFormat.format(cal.getTime()));
-
-								DelTime.sendKeys(dateFormat.format(cal.getTime()));
-								logs.info("Entered Actual Delivery Time");
-
-							}
-						} else if (ValMsg.contains("Please enter same Actual Delivery Datetime.")) {
-							List<WebElement> DelPoints = driver.findElements(
-									By.xpath("//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
-							int TotalDel = DelPoints.size();
-							logs.info("Total Delivery points is/are==" + TotalDel);
-
-							for (int Del = 0; Del < TotalDel; Del++) {
-								System.out.println("value of del==" + Del);
-
-								WebElement ZoneID = DelPoints.get(Del)
-										.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
-								String DeliveryDate = "txtActdlDate_" + Del;
-								String DeliveryTime = "txtActDlTime_" + Del;
-
-								// --Get ZoneID
-								String ZOneID = ZoneID.getText();
-								logs.info("ZoneID of is==" + ZOneID);
-								if (ZOneID.equalsIgnoreCase("EDT")) {
-									ZOneID = "America/New_York";
-								} else if (ZOneID.equalsIgnoreCase("CDT")) {
-									ZOneID = "CST";
-								} else if (ZOneID.equalsIgnoreCase("PDT")) {
-									ZOneID = "PST";
-								}
-
-								// --Delivery Date
-								WebElement DelDate = driver.findElement(By.id(DeliveryDate));
-								DelDate.clear();
-								Date date = new Date();
-								DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-								dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-								logs.info(dateFormat.format(date));
-								DelDate.sendKeys(dateFormat.format(date));
-								DelDate.sendKeys(Keys.TAB);
-								logs.info("Entered Actual Delivery Date");
-
-								// --Enter Act.DEL Time
-								WebElement DelTime = driver.findElement(By.id(DeliveryTime));
-								DelTime.clear();
-								date = new Date();
-								dateFormat = new SimpleDateFormat("HH:mm");
-								dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-								Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
-								cal.add(Calendar.MINUTE, 1);
-								logs.info(dateFormat.format(cal.getTime()));
-								DelTime.sendKeys(dateFormat.format(cal.getTime()));
-								logs.info("Entered Actual Delivery Time");
-
-							}
-
-						}
-
-						// --Click on Confirm Del button
-						isElementPresent("TLConfDEL_id").click();
-						logs.info("Clicked on Confirm DEL button");
-						wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
-					} catch (Exception ActTimeGDelTime) {
-						logs.info("Validation is not displayed="
-								+ "Actual Delivery Datetime cannot be less than or equal to Actual Pickup Datetime.");
-
-					}
 					try {
 						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
 						PickUpID = getData("ManyToOne", 1, 2);
