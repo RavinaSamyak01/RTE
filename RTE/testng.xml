@@ -8,15 +8,14 @@
 			<class name="rte_RTEJobCreation.RTEJobCreation"></class>
 		</classes>
 	</test>
-<test thread-count="5" name="RTE Get PickUPID and Search">
+
+
+		-->
+	<test thread-count="5" name="RTE Get PickUPID and Search">
 		<classes>
 			<class name="rte_RTEJobCreation.RTEGetPUpID"></class>
 		</classes>
 	</test>
-
-
-		-->
-
 
 	<test thread-count="5" name="RTE OneToOne Job Processing">
 		<classes>

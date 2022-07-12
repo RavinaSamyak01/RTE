@@ -76,13 +76,13 @@ public class EditJob extends BaseInit {
 		// --Add/Delete Charges
 		addDeleteChargesRecal();
 
-		// --Move to Job STatus tab
-		wait.until(ExpectedConditions.elementToBeClickable(By.id("idJobOverview")));
-		isElementPresent("TLJobSTatus_id").click();
-		logs.info("Clicked on Job Status tab");
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
+			// --Move to Job STatus tab
+			wait.until(ExpectedConditions.elementToBeClickable(By.id("idJobOverview")));
+			isElementPresent("TLJobSTatus_id").click();
+			logs.info("Clicked on Job Status tab");
+			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+	
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
 
 		logs.info("==========RTE Edit Job Test End==========");
 		msg.append("==========RTE Edit Job Test End==========" + "\n");
