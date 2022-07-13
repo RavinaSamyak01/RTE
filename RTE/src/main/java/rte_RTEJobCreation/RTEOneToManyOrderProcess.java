@@ -630,7 +630,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 
 													} catch (Exception CopyAllIssue) {
 														logs.info("DEL Copy Next Row is working==PASS");
-														msg.append("DEL Copy Next Row is working==PASS" + "\n\n");
+														msg.append("DEL Copy Next Row is working==PASS" + "\n");
 														logs.info("Sign Copy Next Row is working==PASS");
 														msg.append("Sign Copy Next Row is working==PASS" + "\n\n");
 													}
@@ -1475,7 +1475,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 
 												} catch (Exception CopyAllIssue) {
 													logs.info("DEL Copy Next Row is working==PASS");
-													msg.append("DEL Copy Next Row is working==PASS" + "\n\n");
+													msg.append("DEL Copy Next Row is working==PASS" + "\n");
 													logs.info("Sign Copy Next Row is working==PASS");
 													msg.append("Sign Copy Next Row is working==PASS" + "\n\n");
 												}
@@ -2229,7 +2229,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 
 										} catch (Exception CopyAllIssue) {
 											logs.info("DEL Copy Next Row is working==PASS");
-											msg.append("DEL Copy Next Row is working==PASS" + "\n\n");
+											msg.append("DEL Copy Next Row is working==PASS" + "\n");
 											logs.info("Sign Copy Next Row is working==PASS");
 											msg.append("Sign Copy Next Row is working==PASS" + "\n\n");
 										}
@@ -2914,7 +2914,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 
 										} catch (Exception CopyAllIssue) {
 											logs.info("DEL Copy Next Row is working==PASS");
-											msg.append("DEL Copy Next Row is working==PASS" + "\n\n");
+											msg.append("DEL Copy Next Row is working==PASS" + "\n");
 											logs.info("Sign Copy Next Row is working==PASS");
 											msg.append("Sign Copy Next Row is working==PASS" + "\n\n");
 										}
@@ -3479,7 +3479,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 
 									} catch (Exception CopyAllIssue) {
 										logs.info("DEL Copy Next Row is working==PASS");
-										msg.append("DEL Copy Next Row is working==PASS" + "\n\n");
+										msg.append("DEL Copy Next Row is working==PASS" + "\n");
 										logs.info("Sign Copy Next Row is working==PASS");
 										msg.append("Sign Copy Next Row is working==PASS" + "\n\n");
 									}

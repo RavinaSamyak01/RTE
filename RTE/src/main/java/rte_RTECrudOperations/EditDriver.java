@@ -186,20 +186,21 @@ public class EditDriver extends BaseInit {
 
 		// --Selection of driver
 
-		// --Select the driver name
-		Select DriverName = new Select(isElementPresent("PDNameDrp_id"));
-		DriverName.selectByIndex(1);
-		logs.info("Driver is selected");
-
-		// --Enter contact Number
-		isElementPresent("PDContact_id").clear();
-		isElementPresent("PDContact_id").sendKeys("1234567899");
-		logs.info("Enter driver contact number");
-
-		// --Select Toll Concession
-		Select TollCOn = new Select(isElementPresent("PDTollCon_id"));
-		TollCOn.selectByIndex(1);
-		logs.info("Toll Concession is selected");
+		
+		/*
+		 * // --Select the driver name Select DriverName = new
+		 * Select(isElementPresent("PDNameDrp_id")); DriverName.selectByIndex(1);
+		 * logs.info("Driver is selected");
+		 * 
+		 * // --Enter contact Number isElementPresent("PDContact_id").clear();
+		 * isElementPresent("PDContact_id").sendKeys("1234567899");
+		 * logs.info("Enter driver contact number");
+		 */
+		  
+		  // --Select Toll Concession 
+		  Select TollCOn = new Select(isElementPresent("PDTollCon_id")); TollCOn.selectByIndex(1);
+		  logs.info("Toll Concession is selected");
+		 
 
 		logs.info("=====RTE Edit Driver Test End=====");
 		msg.append("=====RTE Edit Driver Test End=====" + "\n");
