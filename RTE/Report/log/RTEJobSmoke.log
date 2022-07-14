@@ -1,91 +1,58 @@
-2022-07-12 14:46:27,852 [main] INFO RTEManyToManyOrderProcess - initialization of the properties file is done
-2022-07-12 14:46:28,313 [main] INFO io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 103.0.5060.53 (since Google Chrome 103 is installed in your machine)
-2022-07-12 14:46:28,335 [main] INFO io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\Users\rprajapati\.m2\repository\webdriver\chromedriver\win32\103.0.5060.53\chromedriver.exe
-2022-07-12 14:46:37,748 [main] INFO RTEManyToManyOrderProcess - Entered UserName
-2022-07-12 14:46:38,983 [main] INFO RTEManyToManyOrderProcess - Entered Password
-2022-07-12 14:46:40,236 [main] INFO RTEManyToManyOrderProcess - Login done
-2022-07-12 14:46:52,754 [main] INFO RTEManyToManyOrderProcess - ======================RTE Many To Many Order Processing Test Start==================
-2022-07-12 14:46:53,001 [main] INFO RTEManyToManyOrderProcess - Clicked on Operations
-2022-07-12 14:46:53,273 [main] INFO RTEManyToManyOrderProcess - Clicked on TaskLog
-2022-07-12 14:46:58,415 [main] INFO RTEManyToManyOrderProcess - PickUpID==3427103
-2022-07-12 14:46:58,416 [main] INFO RTEManyToManyOrderProcess - Entered PickUpID in basic search
-2022-07-12 14:46:58,596 [main] INFO RTEManyToManyOrderProcess - Click on Search button
-2022-07-12 14:47:04,110 [main] INFO RTEManyToManyOrderProcess - Data is exist with search parameter
-2022-07-12 14:47:04,621 [main] INFO RTEManyToManyOrderProcess - Job status tab is already Opened
-2022-07-12 14:47:04,788 [main] INFO RTEManyToManyOrderProcess - Job status is==PICKUP@STOP 3 OF 6
-2022-07-12 14:47:10,267 [main] INFO RTEManyToManyOrderProcess - Job status is==PICKUP@STOP 3 OF 6
-2022-07-12 14:47:16,193 [main] INFO RTEManyToManyOrderProcess - Clicked on Confirm PU button
-2022-07-12 14:47:18,805 [main] INFO RTEManyToManyOrderProcess - Validation is displayed==Act. Pickup Time is Required.
-2022-07-12 14:47:18,862 [main] INFO RTEManyToManyOrderProcess - Total Pickup points is/are==3
-2022-07-12 14:47:18,950 [main] INFO RTEManyToManyOrderProcess - ZoneID of is==EDT
-2022-07-12 14:47:19,182 [main] INFO RTEManyToManyOrderProcess - 07/12/2022
-2022-07-12 14:47:19,701 [main] INFO RTEManyToManyOrderProcess - Entered Actual Pickup Date
-2022-07-12 14:47:19,942 [main] INFO RTEManyToManyOrderProcess - 05:17
-2022-07-12 14:47:22,183 [main] INFO RTEManyToManyOrderProcess - Entered Actual Pickup Time
-2022-07-12 14:47:49,282 [main] INFO RTEManyToManyOrderProcess - Clicked on Confirm PU button
-2022-07-12 14:48:32,395 [main] INFO RTEManyToManyOrderProcess - Validation is not displayed=Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime.
-2022-07-12 14:48:35,921 [main] INFO RTEManyToManyOrderProcess - Job status is==DELIVER@STOP 4 OF 6
-2022-07-12 14:48:46,730 [main] INFO RTEManyToManyOrderProcess - Clicked on Confirm DEL button
-2022-07-12 14:48:49,941 [main] INFO RTEManyToManyOrderProcess - Validation is displayed==Act. Delivery Time is Required.
-Signature is required.
-2022-07-12 14:48:50,000 [main] INFO RTEManyToManyOrderProcess - Total Delivery points is/are==3
-2022-07-12 14:48:50,112 [main] INFO RTEManyToManyOrderProcess - ZoneID of is==EDT
-2022-07-12 14:48:50,320 [main] INFO RTEManyToManyOrderProcess - 07/12/2022
-2022-07-12 14:48:50,665 [main] INFO RTEManyToManyOrderProcess - Entered Actual Delivery Date
-2022-07-12 14:48:50,792 [main] INFO RTEManyToManyOrderProcess - 05:18
-2022-07-12 14:48:52,303 [main] INFO RTEManyToManyOrderProcess - Entered Actual Delivery Time
-2022-07-12 14:48:52,517 [main] INFO RTEManyToManyOrderProcess - Entered Signature
-2022-07-12 14:49:01,755 [main] INFO RTEManyToManyOrderProcess - Clicked on Confirm DEL button
-2022-07-12 14:49:53,878 [main] INFO RTEManyToManyOrderProcess - Validation is not displayed=Actual Delivery Datetime cannot be less than or equal to Actual Pickup Datetime.
-2022-07-12 14:50:15,706 [main] INFO RTEManyToManyOrderProcess - Job status is==PICKUP@STOP 5 OF 6
-2022-07-12 14:50:15,852 [main] INFO RTEManyToManyOrderProcess - ZoneID of is==EDT
-2022-07-12 14:50:16,264 [main] INFO RTEManyToManyOrderProcess - 07/12/2022
-2022-07-12 14:50:16,538 [main] INFO RTEManyToManyOrderProcess - Entered Actual Pickup Date
-2022-07-12 14:50:16,768 [main] INFO RTEManyToManyOrderProcess - 05:20
-2022-07-12 14:50:18,961 [main] INFO RTEManyToManyOrderProcess - Entered Actual Pickup Time
-2022-07-12 14:50:22,805 [main] INFO RTEManyToManyOrderProcess - Clicked on Confirm PU button
-2022-07-12 14:51:08,047 [main] INFO RTEManyToManyOrderProcess - Validation is not displayed=Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime.
-2022-07-12 14:51:12,017 [main] INFO RTEManyToManyOrderProcess - Job status is==DELIVER@STOP 6 OF 6
-2022-07-12 14:51:17,056 [main] INFO RTEManyToManyOrderProcess - Clicked on Confirm DEL button
-2022-07-12 14:51:20,159 [main] INFO RTEManyToManyOrderProcess - Validation is displayed==Act. Delivery Time is Required.
-Signature is required.
-2022-07-12 14:51:20,226 [main] INFO RTEManyToManyOrderProcess - Total Delivery points is/are==3
-2022-07-12 14:51:20,319 [main] INFO RTEManyToManyOrderProcess - ZoneID of is==EDT
-2022-07-12 14:51:20,548 [main] INFO RTEManyToManyOrderProcess - 07/12/2022
-2022-07-12 14:51:20,765 [main] INFO RTEManyToManyOrderProcess - Entered Actual Delivery Date
-2022-07-12 14:51:20,940 [main] INFO RTEManyToManyOrderProcess - 05:21
-2022-07-12 14:51:22,883 [main] INFO RTEManyToManyOrderProcess - Entered Actual Delivery Time
-2022-07-12 14:51:23,056 [main] INFO RTEManyToManyOrderProcess - Entered Signature
-2022-07-12 14:51:29,668 [main] INFO RTEManyToManyOrderProcess - Clicked on Confirm DEL button
-2022-07-12 14:52:11,751 [main] INFO RTEManyToManyOrderProcess - Validation is not displayed=Actual Delivery Datetime cannot be less than or equal to Actual Pickup Datetime.
-2022-07-12 14:52:49,613 [main] INFO RTEManyToManyOrderProcess - Job is moved to DELIVERED stage
-2022-07-12 14:53:01,964 [main] INFO RTEManyToManyOrderProcess - Entered PickUpID in basic search
-2022-07-12 14:53:03,204 [main] INFO RTEManyToManyOrderProcess - Click on Search button
-2022-07-12 14:53:09,431 [main] INFO RTEManyToManyOrderProcess - Data is exist with search parameter
-2022-07-12 14:53:14,517 [main] INFO RTEManyToManyOrderProcess - Job status is==DELIVERED@STOP 6 OF 6
-2022-07-12 14:53:14,520 [main] INFO RTEManyToManyOrderProcess - Job is Delivered successfully
-2022-07-12 14:53:16,706 [main] INFO RTEManyToManyOrderProcess - Clicked on End Route
-2022-07-12 14:53:20,087 [main] INFO RTEManyToManyOrderProcess - Validation is displayed==Actual Route End Date Required.
-Actual Route End Time Required.
-2022-07-12 14:53:20,090 [main] INFO RTEManyToManyOrderProcess - Validation is displayed for Route End Date and Time==PASS
-2022-07-12 14:53:20,186 [main] INFO RTEManyToManyOrderProcess - ZoneID of is==EDT
-2022-07-12 14:53:20,332 [main] INFO RTEManyToManyOrderProcess - 07/12/2022
-2022-07-12 14:53:20,688 [main] INFO RTEManyToManyOrderProcess - Entered Actual Route End Date
-2022-07-12 14:53:20,815 [main] INFO RTEManyToManyOrderProcess - 05:24
-2022-07-12 14:53:22,606 [main] INFO RTEManyToManyOrderProcess - Entered Actual Route End Time
-2022-07-12 14:53:24,763 [main] INFO RTEManyToManyOrderProcess - Clicked on End Route
-2022-07-12 14:53:32,083 [main] INFO RTEManyToManyOrderProcess - Entered PickUpID in basic search
-2022-07-12 14:53:34,011 [main] INFO RTEManyToManyOrderProcess - Click on Search button
-2022-07-12 14:53:40,275 [main] INFO RTEManyToManyOrderProcess - Data is exist with search parameter
-2022-07-12 14:53:44,135 [main] INFO RTEManyToManyOrderProcess - Job status is==VERIFY CUSTOMER BILL
-2022-07-12 14:53:44,138 [main] INFO RTEManyToManyOrderProcess - Job is moved to Verify Customer Bill stage
-2022-07-12 14:53:49,558 [main] INFO RTEManyToManyOrderProcess - Clicked on Verify button
-2022-07-12 14:53:58,230 [main] INFO RTEManyToManyOrderProcess - Entered PickUpID in basic search
-2022-07-12 14:53:59,533 [main] INFO RTEManyToManyOrderProcess - Click on Search button
-2022-07-12 14:54:05,075 [main] INFO RTEManyToManyOrderProcess - Data is exist with search parameter
-2022-07-12 14:54:10,320 [main] INFO RTEManyToManyOrderProcess - Job status is==VERIFIED
-2022-07-12 14:54:10,325 [main] INFO RTEManyToManyOrderProcess - Job is moved to VERIFIED stage
-2022-07-12 14:54:15,845 [main] INFO RTEManyToManyOrderProcess - ======================RTE Many To Many Order Processing Test End==================
-2022-07-12 14:54:20,827 [main] INFO RTEManyToManyOrderProcess - Logout Message is displayed==You have successfully logged out!
-2022-07-12 14:54:20,828 [main] INFO RTEManyToManyOrderProcess - Logout done
-2022-07-12 14:54:21,601 [main] INFO RTEManyToManyOrderProcess - ====Sending Email=====
+2022-07-14 16:52:04,515 [main] INFO RTEManyToOneOrderProcess - initialization of the properties file is done
+2022-07-14 16:52:05,082 [main] INFO io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 103.0.5060.53 (since Google Chrome 103 is installed in your machine)
+2022-07-14 16:52:05,112 [main] INFO io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\Users\rprajapati\.m2\repository\webdriver\chromedriver\win32\103.0.5060.53\chromedriver.exe
+2022-07-14 16:52:13,681 [main] INFO RTEManyToOneOrderProcess - Entered UserName
+2022-07-14 16:52:14,861 [main] INFO RTEManyToOneOrderProcess - Entered Password
+2022-07-14 16:52:16,202 [main] INFO RTEManyToOneOrderProcess - Login done
+2022-07-14 16:52:28,197 [main] INFO RTEManyToOneOrderProcess - ======================RTE Many To One Order Processing Test Start==================
+2022-07-14 16:52:28,482 [main] INFO RTEManyToOneOrderProcess - Clicked on Operations
+2022-07-14 16:52:28,888 [main] INFO RTEManyToOneOrderProcess - Clicked on TaskLog
+2022-07-14 16:52:34,294 [main] INFO RTEManyToOneOrderProcess - PickUpID==3429379
+2022-07-14 16:52:34,296 [main] INFO RTEManyToOneOrderProcess - Entered PickUpID in basic search
+2022-07-14 16:52:34,508 [main] INFO RTEManyToOneOrderProcess - Click on Search button
+2022-07-14 16:52:39,111 [main] INFO RTEManyToOneOrderProcess - Data is exist with search parameter
+2022-07-14 16:52:39,412 [main] INFO RTEManyToOneOrderProcess - Job status tab is already Opened
+2022-07-14 16:52:39,502 [main] INFO RTEManyToOneOrderProcess - Job status is==TC ACK
+2022-07-14 16:52:39,503 [main] INFO RTEManyToOneOrderProcess - It is TC ACK stage
+2022-07-14 16:52:39,869 [main] INFO RTEManyToOneOrderProcess - Clicked on Acknowledge button
+2022-07-14 16:52:53,114 [main] INFO RTEManyToOneOrderProcess - Job status is==RDY FOR DSP
+2022-07-14 16:52:53,411 [main] INFO RTEManyToOneOrderProcess - Clicked on Send PU Alert button
+2022-07-14 16:52:53,749 [main] INFO RTEManyToOneOrderProcess - Validation is displayed==Spoke With Required.
+2022-07-14 16:52:54,082 [main] INFO RTEManyToOneOrderProcess - Entered Spoke With
+2022-07-14 16:52:54,287 [main] INFO RTEManyToOneOrderProcess - Clicked on Send PU Alert button
+2022-07-14 16:52:58,681 [main] INFO RTEManyToOneOrderProcess - Entered PickUpID in basic search
+2022-07-14 16:52:58,838 [main] INFO RTEManyToOneOrderProcess - Click on Search button
+2022-07-14 16:53:04,882 [main] INFO RTEManyToOneOrderProcess - Data is exist with search parameter
+2022-07-14 16:53:05,295 [main] INFO RTEManyToOneOrderProcess - Clicked on Job Status Tab
+2022-07-14 16:53:05,466 [main] INFO RTEManyToOneOrderProcess - Job status is==PU DRV CONF
+2022-07-14 16:53:05,593 [main] INFO RTEManyToOneOrderProcess - Clicked on Confirm PU Alert
+2022-07-14 16:53:48,352 [main] INFO RTEManyToOneOrderProcess - Spoke With validation is not displayed
+2022-07-14 16:53:48,827 [main] INFO RTEManyToOneOrderProcess - Job status is==PICKUP@STOP 1 OF 5
+2022-07-14 16:53:49,192 [main] INFO RTEManyToOneOrderProcess - Clicked on Confirm PU button
+2022-07-14 16:53:49,342 [main] INFO RTEManyToOneOrderProcess - Validation is displayed==Act. Pickup Time is Required.
+2022-07-14 16:53:49,371 [main] INFO RTEManyToOneOrderProcess - Total Pickup points is/are==4
+2022-07-14 16:53:49,424 [main] INFO RTEManyToOneOrderProcess - ZoneID of is==PDT
+2022-07-14 16:53:49,570 [main] INFO RTEManyToOneOrderProcess - 07/14/2022
+2022-07-14 16:53:49,799 [main] INFO RTEManyToOneOrderProcess - Entered Actual Pickup Date
+2022-07-14 16:53:49,900 [main] INFO RTEManyToOneOrderProcess - 04:23
+2022-07-14 16:53:50,186 [main] INFO RTEManyToOneOrderProcess - Entered Actual Pickup Time
+2022-07-14 16:53:50,223 [main] INFO RTEManyToOneOrderProcess - value of PickUpTime is==04:23
+2022-07-14 16:54:39,231 [main] INFO RTEManyToOneOrderProcess - Clicked on Confirm PU button
+2022-07-14 16:55:22,397 [main] INFO RTEManyToOneOrderProcess - Validation is not displayed=Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime.
+2022-07-14 16:55:23,567 [main] INFO RTEManyToOneOrderProcess - Job status is==PICKUP@STOP 2 OF 5
+2022-07-14 16:55:23,632 [main] INFO RTEManyToOneOrderProcess - --Testing PU Copy Next Row button--
+2022-07-14 16:55:23,884 [main] INFO RTEManyToOneOrderProcess - Clicked on 0 PU Stop time
+2022-07-14 16:55:26,557 [main] INFO RTEManyToOneOrderProcess - Clicked on Copy Next Row of PickUp
+2022-07-14 16:55:26,696 [main] INFO RTEManyToOneOrderProcess - Clicked on Confirm PU button
+2022-07-14 16:55:28,894 [main] INFO RTEManyToOneOrderProcess - Validation is displayed==Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime.
+2022-07-14 16:55:28,897 [main] INFO RTEManyToOneOrderProcess - PU Copy Next Row is working==PASS
+2022-07-14 16:55:28,962 [main] INFO RTEManyToOneOrderProcess - Total Pickup points is/are==4
+2022-07-14 16:55:29,071 [main] INFO RTEManyToOneOrderProcess - ZoneID of is==PDT
+2022-07-14 16:55:29,282 [main] INFO RTEManyToOneOrderProcess - 07/14/2022
+2022-07-14 16:55:29,637 [main] INFO RTEManyToOneOrderProcess - Entered Actual Pickup Date
+2022-07-14 16:55:29,795 [main] INFO RTEManyToOneOrderProcess - 04:26
+2022-07-14 16:55:31,311 [main] INFO RTEManyToOneOrderProcess - Entered Actual Pickup Time
+2022-07-14 16:55:31,421 [main] INFO RTEManyToOneOrderProcess - Clicked on Confirm PU button
+2022-07-14 16:56:14,171 [main] INFO RTEManyToOneOrderProcess - Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime Validation not displayed again.
+2022-07-14 16:56:15,615 [main] INFO RTEManyToOneOrderProcess - Job status is==PICKUP@STOP 3 OF 5
+2022-07-14 16:56:15,679 [main] INFO RTEManyToOneOrderProcess - --Testing PU Copy Next Row button--

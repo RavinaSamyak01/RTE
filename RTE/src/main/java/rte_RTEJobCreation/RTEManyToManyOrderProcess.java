@@ -370,7 +370,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 												dateFormat = new SimpleDateFormat("HH:mm");
 												dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
 												Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
-												cal.add(Calendar.SECOND, 2);
+												cal.add(Calendar.MINUTE, 1);
 												logs.info(dateFormat.format(cal.getTime()));
 												PickUpTime.sendKeys(dateFormat.format(cal.getTime()));
 												wait.until(ExpectedConditions.elementToBeClickable(PickUpTime));
@@ -542,7 +542,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 															dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
 															Calendar cal = Calendar
 																	.getInstance(TimeZone.getTimeZone(ZOneID));
-															cal.add(Calendar.SECOND, 2);
+															cal.add(Calendar.MINUTE, 1);
 															logs.info(dateFormat.format(cal.getTime()));
 															wait.until(ExpectedConditions
 																	.elementToBeClickable(By.id(DeliveryTime)));
@@ -1169,7 +1169,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 											dateFormat = new SimpleDateFormat("HH:mm");
 											dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
 											Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
-											cal.add(Calendar.SECOND, 2);
+											cal.add(Calendar.MINUTE, 1);
 											logs.info(dateFormat.format(cal.getTime()));
 											PickUpTime.sendKeys(dateFormat.format(cal.getTime()));
 											wait.until(ExpectedConditions.elementToBeClickable(PickUpTime));
@@ -1897,7 +1897,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 									dateFormat = new SimpleDateFormat("HH:mm");
 									dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
 									Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
-									cal.add(Calendar.SECOND, 2);
+									cal.add(Calendar.MINUTE, 1);
 									logs.info(dateFormat.format(cal.getTime()));
 									PickUpTime.sendKeys(dateFormat.format(cal.getTime()));
 									wait.until(ExpectedConditions.elementToBeClickable(PickUpTime));
@@ -2543,13 +2543,15 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 									logs.info("Entered Actual Pickup Date");
 
 									// --Enter Act.PickUp Time
+
+									// --Enter Act.PickUp Time
 									PickUpTime = driver.findElement(By.id(PUTime));
 									PickUpTime.clear();
 									date = new Date();
 									dateFormat = new SimpleDateFormat("HH:mm");
 									dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
 									Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
-									cal.add(Calendar.SECOND, 2);
+									cal.add(Calendar.MINUTE, 1);
 									logs.info(dateFormat.format(cal.getTime()));
 									PickUpTime.sendKeys(dateFormat.format(cal.getTime()));
 									wait.until(ExpectedConditions.elementToBeClickable(PickUpTime));
@@ -3365,7 +3367,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 												dateFormat = new SimpleDateFormat("HH:mm");
 												dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
 												Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
-												cal.add(Calendar.SECOND, 2);
+												cal.add(Calendar.MINUTE, 1);
 												logs.info(dateFormat.format(cal.getTime()));
 												PickUpTime.sendKeys(dateFormat.format(cal.getTime()));
 												wait.until(ExpectedConditions.elementToBeClickable(PickUpTime));

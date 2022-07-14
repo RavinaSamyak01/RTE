@@ -205,6 +205,48 @@ public class RTECrudOperations extends BaseInit {
 							logs.info("Spoke With validation is not displayed");
 
 						}
+
+						// --RDY FOR DSP
+						try {
+							PickUPSection = isElementPresent("TLAlertstages_id");
+							wait.until(ExpectedConditions.visibilityOf(PickUPSection));
+							getScreenshot(driver, "JobEditor_RDYFORDSP");
+							jobStatus = isElementPresent("TLStageLable_id").getText();
+							logs.info("Job status is==" + jobStatus);
+							msg.append("Job status is==" + jobStatus + "\n");
+
+							// --Click on SendPuAlert button
+							SenPUALert = isElementPresent("TLSendPUAl_id");
+							act.moveToElement(SenPUALert).build().perform();
+							wait.until(ExpectedConditions.elementToBeClickable(By.id("WhiteTickAlert")));
+							act.moveToElement(SenPUALert).click().perform();
+							logs.info("Clicked on Send PU Alert button");
+							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+							try {
+								wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("idValidationforMain")));
+								String ValMsg = isElementPresent("TLAlValidation_id").getText();
+								logs.info("Validation is displayed==" + ValMsg);
+
+								// --Enter SpokeWith
+								wait.until(ExpectedConditions.elementToBeClickable(By.id("txtSpokeWith")));
+								isElementPresent("TLSpokeWith_id").sendKeys("RV");
+								logs.info("Entered Spoke With");
+
+								// --Click on SendPuAlert button
+								wait.until(ExpectedConditions.elementToBeClickable(By.id("WhiteTickAlert")));
+								isElementPresent("TLSendPUAl_id").click();
+								logs.info("Clicked on Send PU Alert button");
+								wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+							} catch (Exception NoVal) {
+								logs.info("Spoke With validation is not displayed");
+
+							}
+						} catch (Exception RFD) {
+							logs.info("Stage is not RDY FOR DSP");
+
+						}
 						try {
 							wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
 							PickUpID = getData("SearchRTE", 3, 2);
