@@ -300,6 +300,10 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 											PickUpDate.sendKeys(Keys.TAB);
 											logs.info("Entered Actual Pickup Date");
 
+											String EnteredPUDate = PickUpDate.getAttribute("value");
+											System.out.println("value of PickUpTime is==" + EnteredPUDate);
+											logs.info("value of PickUpTime is==" + EnteredPUDate);
+
 											// --Enter Act.PickUp Time
 											WebElement PickUpTime = driver.findElement(By.id(PUTime));
 											PickUpTime.clear();
@@ -310,7 +314,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 											PickUpTime.sendKeys(dateFormat.format(date));
 											PickUpTime.sendKeys(Keys.TAB);
 											logs.info("Entered Actual Pickup Time");
-											
+
 											String EnteredPUTime = PickUpTime.getAttribute("value");
 											System.out.println("value of PickUpTime is==" + EnteredPUTime);
 											logs.info("value of PickUpTime is==" + EnteredPUTime);
@@ -379,13 +383,6 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 													logs.info("Entered Actual Pickup Date");
 
 													// --Enter Act.PickUp Time
-													EnteredPUTime = PickUpTime.getAttribute("value");
-													String EPUTime=EnteredPUTime+"00:01";
-													System.out.println("PU Time after increment by 1 is=="+EPUTime);
-													PickUpTime.clear();
-													PickUpTime.sendKeys(EPUTime);
-													PickUpTime.sendKeys(Keys.TAB);
-													
 													PickUpTime = driver.findElement(By.id(PUTime));
 													PickUpTime.clear();
 													date = new Date();
@@ -435,16 +432,13 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 												}
 												System.out.println("value of PrevPU==" + PrevPU);
 
-
-												
 												String PrevPUTime = "txtActPuTime_" + PrevPU;
 												WebElement PUSTop = driver.findElement(By.id(PrevPUTime));
-												
+
 												String EnteredPUTime = PUSTop.getAttribute("value");
 												System.out.println("value of Previous PickUpTime is==" + EnteredPUTime);
 												logs.info("value of Previous PickUp Time is==" + EnteredPUTime);
-												
-												
+
 												PUSTop.click();
 												logs.info("Clicked on " + PrevPU + " PU Stop time");
 
@@ -523,27 +517,18 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 															logs.info("Entered Actual Pickup Date");
 
 															// --Enter Act.PickUp Time
-															// --Enter Act.PickUp Time
 															WebElement PickUpTime = driver.findElement(By.id(PUTime));
 															EnteredPUTime = PUSTop.getAttribute("value");
-															String EPUTime=EnteredPUTime+"00:01";
-															System.out.println("PU Time after increment by 1 is=="+EPUTime);
-															PickUpTime.clear();
-															PickUpTime.sendKeys(EPUTime);
-															PickUpTime.sendKeys(Keys.TAB);
-															
-															
-															PickUpTime.clear();
-															date = new Date();
-															dateFormat = new SimpleDateFormat("HH:mm");
-															dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-															Calendar cal = Calendar
-																	.getInstance(TimeZone.getTimeZone(ZOneID));
+															SimpleDateFormat df = new SimpleDateFormat("HH:mm");
+															Date d = df.parse(EnteredPUTime);
+															Calendar cal = Calendar.getInstance();
+															cal.setTime(d);
 															cal.add(Calendar.MINUTE, 1);
-															logs.info(dateFormat.format(cal.getTime()));
-															PickUpTime.sendKeys(dateFormat.format(cal.getTime()));
-															wait.until(ExpectedConditions
-																	.elementToBeClickable(PickUpTime));
+															String newTime = df.format(cal.getTime());
+															System.out.println(
+																	"New Time after add 1 minute is==" + newTime);
+															PickUpTime.clear();
+															PickUpTime.sendKeys(newTime);
 															PickUpTime.sendKeys(Keys.TAB);
 															logs.info("Entered Actual Pickup Time");
 
@@ -619,19 +604,18 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 
 																		// --Enter Act.PickUp Time
 																		PickUpTime = driver.findElement(By.id(PUTime));
+																		EnteredPUTime = PUSTop.getAttribute("value");
+																		df = new SimpleDateFormat("HH:mm");
+																		d = df.parse(EnteredPUTime);
+																		cal = Calendar.getInstance();
+																		cal.setTime(d);
+																		cal.add(Calendar.MINUTE, 1);
+																		newTime = df.format(cal.getTime());
+																		System.out.println(
+																				"New Time after add 1 minute is=="
+																						+ newTime);
 																		PickUpTime.clear();
-																		date = new Date();
-																		dateFormat = new SimpleDateFormat("HH:mm");
-																		dateFormat.setTimeZone(
-																				TimeZone.getTimeZone(ZOneID));
-																		cal = Calendar.getInstance(
-																				TimeZone.getTimeZone(ZOneID));
-																		cal.add(Calendar.MINUTE, 2);
-																		logs.info(dateFormat.format(cal.getTime()));
-																		PickUpTime.sendKeys(
-																				dateFormat.format(cal.getTime()));
-																		wait.until(ExpectedConditions
-																				.elementToBeClickable(PickUpTime));
+																		PickUpTime.sendKeys(newTime);
 																		PickUpTime.sendKeys(Keys.TAB);
 																		logs.info("Entered Actual Pickup Time");
 
@@ -722,22 +706,19 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 																					// --Enter Act.PickUp Time
 																					PickUpTime = driver
 																							.findElement(By.id(PUTime));
+																					EnteredPUTime = PUSTop
+																							.getAttribute("value");
+																					df = new SimpleDateFormat("HH:mm");
+																					d = df.parse(EnteredPUTime);
+																					cal = Calendar.getInstance();
+																					cal.setTime(d);
+																					cal.add(Calendar.MINUTE, 1);
+																					newTime = df.format(cal.getTime());
+																					System.out.println(
+																							"New Time after add 1 minute is=="
+																									+ newTime);
 																					PickUpTime.clear();
-																					date = new Date();
-																					dateFormat = new SimpleDateFormat(
-																							"HH:mm");
-																					dateFormat.setTimeZone(TimeZone
-																							.getTimeZone(ZOneID));
-																					cal = Calendar.getInstance(TimeZone
-																							.getTimeZone(ZOneID));
-																					cal.add(Calendar.MINUTE, 2);
-																					logs.info(dateFormat
-																							.format(cal.getTime()));
-																					PickUpTime.sendKeys(dateFormat
-																							.format(cal.getTime()));
-																					wait.until(ExpectedConditions
-																							.elementToBeClickable(
-																									PickUpTime));
+																					PickUpTime.sendKeys(newTime);
 																					PickUpTime.sendKeys(Keys.TAB);
 																					logs.info(
 																							"Entered Actual Pickup Time");
@@ -763,6 +744,59 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 
 																	}
 
+																} else if (ValMsg.contains(
+																		"Actual Pickup Datetime cannot be greater than Current Datetime.")) {
+
+																	// --Stored list of pickup
+																	PickupPoints = driver.findElements(By.xpath(
+																			"//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
+																	TotalPickup = PickupPoints.size();
+																	logs.info("Total Pickup points is/are=="
+																			+ TotalPickup);
+
+																	for (puS = pu; puS < TotalPickup;) {
+
+																		System.out.println("value of PuS==" + puS);
+																		if (jobStatus.contains("PICKUP@STOP 2 OF")) {
+																			puS = 1;
+																		} else if (jobStatus
+																				.contains("PICKUP@STOP 3 OF")) {
+																			puS = 2;
+
+																		} else if (jobStatus
+																				.contains("PICKUP@STOP 4 OF")) {
+																			puS = 3;
+
+																		} else if (jobStatus
+																				.contains("PICKUP@STOP 5 OF")) {
+																			puS = 4;
+
+																		}
+																		System.out.println("value of PUs==" + pu);
+
+																		// --PickUp Date
+																		String PrevPUDate = "txtActpuDate_" + PrevPU;
+																		WebElement PUDateSTop = driver
+																				.findElement(By.id(PrevPUDate));
+																		String EnteredPUDate = PUDateSTop
+																				.getAttribute("value");
+																		logs.info("value of Previous PickUp Date is=="
+																				+ EnteredPUDate);
+																		PickUpDate.clear();
+																		PickUpDate.sendKeys(EnteredPUDate);
+																		PickUpDate.sendKeys(Keys.TAB);
+																		logs.info("Entered Actual Pickup Date");
+
+																		// --Click on ConfirmPU button
+																		isElementPresent("TLCOnfPU_id").click();
+																		logs.info("Clicked on Confirm PU button");
+																		wait.until(ExpectedConditions
+																				.invisibilityOfElementLocated(
+																						By.id("loaderDiv")));
+
+																		break;
+
+																	}
 																}
 
 															} catch (Exception CopyAllIssue) {
@@ -1910,6 +1944,10 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 										PickUpDate.sendKeys(Keys.TAB);
 										logs.info("Entered Actual Pickup Date");
 
+										String EnteredPUDate = PickUpDate.getAttribute("value");
+										System.out.println("value of PickUpTime is==" + EnteredPUDate);
+										logs.info("value of PickUpTime is==" + EnteredPUDate);
+
 										// --Enter Act.PickUp Time
 										WebElement PickUpTime = driver.findElement(By.id(PUTime));
 										PickUpTime.clear();
@@ -1920,6 +1958,10 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 										PickUpTime.sendKeys(dateFormat.format(date));
 										PickUpTime.sendKeys(Keys.TAB);
 										logs.info("Entered Actual Pickup Time");
+
+										String EnteredPUTime = PickUpTime.getAttribute("value");
+										System.out.println("value of PickUpTime is==" + EnteredPUTime);
+										logs.info("value of PickUpTime is==" + EnteredPUTime);
 
 										// --Click on ConfirmPU button
 										isElementPresent("TLCOnfPU_id").click();
@@ -1991,6 +2033,8 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 												dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
 												logs.info(dateFormat.format(date));
 												PickUpTime.sendKeys(dateFormat.format(date));
+												PickUpTime.sendKeys(Keys.TAB);
+
 												logs.info("Entered Actual Pickup Time");
 
 												// --Click on ConfirmPU button
@@ -2033,6 +2077,11 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 
 											String PrevPUTime = "txtActPuTime_" + PrevPU;
 											WebElement PUSTop = driver.findElement(By.id(PrevPUTime));
+
+											String EnteredPUTime = PUSTop.getAttribute("value");
+											System.out.println("value of Previous PickUpTime is==" + EnteredPUTime);
+											logs.info("value of Previous PickUp Time is==" + EnteredPUTime);
+
 											PUSTop.click();
 											logs.info("Clicked on " + PrevPU + " PU Stop time");
 
@@ -2112,16 +2161,17 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 
 														// --Enter Act.PickUp Time
 														WebElement PickUpTime = driver.findElement(By.id(PUTime));
-														PickUpTime.clear();
-														date = new Date();
-														dateFormat = new SimpleDateFormat("HH:mm");
-														dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-														Calendar cal = Calendar
-																.getInstance(TimeZone.getTimeZone(ZOneID));
+														EnteredPUTime = PUSTop.getAttribute("value");
+														SimpleDateFormat df = new SimpleDateFormat("HH:mm");
+														Date d = df.parse(EnteredPUTime);
+														Calendar cal = Calendar.getInstance();
+														cal.setTime(d);
 														cal.add(Calendar.MINUTE, 1);
-														logs.info(dateFormat.format(cal.getTime()));
-														PickUpTime.sendKeys(dateFormat.format(cal.getTime()));
-														wait.until(ExpectedConditions.elementToBeClickable(PickUpTime));
+														String newTime = df.format(cal.getTime());
+														System.out
+																.println("New Time after add 1 minute is==" + newTime);
+														PickUpTime.clear();
+														PickUpTime.sendKeys(newTime);
 														PickUpTime.sendKeys(Keys.TAB);
 														logs.info("Entered Actual Pickup Time");
 
@@ -2191,19 +2241,18 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 
 																	// --Enter Act.PickUp Time
 																	PickUpTime = driver.findElement(By.id(PUTime));
-																	PickUpTime.clear();
-																	date = new Date();
-																	dateFormat = new SimpleDateFormat("HH:mm");
-																	dateFormat
-																			.setTimeZone(TimeZone.getTimeZone(ZOneID));
-																	cal = Calendar
-																			.getInstance(TimeZone.getTimeZone(ZOneID));
+																	EnteredPUTime = PUSTop.getAttribute("value");
+																	df = new SimpleDateFormat("HH:mm");
+																	d = df.parse(EnteredPUTime);
+																	cal = Calendar.getInstance();
+																	cal.setTime(d);
 																	cal.add(Calendar.MINUTE, 1);
-																	logs.info(dateFormat.format(cal.getTime()));
-																	PickUpTime
-																			.sendKeys(dateFormat.format(cal.getTime()));
-																	wait.until(ExpectedConditions
-																			.elementToBeClickable(PickUpTime));
+																	newTime = df.format(cal.getTime());
+																	System.out
+																			.println("New Time after add 1 minute is=="
+																					+ newTime);
+																	PickUpTime.clear();
+																	PickUpTime.sendKeys(newTime);
 																	PickUpTime.sendKeys(Keys.TAB);
 																	logs.info("Entered Actual Pickup Time");
 
@@ -2213,10 +2262,168 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 																	wait.until(ExpectedConditions
 																			.invisibilityOfElementLocated(
 																					By.id("loaderDiv")));
+																	try {
+																		wait.until(ExpectedConditions
+																				.visibilityOfElementLocated(
+																						By.id("idValidationforMain")));
+																		ValMsg = isElementPresent("TLAlValidation_id")
+																				.getText();
+																		logs.info("Validation is displayed==" + ValMsg);
 
-																	break;
+																		if (ValMsg.contains(
+																				"Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime.")) {
+
+																			// --Stored list of pickup
+																			PickupPoints = driver.findElements(By.xpath(
+																					"//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
+																			TotalPickup = PickupPoints.size();
+																			logs.info("Total Pickup points is/are=="
+																					+ TotalPickup);
+
+																			for (puS = pu; puS < TotalPickup;) {
+
+																				System.out.println(
+																						"value of PuS==" + puS);
+																				if (jobStatus
+																						.contains("PICKUP@STOP 2 OF")) {
+																					puS = 1;
+																				} else if (jobStatus
+																						.contains("PICKUP@STOP 3 OF")) {
+																					puS = 2;
+
+																				} else if (jobStatus
+																						.contains("PICKUP@STOP 4 OF")) {
+																					puS = 3;
+
+																				} else if (jobStatus
+																						.contains("PICKUP@STOP 5 OF")) {
+																					puS = 4;
+
+																				}
+																				System.out
+																						.println("value of PUs==" + pu);
+
+																				ZoneID = PickupPoints.get(pu)
+																						.findElement(By.xpath(
+																								"td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+																				PUDate = "txtActpuDate_" + pu;
+																				PUTime = "txtActPuTime_" + pu;
+
+																				// --Get ZoneID
+																				ZOneID = ZoneID.getText();
+																				logs.info("ZoneID of is==" + ZOneID);
+																				if (ZOneID.equalsIgnoreCase("EDT")) {
+																					ZOneID = "America/New_York";
+																				} else if (ZOneID
+																						.equalsIgnoreCase("CDT")) {
+																					ZOneID = "CST";
+																				} else if (ZOneID
+																						.equalsIgnoreCase("PDT")) {
+																					ZOneID = "PST";
+																				}
+																				// --PickUp Date
+																				PickUpDate = driver
+																						.findElement(By.id(PUDate));
+																				PickUpDate.clear();
+																				date = new Date();
+																				dateFormat = new SimpleDateFormat(
+																						"MM/dd/yyyy");
+																				dateFormat.setTimeZone(
+																						TimeZone.getTimeZone(ZOneID));
+																				logs.info(dateFormat.format(date));
+																				PickUpDate.sendKeys(
+																						dateFormat.format(date));
+																				PickUpDate.sendKeys(Keys.TAB);
+																				logs.info("Entered Actual Pickup Date");
+
+																				// --Enter Act.PickUp Time
+																				PickUpTime = driver
+																						.findElement(By.id(PUTime));
+																				EnteredPUTime = PUSTop
+																						.getAttribute("value");
+																				df = new SimpleDateFormat("HH:mm");
+																				d = df.parse(EnteredPUTime);
+																				cal = Calendar.getInstance();
+																				cal.setTime(d);
+																				cal.add(Calendar.MINUTE, 1);
+																				newTime = df.format(cal.getTime());
+																				System.out.println(
+																						"New Time after add 1 minute is=="
+																								+ newTime);
+																				PickUpTime.clear();
+																				PickUpTime.sendKeys(newTime);
+																				PickUpTime.sendKeys(Keys.TAB);
+																				logs.info("Entered Actual Pickup Time");
+
+																				// --Click on ConfirmPU button
+																				isElementPresent("TLCOnfPU_id").click();
+																				logs.info(
+																						"Clicked on Confirm PU button");
+																				wait.until(ExpectedConditions
+																						.invisibilityOfElementLocated(
+																								By.id("loaderDiv")));
+
+																				break;
+																			}
+
+																		}
+
+																	} catch (Exception CopyAllIssue) {
+																		logs.info(
+																				"Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime Validation not displayed again.");
+																	}
+
 																}
 
+															} else if (ValMsg.contains(
+																	"Actual Pickup Datetime cannot be greater than Current Datetime.")) {
+
+																// --Stored list of pickup
+																PickupPoints = driver.findElements(By.xpath(
+																		"//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
+																TotalPickup = PickupPoints.size();
+																logs.info("Total Pickup points is/are==" + TotalPickup);
+
+																for (puS = pu; puS < TotalPickup;) {
+
+																	System.out.println("value of PuS==" + puS);
+																	if (jobStatus.contains("PICKUP@STOP 2 OF")) {
+																		puS = 1;
+																	} else if (jobStatus.contains("PICKUP@STOP 3 OF")) {
+																		puS = 2;
+
+																	} else if (jobStatus.contains("PICKUP@STOP 4 OF")) {
+																		puS = 3;
+
+																	} else if (jobStatus.contains("PICKUP@STOP 5 OF")) {
+																		puS = 4;
+
+																	}
+																	System.out.println("value of PUs==" + pu);
+
+																	// --PickUp Date
+																	String PrevPUDate = "txtActpuDate_" + PrevPU;
+																	WebElement PUDateSTop = driver
+																			.findElement(By.id(PrevPUDate));
+																	String EnteredPUDate = PUDateSTop
+																			.getAttribute("value");
+																	logs.info("value of Previous PickUp Date is=="
+																			+ EnteredPUDate);
+																	PickUpDate.clear();
+																	PickUpDate.sendKeys(EnteredPUDate);
+																	PickUpDate.sendKeys(Keys.TAB);
+																	logs.info("Entered Actual Pickup Date");
+
+																	// --Click on ConfirmPU button
+																	isElementPresent("TLCOnfPU_id").click();
+																	logs.info("Clicked on Confirm PU button");
+																	wait.until(ExpectedConditions
+																			.invisibilityOfElementLocated(
+																					By.id("loaderDiv")));
+
+																	break;
+
+																}
 															}
 
 														} catch (Exception CopyAllIssue) {
@@ -2441,7 +2648,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 														dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
 														Calendar cal = Calendar
 																.getInstance(TimeZone.getTimeZone(ZOneID));
-														cal.add(Calendar.MINUTE, 1);
+														cal.add(Calendar.MINUTE, 2);
 														logs.info(dateFormat.format(cal.getTime()));
 														DelTime.sendKeys(dateFormat.format(cal.getTime()));
 														DelTime.sendKeys(Keys.TAB);
@@ -2657,7 +2864,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 																						"Sign Copy All Row is working==PASS");
 																				msg.append(
 																						"Sign Copy All Row is working==PASS"
-																								+ "\n\n");
+																								+ "\n");
 																				break;
 																			}
 
@@ -2672,9 +2879,11 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 
 															} catch (Exception CopyAllIssue) {
 																logs.info("DEL Copy All Row is working==PASS");
-																msg.append("DEL Copy All Row is working==PASS" + "\n");
+																msg.append(
+																		"DEL Copy All Row is working==PASS" + "\n\n");
 																logs.info("Sign Copy All Row is working==PASS");
-																msg.append("Sign Copy All Row is working==PASS" + "\n");
+																msg.append(
+																		"Sign Copy All Row is working==PASS" + "\n\n");
 																break;
 															}
 
@@ -2801,9 +3010,11 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 
 															} catch (Exception CopyAllIssue) {
 																logs.info("DEL Copy All Row is working==PASS");
-																msg.append("DEL Copy All Row is working==PASS" + "\n");
+																msg.append(
+																		"DEL Copy All Row is working==PASS" + "\n\n");
 																logs.info("Sign Copy All Row is working==PASS");
-																msg.append("Sign Copy All Row is working==PASS" + "\n");
+																msg.append(
+																		"Sign Copy All Row is working==PASS" + "\n\n");
 																break;
 															}
 
@@ -2822,9 +3033,9 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 
 											} catch (Exception CopyAllIssue) {
 												logs.info("DEL Copy All Row is working==PASS");
-												msg.append("DEL Copy All Row is working==PASS" + "\n");
+												msg.append("DEL Copy All Row is working==PASS" + "\n\n");
 												logs.info("Sign Copy All Row is working==PASS");
-												msg.append("Sign Copy All Row is working==PASS" + "\n");
+												msg.append("Sign Copy All Row is working==PASS" + "\n\n");
 												break;
 											}
 
@@ -3273,6 +3484,10 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 								PickUpDate.sendKeys(Keys.TAB);
 								logs.info("Entered Actual Pickup Date");
 
+								String EnteredPUDate = PickUpDate.getAttribute("value");
+								System.out.println("value of PickUpTime is==" + EnteredPUDate);
+								logs.info("value of PickUpTime is==" + EnteredPUDate);
+
 								// --Enter Act.PickUp Time
 								WebElement PickUpTime = driver.findElement(By.id(PUTime));
 								PickUpTime.clear();
@@ -3283,6 +3498,10 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 								PickUpTime.sendKeys(dateFormat.format(date));
 								PickUpTime.sendKeys(Keys.TAB);
 								logs.info("Entered Actual Pickup Time");
+
+								String EnteredPUTime = PickUpTime.getAttribute("value");
+								System.out.println("value of PickUpTime is==" + EnteredPUTime);
+								logs.info("value of PickUpTime is==" + EnteredPUTime);
 
 								// --Click on ConfirmPU button
 								isElementPresent("TLCOnfPU_id").click();
@@ -3354,6 +3573,8 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 										dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
 										logs.info(dateFormat.format(date));
 										PickUpTime.sendKeys(dateFormat.format(date));
+										PickUpTime.sendKeys(Keys.TAB);
+
 										logs.info("Entered Actual Pickup Time");
 
 										// --Click on ConfirmPU button
@@ -3395,6 +3616,11 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 
 									String PrevPUTime = "txtActPuTime_" + PrevPU;
 									WebElement PUSTop = driver.findElement(By.id(PrevPUTime));
+
+									String EnteredPUTime = PUSTop.getAttribute("value");
+									System.out.println("value of Previous PickUpTime is==" + EnteredPUTime);
+									logs.info("value of Previous PickUp Time is==" + EnteredPUTime);
+
 									PUSTop.click();
 									logs.info("Clicked on " + PrevPU + " PU Stop time");
 
@@ -3472,15 +3698,16 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 
 												// --Enter Act.PickUp Time
 												WebElement PickUpTime = driver.findElement(By.id(PUTime));
-												PickUpTime.clear();
-												date = new Date();
-												dateFormat = new SimpleDateFormat("HH:mm");
-												dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-												Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
+												EnteredPUTime = PUSTop.getAttribute("value");
+												SimpleDateFormat df = new SimpleDateFormat("HH:mm");
+												Date d = df.parse(EnteredPUTime);
+												Calendar cal = Calendar.getInstance();
+												cal.setTime(d);
 												cal.add(Calendar.MINUTE, 1);
-												logs.info(dateFormat.format(cal.getTime()));
-												PickUpTime.sendKeys(dateFormat.format(cal.getTime()));
-												wait.until(ExpectedConditions.elementToBeClickable(PickUpTime));
+												String newTime = df.format(cal.getTime());
+												System.out.println("New Time after add 1 minute is==" + newTime);
+												PickUpTime.clear();
+												PickUpTime.sendKeys(newTime);
 												PickUpTime.sendKeys(Keys.TAB);
 												logs.info("Entered Actual Pickup Time");
 
@@ -3549,16 +3776,17 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 
 															// --Enter Act.PickUp Time
 															PickUpTime = driver.findElement(By.id(PUTime));
-															PickUpTime.clear();
-															date = new Date();
-															dateFormat = new SimpleDateFormat("HH:mm");
-															dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-															cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
+															EnteredPUTime = PUSTop.getAttribute("value");
+															df = new SimpleDateFormat("HH:mm");
+															d = df.parse(EnteredPUTime);
+															cal = Calendar.getInstance();
+															cal.setTime(d);
 															cal.add(Calendar.MINUTE, 1);
-															logs.info(dateFormat.format(cal.getTime()));
-															PickUpTime.sendKeys(dateFormat.format(cal.getTime()));
-															wait.until(ExpectedConditions
-																	.elementToBeClickable(PickUpTime));
+															newTime = df.format(cal.getTime());
+															System.out.println(
+																	"New Time after add 1 minute is==" + newTime);
+															PickUpTime.clear();
+															PickUpTime.sendKeys(newTime);
 															PickUpTime.sendKeys(Keys.TAB);
 															logs.info("Entered Actual Pickup Time");
 
@@ -3567,10 +3795,154 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 															logs.info("Clicked on Confirm PU button");
 															wait.until(ExpectedConditions
 																	.invisibilityOfElementLocated(By.id("loaderDiv")));
+															try {
+																wait.until(
+																		ExpectedConditions.visibilityOfElementLocated(
+																				By.id("idValidationforMain")));
+																ValMsg = isElementPresent("TLAlValidation_id")
+																		.getText();
+																logs.info("Validation is displayed==" + ValMsg);
 
-															break;
+																if (ValMsg.contains(
+																		"Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime.")) {
+
+																	// --Stored list of pickup
+																	PickupPoints = driver.findElements(By.xpath(
+																			"//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
+																	TotalPickup = PickupPoints.size();
+																	logs.info("Total Pickup points is/are=="
+																			+ TotalPickup);
+
+																	for (puS = pu; puS < TotalPickup;) {
+
+																		System.out.println("value of PuS==" + puS);
+																		if (jobStatus.contains("PICKUP@STOP 2 OF")) {
+																			puS = 1;
+																		} else if (jobStatus
+																				.contains("PICKUP@STOP 3 OF")) {
+																			puS = 2;
+
+																		} else if (jobStatus
+																				.contains("PICKUP@STOP 4 OF")) {
+																			puS = 3;
+
+																		} else if (jobStatus
+																				.contains("PICKUP@STOP 5 OF")) {
+																			puS = 4;
+
+																		}
+																		System.out.println("value of PUs==" + pu);
+
+																		ZoneID = PickupPoints.get(pu).findElement(By
+																				.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+																		PUDate = "txtActpuDate_" + pu;
+																		PUTime = "txtActPuTime_" + pu;
+
+																		// --Get ZoneID
+																		ZOneID = ZoneID.getText();
+																		logs.info("ZoneID of is==" + ZOneID);
+																		if (ZOneID.equalsIgnoreCase("EDT")) {
+																			ZOneID = "America/New_York";
+																		} else if (ZOneID.equalsIgnoreCase("CDT")) {
+																			ZOneID = "CST";
+																		} else if (ZOneID.equalsIgnoreCase("PDT")) {
+																			ZOneID = "PST";
+																		}
+																		// --PickUp Date
+																		PickUpDate = driver.findElement(By.id(PUDate));
+																		PickUpDate.clear();
+																		date = new Date();
+																		dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+																		dateFormat.setTimeZone(
+																				TimeZone.getTimeZone(ZOneID));
+																		logs.info(dateFormat.format(date));
+																		PickUpDate.sendKeys(dateFormat.format(date));
+																		PickUpDate.sendKeys(Keys.TAB);
+																		logs.info("Entered Actual Pickup Date");
+
+																		// --Enter Act.PickUp Time
+																		PickUpTime = driver.findElement(By.id(PUTime));
+																		EnteredPUTime = PUSTop.getAttribute("value");
+																		df = new SimpleDateFormat("HH:mm");
+																		d = df.parse(EnteredPUTime);
+																		cal = Calendar.getInstance();
+																		cal.setTime(d);
+																		cal.add(Calendar.MINUTE, 1);
+																		newTime = df.format(cal.getTime());
+																		System.out.println(
+																				"New Time after add 1 minute is=="
+																						+ newTime);
+																		PickUpTime.clear();
+																		PickUpTime.sendKeys(newTime);
+																		PickUpTime.sendKeys(Keys.TAB);
+																		logs.info("Entered Actual Pickup Time");
+
+																		// --Click on ConfirmPU button
+																		isElementPresent("TLCOnfPU_id").click();
+																		logs.info("Clicked on Confirm PU button");
+																		wait.until(ExpectedConditions
+																				.invisibilityOfElementLocated(
+																						By.id("loaderDiv")));
+
+																		break;
+																	}
+
+																}
+
+															} catch (Exception CopyAllIssue) {
+																logs.info(
+																		"Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime Validation not displayed again.");
+															}
+
 														}
 
+													} else if (ValMsg.contains(
+															"Actual Pickup Datetime cannot be greater than Current Datetime.")) {
+
+														// --Stored list of pickup
+														PickupPoints = driver.findElements(By.xpath(
+																"//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
+														TotalPickup = PickupPoints.size();
+														logs.info("Total Pickup points is/are==" + TotalPickup);
+
+														for (puS = pu; puS < TotalPickup;) {
+
+															System.out.println("value of PuS==" + puS);
+															if (jobStatus.contains("PICKUP@STOP 2 OF")) {
+																puS = 1;
+															} else if (jobStatus.contains("PICKUP@STOP 3 OF")) {
+																puS = 2;
+
+															} else if (jobStatus.contains("PICKUP@STOP 4 OF")) {
+																puS = 3;
+
+															} else if (jobStatus.contains("PICKUP@STOP 5 OF")) {
+																puS = 4;
+
+															}
+															System.out.println("value of PUs==" + pu);
+
+															// --PickUp Date
+															String PrevPUDate = "txtActpuDate_" + PrevPU;
+															WebElement PUDateSTop = driver
+																	.findElement(By.id(PrevPUDate));
+															String EnteredPUDate = PUDateSTop.getAttribute("value");
+															logs.info("value of Previous PickUp Date is=="
+																	+ EnteredPUDate);
+															PickUpDate.clear();
+															PickUpDate.sendKeys(EnteredPUDate);
+															PickUpDate.sendKeys(Keys.TAB);
+															logs.info("Entered Actual Pickup Date");
+
+															// --Click on ConfirmPU button
+															isElementPresent("TLCOnfPU_id").click();
+															logs.info("Clicked on Confirm PU button");
+															wait.until(ExpectedConditions
+																	.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+															break;
+
+														}
 													}
 
 												} catch (Exception CopyAllIssue) {
@@ -3792,7 +4164,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 												dateFormat = new SimpleDateFormat("HH:mm");
 												dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
 												Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
-												cal.add(Calendar.MINUTE, 1);
+												cal.add(Calendar.MINUTE, 2);
 												logs.info(dateFormat.format(cal.getTime()));
 												DelTime.sendKeys(dateFormat.format(cal.getTime()));
 												DelTime.sendKeys(Keys.TAB);
@@ -4000,9 +4372,9 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 
 													} catch (Exception CopyAllIssue) {
 														logs.info("DEL Copy All Row is working==PASS");
-														msg.append("DEL Copy All Row is working==PASS" + "\n");
+														msg.append("DEL Copy All Row is working==PASS" + "\n\n");
 														logs.info("Sign Copy All Row is working==PASS");
-														msg.append("Sign Copy All Row is working==PASS" + "\n");
+														msg.append("Sign Copy All Row is working==PASS" + "\n\n");
 														break;
 													}
 
@@ -4121,9 +4493,9 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 
 													} catch (Exception CopyAllIssue) {
 														logs.info("DEL Copy All Row is working==PASS");
-														msg.append("DEL Copy All Row is working==PASS" + "\n");
+														msg.append("DEL Copy All Row is working==PASS" + "\n\n");
 														logs.info("Sign Copy All Row is working==PASS");
-														msg.append("Sign Copy All Row is working==PASS" + "\n");
+														msg.append("Sign Copy All Row is working==PASS" + "\n\n");
 														break;
 													}
 
@@ -4142,9 +4514,9 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 
 									} catch (Exception CopyAllIssue) {
 										logs.info("DEL Copy All Row is working==PASS");
-										msg.append("DEL Copy All Row is working==PASS" + "\n");
+										msg.append("DEL Copy All Row is working==PASS" + "\n\n");
 										logs.info("Sign Copy All Row is working==PASS");
-										msg.append("Sign Copy All Row is working==PASS" + "\n");
+										msg.append("Sign Copy All Row is working==PASS" + "\n\n");
 										break;
 									}
 
@@ -4524,6 +4896,10 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 								PickUpDate.sendKeys(Keys.TAB);
 								logs.info("Entered Actual Pickup Date");
 
+								String EnteredPUDate = PickUpDate.getAttribute("value");
+								System.out.println("value of PickUpTime is==" + EnteredPUDate);
+								logs.info("value of PickUpTime is==" + EnteredPUDate);
+
 								// --Enter Act.PickUp Time
 								WebElement PickUpTime = driver.findElement(By.id(PUTime));
 								PickUpTime.clear();
@@ -4534,10 +4910,10 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 								PickUpTime.sendKeys(dateFormat.format(date));
 								PickUpTime.sendKeys(Keys.TAB);
 								logs.info("Entered Actual Pickup Time");
-								
-								System.out.println("value of PickUpTime is=="+PickUpTime.getAttribute("value"));
-								System.out.println("value of PickUpTime is=="+PickUpTime.getAttribute("placeholder"));
 
+								String EnteredPUTime = PickUpTime.getAttribute("value");
+								System.out.println("value of PickUpTime is==" + EnteredPUTime);
+								logs.info("value of PickUpTime is==" + EnteredPUTime);
 
 								// --Click on ConfirmPU button
 								isElementPresent("TLCOnfPU_id").click();
@@ -4609,6 +4985,8 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 										dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
 										logs.info(dateFormat.format(date));
 										PickUpTime.sendKeys(dateFormat.format(date));
+										PickUpTime.sendKeys(Keys.TAB);
+
 										logs.info("Entered Actual Pickup Time");
 
 										// --Click on ConfirmPU button
@@ -4650,6 +5028,11 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 
 									String PrevPUTime = "txtActPuTime_" + PrevPU;
 									WebElement PUSTop = driver.findElement(By.id(PrevPUTime));
+
+									String EnteredPUTime = PUSTop.getAttribute("value");
+									System.out.println("value of Previous PickUpTime is==" + EnteredPUTime);
+									logs.info("value of Previous PickUp Time is==" + EnteredPUTime);
+
 									PUSTop.click();
 									logs.info("Clicked on " + PrevPU + " PU Stop time");
 
@@ -4727,15 +5110,16 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 
 												// --Enter Act.PickUp Time
 												WebElement PickUpTime = driver.findElement(By.id(PUTime));
-												PickUpTime.clear();
-												date = new Date();
-												dateFormat = new SimpleDateFormat("HH:mm");
-												dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-												Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
+												EnteredPUTime = PUSTop.getAttribute("value");
+												SimpleDateFormat df = new SimpleDateFormat("HH:mm");
+												Date d = df.parse(EnteredPUTime);
+												Calendar cal = Calendar.getInstance();
+												cal.setTime(d);
 												cal.add(Calendar.MINUTE, 1);
-												logs.info(dateFormat.format(cal.getTime()));
-												PickUpTime.sendKeys(dateFormat.format(cal.getTime()));
-												wait.until(ExpectedConditions.elementToBeClickable(PickUpTime));
+												String newTime = df.format(cal.getTime());
+												System.out.println("New Time after add 1 minute is==" + newTime);
+												PickUpTime.clear();
+												PickUpTime.sendKeys(newTime);
 												PickUpTime.sendKeys(Keys.TAB);
 												logs.info("Entered Actual Pickup Time");
 
@@ -4804,16 +5188,17 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 
 															// --Enter Act.PickUp Time
 															PickUpTime = driver.findElement(By.id(PUTime));
-															PickUpTime.clear();
-															date = new Date();
-															dateFormat = new SimpleDateFormat("HH:mm");
-															dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-															cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
+															EnteredPUTime = PUSTop.getAttribute("value");
+															df = new SimpleDateFormat("HH:mm");
+															d = df.parse(EnteredPUTime);
+															cal = Calendar.getInstance();
+															cal.setTime(d);
 															cal.add(Calendar.MINUTE, 1);
-															logs.info(dateFormat.format(cal.getTime()));
-															PickUpTime.sendKeys(dateFormat.format(cal.getTime()));
-															wait.until(ExpectedConditions
-																	.elementToBeClickable(PickUpTime));
+															newTime = df.format(cal.getTime());
+															System.out.println(
+																	"New Time after add 1 minute is==" + newTime);
+															PickUpTime.clear();
+															PickUpTime.sendKeys(newTime);
 															PickUpTime.sendKeys(Keys.TAB);
 															logs.info("Entered Actual Pickup Time");
 
@@ -4822,10 +5207,154 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 															logs.info("Clicked on Confirm PU button");
 															wait.until(ExpectedConditions
 																	.invisibilityOfElementLocated(By.id("loaderDiv")));
+															try {
+																wait.until(
+																		ExpectedConditions.visibilityOfElementLocated(
+																				By.id("idValidationforMain")));
+																ValMsg = isElementPresent("TLAlValidation_id")
+																		.getText();
+																logs.info("Validation is displayed==" + ValMsg);
 
-															break;
+																if (ValMsg.contains(
+																		"Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime.")) {
+
+																	// --Stored list of pickup
+																	PickupPoints = driver.findElements(By.xpath(
+																			"//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
+																	TotalPickup = PickupPoints.size();
+																	logs.info("Total Pickup points is/are=="
+																			+ TotalPickup);
+
+																	for (puS = pu; puS < TotalPickup;) {
+
+																		System.out.println("value of PuS==" + puS);
+																		if (jobStatus.contains("PICKUP@STOP 2 OF")) {
+																			puS = 1;
+																		} else if (jobStatus
+																				.contains("PICKUP@STOP 3 OF")) {
+																			puS = 2;
+
+																		} else if (jobStatus
+																				.contains("PICKUP@STOP 4 OF")) {
+																			puS = 3;
+
+																		} else if (jobStatus
+																				.contains("PICKUP@STOP 5 OF")) {
+																			puS = 4;
+
+																		}
+																		System.out.println("value of PUs==" + pu);
+
+																		ZoneID = PickupPoints.get(pu).findElement(By
+																				.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+																		PUDate = "txtActpuDate_" + pu;
+																		PUTime = "txtActPuTime_" + pu;
+
+																		// --Get ZoneID
+																		ZOneID = ZoneID.getText();
+																		logs.info("ZoneID of is==" + ZOneID);
+																		if (ZOneID.equalsIgnoreCase("EDT")) {
+																			ZOneID = "America/New_York";
+																		} else if (ZOneID.equalsIgnoreCase("CDT")) {
+																			ZOneID = "CST";
+																		} else if (ZOneID.equalsIgnoreCase("PDT")) {
+																			ZOneID = "PST";
+																		}
+																		// --PickUp Date
+																		PickUpDate = driver.findElement(By.id(PUDate));
+																		PickUpDate.clear();
+																		date = new Date();
+																		dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+																		dateFormat.setTimeZone(
+																				TimeZone.getTimeZone(ZOneID));
+																		logs.info(dateFormat.format(date));
+																		PickUpDate.sendKeys(dateFormat.format(date));
+																		PickUpDate.sendKeys(Keys.TAB);
+																		logs.info("Entered Actual Pickup Date");
+
+																		// --Enter Act.PickUp Time
+																		PickUpTime = driver.findElement(By.id(PUTime));
+																		EnteredPUTime = PUSTop.getAttribute("value");
+																		df = new SimpleDateFormat("HH:mm");
+																		d = df.parse(EnteredPUTime);
+																		cal = Calendar.getInstance();
+																		cal.setTime(d);
+																		cal.add(Calendar.MINUTE, 1);
+																		newTime = df.format(cal.getTime());
+																		System.out.println(
+																				"New Time after add 1 minute is=="
+																						+ newTime);
+																		PickUpTime.clear();
+																		PickUpTime.sendKeys(newTime);
+																		PickUpTime.sendKeys(Keys.TAB);
+																		logs.info("Entered Actual Pickup Time");
+
+																		// --Click on ConfirmPU button
+																		isElementPresent("TLCOnfPU_id").click();
+																		logs.info("Clicked on Confirm PU button");
+																		wait.until(ExpectedConditions
+																				.invisibilityOfElementLocated(
+																						By.id("loaderDiv")));
+
+																		break;
+																	}
+
+																}
+
+															} catch (Exception CopyAllIssue) {
+																logs.info(
+																		"Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime Validation not displayed again.");
+															}
+
 														}
 
+													} else if (ValMsg.contains(
+															"Actual Pickup Datetime cannot be greater than Current Datetime.")) {
+
+														// --Stored list of pickup
+														PickupPoints = driver.findElements(By.xpath(
+																"//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
+														TotalPickup = PickupPoints.size();
+														logs.info("Total Pickup points is/are==" + TotalPickup);
+
+														for (puS = pu; puS < TotalPickup;) {
+
+															System.out.println("value of PuS==" + puS);
+															if (jobStatus.contains("PICKUP@STOP 2 OF")) {
+																puS = 1;
+															} else if (jobStatus.contains("PICKUP@STOP 3 OF")) {
+																puS = 2;
+
+															} else if (jobStatus.contains("PICKUP@STOP 4 OF")) {
+																puS = 3;
+
+															} else if (jobStatus.contains("PICKUP@STOP 5 OF")) {
+																puS = 4;
+
+															}
+															System.out.println("value of PUs==" + pu);
+
+															// --PickUp Date
+															String PrevPUDate = "txtActpuDate_" + PrevPU;
+															WebElement PUDateSTop = driver
+																	.findElement(By.id(PrevPUDate));
+															String EnteredPUDate = PUDateSTop.getAttribute("value");
+															logs.info("value of Previous PickUp Date is=="
+																	+ EnteredPUDate);
+															PickUpDate.clear();
+															PickUpDate.sendKeys(EnteredPUDate);
+															PickUpDate.sendKeys(Keys.TAB);
+															logs.info("Entered Actual Pickup Date");
+
+															// --Click on ConfirmPU button
+															isElementPresent("TLCOnfPU_id").click();
+															logs.info("Clicked on Confirm PU button");
+															wait.until(ExpectedConditions
+																	.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+															break;
+
+														}
 													}
 
 												} catch (Exception CopyAllIssue) {
@@ -5047,7 +5576,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 												dateFormat = new SimpleDateFormat("HH:mm");
 												dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
 												Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
-												cal.add(Calendar.MINUTE, 1);
+												cal.add(Calendar.MINUTE, 2);
 												logs.info(dateFormat.format(cal.getTime()));
 												DelTime.sendKeys(dateFormat.format(cal.getTime()));
 												DelTime.sendKeys(Keys.TAB);
@@ -5255,9 +5784,9 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 
 													} catch (Exception CopyAllIssue) {
 														logs.info("DEL Copy All Row is working==PASS");
-														msg.append("DEL Copy All Row is working==PASS" + "\n");
+														msg.append("DEL Copy All Row is working==PASS" + "\n\n");
 														logs.info("Sign Copy All Row is working==PASS");
-														msg.append("Sign Copy All Row is working==PASS" + "\n");
+														msg.append("Sign Copy All Row is working==PASS" + "\n\n");
 														break;
 													}
 
@@ -5376,9 +5905,9 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 
 													} catch (Exception CopyAllIssue) {
 														logs.info("DEL Copy All Row is working==PASS");
-														msg.append("DEL Copy All Row is working==PASS" + "\n");
+														msg.append("DEL Copy All Row is working==PASS" + "\n\n");
 														logs.info("Sign Copy All Row is working==PASS");
-														msg.append("Sign Copy All Row is working==PASS" + "\n");
+														msg.append("Sign Copy All Row is working==PASS" + "\n\n");
 														break;
 													}
 
@@ -5397,9 +5926,9 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 
 									} catch (Exception CopyAllIssue) {
 										logs.info("DEL Copy All Row is working==PASS");
-										msg.append("DEL Copy All Row is working==PASS" + "\n");
+										msg.append("DEL Copy All Row is working==PASS" + "\n\n");
 										logs.info("Sign Copy All Row is working==PASS");
-										msg.append("Sign Copy All Row is working==PASS" + "\n");
+										msg.append("Sign Copy All Row is working==PASS" + "\n\n");
 										break;
 									}
 
