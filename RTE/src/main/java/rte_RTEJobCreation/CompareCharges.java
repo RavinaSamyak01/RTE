@@ -96,6 +96,7 @@ public class CompareCharges extends BaseInit {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 		try {
+			Thread.sleep(2000);
 			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
 			logs.info("Data is exist with search parameter");
 			getScreenshot(driver, "CompareCharge_TCACK");

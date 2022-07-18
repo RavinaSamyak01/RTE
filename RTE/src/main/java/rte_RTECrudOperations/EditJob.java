@@ -30,8 +30,8 @@ public class EditJob extends BaseInit {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		Actions act = new Actions(driver);
 
-		logs.info("==========RTE Edit Job Test Start==========");
-		msg.append("==========RTE Edit Job Test Start==========" + "\n");
+		logs.info("=====RTE Edit Job Test Start=====");
+		msg.append("=====RTE Edit Job Test Start=====" + "\n");
 
 		// --Go to Edit Job
 		wait.until(ExpectedConditions.elementToBeClickable(By.id("idEditOrder")));
@@ -76,16 +76,16 @@ public class EditJob extends BaseInit {
 		// --Add/Delete Charges
 		addDeleteChargesRecal();
 
-			// --Move to Job STatus tab
-			wait.until(ExpectedConditions.elementToBeClickable(By.id("idJobOverview")));
-			isElementPresent("TLJobSTatus_id").click();
-			logs.info("Clicked on Job Status tab");
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-	
-			wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
+		// --Move to Job STatus tab
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("idJobOverview")));
+		isElementPresent("TLJobSTatus_id").click();
+		logs.info("Clicked on Job Status tab");
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-		logs.info("==========RTE Edit Job Test End==========");
-		msg.append("==========RTE Edit Job Test End==========" + "\n");
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
+
+		logs.info("=====RTE Edit Job Test End=====");
+		msg.append("=====RTE Edit Job Test End=====" + "\n");
 
 		return Result;
 
@@ -95,8 +95,8 @@ public class EditJob extends BaseInit {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		// Actions act = new Actions(driver);
-		logs.info("=====RTE View Memo Test Start============");
-		msg.append("=====RTE View Memo Test Start===========" + "\n");
+		logs.info("==RTE View Memo Test Start==");
+		msg.append("==RTE View Memo Test Start==" + "\n");
 
 		// --Zoom Out
 		js.executeScript("document.body.style.zoom='80%';");
@@ -156,8 +156,8 @@ public class EditJob extends BaseInit {
 		logs.info("Clicked on Close button of Memo Popup");
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-		logs.info("=====RTE View Memo Test End=====");
-		msg.append("=====RTE View Memo Test End=====" + "\n");
+		logs.info("==RTE View Memo Test End==");
+		msg.append("==RTE View Memo Test End==" + "\n");
 
 	}
 
@@ -166,8 +166,8 @@ public class EditJob extends BaseInit {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		// Actions act = new Actions(driver);
-		logs.info("=====RTE View Rate Test Start============");
-		msg.append("=====RTE View Rate Test Start===========" + "\n");
+		logs.info("==RTE View Rate Test Start==");
+		msg.append("==RTE View Rate Test Start==" + "\n");
 
 		// --Zoom Out
 		js.executeScript("document.body.style.zoom='80%';");
@@ -267,8 +267,8 @@ public class EditJob extends BaseInit {
 		logs.info("Clicked on Close button of Rate");
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-		logs.info("=====RTE View Rate Test End=====");
-		msg.append("=====RTE View Rate Test End=====" + "\n");
+		logs.info("==RTE View Rate Test End==");
+		msg.append("==RTE View Rate Test End==" + "\n");
 
 	}
 
@@ -277,8 +277,8 @@ public class EditJob extends BaseInit {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		// Actions act = new Actions(driver);
-		logs.info("=====RTE Print Label Test Start============");
-		msg.append("=====RTE Print Label Test Start===========" + "\n");
+		logs.info("==RTE Print Label Test Start==");
+		msg.append("==RTE Print Label Test Start==" + "\n");
 
 		// --Zoom Out
 		js.executeScript("document.body.style.zoom='80%';");
@@ -317,8 +317,8 @@ public class EditJob extends BaseInit {
 		logs.info("Switched to main window");
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-		logs.info("=====RTE Print Label Test End=====");
-		msg.append("=====RTE Print Label Test End=====" + "\n");
+		logs.info("==RTE Print Label Test End==");
+		msg.append("==RTE Print Label Test End==" + "\n");
 
 	}
 
@@ -327,8 +327,8 @@ public class EditJob extends BaseInit {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Actions act = new Actions(driver);
-		logs.info("=====RTE Route/Shipment Details Test Start============");
-		msg.append("=====RTE Route/Shipment Details Test Start===========" + "\n");
+		logs.info("==RTE Route/Shipment Details Test Start==");
+		msg.append("==RTE Route/Shipment Details Test Start==" + "\n");
 
 		// --Moved to Route Details
 		WebElement RouteDetails = isElementPresent("TLRouteDetails_xpath");
@@ -459,8 +459,8 @@ public class EditJob extends BaseInit {
 
 		}
 
-		logs.info("=====RTE Route/Shipment Details Test End=====");
-		msg.append("=====RTE Route/Shipment Details Test End=====" + "\n");
+		logs.info("==RTE Route/Shipment Details Test End==");
+		msg.append("==RTE Route/Shipment Details Test End==" + "\n");
 
 	}
 
@@ -468,8 +468,8 @@ public class EditJob extends BaseInit {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		// Actions act = new Actions(driver);
-		logs.info("=====RTE Add/Edit Stop Sequence Test Start============");
-		msg.append("=====RTE Add/Edit Stop Sequence Test Start===========" + "\n");
+		logs.info("==RTE Add/Edit Stop Sequence Test Start==");
+		msg.append("==RTE Add/Edit Stop Sequence Test Start==" + "\n");
 
 		// --Total Number of Shipment Stop
 		List<WebElement> SDetails = driver
@@ -724,8 +724,8 @@ public class EditJob extends BaseInit {
 		logs.info("Clicked on Save changes");
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-		logs.info("=====RTE Add/Edit Stop Sequence Test End=====");
-		msg.append("=====RTE Add/Edit Stop Sequence Test End=====" + "\n");
+		logs.info("==RTE Add/Edit Stop Sequence Test End==");
+		msg.append("==RTE Add/Edit Stop Sequence Test End==" + "\n");
 
 	}
 
@@ -733,8 +733,8 @@ public class EditJob extends BaseInit {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Actions act = new Actions(driver);
-		logs.info("=====RTE Customer Charges Test Start============");
-		msg.append("=====RTE Customer Charges Test Start===========" + "\n");
+		logs.info("==RTE Customer Charges Test Start==");
+		msg.append("==RTE Customer Charges Test Start==" + "\n");
 
 		// --Moved to Customer Charges
 		WebElement CustCharges = isElementPresent("TLCustCharges_id");
@@ -845,8 +845,8 @@ public class EditJob extends BaseInit {
 			logs.info("Charge is not deleted");
 
 		}
-		logs.info("=====RTE Customer Charges Test End=====");
-		msg.append("=====RTE Customer Charges Test End=====" + "\n");
+		logs.info("==RTE Customer Charges Test End==");
+		msg.append("==RTE Customer Charges Test End==" + "\n");
 
 	}
 
@@ -854,8 +854,8 @@ public class EditJob extends BaseInit {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		// Actions act = new Actions(driver);
-		logs.info("=====RTE Map Test Start============");
-		msg.append("=====RTE Map Test Start===========" + "\n");
+		logs.info("==RTE Map Test Start==");
+		msg.append("==RTE Map Test Start==" + "\n");
 
 		List<WebElement> SDetails = driver.findElements(By.xpath("//div[contains(@ng-repeat,'ShipmentDetailList')]"));
 		int TotalShipment = SDetails.size();
@@ -958,8 +958,8 @@ public class EditJob extends BaseInit {
 		logs.info("Clicked on Full screen of Map Satelite");
 		Thread.sleep(2000);
 
-		logs.info("=====RTE Map Test End=====");
-		msg.append("=====RTE Map Test End=====" + "\n");
+		logs.info("==RTE Map Test End==");
+		msg.append("==RTE Map Test End==" + "\n");
 
 	}
 

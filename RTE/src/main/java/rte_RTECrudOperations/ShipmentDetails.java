@@ -22,8 +22,8 @@ public class ShipmentDetails extends BaseInit {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		Actions act = new Actions(driver);
 
-		logs.info("==========RTE Shipment Details Test Start==========");
-		msg.append("==========RTE Shipment Details Test Start==========" + "\n");
+		logs.info("=====RTE Shipment Details Test Start=====");
+		msg.append("=====RTE Shipment Details Test Start=====" + "\n");
 
 		// --Click on Shipment No.
 		try {
@@ -107,8 +107,8 @@ public class ShipmentDetails extends BaseInit {
 
 		}
 
-		logs.info("==========RTE Shipment Details Test End==========");
-		msg.append("==========RTE Shipment Details Test End==========" + "\n");
+		logs.info("=====RTE Shipment Details Test End=====");
+		msg.append("=====RTE Shipment Details Test End=====" + "\n");
 
 	}
 
@@ -116,8 +116,8 @@ public class ShipmentDetails extends BaseInit {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Actions act = new Actions(driver);
-		logs.info("=====RTE Add/View Memo Test Start=====");
-		msg.append("=====RTE Add/View Memo Test Start=====" + "\n");
+		logs.info("==RTE Add/View Memo Test Start==");
+		msg.append("==RTE Add/View Memo Test Start==" + "\n");
 
 		try {
 			// --Click on Add/View memo
@@ -137,7 +137,7 @@ public class ShipmentDetails extends BaseInit {
 			js.executeScript("arguments[0].click();", TLSMemo);
 			logs.info("Clicked on Memo");
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-			
+
 			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("MemoPopup")));
 			getScreenshot(driver, "Memo");
 
@@ -196,8 +196,8 @@ public class ShipmentDetails extends BaseInit {
 		logs.info("Clicked on Close button of Memo Popup");
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-		logs.info("=====RTE Add/View Memo Test End=====");
-		msg.append("=====RTE Add/View Memo Test End=====" + "\n");
+		logs.info("==RTE Add/View Memo Test End==");
+		msg.append("==RTE Add/View Memo Test End==" + "\n");
 
 	}
 
@@ -205,8 +205,8 @@ public class ShipmentDetails extends BaseInit {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Actions act = new Actions(driver);
-		logs.info("=====RTE Upload Test Start=====");
-		msg.append("=====RTE Upload Test Start=====" + "\n");
+		logs.info("==RTE Upload Test Start==");
+		msg.append("==RTE Upload Test Start==" + "\n");
 
 		try {
 			// --Click on Upload link
@@ -348,16 +348,16 @@ public class ShipmentDetails extends BaseInit {
 		logs.info("Click on Save&Close button");
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-		logs.info("=====RTE Upload Test End=====");
-		msg.append("=====RTE Upload Test End=====" + "\n");
+		logs.info("==RTE Upload Test End==");
+		msg.append("==RTE Upload Test End==" + "\n");
 	}
 
 	public void viewNotification() throws IOException, InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Actions act = new Actions(driver);
-		logs.info("=====RTE View Notification Test Start=====");
-		msg.append("=====RTE View Notification Test Start=====" + "\n");
+		logs.info("==RTE View Notification Test Start==");
+		msg.append("==RTE View Notification Test Start==" + "\n");
 
 		// --Click on View Notification link
 		WebElement VNotif = isElementPresent("VNotify_id");
@@ -443,16 +443,16 @@ public class ShipmentDetails extends BaseInit {
 		logs.info("Clicked on Close button");
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-		logs.info("=====RTE View Notification Test End=====");
-		msg.append("=====RTE View Notification Test End=====" + "\n");
+		logs.info("==RTE View Notification Test End==");
+		msg.append("==RTE View Notification Test End==" + "\n");
 	}
 
 	public void rteNotify() throws IOException, InterruptedException {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Actions act = new Actions(driver);
-		logs.info("=====RTE Notify Test Start=====");
-		msg.append("=====RTE Notify Test Start=====" + "\n");
+		logs.info("==RTE Notify Test Start==");
+		msg.append("==RTE Notify Test Start==" + "\n");
 
 		// --Click on Notify link
 		WebElement VNotif = isElementPresent("Notify_id");
@@ -647,8 +647,8 @@ public class ShipmentDetails extends BaseInit {
 		logs.info("Clicked on OK button");
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-		logs.info("=====RTE Notify Test End=====");
-		msg.append("=====RTE Notify Test End=====" + "\n");
+		logs.info("==RTE Notify Test End==");
+		msg.append("==RTE Notify Test End==" + "\n");
 
 	}
 
@@ -656,8 +656,8 @@ public class ShipmentDetails extends BaseInit {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		Actions act = new Actions(driver);
-		logs.info("=====RTE QC Test Start=====");
-		msg.append("=====RTE QC Test Start=====" + "\n");
+		logs.info("==RTE QC Test Start==");
+		msg.append("==RTE QC Test Start==" + "\n");
 
 		// --Click on QC link
 		WebElement TLSQC = isElementPresent("TLSQC_xpath");
@@ -760,16 +760,16 @@ public class ShipmentDetails extends BaseInit {
 		logs.info("Clicked on Exit W/O Save button");
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-		logs.info("=====RTE QC Test End=====");
-		msg.append("=====RTE QC Test End=====" + "\n");
+		logs.info("==RTE QC Test End==");
+		msg.append("==RTE QC Test End==" + "\n");
 	}
 
 	public void rteUnMerge() throws IOException {
 		WebDriverWait wait = new WebDriverWait(driver, 50);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		// Actions act = new Actions(driver);
-		logs.info("=====RTE UnMerge Test Start=====");
-		msg.append("=====RTE UnMerge Test Start=====" + "\n");
+		logs.info("==RTE UnMerge Test Start==");
+		msg.append("==RTE UnMerge Test Start==" + "\n");
 
 		// --Click on UnMerge link
 		try {
@@ -861,8 +861,8 @@ public class ShipmentDetails extends BaseInit {
 
 			}
 
-			logs.info("=====RTE UnMerge Test End=====");
-			msg.append("=====RTE UnMerge Test End=====" + "\n");
+			logs.info("==RTE UnMerge Test End==");
+			msg.append("==RTE UnMerge Test End==" + "\n");
 		}
 	}
 

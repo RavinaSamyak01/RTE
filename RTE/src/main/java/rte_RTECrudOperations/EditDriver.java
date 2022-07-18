@@ -1,4 +1,4 @@
-				package rte_RTECrudOperations;
+package rte_RTECrudOperations;
 
 import java.io.IOException;
 import java.util.List;
@@ -21,8 +21,8 @@ public class EditDriver extends BaseInit {
 		Actions act = new Actions(driver);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 
-		logs.info("=====RTE Edit Driver Test Start=====");
-		msg.append("=====RTE Edit Driver Test Start=====" + "\n");
+		logs.info("==RTE Edit Driver Test Start==");
+		msg.append("==RTE Edit Driver Test Start==" + "\n");
 
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("hlkedit")));
 		isElementPresent("PDEdit_id").click();
@@ -186,7 +186,6 @@ public class EditDriver extends BaseInit {
 
 		// --Selection of driver
 
-		
 		/*
 		 * // --Select the driver name Select DriverName = new
 		 * Select(isElementPresent("PDNameDrp_id")); DriverName.selectByIndex(1);
@@ -196,14 +195,14 @@ public class EditDriver extends BaseInit {
 		 * isElementPresent("PDContact_id").sendKeys("1234567899");
 		 * logs.info("Enter driver contact number");
 		 */
-		  
-		  // --Select Toll Concession 
-		  Select TollCOn = new Select(isElementPresent("PDTollCon_id")); TollCOn.selectByIndex(1);
-		  logs.info("Toll Concession is selected");
-		 
 
-		logs.info("=====RTE Edit Driver Test End=====");
-		msg.append("=====RTE Edit Driver Test End=====" + "\n");
+		// --Select Toll Concession
+		Select TollCOn = new Select(isElementPresent("PDTollCon_id"));
+		TollCOn.selectByIndex(1);
+		logs.info("Toll Concession is selected");
+
+		logs.info("==RTE Edit Driver Test End==");
+		msg.append("==RTE Edit Driver Test End==" + "\n");
 
 	}
 

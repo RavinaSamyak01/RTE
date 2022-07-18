@@ -147,6 +147,14 @@ public class RTECrudOperations extends BaseInit {
 					logs.info("It is TC ACK stage");
 					getScreenshot(driver, "JobEditor_TCACK");
 
+					WebElement ShipChargesTCAck = isElementPresent("TLEShCharges_id");
+					act.moveToElement(ShipChargesTCAck).build().perform();
+					String ChargesRate = ShipChargesTCAck.getText().trim();
+					getScreenshot(driver, "ChargesOnTCACk");
+					logs.info("Shipment Charges on Creation===" + ChargesRate);
+					// --set data in excel
+					setData("CompareCharges", 1, 6, ChargesRate);
+
 					// --Shipment Details
 
 					ShipmentDetails shipDetails = new ShipmentDetails();
@@ -941,6 +949,7 @@ public class RTECrudOperations extends BaseInit {
 																	"TLEShCharges_id");
 															act.moveToElement(ShipCharges).build().perform();
 															String Charges = ShipCharges.getText().trim();
+															getScreenshot(driver, "ChargesAFDelivered");
 															logs.info("Shipment Charges After Deliverd===" + Charges);
 															msg.append("Shipment Charges After Deliverd===" + Charges
 																	+ "\n");
@@ -5807,7 +5816,7 @@ public class RTECrudOperations extends BaseInit {
 		}
 
 		// --Run Create and Merge Job with RTE
-		if (Result == null) {
+		if (SLResult == null) {
 			logs.info("Search LOC Job is not working");
 			SLResult = null;
 
@@ -5818,7 +5827,7 @@ public class RTECrudOperations extends BaseInit {
 			CreateMergeRTEwithLOC CMRL = new CreateMergeRTEwithLOC();
 			CMRL.createMergeRTEWithLOCJob();
 
-		} else if (Result.equalsIgnoreCase("FAIL")) {
+		} else if (SLResult.equalsIgnoreCase("FAIL")) {
 			logs.info("Create Merge RTE with LOC method is not run because Search LOC job method is not working");
 			SLResult = "FAIL";
 		} else {

@@ -402,6 +402,7 @@ public class RTEJobSearch extends BaseInit {
 											WebElement ShipCharges = isElementPresent("TLEShCharges_id");
 											act.moveToElement(ShipCharges).build().perform();
 											String Charges = ShipCharges.getText().trim();
+											getScreenshot(driver, "ChargesOnCreation");
 											logs.info("Shipment Charges on Creation===" + Charges);
 											// --set data in excel
 											setData("CompareCharges", 1, 2, Charges);
