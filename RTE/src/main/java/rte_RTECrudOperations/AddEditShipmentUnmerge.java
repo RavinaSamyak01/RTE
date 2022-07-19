@@ -30,8 +30,8 @@ public class AddEditShipmentUnmerge extends BaseInit {
 		int totalRow = getTotalRow("LocJob");
 		for (int row = 1; row < totalRow; row++) {
 
-			logs.info("=========RTE Add/Edit Stop Sequence Test Start============");
-			msg.append("=========RTE Add/Edit Stop Sequence Test Start===========" + "\n");
+			logs.info("==RTE Add/Edit Stop Sequence Test Start==");
+			msg.append("\n\n" + "==RTE Add/Edit Stop Sequence Test Start==" + "\n");
 
 			// --Total Number of Shipment Stop
 			List<WebElement> SDetails = driver.findElements(
@@ -369,12 +369,12 @@ public class AddEditShipmentUnmerge extends BaseInit {
 			logs.info("Clicked on Save changes");
 			wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
-			logs.info("=========RTE Add/Edit Stop Sequence Test End============");
-			msg.append("=========RTE Add/Edit Stop Sequence Test End===========" + "\n");
+			logs.info("==RTE Add/Edit Stop Sequence Test End==");
+			msg.append("==RTE Add/Edit Stop Sequence Test End==" + "\n");
 
 			// --UNmerge
-			logs.info("=========RTE UnMerge Test Start============");
-			msg.append("=========RTE UnMerge Test Start===========" + "\n");
+			logs.info("==RTE UnMerge Test Start==");
+			msg.append("\n\n" + "==RTE UnMerge Test Start==" + "\n");
 
 			// --Click on UnMerge link
 			try {
@@ -453,8 +453,8 @@ public class AddEditShipmentUnmerge extends BaseInit {
 
 				}
 
-				logs.info("=========RTE UnMerge Test End============");
-				msg.append("=========RTE UnMerge Test End===========" + "\n");
+				logs.info("==RTE UnMerge Test End==");
+				msg.append("==RTE UnMerge Test End==" + "\n");
 			}
 
 		}

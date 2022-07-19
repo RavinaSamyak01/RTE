@@ -25,7 +25,7 @@ public class SearchLOCJob extends BaseInit {
 
 		String Result = null;
 		logs.info("=====RTE Search LOC job Test Start=====");
-		msg.append("=====RTE Search LOC job Test Start=====" + "\n");
+		msg.append("\n\n" + "=====RTE Search LOC job Test Start=====" + "\n");
 
 		// --Get pickedupID
 

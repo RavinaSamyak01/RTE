@@ -1,229 +1,59 @@
-2022-07-18 11:56:41,365 - CompareCharges -INFO - initialization of the properties file is done
-2022-07-18 11:56:41,910 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Using chromedriver 103.0.5060.53 (since Google Chrome 103 is installed in your machine)
-2022-07-18 11:56:41,929 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Exporting webdriver.chrome.driver as C:\WINDOWS\system32\config\systemprofile\.m2\repository\webdriver\chromedriver\win32\103.0.5060.53\chromedriver.exe
-2022-07-18 11:56:53,268 - CompareCharges -INFO - Entered UserName
-2022-07-18 11:56:54,408 - CompareCharges -INFO - Entered Password
-2022-07-18 11:56:55,575 - CompareCharges -INFO - Login done
-2022-07-18 11:57:06,601 - CompareCharges -INFO - ======================RTE OneToOne Order Processing Test Start==================
-2022-07-18 11:57:06,909 - CompareCharges -INFO - Clicked on Operations
-2022-07-18 11:57:07,126 - CompareCharges -INFO - Clicked on TaskLog
-2022-07-18 11:57:10,854 - CompareCharges -INFO - PickUpID==3435234
-2022-07-18 11:57:10,854 - CompareCharges -INFO - Entered PickUpID in basic search
-2022-07-18 11:57:11,005 - CompareCharges -INFO - Click on Search button
-2022-07-18 11:57:17,385 - CompareCharges -INFO - Data is exist with search parameter
-2022-07-18 11:57:17,652 - CompareCharges -INFO - Job status tab is Disabled
-2022-07-18 11:57:17,723 - CompareCharges -INFO - Job status is==VERIFIED
-2022-07-18 11:57:17,724 - CompareCharges -INFO - Data is exist with search parameter
-2022-07-18 11:57:17,892 - CompareCharges -INFO - Job status is==VERIFIED
-2022-07-18 11:57:17,893 - CompareCharges -INFO - Job is moved to VERIFIED stage
-2022-07-18 11:57:18,133 - CompareCharges -INFO - ======================RTE OneToOne Order Processing Test End==================
-2022-07-18 11:57:18,260 - CompareCharges -INFO - ======================RTE One To Many Order Processing Test Start==================
-2022-07-18 11:57:18,400 - CompareCharges -INFO - Clicked on Operations
-2022-07-18 11:57:18,658 - CompareCharges -INFO - Clicked on TaskLog
-2022-07-18 11:57:21,001 - CompareCharges -INFO - PickUpID==3435242
-2022-07-18 11:57:21,001 - CompareCharges -INFO - Entered PickUpID in basic search
-2022-07-18 11:57:21,133 - CompareCharges -INFO - Click on Search button
-2022-07-18 11:57:27,098 - CompareCharges -INFO - Data is exist with search parameter
-2022-07-18 11:57:27,249 - CompareCharges -INFO - Job status tab is Disabled
-2022-07-18 11:57:27,318 - CompareCharges -INFO - Job status is==DELIVERED@STOP 7 OF 7
-2022-07-18 11:57:27,318 - CompareCharges -INFO - Data is exist with search parameter
-2022-07-18 11:57:27,500 - CompareCharges -INFO - Job status is==DELIVERED@STOP 7 OF 7
-2022-07-18 11:57:27,500 - CompareCharges -INFO - Job is Delivered successfully
-2022-07-18 11:57:28,463 - CompareCharges -INFO - Clicked on End Route
-2022-07-18 11:57:28,607 - CompareCharges -INFO - Validation is displayed==Actual Route End Date Required.
+2022-07-19 11:43:32,276 - RTECrudOperations -INFO - initialization of the properties file is done
+2022-07-19 11:43:32,837 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Using chromedriver 103.0.5060.53 (since Google Chrome 103 is installed in your machine)
+2022-07-19 11:43:32,870 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Exporting webdriver.chrome.driver as C:\WINDOWS\system32\config\systemprofile\.m2\repository\webdriver\chromedriver\win32\103.0.5060.53\chromedriver.exe
+2022-07-19 11:43:41,534 - RTECrudOperations -INFO - Entered UserName
+2022-07-19 11:43:42,775 - RTECrudOperations -INFO - Entered Password
+2022-07-19 11:43:43,958 - RTECrudOperations -INFO - Login done
+2022-07-19 11:43:56,540 - RTECrudOperations -INFO - ======================RTE OneToOne Order Processing Test Start==================
+2022-07-19 11:43:56,859 - RTECrudOperations -INFO - Clicked on Operations
+2022-07-19 11:43:57,155 - RTECrudOperations -INFO - Clicked on TaskLog
+2022-07-19 11:44:04,539 - RTECrudOperations -INFO - PickUpID==3438193
+2022-07-19 11:44:04,539 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-19 11:44:04,674 - RTECrudOperations -INFO - Click on Search button
+2022-07-19 11:44:11,039 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-07-19 11:44:11,318 - RTECrudOperations -INFO - Job status tab is Disabled
+2022-07-19 11:44:11,393 - RTECrudOperations -INFO - Job status is==VERIFIED
+2022-07-19 11:44:11,394 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-07-19 11:44:11,534 - RTECrudOperations -INFO - Job status is==VERIFIED
+2022-07-19 11:44:11,534 - RTECrudOperations -INFO - Job is moved to VERIFIED stage
+2022-07-19 11:44:11,735 - RTECrudOperations -INFO - ======================RTE OneToOne Order Processing Test End==================
+2022-07-19 11:44:11,864 - RTECrudOperations -INFO - ======================RTE One To Many Order Processing Test Start==================
+2022-07-19 11:44:12,050 - RTECrudOperations -INFO - Clicked on Operations
+2022-07-19 11:44:12,348 - RTECrudOperations -INFO - Clicked on TaskLog
+2022-07-19 11:44:15,423 - RTECrudOperations -INFO - PickUpID==3438201
+2022-07-19 11:44:15,424 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-19 11:44:15,564 - RTECrudOperations -INFO - Click on Search button
+2022-07-19 11:44:20,902 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-07-19 11:44:21,185 - RTECrudOperations -INFO - Job status tab is Disabled
+2022-07-19 11:44:21,325 - RTECrudOperations -INFO - Job status is==VERIFIED
+2022-07-19 11:44:21,325 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-07-19 11:44:21,550 - RTECrudOperations -INFO - Job status is==VERIFIED
+2022-07-19 11:44:21,551 - RTECrudOperations -INFO - Job is moved to VERIFIED stage
+2022-07-19 11:44:22,039 - RTECrudOperations -INFO - ======================RTE One To Many Order Processing Test End==================
+2022-07-19 11:44:22,610 - RTECrudOperations -INFO - ======================RTE Many To One Order Processing Test Start==================
+2022-07-19 11:44:22,855 - RTECrudOperations -INFO - Clicked on Operations
+2022-07-19 11:44:23,319 - RTECrudOperations -INFO - Clicked on TaskLog
+2022-07-19 11:44:25,855 - RTECrudOperations -INFO - PickUpID==3435362
+2022-07-19 11:44:25,856 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-19 11:44:26,051 - RTECrudOperations -INFO - Click on Search button
+2022-07-19 11:44:31,656 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-07-19 11:44:31,792 - RTECrudOperations -INFO - Job status tab is Disabled
+2022-07-19 11:44:31,853 - RTECrudOperations -INFO - Job status is==DELIVERED@STOP 5 OF 5
+2022-07-19 11:44:32,452 - RTECrudOperations -INFO - Clicked on End Route
+2022-07-19 11:44:32,585 - RTECrudOperations -INFO - Validation is displayed==Actual Route End Date Required.
 Actual Route End Time Required.
-2022-07-18 11:57:28,608 - CompareCharges -INFO - Validation is displayed for Route End Date and Time==PASS
-2022-07-18 11:57:28,648 - CompareCharges -INFO - ZoneID of is==CDT
-2022-07-18 11:57:28,718 - CompareCharges -INFO - 07/18/2022
-2022-07-18 11:57:28,899 - CompareCharges -INFO - Entered Actual Route End Date
-2022-07-18 11:57:28,978 - CompareCharges -INFO - 01:28
-2022-07-18 11:57:29,106 - CompareCharges -INFO - Entered Actual Route End Time
-2022-07-18 11:57:29,574 - CompareCharges -INFO - Clicked on End Route
-2022-07-18 11:57:32,393 - CompareCharges -INFO - Entered PickUpID in basic search
-2022-07-18 11:57:32,544 - CompareCharges -INFO - Click on Search button
-2022-07-18 11:57:38,138 - CompareCharges -INFO - Data is exist with search parameter
-2022-07-18 11:57:38,729 - CompareCharges -INFO - Job status is==VERIFY CUSTOMER BILL
-2022-07-18 11:57:38,729 - CompareCharges -INFO - Job is moved to Verify Customer Bill stage
-2022-07-18 11:57:41,035 - CompareCharges -INFO - Clicked on Verify button
-2022-07-18 11:57:45,378 - CompareCharges -INFO - Entered PickUpID in basic search
-2022-07-18 11:57:45,519 - CompareCharges -INFO - Click on Search button
-2022-07-18 11:57:54,782 - CompareCharges -INFO - Data is exist with search parameter
-2022-07-18 11:57:55,078 - CompareCharges -INFO - Job status is==VERIFIED
-2022-07-18 11:57:55,078 - CompareCharges -INFO - Job is moved to VERIFIED stage
-2022-07-18 11:57:55,267 - CompareCharges -INFO - ======================RTE One To Many Order Processing Test End==================
-2022-07-18 11:57:56,690 - CompareCharges -INFO - ======================RTE Many To One Order Processing Test Start==================
-2022-07-18 11:57:56,923 - CompareCharges -INFO - Clicked on Operations
-2022-07-18 11:57:57,215 - CompareCharges -INFO - Clicked on TaskLog
-2022-07-18 11:57:58,940 - CompareCharges -INFO - PickUpID==3434624
-2022-07-18 11:57:58,940 - CompareCharges -INFO - Entered PickUpID in basic search
-2022-07-18 11:57:59,083 - CompareCharges -INFO - Click on Search button
-2022-07-18 11:58:04,000 - CompareCharges -INFO - Data is exist with search parameter
-2022-07-18 11:58:04,204 - CompareCharges -INFO - Job status tab is Disabled
-2022-07-18 11:58:04,300 - CompareCharges -INFO - Job status is==VERIFIED
-2022-07-18 11:58:04,300 - CompareCharges -INFO - Data is exist with search parameter
-2022-07-18 11:58:04,532 - CompareCharges -INFO - Job status is==VERIFIED
-2022-07-18 11:58:04,532 - CompareCharges -INFO - Job is moved to VERIFIED stage
-2022-07-18 11:58:04,663 - CompareCharges -INFO - ======================RTE Many To One Order Processing Test End==================
-2022-07-18 11:58:04,875 - CompareCharges -INFO - ======================RTE Many To Many Order Processing Test Start==================
-2022-07-18 11:58:05,168 - CompareCharges -INFO - Clicked on Operations
-2022-07-18 11:58:05,426 - CompareCharges -INFO - Clicked on TaskLog
-2022-07-18 11:58:06,947 - CompareCharges -INFO - PickUpID==3435222
-2022-07-18 11:58:06,947 - CompareCharges -INFO - Entered PickUpID in basic search
-2022-07-18 11:58:07,080 - CompareCharges -INFO - Click on Search button
-2022-07-18 11:58:12,522 - CompareCharges -INFO - Data is exist with search parameter
-2022-07-18 11:58:12,689 - CompareCharges -INFO - Job status tab is Disabled
-2022-07-18 11:58:12,756 - CompareCharges -INFO - Job status is==VERIFIED
-2022-07-18 11:58:12,757 - CompareCharges -INFO - Data is exist with search parameter
-2022-07-18 11:58:13,045 - CompareCharges -INFO - Job status is==VERIFIED
-2022-07-18 11:58:13,046 - CompareCharges -INFO - Job is moved to VERIFIED stage
-2022-07-18 11:58:13,177 - CompareCharges -INFO - ======================RTE Many To Many Order Processing Test End==================
-2022-07-18 11:58:13,288 - CompareCharges -INFO - ======================RTE Reject/Resend/CallBack/PendingDelivery Test Start==================
-2022-07-18 11:58:13,580 - CompareCharges -INFO - Clicked on Operations
-2022-07-18 11:58:13,912 - CompareCharges -INFO - Clicked on TaskLog
-2022-07-18 11:58:15,973 - CompareCharges -INFO - PickUpID==3435235
-2022-07-18 11:58:15,973 - CompareCharges -INFO - Entered PickUpID in basic search
-2022-07-18 11:58:16,124 - CompareCharges -INFO - Click on Search button
-2022-07-18 11:58:21,314 - CompareCharges -INFO - Data is exist with search parameter
-2022-07-18 11:58:21,470 - CompareCharges -INFO - Job status tab is Disabled
-2022-07-18 11:58:21,541 - CompareCharges -INFO - Job status is==VERIFIED
-2022-07-18 11:58:21,542 - CompareCharges -INFO - Data is exist with search parameter
-2022-07-18 11:58:21,830 - CompareCharges -INFO - Job status is==VERIFIED
-2022-07-18 11:58:21,831 - CompareCharges -INFO - Job is moved to VERIFIED stage
-2022-07-18 11:58:22,389 - CompareCharges -INFO - Clicked on Exit Without Save
-2022-07-18 11:58:22,390 - CompareCharges -INFO - ======================RTE Reject/Resend/CallBack/PendingDelivery Test End==================
-2022-07-18 11:58:22,506 - CompareCharges -INFO - ======================RTE Crud Operations Test Start==================
-2022-07-18 11:58:23,601 - CompareCharges -INFO - Clicked on Operations
-2022-07-18 11:58:23,899 - CompareCharges -INFO - Clicked on TaskLog
-2022-07-18 11:58:24,125 - CompareCharges -INFO - PickUpID==3435236
-2022-07-18 11:58:24,125 - CompareCharges -INFO - Entered PickUpID in basic search
-2022-07-18 11:58:24,612 - CompareCharges -INFO - Click on Search button
-2022-07-18 11:58:29,953 - CompareCharges -INFO - Data is exist with search parameter
-2022-07-18 11:58:30,311 - CompareCharges -INFO - Job status tab is Disabled
-2022-07-18 11:58:30,377 - CompareCharges -INFO - Job status is==DELIVERED@STOP 2 OF 2
-2022-07-18 11:58:30,378 - CompareCharges -INFO - Data is exist with search parameter
-2022-07-18 11:58:30,550 - CompareCharges -INFO - Job status is==DELIVERED@STOP 2 OF 2
-2022-07-18 11:58:30,550 - CompareCharges -INFO - Job is Delivered successfully
-2022-07-18 11:58:30,801 - CompareCharges -INFO - Shipment Charges After Deliverd===$185.00
-2022-07-18 11:58:31,209 - CompareCharges -INFO - Shipment Charges on Creation===$160.00
-2022-07-18 11:58:31,209 - CompareCharges -INFO - Shipment Charges is updated
-2022-07-18 11:58:31,210 - CompareCharges -INFO - Shipment Charges after deliverd is different than Creation time
-2022-07-18 11:58:31,497 - CompareCharges -INFO - Clicked on Edit Job tab
-2022-07-18 11:58:33,412 - CompareCharges -INFO - Clicked on Edit Stop Sequence
-2022-07-18 11:58:33,536 - CompareCharges -INFO - DEL stop is Non-Editable==PASS
-2022-07-18 11:58:35,977 - CompareCharges -INFO - Clicked on End Route
-2022-07-18 11:58:36,218 - CompareCharges -INFO - Validation is displayed==Actual Route End Date Required.
-Actual Route End Time Required.
-2022-07-18 11:58:36,218 - CompareCharges -INFO - Validation is displayed for Route End Date and Time==PASS
-2022-07-18 11:58:36,260 - CompareCharges -INFO - ZoneID of is==CDT
-2022-07-18 11:58:36,393 - CompareCharges -INFO - 07/18/2022
-2022-07-18 11:58:36,593 - CompareCharges -INFO - Entered Actual Route End Date
-2022-07-18 11:58:36,656 - CompareCharges -INFO - 01:29
-2022-07-18 11:58:36,763 - CompareCharges -INFO - Entered Actual Route End Time
-2022-07-18 11:58:37,148 - CompareCharges -INFO - Clicked on End Route
-2022-07-18 11:58:39,009 - CompareCharges -INFO - Entered PickUpID in basic search
-2022-07-18 11:58:39,161 - CompareCharges -INFO - Click on Search button
-2022-07-18 11:58:44,114 - CompareCharges -INFO - Data is exist with search parameter
-2022-07-18 11:58:44,249 - CompareCharges -INFO - Job status is==VERIFY CUSTOMER BILL
-2022-07-18 11:58:44,249 - CompareCharges -INFO - Job is moved to Verify Customer Bill stage
-2022-07-18 11:58:46,563 - CompareCharges -INFO - Clicked on Verify button
-2022-07-18 11:58:50,616 - CompareCharges -INFO - Entered PickUpID in basic search
-2022-07-18 11:58:50,785 - CompareCharges -INFO - Click on Search button
-2022-07-18 11:58:56,016 - CompareCharges -INFO - Data is exist with search parameter
-2022-07-18 11:58:56,166 - CompareCharges -INFO - Job status is==VERIFIED
-2022-07-18 11:58:56,166 - CompareCharges -INFO - Job is moved to VERIFIED stage
-2022-07-18 11:58:56,402 - CompareCharges -INFO - Crud operation is not working
-2022-07-18 11:58:56,402 - CompareCharges -INFO - Search LOC Job is not working
-2022-07-18 11:58:56,403 - CompareCharges -INFO - ======================RTE Crud Operations Test End==================
-2022-07-18 11:58:56,490 - CompareCharges -INFO - ======================RTE Compare Charges Test Start==================
-2022-07-18 11:58:56,653 - CompareCharges -INFO - Clicked on Operations
-2022-07-18 11:58:57,014 - CompareCharges -INFO - Clicked on TaskLog
-2022-07-18 11:58:58,393 - CompareCharges -INFO - PickUpID==3435243
-2022-07-18 11:58:58,394 - CompareCharges -INFO - Entered PickUpID in basic search
-2022-07-18 11:58:58,544 - CompareCharges -INFO - Click on Search button
-2022-07-18 11:59:05,180 - CompareCharges -INFO - Data is exist with search parameter
-2022-07-18 11:59:05,404 - CompareCharges -INFO - Job status tab is already Opened
-2022-07-18 11:59:05,463 - CompareCharges -INFO - Job status is==TC ACK
-2022-07-18 11:59:05,463 - CompareCharges -INFO - It is TC ACK stage
-2022-07-18 11:59:05,670 - CompareCharges -INFO - Clicked on Acknowledge button
-2022-07-18 11:59:18,393 - CompareCharges -INFO - Job status is==RDY FOR DSP
-2022-07-18 11:59:18,531 - CompareCharges -INFO - Clicked on Send PU Alert button
-2022-07-18 11:59:51,922 - CompareCharges -INFO - Spoke With validation is not displayed
-2022-07-18 11:59:52,205 - CompareCharges -INFO - Entered PickUpID in basic search
-2022-07-18 11:59:52,332 - CompareCharges -INFO - Click on Search button
-2022-07-18 11:59:56,368 - CompareCharges -INFO - Data is exist with search parameter
-2022-07-18 11:59:56,602 - CompareCharges -INFO - Clicked on Job Status Tab
-2022-07-18 11:59:56,725 - CompareCharges -INFO - Job status is==PU DRV CONF
-2022-07-18 11:59:56,838 - CompareCharges -INFO - Clicked on Confirm PU Alert
-2022-07-18 11:59:56,944 - CompareCharges -INFO - Validation is displayed==Spoke With Required.
-2022-07-18 11:59:57,102 - CompareCharges -INFO - Entered Spoke With
-2022-07-18 11:59:57,179 - CompareCharges -INFO - Clicked on Confirm PU Alert
-2022-07-18 12:00:09,044 - CompareCharges -INFO - Job status is==PICKUP@STOP 1 OF 2
-2022-07-18 12:00:09,191 - CompareCharges -INFO - Clicked on Confirm PU button
-2022-07-18 12:00:09,288 - CompareCharges -INFO - Validation is displayed==Act. Pickup Time is Required.
-2022-07-18 12:00:09,305 - CompareCharges -INFO - Total Pickup points is/are==1
-2022-07-18 12:00:09,356 - CompareCharges -INFO - ZoneID of is==CDT
-2022-07-18 12:00:09,481 - CompareCharges -INFO - 07/18/2022
-2022-07-18 12:00:09,633 - CompareCharges -INFO - Entered Actual Pickup Date
-2022-07-18 12:00:09,709 - CompareCharges -INFO - 01:30
-2022-07-18 12:00:09,825 - CompareCharges -INFO - Entered Actual Pickup Time
-2022-07-18 12:00:09,904 - CompareCharges -INFO - Clicked on Confirm PU button
-2022-07-18 12:00:52,350 - CompareCharges -INFO - Validation is not displayed=Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime.
-2022-07-18 12:00:52,515 - CompareCharges -INFO - Job status is==DELIVER@STOP 2 OF 2
-2022-07-18 12:00:52,955 - CompareCharges -INFO - Clicked on Edit Job tab
-2022-07-18 12:00:55,324 - CompareCharges -INFO - Clicked on Edit Stop Sequence
-2022-07-18 12:00:55,384 - CompareCharges -INFO - PU stop is Non-Editable==PASS
-2022-07-18 12:00:55,596 - CompareCharges -INFO - Clicked on Job Status tab
-2022-07-18 12:00:56,582 - CompareCharges -INFO - Clicked on Confirm DEL button
-2022-07-18 12:00:56,693 - CompareCharges -INFO - Validation is displayed==Act. Delivery Time is Required.
-Signature is required.
-2022-07-18 12:00:56,714 - CompareCharges -INFO - Total Delivery points is/are==1
-2022-07-18 12:00:56,755 - CompareCharges -INFO - ZoneID of is==CDT
-2022-07-18 12:00:56,852 - CompareCharges -INFO - 07/18/2022
-2022-07-18 12:00:57,008 - CompareCharges -INFO - Entered Actual Delivery Date
-2022-07-18 12:00:57,105 - CompareCharges -INFO - 01:30
-2022-07-18 12:00:57,263 - CompareCharges -INFO - Entered Actual Delivery Time
-2022-07-18 12:00:57,377 - CompareCharges -INFO - Entered Signature
-2022-07-18 12:00:57,482 - CompareCharges -INFO - Clicked on Confirm DEL button
-2022-07-18 12:00:58,144 - CompareCharges -INFO - Validation is displayed==Actual Delivery Datetime cannot be less than or equal to Actual Pickup Datetime.
-2022-07-18 12:00:58,161 - CompareCharges -INFO - Total Delivery points is/are==1
-2022-07-18 12:00:58,177 - CompareCharges -INFO - Validation is not displayed=Actual Delivery Datetime cannot be less than or equal to Actual Pickup Datetime.
-2022-07-18 12:00:58,249 - CompareCharges -INFO - Job status is==DELIVER@STOP 2 OF 2
-2022-07-18 12:00:58,290 - CompareCharges -INFO - ZoneID of is==CDT
-2022-07-18 12:00:58,360 - CompareCharges -INFO - 07/18/2022
-2022-07-18 12:00:58,517 - CompareCharges -INFO - Entered Actual Delivery Date
-2022-07-18 12:00:58,565 - CompareCharges -INFO - 01:30
-2022-07-18 12:00:58,681 - CompareCharges -INFO - Entered Actual Delivery Time
-2022-07-18 12:00:58,764 - CompareCharges -INFO - Entered Signature
-2022-07-18 12:00:58,862 - CompareCharges -INFO - Clicked on Confirm DEL button
-2022-07-18 12:00:59,513 - CompareCharges -INFO - Validation is displayed==Actual Delivery Datetime cannot be less than or equal to Actual Pickup Datetime.
-2022-07-18 12:00:59,528 - CompareCharges -INFO - Total Delivery points is/are==1
-2022-07-18 12:00:59,543 - CompareCharges -INFO - Validation is not displayed=Actual Delivery Datetime cannot be less than or equal to Actual Pickup Datetime.
-2022-07-18 12:00:59,600 - CompareCharges -INFO - Job status is==DELIVER@STOP 2 OF 2
-2022-07-18 12:00:59,647 - CompareCharges -INFO - ZoneID of is==CDT
-2022-07-18 12:00:59,725 - CompareCharges -INFO - 07/18/2022
-2022-07-18 12:00:59,842 - CompareCharges -INFO - Entered Actual Delivery Date
-2022-07-18 12:00:59,886 - CompareCharges -INFO - 01:30
-2022-07-18 12:01:00,012 - CompareCharges -INFO - Entered Actual Delivery Time
-2022-07-18 12:01:00,089 - CompareCharges -INFO - Entered Signature
-2022-07-18 12:01:00,182 - CompareCharges -INFO - Clicked on Confirm DEL button
-2022-07-18 12:01:01,360 - CompareCharges -INFO - Validation is displayed==Actual Delivery Datetime cannot be less than or equal to Actual Pickup Datetime.
-2022-07-18 12:01:01,377 - CompareCharges -INFO - Total Delivery points is/are==1
-2022-07-18 12:01:01,393 - CompareCharges -INFO - Validation is not displayed=Actual Delivery Datetime cannot be less than or equal to Actual Pickup Datetime.
-2022-07-18 12:01:01,446 - CompareCharges -INFO - Job status is==DELIVER@STOP 2 OF 2
-2022-07-18 12:01:01,493 - CompareCharges -INFO - ZoneID of is==CDT
-2022-07-18 12:01:01,562 - CompareCharges -INFO - 07/18/2022
-2022-07-18 12:01:01,668 - CompareCharges -INFO - Entered Actual Delivery Date
-2022-07-18 12:01:01,718 - CompareCharges -INFO - 01:31
-2022-07-18 12:01:01,836 - CompareCharges -INFO - Entered Actual Delivery Time
-2022-07-18 12:01:01,944 - CompareCharges -INFO - Entered Signature
-2022-07-18 12:01:02,095 - CompareCharges -INFO - Clicked on Confirm DEL button
-2022-07-18 12:01:34,923 - CompareCharges -INFO - Validation is not displayed=Actual Delivery Datetime cannot be less than or equal to Actual Pickup Datetime.
-2022-07-18 12:02:05,009 - CompareCharges -INFO - Validation for Act.Del Time and Signature is not displayed
-2022-07-18 12:02:05,603 - CompareCharges -INFO - Entered PickUpID in basic search
-2022-07-18 12:02:06,769 - CompareCharges -INFO - job is not moved to delivered stage
-2022-07-18 12:02:06,799 - CompareCharges -INFO - Stage is not Deliver
-2022-07-18 12:02:06,821 - CompareCharges -INFO - Validation for Act.Pickup Time is not displayed
-2022-07-18 12:02:06,821 - CompareCharges -INFO - ======================RTE Compare Charges Test End==================
-2022-07-18 12:02:13,725 - CompareCharges -INFO - Logout Message is displayed==You have successfully logged out!
-2022-07-18 12:02:13,726 - CompareCharges -INFO - Logout done
-2022-07-18 12:02:14,781 - CompareCharges -INFO - ====Sending Email=====
+2022-07-19 11:44:32,586 - RTECrudOperations -INFO - Validation is displayed for Route End Date and Time==PASS
+2022-07-19 11:44:32,630 - RTECrudOperations -INFO - ZoneID of is==PDT
+2022-07-19 11:44:32,712 - RTECrudOperations -INFO - 07/18/2022
+2022-07-19 11:44:32,909 - RTECrudOperations -INFO - Entered Actual Route End Date
+2022-07-19 11:44:33,039 - RTECrudOperations -INFO - 23:15
+2022-07-19 11:44:33,357 - RTECrudOperations -INFO - Entered Actual Route End Time
+2022-07-19 11:44:33,807 - RTECrudOperations -INFO - Clicked on End Route
+2022-07-19 11:44:35,978 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-19 11:44:36,782 - RTECrudOperations -INFO - Click on Search button
+2022-07-19 11:44:42,373 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-07-19 11:44:42,591 - RTECrudOperations -INFO - Job status is==VERIFY CUSTOMER BILL
+2022-07-19 11:44:42,591 - RTECrudOperations -INFO - Job is moved to Verify Customer Bill stage
+2022-07-19 11:44:44,954 - RTECrudOperations -INFO - Clicked on Verify button
+2022-07-19 11:44:49,450 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-19 11:44:49,560 - RTECrudOperations -INFO - Click on Search button

@@ -31,7 +31,7 @@ public class EditJob extends BaseInit {
 		Actions act = new Actions(driver);
 
 		logs.info("=====RTE Edit Job Test Start=====");
-		msg.append("=====RTE Edit Job Test Start=====" + "\n");
+		msg.append("\n\n" + "=====RTE Edit Job Test Start=====" + "\n");
 
 		// --Go to Edit Job
 		wait.until(ExpectedConditions.elementToBeClickable(By.id("idEditOrder")));

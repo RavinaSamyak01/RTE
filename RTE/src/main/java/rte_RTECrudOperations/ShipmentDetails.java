@@ -108,7 +108,7 @@ public class ShipmentDetails extends BaseInit {
 		}
 
 		logs.info("=====RTE Shipment Details Test End=====");
-		msg.append("=====RTE Shipment Details Test End=====" + "\n");
+		msg.append("=====RTE Shipment Details Test End=====" + "\n\n");
 
 	}
 
