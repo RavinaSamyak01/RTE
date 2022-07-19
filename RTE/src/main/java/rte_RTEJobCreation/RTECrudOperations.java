@@ -472,19 +472,29 @@ public class RTECrudOperations extends BaseInit {
 											// --check charge is added or not
 
 											ListCharges = driver.findElements(
-													By.xpath("//td[contains(@aria-label,'Column Charge Name')]"));
+													By.xpath("//div[@class=\"dx-datagrid-content\"]//tbody/tr"));
 											TotalCharges = ListCharges.size();
 											int AfterCharges = TotalCharges - 1;
 											logs.info("Total Charges after added new charges==" + AfterCharges);
 
 											for (int c = 0; c < AfterCharges; c++) {
-												String ChargeName = ListCharges.get(c).getText();
+
+												WebElement CName = ListCharges.get(c).findElement(
+														By.xpath("td[contains(@aria-label,'Column Charge Name')]"));
+												String ChargeName = CName.getText();
 												logs.info("Charge Name is==" + ChargeName);
 												if (ChargeName.equalsIgnoreCase("AOF - Agent Order Fee")
 														&& (AfterCharges != BeforeCharges)) {
 													logs.info("New charge added successfully." + ChargeName);
 													msg.append("New charge added successfully." + ChargeName + "\n");
 													getScreenshot(driver, "NewChargeAdded");
+													setData("CompareCharges", 1, 7, ChargeName);
+
+													WebElement CValue = ListCharges.get(c).findElement(
+															By.xpath("td[contains(@aria-label,'Column Cost')]"));
+													String ChargeValue = CValue.getText();
+													logs.info("Charge Value is==" + ChargeValue);
+													setData("CompareCharges", 1, 8, ChargeName);
 
 													break;
 												}

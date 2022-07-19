@@ -372,7 +372,7 @@ public class AddEditShipmentUnmerge extends BaseInit {
 				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 				logs.info("==RTE Add/Edit Stop Sequence Test End==");
-				msg.append("==RTE Add/Edit Stop Sequence Test End==" + "\n");
+				// msg.append("==RTE Add/Edit Stop Sequence Test End==" + "\n");
 
 				msg.append("Add/Edit Stop Sequence Test=PASS" + "\n");
 

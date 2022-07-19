@@ -33,10 +33,13 @@ public class SearchLOCJob extends BaseInit {
 			try {
 				// --Go To Operations
 				wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("a_operations")));
-				wait.until(ExpectedConditions.elementToBeClickable(By.id("a_operations")));
-				isElementPresent("OperationsTab_id").click();
+				WebElement Operations = isElementPresent("OperationsTab_id");
+				act.moveToElement(Operations).build().perform();
+				wait.until(ExpectedConditions.elementToBeClickable(Operations));
+				act.moveToElement(Operations).click().perform();
 				logs.info("Clicked on Operations");
 				wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+
 				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
 						By.xpath("//*[@class=\"OpenCloseClass dropdown open\"]//ul")));
 
@@ -45,13 +48,10 @@ public class SearchLOCJob extends BaseInit {
 
 					// --Go To Operations
 					wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("a_operations")));
-					WebElement Operations = isElementPresent("OperationsTab_id");
-					act.moveToElement(Operations).build().perform();
-					wait.until(ExpectedConditions.elementToBeClickable(Operations));
-					act.moveToElement(Operations).click().perform();
+					wait.until(ExpectedConditions.elementToBeClickable(By.id("a_operations")));
+					isElementPresent("OperationsTab_id").click();
 					logs.info("Clicked on Operations");
 					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
 					wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
 							By.xpath("//*[@class=\"OpenCloseClass dropdown open\"]//ul")));
 

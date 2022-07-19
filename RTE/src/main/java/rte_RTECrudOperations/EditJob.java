@@ -85,7 +85,7 @@ public class EditJob extends BaseInit {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lblStages")));
 
 		logs.info("=====RTE Edit Job Test End=====");
-		msg.append("=====RTE Edit Job Test End=====" + "\n");
+		msg.append("=====RTE Edit Job Test End=====" + "\n\n");
 
 		return Result;
 
@@ -493,11 +493,11 @@ public class EditJob extends BaseInit {
 
 			logs.info("==RTE Route/Shipment Details Test End==");
 			// msg.append("==RTE Route/Shipment Details Test End==" + "\n");
-			msg.append(" Route/Shipment Details Test=PASS" + "\n");
+			msg.append("Route/Shipment Details Test=PASS" + "\n");
 
 		} catch (Exception ex) {
 			logs.error(ex);
-			msg.append(" Route/Shipment Details Test=FAIL" + "\n");
+			msg.append("Route/Shipment Details Test=FAIL" + "\n");
 
 		}
 
