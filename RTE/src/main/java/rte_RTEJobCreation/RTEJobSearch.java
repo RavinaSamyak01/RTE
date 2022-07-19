@@ -135,6 +135,9 @@ public class RTEJobSearch extends BaseInit {
 					int RecordNo = Records.size() - 1;
 					logs.info("Total No of records are==" + RecordNo);
 
+					String JobType = getData("RTECreation", row, 3);
+					msg.append("JobType is==" + JobType + "\n");
+
 					for (int RTE = 0; RTE < RecordNo; RTE++) {
 						String JobID = "lblJobIdValue_" + RTE;
 						String PickUpID = "lblPickupIdValue_" + RTE;
@@ -147,9 +150,7 @@ public class RTEJobSearch extends BaseInit {
 						String JobIDValue = driver.findElement(By.id(JobID)).getText();
 						String PickUpIDValue = driver.findElement(By.id(PickUpID)).getText();
 						String BOLNoValue = driver.findElement(By.id(BOLNO)).getText();
-						String JobType = getData("RTECreation", row, 3);
 
-						msg.append("JobType is==" + JobType + "\n");
 						msg.append("JobID is==" + JobIDValue + "\n");
 						msg.append("PickUpID is==" + PickUpIDValue + "\n");
 						msg.append("BOLNo is==" + BOLNoValue + "\n");

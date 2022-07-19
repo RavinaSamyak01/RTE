@@ -5836,7 +5836,7 @@ public class RTECrudOperations extends BaseInit {
 		}
 
 		logs.info("======================RTE Crud Operations Test End==================");
-		msg.append("======================RTE Order Operations Test End==================" + "\n");
+		msg.append("======================RTE Crud Operations Test End==================" + "\n");
 
 	}
 
