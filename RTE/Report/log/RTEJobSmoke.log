@@ -1,44 +1,118 @@
-2022-07-19 17:09:51,013 [main] INFO SearchLOCJob - initialization of the properties file is done
-2022-07-19 17:09:51,492 [main] INFO io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 103.0.5060.53 (since Google Chrome 103 is installed in your machine)
-2022-07-19 17:09:51,531 [main] INFO io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\Users\rprajapati\.m2\repository\webdriver\chromedriver\win32\103.0.5060.53\chromedriver.exe
-2022-07-19 17:09:59,834 [main] INFO SearchLOCJob - Entered UserName
-2022-07-19 17:10:00,943 [main] INFO SearchLOCJob - Entered Password
-2022-07-19 17:10:02,111 [main] INFO SearchLOCJob - Login done
-2022-07-19 17:10:14,373 [main] INFO SearchLOCJob - =====RTE Search LOC job Test Start=====
-2022-07-19 17:10:14,760 [main] INFO SearchLOCJob - Clicked on Operations
-2022-07-19 17:10:15,000 [main] INFO SearchLOCJob - Clicked on TaskLog
-2022-07-19 17:10:21,935 [main] INFO SearchLOCJob - Entered PickUpID in basic search
-2022-07-19 17:10:22,035 [main] INFO SearchLOCJob - Click on Search button
-2022-07-19 17:10:26,681 [main] INFO SearchLOCJob - Data is exist with search parameter
-2022-07-19 17:10:26,682 [main] INFO SearchLOCJob - LOC job is created with Unmerged shipment
-2022-07-19 17:11:17,048 [main] INFO SearchLOCJob - Entered PickupID is==3439337
-2022-07-19 17:11:17,077 [main] INFO SearchLOCJob - PickupID is==N3439337
-2022-07-19 17:11:17,077 [main] INFO SearchLOCJob - Searched job is exist
-2022-07-19 17:11:17,159 [main] INFO SearchLOCJob - Clicked on searched Job
-2022-07-19 17:11:20,652 [main] INFO SearchLOCJob - Job status is==CSR ACKNOWLEDGE
-2022-07-19 17:11:20,699 [main] INFO SearchLOCJob - Clicked on Edit Job tab
-2022-07-19 17:11:21,104 [main] INFO SearchLOCJob - Enter Caller Name
-2022-07-19 17:11:21,457 [main] INFO SearchLOCJob - Enter Caller Phone
-2022-07-19 17:11:21,946 [main] INFO SearchLOCJob - Enter Deliver Caller Name
-2022-07-19 17:11:22,236 [main] INFO SearchLOCJob - Enter Delivery Phone
-2022-07-19 17:11:22,624 [main] INFO SearchLOCJob - Enter Commodity
-2022-07-19 17:11:22,963 [main] INFO SearchLOCJob - Clicked on Save Changes
-2022-07-19 17:11:26,857 [main] INFO SearchLOCJob - Clicked on Save&Exit
-2022-07-19 17:11:31,195 [main] INFO SearchLOCJob - Entered PickupID is==3439337
-2022-07-19 17:11:31,740 [main] INFO SearchLOCJob - Entered PickUpID in basic search
-2022-07-19 17:11:31,916 [main] INFO SearchLOCJob - Click on Search button
-2022-07-19 17:11:40,766 [main] INFO SearchLOCJob - Data is exist with search parameter
-2022-07-19 17:11:40,766 [main] INFO SearchLOCJob - LOC job is created with Unmerged shipment
-2022-07-19 17:11:40,976 [main] INFO SearchLOCJob - Job status is==CSR ACKNOWLEDGE
-2022-07-19 17:11:41,388 [main] INFO SearchLOCJob - Clicked on Edit Job tab
-2022-07-19 17:11:44,580 [main] INFO SearchLOCJob - Enter Caller Name
-2022-07-19 17:11:44,899 [main] INFO SearchLOCJob - Enter Caller Phone
-2022-07-19 17:11:45,243 [main] INFO SearchLOCJob - Enter Deliver Caller Name
-2022-07-19 17:11:45,539 [main] INFO SearchLOCJob - Enter Delivery Phone
-2022-07-19 17:11:45,870 [main] INFO SearchLOCJob - Enter Commodity
-2022-07-19 17:11:46,220 [main] INFO SearchLOCJob - Clicked on Save Changes
-2022-07-19 17:11:49,980 [main] INFO SearchLOCJob - Clicked on Save&Exit
-2022-07-19 17:11:54,246 [main] INFO SearchLOCJob - =====RTE Search LOC job Test End=====
-2022-07-19 17:12:02,732 [main] INFO SearchLOCJob - Logout Message is displayed==You have successfully logged out!
-2022-07-19 17:12:02,732 [main] INFO SearchLOCJob - Logout done
-2022-07-19 17:12:03,277 [main] INFO SearchLOCJob - ====Sending Email=====
+2022-07-20 10:06:36,575 [main] INFO RTECrudOperations - initialization of the properties file is done
+2022-07-20 10:06:38,350 [main] INFO io.github.bonigarcia.wdm.WebDriverManager - Using chromedriver 103.0.5060.53 (since Google Chrome 103 is installed in your machine)
+2022-07-20 10:06:38,402 [main] INFO io.github.bonigarcia.wdm.WebDriverManager - Exporting webdriver.chrome.driver as C:\WINDOWS\system32\config\systemprofile\.m2\repository\webdriver\chromedriver\win32\103.0.5060.53\chromedriver.exe
+2022-07-20 10:06:47,601 [main] INFO RTECrudOperations - Entered UserName
+2022-07-20 10:06:48,829 [main] INFO RTECrudOperations - Entered Password
+2022-07-20 10:06:50,136 [main] INFO RTECrudOperations - Login done
+2022-07-20 10:07:03,067 [main] INFO RTECrudOperations - ======================RTE OneToOne Order Processing Test Start==================
+2022-07-20 10:07:03,448 [main] INFO RTECrudOperations - Clicked on Operations
+2022-07-20 10:07:03,866 [main] INFO RTECrudOperations - Clicked on TaskLog
+2022-07-20 10:07:09,357 [main] INFO RTECrudOperations - PickUpID==3438193
+2022-07-20 10:07:09,358 [main] INFO RTECrudOperations - Entered PickUpID in basic search
+2022-07-20 10:07:09,570 [main] INFO RTECrudOperations - Click on Search button
+2022-07-20 10:07:16,453 [main] INFO RTECrudOperations - Data is exist with search parameter
+2022-07-20 10:07:16,827 [main] INFO RTECrudOperations - Job status tab is Disabled
+2022-07-20 10:07:16,955 [main] INFO RTECrudOperations - Job status is==VERIFIED
+2022-07-20 10:07:16,957 [main] INFO RTECrudOperations - Data is exist with search parameter
+2022-07-20 10:07:17,268 [main] INFO RTECrudOperations - Job status is==VERIFIED
+2022-07-20 10:07:17,269 [main] INFO RTECrudOperations - Job is moved to VERIFIED stage
+2022-07-20 10:07:17,571 [main] INFO RTECrudOperations - ======================RTE OneToOne Order Processing Test End==================
+2022-07-20 10:07:17,743 [main] INFO RTECrudOperations - ======================RTE One To Many Order Processing Test Start==================
+2022-07-20 10:07:18,591 [main] INFO RTECrudOperations - Clicked on Operations
+2022-07-20 10:07:19,182 [main] INFO RTECrudOperations - Clicked on TaskLog
+2022-07-20 10:07:21,757 [main] INFO RTECrudOperations - PickUpID==3438201
+2022-07-20 10:07:21,758 [main] INFO RTECrudOperations - Entered PickUpID in basic search
+2022-07-20 10:07:22,126 [main] INFO RTECrudOperations - Click on Search button
+2022-07-20 10:07:28,534 [main] INFO RTECrudOperations - Data is exist with search parameter
+2022-07-20 10:07:30,062 [main] INFO RTECrudOperations - Job status tab is Disabled
+2022-07-20 10:07:30,338 [main] INFO RTECrudOperations - Job status is==VERIFIED
+2022-07-20 10:07:30,339 [main] INFO RTECrudOperations - Data is exist with search parameter
+2022-07-20 10:07:30,665 [main] INFO RTECrudOperations - Job status is==VERIFIED
+2022-07-20 10:07:30,665 [main] INFO RTECrudOperations - Job is moved to VERIFIED stage
+2022-07-20 10:07:30,860 [main] INFO RTECrudOperations - ======================RTE One To Many Order Processing Test End==================
+2022-07-20 10:07:31,063 [main] INFO RTECrudOperations - ======================RTE Many To One Order Processing Test Start==================
+2022-07-20 10:07:31,391 [main] INFO RTECrudOperations - Clicked on Operations
+2022-07-20 10:07:31,838 [main] INFO RTECrudOperations - Clicked on TaskLog
+2022-07-20 10:07:34,645 [main] INFO RTECrudOperations - PickUpID==3435561
+2022-07-20 10:07:34,645 [main] INFO RTECrudOperations - Entered PickUpID in basic search
+2022-07-20 10:07:34,969 [main] INFO RTECrudOperations - Click on Search button
+2022-07-20 10:07:41,309 [main] INFO RTECrudOperations - Data is exist with search parameter
+2022-07-20 10:07:41,932 [main] INFO RTECrudOperations - Job status tab is Disabled
+2022-07-20 10:07:42,081 [main] INFO RTECrudOperations - Job status is==VERIFIED
+2022-07-20 10:07:42,082 [main] INFO RTECrudOperations - Data is exist with search parameter
+2022-07-20 10:07:42,572 [main] INFO RTECrudOperations - Job status is==VERIFIED
+2022-07-20 10:07:42,573 [main] INFO RTECrudOperations - Job is moved to VERIFIED stage
+2022-07-20 10:07:42,789 [main] INFO RTECrudOperations - ======================RTE Many To One Order Processing Test End==================
+2022-07-20 10:07:43,078 [main] INFO RTECrudOperations - ======================RTE Many To Many Order Processing Test Start==================
+2022-07-20 10:07:43,398 [main] INFO RTECrudOperations - Clicked on Operations
+2022-07-20 10:07:43,838 [main] INFO RTECrudOperations - Clicked on TaskLog
+2022-07-20 10:07:45,806 [main] INFO RTECrudOperations - PickUpID==3439289
+2022-07-20 10:07:45,806 [main] INFO RTECrudOperations - Entered PickUpID in basic search
+2022-07-20 10:07:46,607 [main] INFO RTECrudOperations - Click on Search button
+2022-07-20 10:07:53,459 [main] INFO RTECrudOperations - Data is exist with search parameter
+2022-07-20 10:07:54,034 [main] INFO RTECrudOperations - Job status tab is Disabled
+2022-07-20 10:07:54,319 [main] INFO RTECrudOperations - Job status is==VERIFIED
+2022-07-20 10:07:54,321 [main] INFO RTECrudOperations - Data is exist with search parameter
+2022-07-20 10:07:54,673 [main] INFO RTECrudOperations - Job status is==VERIFIED
+2022-07-20 10:07:54,674 [main] INFO RTECrudOperations - Job is moved to VERIFIED stage
+2022-07-20 10:07:54,867 [main] INFO RTECrudOperations - ======================RTE Many To Many Order Processing Test End==================
+2022-07-20 10:07:55,110 [main] INFO RTECrudOperations - ======================RTE Reject/Resend/CallBack/PendingDelivery Test Start==================
+2022-07-20 10:07:55,389 [main] INFO RTECrudOperations - Clicked on Operations
+2022-07-20 10:07:55,800 [main] INFO RTECrudOperations - Clicked on TaskLog
+2022-07-20 10:07:57,960 [main] INFO RTECrudOperations - PickUpID==3438194
+2022-07-20 10:07:57,960 [main] INFO RTECrudOperations - Entered PickUpID in basic search
+2022-07-20 10:07:58,768 [main] INFO RTECrudOperations - Click on Search button
+2022-07-20 10:08:06,489 [main] INFO RTECrudOperations - Data is exist with search parameter
+2022-07-20 10:08:06,842 [main] INFO RTECrudOperations - Job status tab is Disabled
+2022-07-20 10:08:07,096 [main] INFO RTECrudOperations - Job status is==VERIFIED
+2022-07-20 10:08:07,098 [main] INFO RTECrudOperations - Data is exist with search parameter
+2022-07-20 10:08:07,413 [main] INFO RTECrudOperations - Job status is==VERIFIED
+2022-07-20 10:08:07,414 [main] INFO RTECrudOperations - Job is moved to VERIFIED stage
+2022-07-20 10:08:08,261 [main] INFO RTECrudOperations - Clicked on Exit Without Save
+2022-07-20 10:08:08,261 [main] INFO RTECrudOperations - ======================RTE Reject/Resend/CallBack/PendingDelivery Test End==================
+2022-07-20 10:08:08,457 [main] INFO RTECrudOperations - ======================RTE Crud Operations Test Start==================
+2022-07-20 10:08:09,895 [main] INFO RTECrudOperations - Clicked on Operations
+2022-07-20 10:08:10,288 [main] INFO RTECrudOperations - Clicked on TaskLog
+2022-07-20 10:08:11,552 [main] INFO RTECrudOperations - PickUpID==3434537
+2022-07-20 10:08:11,552 [main] INFO RTECrudOperations - Entered PickUpID in basic search
+2022-07-20 10:08:11,844 [main] INFO RTECrudOperations - Click on Search button
+2022-07-20 10:08:17,448 [main] INFO RTECrudOperations - Data is exist with search parameter
+2022-07-20 10:08:17,977 [main] INFO RTECrudOperations - Job status tab is Disabled
+2022-07-20 10:08:18,098 [main] INFO RTECrudOperations - Job status is==DELIVERED@STOP 2 OF 2
+2022-07-20 10:08:18,098 [main] INFO RTECrudOperations - Data is exist with search parameter
+2022-07-20 10:08:18,601 [main] INFO RTECrudOperations - Job status is==DELIVERED@STOP 2 OF 2
+2022-07-20 10:08:18,601 [main] INFO RTECrudOperations - Job is Delivered successfully
+2022-07-20 10:08:18,816 [main] INFO RTECrudOperations - Shipment Charges After Deliverd===$185.00
+2022-07-20 10:08:19,439 [main] INFO RTECrudOperations - Shipment Charges on Creation===$160.00
+2022-07-20 10:08:19,439 [main] INFO RTECrudOperations - Shipment Charges is updated
+2022-07-20 10:08:19,439 [main] INFO RTECrudOperations - Shipment Charges after deliverd is different than Creation time
+2022-07-20 10:08:19,821 [main] INFO RTECrudOperations - Clicked on Edit Job tab
+2022-07-20 10:08:22,532 [main] INFO RTECrudOperations - Clicked on Edit Stop Sequence
+2022-07-20 10:08:22,702 [main] INFO RTECrudOperations - DEL stop is Non-Editable==PASS
+2022-07-20 10:08:25,346 [main] INFO RTECrudOperations - Clicked on End Route
+2022-07-20 10:08:25,772 [main] INFO RTECrudOperations - Validation is displayed==Actual Route End Date Required.
+Actual Route End Time Required.
+2022-07-20 10:08:25,772 [main] INFO RTECrudOperations - Validation is displayed for Route End Date and Time==PASS
+2022-07-20 10:08:25,865 [main] INFO RTECrudOperations - ZoneID of is==CDT
+2022-07-20 10:08:26,031 [main] INFO RTECrudOperations - 07/19/2022
+2022-07-20 10:08:26,343 [main] INFO RTECrudOperations - Entered Actual Route End Date
+2022-07-20 10:08:26,459 [main] INFO RTECrudOperations - 23:39
+2022-07-20 10:08:26,698 [main] INFO RTECrudOperations - Entered Actual Route End Time
+2022-07-20 10:08:27,190 [main] INFO RTECrudOperations - Clicked on End Route
+2022-07-20 10:08:30,134 [main] INFO RTECrudOperations - Entered PickUpID in basic search
+2022-07-20 10:08:30,312 [main] INFO RTECrudOperations - Click on Search button
+2022-07-20 10:08:36,605 [main] INFO RTECrudOperations - Data is exist with search parameter
+2022-07-20 10:08:36,941 [main] INFO RTECrudOperations - Job status is==VERIFY CUSTOMER BILL
+2022-07-20 10:08:36,942 [main] INFO RTECrudOperations - Job is moved to Verify Customer Bill stage
+2022-07-20 10:08:39,447 [main] INFO RTECrudOperations - Clicked on Verify button
+2022-07-20 10:08:43,787 [main] INFO RTECrudOperations - Entered PickUpID in basic search
+2022-07-20 10:08:43,992 [main] INFO RTECrudOperations - Click on Search button
+2022-07-20 10:08:50,174 [main] INFO RTECrudOperations - Data is exist with search parameter
+2022-07-20 10:08:50,618 [main] INFO RTECrudOperations - Job status is==VERIFIED
+2022-07-20 10:08:50,618 [main] INFO RTECrudOperations - Job is moved to VERIFIED stage
+2022-07-20 10:08:51,002 [main] INFO RTECrudOperations - Crud operation is not working
+2022-07-20 10:08:51,003 [main] INFO RTECrudOperations - Search LOC Job is not working
+2022-07-20 10:08:51,004 [main] INFO RTECrudOperations - ======================RTE Crud Operations Test End==================
+2022-07-20 10:08:55,134 [main] INFO RTECrudOperations - Logout Message is displayed==You have successfully logged out!
+2022-07-20 10:08:55,135 [main] INFO RTECrudOperations - Logout done
+2022-07-20 10:08:56,245 [main] INFO RTECrudOperations - ====Sending Email=====

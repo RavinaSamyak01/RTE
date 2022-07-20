@@ -1,278 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="7" passed="6" failed="1" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-07-15T16:53:35 IST" name="RTE Job Smoke" finished-at="2022-07-15T17:16:07 IST" duration-ms="1351590">
+  <suite started-at="2022-07-19T17:10:14 IST" name="Default suite" finished-at="2022-07-19T17:11:54 IST" duration-ms="100060">
     <groups>
     </groups>
-    <test started-at="2022-07-15T16:53:35 IST" name="RTE OneToOne Job Processing" finished-at="2022-07-15T16:53:48 IST" duration-ms="12515">
-      <class name="rte_RTEJobCreation.RTEOneToOneOrderProcess">
-        <test-method is-config="true" signature="testMethodName(java.lang.reflect.Method)[pri:0, instance:rte_RTEJobCreation.RTEOneToOneOrderProcess@72e5a8e]" started-at="2022-07-15T16:53:35 IST" name="testMethodName" finished-at="2022-07-15T16:53:35 IST" duration-ms="6" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void rte_RTEJobCreation.RTEOneToOneOrderProcess.rteOneToOneOrderProcess() throws org.apache.poi.EncryptedDocumentException,org.apache.poi.openxml4j.exceptions.InvalidFormatException,java.io.IOException,java.lang.InterruptedException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testMethodName -->
-        <test-method signature="rteOneToOneOrderProcess()[pri:0, instance:rte_RTEJobCreation.RTEOneToOneOrderProcess@72e5a8e]" started-at="2022-07-15T16:53:35 IST" name="rteOneToOneOrderProcess" finished-at="2022-07-15T16:53:47 IST" duration-ms="12353" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- rteOneToOneOrderProcess -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:rte_RTEJobCreation.RTEOneToOneOrderProcess@72e5a8e]" started-at="2022-07-15T16:53:47 IST" name="getResult" finished-at="2022-07-15T16:53:48 IST" duration-ms="115" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=rteOneToOneOrderProcess status=SUCCESS method=RTEOneToOneOrderProcess.rteOneToOneOrderProcess()[pri:0, instance:rte_RTEJobCreation.RTEOneToOneOrderProcess@72e5a8e] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getResult -->
-      </class> <!-- rte_RTEJobCreation.RTEOneToOneOrderProcess -->
-    </test> <!-- RTE OneToOne Job Processing -->
-    <test started-at="2022-07-15T16:53:48 IST" name="RTE OneToMany Job Processing" finished-at="2022-07-15T16:53:57 IST" duration-ms="9744">
-      <class name="rte_RTEJobCreation.RTEOneToManyOrderProcess">
-        <test-method is-config="true" signature="testMethodName(java.lang.reflect.Method)[pri:0, instance:rte_RTEJobCreation.RTEOneToManyOrderProcess@63376bed]" started-at="2022-07-15T16:53:48 IST" name="testMethodName" finished-at="2022-07-15T16:53:48 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void rte_RTEJobCreation.RTEOneToManyOrderProcess.rteOneToManyOrderProcess() throws org.apache.poi.EncryptedDocumentException,org.apache.poi.openxml4j.exceptions.InvalidFormatException,java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testMethodName -->
-        <test-method signature="rteOneToManyOrderProcess()[pri:0, instance:rte_RTEJobCreation.RTEOneToManyOrderProcess@63376bed]" started-at="2022-07-15T16:53:48 IST" name="rteOneToManyOrderProcess" finished-at="2022-07-15T16:53:57 IST" duration-ms="9599" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- rteOneToManyOrderProcess -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:rte_RTEJobCreation.RTEOneToManyOrderProcess@63376bed]" started-at="2022-07-15T16:53:57 IST" name="getResult" finished-at="2022-07-15T16:53:57 IST" duration-ms="141" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=rteOneToManyOrderProcess status=SUCCESS method=RTEOneToManyOrderProcess.rteOneToManyOrderProcess()[pri:0, instance:rte_RTEJobCreation.RTEOneToManyOrderProcess@63376bed] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getResult -->
-      </class> <!-- rte_RTEJobCreation.RTEOneToManyOrderProcess -->
-    </test> <!-- RTE OneToMany Job Processing -->
-    <test started-at="2022-07-15T16:53:57 IST" name="RTE ManyToOne Job Processing" finished-at="2022-07-15T16:54:06 IST" duration-ms="8323">
-      <class name="rte_RTEJobCreation.RTEManyToOneOrderProcess">
-        <test-method is-config="true" signature="testMethodName(java.lang.reflect.Method)[pri:0, instance:rte_RTEJobCreation.RTEManyToOneOrderProcess@3e27aa33]" started-at="2022-07-15T16:53:57 IST" name="testMethodName" finished-at="2022-07-15T16:53:57 IST" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void rte_RTEJobCreation.RTEManyToOneOrderProcess.rteManyToOneOrderProcess() throws org.apache.poi.EncryptedDocumentException,org.apache.poi.openxml4j.exceptions.InvalidFormatException,java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testMethodName -->
-        <test-method signature="rteManyToOneOrderProcess()[pri:0, instance:rte_RTEJobCreation.RTEManyToOneOrderProcess@3e27aa33]" started-at="2022-07-15T16:53:57 IST" name="rteManyToOneOrderProcess" finished-at="2022-07-15T16:54:06 IST" duration-ms="8175" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- rteManyToOneOrderProcess -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:rte_RTEJobCreation.RTEManyToOneOrderProcess@3e27aa33]" started-at="2022-07-15T16:54:06 IST" name="getResult" finished-at="2022-07-15T16:54:06 IST" duration-ms="142" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=rteManyToOneOrderProcess status=SUCCESS method=RTEManyToOneOrderProcess.rteManyToOneOrderProcess()[pri:0, instance:rte_RTEJobCreation.RTEManyToOneOrderProcess@3e27aa33] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getResult -->
-      </class> <!-- rte_RTEJobCreation.RTEManyToOneOrderProcess -->
-    </test> <!-- RTE ManyToOne Job Processing -->
-    <test started-at="2022-07-15T16:54:06 IST" name="RTE Reject/Resend/PendingDel Job Processing" finished-at="2022-07-15T16:54:14 IST" duration-ms="8437">
-      <class name="rte_RTEJobCreation.RTEFlowWithRejectResend">
-        <test-method signature="rteRejectResendScan()[pri:0, instance:rte_RTEJobCreation.RTEFlowWithRejectResend@740cae06]" started-at="2022-07-15T16:54:06 IST" name="rteRejectResendScan" finished-at="2022-07-15T16:54:14 IST" duration-ms="8329" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- rteRejectResendScan -->
-        <test-method is-config="true" signature="testMethodName(java.lang.reflect.Method)[pri:0, instance:rte_RTEJobCreation.RTEFlowWithRejectResend@740cae06]" started-at="2022-07-15T16:54:06 IST" name="testMethodName" finished-at="2022-07-15T16:54:06 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void rte_RTEJobCreation.RTEFlowWithRejectResend.rteRejectResendScan() throws org.apache.poi.EncryptedDocumentException,org.apache.poi.openxml4j.exceptions.InvalidFormatException,java.io.IOException,java.lang.InterruptedException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testMethodName -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:rte_RTEJobCreation.RTEFlowWithRejectResend@740cae06]" started-at="2022-07-15T16:54:14 IST" name="getResult" finished-at="2022-07-15T16:54:14 IST" duration-ms="105" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=rteRejectResendScan status=SUCCESS method=RTEFlowWithRejectResend.rteRejectResendScan()[pri:0, instance:rte_RTEJobCreation.RTEFlowWithRejectResend@740cae06] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getResult -->
-      </class> <!-- rte_RTEJobCreation.RTEFlowWithRejectResend -->
-    </test> <!-- RTE Reject/Resend/PendingDel Job Processing -->
-    <test started-at="2022-07-15T16:54:14 IST" name="RTE ManyToMany Job Processing" finished-at="2022-07-15T16:54:22 IST" duration-ms="7885">
-      <class name="rte_RTEJobCreation.RTEManyToManyOrderProcess">
-        <test-method signature="rteManyToManyOrderProcess()[pri:0, instance:rte_RTEJobCreation.RTEManyToManyOrderProcess@6d4d66d2]" started-at="2022-07-15T16:54:14 IST" name="rteManyToManyOrderProcess" finished-at="2022-07-15T16:54:22 IST" duration-ms="7727" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- rteManyToManyOrderProcess -->
-        <test-method is-config="true" signature="testMethodName(java.lang.reflect.Method)[pri:0, instance:rte_RTEJobCreation.RTEManyToManyOrderProcess@6d4d66d2]" started-at="2022-07-15T16:54:14 IST" name="testMethodName" finished-at="2022-07-15T16:54:14 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void rte_RTEJobCreation.RTEManyToManyOrderProcess.rteManyToManyOrderProcess() throws org.apache.poi.EncryptedDocumentException,org.apache.poi.openxml4j.exceptions.InvalidFormatException,java.io.IOException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testMethodName -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:rte_RTEJobCreation.RTEManyToManyOrderProcess@6d4d66d2]" started-at="2022-07-15T16:54:22 IST" name="getResult" finished-at="2022-07-15T16:54:22 IST" duration-ms="155" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=rteManyToManyOrderProcess status=SUCCESS method=RTEManyToManyOrderProcess.rteManyToManyOrderProcess()[pri:0, instance:rte_RTEJobCreation.RTEManyToManyOrderProcess@6d4d66d2] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getResult -->
-      </class> <!-- rte_RTEJobCreation.RTEManyToManyOrderProcess -->
-    </test> <!-- RTE ManyToMany Job Processing -->
-    <test started-at="2022-07-15T16:54:22 IST" name="RTE Crud Operation" finished-at="2022-07-15T17:15:34 IST" duration-ms="1272081">
-      <class name="rte_RTEJobCreation.RTECrudOperations">
-        <test-method signature="rteCrudOperations()[pri:0, instance:rte_RTEJobCreation.RTECrudOperations@53fe15ff]" started-at="2022-07-15T16:54:22 IST" name="rteCrudOperations" finished-at="2022-07-15T17:15:34 IST" duration-ms="1271891" status="FAIL">
-          <exception class="org.openqa.selenium.TimeoutException">
-            <message>
-              <![CDATA[Expected condition failed: waiting for visibility of all elements located by By.xpath: //*[@class="OpenCloseClass dropdown open"]//ul (tried for 50 second(s) with 500 milliseconds interval)
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'SIPL92', ip: '10.212.131.36', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '16.0.2'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 103.0.5060.114, chrome: {chromedriverVersion: 103.0.5060.53 (a1711811edd7..., userDataDir: C:\Users\RPRAJA~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:62340}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: b2449d0f6e61a920e43487b676944543]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of all elements located by By.xpath: //*[@class="OpenCloseClass dropdown open"]//ul (tried for 50 second(s) with 500 milliseconds interval)
-Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
-System info: host: 'SIPL92', ip: '10.212.131.36', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '16.0.2'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 103.0.5060.114, chrome: {chromedriverVersion: 103.0.5060.53 (a1711811edd7..., userDataDir: C:\Users\RPRAJA~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:62340}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: b2449d0f6e61a920e43487b676944543
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)
-at rte_RTECrudOperations.SearchLOCJob.searchcreatedLOCJob(SearchLOCJob.java:67)
-at rte_RTEJobCreation.RTECrudOperations.rteCrudOperations(RTECrudOperations.java:5795)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:567)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-at org.testng.TestRunner.privateRun(TestRunner.java:794)
-at org.testng.TestRunner.run(TestRunner.java:596)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
-at org.testng.SuiteRunner.run(SuiteRunner.java:276)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
-at org.testng.TestNG.runSuites(TestNG.java:1063)
-at org.testng.TestNG.run(TestNG.java:1031)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.openqa.selenium.TimeoutException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- rteCrudOperations -->
-        <test-method is-config="true" signature="testMethodName(java.lang.reflect.Method)[pri:0, instance:rte_RTEJobCreation.RTECrudOperations@53fe15ff]" started-at="2022-07-15T16:54:22 IST" name="testMethodName" finished-at="2022-07-15T16:54:22 IST" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[public void rte_RTEJobCreation.RTECrudOperations.rteCrudOperations() throws org.apache.poi.EncryptedDocumentException,org.apache.poi.openxml4j.exceptions.InvalidFormatException,java.io.IOException,java.lang.InterruptedException]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testMethodName -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:rte_RTEJobCreation.RTECrudOperations@53fe15ff]" started-at="2022-07-15T17:15:34 IST" name="getResult" finished-at="2022-07-15T17:15:34 IST" duration-ms="110" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=rteCrudOperations status=FAILURE method=RTECrudOperations.rteCrudOperations()[pri:0, instance:rte_RTEJobCreation.RTECrudOperations@53fe15ff] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getResult -->
-      </class> <!-- rte_RTEJobCreation.RTECrudOperations -->
-    </test> <!-- RTE Crud Operation -->
-    <test started-at="2022-07-15T17:15:34 IST" name="RTE Compare Charges" finished-at="2022-07-15T17:16:07 IST" duration-ms="32444">
-      <class name="rte_RTEJobCreation.CompareCharges">
-        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:rte_RTEJobCreation.CompareCharges@15bb5034]" started-at="2022-07-15T16:53:11 IST" name="beforeMethod" finished-at="2022-07-15T16:53:35 IST" duration-ms="24415" status="PASS">
+    <test started-at="2022-07-19T17:10:14 IST" name="Default test" finished-at="2022-07-19T17:11:54 IST" duration-ms="100060">
+      <class name="rte_RTECrudOperations.SearchLOCJob">
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:rte_RTECrudOperations.SearchLOCJob@7d4f9aae]" started-at="2022-07-19T17:09:50 IST" name="beforeMethod" finished-at="2022-07-19T17:10:14 IST" duration-ms="23596" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method is-config="true" signature="testMethodName(java.lang.reflect.Method)[pri:0, instance:rte_RTEJobCreation.CompareCharges@15bb5034]" started-at="2022-07-15T17:15:34 IST" name="testMethodName" finished-at="2022-07-15T17:15:34 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="testMethodName(java.lang.reflect.Method)[pri:0, instance:rte_RTECrudOperations.SearchLOCJob@7d4f9aae]" started-at="2022-07-19T17:10:14 IST" name="testMethodName" finished-at="2022-07-19T17:10:14 IST" duration-ms="6" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void rte_RTEJobCreation.CompareCharges.rteCompareCharges() throws org.apache.poi.EncryptedDocumentException,org.apache.poi.openxml4j.exceptions.InvalidFormatException,java.io.IOException,java.lang.InterruptedException]]>
+                <![CDATA[public void rte_RTECrudOperations.SearchLOCJob.searchcreatedLOCJob() throws org.apache.poi.EncryptedDocumentException,org.apache.poi.openxml4j.exceptions.InvalidFormatException,java.io.IOException]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testMethodName -->
-        <test-method signature="rteCompareCharges()[pri:0, instance:rte_RTEJobCreation.CompareCharges@15bb5034]" started-at="2022-07-15T17:15:34 IST" name="rteCompareCharges" finished-at="2022-07-15T17:16:07 IST" duration-ms="32349" status="PASS">
+        <test-method signature="searchcreatedLOCJob()[pri:0, instance:rte_RTECrudOperations.SearchLOCJob@7d4f9aae]" started-at="2022-07-19T17:10:14 IST" name="searchcreatedLOCJob" finished-at="2022-07-19T17:11:54 IST" duration-ms="99883" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- rteCompareCharges -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:rte_RTEJobCreation.CompareCharges@15bb5034]" started-at="2022-07-15T17:16:07 IST" name="getResult" finished-at="2022-07-15T17:16:07 IST" duration-ms="91" status="PASS">
+        </test-method> <!-- searchcreatedLOCJob -->
+        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:rte_RTECrudOperations.SearchLOCJob@7d4f9aae]" started-at="2022-07-19T17:11:54 IST" name="getResult" finished-at="2022-07-19T17:11:54 IST" duration-ms="134" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=rteCompareCharges status=SUCCESS method=CompareCharges.rteCompareCharges()[pri:0, instance:rte_RTEJobCreation.CompareCharges@15bb5034] output={null}]]]>
+                <![CDATA[[TestResult name=searchcreatedLOCJob status=SUCCESS method=SearchLOCJob.searchcreatedLOCJob()[pri:0, instance:rte_RTECrudOperations.SearchLOCJob@7d4f9aae] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResult -->
-        <test-method is-config="true" signature="SendEmail()[pri:0, instance:rte_RTEJobCreation.CompareCharges@15bb5034]" started-at="2022-07-15T17:16:07 IST" name="SendEmail" finished-at="2022-07-15T17:16:13 IST" duration-ms="6644" status="PASS">
+        <test-method is-config="true" signature="SendEmail()[pri:0, instance:rte_RTECrudOperations.SearchLOCJob@7d4f9aae]" started-at="2022-07-19T17:11:54 IST" name="SendEmail" finished-at="2022-07-19T17:12:03 IST" duration-ms="9328" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SendEmail -->
-      </class> <!-- rte_RTEJobCreation.CompareCharges -->
-    </test> <!-- RTE Compare Charges -->
-  </suite> <!-- RTE Job Smoke -->
+      </class> <!-- rte_RTECrudOperations.SearchLOCJob -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>
