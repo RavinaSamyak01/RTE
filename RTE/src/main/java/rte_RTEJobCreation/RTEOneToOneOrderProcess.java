@@ -607,7 +607,8 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 															wait.until(ExpectedConditions.visibilityOf(Verify));
 															js.executeScript("arguments[0].click();", Verify);
 															logs.info("Clicked on Verify button");
-															wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+															wait.until(ExpectedConditions
+																	.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 															// --Verified
 															// --Zoom IN
@@ -683,6 +684,8 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 																//
 
 															} catch (Exception VerifyCBill) {
+																logs.error(VerifyCBill);
+
 																logs.info("job is not moved to VERIFIED stage");
 																jobStatus = isElementPresent("TLStageLable_id")
 																		.getText();
@@ -715,6 +718,7 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 													//
 
 												} catch (Exception VerifyCBill) {
+													logs.error(VerifyCBill);
 													logs.info("job is not moved to Verify Customer Bill stage");
 													jobStatus = isElementPresent("TLStageLable_id").getText();
 													logs.info("Job status is==" + jobStatus);
@@ -732,17 +736,20 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 										//
 
 									} catch (Exception Deliverstage) {
+										logs.error(Deliverstage);
 										logs.info("job is not moved to delivered stage");
 										jobStatus = isElementPresent("TLStageLable_id").getText();
 										logs.info("Job status is==" + jobStatus);
 									}
 
 								} catch (Exception Deliver) {
+									logs.error(Deliver);
 									logs.info("Stage is not Deliver");
 									jobStatus = isElementPresent("TLStageLable_id").getText();
 									logs.info("Job status is==" + jobStatus);
 								}
 							} catch (Exception PickUp) {
+								logs.error(PickUp);
 								logs.info("Stage is not PickUP");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
@@ -750,10 +757,12 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 						}
 
 					} catch (Exception Somethingw) {
+						logs.error(Somethingw);
 						logs.info("Job is not moved to PU DRV CONF stage");
 
 					}
 				} catch (Exception NoPickupS) {
+					logs.error(NoPickupS);
 					logs.info("There is no PickUp Driver section");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
@@ -1210,7 +1219,8 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 															wait.until(ExpectedConditions.visibilityOf(Verify));
 															js.executeScript("arguments[0].click();", Verify);
 															logs.info("Clicked on Verify button");
-															wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+															wait.until(ExpectedConditions
+																	.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 															// --Verified
 															// --Zoom IN
@@ -1743,7 +1753,8 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 												act.moveToElement(Verify).build().perform();
 												js.executeScript("arguments[0].click();", Verify);
 												logs.info("Clicked on Verify button");
-												wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+												wait.until(ExpectedConditions
+														.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 												// --Verified
 												// --Zoom IN
@@ -2210,7 +2221,8 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 												act.moveToElement(Verify).build().perform();
 												js.executeScript("arguments[0].click();", Verify);
 												logs.info("Clicked on Verify button");
-												wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+												wait.until(ExpectedConditions
+														.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 												// --Verified
 												// --Zoom IN
@@ -2615,7 +2627,8 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 											act.moveToElement(Verify).build().perform();
 											js.executeScript("arguments[0].click();", Verify);
 											logs.info("Clicked on Verify button");
-											wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+											wait.until(ExpectedConditions
+													.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 											// --Verified
 											// --Zoom IN

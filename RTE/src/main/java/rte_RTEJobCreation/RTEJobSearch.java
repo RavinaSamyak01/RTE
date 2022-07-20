@@ -444,6 +444,7 @@ public class RTEJobSearch extends BaseInit {
 							}
 
 						} catch (Exception NoDataEx) {
+							logs.error(NoDataEx);
 							try {
 								WebElement NoData = isElementPresent("NoData_className");
 								wait.until(ExpectedConditions.visibilityOf(NoData));
@@ -452,6 +453,7 @@ public class RTEJobSearch extends BaseInit {
 
 								}
 							} catch (Exception e) {
+								logs.error(e);
 								WebElement NoData = isElementPresent("NODataTL_xpath");
 								wait.until(ExpectedConditions.visibilityOf(NoData));
 								if (NoData.isDisplayed()) {

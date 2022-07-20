@@ -642,6 +642,7 @@ public class CreateRTEJobManual extends BaseInit {
 
 		} catch (Exception Delete) {
 			logs.info("Shipment is deleted on NO button==FAIL");
+			logs.error(Delete);
 
 			try {
 				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
@@ -649,6 +650,7 @@ public class CreateRTEJobManual extends BaseInit {
 				logs.info("Shipment is added successfully");
 
 			} catch (Exception Shipment) {
+				logs.error(Shipment);
 				logs.info("Shipment is not added successfully");
 
 			}

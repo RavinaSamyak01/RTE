@@ -387,6 +387,7 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 
 										}
 									} catch (Exception e) {
+										logs.error(e);
 										logs.info("LOC Job is not merged successfully,Something went wrong==FAIL");
 										getScreenshot(driver, "RTEjobNotCreated");
 									}
@@ -410,6 +411,7 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 						}
 					}
 				} catch (Exception e) {
+					logs.error(e);
 					logs.info("Data is exist with search parameter");
 					wait.until(ExpectedConditions
 							.visibilityOfAllElementsLocatedBy(By.xpath("//*[contains(@class,'TasklogJobs ')]")));
@@ -726,6 +728,7 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 
 											}
 										} catch (Exception enn) {
+											logs.error(enn);
 											logs.info("LOC Job is not merged successfully,Something went wrong==FAIL");
 											getScreenshot(driver, "RTEjobNotCreated");
 										}
@@ -942,6 +945,7 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 
 												}
 											} catch (Exception en) {
+												logs.error(en);
 												logs.info(
 														"RTE Job is not created successfully,Something went wrong==FAIL");
 												getScreenshot(driver, "RTEjobNotCreated");
@@ -1055,6 +1059,7 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 
 												}
 											} catch (Exception enn) {
+												logs.error(enn);
 												logs.info(
 														"LOC Job is not merged successfully,Something went wrong==FAIL");
 												getScreenshot(driver, "RTEjobNotCreated");

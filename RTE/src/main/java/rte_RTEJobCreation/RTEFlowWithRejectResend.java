@@ -983,6 +983,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 																	//
 
 																} catch (Exception VerifyCBill) {
+																	logs.error(VerifyCBill);
 																	logs.info("job is not moved to VERIFIED stage");
 																	jobStatus = isElementPresent("TLStageLable_id")
 																			.getText();
@@ -1020,6 +1021,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 														//
 
 													} catch (Exception VerifyCBill) {
+														logs.error(VerifyCBill);
 														logs.info("job is not moved to Verify Customer Bill stage");
 														jobStatus = isElementPresent("TLStageLable_id").getText();
 														logs.info("Job status is==" + jobStatus);
@@ -1040,6 +1042,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 											//
 
 										} catch (Exception Deliverstage) {
+											logs.error(Deliverstage);
 											logs.info("job is not moved to delivered stage");
 											jobStatus = isElementPresent("TLStageLable_id").getText();
 											logs.info("Job status is==" + jobStatus);
@@ -1048,6 +1051,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 										}
 
 									} catch (Exception e) {
+										logs.error(e);
 										logs.info("Job is moved to PENDING DELIVERY==FAIL");
 										jobStatus = isElementPresent("TLStageLable_id").getText();
 										logs.info("Job status is==" + jobStatus);
@@ -1056,6 +1060,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 									}
 
 								} catch (Exception Deliver) {
+									logs.error(Deliver);
 									logs.info("Stage is not Deliver");
 									jobStatus = isElementPresent("TLStageLable_id").getText();
 									logs.info("Job status is==" + jobStatus);
@@ -1063,6 +1068,7 @@ public class RTEFlowWithRejectResend extends BaseInit {
 
 								}
 							} catch (Exception PickUp) {
+								logs.error(PickUp);
 								logs.info("Stage is not PickUP");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
@@ -1073,10 +1079,12 @@ public class RTEFlowWithRejectResend extends BaseInit {
 						}
 
 					} catch (Exception Somethingw) {
+						logs.error(Somethingw);
 						logs.info("Job is not moved to PU DRV CONF stage");
 
 					}
 				} catch (Exception NoPickupS) {
+					logs.error(NoPickupS);
 					logs.info("There is no PickUp Driver section");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);

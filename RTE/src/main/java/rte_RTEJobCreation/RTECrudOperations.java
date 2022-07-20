@@ -109,6 +109,7 @@ public class RTECrudOperations extends BaseInit {
 			}
 			Result = "FAIL";
 		} catch (Exception NoData1) {
+			logs.error(NoData1);
 
 			try {
 				logs.info("Data is exist with search parameter");
@@ -5614,6 +5615,7 @@ public class RTECrudOperations extends BaseInit {
 				}
 
 			} catch (Exception e) {
+				logs.error(e);
 				wait.until(ExpectedConditions
 						.visibilityOfAllElementsLocatedBy(By.xpath("//*[@data-info=\"TaskDetails\"]")));
 				List<WebElement> jobs = driver.findElements(By.xpath("//*[@data-info=\"TaskDetails\"]//tasks"));
@@ -5644,12 +5646,15 @@ public class RTECrudOperations extends BaseInit {
 							}
 
 						} catch (Exception JobStatus) {
+							logs.error(JobStatus);
+
 							try {
 								WebElement JobStatusDis = isElementPresent("TLJobstatusDsb_xpath");
 								if (JobStatusDis.isDisplayed()) {
 									logs.info("Job status tab is Disabled");
 								}
 							} catch (Exception JobStatusDisabled) {
+								logs.error(JobStatusDisabled);
 								logs.info("Job status tab is not Opened");
 								// --Go to Job Status Tab
 								wait.until(ExpectedConditions.elementToBeClickable(By.id("idJobOverview")));
@@ -5729,6 +5734,7 @@ public class RTECrudOperations extends BaseInit {
 								}
 
 							} catch (Exception NoPickupS) {
+								logs.error(NoPickupS);
 								logs.info("There is no PickUp Driver section");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
@@ -5779,6 +5785,7 @@ public class RTECrudOperations extends BaseInit {
 								}
 
 							} catch (Exception NoPickupS) {
+								logs.error(NoPickupS);
 								logs.info("There is no PickUp Driver section");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);

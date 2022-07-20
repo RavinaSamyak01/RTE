@@ -901,6 +901,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 																//
 
 															} catch (Exception VerifyCBill) {
+																logs.error(VerifyCBill);
 																logs.info("job is not moved to VERIFIED stage");
 																jobStatus = isElementPresent("TLStageLable_id")
 																		.getText();
@@ -935,6 +936,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 													//
 
 												} catch (Exception VerifyCBill) {
+													logs.error(VerifyCBill);
 													logs.info("job is not moved to Verify Customer Bill stage");
 													jobStatus = isElementPresent("TLStageLable_id").getText();
 													logs.info("Job status is==" + jobStatus);
@@ -954,6 +956,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 										//
 
 									} catch (Exception Deliverstage) {
+										logs.error(Deliverstage);
 										logs.info("job is not moved to delivered stage");
 										jobStatus = isElementPresent("TLStageLable_id").getText();
 										logs.info("Job status is==" + jobStatus);
@@ -961,12 +964,14 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 									}
 
 								} catch (Exception Deliver) {
+									logs.error(Deliver);
 									logs.info("Stage is not Deliver");
 									jobStatus = isElementPresent("TLStageLable_id").getText();
 									logs.info("Job status is==" + jobStatus);
 									msg.append("Job status is==" + jobStatus + "\n");
 								}
 							} catch (Exception PickUp) {
+								logs.error(PickUp);
 								logs.info("Stage is not PickUP");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
@@ -974,6 +979,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 							}
 
 						} catch (Exception NoDataEX) {
+							logs.error(NoDataEX);
 
 							WebElement NoData1 = isElementPresent("NoData_className");
 							wait.until(ExpectedConditions.visibilityOf(NoData1));
@@ -984,10 +990,12 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 						}
 
 					} catch (Exception Somethingw) {
+						logs.error(Somethingw);
 						logs.info("Job is not moved to PU DRV CONF stage");
 
 					}
 				} catch (Exception NoPickupS) {
+					logs.error(NoPickupS);
 					logs.info("There is no PickUp Driver section");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
@@ -4174,6 +4182,8 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 			}
 
 		} catch (Exception NoDataex) {
+			logs.error(NoDataex);
+
 			try {
 				WebElement NoData = isElementPresent("NoData_className");
 				wait.until(ExpectedConditions.visibilityOf(NoData));
@@ -4182,6 +4192,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 
 				}
 			} catch (Exception e) {
+				logs.error(e);
 				WebElement NoData = isElementPresent("NODataTL_xpath");
 				wait.until(ExpectedConditions.visibilityOf(NoData));
 				if (NoData.isDisplayed()) {
