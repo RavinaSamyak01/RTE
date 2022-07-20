@@ -459,7 +459,7 @@ public class AddEditShipmentUnmerge extends BaseInit {
 
 					logs.info("==RTE UnMerge Test End==");
 					// msg.append("==RTE UnMerge Test End==" + "\n");
-					msg.append("UnMerge Test=PASS" + "\n");
+					msg.append("UnMerge Test=PASS" + "\n\n");
 
 				}
 

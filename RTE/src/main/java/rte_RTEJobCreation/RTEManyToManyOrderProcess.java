@@ -254,19 +254,32 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 									logs.info("Total Pickup points is/are==" + TotalPickup);
 
 									for (int pu = 0; pu < TotalPickup; pu++) {
+										int PrevPU = 0;
 
 										System.out.println("value of Pu==" + pu);
 
 										if (jobStatus.contains("PICKUP@STOP 1 OF")) {
 											pu = 0;
+
 										} else if (jobStatus.contains("PICKUP@STOP 3 OF")) {
 											pu = 1;
+											PrevPU = 0;
 
 										} else if (jobStatus.contains("PICKUP@STOP 5 OF")) {
 											pu = 2;
+											PrevPU = 1;
 
 										}
 										System.out.println("value of PU==" + pu);
+
+										System.out.println("value of PrevPU==" + PrevPU);
+
+										String PrevPUTime = "txtActPuTime_" + PrevPU;
+										WebElement PUSTop = driver.findElement(By.id(PrevPUTime));
+
+										String EnteredPUTime = PUSTop.getAttribute("value");
+										System.out.println("value of Previous PickUpTime is==" + EnteredPUTime);
+										logs.info("value of Previous PickUp Time is==" + EnteredPUTime);
 
 										WebElement ZoneID = PickupPoints.get(pu)
 												.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
@@ -365,15 +378,16 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 
 												// --Enter Act.PickUp Time
 												PickUpTime = driver.findElement(By.id(PUTime));
-												PickUpTime.clear();
-												date = new Date();
-												dateFormat = new SimpleDateFormat("HH:mm");
-												dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-												Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
+												EnteredPUTime = PUSTop.getAttribute("value");
+												SimpleDateFormat df = new SimpleDateFormat("HH:mm");
+												Date d = df.parse(EnteredPUTime);
+												Calendar cal = Calendar.getInstance();
+												cal.setTime(d);
 												cal.add(Calendar.MINUTE, 1);
-												logs.info(dateFormat.format(cal.getTime()));
-												PickUpTime.sendKeys(dateFormat.format(cal.getTime()));
-												wait.until(ExpectedConditions.elementToBeClickable(PickUpTime));
+												String newTime = df.format(cal.getTime());
+												System.out.println("New Time after add 1 minute is==" + newTime);
+												PickUpTime.clear();
+												PickUpTime.sendKeys(newTime);
 												PickUpTime.sendKeys(Keys.TAB);
 												logs.info("Entered Actual Pickup Time");
 
@@ -1062,19 +1076,32 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 								logs.info("Total Pickup points is/are==" + TotalPickup);
 
 								for (int pu = 0; pu < TotalPickup; pu++) {
+									int PrevPU = 0;
 
 									System.out.println("value of Pu==" + pu);
 
 									if (jobStatus.contains("PICKUP@STOP 1 OF")) {
 										pu = 0;
+
 									} else if (jobStatus.contains("PICKUP@STOP 3 OF")) {
 										pu = 1;
+										PrevPU = 0;
 
 									} else if (jobStatus.contains("PICKUP@STOP 5 OF")) {
 										pu = 2;
+										PrevPU = 1;
 
 									}
 									System.out.println("value of PU==" + pu);
+
+									System.out.println("value of PrevPU==" + PrevPU);
+
+									String PrevPUTime = "txtActPuTime_" + PrevPU;
+									WebElement PUSTop = driver.findElement(By.id(PrevPUTime));
+
+									String EnteredPUTime = PUSTop.getAttribute("value");
+									System.out.println("value of Previous PickUpTime is==" + EnteredPUTime);
+									logs.info("value of Previous PickUp Time is==" + EnteredPUTime);
 
 									WebElement ZoneID = PickupPoints.get(pu)
 											.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
@@ -1173,15 +1200,16 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 
 											// --Enter Act.PickUp Time
 											PickUpTime = driver.findElement(By.id(PUTime));
-											PickUpTime.clear();
-											date = new Date();
-											dateFormat = new SimpleDateFormat("HH:mm");
-											dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-											Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
+											EnteredPUTime = PUSTop.getAttribute("value");
+											SimpleDateFormat df = new SimpleDateFormat("HH:mm");
+											Date d = df.parse(EnteredPUTime);
+											Calendar cal = Calendar.getInstance();
+											cal.setTime(d);
 											cal.add(Calendar.MINUTE, 1);
-											logs.info(dateFormat.format(cal.getTime()));
-											PickUpTime.sendKeys(dateFormat.format(cal.getTime()));
-											wait.until(ExpectedConditions.elementToBeClickable(PickUpTime));
+											String newTime = df.format(cal.getTime());
+											System.out.println("New Time after add 1 minute is==" + newTime);
+											PickUpTime.clear();
+											PickUpTime.sendKeys(newTime);
 											PickUpTime.sendKeys(Keys.TAB);
 											logs.info("Entered Actual Pickup Time");
 
@@ -1397,6 +1425,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 										wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
 										logs.info("Job is moved to DELIVERED stage");
 										break;
+
 									}
 
 								}
@@ -1640,6 +1669,8 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 															//
 
 														} catch (Exception VerifyCBill) {
+															logs.error(VerifyCBill);
+
 															logs.info("job is not moved to VERIFIED stage");
 															jobStatus = isElementPresent("TLStageLable_id").getText();
 															logs.info("Job status is==" + jobStatus);
@@ -1672,6 +1703,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 												//
 
 											} catch (Exception VerifyCBill) {
+												logs.error(VerifyCBill);
 												logs.info("job is not moved to Verify Customer Bill stage");
 												jobStatus = isElementPresent("TLStageLable_id").getText();
 												logs.info("Job status is==" + jobStatus);
@@ -1691,6 +1723,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 									//
 
 								} catch (Exception Deliverstage) {
+									logs.error(Deliverstage);
 									logs.info("job is not moved to delivered stage");
 									jobStatus = isElementPresent("TLStageLable_id").getText();
 									logs.info("Job status is==" + jobStatus);
@@ -1791,19 +1824,32 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 						logs.info("Total Pickup points is/are==" + TotalPickup);
 
 						for (int pu = 0; pu < TotalPickup; pu++) {
+							int PrevPU = 0;
 
 							System.out.println("value of Pu==" + pu);
 
 							if (jobStatus.contains("PICKUP@STOP 1 OF")) {
 								pu = 0;
+
 							} else if (jobStatus.contains("PICKUP@STOP 3 OF")) {
 								pu = 1;
+								PrevPU = 0;
 
 							} else if (jobStatus.contains("PICKUP@STOP 5 OF")) {
 								pu = 2;
+								PrevPU = 1;
 
 							}
 							System.out.println("value of PU==" + pu);
+
+							System.out.println("value of PrevPU==" + PrevPU);
+
+							String PrevPUTime = "txtActPuTime_" + PrevPU;
+							WebElement PUSTop = driver.findElement(By.id(PrevPUTime));
+
+							String EnteredPUTime = PUSTop.getAttribute("value");
+							System.out.println("value of Previous PickUpTime is==" + EnteredPUTime);
+							logs.info("value of Previous PickUp Time is==" + EnteredPUTime);
 
 							WebElement ZoneID = PickupPoints.get(pu)
 									.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
@@ -1901,15 +1947,16 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 
 									// --Enter Act.PickUp Time
 									PickUpTime = driver.findElement(By.id(PUTime));
-									PickUpTime.clear();
-									date = new Date();
-									dateFormat = new SimpleDateFormat("HH:mm");
-									dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-									Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
+									EnteredPUTime = PUSTop.getAttribute("value");
+									SimpleDateFormat df = new SimpleDateFormat("HH:mm");
+									Date d = df.parse(EnteredPUTime);
+									Calendar cal = Calendar.getInstance();
+									cal.setTime(d);
 									cal.add(Calendar.MINUTE, 1);
-									logs.info(dateFormat.format(cal.getTime()));
-									PickUpTime.sendKeys(dateFormat.format(cal.getTime()));
-									wait.until(ExpectedConditions.elementToBeClickable(PickUpTime));
+									String newTime = df.format(cal.getTime());
+									System.out.println("New Time after add 1 minute is==" + newTime);
+									PickUpTime.clear();
+									PickUpTime.sendKeys(newTime);
 									PickUpTime.sendKeys(Keys.TAB);
 									logs.info("Entered Actual Pickup Time");
 
@@ -2118,6 +2165,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 								wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("txtContains")));
 								logs.info("Job is moved to DELIVERED stage");
 								break;
+
 							}
 
 						}
@@ -2347,6 +2395,8 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 													//
 
 												} catch (Exception VerifyCBill) {
+													logs.error(VerifyCBill);
+
 													logs.info("job is not moved to VERIFIED stage");
 													jobStatus = isElementPresent("TLStageLable_id").getText();
 													logs.info("Job status is==" + jobStatus);
@@ -2379,6 +2429,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 										//
 
 									} catch (Exception VerifyCBill) {
+										logs.error(VerifyCBill);
 										logs.info("job is not moved to Verify Customer Bill stage");
 										jobStatus = isElementPresent("TLStageLable_id").getText();
 										logs.info("Job status is==" + jobStatus);
@@ -2398,6 +2449,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 							//
 
 						} catch (Exception Deliverstage) {
+							logs.error(Deliverstage);
 							logs.info("job is not moved to delivered stage");
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
@@ -2443,19 +2495,32 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 						logs.info("Total Pickup points is/are==" + TotalPickup);
 
 						for (int pu = 0; pu < TotalPickup; pu++) {
+							int PrevPU = 0;
 
 							System.out.println("value of Pu==" + pu);
 
 							if (jobStatus.contains("PICKUP@STOP 1 OF")) {
 								pu = 0;
+
 							} else if (jobStatus.contains("PICKUP@STOP 3 OF")) {
 								pu = 1;
+								PrevPU = 0;
 
 							} else if (jobStatus.contains("PICKUP@STOP 5 OF")) {
 								pu = 2;
+								PrevPU = 1;
 
 							}
 							System.out.println("value of PU==" + pu);
+
+							System.out.println("value of PrevPU==" + PrevPU);
+
+							String PrevPUTime = "txtActPuTime_" + PrevPU;
+							WebElement PUSTop = driver.findElement(By.id(PrevPUTime));
+
+							String EnteredPUTime = PUSTop.getAttribute("value");
+							System.out.println("value of Previous PickUpTime is==" + EnteredPUTime);
+							logs.info("value of Previous PickUp Time is==" + EnteredPUTime);
 
 							WebElement ZoneID = PickupPoints.get(pu)
 									.findElement(By.xpath("td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
@@ -2552,18 +2617,17 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 									logs.info("Entered Actual Pickup Date");
 
 									// --Enter Act.PickUp Time
-
-									// --Enter Act.PickUp Time
 									PickUpTime = driver.findElement(By.id(PUTime));
-									PickUpTime.clear();
-									date = new Date();
-									dateFormat = new SimpleDateFormat("HH:mm");
-									dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-									Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
+									EnteredPUTime = PUSTop.getAttribute("value");
+									SimpleDateFormat df = new SimpleDateFormat("HH:mm");
+									Date d = df.parse(EnteredPUTime);
+									Calendar cal = Calendar.getInstance();
+									cal.setTime(d);
 									cal.add(Calendar.MINUTE, 1);
-									logs.info(dateFormat.format(cal.getTime()));
-									PickUpTime.sendKeys(dateFormat.format(cal.getTime()));
-									wait.until(ExpectedConditions.elementToBeClickable(PickUpTime));
+									String newTime = df.format(cal.getTime());
+									System.out.println("New Time after add 1 minute is==" + newTime);
+									PickUpTime.clear();
+									PickUpTime.sendKeys(newTime);
 									PickUpTime.sendKeys(Keys.TAB);
 									logs.info("Entered Actual Pickup Time");
 
@@ -3002,6 +3066,8 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 													//
 
 												} catch (Exception VerifyCBill) {
+													logs.error(VerifyCBill);
+
 													logs.info("job is not moved to VERIFIED stage");
 													jobStatus = isElementPresent("TLStageLable_id").getText();
 													logs.info("Job status is==" + jobStatus);
@@ -3034,6 +3100,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 										//
 
 									} catch (Exception VerifyCBill) {
+										logs.error(VerifyCBill);
 										logs.info("job is not moved to Verify Customer Bill stage");
 										jobStatus = isElementPresent("TLStageLable_id").getText();
 										logs.info("Job status is==" + jobStatus);
@@ -3053,6 +3120,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 							//
 
 						} catch (Exception Deliverstage) {
+							logs.error(Deliverstage);
 							logs.info("job is not moved to delivered stage");
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);

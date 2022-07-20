@@ -495,6 +495,8 @@ public class RTECrudOperations extends BaseInit {
 															By.xpath("td[contains(@aria-label,'Column Cost')]"));
 													String ChargeValue = CValue.getText();
 													logs.info("Charge Value is==" + ChargeValue);
+													logs.info("Charge Value is==" + ChargeValue);
+													msg.append("Charge Value is==" + ChargeValue + "\n");
 													setData("CompareCharges", 1, 8, ChargeName);
 
 													break;
@@ -1293,6 +1295,7 @@ public class RTECrudOperations extends BaseInit {
 																			//
 
 																		} catch (Exception VerifyCBill) {
+																			logs.error(VerifyCBill);
 																			logs.info(
 																					"job is not moved to VERIFIED stage");
 																			jobStatus = isElementPresent(
@@ -1335,6 +1338,7 @@ public class RTECrudOperations extends BaseInit {
 																//
 
 															} catch (Exception VerifyCBill) {
+																logs.error(VerifyCBill);
 																logs.info(
 																		"job is not moved to Verify Customer Bill stage");
 																jobStatus = isElementPresent("TLStageLable_id")
@@ -1356,6 +1360,7 @@ public class RTECrudOperations extends BaseInit {
 													//
 
 												} catch (Exception Deliverstage) {
+													logs.error(Deliverstage);
 													logs.info("job is not moved to delivered stage");
 													jobStatus = isElementPresent("TLStageLable_id").getText();
 													logs.info("Job status is==" + jobStatus);
@@ -1363,6 +1368,7 @@ public class RTECrudOperations extends BaseInit {
 												}
 
 											} catch (Exception Deliver) {
+												logs.error(Deliver);
 												logs.info("Stage is not Deliver");
 												jobStatus = isElementPresent("TLStageLable_id").getText();
 												logs.info("Job status is==" + jobStatus);
@@ -1386,6 +1392,7 @@ public class RTECrudOperations extends BaseInit {
 									}
 
 								} catch (Exception PickUp) {
+									logs.error(PickUp);
 									logs.info("Stage is not PickUP");
 									jobStatus = isElementPresent("TLStageLable_id").getText();
 									logs.info("Job status is==" + jobStatus);
@@ -1393,6 +1400,7 @@ public class RTECrudOperations extends BaseInit {
 								}
 
 							} catch (Exception NoDataEX) {
+								logs.error(NoDataEX);
 
 								WebElement NoData11 = isElementPresent("NoData_className");
 								wait.until(ExpectedConditions.visibilityOf(NoData11));
@@ -1403,11 +1411,13 @@ public class RTECrudOperations extends BaseInit {
 							}
 
 						} catch (Exception Somethingw) {
+							logs.error(Somethingw);
 							logs.info("Job is not moved to PU DRV CONF stage");
 
 						}
 
 					} catch (Exception NoPickupS) {
+						logs.error(NoPickupS);
 						logs.info("There is no PickUp Driver section");
 						jobStatus = isElementPresent("TLStageLable_id").getText();
 						logs.info("Job status is==" + jobStatus);

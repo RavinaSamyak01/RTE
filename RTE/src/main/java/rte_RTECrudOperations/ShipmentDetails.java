@@ -807,7 +807,7 @@ public class ShipmentDetails extends BaseInit {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		// Actions act = new Actions(driver);
 		logs.info("==RTE UnMerge Test Start==");
-		msg.append("==RTE UnMerge Test Start==" + "\n");
+		//msg.append("==RTE UnMerge Test Start==" + "\n");
 
 		try {
 			try {

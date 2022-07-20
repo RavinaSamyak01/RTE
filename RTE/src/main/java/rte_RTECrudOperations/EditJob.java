@@ -797,6 +797,7 @@ public class EditJob extends BaseInit {
 			act.moveToElement(ActRate).build().perform();
 			String BRate = isElementPresent("TLActRate_xpath").getText();
 			logs.info("Actual Rate before Recalculate==" + BRate);
+			msg.append("Actual Rate before Recalculate==" + BRate + "\n");
 
 			List<WebElement> TotaChargesDiv = driver
 					.findElements(By.xpath("//*[@id=\"scrollCustomer\"]//div[contains(@ng-repeat,'RateDetailList' )]"));
@@ -838,6 +839,7 @@ public class EditJob extends BaseInit {
 
 			if (TotalChargesAf != TotalCharges) {
 				logs.info("New charge is added");
+				msg.append("New charge is added" + "\n");
 
 			} else {
 				logs.info("New charge is not added");
@@ -858,9 +860,11 @@ public class EditJob extends BaseInit {
 			act.moveToElement(ActRate).build().perform();
 			String ARate = isElementPresent("TLActRate_xpath").getText();
 			logs.info("Actual Rate after Recalculate==" + ARate);
+			msg.append("Actual Rate after Recalculate==" + ARate + "\n");
 
 			if (!BRate.equalsIgnoreCase(ARate)) {
 				logs.info("Rate is updated");
+				msg.append("Rate is updated"+"\n");
 
 			} else {
 				logs.info("Rate is not updated");
@@ -889,6 +893,7 @@ public class EditJob extends BaseInit {
 
 			if (TotalChargesAf != TotalChargesAfD) {
 				logs.info("Charge is deleted");
+				msg.append("Added Charge is deleted"+"\n");
 
 			} else {
 				logs.info("Charge is not deleted");
@@ -896,11 +901,11 @@ public class EditJob extends BaseInit {
 			}
 			logs.info("==RTE Customer Charges Test End==");
 			// msg.append("==RTE Customer Charges Test End==" + "\n");
-			msg.append("Customer Charges Test=PASS" + "\n");
+			msg.append("Customer Charges Test=PASS" + "\n\n");
 
 		} catch (Exception ex) {
 			logs.error(ex);
-			msg.append("Customer Charges Test=FAIL" + "\n");
+			msg.append("Customer Charges Test=FAIL" + "\n\n");
 
 		}
 

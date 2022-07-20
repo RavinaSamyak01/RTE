@@ -179,6 +179,7 @@ public class SearchLOCJob extends BaseInit {
 						Result = "PASS";
 
 					} catch (Exception Multiple) {
+						logs.error(Multiple);
 						try {
 							wait.until(ExpectedConditions
 									.visibilityOfAllElementsLocatedBy(By.id("idOperationTasklogGrd")));
@@ -283,6 +284,7 @@ public class SearchLOCJob extends BaseInit {
 								}
 							}
 						} catch (Exception e) {
+							logs.error(e);
 							wait.until(ExpectedConditions
 									.visibilityOfAllElementsLocatedBy(By.xpath("//*[@data-info=\"TaskDetails\"]")));
 							List<WebElement> jobs = driver
@@ -390,6 +392,7 @@ public class SearchLOCJob extends BaseInit {
 					}
 
 				} catch (Exception NoData1) {
+					logs.error(NoData1);
 
 					try {
 						WebElement NoData = isElementPresent("NoData_className");
@@ -400,6 +403,7 @@ public class SearchLOCJob extends BaseInit {
 						}
 						Result = "FAIL";
 					} catch (Exception e) {
+						logs.error(e);
 						Result = "FAIL";
 
 					}
