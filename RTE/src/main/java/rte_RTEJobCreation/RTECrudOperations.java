@@ -95,9 +95,12 @@ public class RTECrudOperations extends BaseInit {
 		msg.append("PickUpID==" + PickUpID + "\n");
 
 		// --Click on Search
-		wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-		isElementPresent("TLGlobSearch_id").click();
+		WebElement GlobSearch = isElementPresent("TLGlobSearch_id");
+		wait.until(ExpectedConditions.elementToBeClickable(GlobSearch));
+		act.moveToElement(GlobSearch).build().perform();
+		act.moveToElement(GlobSearch).click().perform();
 		logs.info("Click on Search button");
+
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
 		try {
@@ -264,8 +267,10 @@ public class RTECrudOperations extends BaseInit {
 							logs.info("Entered PickUpID in basic search");
 
 							// --Click on Search
-							wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-							isElementPresent("TLGlobSearch_id").click();
+							GlobSearch = isElementPresent("TLGlobSearch_id");
+							wait.until(ExpectedConditions.elementToBeClickable(GlobSearch));
+							act.moveToElement(GlobSearch).build().perform();
+							act.moveToElement(GlobSearch).click().perform();
 							logs.info("Click on Search button");
 							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
@@ -932,7 +937,10 @@ public class RTECrudOperations extends BaseInit {
 													// --Click on Search
 													wait.until(ExpectedConditions
 															.elementToBeClickable(By.id("btnGlobalSearch")));
-													isElementPresent("TLGlobSearch_id").click();
+													GlobSearch = isElementPresent("TLGlobSearch_id");
+													wait.until(ExpectedConditions.elementToBeClickable(GlobSearch));
+													act.moveToElement(GlobSearch).build().perform();
+													act.moveToElement(GlobSearch).click().perform();
 													logs.info("Click on Search button");
 													wait.until(ExpectedConditions
 															.invisibilityOfElementLocated(By.id("loaderDiv")));
@@ -1148,7 +1156,11 @@ public class RTECrudOperations extends BaseInit {
 																// --Click on Search
 																wait.until(ExpectedConditions.elementToBeClickable(
 																		By.id("btnGlobalSearch")));
-																isElementPresent("TLGlobSearch_id").click();
+																GlobSearch = isElementPresent("TLGlobSearch_id");
+																wait.until(ExpectedConditions
+																		.elementToBeClickable(GlobSearch));
+																act.moveToElement(GlobSearch).build().perform();
+																act.moveToElement(GlobSearch).click().perform();
 																logs.info("Click on Search button");
 																wait.until(
 																		ExpectedConditions.invisibilityOfElementLocated(
@@ -1221,7 +1233,14 @@ public class RTECrudOperations extends BaseInit {
 																			wait.until(ExpectedConditions
 																					.elementToBeClickable(
 																							By.id("btnGlobalSearch")));
-																			isElementPresent("TLGlobSearch_id").click();
+																			GlobSearch = isElementPresent(
+																					"TLGlobSearch_id");
+																			wait.until(ExpectedConditions
+																					.elementToBeClickable(GlobSearch));
+																			act.moveToElement(GlobSearch).build()
+																					.perform();
+																			act.moveToElement(GlobSearch).click()
+																					.perform();
 																			logs.info("Click on Search button");
 																			wait.until(ExpectedConditions
 																					.invisibilityOfElementLocated(
@@ -1472,8 +1491,11 @@ public class RTECrudOperations extends BaseInit {
 						logs.info("Entered PickUpID in basic search");
 
 						// --Click on Search
-						wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-						isElementPresent("TLGlobSearch_id").click();
+
+						GlobSearch = isElementPresent("TLGlobSearch_id");
+						wait.until(ExpectedConditions.elementToBeClickable(GlobSearch));
+						act.moveToElement(GlobSearch).build().perform();
+						act.moveToElement(GlobSearch).click().perform();
 						logs.info("Click on Search button");
 						wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
@@ -2120,7 +2142,10 @@ public class RTECrudOperations extends BaseInit {
 												// --Click on Search
 												wait.until(ExpectedConditions
 														.elementToBeClickable(By.id("btnGlobalSearch")));
-												isElementPresent("TLGlobSearch_id").click();
+												GlobSearch = isElementPresent("TLGlobSearch_id");
+												wait.until(ExpectedConditions.elementToBeClickable(GlobSearch));
+												act.moveToElement(GlobSearch).build().perform();
+												act.moveToElement(GlobSearch).click().perform();
 												logs.info("Click on Search button");
 												wait.until(ExpectedConditions
 														.invisibilityOfElementLocated(By.id("loaderDiv")));
@@ -2328,7 +2353,11 @@ public class RTECrudOperations extends BaseInit {
 															// --Click on Search
 															wait.until(ExpectedConditions
 																	.elementToBeClickable(By.id("btnGlobalSearch")));
-															isElementPresent("TLGlobSearch_id").click();
+															GlobSearch = isElementPresent("TLGlobSearch_id");
+															wait.until(ExpectedConditions
+																	.elementToBeClickable(GlobSearch));
+															act.moveToElement(GlobSearch).build().perform();
+															act.moveToElement(GlobSearch).click().perform();
 															logs.info("Click on Search button");
 															wait.until(ExpectedConditions
 																	.invisibilityOfElementLocated(By.id("loaderDiv")));
@@ -2392,7 +2421,12 @@ public class RTECrudOperations extends BaseInit {
 																		wait.until(
 																				ExpectedConditions.elementToBeClickable(
 																						By.id("btnGlobalSearch")));
-																		isElementPresent("TLGlobSearch_id").click();
+																		GlobSearch = isElementPresent(
+																				"TLGlobSearch_id");
+																		wait.until(ExpectedConditions
+																				.elementToBeClickable(GlobSearch));
+																		act.moveToElement(GlobSearch).build().perform();
+																		act.moveToElement(GlobSearch).click().perform();
 																		logs.info("Click on Search button");
 																		wait.until(ExpectedConditions
 																				.invisibilityOfElementLocated(
@@ -3203,8 +3237,11 @@ public class RTECrudOperations extends BaseInit {
 										logs.info("Entered PickUpID in basic search");
 
 										// --Click on Search
-										wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-										isElementPresent("TLGlobSearch_id").click();
+
+										GlobSearch = isElementPresent("TLGlobSearch_id");
+										wait.until(ExpectedConditions.elementToBeClickable(GlobSearch));
+										act.moveToElement(GlobSearch).build().perform();
+										act.moveToElement(GlobSearch).click().perform();
 										logs.info("Click on Search button");
 										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
@@ -3403,7 +3440,10 @@ public class RTECrudOperations extends BaseInit {
 													// --Click on Search
 													wait.until(ExpectedConditions
 															.elementToBeClickable(By.id("btnGlobalSearch")));
-													isElementPresent("TLGlobSearch_id").click();
+													GlobSearch = isElementPresent("TLGlobSearch_id");
+													wait.until(ExpectedConditions.elementToBeClickable(GlobSearch));
+													act.moveToElement(GlobSearch).build().perform();
+													act.moveToElement(GlobSearch).click().perform();
 													logs.info("Click on Search button");
 													wait.until(ExpectedConditions
 															.invisibilityOfElementLocated(By.id("loaderDiv")));
@@ -3459,7 +3499,11 @@ public class RTECrudOperations extends BaseInit {
 																// --Click on Search
 																wait.until(ExpectedConditions.elementToBeClickable(
 																		By.id("btnGlobalSearch")));
-																isElementPresent("TLGlobSearch_id").click();
+																GlobSearch = isElementPresent("TLGlobSearch_id");
+																wait.until(ExpectedConditions
+																		.elementToBeClickable(GlobSearch));
+																act.moveToElement(GlobSearch).build().perform();
+																act.moveToElement(GlobSearch).click().perform();
 																logs.info("Click on Search button");
 																wait.until(
 																		ExpectedConditions.invisibilityOfElementLocated(
@@ -4159,8 +4203,11 @@ public class RTECrudOperations extends BaseInit {
 										logs.info("Entered PickUpID in basic search");
 
 										// --Click on Search
-										wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-										isElementPresent("TLGlobSearch_id").click();
+
+										GlobSearch = isElementPresent("TLGlobSearch_id");
+										wait.until(ExpectedConditions.elementToBeClickable(GlobSearch));
+										act.moveToElement(GlobSearch).build().perform();
+										act.moveToElement(GlobSearch).click().perform();
 										logs.info("Click on Search button");
 										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
@@ -4359,7 +4406,10 @@ public class RTECrudOperations extends BaseInit {
 													// --Click on Search
 													wait.until(ExpectedConditions
 															.elementToBeClickable(By.id("btnGlobalSearch")));
-													isElementPresent("TLGlobSearch_id").click();
+													GlobSearch = isElementPresent("TLGlobSearch_id");
+													wait.until(ExpectedConditions.elementToBeClickable(GlobSearch));
+													act.moveToElement(GlobSearch).build().perform();
+													act.moveToElement(GlobSearch).click().perform();
 													logs.info("Click on Search button");
 													wait.until(ExpectedConditions
 															.invisibilityOfElementLocated(By.id("loaderDiv")));
@@ -4415,7 +4465,11 @@ public class RTECrudOperations extends BaseInit {
 																// --Click on Search
 																wait.until(ExpectedConditions.elementToBeClickable(
 																		By.id("btnGlobalSearch")));
-																isElementPresent("TLGlobSearch_id").click();
+																GlobSearch = isElementPresent("TLGlobSearch_id");
+																wait.until(ExpectedConditions
+																		.elementToBeClickable(GlobSearch));
+																act.moveToElement(GlobSearch).build().perform();
+																act.moveToElement(GlobSearch).click().perform();
 																logs.info("Click on Search button");
 																wait.until(
 																		ExpectedConditions.invisibilityOfElementLocated(
@@ -4789,8 +4843,11 @@ public class RTECrudOperations extends BaseInit {
 							logs.info("Entered PickUpID in basic search");
 
 							// --Click on Search
-							wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-							isElementPresent("TLGlobSearch_id").click();
+
+							GlobSearch = isElementPresent("TLGlobSearch_id");
+							wait.until(ExpectedConditions.elementToBeClickable(GlobSearch));
+							act.moveToElement(GlobSearch).build().perform();
+							act.moveToElement(GlobSearch).click().perform();
 							logs.info("Click on Search button");
 							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
@@ -4972,8 +5029,11 @@ public class RTECrudOperations extends BaseInit {
 										logs.info("Entered PickUpID in basic search");
 
 										// --Click on Search
-										wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-										isElementPresent("TLGlobSearch_id").click();
+
+										GlobSearch = isElementPresent("TLGlobSearch_id");
+										wait.until(ExpectedConditions.elementToBeClickable(GlobSearch));
+										act.moveToElement(GlobSearch).build().perform();
+										act.moveToElement(GlobSearch).click().perform();
 										logs.info("Click on Search button");
 										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
@@ -5027,7 +5087,10 @@ public class RTECrudOperations extends BaseInit {
 													// --Click on Search
 													wait.until(ExpectedConditions
 															.elementToBeClickable(By.id("btnGlobalSearch")));
-													isElementPresent("TLGlobSearch_id").click();
+													GlobSearch = isElementPresent("TLGlobSearch_id");
+													wait.until(ExpectedConditions.elementToBeClickable(GlobSearch));
+													act.moveToElement(GlobSearch).build().perform();
+													act.moveToElement(GlobSearch).click().perform();
 													logs.info("Click on Search button");
 													wait.until(ExpectedConditions
 															.invisibilityOfElementLocated(By.id("loaderDiv")));
@@ -5306,8 +5369,11 @@ public class RTECrudOperations extends BaseInit {
 							logs.info("Entered PickUpID in basic search");
 
 							// --Click on Search
-							wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-							isElementPresent("TLGlobSearch_id").click();
+
+							GlobSearch = isElementPresent("TLGlobSearch_id");
+							wait.until(ExpectedConditions.elementToBeClickable(GlobSearch));
+							act.moveToElement(GlobSearch).build().perform();
+							act.moveToElement(GlobSearch).click().perform();
 							logs.info("Click on Search button");
 							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
@@ -5356,8 +5422,11 @@ public class RTECrudOperations extends BaseInit {
 										logs.info("Entered PickUpID in basic search");
 
 										// --Click on Search
-										wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-										isElementPresent("TLGlobSearch_id").click();
+
+										GlobSearch = isElementPresent("TLGlobSearch_id");
+										wait.until(ExpectedConditions.elementToBeClickable(GlobSearch));
+										act.moveToElement(GlobSearch).build().perform();
+										act.moveToElement(GlobSearch).click().perform();
 										logs.info("Click on Search button");
 										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
@@ -5458,8 +5527,11 @@ public class RTECrudOperations extends BaseInit {
 					logs.info("Entered PickUpID in basic search");
 
 					// --Click on Search
-					wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-					isElementPresent("TLGlobSearch_id").click();
+
+					GlobSearch = isElementPresent("TLGlobSearch_id");
+					wait.until(ExpectedConditions.elementToBeClickable(GlobSearch));
+					act.moveToElement(GlobSearch).build().perform();
+					act.moveToElement(GlobSearch).click().perform();
 					logs.info("Click on Search button");
 					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
@@ -5508,8 +5580,11 @@ public class RTECrudOperations extends BaseInit {
 								logs.info("Entered PickUpID in basic search");
 
 								// --Click on Search
-								wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-								isElementPresent("TLGlobSearch_id").click();
+
+								GlobSearch = isElementPresent("TLGlobSearch_id");
+								wait.until(ExpectedConditions.elementToBeClickable(GlobSearch));
+								act.moveToElement(GlobSearch).build().perform();
+								act.moveToElement(GlobSearch).click().perform();
 								logs.info("Click on Search button");
 								wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 

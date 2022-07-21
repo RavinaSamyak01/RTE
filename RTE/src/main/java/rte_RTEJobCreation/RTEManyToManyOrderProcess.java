@@ -396,6 +396,105 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 												logs.info("Clicked on Confirm PU button");
 												wait.until(ExpectedConditions
 														.invisibilityOfElementLocated(By.id("loaderDiv")));
+
+												try {
+													wait.until(ExpectedConditions
+															.visibilityOfElementLocated(By.id("idValidationforMain")));
+													ValMsg = isElementPresent("TLAlValidation_id").getText();
+													logs.info("Validation is displayed==" + ValMsg);
+
+													if (ValMsg.contains(
+															"Actual Pickup Datetime cannot be less than or equal to last Actual Delivery Datetime of shipment when DelStop# and PUStop# are not same.")) {
+														// --Stored list of pickup
+														PickupPoints = driver.findElements(By.xpath(
+																"//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
+														TotalPickup = PickupPoints.size();
+														logs.info("Total Pickup points is/are==" + TotalPickup);
+
+														for (puS = pu; puS < TotalPickup;) {
+
+															int PrevDel = 0;
+
+															System.out.println("value of PuS==" + puS);
+															if (jobStatus.contains("PICKUP@STOP 1 OF")) {
+																puS = 0;
+																PrevDel = 0;
+															} else if (jobStatus.contains("PICKUP@STOP 3 OF")) {
+																puS = 1;
+																PrevDel = 0;
+
+															} else if (jobStatus.contains("PICKUP@STOP 5 OF")) {
+																puS = 2;
+																PrevDel = 1;
+
+															}
+															System.out.println("value of del==" + puS);
+															String PrevDelTime = "txtActDlTime_" + PrevDel;
+															WebElement DELSTop = driver.findElement(By.id(PrevDelTime));
+
+															String EnteredDelTime = DELSTop.getAttribute("value");
+															System.out.println("value of Previous PickUpTime is=="
+																	+ EnteredDelTime);
+															logs.info("value of Previous PickUp Time is=="
+																	+ EnteredDelTime);
+
+															ZoneID = PickupPoints.get(puS).findElement(By.xpath(
+																	"td//td[@ng-bind=\"shipmentdtls.ActpuTz\"]"));
+															PUDate = "txtActpuDate_" + puS;
+															PUTime = "txtActPuTime_" + puS;
+
+															// --Get ZoneID
+															ZOneID = ZoneID.getText();
+															logs.info("ZoneID of is==" + ZOneID);
+															if (ZOneID.equalsIgnoreCase("EDT")) {
+																ZOneID = "America/New_York";
+															} else if (ZOneID.equalsIgnoreCase("CDT")) {
+																ZOneID = "CST";
+															} else if (ZOneID.equalsIgnoreCase("PDT")) {
+																ZOneID = "PST";
+															}
+															// --PickUp Date
+															PickUpDate = driver.findElement(By.id(PUDate));
+															PickUpDate.clear();
+															date = new Date();
+															dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+															dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
+															logs.info(dateFormat.format(date));
+															PickUpDate.sendKeys(dateFormat.format(date));
+															PickUpDate.sendKeys(Keys.TAB);
+															logs.info("Entered Actual Pickup Date");
+
+															// --Enter Act.PickUp Time
+															PickUpTime = driver.findElement(By.id(PUTime));
+															EnteredDelTime = DELSTop.getAttribute("value");
+															df = new SimpleDateFormat("HH:mm");
+															d = df.parse(EnteredDelTime);
+															cal = Calendar.getInstance();
+															cal.setTime(d);
+															cal.add(Calendar.MINUTE, 1);
+															newTime = df.format(cal.getTime());
+															System.out.println(
+																	"New Time after add 1 minute is==" + newTime);
+															PickUpTime.clear();
+															PickUpTime.sendKeys(newTime);
+															PickUpTime.sendKeys(Keys.TAB);
+															logs.info("Entered Actual Pickup Time");
+
+															// --Click on ConfirmPU button
+															isElementPresent("TLCOnfPU_id").click();
+															logs.info("Clicked on Confirm PU button");
+															wait.until(ExpectedConditions
+																	.invisibilityOfElementLocated(By.id("loaderDiv")));
+															break;
+														}
+
+													}
+
+												} catch (Exception ActTimeGDelTime) {
+													logs.info("Validation is not displayed="
+															+ "Actual Pickup Datetime cannot be less than or equal to last Actual Delivery Datetime of shipment when DelStop# and PUStop# are not same.");
+
+												}
 												break;
 											}
 										} catch (Exception ActTimeGDelTime) {
@@ -569,8 +668,112 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 															logs.info("Clicked on Confirm DEL button");
 															wait.until(ExpectedConditions
 																	.invisibilityOfElementLocated(By.id("loaderDiv")));
-															break;
+															try {
+																wait.until(
+																		ExpectedConditions.visibilityOfElementLocated(
+																				By.id("idValidationforMain")));
+																ValMsg = isElementPresent("TLAlValidation_id")
+																		.getText();
+																logs.info("Validation is displayed==" + ValMsg);
+
+																DelPoints = driver.findElements(By.xpath(
+																		"//*[@id=\"scrollShip\"]//tr[contains(@ng-click,'setClickedRow')]"));
+																TotalDel = DelPoints.size();
+																logs.info("Total Delivery points is/are==" + TotalDel);
+
+																for (DelS = Del; DelS < TotalDel;) {
+
+																	PrevPU = 0;
+																	System.out.println("value of del==" + DelS);
+
+																	if (jobStatus.contains("DELIVER@STOP 2 OF")) {
+																		DelS = 0;
+																		PrevPU = 0;
+
+																	} else if (jobStatus
+																			.contains("DELIVER@STOP 4 OF")) {
+																		DelS = 1;
+																		PrevPU = 1;
+
+																	} else if (jobStatus
+																			.contains("DELIVER@STOP 6 OF")) {
+																		DelS = 2;
+																		PrevPU = 2;
+
+																	}
+																	System.out.println("value of del==" + DelS);
+																	System.out.println("value of PrevPU==" + PrevPU);
+
+																	PrevPUTime = "txtActPuTime_" + PrevPU;
+																	PUSTop = driver.findElement(By.id(PrevPUTime));
+
+																	EnteredPUTime = PUSTop.getAttribute("value");
+																	System.out
+																			.println("value of Previous PickUpTime is=="
+																					+ EnteredPUTime);
+																	logs.info("value of Previous PickUp Time is=="
+																			+ EnteredPUTime);
+
+																	ZoneID = DelPoints.get(DelS).findElement(By.xpath(
+																			"//td[@ng-bind=\"shipmentdtls.ActdlTz\"]"));
+																	DeliveryDate = "txtActdlDate_" + DelS;
+																	DeliveryTime = "txtActDlTime_" + DelS;
+
+																	// --Get ZoneID
+																	ZOneID = ZoneID.getText();
+																	logs.info("ZoneID of is==" + ZOneID);
+																	if (ZOneID.equalsIgnoreCase("EDT")) {
+																		ZOneID = "America/New_York";
+																	} else if (ZOneID.equalsIgnoreCase("CDT")) {
+																		ZOneID = "CST";
+																	}
+
+																	// --Delivery Date
+																	DelDate = driver.findElement(By.id(DeliveryDate));
+																	DelDate.clear();
+																	date = new Date();
+																	dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+																	dateFormat
+																			.setTimeZone(TimeZone.getTimeZone(ZOneID));
+																	logs.info(dateFormat.format(date));
+																	DelDate.sendKeys(dateFormat.format(date));
+																	DelDate.sendKeys(Keys.TAB);
+																	logs.info("Entered Actual Delivery Date");
+
+																	// --Enter Act.DEL Time
+																	// --Enter Act.PickUp Time
+																	DelTime = driver.findElement(By.id(DeliveryTime));
+																	EnteredPUTime = PUSTop.getAttribute("value");
+																	SimpleDateFormat df = new SimpleDateFormat("HH:mm");
+																	Date d = df.parse(EnteredPUTime);
+																	cal = Calendar.getInstance();
+																	cal.setTime(d);
+																	cal.add(Calendar.MINUTE, 1);
+																	String newTime = df.format(cal.getTime());
+																	System.out
+																			.println("New Time after add 1 minute is=="
+																					+ newTime);
+																	DelTime.clear();
+																	DelTime.sendKeys(newTime);
+																	DelTime.sendKeys(Keys.TAB);
+																	logs.info("Entered Actual Delivery Time");
+
+																	// --Click on Confirm Del button
+																	isElementPresent("TLConfDEL_id").click();
+																	logs.info("Clicked on Confirm DEL button");
+																	wait.until(ExpectedConditions
+																			.invisibilityOfElementLocated(
+																					By.id("loaderDiv")));
+																	break;
+																}
+															} catch (Exception ActTimeGDelTime) {
+																logs.info("Validation is not displayed="
+																		+ "Actual Delivery Datetime cannot be less than or equal to Actual Pickup Datetime.");
+
+															}
 														}
+														break;
+
 													} catch (Exception ActTimeGDelTime) {
 														logs.info("Validation is not displayed="
 																+ "Actual Delivery Datetime cannot be less than or equal to Actual Pickup Datetime.");
@@ -961,7 +1164,9 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 					msg.append("Job status is==" + jobStatus + "\n");
 
 				}
-			} else if (jobStatus.contains("RDY FOR DSP")) {
+			} else if (jobStatus.contains("RDY FOR DSP"))
+
+			{
 				WebElement PickUPSection = isElementPresent("TLAlertstages_id");
 				wait.until(ExpectedConditions.visibilityOf(PickUPSection));
 				getScreenshot(driver, "ManyToMany_RDYFORDSP");
@@ -4174,7 +4379,9 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 				msg.append("Job status is==" + jobStatus + "\n");
 			}
 
-		} catch (Exception NoDataex) {
+		} catch (
+
+		Exception NoDataex) {
 			logs.error(NoDataex);
 
 			try {
