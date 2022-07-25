@@ -113,6 +113,7 @@ public class RTECrudOperations extends BaseInit {
 			Result = "FAIL";
 		} catch (Exception NoData1) {
 			logs.error(NoData1);
+			getScreenshot(driver, "NoData1_Error");
 
 			try {
 				logs.info("Data is exist with search parameter");
@@ -499,7 +500,6 @@ public class RTECrudOperations extends BaseInit {
 													WebElement CValue = ListCharges.get(c).findElement(
 															By.xpath("td[contains(@aria-label,'Column Cost')]"));
 													String ChargeValue = CValue.getText();
-													logs.info("Charge Value is==" + ChargeValue);
 													logs.info("Charge Value is==" + ChargeValue);
 													msg.append("Charge Value is==" + ChargeValue + "\n");
 													setData("CompareCharges", 1, 8, ChargeName);
@@ -890,7 +890,7 @@ public class RTECrudOperations extends BaseInit {
 																dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
 																Calendar cal = Calendar
 																		.getInstance(TimeZone.getTimeZone(ZOneID));
-																cal.add(Calendar.MINUTE, 1);
+																cal.add(Calendar.MINUTE, 2);
 																logs.info(dateFormat.format(cal.getTime()));
 																wait.until(ExpectedConditions
 																		.elementToBeClickable(By.id(DeliveryTime)));
@@ -938,8 +938,8 @@ public class RTECrudOperations extends BaseInit {
 													wait.until(ExpectedConditions
 															.elementToBeClickable(By.id("btnGlobalSearch")));
 													GlobSearch = isElementPresent("TLGlobSearch_id");
-													wait.until(ExpectedConditions.elementToBeClickable(GlobSearch));
 													act.moveToElement(GlobSearch).build().perform();
+													wait.until(ExpectedConditions.elementToBeClickable(GlobSearch));
 													act.moveToElement(GlobSearch).click().perform();
 													logs.info("Click on Search button");
 													wait.until(ExpectedConditions
@@ -1279,6 +1279,12 @@ public class RTECrudOperations extends BaseInit {
 																							"JobEditor_Verified");
 																					PickUpID = getData("SearchRTE", 4,
 																							2);
+																					logs.info("PickUP ID is==."
+																							+ PickUpID);
+																					logs.info(
+																							"Job is Proceed successfully.");
+																					logs.info("Job status is==."
+																							+ jobStatus);
 																					msg.append("PickUP ID is==."
 																							+ PickUpID + "\n");
 																					msg.append(
@@ -1315,6 +1321,7 @@ public class RTECrudOperations extends BaseInit {
 
 																		} catch (Exception VerifyCBill) {
 																			logs.error(VerifyCBill);
+																			getScreenshot(driver, "VerifyCBill_Error");
 																			logs.info(
 																					"job is not moved to VERIFIED stage");
 																			jobStatus = isElementPresent(
@@ -1358,6 +1365,7 @@ public class RTECrudOperations extends BaseInit {
 
 															} catch (Exception VerifyCBill) {
 																logs.error(VerifyCBill);
+																getScreenshot(driver, "VerifyCBill_Error");
 																logs.info(
 																		"job is not moved to Verify Customer Bill stage");
 																jobStatus = isElementPresent("TLStageLable_id")
@@ -1380,6 +1388,8 @@ public class RTECrudOperations extends BaseInit {
 
 												} catch (Exception Deliverstage) {
 													logs.error(Deliverstage);
+													getScreenshot(driver, "Deliverstage_Error");
+
 													logs.info("job is not moved to delivered stage");
 													jobStatus = isElementPresent("TLStageLable_id").getText();
 													logs.info("Job status is==" + jobStatus);
@@ -1388,6 +1398,8 @@ public class RTECrudOperations extends BaseInit {
 
 											} catch (Exception Deliver) {
 												logs.error(Deliver);
+												getScreenshot(driver, "Deliver_Error");
+
 												logs.info("Stage is not Deliver");
 												jobStatus = isElementPresent("TLStageLable_id").getText();
 												logs.info("Job status is==" + jobStatus);
@@ -1412,6 +1424,8 @@ public class RTECrudOperations extends BaseInit {
 
 								} catch (Exception PickUp) {
 									logs.error(PickUp);
+									getScreenshot(driver, "PickUp_Error");
+
 									logs.info("Stage is not PickUP");
 									jobStatus = isElementPresent("TLStageLable_id").getText();
 									logs.info("Job status is==" + jobStatus);
@@ -1420,6 +1434,7 @@ public class RTECrudOperations extends BaseInit {
 
 							} catch (Exception NoDataEX) {
 								logs.error(NoDataEX);
+								getScreenshot(driver, "NoDataEX_Error");
 
 								WebElement NoData11 = isElementPresent("NoData_className");
 								wait.until(ExpectedConditions.visibilityOf(NoData11));
@@ -1431,12 +1446,16 @@ public class RTECrudOperations extends BaseInit {
 
 						} catch (Exception Somethingw) {
 							logs.error(Somethingw);
+							getScreenshot(driver, "Somethingw_Error");
+
 							logs.info("Job is not moved to PU DRV CONF stage");
 
 						}
 
 					} catch (Exception NoPickupS) {
 						logs.error(NoPickupS);
+						getScreenshot(driver, "NoPickupS_Error");
+
 						logs.info("There is no PickUp Driver section");
 						jobStatus = isElementPresent("TLStageLable_id").getText();
 						logs.info("Job status is==" + jobStatus);
@@ -5674,6 +5693,9 @@ public class RTECrudOperations extends BaseInit {
 						logs.info("Job is moved to VERIFIED stage");
 						getScreenshot(driver, "JobEditor_Verified");
 						PickUpID = getData("SearchRTE", 3, 2);
+						logs.info("PickUP ID is==." + PickUpID);
+						logs.info("Job is Proceed successfully.");
+						logs.info("Job status is==." + jobStatus);
 						msg.append("PickUP ID is==." + PickUpID + "\n");
 						msg.append("Job is Proceed successfully." + "\n");
 						msg.append("Job status is==." + jobStatus + "\n");

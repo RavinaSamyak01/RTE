@@ -25,7 +25,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 
 	@Test
 	public void rteManyToManyOrderProcess() throws EncryptedDocumentException, InvalidFormatException, IOException {
-		WebDriverWait wait = new WebDriverWait(driver, 30);
+		WebDriverWait wait = new WebDriverWait(driver, 60);
 		Actions act = new Actions(driver);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 
@@ -912,8 +912,10 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 														// --Click on End Route
 														EndR = isElementPresent("TLEndRoute_id");
 														js.executeScript("arguments[0].scrollIntoView(true);", EndR);
+														Thread.sleep(1000);
 														wait.until(ExpectedConditions.visibilityOf(EndR));
 														act.moveToElement(EndR).build().perform();
+														wait.until(ExpectedConditions.elementToBeClickable(EndR));
 														act.moveToElement(EndR).click().perform();
 														logs.info("Clicked on End Route");
 														wait.until(ExpectedConditions
@@ -1064,6 +1066,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 
 															} catch (Exception VerifyCBill) {
 																logs.error(VerifyCBill);
+																getScreenshot(driver, "VerifyCBill_Error");
 
 																logs.info("job is not moved to VERIFIED stage");
 																jobStatus = isElementPresent("TLStageLable_id")
@@ -1100,6 +1103,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 
 												} catch (Exception VerifyCBill) {
 													logs.error(VerifyCBill);
+													getScreenshot(driver, "VerifyCBill_Error");
 													logs.info("job is not moved to Verify Customer Bill stage");
 													jobStatus = isElementPresent("TLStageLable_id").getText();
 													logs.info("Job status is==" + jobStatus);
@@ -1120,6 +1124,8 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 
 									} catch (Exception Deliverstage) {
 										logs.error(Deliverstage);
+										getScreenshot(driver, "Deliverstage_Error");
+
 										logs.info("job is not moved to delivered stage");
 										jobStatus = isElementPresent("TLStageLable_id").getText();
 										logs.info("Job status is==" + jobStatus);
@@ -1133,6 +1139,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 
 							} catch (Exception PickUp) {
 								logs.error(PickUp);
+								getScreenshot(driver, "PickUp_Error");
 
 								logs.info("Stage is not PickUP");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
@@ -1142,6 +1149,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 
 						} catch (Exception NoDataEX) {
 							logs.error(NoDataEX);
+							getScreenshot(driver, "NoDataEX_Error");
 
 							WebElement NoData1 = isElementPresent("NoData_className");
 							wait.until(ExpectedConditions.visibilityOf(NoData1));
@@ -1153,11 +1161,15 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 
 					} catch (Exception Somethingw) {
 						logs.error(Somethingw);
+						getScreenshot(driver, "Somethingw_Error");
+
 						logs.info("Job is not moved to PU DRV CONF stage");
 
 					}
 				} catch (Exception NoPickupS) {
 					logs.error(NoPickupS);
+					getScreenshot(driver, "NoPickupS_Error");
+
 					logs.info("There is no PickUp Driver section");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);

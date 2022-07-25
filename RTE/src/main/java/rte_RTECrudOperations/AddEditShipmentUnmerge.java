@@ -467,6 +467,7 @@ public class AddEditShipmentUnmerge extends BaseInit {
 
 		} catch (Exception ex) {
 			logs.error(ex);
+			getScreenshot(driver, "ex_Error");
 			msg.append("Add/Edit Stop Sequence Test=FAIL" + "\n");
 			msg.append("UnMerge Test=FAIL" + "\n");
 			Result = "FAIL";

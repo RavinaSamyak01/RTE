@@ -25,7 +25,7 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 	public void rteOneToOneOrderProcess()
 			throws EncryptedDocumentException, InvalidFormatException, IOException, InterruptedException {
 
-		WebDriverWait wait = new WebDriverWait(driver, 30);
+		WebDriverWait wait = new WebDriverWait(driver, 60);
 		Actions act = new Actions(driver);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 
@@ -685,7 +685,7 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 
 															} catch (Exception VerifyCBill) {
 																logs.error(VerifyCBill);
-
+																getScreenshot(driver, "VerifyBillError");
 																logs.info("job is not moved to VERIFIED stage");
 																jobStatus = isElementPresent("TLStageLable_id")
 																		.getText();
@@ -719,6 +719,7 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 
 												} catch (Exception VerifyCBill) {
 													logs.error(VerifyCBill);
+													getScreenshot(driver, "VerifyCBillError");
 													logs.info("job is not moved to Verify Customer Bill stage");
 													jobStatus = isElementPresent("TLStageLable_id").getText();
 													logs.info("Job status is==" + jobStatus);
@@ -737,6 +738,7 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 
 									} catch (Exception Deliverstage) {
 										logs.error(Deliverstage);
+										getScreenshot(driver, "DelStageError");
 										logs.info("job is not moved to delivered stage");
 										jobStatus = isElementPresent("TLStageLable_id").getText();
 										logs.info("Job status is==" + jobStatus);
@@ -744,12 +746,14 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 
 								} catch (Exception Deliver) {
 									logs.error(Deliver);
+									getScreenshot(driver, "DeliverError");
 									logs.info("Stage is not Deliver");
 									jobStatus = isElementPresent("TLStageLable_id").getText();
 									logs.info("Job status is==" + jobStatus);
 								}
 							} catch (Exception PickUp) {
 								logs.error(PickUp);
+								getScreenshot(driver, "PickUpError");
 								logs.info("Stage is not PickUP");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
@@ -758,11 +762,13 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 
 					} catch (Exception Somethingw) {
 						logs.error(Somethingw);
+						getScreenshot(driver, "SWWrongError");
 						logs.info("Job is not moved to PU DRV CONF stage");
 
 					}
 				} catch (Exception NoPickupS) {
 					logs.error(NoPickupS);
+					getScreenshot(driver, "NoPickupSError");
 					logs.info("There is no PickUp Driver section");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);

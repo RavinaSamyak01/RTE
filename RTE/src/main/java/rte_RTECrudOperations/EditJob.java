@@ -165,6 +165,7 @@ public class EditJob extends BaseInit {
 
 		} catch (Exception ex) {
 			logs.error(ex);
+			getScreenshot(driver, "ex_Error");
 			msg.append("View Memo Test=FAIL" + "\n");
 
 		}

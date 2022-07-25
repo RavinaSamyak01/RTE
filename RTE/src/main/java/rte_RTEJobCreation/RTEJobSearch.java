@@ -445,6 +445,7 @@ public class RTEJobSearch extends BaseInit {
 
 						} catch (Exception NoDataEx) {
 							logs.error(NoDataEx);
+							getScreenshot(driver, "NoDataEx_Error");
 							try {
 								WebElement NoData = isElementPresent("NoData_className");
 								wait.until(ExpectedConditions.visibilityOf(NoData));
