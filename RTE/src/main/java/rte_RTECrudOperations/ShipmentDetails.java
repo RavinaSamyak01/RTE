@@ -100,9 +100,9 @@ public class ShipmentDetails extends BaseInit {
 
 			}
 
-		} catch (
-
-		Exception Shipment) {
+		} catch (Exception Shipment) {
+			logs.error(Shipment);
+			getScreenshot(driver, "Shipment_SDError");
 			logs.info("Shipment is not exist in the RTE Job");
 
 		}
@@ -201,6 +201,7 @@ public class ShipmentDetails extends BaseInit {
 			msg.append("Add/View Memo Test=PASS" + "\n");
 		} catch (Exception ex) {
 			logs.error(ex);
+			getScreenshot(driver, "ex_SDAVMemoError");
 			msg.append("Add/View Memo Test=FAIL" + "\n");
 
 		}
@@ -361,6 +362,7 @@ public class ShipmentDetails extends BaseInit {
 			msg.append("Upload Test=PASS" + "\n");
 		} catch (Exception ex) {
 			logs.error(ex);
+			getScreenshot(driver, "ex_SDUploadError");
 			msg.append("Upload Test=FAIL" + "\n");
 
 		}
@@ -464,6 +466,7 @@ public class ShipmentDetails extends BaseInit {
 			msg.append("View Notification Test=PASS" + "\n");
 		} catch (Exception ex) {
 			logs.error(ex);
+			getScreenshot(driver, "ex_SDVNotifError");
 			msg.append("View Notification Test=FAIL" + "\n");
 
 		}
@@ -676,6 +679,7 @@ public class ShipmentDetails extends BaseInit {
 			msg.append("Notify Test=PASS" + "\n");
 		} catch (Exception ex) {
 			logs.error(ex);
+			getScreenshot(driver, "ex_SDNotifyError");
 			msg.append("Notify Test=FAIL" + "\n");
 
 		}
@@ -796,6 +800,7 @@ public class ShipmentDetails extends BaseInit {
 			msg.append("QC Test=PASS" + "\n");
 		} catch (Exception ex) {
 			logs.error(ex);
+			getScreenshot(driver, "ex_SDQCError");
 			msg.append("QC Test=FAIL" + "\n");
 
 		}
@@ -807,7 +812,7 @@ public class ShipmentDetails extends BaseInit {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		// Actions act = new Actions(driver);
 		logs.info("==RTE UnMerge Test Start==");
-		//msg.append("==RTE UnMerge Test Start==" + "\n");
+		// msg.append("==RTE UnMerge Test Start==" + "\n");
 
 		try {
 			try {
@@ -909,6 +914,7 @@ public class ShipmentDetails extends BaseInit {
 			}
 		} catch (Exception ex) {
 			logs.error(ex);
+			getScreenshot(driver, "ex_SDUnMergeError");
 			msg.append("UnMerge Test=FAIL" + "\n");
 
 		}

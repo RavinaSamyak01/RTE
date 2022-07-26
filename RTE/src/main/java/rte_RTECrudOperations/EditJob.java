@@ -165,7 +165,7 @@ public class EditJob extends BaseInit {
 
 		} catch (Exception ex) {
 			logs.error(ex);
-			getScreenshot(driver, "ex_Error");
+			getScreenshot(driver, "ex_EJVMemoError");
 			msg.append("View Memo Test=FAIL" + "\n");
 
 		}
@@ -288,6 +288,7 @@ public class EditJob extends BaseInit {
 
 		} catch (Exception ex) {
 			logs.error(ex);
+			getScreenshot(driver, "ex_EJVRateError");
 			msg.append("View Rate Test=FAIL" + "\n");
 
 		}
@@ -347,6 +348,7 @@ public class EditJob extends BaseInit {
 
 		} catch (Exception ex) {
 			logs.error(ex);
+			getScreenshot(driver, "ex_EJPLabelError");
 			msg.append("Print Label Test=FAIL" + "\n");
 
 		}
@@ -498,6 +500,7 @@ public class EditJob extends BaseInit {
 
 		} catch (Exception ex) {
 			logs.error(ex);
+			getScreenshot(driver, "ex_EJRShDetailsError");
 			msg.append("Route/Shipment Details Test=FAIL" + "\n");
 
 		}
@@ -771,6 +774,7 @@ public class EditJob extends BaseInit {
 
 		} catch (Exception ex) {
 			logs.error(ex);
+			getScreenshot(driver, "ex_EJAEditStopSeqError");
 			msg.append("Add/Edit Stop Sequence Test=FAIL" + "\n");
 
 		}
@@ -865,7 +869,7 @@ public class EditJob extends BaseInit {
 
 			if (!BRate.equalsIgnoreCase(ARate)) {
 				logs.info("Rate is updated");
-				msg.append("Rate is updated"+"\n");
+				msg.append("Rate is updated" + "\n");
 
 			} else {
 				logs.info("Rate is not updated");
@@ -894,7 +898,7 @@ public class EditJob extends BaseInit {
 
 			if (TotalChargesAf != TotalChargesAfD) {
 				logs.info("Charge is deleted");
-				msg.append("Added Charge is deleted"+"\n");
+				msg.append("Added Charge is deleted" + "\n");
 
 			} else {
 				logs.info("Charge is not deleted");
@@ -906,6 +910,7 @@ public class EditJob extends BaseInit {
 
 		} catch (Exception ex) {
 			logs.error(ex);
+			getScreenshot(driver, "ex_EJCustChargeError");
 			msg.append("Customer Charges Test=FAIL" + "\n\n");
 
 		}
@@ -1030,6 +1035,7 @@ public class EditJob extends BaseInit {
 
 		} catch (Exception ex) {
 			logs.error(ex);
+			getScreenshot(driver, "ex_EJMapError");
 			msg.append("Map Test=FAIL" + "\n");
 
 		}

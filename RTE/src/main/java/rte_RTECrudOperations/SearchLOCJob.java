@@ -180,6 +180,7 @@ public class SearchLOCJob extends BaseInit {
 
 					} catch (Exception Multiple) {
 						logs.error(Multiple);
+						getScreenshot(driver, "Multiple_SLocJobError");
 						try {
 							wait.until(ExpectedConditions
 									.visibilityOfAllElementsLocatedBy(By.id("idOperationTasklogGrd")));
@@ -285,6 +286,7 @@ public class SearchLOCJob extends BaseInit {
 							}
 						} catch (Exception e) {
 							logs.error(e);
+							getScreenshot(driver, "e_SLocJobError");
 							wait.until(ExpectedConditions
 									.visibilityOfAllElementsLocatedBy(By.xpath("//*[@data-info=\"TaskDetails\"]")));
 							List<WebElement> jobs = driver
@@ -393,6 +395,7 @@ public class SearchLOCJob extends BaseInit {
 
 				} catch (Exception NoData1) {
 					logs.error(NoData1);
+					getScreenshot(driver, "NoData1_SLocJobError");
 
 					try {
 						WebElement NoData = isElementPresent("NoData_className");
@@ -416,6 +419,7 @@ public class SearchLOCJob extends BaseInit {
 
 		} catch (Exception ex) {
 			logs.error(ex);
+			getScreenshot(driver, "ex_SLocJobError");
 			msg.append(" Search LOC job Test=FAIL" + "\n");
 			Result = "FAIL";
 

@@ -113,7 +113,7 @@ public class RTECrudOperations extends BaseInit {
 			Result = "FAIL";
 		} catch (Exception NoData1) {
 			logs.error(NoData1);
-			getScreenshot(driver, "NoData1_Error");
+			getScreenshot(driver, "NoData1_CrudOpError");
 
 			try {
 				logs.info("Data is exist with search parameter");
@@ -1321,7 +1321,7 @@ public class RTECrudOperations extends BaseInit {
 
 																		} catch (Exception VerifyCBill) {
 																			logs.error(VerifyCBill);
-																			getScreenshot(driver, "VerifyCBill_Error");
+																			getScreenshot(driver, "VerifyCBill_CrudOpError");
 																			logs.info(
 																					"job is not moved to VERIFIED stage");
 																			jobStatus = isElementPresent(
@@ -1365,7 +1365,7 @@ public class RTECrudOperations extends BaseInit {
 
 															} catch (Exception VerifyCBill) {
 																logs.error(VerifyCBill);
-																getScreenshot(driver, "VerifyCBill_Error");
+																getScreenshot(driver, "VerifyCBill_CrudOpError");
 																logs.info(
 																		"job is not moved to Verify Customer Bill stage");
 																jobStatus = isElementPresent("TLStageLable_id")
@@ -1388,7 +1388,7 @@ public class RTECrudOperations extends BaseInit {
 
 												} catch (Exception Deliverstage) {
 													logs.error(Deliverstage);
-													getScreenshot(driver, "Deliverstage_Error");
+													getScreenshot(driver, "Deliverstage_CrudOpError");
 
 													logs.info("job is not moved to delivered stage");
 													jobStatus = isElementPresent("TLStageLable_id").getText();
@@ -1398,7 +1398,7 @@ public class RTECrudOperations extends BaseInit {
 
 											} catch (Exception Deliver) {
 												logs.error(Deliver);
-												getScreenshot(driver, "Deliver_Error");
+												getScreenshot(driver, "Deliver_CrudOpError");
 
 												logs.info("Stage is not Deliver");
 												jobStatus = isElementPresent("TLStageLable_id").getText();
@@ -1424,7 +1424,7 @@ public class RTECrudOperations extends BaseInit {
 
 								} catch (Exception PickUp) {
 									logs.error(PickUp);
-									getScreenshot(driver, "PickUp_Error");
+									getScreenshot(driver, "PickUp_CrudOpError");
 
 									logs.info("Stage is not PickUP");
 									jobStatus = isElementPresent("TLStageLable_id").getText();
@@ -1434,7 +1434,7 @@ public class RTECrudOperations extends BaseInit {
 
 							} catch (Exception NoDataEX) {
 								logs.error(NoDataEX);
-								getScreenshot(driver, "NoDataEX_Error");
+								getScreenshot(driver, "NoDataEX_CrudOpError");
 
 								WebElement NoData11 = isElementPresent("NoData_className");
 								wait.until(ExpectedConditions.visibilityOf(NoData11));
@@ -1446,7 +1446,7 @@ public class RTECrudOperations extends BaseInit {
 
 						} catch (Exception Somethingw) {
 							logs.error(Somethingw);
-							getScreenshot(driver, "Somethingw_Error");
+							getScreenshot(driver, "Somethingw_CrudOpError");
 
 							logs.info("Job is not moved to PU DRV CONF stage");
 
@@ -1454,7 +1454,7 @@ public class RTECrudOperations extends BaseInit {
 
 					} catch (Exception NoPickupS) {
 						logs.error(NoPickupS);
-						getScreenshot(driver, "NoPickupS_Error");
+						getScreenshot(driver, "NoPickupS_CrudOpError");
 
 						logs.info("There is no PickUp Driver section");
 						jobStatus = isElementPresent("TLStageLable_id").getText();

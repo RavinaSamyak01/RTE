@@ -388,7 +388,7 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 										}
 									} catch (Exception e) {
 										logs.error(e);
-										getScreenshot(driver, "e_Error");
+										getScreenshot(driver, "e_MRTELOCError");
 										logs.info("LOC Job is not merged successfully,Something went wrong==FAIL");
 										getScreenshot(driver, "RTEjobNotCreated");
 									}
@@ -413,7 +413,7 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 					}
 				} catch (Exception e) {
 					logs.error(e);
-					getScreenshot(driver, "e_Error");
+					getScreenshot(driver, "e_MRTELOCError");
 					logs.info("Data is exist with search parameter");
 					wait.until(ExpectedConditions
 							.visibilityOfAllElementsLocatedBy(By.xpath("//*[contains(@class,'TasklogJobs ')]")));
@@ -731,7 +731,7 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 											}
 										} catch (Exception enn) {
 											logs.error(enn);
-											getScreenshot(driver, "enn_Error");
+											getScreenshot(driver, "enn_MRTELOCError");
 											logs.info("LOC Job is not merged successfully,Something went wrong==FAIL");
 											getScreenshot(driver, "RTEjobNotCreated");
 										}
@@ -949,7 +949,7 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 												}
 											} catch (Exception en) {
 												logs.error(en);
-												getScreenshot(driver, "en_Error");
+												getScreenshot(driver, "en_MRTELOCError");
 												logs.info(
 														"RTE Job is not created successfully,Something went wrong==FAIL");
 												getScreenshot(driver, "RTEjobNotCreated");
@@ -1064,7 +1064,7 @@ public class CreateMergeRTEwithLOC extends BaseInit {
 												}
 											} catch (Exception enn) {
 												logs.error(enn);
-												getScreenshot(driver, "enn_Error");
+												getScreenshot(driver, "enn_MRTELOCError");
 												logs.info(
 														"LOC Job is not merged successfully,Something went wrong==FAIL");
 												getScreenshot(driver, "RTEjobNotCreated");

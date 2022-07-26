@@ -452,6 +452,8 @@ public class AddEditShipmentUnmerge extends BaseInit {
 						}
 
 					} catch (Exception e) {
+						logs.error(e);
+						getScreenshot(driver, "e_ShipUnMrgError");
 						logs.info("LOC service is not created and shipment is not unmerged");
 						Result = "FAIL";
 
@@ -467,7 +469,7 @@ public class AddEditShipmentUnmerge extends BaseInit {
 
 		} catch (Exception ex) {
 			logs.error(ex);
-			getScreenshot(driver, "ex_Error");
+			getScreenshot(driver, "ex_ShipUnMrgError");
 			msg.append("Add/Edit Stop Sequence Test=FAIL" + "\n");
 			msg.append("UnMerge Test=FAIL" + "\n");
 			Result = "FAIL";

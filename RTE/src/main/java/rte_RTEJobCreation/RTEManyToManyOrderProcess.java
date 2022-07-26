@@ -1066,7 +1066,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 
 															} catch (Exception VerifyCBill) {
 																logs.error(VerifyCBill);
-																getScreenshot(driver, "VerifyCBill_Error");
+																getScreenshot(driver, "VerifyCBill_MtoMError");
 
 																logs.info("job is not moved to VERIFIED stage");
 																jobStatus = isElementPresent("TLStageLable_id")
@@ -1103,7 +1103,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 
 												} catch (Exception VerifyCBill) {
 													logs.error(VerifyCBill);
-													getScreenshot(driver, "VerifyCBill_Error");
+													getScreenshot(driver, "VerifyCBill_MtoMError");
 													logs.info("job is not moved to Verify Customer Bill stage");
 													jobStatus = isElementPresent("TLStageLable_id").getText();
 													logs.info("Job status is==" + jobStatus);
@@ -1124,7 +1124,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 
 									} catch (Exception Deliverstage) {
 										logs.error(Deliverstage);
-										getScreenshot(driver, "Deliverstage_Error");
+										getScreenshot(driver, "Deliverstage_MtoMError");
 
 										logs.info("job is not moved to delivered stage");
 										jobStatus = isElementPresent("TLStageLable_id").getText();
@@ -1139,7 +1139,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 
 							} catch (Exception PickUp) {
 								logs.error(PickUp);
-								getScreenshot(driver, "PickUp_Error");
+								getScreenshot(driver, "PickUp_MtoMError");
 
 								logs.info("Stage is not PickUP");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
@@ -1149,7 +1149,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 
 						} catch (Exception NoDataEX) {
 							logs.error(NoDataEX);
-							getScreenshot(driver, "NoDataEX_Error");
+							getScreenshot(driver, "NoDataEX_MtoMError");
 
 							WebElement NoData1 = isElementPresent("NoData_className");
 							wait.until(ExpectedConditions.visibilityOf(NoData1));
@@ -1161,14 +1161,14 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 
 					} catch (Exception Somethingw) {
 						logs.error(Somethingw);
-						getScreenshot(driver, "Somethingw_Error");
+						getScreenshot(driver, "Somethingw_MtoMError");
 
 						logs.info("Job is not moved to PU DRV CONF stage");
 
 					}
 				} catch (Exception NoPickupS) {
 					logs.error(NoPickupS);
-					getScreenshot(driver, "NoPickupS_Error");
+					getScreenshot(driver, "NoPickupS_MtoMError");
 
 					logs.info("There is no PickUp Driver section");
 					jobStatus = isElementPresent("TLStageLable_id").getText();

@@ -1692,7 +1692,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 
 															} catch (Exception VerifyCBill) {
 																logs.error(VerifyCBill);
-																getScreenshot(driver, "VerifyCBill_Error");
+																getScreenshot(driver, "VerifyCBill_MtoOError");
 																logs.info("job is not moved to VERIFIED stage");
 																jobStatus = isElementPresent("TLStageLable_id")
 																		.getText();
@@ -1728,7 +1728,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 
 												} catch (Exception VerifyCBill) {
 													logs.error(VerifyCBill);
-													getScreenshot(driver, "VerifyCBill_Error");
+													getScreenshot(driver, "VerifyCBill_MtoOError");
 													logs.info("job is not moved to Verify Customer Bill stage");
 													jobStatus = isElementPresent("TLStageLable_id").getText();
 													logs.info("Job status is==" + jobStatus);
@@ -1749,7 +1749,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 
 									} catch (Exception Deliverstage) {
 										logs.error(Deliverstage);
-										getScreenshot(driver, "Deliverstage_Error");
+										getScreenshot(driver, "Deliverstage_MtoOError");
 										logs.info("job is not moved to delivered stage");
 										jobStatus = isElementPresent("TLStageLable_id").getText();
 										logs.info("Job status is==" + jobStatus);
@@ -1758,7 +1758,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 
 								} catch (Exception Deliver) {
 									logs.error(Deliver);
-									getScreenshot(driver, "Deliver_Error");
+									getScreenshot(driver, "Deliver_MtoOError");
 									logs.info("Stage is not Deliver");
 									jobStatus = isElementPresent("TLStageLable_id").getText();
 									logs.info("Job status is==" + jobStatus);
@@ -1767,7 +1767,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 
 							} catch (Exception PickUp) {
 								logs.error(PickUp);
-								getScreenshot(driver, "PickUp_Error");
+								getScreenshot(driver, "PickUp_MtoOError");
 								logs.info("Stage is not PickUP");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
@@ -1776,7 +1776,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 
 						} catch (Exception NoDataEX) {
 							logs.error(NoDataEX);
-							getScreenshot(driver, "NoDataEX_Error");
+							getScreenshot(driver, "NoDataEX_MtoOError");
 							WebElement NoData1 = isElementPresent("NoData_className");
 							wait.until(ExpectedConditions.visibilityOf(NoData1));
 							if (NoData1.isDisplayed()) {
@@ -1787,14 +1787,14 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 
 					} catch (Exception Somethingw) {
 						logs.error(Somethingw);
-						getScreenshot(driver, "Somethingw_Error");
+						getScreenshot(driver, "Somethingw_MtoOError");
 
 						logs.info("Job is not moved to PU DRV CONF stage");
 
 					}
 				} catch (Exception NoPickupS) {
 					logs.error(NoPickupS);
-					getScreenshot(driver, "NoPickupS_Error");
+					getScreenshot(driver, "NoPickupS_MtoOError");
 					logs.info("There is no PickUp Driver section");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
