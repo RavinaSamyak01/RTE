@@ -1454,8 +1454,12 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 										logs.info("Entered PickUpID in basic search");
 
 										// --Click on Search
+										wait.until(ExpectedConditions
+												.visibilityOfElementLocated(By.id("btnGlobalSearch")));
+										WebElement GSearch = isElementPresent("TLGlobSearch_id");
+										act.moveToElement(GSearch).build().perform();
 										wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-										isElementPresent("TLGlobSearch_id").click();
+										GSearch.click();
 										logs.info("Click on Search button");
 										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 

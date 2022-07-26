@@ -207,7 +207,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 						wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
 						GSearch = isElementPresent("TLGlobSearch_id");
 						act.moveToElement(GSearch).build().perform();
-						act.moveToElement(GSearch).click().perform();
+						GSearch.click();
 						logs.info("Click on Search button");
 						wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
@@ -1092,7 +1092,8 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 					wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
 					GSearch = isElementPresent("TLGlobSearch_id");
 					act.moveToElement(GSearch).build().perform();
-					act.moveToElement(GSearch).click().perform();
+					wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
+					GSearch.click();
 					logs.info("Click on Search button");
 					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
 
