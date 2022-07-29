@@ -277,33 +277,27 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 									// --Get ZoneID
 									String ZOneID = isElementPresent("TLACPTZone_xpath").getText();
 									logs.info("ZoneID of is==" + ZOneID);
-									if (ZOneID.equalsIgnoreCase("EDT")) {
-										ZOneID = "America/New_York";
-									} else if (ZOneID.equalsIgnoreCase("CDT")) {
-										ZOneID = "CST";
-									} else if (ZOneID.equalsIgnoreCase("PDT")) {
-										ZOneID = "PST";
-									}
+
+									// --get the Date
+									CommonMethods CM = new CommonMethods();
+									String PUDate = CM.getDateAsTZone(ZOneID);
+
 									// --PickUp Date
 									WebElement PickUpDate = isElementPresent("TLActPuDate_id");
 									PickUpDate.clear();
-									Date date = new Date();
-									DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-									dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-									logs.info(dateFormat.format(date));
-									PickUpDate.sendKeys(dateFormat.format(date));
+									PickUpDate.sendKeys(PUDate);
 									PickUpDate.sendKeys(Keys.TAB);
 									logs.info("Entered Actual Pickup Date");
+
+									// --Get the Time
+									String PUTime = CM.getTimeAsTZone(ZOneID);
 
 									// --Enter Act.PickUp Time
 									WebElement PickUpTime = isElementPresent("TLActPUpTime_id");
 									PickUpTime.clear();
-									date = new Date();
-									dateFormat = new SimpleDateFormat("HH:mm");
-									dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-									logs.info(dateFormat.format(date));
 									wait.until(ExpectedConditions.elementToBeClickable(By.id("txtActPuTime_0")));
-									PickUpTime.sendKeys(dateFormat.format(date));
+									PickUpTime.sendKeys(PUTime);
+									PickUpTime.sendKeys(Keys.TAB);
 									logs.info("Entered Actual Pickup Time");
 
 									// --Click on ConfirmPU button
@@ -339,35 +333,26 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 
 										// --Get ZoneID
 										String ZOneID = isElementPresent("TLACDELZone_xpath").getText();
-										logs.info("ZoneID of is==" + ZOneID);
-										if (ZOneID.equalsIgnoreCase("EDT")) {
-											ZOneID = "America/New_York";
-										} else if (ZOneID.equalsIgnoreCase("CDT")) {
-											ZOneID = "CST";
-										} else if (ZOneID.equalsIgnoreCase("PDT")) {
-											ZOneID = "PST";
-										}
+
+										// --get the Date
+										CommonMethods CM = new CommonMethods();
+										String DLDate = CM.getDateAsTZone(ZOneID);
 
 										// --Delivery Date
 										WebElement DelDate = isElementPresent("TLActDelDate_id");
-										DelDate.clear();
-										Date date = new Date();
-										DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-										dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-										logs.info(dateFormat.format(date));
-										DelDate.sendKeys(dateFormat.format(date));
+										DelDate.sendKeys(DLDate);
 										DelDate.sendKeys(Keys.TAB);
 										logs.info("Entered Actual Delivery Date");
+
+										// --Get the Time
+										String DLTime = CM.getTimeAsTZone(ZOneID);
 
 										// --Enter Act.DEL Time
 										WebElement DelTime = isElementPresent("TLActDelTime_id");
 										DelTime.clear();
-										date = new Date();
-										dateFormat = new SimpleDateFormat("HH:mm");
-										dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-										logs.info(dateFormat.format(date));
 										wait.until(ExpectedConditions.elementToBeClickable(By.id("txtActDlTime_0")));
-										DelTime.sendKeys(dateFormat.format(date));
+										DelTime.sendKeys(DLTime);
+										DelTime.sendKeys(Keys.TAB);
 										logs.info("Entered Actual Delivery Time");
 
 										// --Enter Signature
@@ -395,36 +380,26 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 										// --Get ZoneID
 										String ZOneID = isElementPresent("TLACDELZone_xpath").getText();
 										logs.info("ZoneID of is==" + ZOneID);
-										if (ZOneID.equalsIgnoreCase("EDT")) {
-											ZOneID = "America/New_York";
-										} else if (ZOneID.equalsIgnoreCase("CDT")) {
-											ZOneID = "CST";
-										} else if (ZOneID.equalsIgnoreCase("PDT")) {
-											ZOneID = "PST";
-										}
+
+										// --get the Date
+										CommonMethods CM = new CommonMethods();
+										String DLDate = CM.getDateAsTZone(ZOneID);
 
 										// --Delivery Date
 										WebElement DelDate = isElementPresent("TLActDelDate_id");
-										DelDate.clear();
-										Date date = new Date();
-										DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-										dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-										logs.info(dateFormat.format(date));
-										DelDate.sendKeys(dateFormat.format(date));
+										DelDate.sendKeys(DLDate);
 										DelDate.sendKeys(Keys.TAB);
 										logs.info("Entered Actual Delivery Date");
+
+										// --Get the Time
+										String DLTime = CM.getExtraTimeAsTZone(ZOneID);
 
 										// --Enter Act.DEL Time
 										WebElement DelTime = isElementPresent("TLActDelTime_id");
 										DelTime.clear();
-										date = new Date();
-										dateFormat = new SimpleDateFormat("HH:mm");
-										dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-										Calendar cal = Calendar.getInstance(TimeZone.getTimeZone(ZOneID));
-										cal.add(Calendar.MINUTE, 1);
-										logs.info(dateFormat.format(cal.getTime()));
 										wait.until(ExpectedConditions.elementToBeClickable(By.id("txtActDlTime_0")));
-										DelTime.sendKeys(dateFormat.format(cal.getTime()));
+										DelTime.sendKeys(DLTime);
+										DelTime.sendKeys(Keys.TAB);
 										logs.info("Entered Actual Delivery Time");
 
 										// --Click on Confirm Del button
@@ -498,38 +473,27 @@ public class RTEOneToOneOrderProcess extends BaseInit {
 														// --Get ZoneID
 														String ZOneID = isElementPresent("TLERZone_xpath").getText();
 														logs.info("ZoneID of is==" + ZOneID);
-														if (ZOneID.equalsIgnoreCase("EDT")) {
-															ZOneID = "America/New_York";
-														} else if (ZOneID.equalsIgnoreCase("CDT")) {
-															ZOneID = "CST";
-														} else if (ZOneID.equalsIgnoreCase("PDT")) {
-															ZOneID = "PST";
-														}
+
+														// --Get the Date
+														CommonMethods CM = new CommonMethods();
+														String REndDate = CM.getDateAsTZone(ZOneID);
+
+														// --Get the Time
+														String REndTime = CM.getExtraTimeAsTZone(ZOneID);
 
 														// --Route End Date
 														WebElement ERDate = isElementPresent("TLERDate_id");
 														ERDate.clear();
-														Date date = new Date();
-														DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-														dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-														logs.info(dateFormat.format(date));
-														ERDate.sendKeys(dateFormat.format(date));
+														ERDate.sendKeys(REndDate);
 														ERDate.sendKeys(Keys.TAB);
 														logs.info("Entered Actual Route End Date");
 
 														// --Route End Time
 														WebElement ERTime = isElementPresent("TLERTime_id");
 														ERTime.clear();
-														date = new Date();
-														dateFormat = new SimpleDateFormat("HH:mm");
-														dateFormat.setTimeZone(TimeZone.getTimeZone(ZOneID));
-														Calendar cal = Calendar
-																.getInstance(TimeZone.getTimeZone(ZOneID));
-														cal.add(Calendar.MINUTE, 1);
-														logs.info(dateFormat.format(cal.getTime()));
 														wait.until(ExpectedConditions
 																.elementToBeClickable(By.id("txtActualTime")));
-														ERTime.sendKeys(dateFormat.format(cal.getTime()));
+														ERTime.sendKeys(REndTime);
 														logs.info("Entered Actual Route End Time");
 
 														// --Click on End Route

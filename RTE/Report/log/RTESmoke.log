@@ -1,222 +1,1262 @@
-2022-07-26 16:23:32,776 - RTECrudOperations -INFO - initialization of the properties file is done
-2022-07-26 16:23:33,075 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Using chromedriver 103.0.5060.134 (since Google Chrome 103 is installed in your machine)
-2022-07-26 16:23:33,095 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Exporting webdriver.chrome.driver as C:\WINDOWS\system32\config\systemprofile\.m2\repository\webdriver\chromedriver\win32\103.0.5060.134\chromedriver.exe
-2022-07-26 16:23:48,090 - RTECrudOperations -INFO - Entered UserName
-2022-07-26 16:23:49,272 - RTECrudOperations -INFO - Entered Password
-2022-07-26 16:23:50,523 - RTECrudOperations -INFO - Login done
-2022-07-26 16:24:25,121 - RTECrudOperations -INFO - ======================RTE OneToOne Order Processing Test Start==================
-2022-07-26 16:24:25,377 - RTECrudOperations -INFO - Clicked on Operations
-2022-07-26 16:24:25,755 - RTECrudOperations -INFO - Clicked on TaskLog
-2022-07-26 16:24:29,335 - RTECrudOperations -INFO - PickUpID==3450158
-2022-07-26 16:24:29,336 - RTECrudOperations -INFO - Entered PickUpID in basic search
-2022-07-26 16:24:29,444 - RTECrudOperations -INFO - Click on Search button
-2022-07-26 16:24:35,325 - RTECrudOperations -INFO - Data is exist with search parameter
-2022-07-26 16:24:35,647 - RTECrudOperations -INFO - Job status tab is Disabled
-2022-07-26 16:24:35,772 - RTECrudOperations -INFO - Job status is==VERIFIED
-2022-07-26 16:24:35,773 - RTECrudOperations -INFO - Data is exist with search parameter
-2022-07-26 16:24:35,936 - RTECrudOperations -INFO - Job status is==VERIFIED
-2022-07-26 16:24:35,937 - RTECrudOperations -INFO - Job is moved to VERIFIED stage
-2022-07-26 16:24:36,107 - RTECrudOperations -INFO - ======================RTE OneToOne Order Processing Test End==================
-2022-07-26 16:24:36,216 - RTECrudOperations -INFO - ======================RTE One To Many Order Processing Test Start==================
-2022-07-26 16:24:36,387 - RTECrudOperations -INFO - Clicked on Operations
-2022-07-26 16:24:36,695 - RTECrudOperations -INFO - Clicked on TaskLog
-2022-07-26 16:24:37,935 - RTECrudOperations -INFO - PickUpID==3450166
-2022-07-26 16:24:37,935 - RTECrudOperations -INFO - Entered PickUpID in basic search
-2022-07-26 16:24:38,348 - RTECrudOperations -INFO - Click on Search button
-2022-07-26 16:24:42,939 - RTECrudOperations -INFO - Data is exist with search parameter
-2022-07-26 16:24:43,048 - RTECrudOperations -INFO - Job status tab is already Opened
-2022-07-26 16:24:43,107 - RTECrudOperations -INFO - Job status is==PU DRV CONF
-2022-07-26 16:24:43,140 - RTECrudOperations -INFO - Data is exist with search parameter
-2022-07-26 16:24:43,409 - RTECrudOperations -INFO - Clicked on Job Status Tab
-2022-07-26 16:24:43,504 - RTECrudOperations -INFO - Job status is==PU DRV CONF
-2022-07-26 16:24:43,612 - RTECrudOperations -INFO - Clicked on Confirm PU Alert
-2022-07-26 16:24:43,729 - RTECrudOperations -INFO - Validation is displayed==Spoke With Required.
-2022-07-26 16:24:43,892 - RTECrudOperations -INFO - Entered Spoke With
-2022-07-26 16:24:43,963 - RTECrudOperations -INFO - Clicked on Confirm PU Alert
-2022-07-26 16:24:56,788 - RTECrudOperations -INFO - Job status is==PICKUP@STOP 1 OF 7
-2022-07-26 16:24:56,962 - RTECrudOperations -INFO - Clicked on Confirm PU button
-2022-07-26 16:24:57,322 - RTECrudOperations -INFO - Validation is displayed==Act. Pickup Time is Required.
-2022-07-26 16:24:57,358 - RTECrudOperations -INFO - Total Pickup points is/are==6
-2022-07-26 16:24:57,394 - RTECrudOperations -INFO - ZoneID of is==CDT
-2022-07-26 16:24:57,754 - RTECrudOperations -INFO - 07/26/2022
-2022-07-26 16:24:58,583 - RTECrudOperations -INFO - Entered Actual Pickup Date
-2022-07-26 16:24:58,920 - RTECrudOperations -INFO - 05:54
-2022-07-26 16:24:59,074 - RTECrudOperations -INFO - Entered Actual Pickup Time
-2022-07-26 16:24:59,131 - RTECrudOperations -INFO - Clicked on Confirm PU button
-2022-07-26 16:24:59,174 - RTECrudOperations -INFO - --Testing PU Copy All Row button--
-2022-07-26 16:24:59,293 - RTECrudOperations -INFO - Validation is displayed==Act. Pickup Time is Required.
-2022-07-26 16:24:59,448 - RTECrudOperations -INFO - Clicked on 1st PU stop Time
-2022-07-26 16:24:59,809 - RTECrudOperations -INFO - Clicked on Copy All Row button of PickUP
-2022-07-26 16:24:59,864 - RTECrudOperations -INFO - Clicked on Confirm PU button
-2022-07-26 16:26:12,470 - RTECrudOperations -INFO - PU Copy All Row is working==PASS
-2022-07-26 16:26:12,685 - RTECrudOperations -INFO - Job status is==DELIVER@STOP 2 OF 7
-2022-07-26 16:26:12,882 - RTECrudOperations -INFO - Clicked on Confirm DEL button
-2022-07-26 16:26:12,989 - RTECrudOperations -INFO - Validation is displayed==Act. Delivery Time is Required.
+2022-07-29 12:28:29,811 - RTECrudOperations -INFO - initialization of the properties file is done
+2022-07-29 12:28:30,172 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Using chromedriver 103.0.5060.134 (since Google Chrome 103 is installed in your machine)
+2022-07-29 12:28:30,192 - io.github.bonigarcia.wdm.WebDriverManager -INFO - Exporting webdriver.chrome.driver as C:\WINDOWS\system32\config\systemprofile\.m2\repository\webdriver\chromedriver\win32\103.0.5060.134\chromedriver.exe
+2022-07-29 12:28:40,828 - RTECrudOperations -INFO - Entered UserName
+2022-07-29 12:28:42,011 - RTECrudOperations -INFO - Entered Password
+2022-07-29 12:28:43,243 - RTECrudOperations -INFO - Login done
+2022-07-29 12:29:24,473 - RTECrudOperations -INFO - ======================RTE get RWTrackingNo Test start==================
+2022-07-29 12:29:24,835 - RTECrudOperations -INFO - Clicked on Tools
+2022-07-29 12:29:25,083 - RTECrudOperations -INFO - Clicked on RouteList
+2022-07-29 12:29:30,116 - RTECrudOperations -INFO - Total Rows==10
+2022-07-29 12:29:30,537 - RTECrudOperations -INFO - Entered RoutWorkID
+2022-07-29 12:29:30,675 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:30:01,653 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-07-29 12:30:01,706 - RTECrudOperations -INFO - RWTrackingNo is generated
+2022-07-29 12:30:01,740 - RTECrudOperations -INFO - RWTrackingNo is ==126560134
+2022-07-29 12:30:02,250 - RTECrudOperations -INFO - Inserted RWTrackingNo in Excel
+2022-07-29 12:30:02,533 - RTECrudOperations -INFO - Entered RoutWorkID
+2022-07-29 12:30:02,660 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:30:34,433 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-07-29 12:30:34,477 - RTECrudOperations -INFO - RWTrackingNo is generated
+2022-07-29 12:30:34,507 - RTECrudOperations -INFO - RWTrackingNo is ==126560156
+2022-07-29 12:30:34,675 - RTECrudOperations -INFO - Inserted RWTrackingNo in Excel
+2022-07-29 12:30:34,867 - RTECrudOperations -INFO - Entered RoutWorkID
+2022-07-29 12:30:34,967 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:31:06,229 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-07-29 12:31:06,296 - RTECrudOperations -INFO - RWTrackingNo is generated
+2022-07-29 12:31:06,348 - RTECrudOperations -INFO - RWTrackingNo is ==126560178
+2022-07-29 12:31:06,894 - RTECrudOperations -INFO - Inserted RWTrackingNo in Excel
+2022-07-29 12:31:07,151 - RTECrudOperations -INFO - Entered RoutWorkID
+2022-07-29 12:31:07,343 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:31:38,585 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-07-29 12:31:38,643 - RTECrudOperations -INFO - RWTrackingNo is generated
+2022-07-29 12:31:38,669 - RTECrudOperations -INFO - RWTrackingNo is ==126560190
+2022-07-29 12:31:38,834 - RTECrudOperations -INFO - Inserted RWTrackingNo in Excel
+2022-07-29 12:31:39,033 - RTECrudOperations -INFO - Entered RoutWorkID
+2022-07-29 12:31:39,135 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:32:10,841 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-07-29 12:32:10,899 - RTECrudOperations -INFO - RWTrackingNo is generated
+2022-07-29 12:32:10,924 - RTECrudOperations -INFO - RWTrackingNo is ==126564213
+2022-07-29 12:32:11,064 - RTECrudOperations -INFO - Inserted RWTrackingNo in Excel
+2022-07-29 12:32:11,263 - RTECrudOperations -INFO - Entered RoutWorkID
+2022-07-29 12:32:11,365 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:32:42,088 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-07-29 12:32:42,145 - RTECrudOperations -INFO - RWTrackingNo is generated
+2022-07-29 12:32:42,192 - RTECrudOperations -INFO - RWTrackingNo is ==126559745
+2022-07-29 12:32:42,326 - RTECrudOperations -INFO - Inserted RWTrackingNo in Excel
+2022-07-29 12:32:42,532 - RTECrudOperations -INFO - Entered RoutWorkID
+2022-07-29 12:32:42,636 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:33:13,972 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-07-29 12:33:14,035 - RTECrudOperations -INFO - RWTrackingNo is generated
+2022-07-29 12:33:14,065 - RTECrudOperations -INFO - RWTrackingNo is ==126560260
+2022-07-29 12:33:14,206 - RTECrudOperations -INFO - Inserted RWTrackingNo in Excel
+2022-07-29 12:33:14,386 - RTECrudOperations -INFO - Entered RoutWorkID
+2022-07-29 12:33:14,487 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:33:46,656 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-07-29 12:33:46,729 - RTECrudOperations -INFO - RWTrackingNo is generated
+2022-07-29 12:33:46,770 - RTECrudOperations -INFO - RWTrackingNo is ==126561511
+2022-07-29 12:33:46,888 - RTECrudOperations -INFO - Inserted RWTrackingNo in Excel
+2022-07-29 12:33:47,083 - RTECrudOperations -INFO - Entered RoutWorkID
+2022-07-29 12:33:47,183 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:33:48,452 - RTECrudOperations -INFO - There is no Data with Search parameter
+2022-07-29 12:33:48,453 - RTECrudOperations -INFO - ======================RTE get RWTrackingNo Test End==================
+2022-07-29 12:33:48,459 - RTECrudOperations -INFO - ======================RTE Job Search Test start==================
+2022-07-29 12:33:48,805 - RTECrudOperations -INFO - Clicked on Operations
+2022-07-29 12:33:49,429 - RTECrudOperations -INFO - Clicked on TaskLog
+2022-07-29 12:33:54,534 - RTECrudOperations -INFO - Clicked on SearchAllJobs
+2022-07-29 12:33:59,795 - RTECrudOperations -INFO - Total Rows==10
+2022-07-29 12:33:59,890 - RTECrudOperations -INFO - Clicked on Reset button
+2022-07-29 12:33:59,999 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 12:34:00,176 - RTECrudOperations -INFO - Entered Origin From Date
+2022-07-29 12:34:00,320 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 12:34:00,428 - RTECrudOperations -INFO - Entered Origin From Date
+2022-07-29 12:34:00,481 - RTECrudOperations -INFO - Route Tracking No==126560134
+2022-07-29 12:34:00,572 - RTECrudOperations -INFO - Entered RouteTrackingID
+2022-07-29 12:34:00,831 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:34:32,102 - RTECrudOperations -INFO - Data is exist with search TrackingNO
+2022-07-29 12:34:32,143 - RTECrudOperations -INFO - Total No of records are==1
+2022-07-29 12:34:32,561 - RTECrudOperations -INFO - JobID is==32451230
+2022-07-29 12:34:32,606 - RTECrudOperations -INFO - PickUpID is==3456464
+2022-07-29 12:34:32,663 - RTECrudOperations -INFO - BOLNo is==126560145
+2022-07-29 12:34:34,998 - RTECrudOperations -INFO - Clicked on Record
+2022-07-29 12:34:41,884 - RTECrudOperations -INFO - Clicked on Exit without Save
+2022-07-29 12:35:13,747 - RTECrudOperations -INFO - Task Manager tab is selected
+2022-07-29 12:35:13,764 - RTECrudOperations -INFO - PickUpID from excel is==3456464
+2022-07-29 12:35:13,889 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 12:35:14,032 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:35:20,365 - RTECrudOperations -INFO - Data is exist with search PickUpID
+2022-07-29 12:35:20,641 - RTECrudOperations -INFO - Clicked on Exit without Save
+2022-07-29 12:35:25,181 - RTECrudOperations -INFO - Clicked on SearchAllJobs
+2022-07-29 12:35:30,296 - RTECrudOperations -INFO - Clicked on Reset button
+2022-07-29 12:35:30,456 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 12:35:30,581 - RTECrudOperations -INFO - Entered Origin From Date
+2022-07-29 12:35:30,668 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 12:35:30,833 - RTECrudOperations -INFO - Entered Origin From Date
+2022-07-29 12:35:30,917 - RTECrudOperations -INFO - Route Tracking No==126560156
+2022-07-29 12:35:31,034 - RTECrudOperations -INFO - Entered RouteTrackingID
+2022-07-29 12:35:31,216 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:36:02,750 - RTECrudOperations -INFO - Data is exist with search TrackingNO
+2022-07-29 12:36:02,775 - RTECrudOperations -INFO - Total No of records are==1
+2022-07-29 12:36:03,138 - RTECrudOperations -INFO - JobID is==32451231
+2022-07-29 12:36:03,172 - RTECrudOperations -INFO - PickUpID is==3456465
+2022-07-29 12:36:03,231 - RTECrudOperations -INFO - BOLNo is==126560167
+2022-07-29 12:36:05,711 - RTECrudOperations -INFO - Clicked on Record
+2022-07-29 12:36:10,518 - RTECrudOperations -INFO - Clicked on Exit without Save
+2022-07-29 12:36:42,091 - RTECrudOperations -INFO - Task Manager tab is selected
+2022-07-29 12:36:42,105 - RTECrudOperations -INFO - PickUpID from excel is==3456465
+2022-07-29 12:36:42,237 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 12:36:42,415 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:36:48,250 - RTECrudOperations -INFO - Data is exist with search PickUpID
+2022-07-29 12:36:48,530 - RTECrudOperations -INFO - Clicked on Exit without Save
+2022-07-29 12:36:52,834 - RTECrudOperations -INFO - Clicked on SearchAllJobs
+2022-07-29 12:36:57,301 - RTECrudOperations -INFO - Clicked on Reset button
+2022-07-29 12:36:57,430 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 12:36:57,543 - RTECrudOperations -INFO - Entered Origin From Date
+2022-07-29 12:36:57,635 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 12:36:57,774 - RTECrudOperations -INFO - Entered Origin From Date
+2022-07-29 12:36:57,837 - RTECrudOperations -INFO - Route Tracking No==126560178
+2022-07-29 12:36:57,933 - RTECrudOperations -INFO - Entered RouteTrackingID
+2022-07-29 12:36:58,044 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:37:29,769 - RTECrudOperations -INFO - Data is exist with search TrackingNO
+2022-07-29 12:37:29,813 - RTECrudOperations -INFO - Total No of records are==1
+2022-07-29 12:37:30,152 - RTECrudOperations -INFO - JobID is==32451232
+2022-07-29 12:37:30,208 - RTECrudOperations -INFO - PickUpID is==3456466
+2022-07-29 12:37:30,261 - RTECrudOperations -INFO - BOLNo is==126560189
+2022-07-29 12:37:32,694 - RTECrudOperations -INFO - Clicked on Record
+2022-07-29 12:37:36,934 - RTECrudOperations -INFO - Clicked on Exit without Save
+2022-07-29 12:38:09,748 - RTECrudOperations -INFO - Task Manager tab is selected
+2022-07-29 12:38:09,781 - RTECrudOperations -INFO - PickUpID from excel is==3456466
+2022-07-29 12:38:10,039 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 12:38:10,219 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:38:15,562 - RTECrudOperations -INFO - Data is exist with search PickUpID
+2022-07-29 12:38:15,840 - RTECrudOperations -INFO - Clicked on Exit without Save
+2022-07-29 12:38:19,776 - RTECrudOperations -INFO - Clicked on SearchAllJobs
+2022-07-29 12:38:24,524 - RTECrudOperations -INFO - Clicked on Reset button
+2022-07-29 12:38:24,654 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 12:38:25,053 - RTECrudOperations -INFO - Entered Origin From Date
+2022-07-29 12:38:25,300 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 12:38:25,468 - RTECrudOperations -INFO - Entered Origin From Date
+2022-07-29 12:38:25,561 - RTECrudOperations -INFO - Route Tracking No==126560190
+2022-07-29 12:38:25,698 - RTECrudOperations -INFO - Entered RouteTrackingID
+2022-07-29 12:38:25,869 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:38:57,351 - RTECrudOperations -INFO - Data is exist with search TrackingNO
+2022-07-29 12:38:57,379 - RTECrudOperations -INFO - Total No of records are==6
+2022-07-29 12:38:57,770 - RTECrudOperations -INFO - JobID is==32451238
+2022-07-29 12:38:57,824 - RTECrudOperations -INFO - PickUpID is==3456472
+2022-07-29 12:38:57,890 - RTECrudOperations -INFO - BOLNo is==126560259
+2022-07-29 12:39:00,420 - RTECrudOperations -INFO - Clicked on Record
+2022-07-29 12:39:04,164 - RTECrudOperations -INFO - Clicked on Exit without Save
+2022-07-29 12:39:36,232 - RTECrudOperations -INFO - Task Manager tab is selected
+2022-07-29 12:39:36,251 - RTECrudOperations -INFO - PickUpID from excel is==3456472
+2022-07-29 12:39:36,433 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 12:39:36,711 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:39:43,746 - RTECrudOperations -INFO - Data is exist with search PickUpID
+2022-07-29 12:39:44,194 - RTECrudOperations -INFO - Clicked on Exit without Save
+2022-07-29 12:39:48,668 - RTECrudOperations -INFO - Clicked on SearchAllJobs
+2022-07-29 12:39:55,027 - RTECrudOperations -INFO - JobID is==32451237
+2022-07-29 12:39:55,067 - RTECrudOperations -INFO - PickUpID is==3456471
+2022-07-29 12:39:55,120 - RTECrudOperations -INFO - BOLNo is==126560248
+2022-07-29 12:39:57,533 - RTECrudOperations -INFO - Clicked on Record
+2022-07-29 12:40:02,501 - RTECrudOperations -INFO - Clicked on Exit without Save
+2022-07-29 12:40:34,110 - RTECrudOperations -INFO - Task Manager tab is selected
+2022-07-29 12:40:34,135 - RTECrudOperations -INFO - PickUpID from excel is==3456471
+2022-07-29 12:40:34,269 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 12:40:34,445 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:40:40,947 - RTECrudOperations -INFO - Data is exist with search PickUpID
+2022-07-29 12:40:41,250 - RTECrudOperations -INFO - Clicked on Exit without Save
+2022-07-29 12:40:44,878 - RTECrudOperations -INFO - Clicked on SearchAllJobs
+2022-07-29 12:40:49,053 - RTECrudOperations -INFO - JobID is==32451236
+2022-07-29 12:40:49,090 - RTECrudOperations -INFO - PickUpID is==3456470
+2022-07-29 12:40:49,140 - RTECrudOperations -INFO - BOLNo is==126560237
+2022-07-29 12:40:51,643 - RTECrudOperations -INFO - Clicked on Record
+2022-07-29 12:40:56,502 - RTECrudOperations -INFO - Clicked on Exit without Save
+2022-07-29 12:41:28,157 - RTECrudOperations -INFO - Task Manager tab is selected
+2022-07-29 12:41:28,184 - RTECrudOperations -INFO - PickUpID from excel is==3456470
+2022-07-29 12:41:28,382 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 12:41:28,589 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:41:35,571 - RTECrudOperations -INFO - Data is exist with search PickUpID
+2022-07-29 12:41:35,912 - RTECrudOperations -INFO - Clicked on Exit without Save
+2022-07-29 12:41:40,860 - RTECrudOperations -INFO - Clicked on SearchAllJobs
+2022-07-29 12:41:45,830 - RTECrudOperations -INFO - JobID is==32451235
+2022-07-29 12:41:45,864 - RTECrudOperations -INFO - PickUpID is==3456469
+2022-07-29 12:41:45,924 - RTECrudOperations -INFO - BOLNo is==126560226
+2022-07-29 12:41:48,380 - RTECrudOperations -INFO - Clicked on Record
+2022-07-29 12:41:53,684 - RTECrudOperations -INFO - Clicked on Exit without Save
+2022-07-29 12:42:25,105 - RTECrudOperations -INFO - Task Manager tab is selected
+2022-07-29 12:42:25,139 - RTECrudOperations -INFO - PickUpID from excel is==3456469
+2022-07-29 12:42:25,271 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 12:42:25,563 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:42:33,820 - RTECrudOperations -INFO - Data is exist with search PickUpID
+2022-07-29 12:42:34,153 - RTECrudOperations -INFO - Clicked on Exit without Save
+2022-07-29 12:42:39,130 - RTECrudOperations -INFO - Clicked on SearchAllJobs
+2022-07-29 12:42:45,189 - RTECrudOperations -INFO - JobID is==32451234
+2022-07-29 12:42:45,226 - RTECrudOperations -INFO - PickUpID is==3456468
+2022-07-29 12:42:45,280 - RTECrudOperations -INFO - BOLNo is==126560215
+2022-07-29 12:42:47,877 - RTECrudOperations -INFO - Clicked on Record
+2022-07-29 12:42:52,030 - RTECrudOperations -INFO - Clicked on Exit without Save
+2022-07-29 12:43:23,562 - RTECrudOperations -INFO - Task Manager tab is selected
+2022-07-29 12:43:23,591 - RTECrudOperations -INFO - PickUpID from excel is==3456468
+2022-07-29 12:43:23,720 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 12:43:23,978 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:43:32,842 - RTECrudOperations -INFO - Data is exist with search PickUpID
+2022-07-29 12:43:33,147 - RTECrudOperations -INFO - Clicked on Exit without Save
+2022-07-29 12:43:37,467 - RTECrudOperations -INFO - Clicked on SearchAllJobs
+2022-07-29 12:43:42,218 - RTECrudOperations -INFO - JobID is==32451233
+2022-07-29 12:43:42,270 - RTECrudOperations -INFO - PickUpID is==3456467
+2022-07-29 12:43:42,329 - RTECrudOperations -INFO - BOLNo is==126560204
+2022-07-29 12:43:44,872 - RTECrudOperations -INFO - Clicked on Record
+2022-07-29 12:43:49,090 - RTECrudOperations -INFO - Clicked on Exit without Save
+2022-07-29 12:44:21,346 - RTECrudOperations -INFO - Task Manager tab is selected
+2022-07-29 12:44:21,383 - RTECrudOperations -INFO - PickUpID from excel is==3456467
+2022-07-29 12:44:21,585 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 12:44:21,769 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:44:28,138 - RTECrudOperations -INFO - Data is exist with search PickUpID
+2022-07-29 12:44:28,496 - RTECrudOperations -INFO - Clicked on Exit without Save
+2022-07-29 12:44:33,082 - RTECrudOperations -INFO - Clicked on SearchAllJobs
+2022-07-29 12:44:37,609 - RTECrudOperations -INFO - Clicked on Reset button
+2022-07-29 12:44:37,770 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 12:44:37,876 - RTECrudOperations -INFO - Entered Origin From Date
+2022-07-29 12:44:37,973 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 12:44:38,128 - RTECrudOperations -INFO - Entered Origin From Date
+2022-07-29 12:44:38,211 - RTECrudOperations -INFO - Route Tracking No==126564213
+2022-07-29 12:44:38,329 - RTECrudOperations -INFO - Entered RouteTrackingID
+2022-07-29 12:44:38,444 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:45:11,145 - RTECrudOperations -INFO - Data is exist with search TrackingNO
+2022-07-29 12:45:11,170 - RTECrudOperations -INFO - Total No of records are==4
+2022-07-29 12:45:11,466 - RTECrudOperations -INFO - JobID is==32451612
+2022-07-29 12:45:11,507 - RTECrudOperations -INFO - PickUpID is==3456846
+2022-07-29 12:45:11,568 - RTECrudOperations -INFO - BOLNo is==126564257
+2022-07-29 12:45:14,013 - RTECrudOperations -INFO - Clicked on Record
+2022-07-29 12:45:18,230 - RTECrudOperations -INFO - Clicked on Exit without Save
+2022-07-29 12:45:50,985 - RTECrudOperations -INFO - Task Manager tab is selected
+2022-07-29 12:45:51,001 - RTECrudOperations -INFO - PickUpID from excel is==3456846
+2022-07-29 12:45:51,170 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 12:45:51,339 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:45:55,414 - RTECrudOperations -INFO - Data is exist with search PickUpID
+2022-07-29 12:45:55,874 - RTECrudOperations -INFO - Clicked on Exit without Save
+2022-07-29 12:45:59,712 - RTECrudOperations -INFO - Clicked on SearchAllJobs
+2022-07-29 12:46:05,154 - RTECrudOperations -INFO - JobID is==32451611
+2022-07-29 12:46:05,193 - RTECrudOperations -INFO - PickUpID is==3456845
+2022-07-29 12:46:05,247 - RTECrudOperations -INFO - BOLNo is==126564246
+2022-07-29 12:46:07,781 - RTECrudOperations -INFO - Clicked on Record
+2022-07-29 12:46:11,837 - RTECrudOperations -INFO - Clicked on Exit without Save
+2022-07-29 12:46:43,657 - RTECrudOperations -INFO - Task Manager tab is selected
+2022-07-29 12:46:43,684 - RTECrudOperations -INFO - PickUpID from excel is==3456845
+2022-07-29 12:46:43,865 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 12:46:44,151 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:46:48,985 - RTECrudOperations -INFO - Data is exist with search PickUpID
+2022-07-29 12:46:49,295 - RTECrudOperations -INFO - Clicked on Exit without Save
+2022-07-29 12:46:53,318 - RTECrudOperations -INFO - Clicked on SearchAllJobs
+2022-07-29 12:46:58,170 - RTECrudOperations -INFO - JobID is==32451610
+2022-07-29 12:46:58,203 - RTECrudOperations -INFO - PickUpID is==3456844
+2022-07-29 12:46:58,260 - RTECrudOperations -INFO - BOLNo is==126564235
+2022-07-29 12:47:00,890 - RTECrudOperations -INFO - Clicked on Record
+2022-07-29 12:47:05,203 - RTECrudOperations -INFO - Clicked on Exit without Save
+2022-07-29 12:47:37,032 - RTECrudOperations -INFO - Task Manager tab is selected
+2022-07-29 12:47:37,064 - RTECrudOperations -INFO - PickUpID from excel is==3456844
+2022-07-29 12:47:37,258 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 12:47:37,459 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:47:43,319 - RTECrudOperations -INFO - Data is exist with search PickUpID
+2022-07-29 12:47:43,601 - RTECrudOperations -INFO - Clicked on Exit without Save
+2022-07-29 12:47:47,982 - RTECrudOperations -INFO - Clicked on SearchAllJobs
+2022-07-29 12:47:52,775 - RTECrudOperations -INFO - JobID is==32451609
+2022-07-29 12:47:52,808 - RTECrudOperations -INFO - PickUpID is==3456843
+2022-07-29 12:47:52,849 - RTECrudOperations -INFO - BOLNo is==126564224
+2022-07-29 12:47:55,490 - RTECrudOperations -INFO - Clicked on Record
+2022-07-29 12:47:59,703 - RTECrudOperations -INFO - Clicked on Exit without Save
+2022-07-29 12:48:31,440 - RTECrudOperations -INFO - Task Manager tab is selected
+2022-07-29 12:48:31,453 - RTECrudOperations -INFO - PickUpID from excel is==3456843
+2022-07-29 12:48:31,611 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 12:48:31,783 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:48:36,316 - RTECrudOperations -INFO - Data is exist with search PickUpID
+2022-07-29 12:48:36,599 - RTECrudOperations -INFO - Clicked on Exit without Save
+2022-07-29 12:48:40,846 - RTECrudOperations -INFO - Clicked on SearchAllJobs
+2022-07-29 12:48:44,825 - RTECrudOperations -INFO - Clicked on Reset button
+2022-07-29 12:48:44,977 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 12:48:45,090 - RTECrudOperations -INFO - Entered Origin From Date
+2022-07-29 12:48:45,196 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 12:48:45,339 - RTECrudOperations -INFO - Entered Origin From Date
+2022-07-29 12:48:45,422 - RTECrudOperations -INFO - Route Tracking No==126559745
+2022-07-29 12:48:45,521 - RTECrudOperations -INFO - Entered RouteTrackingID
+2022-07-29 12:48:45,631 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:49:16,991 - RTECrudOperations -INFO - Data is exist with search TrackingNO
+2022-07-29 12:49:17,010 - RTECrudOperations -INFO - Total No of records are==3
+2022-07-29 12:49:17,346 - RTECrudOperations -INFO - JobID is==32451195
+2022-07-29 12:49:17,384 - RTECrudOperations -INFO - PickUpID is==3456429
+2022-07-29 12:49:17,425 - RTECrudOperations -INFO - BOLNo is==126559778
+2022-07-29 12:49:19,959 - RTECrudOperations -INFO - Clicked on Record
+2022-07-29 12:49:24,270 - RTECrudOperations -INFO - Clicked on Exit without Save
+2022-07-29 12:49:56,820 - RTECrudOperations -INFO - Task Manager tab is selected
+2022-07-29 12:49:56,846 - RTECrudOperations -INFO - PickUpID from excel is==3456429
+2022-07-29 12:49:57,049 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 12:49:57,186 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:50:03,003 - RTECrudOperations -INFO - Data is exist with search PickUpID
+2022-07-29 12:50:03,281 - RTECrudOperations -INFO - Clicked on Exit without Save
+2022-07-29 12:50:07,692 - RTECrudOperations -INFO - Clicked on SearchAllJobs
+2022-07-29 12:50:12,459 - RTECrudOperations -INFO - JobID is==32451194
+2022-07-29 12:50:12,494 - RTECrudOperations -INFO - PickUpID is==3456428
+2022-07-29 12:50:12,549 - RTECrudOperations -INFO - BOLNo is==126559767
+2022-07-29 12:50:15,075 - RTECrudOperations -INFO - Clicked on Record
+2022-07-29 12:50:19,239 - RTECrudOperations -INFO - Clicked on Exit without Save
+2022-07-29 12:50:50,918 - RTECrudOperations -INFO - Task Manager tab is selected
+2022-07-29 12:50:50,937 - RTECrudOperations -INFO - PickUpID from excel is==3456428
+2022-07-29 12:50:51,103 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 12:50:51,245 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:50:58,253 - RTECrudOperations -INFO - Data is exist with search PickUpID
+2022-07-29 12:50:58,580 - RTECrudOperations -INFO - Clicked on Exit without Save
+2022-07-29 12:51:02,490 - RTECrudOperations -INFO - Clicked on SearchAllJobs
+2022-07-29 12:51:06,978 - RTECrudOperations -INFO - JobID is==32451193
+2022-07-29 12:51:07,012 - RTECrudOperations -INFO - PickUpID is==3456427
+2022-07-29 12:51:07,058 - RTECrudOperations -INFO - BOLNo is==126559756
+2022-07-29 12:51:09,569 - RTECrudOperations -INFO - Clicked on Record
+2022-07-29 12:51:13,259 - RTECrudOperations -INFO - Clicked on Exit without Save
+2022-07-29 12:51:44,784 - RTECrudOperations -INFO - Task Manager tab is selected
+2022-07-29 12:51:44,808 - RTECrudOperations -INFO - PickUpID from excel is==3456427
+2022-07-29 12:51:44,939 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 12:51:45,048 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:51:49,702 - RTECrudOperations -INFO - Data is exist with search PickUpID
+2022-07-29 12:51:50,154 - RTECrudOperations -INFO - Clicked on Exit without Save
+2022-07-29 12:51:54,362 - RTECrudOperations -INFO - Clicked on SearchAllJobs
+2022-07-29 12:51:58,503 - RTECrudOperations -INFO - Clicked on Reset button
+2022-07-29 12:51:58,648 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 12:51:58,760 - RTECrudOperations -INFO - Entered Origin From Date
+2022-07-29 12:51:58,855 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 12:51:58,979 - RTECrudOperations -INFO - Entered Origin From Date
+2022-07-29 12:51:59,070 - RTECrudOperations -INFO - Route Tracking No==126560260
+2022-07-29 12:51:59,200 - RTECrudOperations -INFO - Entered RouteTrackingID
+2022-07-29 12:51:59,312 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:52:30,995 - RTECrudOperations -INFO - Data is exist with search TrackingNO
+2022-07-29 12:52:31,037 - RTECrudOperations -INFO - Total No of records are==1
+2022-07-29 12:52:31,445 - RTECrudOperations -INFO - JobID is==32451239
+2022-07-29 12:52:31,516 - RTECrudOperations -INFO - PickUpID is==3456473
+2022-07-29 12:52:31,610 - RTECrudOperations -INFO - BOLNo is==126560271
+2022-07-29 12:52:34,204 - RTECrudOperations -INFO - Clicked on Record
+2022-07-29 12:52:38,577 - RTECrudOperations -INFO - Clicked on Exit without Save
+2022-07-29 12:53:10,327 - RTECrudOperations -INFO - Task Manager tab is selected
+2022-07-29 12:53:10,354 - RTECrudOperations -INFO - PickUpID from excel is==3456473
+2022-07-29 12:53:10,519 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 12:53:10,691 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:53:15,344 - RTECrudOperations -INFO - Data is exist with search PickUpID
+2022-07-29 12:53:15,523 - RTECrudOperations -INFO - RW Tracking No===126560260
+2022-07-29 12:53:15,728 - RTECrudOperations -INFO - Shipment Charges on Creation===$160.00
+2022-07-29 12:53:15,891 - RTECrudOperations -INFO - Clicked on Exit without Save
+2022-07-29 12:53:20,337 - RTECrudOperations -INFO - Clicked on SearchAllJobs
+2022-07-29 12:53:24,325 - RTECrudOperations -INFO - No need to perform search
+2022-07-29 12:53:24,326 - RTECrudOperations -INFO - No need to perform search
+2022-07-29 12:53:24,327 - RTECrudOperations -INFO - ======================RTE Job Search Test End==================
+2022-07-29 12:53:24,586 - RTECrudOperations -INFO - ======================RTE OneToOne Order Processing Test Start==================
+2022-07-29 12:53:24,894 - RTECrudOperations -INFO - Clicked on Operations
+2022-07-29 12:53:25,400 - RTECrudOperations -INFO - Clicked on TaskLog
+2022-07-29 12:53:27,432 - RTECrudOperations -INFO - PickUpID==3456464
+2022-07-29 12:53:27,433 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 12:53:27,586 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:53:32,265 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-07-29 12:53:32,432 - RTECrudOperations -INFO - Job status tab is already Opened
+2022-07-29 12:53:32,495 - RTECrudOperations -INFO - Job status is==TC ACK
+2022-07-29 12:53:32,495 - RTECrudOperations -INFO - It is TC ACK stage
+2022-07-29 12:53:32,870 - RTECrudOperations -INFO - Clicked on Acknowledge button
+2022-07-29 12:53:45,885 - RTECrudOperations -INFO - Job status is==RDY FOR DSP
+2022-07-29 12:53:46,060 - RTECrudOperations -INFO - Clicked on Send PU Alert button
+2022-07-29 12:54:50,003 - RTECrudOperations -INFO - Spoke With validation is not displayed
+2022-07-29 12:54:50,232 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 12:54:50,398 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:54:56,174 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-07-29 12:54:56,419 - RTECrudOperations -INFO - Clicked on Job Status Tab
+2022-07-29 12:54:56,506 - RTECrudOperations -INFO - Job status is==PU DRV CONF
+2022-07-29 12:54:56,622 - RTECrudOperations -INFO - Clicked on Confirm PU Alert
+2022-07-29 12:54:56,722 - RTECrudOperations -INFO - Validation is displayed==Spoke With Required.
+2022-07-29 12:54:56,896 - RTECrudOperations -INFO - Entered Spoke With
+2022-07-29 12:54:56,972 - RTECrudOperations -INFO - Clicked on Confirm PU Alert
+2022-07-29 12:55:11,169 - RTECrudOperations -INFO - Job status is==PICKUP@STOP 1 OF 2
+2022-07-29 12:55:11,325 - RTECrudOperations -INFO - Clicked on Confirm PU button
+2022-07-29 12:55:11,432 - RTECrudOperations -INFO - Validation is displayed==Act. Pickup Time is Required.
+2022-07-29 12:55:11,472 - RTECrudOperations -INFO - ZoneID of is==CDT
+2022-07-29 12:55:11,475 - RTECrudOperations -INFO - ZoneID of is==CDT
+2022-07-29 12:55:11,478 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 12:55:11,727 - RTECrudOperations -INFO - Entered Actual Pickup Date
+2022-07-29 12:55:11,727 - RTECrudOperations -INFO - ZoneID of is==CDT
+2022-07-29 12:55:11,728 - RTECrudOperations -INFO - 02:25
+2022-07-29 12:55:11,941 - RTECrudOperations -INFO - Entered Actual Pickup Time
+2022-07-29 12:55:11,990 - RTECrudOperations -INFO - Clicked on Confirm PU button
+2022-07-29 12:55:24,332 - RTECrudOperations -INFO - Job status is==DELIVER@STOP 2 OF 2
+2022-07-29 12:55:24,474 - RTECrudOperations -INFO - Clicked on Confirm DEL button
+2022-07-29 12:55:24,578 - RTECrudOperations -INFO - Validation is displayed==Act. Delivery Time is Required.
 Signature is required.
-2022-07-26 16:26:13,034 - RTECrudOperations -INFO - Total Delivery points is/are==6
-2022-07-26 16:26:13,108 - RTECrudOperations -INFO - ZoneID of is==CDT
-2022-07-26 16:26:13,225 - RTECrudOperations -INFO - 07/26/2022
-2022-07-26 16:26:13,393 - RTECrudOperations -INFO - Entered Actual Delivery Date
-2022-07-26 16:26:13,443 - RTECrudOperations -INFO - 05:56
-2022-07-26 16:26:13,573 - RTECrudOperations -INFO - Entered Actual Delivery Time
-2022-07-26 16:26:13,694 - RTECrudOperations -INFO - Entered Signature
-2022-07-26 16:26:13,795 - RTECrudOperations -INFO - Clicked on Confirm DEL button
-2022-07-26 16:27:26,625 - RTECrudOperations -INFO - Validation is not displayed=Actual Delivery Datetime cannot be less than or equal to Actual Pickup Datetime.
-2022-07-26 16:27:26,766 - RTECrudOperations -INFO - Job status is==DELIVER@STOP 3 OF 7
-2022-07-26 16:27:26,816 - RTECrudOperations -INFO - --Testing DEL Copy Next Row button--
-2022-07-26 16:27:26,970 - RTECrudOperations -INFO - Clicked on 0 Del Stop time
-2022-07-26 16:27:27,260 - RTECrudOperations -INFO - Clicked on Copy Next Row of Delivery
-2022-07-26 16:27:27,260 - RTECrudOperations -INFO - --Testing Sign Copy Next Row button--
-2022-07-26 16:27:27,403 - RTECrudOperations -INFO - Clicked on 0 Signature
-2022-07-26 16:27:27,714 - RTECrudOperations -INFO - Clicked on Copy Next Row of Signature
-2022-07-26 16:27:27,826 - RTECrudOperations -INFO - Clicked on Confirm DEL button
-2022-07-26 16:28:40,876 - RTECrudOperations -INFO - DEL Copy Next Row is working==PASS
-2022-07-26 16:28:40,876 - RTECrudOperations -INFO - Sign Copy Next Row is working==PASS
-2022-07-26 16:28:40,980 - RTECrudOperations -INFO - Job status is==DELIVER@STOP 4 OF 7
-2022-07-26 16:28:41,000 - RTECrudOperations -INFO - --Testing DEL Copy Next Row button--
-2022-07-26 16:28:41,133 - RTECrudOperations -INFO - Clicked on 1 Del Stop time
-2022-07-26 16:28:41,439 - RTECrudOperations -INFO - Clicked on Copy Next Row of Delivery
-2022-07-26 16:28:41,439 - RTECrudOperations -INFO - --Testing Sign Copy Next Row button--
-2022-07-26 16:28:41,658 - RTECrudOperations -INFO - Clicked on 1 Signature
-2022-07-26 16:28:41,929 - RTECrudOperations -INFO - Clicked on Copy Next Row of Signature
-2022-07-26 16:28:42,057 - RTECrudOperations -INFO - Clicked on Confirm DEL button
-2022-07-26 16:29:55,454 - RTECrudOperations -INFO - DEL Copy Next Row is working==PASS
-2022-07-26 16:29:55,455 - RTECrudOperations -INFO - Sign Copy Next Row is working==PASS
-2022-07-26 16:29:55,573 - RTECrudOperations -INFO - Job status is==DELIVER@STOP 5 OF 7
-2022-07-26 16:29:55,594 - RTECrudOperations -INFO - --Testing DEL Copy Next Row button--
-2022-07-26 16:29:55,702 - RTECrudOperations -INFO - Clicked on 2 Del Stop time
-2022-07-26 16:29:55,928 - RTECrudOperations -INFO - Clicked on Copy Next Row of Delivery
-2022-07-26 16:29:55,929 - RTECrudOperations -INFO - --Testing Sign Copy Next Row button--
-2022-07-26 16:29:56,006 - RTECrudOperations -INFO - Clicked on 2 Signature
-2022-07-26 16:29:56,233 - RTECrudOperations -INFO - Clicked on Copy Next Row of Signature
-2022-07-26 16:29:56,299 - RTECrudOperations -INFO - Clicked on Confirm DEL button
-2022-07-26 16:31:08,890 - RTECrudOperations -INFO - DEL Copy Next Row is working==PASS
-2022-07-26 16:31:08,890 - RTECrudOperations -INFO - Sign Copy Next Row is working==PASS
-2022-07-26 16:31:08,953 - RTECrudOperations -INFO - Job status is==DELIVER@STOP 6 OF 7
-2022-07-26 16:31:08,969 - RTECrudOperations -INFO - --Testing DEL Copy Next Row button--
-2022-07-26 16:31:09,083 - RTECrudOperations -INFO - Clicked on 3 Del Stop time
-2022-07-26 16:31:09,310 - RTECrudOperations -INFO - Clicked on Copy Next Row of Delivery
-2022-07-26 16:31:09,311 - RTECrudOperations -INFO - --Testing Sign Copy Next Row button--
-2022-07-26 16:31:09,417 - RTECrudOperations -INFO - Clicked on 3 Signature
-2022-07-26 16:31:09,712 - RTECrudOperations -INFO - Clicked on Copy Next Row of Signature
-2022-07-26 16:31:09,813 - RTECrudOperations -INFO - Clicked on Confirm DEL button
-2022-07-26 16:32:23,759 - RTECrudOperations -INFO - DEL Copy Next Row is working==PASS
-2022-07-26 16:32:23,760 - RTECrudOperations -INFO - Sign Copy Next Row is working==PASS
-2022-07-26 16:32:23,816 - RTECrudOperations -INFO - Job status is==DELIVER@STOP 7 OF 7
-2022-07-26 16:32:23,832 - RTECrudOperations -INFO - --Testing DEL Copy Next Row button--
-2022-07-26 16:32:23,906 - RTECrudOperations -INFO - Clicked on 4 Del Stop time
-2022-07-26 16:32:24,109 - RTECrudOperations -INFO - Clicked on Copy Next Row of Delivery
-2022-07-26 16:32:24,110 - RTECrudOperations -INFO - --Testing Sign Copy Next Row button--
-2022-07-26 16:32:24,178 - RTECrudOperations -INFO - Clicked on 4 Signature
-2022-07-26 16:32:24,372 - RTECrudOperations -INFO - Clicked on Copy Next Row of Signature
-2022-07-26 16:32:24,429 - RTECrudOperations -INFO - Clicked on Confirm DEL button
-2022-07-26 16:33:30,434 - RTECrudOperations -INFO - DEL Copy Next Row is working==PASS
-2022-07-26 16:33:30,435 - RTECrudOperations -INFO - Sign Copy Next Row is working==PASS
-2022-07-26 16:34:30,617 - RTECrudOperations -INFO - Validation for Act.Del Time and Signature is not displayed
-2022-07-26 16:34:30,869 - RTECrudOperations -INFO - Entered PickUpID in basic search
-2022-07-26 16:34:31,348 - RTECrudOperations -INFO - Click on Search button
-2022-07-26 16:34:36,240 - RTECrudOperations -INFO - Data is exist with search parameter
-2022-07-26 16:34:36,713 - RTECrudOperations -INFO - Job status is==DELIVERED@STOP 7 OF 7
-2022-07-26 16:34:36,713 - RTECrudOperations -INFO - Job is Delivered successfully
-2022-07-26 16:34:37,018 - RTECrudOperations -INFO - Clicked on End Route
-2022-07-26 16:34:37,118 - RTECrudOperations -INFO - Validation is displayed==Actual Route End Date Required.
+2022-07-29 12:55:24,607 - RTECrudOperations -INFO - ZoneID of is==CDT
+2022-07-29 12:55:24,608 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 12:55:24,746 - RTECrudOperations -INFO - Entered Actual Delivery Date
+2022-07-29 12:55:24,747 - RTECrudOperations -INFO - ZoneID of is==CDT
+2022-07-29 12:55:24,747 - RTECrudOperations -INFO - 02:25
+2022-07-29 12:55:25,054 - RTECrudOperations -INFO - Entered Actual Delivery Time
+2022-07-29 12:55:25,190 - RTECrudOperations -INFO - Entered Signature
+2022-07-29 12:55:25,329 - RTECrudOperations -INFO - Clicked on Confirm DEL button
+2022-07-29 12:55:28,923 - RTECrudOperations -INFO - Validation is displayed==Actual Delivery Datetime cannot be less than or equal to Actual Pickup Datetime.
+2022-07-29 12:55:28,953 - RTECrudOperations -INFO - ZoneID of is==CDT
+2022-07-29 12:55:28,953 - RTECrudOperations -INFO - ZoneID of is==CDT
+2022-07-29 12:55:28,953 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 12:55:29,082 - RTECrudOperations -INFO - Entered Actual Delivery Date
+2022-07-29 12:55:29,083 - RTECrudOperations -INFO - ZoneID of is==CDT
+2022-07-29 12:55:29,084 - RTECrudOperations -INFO - 02:26
+2022-07-29 12:55:29,280 - RTECrudOperations -INFO - Entered Actual Delivery Time
+2022-07-29 12:55:29,345 - RTECrudOperations -INFO - Clicked on Confirm DEL button
+2022-07-29 12:55:33,592 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 12:55:33,801 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:55:42,474 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-07-29 12:55:42,623 - RTECrudOperations -INFO - Job status is==DELIVERED@STOP 2 OF 2
+2022-07-29 12:55:42,623 - RTECrudOperations -INFO - Job is Delivered successfully
+2022-07-29 12:55:42,931 - RTECrudOperations -INFO - Clicked on End Route
+2022-07-29 12:55:43,104 - RTECrudOperations -INFO - Validation is displayed==Actual Route End Date Required.
 Actual Route End Time Required.
-2022-07-26 16:34:37,118 - RTECrudOperations -INFO - Validation is displayed for Route End Date and Time==PASS
-2022-07-26 16:34:37,150 - RTECrudOperations -INFO - ZoneID of is==CDT
-2022-07-26 16:34:37,199 - RTECrudOperations -INFO - 07/26/2022
-2022-07-26 16:34:37,330 - RTECrudOperations -INFO - Entered Actual Route End Date
-2022-07-26 16:34:37,378 - RTECrudOperations -INFO - 06:05
-2022-07-26 16:34:37,471 - RTECrudOperations -INFO - Entered Actual Route End Time
-2022-07-26 16:34:37,763 - RTECrudOperations -INFO - Clicked on End Route
-2022-07-26 16:34:40,034 - RTECrudOperations -INFO - Entered PickUpID in basic search
-2022-07-26 16:34:40,417 - RTECrudOperations -INFO - Click on Search button
-2022-07-26 16:34:47,501 - RTECrudOperations -INFO - Data is exist with search parameter
-2022-07-26 16:34:47,637 - RTECrudOperations -INFO - Job status is==VERIFY CUSTOMER BILL
-2022-07-26 16:34:47,637 - RTECrudOperations -INFO - Job is moved to Verify Customer Bill stage
-2022-07-26 16:34:49,847 - RTECrudOperations -INFO - Clicked on Verify button
-2022-07-26 16:34:53,764 - RTECrudOperations -INFO - Entered PickUpID in basic search
-2022-07-26 16:34:54,123 - RTECrudOperations -INFO - Click on Search button
-2022-07-26 16:34:58,571 - RTECrudOperations -INFO - Data is exist with search parameter
-2022-07-26 16:34:58,708 - RTECrudOperations -INFO - Job status is==VERIFIED
-2022-07-26 16:34:58,709 - RTECrudOperations -INFO - Job is moved to VERIFIED stage
-2022-07-26 16:34:58,783 - RTECrudOperations -INFO - ======================RTE One To Many Order Processing Test End==================
-2022-07-26 16:34:58,877 - RTECrudOperations -INFO - ======================RTE Many To One Order Processing Test Start==================
-2022-07-26 16:34:58,990 - RTECrudOperations -INFO - Clicked on Operations
-2022-07-26 16:34:59,223 - RTECrudOperations -INFO - Clicked on TaskLog
-2022-07-26 16:35:00,596 - RTECrudOperations -INFO - PickUpID==3450363
-2022-07-26 16:35:00,597 - RTECrudOperations -INFO - Entered PickUpID in basic search
-2022-07-26 16:35:00,699 - RTECrudOperations -INFO - Click on Search button
-2022-07-26 16:35:05,066 - RTECrudOperations -INFO - Data is exist with search parameter
-2022-07-26 16:35:05,224 - RTECrudOperations -INFO - Job status tab is Disabled
-2022-07-26 16:35:05,273 - RTECrudOperations -INFO - Job status is==DELIVERED@STOP 5 OF 5
-2022-07-26 16:35:05,582 - RTECrudOperations -INFO - Clicked on End Route
-2022-07-26 16:35:05,656 - RTECrudOperations -INFO - Validation is displayed==Actual Route End Date Required.
+2022-07-29 12:55:43,104 - RTECrudOperations -INFO - Validation is displayed for Route End Date and Time==PASS
+2022-07-29 12:55:43,164 - RTECrudOperations -INFO - ZoneID of is==CDT
+2022-07-29 12:55:43,165 - RTECrudOperations -INFO - ZoneID of is==CDT
+2022-07-29 12:55:43,165 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 12:55:43,166 - RTECrudOperations -INFO - ZoneID of is==CDT
+2022-07-29 12:55:43,166 - RTECrudOperations -INFO - 02:26
+2022-07-29 12:55:43,411 - RTECrudOperations -INFO - Entered Actual Route End Date
+2022-07-29 12:55:43,686 - RTECrudOperations -INFO - Entered Actual Route End Time
+2022-07-29 12:55:44,080 - RTECrudOperations -INFO - Clicked on End Route
+2022-07-29 12:55:47,169 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 12:55:47,318 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:55:53,672 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-07-29 12:55:53,803 - RTECrudOperations -INFO - Job status is==VERIFY CUSTOMER BILL
+2022-07-29 12:55:53,803 - RTECrudOperations -INFO - Job is moved to Verify Customer Bill stage
+2022-07-29 12:55:56,089 - RTECrudOperations -INFO - Clicked on Verify button
+2022-07-29 12:56:01,310 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 12:56:01,547 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:56:07,490 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-07-29 12:56:07,659 - RTECrudOperations -INFO - Job status is==VERIFIED
+2022-07-29 12:56:07,659 - RTECrudOperations -INFO - Job is moved to VERIFIED stage
+2022-07-29 12:56:07,837 - RTECrudOperations -INFO - ======================RTE OneToOne Order Processing Test End==================
+2022-07-29 12:56:07,906 - RTECrudOperations -INFO - ======================RTE One To Many Order Processing Test Start==================
+2022-07-29 12:56:08,081 - RTECrudOperations -INFO - Clicked on Operations
+2022-07-29 12:56:08,499 - RTECrudOperations -INFO - Clicked on TaskLog
+2022-07-29 12:56:10,735 - RTECrudOperations -INFO - PickUpID==3456472
+2022-07-29 12:56:10,735 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 12:56:10,950 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:56:17,480 - RTECrudOperations -INFO - Search button click event is working
+2022-07-29 12:56:17,527 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-07-29 12:56:17,732 - RTECrudOperations -INFO - Job status tab is Disabled
+2022-07-29 12:56:17,889 - RTECrudOperations -INFO - Job status is==VERIFIED
+2022-07-29 12:56:17,890 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-07-29 12:56:18,033 - RTECrudOperations -INFO - Job status is==VERIFIED
+2022-07-29 12:56:18,033 - RTECrudOperations -INFO - Job is moved to VERIFIED stage
+2022-07-29 12:56:18,105 - RTECrudOperations -INFO - ======================RTE One To Many Order Processing Test End==================
+2022-07-29 12:56:18,195 - RTECrudOperations -INFO - ======================RTE Many To One Order Processing Test Start==================
+2022-07-29 12:56:18,431 - RTECrudOperations -INFO - Clicked on Operations
+2022-07-29 12:56:18,865 - RTECrudOperations -INFO - Clicked on TaskLog
+2022-07-29 12:56:20,697 - RTECrudOperations -INFO - PickUpID==3456846
+2022-07-29 12:56:20,697 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 12:56:20,964 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:56:26,472 - RTECrudOperations -INFO - Search button click event is working
+2022-07-29 12:56:26,545 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-07-29 12:56:26,761 - RTECrudOperations -INFO - Job status tab is already Opened
+2022-07-29 12:56:26,833 - RTECrudOperations -INFO - Job status is==TC ACK
+2022-07-29 12:56:26,833 - RTECrudOperations -INFO - It is TC ACK stage
+2022-07-29 12:56:27,086 - RTECrudOperations -INFO - Clicked on Acknowledge button
+2022-07-29 12:56:39,918 - RTECrudOperations -INFO - Job status is==RDY FOR DSP
+2022-07-29 12:56:40,154 - RTECrudOperations -INFO - Clicked on Send PU Alert button
+2022-07-29 12:56:40,297 - RTECrudOperations -INFO - Validation is displayed==Spoke With Required.
+2022-07-29 12:56:40,559 - RTECrudOperations -INFO - Entered Spoke With
+2022-07-29 12:56:40,688 - RTECrudOperations -INFO - Clicked on Send PU Alert button
+2022-07-29 12:56:44,976 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 12:56:45,176 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 12:56:50,510 - RTECrudOperations -INFO - Search button click event is working
+2022-07-29 12:56:50,544 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-07-29 12:56:50,855 - RTECrudOperations -INFO - Clicked on Job Status Tab
+2022-07-29 12:56:51,056 - RTECrudOperations -INFO - Job status is==PU DRV CONF
+2022-07-29 12:56:51,156 - RTECrudOperations -INFO - Clicked on Confirm PU Alert
+2022-07-29 12:58:03,788 - RTECrudOperations -INFO - Spoke With validation is not displayed
+2022-07-29 12:58:04,030 - RTECrudOperations -INFO - Job status is==PICKUP@STOP 1 OF 5
+2022-07-29 12:58:04,188 - RTECrudOperations -INFO - Clicked on Confirm PU button
+2022-07-29 12:58:04,302 - RTECrudOperations -INFO - Validation is displayed==Act. Pickup Time is Required.
+2022-07-29 12:58:04,328 - RTECrudOperations -INFO - Total Pickup points is/are==4
+2022-07-29 12:58:04,404 - RTECrudOperations -INFO - ZoneID of is==PDT
+2022-07-29 12:58:04,612 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 12:58:04,784 - RTECrudOperations -INFO - Entered Actual Pickup Date
+2022-07-29 12:58:04,802 - RTECrudOperations -INFO - value of PickUpTime is==07/29/2022
+2022-07-29 12:58:04,875 - RTECrudOperations -INFO - 00:28
+2022-07-29 12:58:04,969 - RTECrudOperations -INFO - Entered Actual Pickup Time
+2022-07-29 12:58:04,986 - RTECrudOperations -INFO - value of PickUpTime is==00:28
+2022-07-29 12:58:05,055 - RTECrudOperations -INFO - Clicked on Confirm PU button
+2022-07-29 12:59:18,811 - RTECrudOperations -INFO - Validation is not displayed=Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime.
+2022-07-29 12:59:18,919 - RTECrudOperations -INFO - Job status is==PICKUP@STOP 2 OF 5
+2022-07-29 12:59:18,938 - RTECrudOperations -INFO - --Testing PU Copy Next Row button--
+2022-07-29 12:59:18,979 - RTECrudOperations -INFO - value of Previous PickUp Time is==00:28
+2022-07-29 12:59:19,060 - RTECrudOperations -INFO - Clicked on 0 PU Stop time
+2022-07-29 12:59:19,414 - RTECrudOperations -INFO - Clicked on Copy Next Row of PickUp
+2022-07-29 12:59:19,523 - RTECrudOperations -INFO - Clicked on Confirm PU button
+2022-07-29 12:59:20,827 - RTECrudOperations -INFO - Validation is displayed==Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime.
+2022-07-29 12:59:20,827 - RTECrudOperations -INFO - PU Copy Next Row is working==PASS
+2022-07-29 12:59:20,842 - RTECrudOperations -INFO - Total Pickup points is/are==4
+2022-07-29 12:59:20,869 - RTECrudOperations -INFO - ZoneID of is==PDT
+2022-07-29 12:59:20,961 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 12:59:21,130 - RTECrudOperations -INFO - Entered Actual Pickup Date
+2022-07-29 12:59:21,300 - RTECrudOperations -INFO - Entered Actual Pickup Time
+2022-07-29 12:59:21,354 - RTECrudOperations -INFO - Clicked on Confirm PU button
+2022-07-29 13:00:34,494 - RTECrudOperations -INFO - Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime Validation not displayed again.
+2022-07-29 13:00:34,557 - RTECrudOperations -INFO - Job status is==PICKUP@STOP 3 OF 5
+2022-07-29 13:00:34,583 - RTECrudOperations -INFO - --Testing PU Copy Next Row button--
+2022-07-29 13:00:34,616 - RTECrudOperations -INFO - value of Previous PickUp Time is==00:29
+2022-07-29 13:00:34,673 - RTECrudOperations -INFO - Clicked on 1 PU Stop time
+2022-07-29 13:00:34,927 - RTECrudOperations -INFO - Clicked on Copy Next Row of PickUp
+2022-07-29 13:00:34,989 - RTECrudOperations -INFO - Clicked on Confirm PU button
+2022-07-29 13:00:36,186 - RTECrudOperations -INFO - Validation is displayed==Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime.
+2022-07-29 13:00:36,187 - RTECrudOperations -INFO - PU Copy Next Row is working==PASS
+2022-07-29 13:00:36,203 - RTECrudOperations -INFO - Total Pickup points is/are==4
+2022-07-29 13:00:36,265 - RTECrudOperations -INFO - ZoneID of is==PDT
+2022-07-29 13:00:36,470 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 13:00:36,592 - RTECrudOperations -INFO - Entered Actual Pickup Date
+2022-07-29 13:00:36,845 - RTECrudOperations -INFO - Entered Actual Pickup Time
+2022-07-29 13:00:36,910 - RTECrudOperations -INFO - Clicked on Confirm PU button
+2022-07-29 13:01:50,407 - RTECrudOperations -INFO - Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime Validation not displayed again.
+2022-07-29 13:01:50,523 - RTECrudOperations -INFO - Job status is==PICKUP@STOP 4 OF 5
+2022-07-29 13:01:50,559 - RTECrudOperations -INFO - --Testing PU Copy Next Row button--
+2022-07-29 13:01:50,591 - RTECrudOperations -INFO - value of Previous PickUp Time is==00:30
+2022-07-29 13:01:50,656 - RTECrudOperations -INFO - Clicked on 2 PU Stop time
+2022-07-29 13:01:50,935 - RTECrudOperations -INFO - Clicked on Copy Next Row of PickUp
+2022-07-29 13:01:51,016 - RTECrudOperations -INFO - Clicked on Confirm PU button
+2022-07-29 13:01:52,345 - RTECrudOperations -INFO - Validation is displayed==Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime.
+2022-07-29 13:01:52,345 - RTECrudOperations -INFO - PU Copy Next Row is working==PASS
+2022-07-29 13:01:52,375 - RTECrudOperations -INFO - Total Pickup points is/are==4
+2022-07-29 13:01:52,435 - RTECrudOperations -INFO - ZoneID of is==PDT
+2022-07-29 13:01:52,606 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 13:01:52,855 - RTECrudOperations -INFO - Entered Actual Pickup Date
+2022-07-29 13:01:53,128 - RTECrudOperations -INFO - Entered Actual Pickup Time
+2022-07-29 13:01:53,189 - RTECrudOperations -INFO - Clicked on Confirm PU button
+2022-07-29 13:03:06,375 - RTECrudOperations -INFO - Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime Validation not displayed again.
+2022-07-29 13:03:06,517 - RTECrudOperations -INFO - Job status is==DELIVER@STOP 5 OF 5
+2022-07-29 13:03:07,070 - RTECrudOperations -INFO - Job status is==DELIVER@STOP 5 OF 5
+2022-07-29 13:03:07,310 - RTECrudOperations -INFO - Clicked on Confirm DEL button
+2022-07-29 13:03:07,510 - RTECrudOperations -INFO - Validation is displayed==Act. Delivery Time is Required.
+Signature is required.
+2022-07-29 13:03:07,533 - RTECrudOperations -INFO - Total Delivery points is/are==4
+2022-07-29 13:03:07,577 - RTECrudOperations -INFO - ZoneID of is==PDT
+2022-07-29 13:03:07,731 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 13:03:07,854 - RTECrudOperations -INFO - Entered Actual Delivery Date
+2022-07-29 13:03:07,922 - RTECrudOperations -INFO - 00:33
+2022-07-29 13:03:07,978 - RTECrudOperations -INFO - Entered Actual Delivery Time
+2022-07-29 13:03:08,187 - RTECrudOperations -INFO - Entered Signature
+2022-07-29 13:03:08,303 - RTECrudOperations -INFO - Clicked on Confirm DEL button
+2022-07-29 13:03:08,486 - RTECrudOperations -INFO - Validation is displayed==Act. Delivery Time is Required.
+Signature is required.
+2022-07-29 13:03:08,486 - RTECrudOperations -INFO - --Testing DEL Copy All Row button--
+2022-07-29 13:03:08,601 - RTECrudOperations -INFO - Clicked on 1st Del stop Time
+2022-07-29 13:03:08,898 - RTECrudOperations -INFO - Clicked on Copy All Row button of Del Time
+2022-07-29 13:03:08,972 - RTECrudOperations -INFO - Clicked on 1st Signature
+2022-07-29 13:03:09,267 - RTECrudOperations -INFO - Clicked on Copy All Row button of Signature
+2022-07-29 13:03:09,359 - RTECrudOperations -INFO - Clicked on Confirm DEL button
+2022-07-29 13:04:16,130 - RTECrudOperations -INFO - DEL Copy All Row is working==PASS
+2022-07-29 13:04:16,132 - RTECrudOperations -INFO - Sign Copy All Row is working==PASS
+2022-07-29 13:04:16,533 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 13:04:17,703 - RTECrudOperations -ERROR - org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <button id="btnGlobal..." class="btn btn-primary bluebutton no-margin" ng-click="GlobalSearchRecords(true,TaskDetails.SearchFieldToolTip,TaskDetails.AdvanceSearchValue,'GlobalSearch')">Search</button> is not clickable at point (973, 171). Other element would receive the click: <div id="loaderDiv" loader="" style="display: block;">...</div>
+  (Session info: chrome=103.0.5060.134)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'SIPL92', ip: '10.212.130.213', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.13'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 103.0.5060.134, chrome: {chromedriverVersion: 103.0.5060.134 (8ec6fce403b..., userDataDir: C:\WINDOWS\TEMP\scoped_dir4...}, goog:chromeOptions: {debuggerAddress: localhost:55360}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: e0c9e1284c5b9b41abbb5adbbe74b876
+2022-07-29 13:04:17,809 - RTECrudOperations -INFO - job is not moved to delivered stage
+2022-07-29 13:04:17,853 - RTECrudOperations -ERROR - java.lang.NullPointerException
+2022-07-29 13:04:17,919 - RTECrudOperations -INFO - Stage is not Deliver
+2022-07-29 13:04:17,934 - RTECrudOperations -ERROR - java.lang.NullPointerException
+2022-07-29 13:04:18,011 - RTECrudOperations -INFO - Stage is not PickUP
+2022-07-29 13:04:18,025 - RTECrudOperations -ERROR - java.lang.NullPointerException
+2022-07-29 13:05:18,571 - RTECrudOperations -ERROR - org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on WINDOWS (e0c9e1284c5b9b41abbb5adbbe74b876)] -> class name: dx-datagrid-nodata] (tried for 60 second(s) with 500 milliseconds interval)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'SIPL92', ip: '10.212.130.213', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.13'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 103.0.5060.134, chrome: {chromedriverVersion: 103.0.5060.134 (8ec6fce403b..., userDataDir: C:\WINDOWS\TEMP\scoped_dir4...}, goog:chromeOptions: {debuggerAddress: localhost:55360}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: e0c9e1284c5b9b41abbb5adbbe74b876
+2022-07-29 13:05:18,696 - RTECrudOperations -INFO - Job is not moved to PU DRV CONF stage
+2022-07-29 13:05:18,696 - RTECrudOperations -INFO - ======================RTE Many To One Order Processing Test End==================
+2022-07-29 13:05:18,777 - RTECrudOperations -INFO - ======================RTE Many To Many Order Processing Test Start==================
+2022-07-29 13:05:18,953 - RTECrudOperations -INFO - Clicked on Operations
+2022-07-29 13:05:19,166 - RTECrudOperations -INFO - Clicked on TaskLog
+2022-07-29 13:05:19,451 - RTECrudOperations -INFO - PickUpID==3456429
+2022-07-29 13:05:19,452 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 13:05:19,622 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 13:05:25,070 - RTECrudOperations -INFO - Search button click event is working
+2022-07-29 13:05:25,103 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-07-29 13:05:25,209 - RTECrudOperations -INFO - Job status tab is already Opened
+2022-07-29 13:05:25,330 - RTECrudOperations -INFO - Job status is==TC ACK
+2022-07-29 13:05:25,331 - RTECrudOperations -INFO - It is TC ACK stage
+2022-07-29 13:05:25,675 - RTECrudOperations -INFO - Clicked on Acknowledge button
+2022-07-29 13:05:38,814 - RTECrudOperations -INFO - Job status is==RDY FOR DSP
+2022-07-29 13:05:39,062 - RTECrudOperations -INFO - Clicked on Send PU Alert button
+2022-07-29 13:05:39,220 - RTECrudOperations -INFO - Validation is displayed==Spoke With Required.
+2022-07-29 13:05:39,473 - RTECrudOperations -INFO - Entered Spoke With
+2022-07-29 13:05:39,556 - RTECrudOperations -INFO - Clicked on Send PU Alert button
+2022-07-29 13:05:43,368 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 13:05:43,612 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 13:05:48,536 - RTECrudOperations -INFO - Search button click event is working
+2022-07-29 13:05:48,563 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-07-29 13:05:48,774 - RTECrudOperations -INFO - Clicked on Job Status Tab
+2022-07-29 13:05:48,963 - RTECrudOperations -INFO - Job status is==PU DRV CONF
+2022-07-29 13:05:49,114 - RTECrudOperations -INFO - Clicked on Confirm PU Alert
+2022-07-29 13:07:01,041 - RTECrudOperations -INFO - Spoke With validation is not displayed
+2022-07-29 13:07:01,251 - RTECrudOperations -INFO - Job status is==PICKUP@STOP 1 OF 6
+2022-07-29 13:07:01,520 - RTECrudOperations -INFO - Clicked on Confirm PU button
+2022-07-29 13:07:01,622 - RTECrudOperations -INFO - Validation is displayed==Act. Pickup Time is Required.
+2022-07-29 13:07:01,662 - RTECrudOperations -INFO - Total Pickup points is/are==3
+2022-07-29 13:07:01,744 - RTECrudOperations -INFO - value of Previous PickUp Time is==
+2022-07-29 13:07:01,808 - RTECrudOperations -INFO - ZoneID of is==EDT
+2022-07-29 13:07:01,952 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 13:07:02,087 - RTECrudOperations -INFO - Entered Actual Pickup Date
+2022-07-29 13:07:02,164 - RTECrudOperations -INFO - 03:37
+2022-07-29 13:07:02,335 - RTECrudOperations -INFO - Entered Actual Pickup Time
+2022-07-29 13:07:02,395 - RTECrudOperations -INFO - Clicked on Confirm PU button
+2022-07-29 13:08:14,902 - RTECrudOperations -INFO - Validation is not displayed=Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime.
+2022-07-29 13:08:15,048 - RTECrudOperations -INFO - Job status is==DELIVER@STOP 2 OF 6
+2022-07-29 13:08:15,178 - RTECrudOperations -INFO - Clicked on Confirm DEL button
+2022-07-29 13:08:15,310 - RTECrudOperations -INFO - Validation is displayed==Act. Delivery Time is Required.
+Signature is required.
+2022-07-29 13:08:15,341 - RTECrudOperations -INFO - Total Delivery points is/are==3
+2022-07-29 13:08:15,401 - RTECrudOperations -INFO - ZoneID of is==EDT
+2022-07-29 13:08:15,555 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 13:08:15,684 - RTECrudOperations -INFO - Entered Actual Delivery Date
+2022-07-29 13:08:15,764 - RTECrudOperations -INFO - 03:38
+2022-07-29 13:08:15,963 - RTECrudOperations -INFO - Entered Actual Delivery Time
+2022-07-29 13:08:16,041 - RTECrudOperations -INFO - Entered Signature
+2022-07-29 13:08:16,195 - RTECrudOperations -INFO - Clicked on Confirm DEL button
+2022-07-29 13:09:29,041 - RTECrudOperations -INFO - Validation is not displayed=Actual Delivery Datetime cannot be less than or equal to Actual Pickup Datetime.
+2022-07-29 13:09:29,142 - RTECrudOperations -INFO - Job status is==PICKUP@STOP 3 OF 6
+2022-07-29 13:09:29,259 - RTECrudOperations -INFO - value of Previous PickUp Time is==03:37
+2022-07-29 13:09:29,335 - RTECrudOperations -INFO - ZoneID of is==EDT
+2022-07-29 13:09:29,524 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 13:09:29,807 - RTECrudOperations -INFO - Entered Actual Pickup Date
+2022-07-29 13:09:29,923 - RTECrudOperations -INFO - 03:39
+2022-07-29 13:09:30,085 - RTECrudOperations -INFO - Entered Actual Pickup Time
+2022-07-29 13:09:30,277 - RTECrudOperations -INFO - Clicked on Confirm PU button
+2022-07-29 13:10:42,716 - RTECrudOperations -INFO - Validation is not displayed=Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime.
+2022-07-29 13:10:42,942 - RTECrudOperations -INFO - Job status is==DELIVER@STOP 4 OF 6
+2022-07-29 13:10:43,097 - RTECrudOperations -INFO - Clicked on Confirm DEL button
+2022-07-29 13:10:43,256 - RTECrudOperations -INFO - Validation is displayed==Act. Delivery Time is Required.
+Signature is required.
+2022-07-29 13:10:43,293 - RTECrudOperations -INFO - Total Delivery points is/are==3
+2022-07-29 13:10:43,370 - RTECrudOperations -INFO - ZoneID of is==EDT
+2022-07-29 13:10:43,499 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 13:10:43,639 - RTECrudOperations -INFO - Entered Actual Delivery Date
+2022-07-29 13:10:43,732 - RTECrudOperations -INFO - 03:40
+2022-07-29 13:10:43,919 - RTECrudOperations -INFO - Entered Actual Delivery Time
+2022-07-29 13:10:44,012 - RTECrudOperations -INFO - Entered Signature
+2022-07-29 13:10:44,210 - RTECrudOperations -INFO - Clicked on Confirm DEL button
+2022-07-29 13:11:56,725 - RTECrudOperations -INFO - Validation is not displayed=Actual Delivery Datetime cannot be less than or equal to Actual Pickup Datetime.
+2022-07-29 13:11:56,826 - RTECrudOperations -INFO - Job status is==PICKUP@STOP 5 OF 6
+2022-07-29 13:11:56,932 - RTECrudOperations -INFO - value of Previous PickUp Time is==03:39
+2022-07-29 13:11:57,012 - RTECrudOperations -INFO - ZoneID of is==EDT
+2022-07-29 13:11:57,196 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 13:11:57,419 - RTECrudOperations -INFO - Entered Actual Pickup Date
+2022-07-29 13:11:57,513 - RTECrudOperations -INFO - 03:41
+2022-07-29 13:11:57,747 - RTECrudOperations -INFO - Entered Actual Pickup Time
+2022-07-29 13:11:57,853 - RTECrudOperations -INFO - Clicked on Confirm PU button
+2022-07-29 13:13:10,091 - RTECrudOperations -INFO - Validation is not displayed=Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime.
+2022-07-29 13:13:10,296 - RTECrudOperations -INFO - Job status is==DELIVER@STOP 6 OF 6
+2022-07-29 13:13:10,430 - RTECrudOperations -INFO - Clicked on Confirm DEL button
+2022-07-29 13:13:10,533 - RTECrudOperations -INFO - Validation is displayed==Act. Delivery Time is Required.
+Signature is required.
+2022-07-29 13:13:10,553 - RTECrudOperations -INFO - Total Delivery points is/are==3
+2022-07-29 13:13:10,584 - RTECrudOperations -INFO - ZoneID of is==EDT
+2022-07-29 13:13:10,761 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 13:13:10,904 - RTECrudOperations -INFO - Entered Actual Delivery Date
+2022-07-29 13:13:10,974 - RTECrudOperations -INFO - 03:43
+2022-07-29 13:13:11,105 - RTECrudOperations -INFO - Entered Actual Delivery Time
+2022-07-29 13:13:11,185 - RTECrudOperations -INFO - Entered Signature
+2022-07-29 13:13:11,295 - RTECrudOperations -INFO - Clicked on Confirm DEL button
+2022-07-29 13:14:17,887 - RTECrudOperations -INFO - Validation is not displayed=Actual Delivery Datetime cannot be less than or equal to Actual Pickup Datetime.
+2022-07-29 13:15:18,110 - RTECrudOperations -INFO - Job is moved to DELIVERED stage
+2022-07-29 13:15:18,357 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 13:15:18,694 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 13:15:24,648 - RTECrudOperations -INFO - Search button click event is working
+2022-07-29 13:15:24,686 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-07-29 13:15:24,876 - RTECrudOperations -INFO - Job status is==DELIVERED@STOP 6 OF 6
+2022-07-29 13:15:24,876 - RTECrudOperations -INFO - Job is Delivered successfully
+2022-07-29 13:15:25,348 - RTECrudOperations -INFO - Clicked on End Route
+2022-07-29 13:15:25,538 - RTECrudOperations -INFO - Validation is displayed==Actual Route End Date Required.
 Actual Route End Time Required.
-2022-07-26 16:35:05,656 - RTECrudOperations -INFO - Validation is displayed for Route End Date and Time==PASS
-2022-07-26 16:35:05,691 - RTECrudOperations -INFO - ZoneID of is==PDT
-2022-07-26 16:35:05,739 - RTECrudOperations -INFO - 07/26/2022
-2022-07-26 16:35:05,895 - RTECrudOperations -INFO - Entered Actual Route End Date
-2022-07-26 16:35:05,944 - RTECrudOperations -INFO - 04:06
-2022-07-26 16:35:06,035 - RTECrudOperations -INFO - Entered Actual Route End Time
-2022-07-26 16:35:06,420 - RTECrudOperations -INFO - Clicked on End Route
-2022-07-26 16:35:07,839 - RTECrudOperations -INFO - Entered PickUpID in basic search
-2022-07-26 16:35:07,927 - RTECrudOperations -INFO - Click on Search button
-2022-07-26 16:35:12,937 - RTECrudOperations -INFO - Data is exist with search parameter
-2022-07-26 16:35:13,090 - RTECrudOperations -INFO - Job status is==VERIFY CUSTOMER BILL
-2022-07-26 16:35:13,091 - RTECrudOperations -INFO - Job is moved to Verify Customer Bill stage
-2022-07-26 16:35:15,256 - RTECrudOperations -INFO - Clicked on Verify button
-2022-07-26 16:35:19,216 - RTECrudOperations -INFO - Entered PickUpID in basic search
-2022-07-26 16:35:19,311 - RTECrudOperations -INFO - Click on Search button
-2022-07-26 16:35:25,247 - RTECrudOperations -INFO - Data is exist with search parameter
-2022-07-26 16:35:25,373 - RTECrudOperations -INFO - Job status is==VERIFIED
-2022-07-26 16:35:25,373 - RTECrudOperations -INFO - Job is moved to VERIFIED stage
-2022-07-26 16:35:25,444 - RTECrudOperations -INFO - ======================RTE Many To One Order Processing Test End==================
-2022-07-26 16:35:25,534 - RTECrudOperations -INFO - ======================RTE Many To Many Order Processing Test Start==================
-2022-07-26 16:35:25,633 - RTECrudOperations -INFO - Clicked on Operations
-2022-07-26 16:35:25,842 - RTECrudOperations -INFO - Clicked on TaskLog
-2022-07-26 16:35:27,167 - RTECrudOperations -INFO - PickUpID==3449933
-2022-07-26 16:35:27,167 - RTECrudOperations -INFO - Entered PickUpID in basic search
-2022-07-26 16:35:27,270 - RTECrudOperations -INFO - Click on Search button
-2022-07-26 16:35:32,750 - RTECrudOperations -INFO - Data is exist with search parameter
-2022-07-26 16:35:32,893 - RTECrudOperations -INFO - Job status tab is Disabled
-2022-07-26 16:35:32,942 - RTECrudOperations -INFO - Job status is==VERIFIED
-2022-07-26 16:35:32,943 - RTECrudOperations -INFO - Data is exist with search parameter
-2022-07-26 16:35:33,069 - RTECrudOperations -INFO - Job status is==VERIFIED
-2022-07-26 16:35:33,069 - RTECrudOperations -INFO - Job is moved to VERIFIED stage
-2022-07-26 16:35:33,144 - RTECrudOperations -INFO - ======================RTE Many To Many Order Processing Test End==================
-2022-07-26 16:35:33,246 - RTECrudOperations -INFO - ======================RTE Reject/Resend/CallBack/PendingDelivery Test Start==================
-2022-07-26 16:35:33,377 - RTECrudOperations -INFO - Clicked on Operations
-2022-07-26 16:35:33,595 - RTECrudOperations -INFO - Clicked on TaskLog
-2022-07-26 16:35:34,902 - RTECrudOperations -INFO - PickUpID==3450159
-2022-07-26 16:35:34,903 - RTECrudOperations -INFO - Entered PickUpID in basic search
-2022-07-26 16:35:35,029 - RTECrudOperations -INFO - Click on Search button
-2022-07-26 16:35:38,938 - RTECrudOperations -INFO - Data is exist with search parameter
-2022-07-26 16:35:39,087 - RTECrudOperations -INFO - Job status tab is Disabled
-2022-07-26 16:35:39,134 - RTECrudOperations -INFO - Job status is==VERIFIED
-2022-07-26 16:35:39,134 - RTECrudOperations -INFO - Data is exist with search parameter
-2022-07-26 16:35:39,248 - RTECrudOperations -INFO - Job status is==VERIFIED
-2022-07-26 16:35:39,248 - RTECrudOperations -INFO - Job is moved to VERIFIED stage
-2022-07-26 16:35:39,686 - RTECrudOperations -INFO - Clicked on Exit Without Save
-2022-07-26 16:35:39,687 - RTECrudOperations -INFO - ======================RTE Reject/Resend/CallBack/PendingDelivery Test End==================
-2022-07-26 16:35:39,803 - RTECrudOperations -INFO - ======================RTE Crud Operations Test Start==================
-2022-07-26 16:35:41,066 - RTECrudOperations -INFO - Clicked on Operations
-2022-07-26 16:35:41,209 - RTECrudOperations -INFO - Clicked on TaskLog
-2022-07-26 16:35:41,387 - RTECrudOperations -INFO - PickUpID==3450160
-2022-07-26 16:35:41,387 - RTECrudOperations -INFO - Entered PickUpID in basic search
-2022-07-26 16:35:41,682 - RTECrudOperations -INFO - Click on Search button
-2022-07-26 16:35:46,570 - RTECrudOperations -ERROR - java.lang.NullPointerException
-2022-07-26 16:35:46,644 - RTECrudOperations -INFO - Data is exist with search parameter
-2022-07-26 16:35:46,799 - RTECrudOperations -INFO - Job status tab is Disabled
-2022-07-26 16:35:46,857 - RTECrudOperations -INFO - Job status is==VERIFIED
-2022-07-26 16:35:46,857 - RTECrudOperations -INFO - Data is exist with search parameter
-2022-07-26 16:35:46,983 - RTECrudOperations -INFO - Job status is==VERIFIED
-2022-07-26 16:35:46,983 - RTECrudOperations -INFO - Job is moved to VERIFIED stage
-2022-07-26 16:35:47,095 - RTECrudOperations -INFO - PickUP ID is==.3450160
-2022-07-26 16:35:47,095 - RTECrudOperations -INFO - Job is Proceed successfully.
-2022-07-26 16:35:47,095 - RTECrudOperations -INFO - Job status is==.VERIFIED
-2022-07-26 16:35:47,095 - RTECrudOperations -INFO - Crud operation is not working
-2022-07-26 16:35:47,096 - RTECrudOperations -INFO - Search LOC Job is not working
-2022-07-26 16:35:47,096 - RTECrudOperations -INFO - ======================RTE Crud Operations Test End==================
-2022-07-26 16:35:55,242 - RTECrudOperations -INFO - Logout Message is displayed==You have successfully logged out!
-2022-07-26 16:35:55,242 - RTECrudOperations -INFO - Logout done
-2022-07-26 16:35:56,156 - RTECrudOperations -INFO - ====Sending Email=====
+2022-07-29 13:15:25,538 - RTECrudOperations -INFO - Validation is displayed for Route End Date and Time==PASS
+2022-07-29 13:15:25,602 - RTECrudOperations -INFO - ZoneID of is==EDT
+2022-07-29 13:15:25,759 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 13:15:25,978 - RTECrudOperations -INFO - Entered Actual Route End Date
+2022-07-29 13:15:26,088 - RTECrudOperations -INFO - 03:46
+2022-07-29 13:15:26,228 - RTECrudOperations -INFO - Entered Actual Route End Time
+2022-07-29 13:15:27,727 - RTECrudOperations -INFO - Clicked on End Route
+2022-07-29 13:15:30,441 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 13:15:30,686 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 13:15:37,535 - RTECrudOperations -INFO - Search button click event is working
+2022-07-29 13:15:37,567 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-07-29 13:15:37,776 - RTECrudOperations -INFO - Job status is==VERIFY CUSTOMER BILL
+2022-07-29 13:15:37,776 - RTECrudOperations -INFO - Job is moved to Verify Customer Bill stage
+2022-07-29 13:15:40,037 - RTECrudOperations -INFO - Clicked on Verify button
+2022-07-29 13:15:44,826 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 13:15:44,987 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 13:15:50,495 - RTECrudOperations -INFO - Search button click event is working
+2022-07-29 13:15:50,539 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-07-29 13:15:50,747 - RTECrudOperations -INFO - Job status is==VERIFIED
+2022-07-29 13:15:50,747 - RTECrudOperations -INFO - Job is moved to VERIFIED stage
+2022-07-29 13:15:50,869 - RTECrudOperations -INFO - ======================RTE Many To Many Order Processing Test End==================
+2022-07-29 13:15:50,965 - RTECrudOperations -INFO - ======================RTE Reject/Resend/CallBack/PendingDelivery Test Start==================
+2022-07-29 13:15:51,299 - RTECrudOperations -INFO - Clicked on Operations
+2022-07-29 13:15:51,770 - RTECrudOperations -INFO - Clicked on TaskLog
+2022-07-29 13:15:54,080 - RTECrudOperations -INFO - PickUpID==3456465
+2022-07-29 13:15:54,081 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 13:15:54,387 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 13:15:58,738 - RTECrudOperations -INFO - Search button click event is working
+2022-07-29 13:15:58,751 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-07-29 13:15:58,980 - RTECrudOperations -INFO - Job status tab is already Opened
+2022-07-29 13:15:59,111 - RTECrudOperations -INFO - Job status is==TC ACK
+2022-07-29 13:15:59,111 - RTECrudOperations -INFO - It is TC ACK stage
+2022-07-29 13:15:59,354 - RTECrudOperations -INFO - Clicked on Acknowledge button
+2022-07-29 13:16:12,889 - RTECrudOperations -INFO - Job status is==RDY FOR DSP
+2022-07-29 13:16:13,120 - RTECrudOperations -INFO - Clicked on Send PU Alert button
+2022-07-29 13:16:46,658 - RTECrudOperations -INFO - Spoke With validation is not displayed
+2022-07-29 13:16:46,925 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 13:16:47,097 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 13:16:51,886 - RTECrudOperations -INFO - Search button click event is working
+2022-07-29 13:16:51,899 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-07-29 13:16:52,242 - RTECrudOperations -INFO - Clicked on Job Status Tab
+2022-07-29 13:16:52,396 - RTECrudOperations -INFO - Job status is==PU DRV CONF
+2022-07-29 13:16:52,480 - RTECrudOperations -INFO - Clicked on Resend Alert
+2022-07-29 13:17:04,792 - RTECrudOperations -INFO - Job status is==PU DRV CONF
+2022-07-29 13:17:04,793 - RTECrudOperations -INFO - Resend Alert is send
+2022-07-29 13:17:04,923 - RTECrudOperations -INFO - Clicked on Reject Alert
+2022-07-29 13:17:05,057 - RTECrudOperations -INFO - Memo text area is displayed on Reject Alert button
+2022-07-29 13:17:05,194 - RTECrudOperations -INFO - Clicked on Reject Alert
+2022-07-29 13:17:05,316 - RTECrudOperations -INFO - Validation is displayed=Please enter Memo.
+2022-07-29 13:17:05,765 - RTECrudOperations -INFO - Clicked on Reject Alert
+2022-07-29 13:17:18,491 - RTECrudOperations -INFO - Job status is==RDY FOR DSP
+2022-07-29 13:17:18,579 - RTECrudOperations -INFO - decline message is==Courier 34936 has declined alert.
+2022-07-29 13:17:18,579 - RTECrudOperations -INFO - Reject alert is send==PASS
+2022-07-29 13:17:18,702 - RTECrudOperations -INFO - Clicked on Send PU Alert button
+2022-07-29 13:17:22,268 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 13:17:22,501 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 13:17:30,023 - RTECrudOperations -INFO - Search button click event is working
+2022-07-29 13:17:30,038 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-07-29 13:17:30,243 - RTECrudOperations -INFO - Clicked on Confirm PU Alert
+2022-07-29 13:17:30,498 - RTECrudOperations -INFO - Validation is displayed==Spoke With Required.
+2022-07-29 13:17:30,787 - RTECrudOperations -INFO - Entered Spoke With
+2022-07-29 13:17:30,842 - RTECrudOperations -INFO - Clicked on Confirm PU Alert
+2022-07-29 13:17:43,293 - RTECrudOperations -INFO - Job status is==PICKUP@STOP 1 OF 2
+2022-07-29 13:17:43,550 - RTECrudOperations -INFO - Clicked on Confirm PU button
+2022-07-29 13:17:43,732 - RTECrudOperations -INFO - Validation is displayed==Act. Pickup Time is Required.
+2022-07-29 13:17:43,810 - RTECrudOperations -INFO - ZoneID of is==CDT
+2022-07-29 13:17:43,969 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 13:17:44,153 - RTECrudOperations -INFO - Entered Actual Pickup Date
+2022-07-29 13:17:44,243 - RTECrudOperations -INFO - 02:47
+2022-07-29 13:17:44,422 - RTECrudOperations -INFO - Entered Actual Pickup Time
+2022-07-29 13:17:44,477 - RTECrudOperations -INFO - Clicked on Confirm PU button
+2022-07-29 13:17:56,482 - RTECrudOperations -INFO - Job status is==DELIVER@STOP 2 OF 2
+2022-07-29 13:17:56,640 - RTECrudOperations -INFO - Clicked on Confirm DEL button
+2022-07-29 13:17:56,776 - RTECrudOperations -INFO - Validation is displayed==Act. Delivery Time is Required.
+Signature is required.
+2022-07-29 13:17:56,830 - RTECrudOperations -INFO - ZoneID of is==CDT
+2022-07-29 13:17:56,987 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 13:17:57,101 - RTECrudOperations -INFO - Entered Actual Delivery Date
+2022-07-29 13:17:57,164 - RTECrudOperations -INFO - 02:47
+2022-07-29 13:17:57,314 - RTECrudOperations -INFO - Entered Actual Delivery Time
+2022-07-29 13:17:57,485 - RTECrudOperations -INFO - Entered Signature
+2022-07-29 13:17:57,608 - RTECrudOperations -INFO - Clicked on Re Route Checkbox
+2022-07-29 13:17:57,737 - RTECrudOperations -INFO - Clicked on Confirm DEL button
+2022-07-29 13:18:39,960 - RTECrudOperations -INFO - Validation is not displayed=Actual Delivery Datetime cannot be less than or equal to Actual Pickup Datetime.
+2022-07-29 13:18:40,232 - RTECrudOperations -INFO - Job status is==PENDING DELIVERY
+2022-07-29 13:18:40,232 - RTECrudOperations -INFO - Job is moved to PENDING DELIVERY==PASS
+2022-07-29 13:18:40,348 - RTECrudOperations -INFO - Clicked on Confirm DEL button
+2022-07-29 13:18:40,505 - RTECrudOperations -INFO - Validation is displayed==Act. Delivery Time is Required.
+2022-07-29 13:18:40,569 - RTECrudOperations -INFO - ZoneID of is==CDT
+2022-07-29 13:18:40,663 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 13:18:40,785 - RTECrudOperations -INFO - Entered Actual Delivery Date
+2022-07-29 13:18:40,867 - RTECrudOperations -INFO - 02:48
+2022-07-29 13:18:40,988 - RTECrudOperations -INFO - Entered Actual Delivery Time
+2022-07-29 13:18:41,241 - RTECrudOperations -INFO - Entered Signature
+2022-07-29 13:18:41,337 - RTECrudOperations -INFO - Clicked on Confirm DEL button
+2022-07-29 13:19:15,385 - RTECrudOperations -INFO - Validation is not displayed=Actual Delivery Datetime cannot be less than or equal to Actual Pickup Datetime.
+2022-07-29 13:19:15,652 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 13:19:15,880 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 13:19:21,618 - RTECrudOperations -INFO - Search button click event is working
+2022-07-29 13:19:21,657 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-07-29 13:19:21,850 - RTECrudOperations -INFO - Job status is==DELIVERED@STOP 2 OF 2
+2022-07-29 13:19:21,850 - RTECrudOperations -INFO - Job is Delivered successfully
+2022-07-29 13:19:22,262 - RTECrudOperations -INFO - Clicked on End Route
+2022-07-29 13:19:22,449 - RTECrudOperations -INFO - Validation is displayed==Actual Route End Date Required.
+Actual Route End Time Required.
+2022-07-29 13:19:22,449 - RTECrudOperations -INFO - Validation is displayed for Route End Date and Time==PASS
+2022-07-29 13:19:22,489 - RTECrudOperations -INFO - ZoneID of is==CDT
+2022-07-29 13:19:22,589 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 13:19:22,704 - RTECrudOperations -INFO - Entered Actual Route End Date
+2022-07-29 13:19:22,772 - RTECrudOperations -INFO - 02:50
+2022-07-29 13:19:23,020 - RTECrudOperations -INFO - Entered Actual Route End Time
+2022-07-29 13:19:23,593 - RTECrudOperations -INFO - Clicked on End Route
+2022-07-29 13:19:26,300 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 13:19:26,768 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 13:19:32,304 - RTECrudOperations -INFO - Search button click event is working
+2022-07-29 13:19:32,336 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-07-29 13:19:32,577 - RTECrudOperations -INFO - Job status is==VERIFY CUSTOMER BILL
+2022-07-29 13:19:32,578 - RTECrudOperations -INFO - Job is moved to Verify Customer Bill stage
+2022-07-29 13:19:34,841 - RTECrudOperations -INFO - Clicked on Verify button
+2022-07-29 13:19:40,302 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 13:19:40,533 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 13:19:45,532 - RTECrudOperations -INFO - Search button click event is working
+2022-07-29 13:19:45,546 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-07-29 13:19:45,732 - RTECrudOperations -INFO - Job status is==VERIFIED
+2022-07-29 13:19:45,732 - RTECrudOperations -INFO - Job is moved to VERIFIED stage
+2022-07-29 13:19:46,408 - RTECrudOperations -INFO - Clicked on Exit Without Save
+2022-07-29 13:19:46,408 - RTECrudOperations -INFO - ======================RTE Reject/Resend/CallBack/PendingDelivery Test End==================
+2022-07-29 13:19:46,498 - RTECrudOperations -INFO - ======================RTE Crud Operations Test Start==================
+2022-07-29 13:19:47,676 - RTECrudOperations -INFO - Clicked on Operations
+2022-07-29 13:19:47,962 - RTECrudOperations -INFO - Clicked on TaskLog
+2022-07-29 13:19:48,218 - RTECrudOperations -INFO - PickUpID==3456466
+2022-07-29 13:19:48,219 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 13:19:48,531 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 13:19:52,915 - RTECrudOperations -INFO - Search button click event is working
+2022-07-29 13:19:52,939 - RTECrudOperations -ERROR - java.lang.NullPointerException
+2022-07-29 13:19:53,104 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-07-29 13:19:53,277 - RTECrudOperations -INFO - Job status tab is already Opened
+2022-07-29 13:19:53,342 - RTECrudOperations -INFO - Job status is==TC ACK
+2022-07-29 13:19:53,343 - RTECrudOperations -INFO - It is TC ACK stage
+2022-07-29 13:19:53,759 - RTECrudOperations -INFO - Shipment Charges on Creation===$160.00
+2022-07-29 13:19:53,796 - RTECrudOperations -INFO - =====RTE Shipment Details Test Start=====
+2022-07-29 13:19:56,009 - RTECrudOperations -INFO - Shipment is exist in the RTE Job
+2022-07-29 13:19:56,305 - RTECrudOperations -INFO - Clicked on ShipmentNO==126560189
+2022-07-29 13:20:04,915 - RTECrudOperations -INFO - Entered Pickup Instruction
+2022-07-29 13:20:07,387 - RTECrudOperations -INFO - Entered Delivery Instruction
+2022-07-29 13:20:07,467 - RTECrudOperations -INFO - Clicked on Save button
+2022-07-29 13:21:00,115 - RTECrudOperations -INFO - Validation is not displayed, everything is as per expected
+2022-07-29 13:21:00,115 - RTECrudOperations -INFO - ==RTE Upload Test Start==
+2022-07-29 13:21:04,860 - RTECrudOperations -INFO - File is not exist
+2022-07-29 13:21:05,019 - RTECrudOperations -INFO - Click on plus sign
+2022-07-29 13:21:05,385 - RTECrudOperations -INFO - Enter doc name
+2022-07-29 13:21:05,438 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 13:21:05,562 - RTECrudOperations -INFO - Entered Doc Date
+2022-07-29 13:21:07,831 - RTECrudOperations -INFO - Select DocType
+2022-07-29 13:21:07,923 - RTECrudOperations -INFO - Click on Customer Viewable checkbox
+2022-07-29 13:21:09,985 - RTECrudOperations -INFO - Click on Agent Viewable checkbox
+2022-07-29 13:21:12,330 - RTECrudOperations -INFO - Click on Upload file
+2022-07-29 13:21:17,291 - RTECrudOperations -INFO - Select the file
+2022-07-29 13:21:19,367 - RTECrudOperations -INFO - Clicked on Upload button
+2022-07-29 13:21:21,537 - RTECrudOperations -INFO - Click on Save&Close button
+2022-07-29 13:21:22,769 - RTECrudOperations -INFO - ==RTE Upload Test End==
+2022-07-29 13:21:22,770 - RTECrudOperations -INFO - ==RTE Add/View Memo Test Start==
+2022-07-29 13:21:22,945 - RTECrudOperations -INFO - Clicked on Memo
+2022-07-29 13:21:24,968 - RTECrudOperations -INFO - Total No of links==5
+2022-07-29 13:21:24,982 - RTECrudOperations -INFO - Name of the Link is==All
+2022-07-29 13:21:27,084 - RTECrudOperations -INFO - Name of the Link is==Customer
+2022-07-29 13:21:29,256 - RTECrudOperations -INFO - Name of the Link is==Agent
+2022-07-29 13:21:31,411 - RTECrudOperations -INFO - Name of the Link is==Airline
+2022-07-29 13:21:33,580 - RTECrudOperations -INFO - Name of the Link is==Internal
+2022-07-29 13:21:35,737 - RTECrudOperations -INFO - Total No of Tabs==4
+2022-07-29 13:21:35,777 - RTECrudOperations -INFO - Name of the Tab is==Customer
+2022-07-29 13:21:37,924 - RTECrudOperations -INFO - Name of the Tab is==Agent
+2022-07-29 13:21:40,067 - RTECrudOperations -INFO - Name of the Tab is==Airline
+2022-07-29 13:21:42,208 - RTECrudOperations -INFO - Name of the Tab is==Internal
+2022-07-29 13:21:44,509 - RTECrudOperations -INFO - Clicked on All link
+2022-07-29 13:21:44,767 - RTECrudOperations -INFO - Entered Memo
+2022-07-29 13:21:44,852 - RTECrudOperations -INFO - Checked the checkbox of Make Visible to Customer
+2022-07-29 13:21:45,047 - RTECrudOperations -INFO - Clicked on Close button of Memo Popup
+2022-07-29 13:21:45,095 - RTECrudOperations -INFO - ==RTE Add/View Memo Test End==
+2022-07-29 13:21:45,095 - RTECrudOperations -INFO - ==RTE QC Test Start==
+2022-07-29 13:21:45,364 - RTECrudOperations -INFO - Clicked on QC linktext
+2022-07-29 13:21:52,746 - RTECrudOperations -INFO - Clicked on Add New QC
+2022-07-29 13:21:54,165 - RTECrudOperations -INFO - Selected Customer as a Type
+2022-07-29 13:21:55,653 - RTECrudOperations -INFO - Selected Invalid Address as a Category
+2022-07-29 13:21:57,369 - RTECrudOperations -INFO - Entered issue description
+2022-07-29 13:21:57,628 - RTECrudOperations -INFO - Clicked on Save button
+2022-07-29 13:22:00,631 - RTECrudOperations -INFO - Entered Confirm Note
+2022-07-29 13:22:01,018 - RTECrudOperations -INFO - Selected status
+2022-07-29 13:22:01,182 - RTECrudOperations -INFO - Clicked on Update button
+2022-07-29 13:22:02,482 - RTECrudOperations -INFO - QC is updated==QC Details updated successfully.
+2022-07-29 13:22:02,650 - RTECrudOperations -INFO - Clicked on Exit W/O Save button
+2022-07-29 13:22:03,867 - RTECrudOperations -INFO - ==RTE QC Test End==
+2022-07-29 13:22:03,867 - RTECrudOperations -INFO - ==RTE UnMerge Test Start==
+2022-07-29 13:22:04,021 - RTECrudOperations -INFO - Clicked on UnMerge linktext
+2022-07-29 13:22:04,392 - RTECrudOperations -INFO - UnMerge Message==RTE job has only one shipment, cannot be unmerged.
+2022-07-29 13:22:04,491 - RTECrudOperations -INFO - Clicked on OK button
+2022-07-29 13:22:05,133 - RTECrudOperations -INFO - =====RTE Shipment Details Test End=====
+2022-07-29 13:22:05,144 - RTECrudOperations -INFO - =====RTE Edit Job Test Start=====
+2022-07-29 13:22:05,671 - RTECrudOperations -INFO - Clicked on Edit Job tab
+2022-07-29 13:22:08,505 - RTECrudOperations -INFO - ==RTE View Rate Test Start==
+2022-07-29 13:22:10,713 - RTECrudOperations -INFO - Clicked on View Rate
+2022-07-29 13:22:14,888 - RTECrudOperations -INFO - Total No of Rate==1
+2022-07-29 13:22:14,955 - RTECrudOperations -INFO - Name of the Charge is==BR - Base Rate
+2022-07-29 13:22:15,033 - RTECrudOperations -INFO - Amount is==$160.00
+2022-07-29 13:22:15,096 - RTECrudOperations -INFO - Note is==43 Minute(s)
+2022-07-29 13:22:15,159 - RTECrudOperations -INFO - Name of the Scheduler is==Scheduler
+2022-07-29 13:22:15,225 - RTECrudOperations -INFO - Rate Program ID is==228927
+2022-07-29 13:22:15,286 - RTECrudOperations -INFO - Total Amount is==Total :US$160.00
+2022-07-29 13:22:15,337 - RTECrudOperations -INFO - Total No of charges==4
+2022-07-29 13:22:15,376 - RTECrudOperations -INFO - Label is==Total Revenue :
+2022-07-29 13:22:15,450 - RTECrudOperations -INFO - Label Value is==US$160.00
+2022-07-29 13:22:15,518 - RTECrudOperations -INFO - Label is==Total Cost :
+2022-07-29 13:22:15,609 - RTECrudOperations -INFO - Label Value is==US$0.00
+2022-07-29 13:22:15,752 - RTECrudOperations -INFO - Label is==Margin($) :
+2022-07-29 13:22:15,823 - RTECrudOperations -INFO - Label Value is==US$160.00
+2022-07-29 13:22:15,882 - RTECrudOperations -INFO - Label is==Margin(%) :
+2022-07-29 13:22:15,959 - RTECrudOperations -INFO - Label Value is==100%
+2022-07-29 13:22:16,079 - RTECrudOperations -INFO - Clicked on Close button of Rate
+2022-07-29 13:22:16,106 - RTECrudOperations -INFO - ==RTE View Rate Test End==
+2022-07-29 13:22:16,107 - RTECrudOperations -INFO - ==RTE View Memo Test Start==
+2022-07-29 13:22:18,394 - RTECrudOperations -INFO - Clicked on View Memo
+2022-07-29 13:22:21,928 - RTECrudOperations -INFO - Total count of the Memo is==0
+2022-07-29 13:22:21,952 - RTECrudOperations -INFO - Total No of links==5
+2022-07-29 13:22:21,969 - RTECrudOperations -INFO - Name of the Link is==All
+2022-07-29 13:22:24,075 - RTECrudOperations -INFO - Name of the Link is==Customer
+2022-07-29 13:22:26,174 - RTECrudOperations -INFO - Name of the Link is==Agent
+2022-07-29 13:22:28,282 - RTECrudOperations -INFO - Name of the Link is==Airline
+2022-07-29 13:22:30,432 - RTECrudOperations -INFO - Name of the Link is==Internal
+2022-07-29 13:22:32,623 - RTECrudOperations -INFO - Clicked on All link
+2022-07-29 13:22:32,895 - RTECrudOperations -INFO - Clicked on Audit History tab
+2022-07-29 13:22:34,386 - RTECrudOperations -INFO - Clicked on Close button of Memo Popup
+2022-07-29 13:22:34,434 - RTECrudOperations -INFO - ==RTE View Memo Test End==
+2022-07-29 13:22:34,434 - RTECrudOperations -INFO - ==RTE Print Label Test Start==
+2022-07-29 13:22:36,612 - RTECrudOperations -INFO - Clicked on Print Label
+2022-07-29 13:22:41,968 - RTECrudOperations -INFO - Switched to Print window
+2022-07-29 13:22:47,279 - RTECrudOperations -INFO - Closed Print window
+2022-07-29 13:22:47,293 - RTECrudOperations -INFO - Switched to main window
+2022-07-29 13:22:47,373 - RTECrudOperations -INFO - ==RTE Print Label Test End==
+2022-07-29 13:22:47,373 - RTECrudOperations -INFO - ==RTE Route/Shipment Details Test Start==
+2022-07-29 13:22:47,580 - RTECrudOperations -INFO - Moved to Route Details
+2022-07-29 13:22:47,904 - RTECrudOperations -INFO - Total Route==2
+2022-07-29 13:22:47,990 - RTECrudOperations -INFO - Stop No is==1
+2022-07-29 13:22:48,064 - RTECrudOperations -INFO - PU/DEL No is==2/0
+2022-07-29 13:22:48,131 - RTECrudOperations -INFO - Company is==Test company order 1
+2022-07-29 13:22:48,198 - RTECrudOperations -INFO - Address is==Test company order 1, 3625 Willowbend Blvd., Suite 132, Chemistry Lab Room P058, HOUSTON, TX, 77056, USA
+2022-07-29 13:22:48,286 - RTECrudOperations -INFO - Instructions is==PickUp instruction for Automation Testing
+2022-07-29 13:22:48,352 - RTECrudOperations -INFO - Miles is==
+2022-07-29 13:22:48,409 - RTECrudOperations -INFO - Estimated Minutes is==
+2022-07-29 13:22:48,474 - RTECrudOperations -INFO - ETA/POD is==2022-07-28 22:30
+2022-07-29 13:22:48,539 - RTECrudOperations -INFO - TimeZone is==CDT
+2022-07-29 13:22:48,599 - RTECrudOperations -INFO - Stop No is==2
+2022-07-29 13:22:48,661 - RTECrudOperations -INFO - PU/DEL No is==0/2
+2022-07-29 13:22:48,726 - RTECrudOperations -INFO - Company is==ST FRANCIS MEDICAL CENTER
+2022-07-29 13:22:48,789 - RTECrudOperations -INFO - Address is==ST FRANCIS MEDICAL CENTER, 23900 KATY FWY, Chemistry Laboratory, HOUSTON, TX, 77054, USA
+2022-07-29 13:22:48,851 - RTECrudOperations -INFO - Instructions is==Delivery instruction for Automation Testing
+2022-07-29 13:22:48,914 - RTECrudOperations -INFO - Miles is==26
+2022-07-29 13:22:48,976 - RTECrudOperations -INFO - Estimated Minutes is==43
+2022-07-29 13:22:49,039 - RTECrudOperations -INFO - ETA/POD is==2022-07-28 23:13
+2022-07-29 13:22:49,119 - RTECrudOperations -INFO - TimeZone is==CDT
+2022-07-29 13:22:49,333 - RTECrudOperations -INFO - Moved to Shipment Details
+2022-07-29 13:22:49,563 - RTECrudOperations -INFO - Total Shipment==1
+2022-07-29 13:22:49,593 - RTECrudOperations -INFO - Shipment No is==126560189
+2022-07-29 13:22:49,664 - RTECrudOperations -INFO - status is==Received
+2022-07-29 13:22:49,731 - RTECrudOperations -INFO - PickUP No is==3456466
+2022-07-29 13:22:49,793 - RTECrudOperations -INFO - PUStop is==1
+2022-07-29 13:22:49,856 - RTECrudOperations -INFO - DelStop is==2
+2022-07-29 13:22:49,921 - RTECrudOperations -INFO - No of PCs are==2
+2022-07-29 13:22:49,956 - RTECrudOperations -INFO - ==RTE Route/Shipment Details Test End==
+2022-07-29 13:22:49,957 - RTECrudOperations -INFO - ==RTE Map Test Start==
+2022-07-29 13:22:49,981 - RTECrudOperations -INFO - Total Shipment==1
+2022-07-29 13:22:50,010 - RTECrudOperations -INFO - Moved to Map form
+2022-07-29 13:22:50,219 - RTECrudOperations -INFO - Map Details==
+2022-07-29 13:22:50,323 - RTECrudOperations -INFO - Total stops==2
+2022-07-29 13:22:50,323 - RTECrudOperations -INFO - Stops in the map is as per the shipment
+2022-07-29 13:22:50,324 - RTECrudOperations -INFO - Shipment==1
+2022-07-29 13:22:50,324 - RTECrudOperations -INFO - Stops==2
+2022-07-29 13:22:50,395 - RTECrudOperations -INFO - Clicked on stop
+2022-07-29 13:22:50,544 - RTECrudOperations -INFO - Clicked on stop
+2022-07-29 13:22:50,726 - RTECrudOperations -INFO - Total stops==2
+2022-07-29 13:22:51,019 - RTECrudOperations -INFO - Clicked on Full screen of Map
+2022-07-29 13:22:53,434 - RTECrudOperations -INFO - Clicked on Full screen of Map
+2022-07-29 13:22:55,642 - RTECrudOperations -INFO - Clicked on Satelite
+2022-07-29 13:22:57,911 - RTECrudOperations -INFO - Clicked on Full screen of Map Satelite
+2022-07-29 13:23:01,056 - RTECrudOperations -INFO - Clicked on Full screen of Map Satelite
+2022-07-29 13:23:03,069 - RTECrudOperations -INFO - ==RTE Map Test End==
+2022-07-29 13:23:03,127 - RTECrudOperations -INFO - ==RTE Add/Edit Stop Sequence Test Start==
+2022-07-29 13:23:03,172 - RTECrudOperations -INFO - Total Shipment Stop==1
+2022-07-29 13:23:03,604 - RTECrudOperations -INFO - Clicked on Add Stop Sequence
+2022-07-29 13:23:05,943 - RTECrudOperations -INFO - Enter Pickup Stop
+2022-07-29 13:23:06,389 - RTECrudOperations -INFO - Enter Delivery Stop
+2022-07-29 13:23:06,681 - RTECrudOperations -INFO - Enter Address
+2022-07-29 13:23:06,993 - RTECrudOperations -INFO - Enter Company
+2022-07-29 13:23:07,341 - RTECrudOperations -INFO - Enter ZipCode
+2022-07-29 13:23:07,385 - RTECrudOperations -INFO - ZoneID of is==CDT
+2022-07-29 13:23:07,486 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 13:23:07,644 - RTECrudOperations -INFO - Entered SCH Date
+2022-07-29 13:23:07,760 - RTECrudOperations -INFO - 02:53
+2022-07-29 13:23:07,964 - RTECrudOperations -INFO - Entered SCH Time
+2022-07-29 13:23:08,028 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 13:23:08,187 - RTECrudOperations -INFO - Entered SCH Date
+2022-07-29 13:23:08,246 - RTECrudOperations -INFO - 02:53
+2022-07-29 13:23:08,402 - RTECrudOperations -INFO - Entered SCH Time
+2022-07-29 13:23:08,603 - RTECrudOperations -INFO - Enter Weight
+2022-07-29 13:23:08,806 - RTECrudOperations -INFO - Enter Length
+2022-07-29 13:23:09,037 - RTECrudOperations -INFO - Enter Width
+2022-07-29 13:23:09,275 - RTECrudOperations -INFO - Enter Height
+2022-07-29 13:23:09,405 - RTECrudOperations -INFO - Click on Save
+2022-07-29 13:24:13,715 - RTECrudOperations -INFO - Validation is not displayed, QDT Date and time is as per expected
+2022-07-29 13:25:04,124 - RTECrudOperations -INFO - Validation is not displayed, everything is as per expected
+2022-07-29 13:25:54,371 - RTECrudOperations -INFO - Validation is not displayed, QDT Date and time is as per expected
+2022-07-29 13:25:54,425 - RTECrudOperations -INFO - Total Shipment Stop after new added==2
+2022-07-29 13:25:54,425 - RTECrudOperations -INFO - New Stop added successfully
+2022-07-29 13:25:54,560 - RTECrudOperations -INFO - Clicked on Edit Stop Sequence
+2022-07-29 13:25:55,098 - RTECrudOperations -INFO - Edit PUStop
+2022-07-29 13:25:55,368 - RTECrudOperations -INFO - Edit DelStop
+2022-07-29 13:25:55,462 - RTECrudOperations -INFO - Clicked on Save changes
+2022-07-29 13:26:05,507 - RTECrudOperations -INFO - Clicked on Edit Stop Sequence
+2022-07-29 13:26:05,931 - RTECrudOperations -INFO - Edit PUStop
+2022-07-29 13:26:06,140 - RTECrudOperations -INFO - Edit DelStop
+2022-07-29 13:26:06,415 - RTECrudOperations -INFO - Edit PUStop
+2022-07-29 13:26:06,600 - RTECrudOperations -INFO - Edit DelStop
+2022-07-29 13:26:06,677 - RTECrudOperations -INFO - Clicked on Save changes
+2022-07-29 13:26:16,054 - RTECrudOperations -INFO - ==RTE Add/Edit Stop Sequence Test End==
+2022-07-29 13:26:16,055 - RTECrudOperations -INFO - ==RTE UnMerge Test Start==
+2022-07-29 13:26:16,354 - RTECrudOperations -INFO - Clicked on UnMerge linktext
+2022-07-29 13:27:08,559 - RTECrudOperations -INFO - Able to UnMerge
+2022-07-29 13:27:08,852 - RTECrudOperations -INFO - Clicked on Save button
+2022-07-29 13:27:12,502 - RTECrudOperations -INFO - Message==Pickup# 3476927 is unmerged successfully to LOC Service.
+2022-07-29 13:27:12,502 - RTECrudOperations -INFO - LOC service is created and shipment is unmerged
+2022-07-29 13:27:12,503 - RTECrudOperations -INFO - PickUpID is==3476927
+2022-07-29 13:27:12,617 - RTECrudOperations -INFO - Clicked on Cancel button
+2022-07-29 13:27:13,813 - RTECrudOperations -INFO - ==RTE UnMerge Test End==
+2022-07-29 13:27:13,813 - RTECrudOperations -INFO - ==RTE Add/Edit Stop Sequence Test Start==
+2022-07-29 13:27:13,842 - RTECrudOperations -INFO - Total Shipment Stop==1
+2022-07-29 13:27:14,220 - RTECrudOperations -INFO - Clicked on Add Stop Sequence
+2022-07-29 13:27:16,564 - RTECrudOperations -INFO - Enter Pickup Stop
+2022-07-29 13:27:17,155 - RTECrudOperations -INFO - Enter Delivery Stop
+2022-07-29 13:27:17,463 - RTECrudOperations -INFO - Enter Address
+2022-07-29 13:27:17,839 - RTECrudOperations -INFO - Enter Company
+2022-07-29 13:27:18,130 - RTECrudOperations -INFO - Enter ZipCode
+2022-07-29 13:27:18,182 - RTECrudOperations -INFO - ZoneID of is==CDT
+2022-07-29 13:27:18,278 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 13:27:18,480 - RTECrudOperations -INFO - Entered SCH Date
+2022-07-29 13:27:18,648 - RTECrudOperations -INFO - 02:57
+2022-07-29 13:27:18,813 - RTECrudOperations -INFO - Entered SCH Time
+2022-07-29 13:27:18,937 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 13:27:19,216 - RTECrudOperations -INFO - Entered SCH Date
+2022-07-29 13:27:19,304 - RTECrudOperations -INFO - 02:57
+2022-07-29 13:27:19,522 - RTECrudOperations -INFO - Entered SCH Time
+2022-07-29 13:27:19,874 - RTECrudOperations -INFO - Enter Weight
+2022-07-29 13:27:20,165 - RTECrudOperations -INFO - Enter Length
+2022-07-29 13:27:20,456 - RTECrudOperations -INFO - Enter Width
+2022-07-29 13:27:20,823 - RTECrudOperations -INFO - Enter Height
+2022-07-29 13:27:20,948 - RTECrudOperations -INFO - Click on Save
+2022-07-29 13:27:22,172 - RTECrudOperations -INFO - Validation is displayed==Delivery Quoted time cannot be less than Pickup Quoted time.
+2022-07-29 13:27:22,351 - RTECrudOperations -INFO - 07/28/2022
+2022-07-29 13:27:22,536 - RTECrudOperations -INFO - Entered PickUp Date
+2022-07-29 13:27:22,672 - RTECrudOperations -INFO - 01:57
+2022-07-29 13:27:22,856 - RTECrudOperations -INFO - Entered Actual PickUp Time
+2022-07-29 13:27:22,959 - RTECrudOperations -INFO - Click on Save
+2022-07-29 13:28:23,429 - RTECrudOperations -INFO - Validation is not displayed, everything is as per expected
+2022-07-29 13:29:13,673 - RTECrudOperations -INFO - Validation is not displayed, QDT Date and time is as per expected
+2022-07-29 13:29:13,713 - RTECrudOperations -INFO - Total Shipment Stop after new added==2
+2022-07-29 13:29:13,713 - RTECrudOperations -INFO - New Stop added successfully
+2022-07-29 13:29:13,761 - RTECrudOperations -INFO - Clicked on Edit Stop Sequence
+2022-07-29 13:29:14,026 - RTECrudOperations -INFO - Edit PUStop
+2022-07-29 13:29:14,253 - RTECrudOperations -INFO - Edit DelStop
+2022-07-29 13:29:14,371 - RTECrudOperations -INFO - Clicked on Save changes
+2022-07-29 13:29:23,363 - RTECrudOperations -INFO - Clicked on Edit Stop Sequence
+2022-07-29 13:29:23,926 - RTECrudOperations -INFO - Edit PUStop
+2022-07-29 13:29:24,106 - RTECrudOperations -INFO - Edit DelStop
+2022-07-29 13:29:24,294 - RTECrudOperations -INFO - Edit PUStop
+2022-07-29 13:29:24,539 - RTECrudOperations -INFO - Edit DelStop
+2022-07-29 13:29:24,602 - RTECrudOperations -INFO - Clicked on Save changes
+2022-07-29 13:29:32,526 - RTECrudOperations -INFO - ==RTE Add/Edit Stop Sequence Test End==
+2022-07-29 13:29:32,526 - RTECrudOperations -INFO - ==RTE UnMerge Test Start==
+2022-07-29 13:29:32,808 - RTECrudOperations -INFO - Clicked on UnMerge linktext
+2022-07-29 13:30:24,852 - RTECrudOperations -INFO - Able to UnMerge
+2022-07-29 13:30:25,114 - RTECrudOperations -INFO - Clicked on Save button
+2022-07-29 13:30:27,624 - RTECrudOperations -INFO - Message==Pickup# 3476929 is unmerged successfully to LOC Service.
+2022-07-29 13:30:27,624 - RTECrudOperations -INFO - LOC service is created and shipment is unmerged
+2022-07-29 13:30:27,625 - RTECrudOperations -INFO - PickUpID is==3476929
+2022-07-29 13:30:27,741 - RTECrudOperations -INFO - Clicked on Cancel button
+2022-07-29 13:30:28,953 - RTECrudOperations -INFO - ==RTE UnMerge Test End==
+2022-07-29 13:30:28,954 - RTECrudOperations -INFO - Result of UnMerge method is==PASS
+2022-07-29 13:30:28,954 - RTECrudOperations -INFO - ==RTE Customer Charges Test Start==
+2022-07-29 13:30:29,000 - RTECrudOperations -INFO - Moved to Customer Charges
+2022-07-29 13:30:29,439 - RTECrudOperations -INFO - Actual Rate before Recalculate==$160.00
+2022-07-29 13:30:29,477 - RTECrudOperations -INFO - Total existing charges==1
+2022-07-29 13:30:31,643 - RTECrudOperations -INFO - Selected Charge Type
+2022-07-29 13:30:32,229 - RTECrudOperations -INFO - Entered Charges
+2022-07-29 13:30:32,409 - RTECrudOperations -INFO - Clicked on Add Charge
+2022-07-29 13:30:34,549 - RTECrudOperations -INFO - Clicked on Save changes
+2022-07-29 13:30:35,718 - RTECrudOperations -INFO - Total charges after added new charges==2
+2022-07-29 13:30:35,718 - RTECrudOperations -INFO - New charge is added
+2022-07-29 13:30:35,972 - RTECrudOperations -INFO - Clicked on ReCalculate
+2022-07-29 13:30:49,602 - RTECrudOperations -INFO - Actual Rate after Recalculate==$185.00
+2022-07-29 13:30:49,603 - RTECrudOperations -INFO - Rate is updated
+2022-07-29 13:30:49,790 - RTECrudOperations -INFO - Clicked on Delete button of added charge
+2022-07-29 13:30:49,907 - RTECrudOperations -INFO - Message of the Dialogue is==Are you sure you want to Delete this record?
+2022-07-29 13:30:49,991 - RTECrudOperations -INFO - Click on Yes button
+2022-07-29 13:30:50,049 - RTECrudOperations -INFO - Total charges after deleted added charge==1
+2022-07-29 13:30:50,049 - RTECrudOperations -INFO - Charge is deleted
+2022-07-29 13:30:50,049 - RTECrudOperations -INFO - ==RTE Customer Charges Test End==
+2022-07-29 13:30:50,252 - RTECrudOperations -INFO - Clicked on Job Status tab
+2022-07-29 13:30:51,445 - RTECrudOperations -INFO - =====RTE Edit Job Test End=====
+2022-07-29 13:30:51,446 - RTECrudOperations -INFO - Result of UnMerge method is==PASS
+2022-07-29 13:30:51,889 - RTECrudOperations -INFO - Clicked on Acknowledge button
+2022-07-29 13:31:05,321 - RTECrudOperations -INFO - Job status is==RDY FOR DSP
+2022-07-29 13:31:05,324 - RTECrudOperations -INFO - ==RTE Edit Driver Test Start==
+2022-07-29 13:31:05,422 - RTECrudOperations -INFO - Clicked on Edit button of Driver
+2022-07-29 13:31:08,110 - RTECrudOperations -INFO - Enter Agent Key
+2022-07-29 13:31:08,210 - RTECrudOperations -INFO - Clicked on search button
+2022-07-29 13:31:09,368 - RTECrudOperations -INFO - Total Agent==11
+2022-07-29 13:31:09,526 - RTECrudOperations -INFO - There is no Agent with search parameter
+2022-07-29 13:31:09,687 - RTECrudOperations -INFO - There is no Agent with search parameter
+2022-07-29 13:31:10,052 - RTECrudOperations -INFO - There is no Agent with search parameter
+2022-07-29 13:31:10,210 - RTECrudOperations -INFO - There is no Agent with search parameter
+2022-07-29 13:31:10,370 - RTECrudOperations -INFO - There is no Agent with search parameter
+2022-07-29 13:31:10,537 - RTECrudOperations -INFO - There is no Agent with search parameter
+2022-07-29 13:31:10,721 - RTECrudOperations -INFO - There is no Agent with search parameter
+2022-07-29 13:31:10,864 - RTECrudOperations -INFO - There is no Agent with search parameter
+2022-07-29 13:31:11,035 - RTECrudOperations -INFO - There is no Agent with search parameter
+2022-07-29 13:31:11,220 - RTECrudOperations -INFO - There is no Agent with search parameter
+2022-07-29 13:31:11,387 - RTECrudOperations -INFO - Searched Agent is exist
+2022-07-29 13:31:11,423 - RTECrudOperations -INFO - Total Checkboxes==4
+2022-07-29 13:31:11,489 - RTECrudOperations -INFO - Name of the checkbox is== Heavy Weight
+2022-07-29 13:31:11,532 - RTECrudOperations -INFO - Clicked on Heavy Weight
+2022-07-29 13:31:11,585 - RTECrudOperations -INFO - Clicked on search button
+2022-07-29 13:32:02,996 - RTECrudOperations -INFO - Agent(s) is/are available with the search parameters
+2022-07-29 13:32:03,030 - RTECrudOperations -INFO - Clicked on Heavy Weight
+2022-07-29 13:32:03,093 - RTECrudOperations -INFO - Name of the checkbox is== TSA Certified
+2022-07-29 13:32:03,121 - RTECrudOperations -INFO - Clicked on TSA Certified
+2022-07-29 13:32:03,185 - RTECrudOperations -INFO - Clicked on search button
+2022-07-29 13:32:54,710 - RTECrudOperations -INFO - Agent(s) is/are available with the search parameters
+2022-07-29 13:32:54,727 - RTECrudOperations -INFO - Clicked on TSA Certified
+2022-07-29 13:32:54,786 - RTECrudOperations -INFO - Name of the checkbox is== FDX TSA
+2022-07-29 13:32:54,813 - RTECrudOperations -INFO - Clicked on FDX TSA
+2022-07-29 13:32:54,875 - RTECrudOperations -INFO - Clicked on search button
+2022-07-29 13:33:46,798 - RTECrudOperations -INFO - Agent(s) is/are available with the search parameters
+2022-07-29 13:33:46,834 - RTECrudOperations -INFO - Clicked on FDX TSA
+2022-07-29 13:33:46,904 - RTECrudOperations -INFO - Name of the checkbox is== Elevated Risk Certified
+2022-07-29 13:33:46,942 - RTECrudOperations -INFO - Clicked on Elevated Risk Certified
+2022-07-29 13:33:46,994 - RTECrudOperations -INFO - Clicked on search button
+2022-07-29 13:34:38,318 - RTECrudOperations -INFO - Agent(s) is/are available with the search parameters
+2022-07-29 13:34:38,349 - RTECrudOperations -INFO - Clicked on Elevated Risk Certified
+2022-07-29 13:34:38,658 - RTECrudOperations -INFO - Enter CourierID
+2022-07-29 13:34:38,726 - RTECrudOperations -INFO - Clicked on search button
+2022-07-29 13:34:39,973 - RTECrudOperations -INFO - Total Agent==2
+2022-07-29 13:34:40,143 - RTECrudOperations -INFO - There is no Agent with search parameter
+2022-07-29 13:34:40,314 - RTECrudOperations -INFO - Searched Agent is exist
+2022-07-29 13:34:40,634 - RTECrudOperations -INFO - Select the AgentID
+2022-07-29 13:34:41,948 - RTECrudOperations -INFO - Selected agent is==34769
+2022-07-29 13:34:41,949 - RTECrudOperations -INFO - Selected Agent is displayed in Driver section
+2022-07-29 13:34:41,999 - RTECrudOperations -INFO - Total Vehicles==4
+2022-07-29 13:34:42,059 - RTECrudOperations -INFO - Name of the Vehicle==Car
+2022-07-29 13:34:42,122 - RTECrudOperations -INFO - Car is selected
+2022-07-29 13:34:42,196 - RTECrudOperations -INFO - Name of the Vehicle==Van
+2022-07-29 13:34:42,333 - RTECrudOperations -INFO - Name of the Vehicle==StraightTruck
+2022-07-29 13:34:42,463 - RTECrudOperations -INFO - Name of the Vehicle==Trailer
+2022-07-29 13:34:42,802 - RTECrudOperations -INFO - Toll Concession is selected
+2022-07-29 13:34:42,803 - RTECrudOperations -INFO - ==RTE Edit Driver Test End==
+2022-07-29 13:34:43,249 - RTECrudOperations -INFO - Clicked on Send PU Alert button
+2022-07-29 13:35:17,326 - RTECrudOperations -INFO - Spoke With validation is not displayed
+2022-07-29 13:35:17,364 - RTECrudOperations -INFO - Stage is not RDY FOR DSP
+2022-07-29 13:35:17,644 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 13:35:17,888 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 13:35:23,199 - RTECrudOperations -INFO - Search button click event is working
+2022-07-29 13:35:23,267 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-07-29 13:35:23,521 - RTECrudOperations -INFO - Clicked on Job Status Tab
+2022-07-29 13:35:23,734 - RTECrudOperations -INFO - Job status is==PU DRV CONF
+2022-07-29 13:35:24,177 - RTECrudOperations -INFO - Clicked on Edit Job tab
+2022-07-29 13:35:30,715 - RTECrudOperations -INFO - Selected Driver
+2022-07-29 13:35:30,896 - RTECrudOperations -INFO - Clicked on Save changes
+2022-07-29 13:35:32,409 - RTECrudOperations -INFO - Clicked on Job Status tab
+2022-07-29 13:35:33,760 - RTECrudOperations -INFO - Clicked on Confirm PU Alert
+2022-07-29 13:35:33,974 - RTECrudOperations -INFO - Validation is displayed==Spoke With Required.
+2022-07-29 13:35:34,194 - RTECrudOperations -INFO - Entered Spoke With
+2022-07-29 13:35:34,269 - RTECrudOperations -INFO - Clicked on Confirm PU Alert
+2022-07-29 13:35:47,343 - RTECrudOperations -INFO - Job status is==PICKUP@STOP 1 OF 2
+2022-07-29 13:35:47,749 - RTECrudOperations -INFO - Clicked on Edit Job tab
+2022-07-29 13:35:54,058 - RTECrudOperations -INFO - Clicked on Agent Charges linktext
+2022-07-29 13:35:54,424 - RTECrudOperations -INFO - Clicked on ReCalC Charges
+2022-07-29 13:36:24,550 - RTECrudOperations -INFO - Success Message is not displayed
+2022-07-29 13:36:24,551 - RTECrudOperations -INFO - ReCalc Charges button is not working==FAIL
+2022-07-29 13:36:24,749 - RTECrudOperations -INFO - Clicked on ReCalC Charge and Save
+2022-07-29 13:36:27,629 - RTECrudOperations -INFO - Success Message is displayed==Charge(s) updated successfully.
+2022-07-29 13:36:27,680 - RTECrudOperations -INFO - Total Charges before added new charges==3
+2022-07-29 13:36:30,023 - RTECrudOperations -INFO - Selected Charge
+2022-07-29 13:36:30,455 - RTECrudOperations -INFO - Entered Notes
+2022-07-29 13:36:30,590 - RTECrudOperations -INFO - Clicked on AddCharge button
+2022-07-29 13:36:30,758 - RTECrudOperations -INFO - Validation Message is displayed==Please enter valid charge amount.
+2022-07-29 13:36:31,155 - RTECrudOperations -INFO - Entered Amount
+2022-07-29 13:36:31,258 - RTECrudOperations -INFO - Clicked on AddCharge button
+2022-07-29 13:36:31,329 - RTECrudOperations -INFO - Total Charges after added new charges==4
+2022-07-29 13:36:31,374 - RTECrudOperations -INFO - Charge Name is==BR - Base Rate
+2022-07-29 13:36:31,408 - RTECrudOperations -INFO - Charge Name is==SAP - Saturday Pickup
+2022-07-29 13:36:31,469 - RTECrudOperations -INFO - Charge Name is==FUE - Fuel Surcharge
+2022-07-29 13:36:31,507 - RTECrudOperations -INFO - Charge Name is==AOF - Agent Order Fee
+2022-07-29 13:36:31,507 - RTECrudOperations -INFO - New charge added successfully.AOF - Agent Order Fee
+2022-07-29 13:36:31,679 - RTECrudOperations -INFO - Charge Value is==$10.00
+2022-07-29 13:36:31,765 - RTECrudOperations -INFO - Clicked on Close button
+2022-07-29 13:36:32,016 - RTECrudOperations -INFO - Clicked on Job Status tab
+2022-07-29 13:36:34,027 - RTECrudOperations -INFO - Clicked on Confirm PU button
+2022-07-29 13:36:34,142 - RTECrudOperations -INFO - Validation is displayed==Act. Pickup Time is Required.
+2022-07-29 13:36:34,169 - RTECrudOperations -INFO - Total Pickup points is/are==1
+2022-07-29 13:36:34,248 - RTECrudOperations -INFO - ZoneID of is==CDT
+2022-07-29 13:36:34,437 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 13:36:34,555 - RTECrudOperations -INFO - Entered Actual Pickup Date
+2022-07-29 13:36:34,650 - RTECrudOperations -INFO - 03:06
+2022-07-29 13:36:34,810 - RTECrudOperations -INFO - Entered Actual Pickup Time
+2022-07-29 13:36:34,883 - RTECrudOperations -INFO - Clicked on Confirm PU button
+2022-07-29 13:37:17,779 - RTECrudOperations -INFO - Validation is not displayed=Actual Pickup Datetime cannot be less than or equal to last shipment of Actual Pickup Datetime.
+2022-07-29 13:37:18,001 - RTECrudOperations -INFO - Job status is==DELIVER@STOP 2 OF 2
+2022-07-29 13:37:18,390 - RTECrudOperations -INFO - Clicked on Edit Job tab
+2022-07-29 13:37:22,088 - RTECrudOperations -INFO - Clicked on Edit Stop Sequence
+2022-07-29 13:37:22,230 - RTECrudOperations -INFO - PU stop is Non-Editable==PASS
+2022-07-29 13:37:22,572 - RTECrudOperations -INFO - Clicked on Job Status tab
+2022-07-29 13:37:24,159 - RTECrudOperations -INFO - Clicked on Confirm DEL button
+2022-07-29 13:37:24,361 - RTECrudOperations -INFO - Validation is displayed==Act. Delivery Time is Required.
+Signature is required.
+2022-07-29 13:37:24,465 - RTECrudOperations -INFO - Total Delivery points is/are==1
+2022-07-29 13:37:24,542 - RTECrudOperations -INFO - ZoneID of is==CDT
+2022-07-29 13:37:24,675 - RTECrudOperations -INFO - 07/29/2022
+2022-07-29 13:37:24,792 - RTECrudOperations -INFO - Entered Actual Delivery Date
+2022-07-29 13:37:24,927 - RTECrudOperations -INFO - 03:07
+2022-07-29 13:37:25,201 - RTECrudOperations -INFO - Entered Actual Delivery Time
+2022-07-29 13:37:25,332 - RTECrudOperations -INFO - Entered Signature
+2022-07-29 13:37:25,540 - RTECrudOperations -INFO - Clicked on Confirm DEL button
+2022-07-29 13:37:59,248 - RTECrudOperations -INFO - Validation is not displayed=Actual Delivery Datetime cannot be less than or equal to Actual Pickup Datetime.
+2022-07-29 13:38:29,759 - RTECrudOperations -INFO - Validation for Act.Del Time and Signature is not displayed
+2022-07-29 13:38:29,987 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 13:38:31,158 - RTECrudOperations -ERROR - org.openqa.selenium.ElementClickInterceptedException: element click intercepted: Element <button id="btnGlobal..." class="btn btn-primary bluebutton no-margin" ng-click="GlobalSearchRecords(true,TaskDetails.SearchFieldToolTip,TaskDetails.AdvanceSearchValue,'GlobalSearch')">Search</button> is not clickable at point (973, 171). Other element would receive the click: <div id="loaderDiv" loader="" style="display: block;">...</div>
+  (Session info: chrome=103.0.5060.134)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'SIPL92', ip: '10.212.130.213', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.13'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 103.0.5060.134, chrome: {chromedriverVersion: 103.0.5060.134 (8ec6fce403b..., userDataDir: C:\WINDOWS\TEMP\scoped_dir4...}, goog:chromeOptions: {debuggerAddress: localhost:55360}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: e0c9e1284c5b9b41abbb5adbbe74b876
+2022-07-29 13:38:31,272 - RTECrudOperations -INFO - job is not moved to delivered stage
+2022-07-29 13:38:31,297 - RTECrudOperations -ERROR - java.lang.NullPointerException
+2022-07-29 13:38:31,483 - RTECrudOperations -INFO - Stage is not Deliver
+2022-07-29 13:38:31,501 - RTECrudOperations -INFO - Validation for Act.Pickup Time is not displayed
+2022-07-29 13:38:31,501 - RTECrudOperations -INFO - Search LOC job method is run because UnMerge is working
+2022-07-29 13:38:31,505 - RTECrudOperations -INFO - =====RTE Search LOC job Test Start=====
+2022-07-29 13:38:31,939 - RTECrudOperations -INFO - Clicked on Operations
+2022-07-29 13:38:32,281 - RTECrudOperations -INFO - Clicked on TaskLog
+2022-07-29 13:38:32,473 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 13:38:32,599 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 13:38:34,429 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-07-29 13:38:34,430 - RTECrudOperations -INFO - LOC job is created with Unmerged shipment
+2022-07-29 13:39:24,511 - RTECrudOperations -ERROR - org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of all elements located by By.id: ActiveShipmentId (tried for 50 second(s) with 500 milliseconds interval)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'SIPL92', ip: '10.212.130.213', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.13'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 103.0.5060.134, chrome: {chromedriverVersion: 103.0.5060.134 (8ec6fce403b..., userDataDir: C:\WINDOWS\TEMP\scoped_dir4...}, goog:chromeOptions: {debuggerAddress: localhost:55360}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: e0c9e1284c5b9b41abbb5adbbe74b876
+2022-07-29 13:40:14,699 - RTECrudOperations -ERROR - org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of all elements located by By.id: idOperationTasklogGrd (tried for 50 second(s) with 500 milliseconds interval)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'SIPL92', ip: '10.212.130.213', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.13'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 103.0.5060.134, chrome: {chromedriverVersion: 103.0.5060.134 (8ec6fce403b..., userDataDir: C:\WINDOWS\TEMP\scoped_dir4...}, goog:chromeOptions: {debuggerAddress: localhost:55360}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: e0c9e1284c5b9b41abbb5adbbe74b876
+2022-07-29 13:40:15,066 - RTECrudOperations -INFO - Entered PickUpID in basic search
+2022-07-29 13:40:15,439 - RTECrudOperations -INFO - Click on Search button
+2022-07-29 13:40:17,272 - RTECrudOperations -INFO - Data is exist with search parameter
+2022-07-29 13:40:17,272 - RTECrudOperations -INFO - LOC job is created with Unmerged shipment
+2022-07-29 13:41:07,358 - RTECrudOperations -ERROR - org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of all elements located by By.id: ActiveShipmentId (tried for 50 second(s) with 500 milliseconds interval)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'SIPL92', ip: '10.212.130.213', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.13'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 103.0.5060.134, chrome: {chromedriverVersion: 103.0.5060.134 (8ec6fce403b..., userDataDir: C:\WINDOWS\TEMP\scoped_dir4...}, goog:chromeOptions: {debuggerAddress: localhost:55360}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: e0c9e1284c5b9b41abbb5adbbe74b876
+2022-07-29 13:41:57,477 - RTECrudOperations -ERROR - org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of all elements located by By.id: idOperationTasklogGrd (tried for 50 second(s) with 500 milliseconds interval)
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'SIPL92', ip: '10.212.130.213', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.13'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 103.0.5060.134, chrome: {chromedriverVersion: 103.0.5060.134 (8ec6fce403b..., userDataDir: C:\WINDOWS\TEMP\scoped_dir4...}, goog:chromeOptions: {debuggerAddress: localhost:55360}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: e0c9e1284c5b9b41abbb5adbbe74b876
+2022-07-29 13:41:57,688 - RTECrudOperations -INFO - =====RTE Search LOC job Test End=====
+2022-07-29 13:41:57,689 - RTECrudOperations -INFO - Result of Search LOC job method is==null
+2022-07-29 13:41:57,690 - RTECrudOperations -INFO - Search LOC Job is not working
+2022-07-29 13:41:57,690 - RTECrudOperations -INFO - ======================RTE Crud Operations Test End==================
+2022-07-29 13:42:05,741 - RTECrudOperations -INFO - Logout Message is displayed==You have successfully logged out!
+2022-07-29 13:42:05,742 - RTECrudOperations -INFO - Logout done
+2022-07-29 13:42:06,703 - RTECrudOperations -INFO - ====Sending Email=====

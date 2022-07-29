@@ -93,13 +93,8 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 		msg.append("PickUpID==" + PickUpID + "\n");
 
 		// --Click on Search
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("btnGlobalSearch")));
-		wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-		WebElement GSearch = isElementPresent("TLGlobSearch_id");
-		act.moveToElement(GSearch).build().perform();
-		act.moveToElement(GSearch).click().perform();
-		logs.info("Click on Search button");
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+		CommonMethods CM = new CommonMethods();
+		CM.searchByPUID("OtoM");
 
 		try {
 			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
@@ -156,7 +151,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 					Select contact = new Select(isElementPresent("TLContacted_xpath"));
 					WebElement SOptn = contact.getFirstSelectedOption();
 					String DefSelect = SOptn.getText();
-					logs.info("Selected contact is==" + DefSelect);
+					logs.info("By Default Selected contact is==" + DefSelect);
 
 					if (DefSelect.contains("Email")) {
 
@@ -203,13 +198,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 						logs.info("Entered PickUpID in basic search");
 
 						// --Click on Search
-						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("btnGlobalSearch")));
-						wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-						GSearch = isElementPresent("TLGlobSearch_id");
-						act.moveToElement(GSearch).build().perform();
-						GSearch.click();
-						logs.info("Click on Search button");
-						wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+						CM.searchByPUID("OtoM");
 
 						try {
 
@@ -670,14 +659,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 										logs.info("Entered PickUpID in basic search");
 
 										// --Click on Search
-										wait.until(ExpectedConditions
-												.visibilityOfElementLocated(By.id("btnGlobalSearch")));
-										GSearch = isElementPresent("TLGlobSearch_id");
-										act.moveToElement(GSearch).build().perform();
-										wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-										act.moveToElement(GSearch).build().perform();
-										logs.info("Click on Search button");
-										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+										CM.searchByPUID("OtoM");
 
 										try {
 											WebElement NoData2 = isElementPresent("NoData_className");
@@ -797,17 +779,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 													logs.info("Entered PickUpID in basic search");
 
 													// --Click on Search
-													wait.until(ExpectedConditions
-															.visibilityOfElementLocated(By.id("btnGlobalSearch")));
-													wait.until(ExpectedConditions
-															.elementToBeClickable(By.id("btnGlobalSearch")));
-													GSearch = isElementPresent("TLGlobSearch_id");
-													act.moveToElement(GSearch).build().perform();
-													act.moveToElement(GSearch).click().perform();
-													logs.info("Click on Search button");
-													wait.until(ExpectedConditions
-															.invisibilityOfElementLocated(By.id("loaderDiv")));
-
+													CM.searchByPUID("OtoM");
 													try {
 														WebElement NoDataV = isElementPresent("NoData_className");
 														wait.until(ExpectedConditions.visibilityOf(NoDataV));
@@ -858,19 +830,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 																logs.info("Entered PickUpID in basic search");
 
 																// --Click on Search
-																wait.until(
-																		ExpectedConditions.visibilityOfElementLocated(
-																				By.id("btnGlobalSearch")));
-																wait.until(ExpectedConditions.elementToBeClickable(
-																		By.id("btnGlobalSearch")));
-																GSearch = isElementPresent("TLGlobSearch_id");
-																act.moveToElement(GSearch).build().perform();
-																act.moveToElement(GSearch).click().perform();
-																logs.info("Click on Search button");
-																wait.until(
-																		ExpectedConditions.invisibilityOfElementLocated(
-																				By.id("loaderDiv")));
-
+																CM.searchByPUID("OtoM");
 																try {
 																	WebElement NoDataV = isElementPresent(
 																			"NoData_className");
@@ -1041,7 +1001,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 				Select contact = new Select(isElementPresent("TLContacted_xpath"));
 				WebElement SOptn = contact.getFirstSelectedOption();
 				String DefSelect = SOptn.getText();
-				logs.info("Selected contact is==" + DefSelect);
+				logs.info("By Default Selected contact is==" + DefSelect);
 
 				if (DefSelect.contains("Email")) {
 
@@ -1088,15 +1048,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 					logs.info("Entered PickUpID in basic search");
 
 					// --Click on Search
-					wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("btnGlobalSearch")));
-					wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-					GSearch = isElementPresent("TLGlobSearch_id");
-					act.moveToElement(GSearch).build().perform();
-					wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-					GSearch.click();
-					logs.info("Click on Search button");
-					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
+					CM.searchByPUID("OtoM");
 					try {
 
 						wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
@@ -1546,14 +1498,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 									logs.info("Entered PickUpID in basic search");
 
 									// --Click on Search
-									wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("btnGlobalSearch")));
-									wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-									GSearch = isElementPresent("TLGlobSearch_id");
-									act.moveToElement(GSearch).build().perform();
-									act.moveToElement(GSearch).click().perform();
-									logs.info("Click on Search button");
-									wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
+									CM.searchByPUID("OtoM");
 									try {
 										WebElement NoData2 = isElementPresent("NoData_className");
 										wait.until(ExpectedConditions.visibilityOf(NoData2));
@@ -1670,17 +1615,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 												logs.info("Entered PickUpID in basic search");
 
 												// --Click on Search
-												wait.until(ExpectedConditions
-														.visibilityOfElementLocated(By.id("btnGlobalSearch")));
-												wait.until(ExpectedConditions
-														.elementToBeClickable(By.id("btnGlobalSearch")));
-												GSearch = isElementPresent("TLGlobSearch_id");
-												act.moveToElement(GSearch).build().perform();
-												act.moveToElement(GSearch).click().perform();
-												logs.info("Click on Search button");
-												wait.until(ExpectedConditions
-														.invisibilityOfElementLocated(By.id("loaderDiv")));
-
+												CM.searchByPUID("OtoM");
 												try {
 													WebElement NoDataV = isElementPresent("NoData_className");
 													wait.until(ExpectedConditions.visibilityOf(NoDataV));
@@ -1730,17 +1665,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 															logs.info("Entered PickUpID in basic search");
 
 															// --Click on Search
-															wait.until(ExpectedConditions.visibilityOfElementLocated(
-																	By.id("btnGlobalSearch")));
-															wait.until(ExpectedConditions
-																	.elementToBeClickable(By.id("btnGlobalSearch")));
-															GSearch = isElementPresent("TLGlobSearch_id");
-															act.moveToElement(GSearch).build().perform();
-															act.moveToElement(GSearch).click().perform();
-															logs.info("Click on Search button");
-															wait.until(ExpectedConditions
-																	.invisibilityOfElementLocated(By.id("loaderDiv")));
-
+															CM.searchByPUID("OtoM");
 															try {
 																WebElement NoDataV = isElementPresent(
 																		"NoData_className");
@@ -1786,6 +1711,8 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 															//
 
 														} catch (Exception VerifyCBill) {
+															logs.error(VerifyCBill);
+															getScreenshot(driver, "VerifyCBill_OtoMError");
 															logs.info("job is not moved to VERIFIED stage");
 															jobStatus = isElementPresent("TLStageLable_id").getText();
 															logs.info("Job status is==" + jobStatus);
@@ -1818,6 +1745,8 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 												//
 
 											} catch (Exception VerifyCBill) {
+												logs.error(VerifyCBill);
+												getScreenshot(driver, "VerifyCBill_OtoMError");
 												logs.info("job is not moved to Verify Customer Bill stage");
 												jobStatus = isElementPresent("TLStageLable_id").getText();
 												logs.info("Job status is==" + jobStatus);
@@ -1837,6 +1766,9 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 									//
 
 								} catch (Exception Deliverstage) {
+									logs.error(Deliverstage);
+									getScreenshot(driver, "Deliverstage_OtoMError");
+
 									logs.info("job is not moved to delivered stage");
 									jobStatus = isElementPresent("TLStageLable_id").getText();
 									logs.info("Job status is==" + jobStatus);
@@ -1844,12 +1776,16 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 								}
 
 							} catch (Exception Deliver) {
+								logs.error(Deliver);
+								getScreenshot(driver, "Deliver_OtoMError");
 								logs.info("Stage is not Deliver");
 								jobStatus = isElementPresent("TLStageLable_id").getText();
 								logs.info("Job status is==" + jobStatus);
 								msg.append("Job status is==" + jobStatus + "\n");
 							}
 						} catch (Exception PickUp) {
+							logs.error(PickUp);
+							getScreenshot(driver, "PickUp_OtoMError");
 							logs.info("Stage is not PickUP");
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
@@ -1857,7 +1793,8 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 						}
 
 					} catch (Exception NoDataEX) {
-
+						logs.error(NoDataEX);
+						getScreenshot(driver, "NoDataEX_OtoMError");
 						WebElement NoData1 = isElementPresent("NoData_className");
 						wait.until(ExpectedConditions.visibilityOf(NoData1));
 						if (NoData1.isDisplayed()) {
@@ -1867,6 +1804,8 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 					}
 
 				} catch (Exception Somethingw) {
+					logs.error(Somethingw);
+					getScreenshot(driver, "Somethingw_OtoMError");
 					logs.info("Job is not moved to PU DRV CONF stage");
 
 				}
@@ -2311,14 +2250,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 							logs.info("Entered PickUpID in basic search");
 
 							// --Click on Search
-							wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("btnGlobalSearch")));
-							wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-							GSearch = isElementPresent("TLGlobSearch_id");
-							act.moveToElement(GSearch).build().perform();
-							act.moveToElement(GSearch).click().perform();
-							logs.info("Click on Search button");
-							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
+							CM.searchByPUID("OtoM");
 							try {
 								WebElement NoData2 = isElementPresent("NoData_className");
 								wait.until(ExpectedConditions.visibilityOf(NoData2));
@@ -2428,15 +2360,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 										logs.info("Entered PickUpID in basic search");
 
 										// --Click on Search
-										wait.until(ExpectedConditions
-												.visibilityOfElementLocated(By.id("btnGlobalSearch")));
-										wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-										GSearch = isElementPresent("TLGlobSearch_id");
-										act.moveToElement(GSearch).build().perform();
-										act.moveToElement(GSearch).click().perform();
-										logs.info("Click on Search button");
-										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
+										CM.searchByPUID("OtoM");
 										try {
 											WebElement NoDataV = isElementPresent("NoData_className");
 											wait.until(ExpectedConditions.visibilityOf(NoDataV));
@@ -2486,17 +2410,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 													logs.info("Entered PickUpID in basic search");
 
 													// --Click on Search
-													wait.until(ExpectedConditions
-															.visibilityOfElementLocated(By.id("btnGlobalSearch")));
-													wait.until(ExpectedConditions
-															.elementToBeClickable(By.id("btnGlobalSearch")));
-													GSearch = isElementPresent("TLGlobSearch_id");
-													act.moveToElement(GSearch).build().perform();
-													act.moveToElement(GSearch).click().perform();
-													logs.info("Click on Search button");
-													wait.until(ExpectedConditions
-															.invisibilityOfElementLocated(By.id("loaderDiv")));
-
+													CM.searchByPUID("OtoM");
 													try {
 														WebElement NoDataV = isElementPresent("NoData_className");
 														wait.until(ExpectedConditions.visibilityOf(NoDataV));
@@ -2537,6 +2451,8 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 													//
 
 												} catch (Exception VerifyCBill) {
+													logs.error(VerifyCBill);
+													getScreenshot(driver, "VerifyCBill_OtoMError");
 													logs.info("job is not moved to VERIFIED stage");
 													jobStatus = isElementPresent("TLStageLable_id").getText();
 													logs.info("Job status is==" + jobStatus);
@@ -2569,6 +2485,8 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 										//
 
 									} catch (Exception VerifyCBill) {
+										logs.error(VerifyCBill);
+										getScreenshot(driver, "VerifyCBill_OtoMError");
 										logs.info("job is not moved to Verify Customer Bill stage");
 										jobStatus = isElementPresent("TLStageLable_id").getText();
 										logs.info("Job status is==" + jobStatus);
@@ -2588,6 +2506,9 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 							//
 
 						} catch (Exception Deliverstage) {
+							logs.error(Deliverstage);
+							getScreenshot(driver, "Deliverstage_OtoMError");
+
 							logs.info("job is not moved to delivered stage");
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
@@ -2595,12 +2516,16 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 						}
 
 					} catch (Exception Deliver) {
+						logs.error(Deliver);
+						getScreenshot(driver, "Deliver_OtoMError");
 						logs.info("Stage is not Deliver");
 						jobStatus = isElementPresent("TLStageLable_id").getText();
 						logs.info("Job status is==" + jobStatus);
 						msg.append("Job status is==" + jobStatus + "\n");
 					}
 				} catch (Exception PickUp) {
+					logs.error(PickUp);
+					getScreenshot(driver, "PickUp_OtoMError");
 					logs.info("Stage is not PickUP");
 					jobStatus = isElementPresent("TLStageLable_id").getText();
 					logs.info("Job status is==" + jobStatus);
@@ -3007,14 +2932,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 							logs.info("Entered PickUpID in basic search");
 
 							// --Click on Search
-							wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("btnGlobalSearch")));
-							wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-							GSearch = isElementPresent("TLGlobSearch_id");
-							act.moveToElement(GSearch).build().perform();
-							act.moveToElement(GSearch).click().perform();
-							logs.info("Click on Search button");
-							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
+							CM.searchByPUID("OtoM");
 							try {
 								WebElement NoData2 = isElementPresent("NoData_className");
 								wait.until(ExpectedConditions.visibilityOf(NoData2));
@@ -3124,15 +3042,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 										logs.info("Entered PickUpID in basic search");
 
 										// --Click on Search
-										wait.until(ExpectedConditions
-												.visibilityOfElementLocated(By.id("btnGlobalSearch")));
-										wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-										GSearch = isElementPresent("TLGlobSearch_id");
-										act.moveToElement(GSearch).build().perform();
-										act.moveToElement(GSearch).click().perform();
-										logs.info("Click on Search button");
-										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
+										CM.searchByPUID("OtoM");
 										try {
 											WebElement NoDataV = isElementPresent("NoData_className");
 											wait.until(ExpectedConditions.visibilityOf(NoDataV));
@@ -3182,17 +3092,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 													logs.info("Entered PickUpID in basic search");
 
 													// --Click on Search
-													wait.until(ExpectedConditions
-															.visibilityOfElementLocated(By.id("btnGlobalSearch")));
-													wait.until(ExpectedConditions
-															.elementToBeClickable(By.id("btnGlobalSearch")));
-													GSearch = isElementPresent("TLGlobSearch_id");
-													act.moveToElement(GSearch).build().perform();
-													act.moveToElement(GSearch).click().perform();
-													logs.info("Click on Search button");
-													wait.until(ExpectedConditions
-															.invisibilityOfElementLocated(By.id("loaderDiv")));
-
+													CM.searchByPUID("OtoM");
 													try {
 														WebElement NoDataV = isElementPresent("NoData_className");
 														wait.until(ExpectedConditions.visibilityOf(NoDataV));
@@ -3233,6 +3133,8 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 													//
 
 												} catch (Exception VerifyCBill) {
+													logs.error(VerifyCBill);
+													getScreenshot(driver, "VerifyCBill_OtoMError");
 													logs.info("job is not moved to VERIFIED stage");
 													jobStatus = isElementPresent("TLStageLable_id").getText();
 													logs.info("Job status is==" + jobStatus);
@@ -3265,6 +3167,8 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 										//
 
 									} catch (Exception VerifyCBill) {
+										logs.error(VerifyCBill);
+										getScreenshot(driver, "VerifyCBill_OtoMError");
 										logs.info("job is not moved to Verify Customer Bill stage");
 										jobStatus = isElementPresent("TLStageLable_id").getText();
 										logs.info("Job status is==" + jobStatus);
@@ -3284,6 +3188,9 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 							//
 
 						} catch (Exception Deliverstage) {
+							logs.error(Deliverstage);
+							getScreenshot(driver, "Deliverstage_OtoMError");
+
 							logs.info("job is not moved to delivered stage");
 							jobStatus = isElementPresent("TLStageLable_id").getText();
 							logs.info("Job status is==" + jobStatus);
@@ -3291,6 +3198,8 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 						}
 
 					} catch (Exception Deliver) {
+						logs.error(Deliver);
+						getScreenshot(driver, "Deliver_OtoMError");
 						logs.info("Stage is not Deliver");
 						jobStatus = isElementPresent("TLStageLable_id").getText();
 						logs.info("Job status is==" + jobStatus);
@@ -3582,13 +3491,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 						logs.info("Entered PickUpID in basic search");
 
 						// --Click on Search
-						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("btnGlobalSearch")));
-						wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-						GSearch = isElementPresent("TLGlobSearch_id");
-						act.moveToElement(GSearch).build().perform();
-						act.moveToElement(GSearch).click().perform();
-						logs.info("Click on Search button");
-						wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+						CM.searchByPUID("OtoM");
 
 						try {
 							WebElement NoData2 = isElementPresent("NoData_className");
@@ -3697,13 +3600,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 									logs.info("Entered PickUpID in basic search");
 
 									// --Click on Search
-									wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("btnGlobalSearch")));
-									wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-									GSearch = isElementPresent("TLGlobSearch_id");
-									act.moveToElement(GSearch).build().perform();
-									act.moveToElement(GSearch).click().perform();
-									logs.info("Click on Search button");
-									wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+									CM.searchByPUID("OtoM");
 
 									try {
 										WebElement NoDataV = isElementPresent("NoData_className");
@@ -3754,17 +3651,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 												logs.info("Entered PickUpID in basic search");
 
 												// --Click on Search
-												wait.until(ExpectedConditions
-														.visibilityOfElementLocated(By.id("btnGlobalSearch")));
-												wait.until(ExpectedConditions
-														.elementToBeClickable(By.id("btnGlobalSearch")));
-												GSearch = isElementPresent("TLGlobSearch_id");
-												act.moveToElement(GSearch).build().perform();
-												act.moveToElement(GSearch).click().perform();
-												logs.info("Click on Search button");
-												wait.until(ExpectedConditions
-														.invisibilityOfElementLocated(By.id("loaderDiv")));
-
+												CM.searchByPUID("OtoM");
 												try {
 													WebElement NoDataV = isElementPresent("NoData_className");
 													wait.until(ExpectedConditions.visibilityOf(NoDataV));
@@ -3968,13 +3855,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 						logs.info("Entered PickUpID in basic search");
 
 						// --Click on Search
-						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("btnGlobalSearch")));
-						wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-						GSearch = isElementPresent("TLGlobSearch_id");
-						act.moveToElement(GSearch).build().perform();
-						act.moveToElement(GSearch).click().perform();
-						logs.info("Click on Search button");
-						wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+						CM.searchByPUID("OtoM");
 
 						try {
 							WebElement NoDataV = isElementPresent("NoData_className");
@@ -4021,13 +3902,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 									logs.info("Entered PickUpID in basic search");
 
 									// --Click on Search
-									wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("btnGlobalSearch")));
-									wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-									GSearch = isElementPresent("TLGlobSearch_id");
-									act.moveToElement(GSearch).build().perform();
-									act.moveToElement(GSearch).click().perform();
-									logs.info("Click on Search button");
-									wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+									CM.searchByPUID("OtoM");
 
 									try {
 										WebElement NoDataV = isElementPresent("NoData_className");
@@ -4152,14 +4027,7 @@ public class RTEOneToManyOrderProcess extends BaseInit {
 						logs.info("Entered PickUpID in basic search");
 
 						// --Click on Search
-						wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("btnGlobalSearch")));
-						wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-						GSearch = isElementPresent("TLGlobSearch_id");
-						act.moveToElement(GSearch).build().perform();
-						act.moveToElement(GSearch).click().perform();
-						logs.info("Click on Search button");
-						wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
+						CM.searchByPUID("OtoM");
 						try {
 							WebElement NoDataV = isElementPresent("NoData_className");
 							wait.until(ExpectedConditions.visibilityOf(NoDataV));

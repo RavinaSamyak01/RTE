@@ -92,10 +92,8 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 		msg.append("PickUpID==" + PickUpID + "\n");
 
 		// --Click on Search
-		wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-		isElementPresent("TLGlobSearch_id").click();
-		logs.info("Click on Search button");
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+		CommonMethods CM = new CommonMethods();
+		CM.searchByPUID("MtoO");
 
 		try {
 			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
@@ -182,11 +180,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 						logs.info("Entered PickUpID in basic search");
 
 						// --Click on Search
-						wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-						isElementPresent("TLGlobSearch_id").click();
-						logs.info("Click on Search button");
-						wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
+						CM.searchByPUID("MtoO");
 						try {
 
 							wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
@@ -1454,15 +1448,8 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 										logs.info("Entered PickUpID in basic search");
 
 										// --Click on Search
-										wait.until(ExpectedConditions
-												.visibilityOfElementLocated(By.id("btnGlobalSearch")));
-										WebElement GSearch = isElementPresent("TLGlobSearch_id");
-										act.moveToElement(GSearch).build().perform();
-										wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-										GSearch.click();
-										logs.info("Click on Search button");
-										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
+										CM.searchByPUID("MtoO");
+										
 										try {
 											WebElement NoData2 = isElementPresent("NoData_className");
 											wait.until(ExpectedConditions.visibilityOf(NoData2));
@@ -1579,15 +1566,8 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 													isElementPresent("TLBasicSearch_id").clear();
 													isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 													logs.info("Entered PickUpID in basic search");
-
 													// --Click on Search
-													wait.until(ExpectedConditions
-															.elementToBeClickable(By.id("btnGlobalSearch")));
-													isElementPresent("TLGlobSearch_id").click();
-													logs.info("Click on Search button");
-													wait.until(ExpectedConditions
-															.invisibilityOfElementLocated(By.id("loaderDiv")));
-
+													CM.searchByPUID("MtoO");
 													try {
 														WebElement NoDataV = isElementPresent("NoData_className");
 														wait.until(ExpectedConditions.visibilityOf(NoDataV));
@@ -1638,14 +1618,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 																logs.info("Entered PickUpID in basic search");
 
 																// --Click on Search
-																wait.until(ExpectedConditions.elementToBeClickable(
-																		By.id("btnGlobalSearch")));
-																isElementPresent("TLGlobSearch_id").click();
-																logs.info("Click on Search button");
-																wait.until(
-																		ExpectedConditions.invisibilityOfElementLocated(
-																				By.id("loaderDiv")));
-
+																CM.searchByPUID("MtoO");
 																try {
 																	WebElement NoDataV = isElementPresent(
 																			"NoData_className");
@@ -1847,11 +1820,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 					logs.info("Entered PickUpID in basic search");
 
 					// --Click on Search
-					wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-					isElementPresent("TLGlobSearch_id").click();
-					logs.info("Click on Search button");
-					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
+					CM.searchByPUID("MtoO");
 					try {
 
 						wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
@@ -3076,13 +3045,8 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 									isElementPresent("TLBasicSearch_id").clear();
 									isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 									logs.info("Entered PickUpID in basic search");
-
 									// --Click on Search
-									wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-									isElementPresent("TLGlobSearch_id").click();
-									logs.info("Click on Search button");
-									wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
+									CM.searchByPUID("MtoO");
 									try {
 										WebElement NoData2 = isElementPresent("NoData_className");
 										wait.until(ExpectedConditions.visibilityOf(NoData2));
@@ -3199,13 +3163,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 												logs.info("Entered PickUpID in basic search");
 
 												// --Click on Search
-												wait.until(ExpectedConditions
-														.elementToBeClickable(By.id("btnGlobalSearch")));
-												isElementPresent("TLGlobSearch_id").click();
-												logs.info("Click on Search button");
-												wait.until(ExpectedConditions
-														.invisibilityOfElementLocated(By.id("loaderDiv")));
-
+												CM.searchByPUID("MtoO");
 												try {
 													WebElement NoDataV = isElementPresent("NoData_className");
 													wait.until(ExpectedConditions.visibilityOf(NoDataV));
@@ -3255,13 +3213,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 															logs.info("Entered PickUpID in basic search");
 
 															// --Click on Search
-															wait.until(ExpectedConditions
-																	.elementToBeClickable(By.id("btnGlobalSearch")));
-															isElementPresent("TLGlobSearch_id").click();
-															logs.info("Click on Search button");
-															wait.until(ExpectedConditions
-																	.invisibilityOfElementLocated(By.id("loaderDiv")));
-
+															CM.searchByPUID("MtoO");
 															try {
 																WebElement NoDataV = isElementPresent(
 																		"NoData_className");
@@ -4559,11 +4511,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 							logs.info("Entered PickUpID in basic search");
 
 							// --Click on Search
-							wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-							isElementPresent("TLGlobSearch_id").click();
-							logs.info("Click on Search button");
-							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
+							CM.searchByPUID("MtoO");
 							try {
 								WebElement NoData2 = isElementPresent("NoData_className");
 								wait.until(ExpectedConditions.visibilityOf(NoData2));
@@ -4671,13 +4619,8 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 										isElementPresent("TLBasicSearch_id").clear();
 										isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 										logs.info("Entered PickUpID in basic search");
-
 										// --Click on Search
-										wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-										isElementPresent("TLGlobSearch_id").click();
-										logs.info("Click on Search button");
-										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
+										CM.searchByPUID("MtoO");
 										try {
 											WebElement NoDataV = isElementPresent("NoData_className");
 											wait.until(ExpectedConditions.visibilityOf(NoDataV));
@@ -4725,15 +4668,8 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 													isElementPresent("TLBasicSearch_id").clear();
 													isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 													logs.info("Entered PickUpID in basic search");
-
 													// --Click on Search
-													wait.until(ExpectedConditions
-															.elementToBeClickable(By.id("btnGlobalSearch")));
-													isElementPresent("TLGlobSearch_id").click();
-													logs.info("Click on Search button");
-													wait.until(ExpectedConditions
-															.invisibilityOfElementLocated(By.id("loaderDiv")));
-
+													CM.searchByPUID("MtoO");
 													try {
 														WebElement NoDataV = isElementPresent("NoData_className");
 														wait.until(ExpectedConditions.visibilityOf(NoDataV));
@@ -5971,11 +5907,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 							logs.info("Entered PickUpID in basic search");
 
 							// --Click on Search
-							wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-							isElementPresent("TLGlobSearch_id").click();
-							logs.info("Click on Search button");
-							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
+							CM.searchByPUID("MtoO");
 							try {
 								WebElement NoData2 = isElementPresent("NoData_className");
 								wait.until(ExpectedConditions.visibilityOf(NoData2));
@@ -6085,11 +6017,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 										logs.info("Entered PickUpID in basic search");
 
 										// --Click on Search
-										wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-										isElementPresent("TLGlobSearch_id").click();
-										logs.info("Click on Search button");
-										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
+										CM.searchByPUID("MtoO");
 										try {
 											WebElement NoDataV = isElementPresent("NoData_className");
 											wait.until(ExpectedConditions.visibilityOf(NoDataV));
@@ -6139,13 +6067,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 													logs.info("Entered PickUpID in basic search");
 
 													// --Click on Search
-													wait.until(ExpectedConditions
-															.elementToBeClickable(By.id("btnGlobalSearch")));
-													isElementPresent("TLGlobSearch_id").click();
-													logs.info("Click on Search button");
-													wait.until(ExpectedConditions
-															.invisibilityOfElementLocated(By.id("loaderDiv")));
-
+													CM.searchByPUID("MtoO");
 													try {
 														WebElement NoDataV = isElementPresent("NoData_className");
 														wait.until(ExpectedConditions.visibilityOf(NoDataV));
@@ -6799,13 +6721,8 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 						isElementPresent("TLBasicSearch_id").clear();
 						isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 						logs.info("Entered PickUpID in basic search");
-
 						// --Click on Search
-						wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-						isElementPresent("TLGlobSearch_id").click();
-						logs.info("Click on Search button");
-						wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
+						CM.searchByPUID("MtoO");
 						try {
 							WebElement NoData2 = isElementPresent("NoData_className");
 							wait.until(ExpectedConditions.visibilityOf(NoData2));
@@ -6913,11 +6830,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 									logs.info("Entered PickUpID in basic search");
 
 									// --Click on Search
-									wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-									isElementPresent("TLGlobSearch_id").click();
-									logs.info("Click on Search button");
-									wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
+									CM.searchByPUID("MtoO");
 									try {
 										WebElement NoDataV = isElementPresent("NoData_className");
 										wait.until(ExpectedConditions.visibilityOf(NoDataV));
@@ -6967,13 +6880,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 												logs.info("Entered PickUpID in basic search");
 
 												// --Click on Search
-												wait.until(ExpectedConditions
-														.elementToBeClickable(By.id("btnGlobalSearch")));
-												isElementPresent("TLGlobSearch_id").click();
-												logs.info("Click on Search button");
-												wait.until(ExpectedConditions
-														.invisibilityOfElementLocated(By.id("loaderDiv")));
-
+												CM.searchByPUID("MtoO");
 												try {
 													WebElement NoDataV = isElementPresent("NoData_className");
 													wait.until(ExpectedConditions.visibilityOf(NoDataV));
@@ -7168,11 +7075,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 					logs.info("Entered PickUpID in basic search");
 
 					// --Click on Search
-					wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-					isElementPresent("TLGlobSearch_id").click();
-					logs.info("Click on Search button");
-					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
+					CM.searchByPUID("MtoO");
 					try {
 						WebElement NoDataV = isElementPresent("NoData_className");
 						wait.until(ExpectedConditions.visibilityOf(NoDataV));
@@ -7219,11 +7122,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 								logs.info("Entered PickUpID in basic search");
 
 								// --Click on Search
-								wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-								isElementPresent("TLGlobSearch_id").click();
-								logs.info("Click on Search button");
-								wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
+								CM.searchByPUID("MtoO");
 								try {
 									WebElement NoDataV = isElementPresent("NoData_className");
 									wait.until(ExpectedConditions.visibilityOf(NoDataV));
@@ -7340,11 +7239,7 @@ public class RTEManyToOneOrderProcess extends BaseInit {
 						logs.info("Entered PickUpID in basic search");
 
 						// --Click on Search
-						wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-						isElementPresent("TLGlobSearch_id").click();
-						logs.info("Click on Search button");
-						wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
+						CM.searchByPUID("MtoO");
 						try {
 							WebElement NoDataV = isElementPresent("NoData_className");
 							wait.until(ExpectedConditions.visibilityOf(NoDataV));

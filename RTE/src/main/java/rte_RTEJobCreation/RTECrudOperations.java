@@ -95,13 +95,8 @@ public class RTECrudOperations extends BaseInit {
 		msg.append("PickUpID==" + PickUpID + "\n");
 
 		// --Click on Search
-		WebElement GlobSearch = isElementPresent("TLGlobSearch_id");
-		wait.until(ExpectedConditions.elementToBeClickable(GlobSearch));
-		act.moveToElement(GlobSearch).build().perform();
-		act.moveToElement(GlobSearch).click().perform();
-		logs.info("Click on Search button");
-
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+		CommonMethods CM = new CommonMethods();
+		CM.searchByPUID("CrudOp");
 
 		try {
 			WebElement NoData = isElementPresent("NoData_className");
@@ -268,12 +263,7 @@ public class RTECrudOperations extends BaseInit {
 							logs.info("Entered PickUpID in basic search");
 
 							// --Click on Search
-							GlobSearch = isElementPresent("TLGlobSearch_id");
-							wait.until(ExpectedConditions.elementToBeClickable(GlobSearch));
-							act.moveToElement(GlobSearch).build().perform();
-							act.moveToElement(GlobSearch).click().perform();
-							logs.info("Click on Search button");
-							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+							CM.searchByPUID("CrudOp");
 
 							try {
 
@@ -935,15 +925,7 @@ public class RTECrudOperations extends BaseInit {
 													logs.info("Entered PickUpID in basic search");
 
 													// --Click on Search
-													wait.until(ExpectedConditions
-															.elementToBeClickable(By.id("btnGlobalSearch")));
-													GlobSearch = isElementPresent("TLGlobSearch_id");
-													act.moveToElement(GlobSearch).build().perform();
-													wait.until(ExpectedConditions.elementToBeClickable(GlobSearch));
-													act.moveToElement(GlobSearch).click().perform();
-													logs.info("Click on Search button");
-													wait.until(ExpectedConditions
-															.invisibilityOfElementLocated(By.id("loaderDiv")));
+													CM.searchByPUID("CrudOp");
 
 													try {
 														WebElement NoData2 = isElementPresent("NoData_className");
@@ -1154,17 +1136,7 @@ public class RTECrudOperations extends BaseInit {
 																logs.info("Entered PickUpID in basic search");
 
 																// --Click on Search
-																wait.until(ExpectedConditions.elementToBeClickable(
-																		By.id("btnGlobalSearch")));
-																GlobSearch = isElementPresent("TLGlobSearch_id");
-																wait.until(ExpectedConditions
-																		.elementToBeClickable(GlobSearch));
-																act.moveToElement(GlobSearch).build().perform();
-																act.moveToElement(GlobSearch).click().perform();
-																logs.info("Click on Search button");
-																wait.until(
-																		ExpectedConditions.invisibilityOfElementLocated(
-																				By.id("loaderDiv")));
+																CM.searchByPUID("CrudOp");
 
 																try {
 																	WebElement NoDataV = isElementPresent(
@@ -1230,21 +1202,7 @@ public class RTECrudOperations extends BaseInit {
 																					"Entered PickUpID in basic search");
 
 																			// --Click on Search
-																			wait.until(ExpectedConditions
-																					.elementToBeClickable(
-																							By.id("btnGlobalSearch")));
-																			GlobSearch = isElementPresent(
-																					"TLGlobSearch_id");
-																			wait.until(ExpectedConditions
-																					.elementToBeClickable(GlobSearch));
-																			act.moveToElement(GlobSearch).build()
-																					.perform();
-																			act.moveToElement(GlobSearch).click()
-																					.perform();
-																			logs.info("Click on Search button");
-																			wait.until(ExpectedConditions
-																					.invisibilityOfElementLocated(
-																							By.id("loaderDiv")));
+																			CM.searchByPUID("CrudOp");
 
 																			try {
 																				WebElement NoDataV = isElementPresent(
@@ -1321,7 +1279,8 @@ public class RTECrudOperations extends BaseInit {
 
 																		} catch (Exception VerifyCBill) {
 																			logs.error(VerifyCBill);
-																			getScreenshot(driver, "VerifyCBill_CrudOpError");
+																			getScreenshot(driver,
+																					"VerifyCBill_CrudOpError");
 																			logs.info(
 																					"job is not moved to VERIFIED stage");
 																			jobStatus = isElementPresent(
@@ -1510,14 +1469,7 @@ public class RTECrudOperations extends BaseInit {
 						logs.info("Entered PickUpID in basic search");
 
 						// --Click on Search
-
-						GlobSearch = isElementPresent("TLGlobSearch_id");
-						wait.until(ExpectedConditions.elementToBeClickable(GlobSearch));
-						act.moveToElement(GlobSearch).build().perform();
-						act.moveToElement(GlobSearch).click().perform();
-						logs.info("Click on Search button");
-						wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
-
+						CM.searchByPUID("CrudOp");
 						try {
 
 							wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
@@ -2159,16 +2111,7 @@ public class RTECrudOperations extends BaseInit {
 												logs.info("Entered PickUpID in basic search");
 
 												// --Click on Search
-												wait.until(ExpectedConditions
-														.elementToBeClickable(By.id("btnGlobalSearch")));
-												GlobSearch = isElementPresent("TLGlobSearch_id");
-												wait.until(ExpectedConditions.elementToBeClickable(GlobSearch));
-												act.moveToElement(GlobSearch).build().perform();
-												act.moveToElement(GlobSearch).click().perform();
-												logs.info("Click on Search button");
-												wait.until(ExpectedConditions
-														.invisibilityOfElementLocated(By.id("loaderDiv")));
-
+												CM.searchByPUID("CrudOp");
 												try {
 													WebElement NoData2 = isElementPresent("NoData_className");
 													wait.until(ExpectedConditions.visibilityOf(NoData2));
@@ -2370,16 +2313,7 @@ public class RTECrudOperations extends BaseInit {
 															logs.info("Entered PickUpID in basic search");
 
 															// --Click on Search
-															wait.until(ExpectedConditions
-																	.elementToBeClickable(By.id("btnGlobalSearch")));
-															GlobSearch = isElementPresent("TLGlobSearch_id");
-															wait.until(ExpectedConditions
-																	.elementToBeClickable(GlobSearch));
-															act.moveToElement(GlobSearch).build().perform();
-															act.moveToElement(GlobSearch).click().perform();
-															logs.info("Click on Search button");
-															wait.until(ExpectedConditions
-																	.invisibilityOfElementLocated(By.id("loaderDiv")));
+															CM.searchByPUID("CrudOp");
 
 															try {
 																WebElement NoDataV = isElementPresent(
@@ -2437,19 +2371,7 @@ public class RTECrudOperations extends BaseInit {
 																		logs.info("Entered PickUpID in basic search");
 
 																		// --Click on Search
-																		wait.until(
-																				ExpectedConditions.elementToBeClickable(
-																						By.id("btnGlobalSearch")));
-																		GlobSearch = isElementPresent(
-																				"TLGlobSearch_id");
-																		wait.until(ExpectedConditions
-																				.elementToBeClickable(GlobSearch));
-																		act.moveToElement(GlobSearch).build().perform();
-																		act.moveToElement(GlobSearch).click().perform();
-																		logs.info("Click on Search button");
-																		wait.until(ExpectedConditions
-																				.invisibilityOfElementLocated(
-																						By.id("loaderDiv")));
+																		CM.searchByPUID("CrudOp");
 
 																		try {
 																			WebElement NoDataV = isElementPresent(
@@ -3256,13 +3178,7 @@ public class RTECrudOperations extends BaseInit {
 										logs.info("Entered PickUpID in basic search");
 
 										// --Click on Search
-
-										GlobSearch = isElementPresent("TLGlobSearch_id");
-										wait.until(ExpectedConditions.elementToBeClickable(GlobSearch));
-										act.moveToElement(GlobSearch).build().perform();
-										act.moveToElement(GlobSearch).click().perform();
-										logs.info("Click on Search button");
-										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+										CM.searchByPUID("CrudOp");
 
 										try {
 											WebElement NoData2 = isElementPresent("NoData_className");
@@ -3457,15 +3373,7 @@ public class RTECrudOperations extends BaseInit {
 													logs.info("Entered PickUpID in basic search");
 
 													// --Click on Search
-													wait.until(ExpectedConditions
-															.elementToBeClickable(By.id("btnGlobalSearch")));
-													GlobSearch = isElementPresent("TLGlobSearch_id");
-													wait.until(ExpectedConditions.elementToBeClickable(GlobSearch));
-													act.moveToElement(GlobSearch).build().perform();
-													act.moveToElement(GlobSearch).click().perform();
-													logs.info("Click on Search button");
-													wait.until(ExpectedConditions
-															.invisibilityOfElementLocated(By.id("loaderDiv")));
+													CM.searchByPUID("CrudOp");
 
 													try {
 														WebElement NoDataV = isElementPresent("NoData_className");
@@ -3516,18 +3424,7 @@ public class RTECrudOperations extends BaseInit {
 																logs.info("Entered PickUpID in basic search");
 
 																// --Click on Search
-																wait.until(ExpectedConditions.elementToBeClickable(
-																		By.id("btnGlobalSearch")));
-																GlobSearch = isElementPresent("TLGlobSearch_id");
-																wait.until(ExpectedConditions
-																		.elementToBeClickable(GlobSearch));
-																act.moveToElement(GlobSearch).build().perform();
-																act.moveToElement(GlobSearch).click().perform();
-																logs.info("Click on Search button");
-																wait.until(
-																		ExpectedConditions.invisibilityOfElementLocated(
-																				By.id("loaderDiv")));
-
+																CM.searchByPUID("CrudOp");
 																try {
 																	WebElement NoDataV = isElementPresent(
 																			"NoData_className");
@@ -4222,13 +4119,7 @@ public class RTECrudOperations extends BaseInit {
 										logs.info("Entered PickUpID in basic search");
 
 										// --Click on Search
-
-										GlobSearch = isElementPresent("TLGlobSearch_id");
-										wait.until(ExpectedConditions.elementToBeClickable(GlobSearch));
-										act.moveToElement(GlobSearch).build().perform();
-										act.moveToElement(GlobSearch).click().perform();
-										logs.info("Click on Search button");
-										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+										CM.searchByPUID("CrudOp");
 
 										try {
 											WebElement NoData2 = isElementPresent("NoData_className");
@@ -4423,16 +4314,7 @@ public class RTECrudOperations extends BaseInit {
 													logs.info("Entered PickUpID in basic search");
 
 													// --Click on Search
-													wait.until(ExpectedConditions
-															.elementToBeClickable(By.id("btnGlobalSearch")));
-													GlobSearch = isElementPresent("TLGlobSearch_id");
-													wait.until(ExpectedConditions.elementToBeClickable(GlobSearch));
-													act.moveToElement(GlobSearch).build().perform();
-													act.moveToElement(GlobSearch).click().perform();
-													logs.info("Click on Search button");
-													wait.until(ExpectedConditions
-															.invisibilityOfElementLocated(By.id("loaderDiv")));
-
+													CM.searchByPUID("CrudOp");
 													try {
 														WebElement NoDataV = isElementPresent("NoData_className");
 														wait.until(ExpectedConditions.visibilityOf(NoDataV));
@@ -4482,17 +4364,7 @@ public class RTECrudOperations extends BaseInit {
 																logs.info("Entered PickUpID in basic search");
 
 																// --Click on Search
-																wait.until(ExpectedConditions.elementToBeClickable(
-																		By.id("btnGlobalSearch")));
-																GlobSearch = isElementPresent("TLGlobSearch_id");
-																wait.until(ExpectedConditions
-																		.elementToBeClickable(GlobSearch));
-																act.moveToElement(GlobSearch).build().perform();
-																act.moveToElement(GlobSearch).click().perform();
-																logs.info("Click on Search button");
-																wait.until(
-																		ExpectedConditions.invisibilityOfElementLocated(
-																				By.id("loaderDiv")));
+																CM.searchByPUID("CrudOp");
 
 																try {
 																	WebElement NoDataV = isElementPresent(
@@ -4862,13 +4734,7 @@ public class RTECrudOperations extends BaseInit {
 							logs.info("Entered PickUpID in basic search");
 
 							// --Click on Search
-
-							GlobSearch = isElementPresent("TLGlobSearch_id");
-							wait.until(ExpectedConditions.elementToBeClickable(GlobSearch));
-							act.moveToElement(GlobSearch).build().perform();
-							act.moveToElement(GlobSearch).click().perform();
-							logs.info("Click on Search button");
-							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+							CM.searchByPUID("CrudOp");
 
 							try {
 								WebElement NoData2 = isElementPresent("NoData_className");
@@ -5048,13 +4914,7 @@ public class RTECrudOperations extends BaseInit {
 										logs.info("Entered PickUpID in basic search");
 
 										// --Click on Search
-
-										GlobSearch = isElementPresent("TLGlobSearch_id");
-										wait.until(ExpectedConditions.elementToBeClickable(GlobSearch));
-										act.moveToElement(GlobSearch).build().perform();
-										act.moveToElement(GlobSearch).click().perform();
-										logs.info("Click on Search button");
-										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+										CM.searchByPUID("CrudOp");
 
 										try {
 											WebElement NoDataV = isElementPresent("NoData_className");
@@ -5104,15 +4964,7 @@ public class RTECrudOperations extends BaseInit {
 													logs.info("Entered PickUpID in basic search");
 
 													// --Click on Search
-													wait.until(ExpectedConditions
-															.elementToBeClickable(By.id("btnGlobalSearch")));
-													GlobSearch = isElementPresent("TLGlobSearch_id");
-													wait.until(ExpectedConditions.elementToBeClickable(GlobSearch));
-													act.moveToElement(GlobSearch).build().perform();
-													act.moveToElement(GlobSearch).click().perform();
-													logs.info("Click on Search button");
-													wait.until(ExpectedConditions
-															.invisibilityOfElementLocated(By.id("loaderDiv")));
+													CM.searchByPUID("CrudOp");
 
 													try {
 														WebElement NoDataV = isElementPresent("NoData_className");
@@ -5388,13 +5240,7 @@ public class RTECrudOperations extends BaseInit {
 							logs.info("Entered PickUpID in basic search");
 
 							// --Click on Search
-
-							GlobSearch = isElementPresent("TLGlobSearch_id");
-							wait.until(ExpectedConditions.elementToBeClickable(GlobSearch));
-							act.moveToElement(GlobSearch).build().perform();
-							act.moveToElement(GlobSearch).click().perform();
-							logs.info("Click on Search button");
-							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+							CM.searchByPUID("CrudOp");
 
 							try {
 								WebElement NoDataV = isElementPresent("NoData_className");
@@ -5441,13 +5287,7 @@ public class RTECrudOperations extends BaseInit {
 										logs.info("Entered PickUpID in basic search");
 
 										// --Click on Search
-
-										GlobSearch = isElementPresent("TLGlobSearch_id");
-										wait.until(ExpectedConditions.elementToBeClickable(GlobSearch));
-										act.moveToElement(GlobSearch).build().perform();
-										act.moveToElement(GlobSearch).click().perform();
-										logs.info("Click on Search button");
-										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+										CM.searchByPUID("CrudOp");
 
 										try {
 											WebElement NoDataV = isElementPresent("NoData_className");
@@ -5546,13 +5386,7 @@ public class RTECrudOperations extends BaseInit {
 					logs.info("Entered PickUpID in basic search");
 
 					// --Click on Search
-
-					GlobSearch = isElementPresent("TLGlobSearch_id");
-					wait.until(ExpectedConditions.elementToBeClickable(GlobSearch));
-					act.moveToElement(GlobSearch).build().perform();
-					act.moveToElement(GlobSearch).click().perform();
-					logs.info("Click on Search button");
-					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+					CM.searchByPUID("CrudOp");
 
 					try {
 						WebElement NoDataV = isElementPresent("NoData_className");
@@ -5599,13 +5433,7 @@ public class RTECrudOperations extends BaseInit {
 								logs.info("Entered PickUpID in basic search");
 
 								// --Click on Search
-
-								GlobSearch = isElementPresent("TLGlobSearch_id");
-								wait.until(ExpectedConditions.elementToBeClickable(GlobSearch));
-								act.moveToElement(GlobSearch).build().perform();
-								act.moveToElement(GlobSearch).click().perform();
-								logs.info("Click on Search button");
-								wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+								CM.searchByPUID("CrudOp");
 
 								try {
 									WebElement NoDataV = isElementPresent("NoData_className");

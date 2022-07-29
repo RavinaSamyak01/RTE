@@ -90,10 +90,8 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 		msg.append("PickUpID==" + PickUpID + "\n");
 
 		// --Click on Search
-		wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-		isElementPresent("TLGlobSearch_id").click();
-		logs.info("Click on Search button");
-		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+		CommonMethods CM = new CommonMethods();
+		CM.searchByPUID("MtoM");
 
 		try {
 			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("RouteWorkFlow")));
@@ -180,10 +178,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 						logs.info("Entered PickUpID in basic search");
 
 						// --Click on Search
-						wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-						isElementPresent("TLGlobSearch_id").click();
-						logs.info("Click on Search button");
-						wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+						CM.searchByPUID("MtoM");
 
 						try {
 
@@ -822,10 +817,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 										logs.info("Entered PickUpID in basic search");
 
 										// --Click on Search
-										wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-										isElementPresent("TLGlobSearch_id").click();
-										logs.info("Click on Search button");
-										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+										CM.searchByPUID("MtoM");
 
 										try {
 											WebElement NoData2 = isElementPresent("NoData_className");
@@ -946,14 +938,8 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 													isElementPresent("TLBasicSearch_id").clear();
 													isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 													logs.info("Entered PickUpID in basic search");
-
 													// --Click on Search
-													wait.until(ExpectedConditions
-															.elementToBeClickable(By.id("btnGlobalSearch")));
-													isElementPresent("TLGlobSearch_id").click();
-													logs.info("Click on Search button");
-													wait.until(ExpectedConditions
-															.invisibilityOfElementLocated(By.id("loaderDiv")));
+													CM.searchByPUID("MtoM");
 
 													try {
 														WebElement NoDataV = isElementPresent("NoData_className");
@@ -1002,15 +988,8 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 																PickUpID = getData("ManyToMany", 1, 2);
 																isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 																logs.info("Entered PickUpID in basic search");
-
 																// --Click on Search
-																wait.until(ExpectedConditions.elementToBeClickable(
-																		By.id("btnGlobalSearch")));
-																isElementPresent("TLGlobSearch_id").click();
-																logs.info("Click on Search button");
-																wait.until(
-																		ExpectedConditions.invisibilityOfElementLocated(
-																				By.id("loaderDiv")));
+																CM.searchByPUID("MtoM");
 
 																try {
 																	WebElement NoDataV = isElementPresent(
@@ -1220,10 +1199,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 					logs.info("Entered PickUpID in basic search");
 
 					// --Click on Search
-					wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-					isElementPresent("TLGlobSearch_id").click();
-					logs.info("Click on Search button");
-					wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+					CM.searchByPUID("MtoM");
 
 					try {
 
@@ -1653,12 +1629,8 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 									isElementPresent("TLBasicSearch_id").clear();
 									isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 									logs.info("Entered PickUpID in basic search");
-
 									// --Click on Search
-									wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-									isElementPresent("TLGlobSearch_id").click();
-									logs.info("Click on Search button");
-									wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+									CM.searchByPUID("MtoM");
 
 									try {
 										WebElement NoData2 = isElementPresent("NoData_className");
@@ -1776,12 +1748,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 												logs.info("Entered PickUpID in basic search");
 
 												// --Click on Search
-												wait.until(ExpectedConditions
-														.elementToBeClickable(By.id("btnGlobalSearch")));
-												isElementPresent("TLGlobSearch_id").click();
-												logs.info("Click on Search button");
-												wait.until(ExpectedConditions
-														.invisibilityOfElementLocated(By.id("loaderDiv")));
+												CM.searchByPUID("MtoM");
 
 												try {
 													WebElement NoDataV = isElementPresent("NoData_className");
@@ -1831,12 +1798,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 															logs.info("Entered PickUpID in basic search");
 
 															// --Click on Search
-															wait.until(ExpectedConditions
-																	.elementToBeClickable(By.id("btnGlobalSearch")));
-															isElementPresent("TLGlobSearch_id").click();
-															logs.info("Click on Search button");
-															wait.until(ExpectedConditions
-																	.invisibilityOfElementLocated(By.id("loaderDiv")));
+															CM.searchByPUID("MtoM");
 
 															try {
 																WebElement NoDataV = isElementPresent(
@@ -2395,10 +2357,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 							logs.info("Entered PickUpID in basic search");
 
 							// --Click on Search
-							wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-							isElementPresent("TLGlobSearch_id").click();
-							logs.info("Click on Search button");
-							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+							CM.searchByPUID("MtoM");
 
 							try {
 								WebElement NoData2 = isElementPresent("NoData_className");
@@ -2509,10 +2468,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 										logs.info("Entered PickUpID in basic search");
 
 										// --Click on Search
-										wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-										isElementPresent("TLGlobSearch_id").click();
-										logs.info("Click on Search button");
-										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+										CM.searchByPUID("MtoM");
 
 										try {
 											WebElement NoDataV = isElementPresent("NoData_className");
@@ -2562,12 +2518,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 													logs.info("Entered PickUpID in basic search");
 
 													// --Click on Search
-													wait.until(ExpectedConditions
-															.elementToBeClickable(By.id("btnGlobalSearch")));
-													isElementPresent("TLGlobSearch_id").click();
-													logs.info("Click on Search button");
-													wait.until(ExpectedConditions
-															.invisibilityOfElementLocated(By.id("loaderDiv")));
+													CM.searchByPUID("MtoM");
 
 													try {
 														WebElement NoDataV = isElementPresent("NoData_className");
@@ -3064,12 +3015,8 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 							isElementPresent("TLBasicSearch_id").clear();
 							isElementPresent("TLBasicSearch_id").sendKeys(PickUpID);
 							logs.info("Entered PickUpID in basic search");
-
 							// --Click on Search
-							wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-							isElementPresent("TLGlobSearch_id").click();
-							logs.info("Click on Search button");
-							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+							CM.searchByPUID("MtoM");
 
 							try {
 								WebElement NoData2 = isElementPresent("NoData_className");
@@ -3180,10 +3127,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 										logs.info("Entered PickUpID in basic search");
 
 										// --Click on Search
-										wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-										isElementPresent("TLGlobSearch_id").click();
-										logs.info("Click on Search button");
-										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+										CM.searchByPUID("MtoM");
 
 										try {
 											WebElement NoDataV = isElementPresent("NoData_className");
@@ -3233,12 +3177,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 													logs.info("Entered PickUpID in basic search");
 
 													// --Click on Search
-													wait.until(ExpectedConditions
-															.elementToBeClickable(By.id("btnGlobalSearch")));
-													isElementPresent("TLGlobSearch_id").click();
-													logs.info("Click on Search button");
-													wait.until(ExpectedConditions
-															.invisibilityOfElementLocated(By.id("loaderDiv")));
+													CM.searchByPUID("MtoM");
 
 													try {
 														WebElement NoDataV = isElementPresent("NoData_className");
@@ -3717,10 +3656,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 							logs.info("Entered PickUpID in basic search");
 
 							// --Click on Search
-							wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-							isElementPresent("TLGlobSearch_id").click();
-							logs.info("Click on Search button");
-							wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+							CM.searchByPUID("MtoM");
 
 							try {
 								WebElement NoData2 = isElementPresent("NoData_className");
@@ -3831,10 +3767,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 										logs.info("Entered PickUpID in basic search");
 
 										// --Click on Search
-										wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-										isElementPresent("TLGlobSearch_id").click();
-										logs.info("Click on Search button");
-										wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+										CM.searchByPUID("MtoM");
 
 										try {
 											WebElement NoDataV = isElementPresent("NoData_className");
@@ -3884,12 +3817,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 													logs.info("Entered PickUpID in basic search");
 
 													// --Click on Search
-													wait.until(ExpectedConditions
-															.elementToBeClickable(By.id("btnGlobalSearch")));
-													isElementPresent("TLGlobSearch_id").click();
-													logs.info("Click on Search button");
-													wait.until(ExpectedConditions
-															.invisibilityOfElementLocated(By.id("loaderDiv")));
+													CM.searchByPUID("MtoM");
 
 													try {
 														WebElement NoDataV = isElementPresent("NoData_className");
@@ -4102,10 +4030,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 						logs.info("Entered PickUpID in basic search");
 
 						// --Click on Search
-						wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-						isElementPresent("TLGlobSearch_id").click();
-						logs.info("Click on Search button");
-						wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+						CM.searchByPUID("MtoM");
 
 						try {
 							WebElement NoDataV = isElementPresent("NoData_className");
@@ -4153,10 +4078,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 									logs.info("Entered PickUpID in basic search");
 
 									// --Click on Search
-									wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-									isElementPresent("TLGlobSearch_id").click();
-									logs.info("Click on Search button");
-									wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+									CM.searchByPUID("MtoM");
 
 									try {
 										WebElement NoDataV = isElementPresent("NoData_className");
@@ -4282,10 +4204,7 @@ public class RTEManyToManyOrderProcess extends BaseInit {
 						logs.info("Entered PickUpID in basic search");
 
 						// --Click on Search
-						wait.until(ExpectedConditions.elementToBeClickable(By.id("btnGlobalSearch")));
-						isElementPresent("TLGlobSearch_id").click();
-						logs.info("Click on Search button");
-						wait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loaderDiv")));
+						CM.searchByPUID("MtoM");
 
 						try {
 							WebElement NoDataV = isElementPresent("NoData_className");
